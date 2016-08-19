@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/">
+        <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Installation (Debian Ubuntu) - LibreNMS Documentation</title>
+	<title>Installation Ubuntu 1404 Nginx - LibreNMS Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -395,14 +395,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Installation (Debian Ubuntu)</a>
-</li>
-
-                        
-                            
 <li >
-    <a href="../Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+    <a href="../Installation-CentOS-6-Apache-Nginx/">Installation CentOS 6 Apache Nginx</a>
 </li>
 
                         
@@ -420,13 +414,19 @@
                         
                             
 <li >
-    <a href="../Installation-Lighttpd-(Debian-Ubuntu)/">Installation Lighttpd (Debian Ubuntu)</a>
+    <a href="../Installation-Ubuntu-1404-Apache/">Installation Ubuntu 1404 Apache</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Installation-Nginx-(Debian-Ubuntu)/">Installation Nginx (Debian Ubuntu)</a>
+    <a href="../Installation-Ubuntu-1404-Lighttpd/">Installation Ubuntu 1404 Lighttpd</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Installation Ubuntu 1404 Nginx</a>
 </li>
 
                         
@@ -566,6 +566,9 @@
         <li class="main "><a href="#web-interface">Web Interface</a></li>
         
     
+        <li class="main "><a href="#start-the-web-server">Start the web-server:</a></li>
+        
+    
         <li class="main "><a href="#manual-vs-web-installer">Manual vs. web installer</a></li>
         
     
@@ -638,14 +641,14 @@ exit
 <h3 id="on-the-nms">On the NMS</h3>
 <p>This host is where the web server and SNMP poller run.  It could be the same machine as your database server.</p>
 <p>Install the required software:</p>
-<pre><code>apt-get install libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl snmp graphviz php5-mcrypt php5-json apache2 fping imagemagick whois mtr-tiny nmap python-mysqldb snmpd php-net-ipv4 php-net-ipv6 rrdtool git
+<pre><code>apt-get install nginx-full php5-fpm php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl php5-mcrypt php5-json php-net-ipv4 php-net-ipv6 snmp snmpd graphviz fping imagemagick whois mtr-tiny nmap python-mysqldb rrdtool git
 </code></pre>
 <p>The packages listed above are an all-inclusive list of packages that were necessary on a clean install of Ubuntu 12.04/14.04.</p>
 <p>You need to configure snmpd appropriately if you have not already done so.  An absolute minimal config for snmpd is:</p>
 <pre><code>rocommunity public 127.0.0.1
 </code></pre>
 <p>Adding the above line to <code>/etc/snmp/snmpd.conf</code> and running <code>service snmpd restart</code> will activate this config.</p>
-<p>In <code>/etc/php5/apache2/php.ini</code> and <code>/etc/php5/cli/php.ini</code>, ensure date.timezone is set to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid
+<p>In <code>/etc/php5/fpm/php.ini</code> and <code>/etc/php5/cli/php.ini</code>, ensure date.timezone is set to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid
 examples are: "America/New York", "Australia/Brisbane", "Etc/UTC".
 Please also ensure that <code>allow_url_fopen</code> is enabled. Other functions needed for LibreNMS include <code>exec,passthru,shell_exec,escapeshellarg,escapeshellcmd,proc_close,proc_open,popen</code>.</p>
 <h3 id="adding-the-librenms-user">Adding the librenms-user</h3>
@@ -666,46 +669,53 @@ git clone --depth 1 https://github.com/librenms/librenms.git librenms
 cd /opt/librenms
 </code></pre>
 <h3 id="web-interface">Web Interface</h3>
-<p>To prepare the web interface (and adding devices shortly), you'll need to create and chown a directory as well as create an Apache vhost.</p>
+<p>To prepare the web interface (and adding devices shortly), you'll need to create and chown a directory as well as create a Nginx vhost.</p>
 <p>First, create and chown the <code>rrd</code> directory and create the <code>logs</code> directory:</p>
 <pre><code>mkdir rrd logs
 chown -R librenms:librenms /opt/librenms
 chmod 775 rrd
 </code></pre>
 <blockquote>
-<p>NOTE: If you're not running Ubuntu or Debian, you will need to change <code>www-data</code> to the user and group which run the Apache web server.
+<p>NOTE: If you're not running Ubuntu or Debian, you will need to change <code>www-data</code> to the user and group which run the Nginx web server.
 If you're planing on running rrdcached, make sure that the path is also chmod'ed to 775 and chown'ed to librenms:librenms.</p>
 </blockquote>
-<p>Next, add the following to <code>/etc/apache2/sites-available/librenms.conf</code>:</p>
-<pre><code class="apache">&lt;VirtualHost *:80&gt;
-  DocumentRoot /opt/librenms/html/
-  ServerName  librenms.example.com
-  CustomLog /opt/librenms/logs/access_log combined
-  ErrorLog /opt/librenms/logs/error_log
-  AllowEncodedSlashes On
-  &lt;Directory &quot;/opt/librenms/html/&quot;&gt;
-    AllowOverride All
-    Options FollowSymLinks MultiViews
-  &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
+<p>Add configuration for <code>nginx</code> at <code>/etc/nginx/conf.d/librenms.conf</code> with the following content:</p>
+<p><pre><code class="nginx">server {
+ listen      80;
+ server_name librenms.example.com;
+ root        /opt/librenms/html;
+ index       index.php;
+ access_log  /opt/librenms/logs/access_log;
+ error_log   /opt/librenms/logs/error_log;
+ location / {
+  try_files $uri $uri/ @librenms;
+ }
+ location ~ \.php {
+  fastcgi_param PATH_INFO $fastcgi_path_info;
+  include fastcgi_params;
+  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+  fastcgi_pass unix:/var/run/php5-fpm.sock;
+ }
+ location ~ /\.ht {
+  deny all;
+ }
+ location @librenms {
+  rewrite api/v0(.*)$ /api_v0.php/$1 last;
+  rewrite ^(.+)$ /index.php/$1 last;
+ }
+}
 </code></pre>
-
-<p>If you are running Apache 2.2.18 or higher then change <code>AllowEncodedSlashes On</code> to <code>AllowEncodedSlashes NoDecode</code></p>
-<p>If you have Apache 2.3 or newer then please add the following line before <code>AllowOverride All</code>:</p>
-<pre><code>Require all granted
-</code></pre>
-<p>On at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:</p>
+On at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:</p>
 <pre><code>php5enmod mcrypt
 </code></pre>
-<p>Change <code>librenms.example.com</code> to the appropriate hostname for your domain, then enable the vhost and restart Apache:</p>
-<pre><code>a2ensite librenms.conf
-a2enmod rewrite
-service apache2 restart
-</code></pre>
-<p>If this is the only site you are hosting on this server (it should be :)) then you will need to disable the default site setup in Ubuntu:</p>
-<pre><code>a2dissite 000-default
-</code></pre>
 <p>(To get to your LibreNMS install externally, you'll also need add it to your DNS or hosts file.)</p>
+<h3 id="start-the-web-server">Start the web-server:</h3>
+<p>Restart nginx:</p>
+<pre><code>service nginx restart
+</code></pre>
+<p>Restart php5-fpm:</p>
+<pre><code>service php5-fpm restart
+</code></pre>
 <h3 id="manual-vs-web-installer">Manual vs. web installer</h3>
 <p>At this stage you can either launch the web installer by going to http://librenms.example.com/install.php, follow the onscreen instructions then skip to the 'Add localhost' section. Alternatively if you want to continue the setup manually then just keep following these instructions.</p>
 <pre><code>cp config.php.default config.php

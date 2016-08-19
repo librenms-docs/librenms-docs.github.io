@@ -322,13 +322,7 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/</loc>
-     <lastmod>2016-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
      <lastmod>2016-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -346,13 +340,19 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Lighttpd-(Debian-Ubuntu)/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
      <lastmod>2016-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Nginx-(Debian-Ubuntu)/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
+     <lastmod>2016-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
      <lastmod>2016-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
