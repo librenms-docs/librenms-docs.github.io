@@ -591,6 +591,8 @@
         
             <li><a href="#things-arent-working-correctly"> Things aren't working correctly?</a></li>
         
+            <li><a href="#what-do-the-values-mean-in-my-graphs"> What do the values mean in my graphs?</a></li>
+        
             <li><a href="#how-do-i-add-support-for-a-new-os"> How do I add support for a new OS?</a></li>
         
             <li><a href="#what-information-do-you-need-to-add-a-new-os"> What information do you need to add a new OS?</a></li>
@@ -625,6 +627,7 @@
 <li><a href="#faq16">How do I change the IP / hostname of a device?</a></li>
 <li><a href="#faq19">My device doesn't finish polling within 300 seconds</a></li>
 <li><a href="#faq18">Things aren't working correctly?</a></li>
+<li><a href="#faq21">What do the values mean in my graphs?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -705,6 +708,23 @@ Usage:
 <p>Run <code>./validate.php</code> as root from within your install.</p>
 <p>Re-run <code>./validate.php</code> once you've resolved any issues raised.</p>
 <p>You have an odd issue - we'd suggest you join our irc channel to discuss.</p>
+<h4 id="what-do-the-values-mean-in-my-graphs"><a name="faq22"> What do the values mean in my graphs?</a></h4>
+<p>The values you see are reported as metric values. Thanks to a post on <a href="https://www.reddit.com/r/networking/comments/4xzpfj/rrd_graph_interface_error_label_what_is_the_m/">Reddit</a> 
+here are those values:</p>
+<pre><code>10^-18  a - atto
+10^-15  f - femto
+10^-12  p - pico
+10^-9   n - nano
+10^-6   u - micro
+10^-3   m - milli
+0    (no unit)
+10^3    k - kilo
+10^6    M - mega
+10^9    G - giga
+10^12   T - tera
+10^15   P - peta
+</code></pre>
+
 <h4 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h4>
 <p>The easiest way to show you how to do that is to link to an existing pull request that has been merged in on <a href="https://github.com/librenms/librenms/pull/352/files">GitHub</a></p>
 <p>To go into a bit more detail, the following are usually needed:</p>
