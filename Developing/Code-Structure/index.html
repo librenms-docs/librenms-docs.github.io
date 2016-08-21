@@ -528,6 +528,8 @@
         
             <li><a href="#doc">doc/</a></li>
         
+            <li><a href="#librenms">LibreNMS/</a></li>
+        
             <li><a href="#html">html/</a></li>
         
             <li><a href="#htmlapi_v0php">html/api_v0.php</a></li>
@@ -576,7 +578,9 @@
 <h1 id="code-structure">Code structure.</h1>
 <p>This document will try and provide a good overview of how the code is structured within LibreNMS. We will go through the main directories and provide information on how and when they are used.</p>
 <h3 id="doc">doc/</h3>
-<p>This is the location of all the documentation for LibreNMS, this is in GitHub markdown format and can be viewed (online)[http://docs.librenms.org/]</p>
+<p>This is the location of all the documentation for LibreNMS, this is in GitHub markdown format and can be viewed <a href="http://docs.librenms.org/">online</a></p>
+<h3 id="librenms">LibreNMS/</h3>
+<p>Any classes should be under this directory, with a directory structure that matches the namespace.  One class per file. See <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> for details.</p>
 <h3 id="html">html/</h3>
 <p>All web accessible files are located here.</p>
 <h3 id="htmlapi_v0php">html/api_v0.php</h3>

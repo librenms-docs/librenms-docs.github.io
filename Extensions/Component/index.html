@@ -623,17 +623,8 @@ The Driver behind this extension was to provide the features of ports, in a gene
 <p>When this data from both the component and component_prefs tables is returned in one single consolidated array, there is the potential for someone to attempt to set an attribute (in the component_prefs) table that is used in the components table.
 Because of this all fields of the component table are reserved, they cannot be used as custom attributes, if you update these the module will attempt to write them to the component table, not the component_prefs table.</p>
 <h1 id="using-components"><a name="using">Using Components</a></h1>
-<p>To use components in you application, first you need to include the code.</p>
-<p>From a Discovery/Poller module:</p>
-<pre><code class="php">require_once 'includes/component.php';
-</code></pre>
-
-<p>From the html tree:</p>
-<pre><code class="php">require_once &quot;../includes/component.php&quot;;
-</code></pre>
-
-<p>Once the code is loaded, create an instance of the component class:</p>
-<pre><code class="php">$COMPONENT = new component();
+<p>Create an instance of the component class:</p>
+<pre><code class="php">$COMPONENT = new LibreNMS\Component();
 </code></pre>
 
 <h2 id="retrieving-components"><a name="get">Retrieving Components</a></h2>
@@ -681,7 +672,7 @@ Because of this all fields of the component table are reserved, they cannot be u
 <p>Options can be supplied to <code>getComponents</code> to influence which and how components are returned.</p>
 <h4 id="filtering"><a name="filter">Filtering</a></h4>
 <p>You can filter on any of the <a href="#reserved">reserved</a> fields. Filters are created in the following format:</p>
-<pre><code class="php">$OPTIONS['filter'][FIELD] = array ('OPERATOR', 'CRITERIA');
+<pre><code class="php">$options['filter']['FIELD'] = array ('OPERATOR', 'CRITERIA');
 </code></pre>
 
 <p>Where:</p>
