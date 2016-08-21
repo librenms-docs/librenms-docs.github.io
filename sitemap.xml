@@ -12,7 +12,55 @@
     
         
     <url>
-     <loc>http://docs.librenms.org/API/API-Docs/</loc>
+     <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Ubuntu-image/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/CentOS-image/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Nginx/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Apache/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Migrating-from-Observium/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -22,37 +70,49 @@
     
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Code-Guidelines/</loc>
+     <loc>http://docs.librenms.org/General/Acknowledgement/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Code-Structure/</loc>
+     <loc>http://docs.librenms.org/General/Callback-Stats-and-Privacy/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Dynamic-Config/</loc>
+     <loc>http://docs.librenms.org/General/Changelog/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Sensor-State-Support/</loc>
+     <loc>http://docs.librenms.org/General/Contributing/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Style-Guidelines/</loc>
+     <loc>http://docs.librenms.org/General/Credits/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
+     <loc>http://docs.librenms.org/General/Updating/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/General/Welcome-to-Observium-users/</loc>
+     <lastmod>2016-08-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/General/Welcome-to-Observium-users/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -134,13 +194,13 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Extensions/IRC-Bot-Extensions/</loc>
+     <loc>http://docs.librenms.org/Extensions/IRC-Bot/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Extensions/IRC-Bot/</loc>
+     <loc>http://docs.librenms.org/Extensions/IRC-Bot-Extensions/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -270,43 +330,37 @@
     
         
     <url>
-     <loc>http://docs.librenms.org/General/Acknowledgement/</loc>
+     <loc>http://docs.librenms.org/Developing/Code-Guidelines/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/General/Callback-Stats-and-Privacy/</loc>
+     <loc>http://docs.librenms.org/Developing/Code-Structure/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/General/Changelog/</loc>
+     <loc>http://docs.librenms.org/Developing/Dynamic-Config/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/General/Contributing/</loc>
+     <loc>http://docs.librenms.org/Developing/Sensor-State-Support/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/General/Credits/</loc>
+     <loc>http://docs.librenms.org/Developing/Style-Guidelines/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/General/Updating/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/General/Welcome-to-Observium-users/</loc>
+     <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -314,79 +368,11 @@
     
 
     
-        
     <url>
-     <loc>http://docs.librenms.org/Installation/CentOS-image/</loc>
+     <loc>http://docs.librenms.org/API/API-Docs/</loc>
      <lastmod>2016-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Apache/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Nginx/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Migrating-from-Observium/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Ubuntu-image/</loc>
-     <lastmod>2016-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
