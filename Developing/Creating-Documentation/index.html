@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/General/Contributing/">
+        <link rel="canonical" href="http://docs.librenms.org/Developing/Creating-Documentation/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Contributing - LibreNMS Docs</title>
+	<title>Creating Documentation - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -134,49 +134,49 @@
                 
                 
                 
-                    <li id="dropdown-General" class="dropdown active">
+                    <li id="dropdown-General" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Acknowledgement/">Acknowledgement</a>
+    <a href="../../General/Acknowledgement/">Acknowledgement</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
+    <a href="../../General/Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Changelog/">Changelog</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Contributing</a>
+    <a href="../../General/Changelog/">Changelog</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Credits/">Credits</a>
+    <a href="../../General/Contributing/">Contributing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Updating/">Updating</a>
+    <a href="../../General/Credits/">Credits</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Welcome-to-Observium-users/">Welcome to Observium users</a>
+    <a href="../../General/Updating/">Updating</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Welcome-to-Observium-users/">Welcome to Observium users</a>
 </li>
 
                         
@@ -398,49 +398,49 @@
                 
                 
                 
-                    <li id="dropdown-Developing" class="dropdown">
+                    <li id="dropdown-Developing" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Developing/Code-Guidelines/">Code Guidelines</a>
+    <a href="../Code-Guidelines/">Code Guidelines</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Developing/Code-Structure/">Code Structure</a>
+    <a href="../Code-Structure/">Code Structure</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Creating Documentation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
+    <a href="../Dynamic-Config/">Dynamic Config</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
+    <a href="../Sensor-State-Support/">Sensor State Support</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Developing/Sensor-State-Support/">Sensor State Support</a>
+    <a href="../Style-Guidelines/">Style Guidelines</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Developing/Style-Guidelines/">Style Guidelines</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Using-Git/">Using Git</a>
+    <a href="../Using-Git/">Using Git</a>
 </li>
 
                         
@@ -587,202 +587,30 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#contributor-agreement">Contributor Agreement</a></li>
-        
-    
-        <li class="main "><a href="#local-patches">Local patches</a></li>
-        
-    
-        <li class="main "><a href="#copyright">Copyright</a></li>
-        
-    
-        <li class="main "><a href="#general-guidelines">General Guidelines</a></li>
-        
-    
-        <li class="main "><a href="#integrating-other-code">Integrating other code</a></li>
-        
-    
-        <li class="main "><a href="#proposed-workflow-for-submitting-pull-requests">Proposed workflow for submitting pull requests</a></li>
+        <li class="main active"><a href="#creating-documentation">Creating Documentation</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>All contributors to LibreNMS retain copyright to their own code and are not
-required to sign over their rights to any other party.</p>
-<h2 id="contributor-agreement">Contributor Agreement</h2>
-<p>By contributing code to LibreNMS (whether by a GitHub pull request, or by
-any other means), you assert that:</p>
+<h1 id="creating-documentation">Creating Documentation</h1>
+<p>One of the goals of the LibreNMS project is to enable users to get all of the help they need from our documentation.</p>
+<p>When you are adding a new feature or extension, we need to have full documentation to go along with it. It's quite 
+simple to do this:</p>
 <ul>
-<li>
-<p>You have the rights to include the code, either as its original author,
-  or due to it being released to you under a compatible license.</p>
-</li>
-<li>
-<p>You are not aware of any third party claims on the code, including
-  copyright, patent, trademark, or any other legal claim.</p>
-</li>
-<li>
-<p>You have acknowledged in the content of your contribution (usually as a
-  source code comment) any and all sources and influences used in the
-  production of that contribution.</p>
-</li>
-<li>
-<p>You have not viewed code written under the <a href="http://www.observium.org/wiki/License" title="Observium License">Observium License</a> in the
-  production of contributed code.  This includes all Observium code after
-  Subversion revision 3250 and any patches or other code covered by that
-  license after Tue May 29 13:08:01 2012 +0000 (the date of Observium r3250).</p>
-</li>
-<li>
-<p>You are not running a copy of non-GPLed Observium, whether as part of your
-  work duties, or personally, or in any other capacity, and you have removed
-  any copies of non-GPLed Observium source code from your personal and work
-  systems.</p>
-</li>
-</ul>
-<p>To agree with these assertions, please submit a GitHub pull request against
-<a href="https://github.com/librenms/librenms/blob/master/AUTHORS.md" title="LibreNMS contributor list">AUTHORS.md</a>, adding or altering a <strong>single line</strong> <em>containing your name,
-email address, and GitHub user id</em> in the file (so that it can be matched to
-your commits), and stating in the <em>commit log</em> (not the pull request text):
-<pre><code>    I agree to the conditions of the Contributor Agreement
-    contained in doc/General/Contributing.md.
-</code></pre></p>
-<h2 id="local-patches">Local patches</h2>
-<p>Please note that the above contributor agreement means that if you have
-developed a feature for a non-GPL version of Observium, we can't include it
-in LibreNMS, even if you have not released it to the public.  If there's a
-feature you use to which this applies, please document its functionality in
-an issue, and we'll do our best to include equivalent functionality in
-LibreNMS.</p>
-<h2 id="copyright">Copyright</h2>
-<p>We recommend that if you add a new file containing original code to the code
-base that you include a copyright notice in it as per the Free Software
-Foundation's guidelines.  You might find something like the following header
-appropriate (although this is not legal advice ;-). Please also ensure you add 
-the package information to the header.
-<pre><code>&lt;?php
-/*
- * Copyright (c) 2015 Internet Widgitz Pty Ltd &lt;http://example.com/&gt;
- *
- * This program is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation, either version 3 of the License, or (at your
- * option) any later version.  Please see LICENSE.txt at the top level of
- * the source code distribution for details.
- */
-
- * @package    LibreNMS
- * @subpackage webui
- * @link       http://librenms.org
- * @copyright  2016 Internet Widgitz Pty Ltd &lt;info@widgitz.com&gt;
- * @author     Me &lt;me@infowidgitz.com&gt;
-
-</code></pre>
-The GPLv3 itself also contains recommendations about applying the GPL to
-your code.  Please see LICENSE.txt at the top of this source code
-distribution for details.</p>
-<h2 id="general-guidelines">General Guidelines</h2>
-<ul>
-<li>
-<p>Test your patches first.  It's easy to set up git to push to a bare
-  repository on a local test system, and pull from this into a live test
-  installation at very frequent intervals.</p>
-</li>
-<li>
-<p>Don't break the poller.  User interface blemishes are not critical, but
-  losing data from network monitoring systems might be.</p>
-</li>
-<li>
-<p>As a general rule, if you're replacing lines of code with new lines of
-  code, don't comment them out, just delete them.  Commented out code makes
-  the patch and the resultant code harder to read, and there's no good
-  reason to it since we can easily get them back from git.</p>
-</li>
-<li>
-<p>If you're fixing a bug or making another minor change, don't reformat the
-  code at the same time.  This makes it harder to see what's changed.  If
-  you need to reformat it after making the change, do so in a separate
-  commit.</p>
-</li>
-<li>
-<p>Please join us in IRC at irc.freenode.net in channel ##librenms if you're
-  able.  Collaborating in real time makes the coordination of contributions
-  easier.  If you're not a regular IRC user, just browse to <a href="http://webchat.freenode.net/">Freenode
-  web chat</a> and follow the prompts to chat
-  via the web client.</p>
-</li>
-<li>
-<p>Ensure you read the Code Guidelines documentation and understand the code
-  style that should be adhered to <a href="https://github.com/librenms/librenms/blob/master/doc/Developing/Code-Guidelines.md">6</a>.</p>
-</li>
-</ul>
-<h2 id="integrating-other-code">Integrating other code</h2>
-<p>Giving credit where credit is due is critical to the Free Software
-philosophy.  If you use code from somewhere else, even if it's trivial,
-be sure to note this as a comment in the code (preferably) or the commit
-message.  Accurate attribution is crucial to our success as a Free Software
-project.</p>
-<ul>
-<li>
-<p>To incorporate larger blocks of code from third parties (e.g. JavaScript
-  libraries):</p>
-<ul>
-<li>Include its name, source URL, copyright notice, and license in
-  doc/General/Credits.md</li>
-<li>Where possible please include libraries in the lib/ folder.</li>
-<li>Add it in a separate commit into its own directory, using
-  git subtree if it is available via git:
-  git subtree add --squash --prefix=lib/<library name> <library git url> <library branch name>
-  I.e:
-  <pre><code class="ssh">git subtree add --squash --prefix=lib/jquery-bootgrid https://github.com/rstaib/jquery-bootgrid.git master
-</code></pre></li>
-<li>Add the code to integrate it in a separate commit.  Include:<ul>
-<li>code to update it in Makefile</li>
+<li>Find the relevant directory to store your new document in, General, Support and Extensions are the most likely choices.</li>
+<li>Think of a descriptive name that's not too long, it should match what they may be looking for or describes the feature.</li>
+<li>In the body of the document, be descriptive but keep things simple. Some tips:<ul>
+<li>If the document could cover different distros like CentOS and Ubuntu please try and include the information for them all.
+  If that's not possible then at least put a placeholder in asking for contributions.</li>
+<li>Ensure you use the correct formating for <code>commands</code> and <code>code blocks</code> by wrapping one liners in backticks or blocks in ```.</li>
 </ul>
 </li>
-<li>Scrutinizer exclusions to .scrutinizer.yml (not needed if added to lib/ folder).</li>
-<li>symlinks where necessary to maintain sensible paths</li>
+<li>If you rename a file, please add a redirect in for the old file by using <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code> within the old file name.</li>
 </ul>
-</li>
-<li>
-<p>Don't submit code whose license conflicts with the GPLv3.  If you're not
-  sure, consult the <a href="http://www.gnu.org/licenses/license-list.html" title="Free Software Foundation's license list">Free Software Foundation's license list</a> and see if
-  your code's license is on the compatible or incompatible list.  If you
-  prefer a non-copyleft license, Apache 2.0 is the recommended choice as per
-  the FSF guidelines.</p>
-</li>
-<li>
-<p>The current Observium license is incompatible with GPLv3.  Don't submit
-  code from current Observium unless you are the copyright holder, and you
-  specifically state in the code that you are releasing it under GPLv3 (or a
-  compatible license).</p>
-</li>
-</ul>
-<p>Because contributing to Observium requires that you reassign copyright to
-  Adam Armstrong, if you want to release the same code for both Observium
-  and LibreNMS, you need to release it for LibreNMS first and mark it with
-  your own copyright notice, then release it to Observium and remove your
-  copyright, granting Adam ownership.</p>
-<p>Please note that the above is necessary even if you don't care about
-  keeping the copyright to your code, because otherwise we could be accused
-  of misappropriating Obserivum's code.  As the code bases develop, we
-  expect them to diverge, which means this will become less of an issue
-  anyway.</p>
-<ul>
-<li>Because the GPL's provisions about linking don't apply to PHP-based
-  projects, we interpret the linking provisions of the license to refer to
-  the use of PHP library functions called from LibreNMS code.</li>
-</ul>
-<p>We consider inclusion of files such as MIBs in the LibreNMS repository to
-  be merely aggregation in a distribution medium as per the last paragraph
-  of the GPLv3 section 5 ("Conveying Modified Source Versions"), and because
-  they are not combined with LibreNMS to form a larger program, the GPLv3
-  does not apply to them.  This is not a legal ruling - it is simply a
-  statement of our intent and current interpretation.</p>
-<h2 id="proposed-workflow-for-submitting-pull-requests">Proposed workflow for submitting pull requests</h2>
-<p>Please see the new <a href="http://docs.librenms.org/Developing/Using-Git/">Using Git</a> document which gives you step-by-step
-instructions on using git to submit a pull request.</p></div>
+<p>Please ensure you add the document to the relevant section within <code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
+Forgetting this step will result in your document never seeing the light of day :)</p></div>
             
         </div>
 

@@ -416,6 +416,12 @@
                         
                             
 <li >
+    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
 </li>
 
@@ -746,6 +752,14 @@ $config['top_devices']      = 1; // This enables the top X devices box
 </code></pre>
 A number of home pages are provided within the install and can be found in html/pages/front/. You can change the default by
 setting <code>front_page</code>. The other options are used to alter the look of those pages that support it (default.php supports these options).</p>
+<p><pre><code class="php">// This option exists in the web UI, edit it under Global Settings -&gt; webui
+$config['webui']['default_dashboard_id'] = 0;
+</code></pre>
+Allows the specification of a global default dashboard page for any user who
+has not set one in their user preferences.  Should be set to dashboard_id of an
+existing dashboard that is shared or shared(read).  Otherwise, the system will
+automatically create each user an empty dashboard called <code>Default</code> on their
+first login.</p>
 <p><pre><code class="php">$config['login_message']    = &quot;Unauthorised access or use shall render the user liable to criminal and/or civil prosecution.&quot;;
 </code></pre>
 This is the default message on the login page displayed to users.</p>

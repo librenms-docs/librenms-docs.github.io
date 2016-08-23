@@ -336,6 +336,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Developing/Creating-Documentation/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Developing/Dynamic-Config/</loc>
      <lastmod>2016-08-23</lastmod>
      <changefreq>daily</changefreq>
