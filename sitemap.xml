@@ -54,25 +54,7 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
-     <lastmod>2016-08-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
-     <lastmod>2016-08-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
-     <lastmod>2016-08-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
+     <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
      <lastmod>2016-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -433,6 +415,46 @@
         
     <url>
      <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/</loc>
+     <lastmod>2016-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
      <lastmod>2016-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>

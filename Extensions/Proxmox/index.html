@@ -11,9 +11,10 @@
 
 	<title>Proxmox - LibreNMS Docs</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/color.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
         <link href="../../librenms.css" rel="stylesheet">
 
@@ -70,7 +71,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li id="dropdown-Installation" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -118,25 +119,7 @@
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
 </li>
 
                         
@@ -151,7 +134,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li id="dropdown-General" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -202,7 +185,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li id="dropdown-Extensions" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -415,7 +398,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li id="dropdown-Developing" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -466,7 +449,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li id="dropdown-Support" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -522,13 +505,59 @@
                     </li>
                 
                 
+                
+                    <li id="dropdown-hidden" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
+                        <i class="fa fa-search"></i>
+                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
                     </a>
                 </li>
                 
@@ -538,7 +567,7 @@
                             
                                 <i class="fa fa-github"></i>
                             
-                            GitHub
+                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
                         </a>
                     </li>
                 
@@ -588,8 +617,8 @@ You should now see an application in LibreNMS, as well as a new menu-item in the
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/jquery-1.12.4.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
         <script>var base_url = '../..';</script>
         <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
