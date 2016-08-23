@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Support/Poller Support/">
+        <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Poller Support - LibreNMS Docs</title>
+	<title>Ubuntu 14.04 (Apache) - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -70,79 +70,79 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
+    <a href="../Installing-LibreNMS/">Installing LibreNMS</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
+    <a href="../Ubuntu-image/">Ubuntu VM Image</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
+    <a href="../CentOS-image/">CentOS VM Image</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
+    <a href="../Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
+    <a href="../Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
+    <a href="../Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
+    <a href="../Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+    <a href="../Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Ubuntu 14.04 (Apache)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+    <a href="../Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+    <a href="../Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
+    <a href="../Migrating-from-Observium/">Migrating from Observium</a>
 </li>
 
                         
@@ -466,55 +466,55 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../Configuration/">Configuration</a>
+    <a href="../../Support/Configuration/">Configuration</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Discovery Support/">Discovery Support</a>
+    <a href="../../Support/Discovery Support/">Discovery Support</a>
 </li>
 
                         
                             
 <li >
-    <a href="../FAQ/">FAQ</a>
+    <a href="../../Support/FAQ/">FAQ</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Features/">Features</a>
+    <a href="../../Support/Features/">Features</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Install Validation/">Install Validation</a>
+    <a href="../../Support/Install Validation/">Install Validation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Performance/">Performance</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Poller Support</a>
+    <a href="../../Support/Performance/">Performance</a>
 </li>
 
                         
                             
 <li >
-    <a href="../Support-New-OS/">Support New OS</a>
+    <a href="../../Support/Poller Support/">Poller Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
 </li>
 
                         
@@ -552,144 +552,209 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#pollerphp">poller.php</a></li>
+        <li class="main active"><a href="#on-the-db-server">On the DB Server</a></li>
         
-            <li><a href="#command-options">Command options</a></li>
+    
+        <li class="main "><a href="#on-the-nms">On the NMS</a></li>
         
-            <li><a href="#poller-config">Poller config</a></li>
+    
+        <li class="main "><a href="#adding-the-librenms-user">Adding the librenms-user</a></li>
         
-            <li><a href="#poller-modules">Poller modules</a></li>
+    
+        <li class="main "><a href="#cloning">Cloning</a></li>
         
-            <li><a href="#running">Running</a></li>
+    
+        <li class="main "><a href="#web-interface">Web Interface</a></li>
         
-            <li><a href="#debugging">Debugging</a></li>
+    
+        <li class="main "><a href="#manual-vs-web-installer">Manual vs. web installer</a></li>
+        
+    
+        <li class="main "><a href="#initialise-the-database">Initialise the database</a></li>
+        
+    
+        <li class="main "><a href="#create-admin-user">Create admin user</a></li>
+        
+    
+        <li class="main "><a href="#validate-your-install">Validate your install</a></li>
+        
+    
+        <li class="main "><a href="#add-localhost">Add localhost</a></li>
+        
+    
+        <li class="main "><a href="#create-cronjob">Create cronjob</a></li>
+        
+    
+        <li class="main "><a href="#daily-updates">Daily Updates</a></li>
+        
+    
+        <li class="main "><a href="#install-complete">Install complete</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h3 id="pollerphp">poller.php</h3>
-<p>This document will explain how to use poller.php to debug issues or manually running to process data.</p>
-<h4 id="command-options">Command options</h4>
-<pre><code class="bash">    LibreNMS 2014.master Poller
-
--h &lt;device id&gt; | &lt;device hostname wildcard&gt;  Poll single device
--h odd                                       Poll odd numbered devices  (same as -i 2 -n 0)
--h even                                      Poll even numbered devices (same as -i 2 -n 1)
--h all                                       Poll all devices
-
--i &lt;instances&gt; -n &lt;number&gt;                   Poll as instance &lt;number&gt; of &lt;instances&gt;
-                                             Instances start at 0. 0-3 for -n 4
-
-Debugging and testing options:
--r                                           Do not create or update RRDs
--d                                           Enable debugging output
--m                                           Specify module(s) to be run
+<blockquote>
+<p>NOTE: These instructions have been tested on a fresh install of Ubuntu 12.04 and 14.04.</p>
+<p>NOTE: These instructions assume you are the root user.  If you are not, prepend <code>sudo</code> to the shell commands (the ones that aren't at <code>mysql&gt;</code> prompts) or temporarily become a user with root privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
+</blockquote>
+<h3 id="on-the-db-server">On the DB Server</h3>
+<p>This host is where the MySQL database runs.  It could be the same machine as your network management server (this is the most common initial deployment scenario).</p>
+<blockquote>
+<p>** Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
+</blockquote>
+<p>You are free to choose between using MySQL or MariaDB:</p>
+<p><strong>MySQL</strong>
+<pre><code class="bash">apt-get install mysql-server mysql-client
+mysql -uroot -p
+</code></pre></p>
+<p><strong>MariaDB</strong>
+<pre><code class="bash">apt-get install mariadb-server mariadb-client
+mysql -uroot -p
+</code></pre></p>
+<p>Input the MySQL root password to enter the MySQL command-line interface.</p>
+<p>Create the database:</p>
+<pre><code class="sql">CREATE DATABASE librenms;
+GRANT ALL PRIVILEGES ON librenms.*
+  TO 'librenms'@'&lt;ip&gt;'
+  IDENTIFIED BY '&lt;password&gt;'
+;
+FLUSH PRIVILEGES;
+exit
 </code></pre>
 
-<p><code>-h</code> Use this to specify a device via either id or hostname (including wildcard using *). You can also specify odd and
-even. all will run poller against all devices.</p>
-<p><code>-i</code> This can be used to stagger the poller process.</p>
-<p><code>-r</code> This option will suppress the creation or update of RRD files.</p>
-<p><code>-d</code> Enables debugging output (verbose output) so that you can see what is happening during a poller run. This includes
-things like rrd updates, SQL queries and response from snmp.</p>
-<p><code>-m</code> This enables you to specify the module you want to run for poller.</p>
-<h4 id="poller-config">Poller config</h4>
-<p>These are the default poller config items. You can globally disable a module by setting it to 0. If you just want to
-disable it for one device then you can do this within the WebUI -&gt; Settings -&gt; Modules.</p>
-<pre><code class="php">$config['poller_modules']['unix-agent']                   = 0;
-$config['poller_modules']['os']                           = 1;
-$config['poller_modules']['ipmi']                         = 1;
-$config['poller_modules']['sensors']                      = 1;
-$config['poller_modules']['processors']                   = 1;
-$config['poller_modules']['mempools']                     = 1;
-$config['poller_modules']['storage']                      = 1;
-$config['poller_modules']['netstats']                     = 1;
-$config['poller_modules']['hr-mib']                       = 1;
-$config['poller_modules']['ucd-mib']                      = 1;
-$config['poller_modules']['ipSystemStats']                = 1;
-$config['poller_modules']['ports']                        = 1;
-$config['poller_modules']['bgp-peers']                    = 1;
-$config['poller_modules']['junose-atm-vp']                = 1;
-$config['poller_modules']['toner']                        = 1;
-$config['poller_modules']['ucd-diskio']                   = 1;
-$config['poller_modules']['wifi']                         = 1;
-$config['poller_modules']['ospf']                         = 1;
-$config['poller_modules']['cisco-ipsec-flow-monitor']     = 1;
-$config['poller_modules']['cisco-remote-access-monitor']  = 1;
-$config['poller_modules']['cisco-cef']                    = 1;
-$config['poller_modules']['cisco-sla']                    = 1;
-$config['poller_modules']['cisco-mac-accounting']         = 1;
-$config['poller_modules']['cipsec-tunnels']               = 1;
-$config['poller_modules']['cisco-ace-loadbalancer']       = 1;
-$config['poller_modules']['cisco-ace-serverfarms']        = 1;
-$config['poller_modules']['netscaler-vsvr']               = 1;
-$config['poller_modules']['aruba-controller']             = 1;
-$config['poller_modules']['entity-physical']              = 1;
-$config['poller_modules']['applications']                 = 1;
-$config['poller_modules']['cisco-asa-firewall']           = 1;
-$config['poller_modules']['mib']                          = 0;
+<p>Replace <code>&lt;ip&gt;</code> above with the IP or DNS name of the server running LibreNMS.  If your database is on the same server as LibreNMS, you can use <code>localhost</code>.</p>
+<p>If you are deploying a separate database server, you need to change the <code>bind-address</code>.  If your MySQL database resides on the same server as LibreNMS, you should skip this step.</p>
+<pre><code>vim /etc/mysql/my.cnf
+</code></pre>
+<p>Within the [mysqld] section please add:</p>
+<pre><code>innodb_file_per_table=1
+</code></pre>
+<p>Find the line: <code>bind-address = 127.0.0.1</code></p>
+<p>Change <code>127.0.0.1</code> to the IP address that your MySQL server should listen on.  Restart MySQL:</p>
+<p>If you see a line that starts <code>sql-mode</code> then change this to <code>sql-mode=""</code>.</p>
+<pre><code>service mysql restart
+</code></pre>
+<h3 id="on-the-nms">On the NMS</h3>
+<p>This host is where the web server and SNMP poller run.  It could be the same machine as your database server.</p>
+<p>Install the required software:</p>
+<pre><code>apt-get install libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl snmp graphviz php5-mcrypt php5-json apache2 fping imagemagick whois mtr-tiny nmap python-mysqldb snmpd php-net-ipv4 php-net-ipv6 rrdtool git
+</code></pre>
+<p>The packages listed above are an all-inclusive list of packages that were necessary on a clean install of Ubuntu 12.04/14.04.</p>
+<p>You need to configure snmpd appropriately if you have not already done so.  An absolute minimal config for snmpd is:</p>
+<pre><code>rocommunity public 127.0.0.1
+</code></pre>
+<p>Adding the above line to <code>/etc/snmp/snmpd.conf</code> and running <code>service snmpd restart</code> will activate this config.</p>
+<p>In <code>/etc/php5/apache2/php.ini</code> and <code>/etc/php5/cli/php.ini</code>, ensure date.timezone is set to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid
+examples are: "America/New York", "Australia/Brisbane", "Etc/UTC".
+Please also ensure that <code>allow_url_fopen</code> is enabled. Other functions needed for LibreNMS include <code>exec,passthru,shell_exec,escapeshellarg,escapeshellcmd,proc_close,proc_open,popen</code>.</p>
+<h3 id="adding-the-librenms-user">Adding the librenms-user</h3>
+<pre><code>useradd librenms -d /opt/librenms -M -r
+usermod -a -G librenms www-data
+</code></pre>
+<h3 id="cloning">Cloning</h3>
+<p>LibreNMS is installed using git.  If you're not familiar with git, check out the <a href="http://git-scm.com/book">git book</a> or the tips at <a href="http://gitready.com/">git ready</a>.  The initial install from github.com is called a <code>git clone</code>; subsequent updates are done through <code>git pull</code>.</p>
+<p>You can clone the repository via HTTPS or SSH.  In either case, you need to ensure that the appropriate port (443 for HTTPS, 22 for SSH) is open in the outbound direction for your server.</p>
+<pre><code>cd /opt
+git clone https://github.com/librenms/librenms.git librenms
+cd /opt/librenms
+</code></pre>
+<p>The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command <code>git clone git@github.com:librenms/librenms.git librenms</code> instead.</p>
+<p>Sometimes the initial clone can take quite a while (nearly 3 minutes on a 10 Mbps fibre connection in Australia is a recent example).  If it's a big problem to you, you can save about 50% of the bandwidth by not pulling down the full git history.  This comes with some limitations (namely that you can't use it as the basis for further git repos), but if you're not planning to develop for LibreNMS it's an acceptable option.  To perform the initial clone without full history, run the following instead:</p>
+<pre><code>cd /opt
+git clone --depth 1 https://github.com/librenms/librenms.git librenms
+cd /opt/librenms
+</code></pre>
+<h3 id="web-interface">Web Interface</h3>
+<p>To prepare the web interface (and adding devices shortly), you'll need to create and chown a directory as well as create an Apache vhost.</p>
+<p>First, create and chown the <code>rrd</code> directory and create the <code>logs</code> directory:</p>
+<pre><code>mkdir rrd logs
+chown -R librenms:librenms /opt/librenms
+chmod 775 rrd
+</code></pre>
+<blockquote>
+<p>NOTE: If you're not running Ubuntu or Debian, you will need to change <code>www-data</code> to the user and group which run the Apache web server.
+If you're planing on running rrdcached, make sure that the path is also chmod'ed to 775 and chown'ed to librenms:librenms.</p>
+</blockquote>
+<p>Next, add the following to <code>/etc/apache2/sites-available/librenms.conf</code>:</p>
+<pre><code class="apache">&lt;VirtualHost *:80&gt;
+  DocumentRoot /opt/librenms/html/
+  ServerName  librenms.example.com
+  CustomLog /opt/librenms/logs/access_log combined
+  ErrorLog /opt/librenms/logs/error_log
+  AllowEncodedSlashes On
+  &lt;Directory &quot;/opt/librenms/html/&quot;&gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
 </code></pre>
 
-<h4 id="poller-modules">Poller modules</h4>
-<p><code>unix-agent</code>: Enable the check_mk agent for external support for applications.</p>
-<p><code>system</code>: Provides information on some common items like uptime, sysDescr and sysContact.</p>
-<p><code>os</code>: Os detection. This module will pick up the OS of the device.</p>
-<p><code>ipmi</code>: Enables support for IPMI if login details have been provided for IPMI.</p>
-<p><code>sensors</code>: Sensor detection such as Temperature, Humidity, Voltages + More.</p>
-<p><code>processors</code>: Processor support for devices.</p>
-<p><code>mempools</code>: Memory detection support for devices.</p>
-<p><code>storage</code>: Storage detection for hard disks</p>
-<p><code>netstats</code>: Statistics for IP, TCP, UDP, ICMP and SNMP.</p>
-<p><code>hr-mib</code>: Host resource support.</p>
-<p><code>ucd-mib</code>: Support for CPU, Memory and Load.</p>
-<p><code>ipSystemStats</code>: IP statistics for device.</p>
-<p><code>ports</code>: This module will detect all ports on a device excluding ones configured to be ignored by config options.</p>
-<p><code>bgp-peers</code>: BGP detection and support.</p>
-<p><code>junose-atm-vp</code>: Juniper ATM support.</p>
-<p><code>toner</code>: Toner levels support.</p>
-<p><code>ucd-diskio</code>: Disk I/O support.</p>
-<p><code>wifi</code>: WiFi Support for those devices with support.</p>
-<p><code>ospf</code>: OSPF Support.</p>
-<p><code>cisco-ipsec-flow-monitor</code>: IPSec statistics support.</p>
-<p><code>cisco-remote-access-monitor</code>: Cisco remote access support.</p>
-<p><code>cisco-cef</code>: CEF detection and support.</p>
-<p><code>cisco-sla</code>: SLA detection and support.</p>
-<p><code>cisco-mac-accounting</code>: MAC Address account support.</p>
-<p><code>cipsec-tunnels</code>: IPSec tunnel support.</p>
-<p><code>cisco-ace-loadbalancer</code>: Cisco ACE Support.</p>
-<p><code>cisco-ace-serverfarms</code>: Cisco ACE Support.</p>
-<p><code>netscaler-vsvr</code>: Netscaler support.</p>
-<p><code>aruba-controller</code>: Aruba wireless controller support.</p>
-<p><code>entity-physical</code>: Module to pick up the devices hardware support.</p>
-<p><code>applications</code>: Device application support.</p>
-<p><code>cisco-asa-firewall</code>: Cisco ASA firewall support.</p>
-<p><code>mib</code>: Support for generic MIB parsing.</p>
-<h4 id="running">Running</h4>
-<p>Here are some examples of running poller from within your install directory.
-<pre><code class="bash">./poller.php -h localhost
-
-./poller.php -h localhost -m ports
-</code></pre></p>
-<h4 id="debugging">Debugging</h4>
-<p>To provide debugging output you will need to run the poller process with the <code>-d</code> flag. You can do this either against
-all modules, single or multiple modules:</p>
-<p>All Modules
-<pre><code class="bash">./poller.php -h localhost -d
-</code></pre></p>
-<p>Single Module
-<pre><code class="bash">./poller.php -h localhost -m ports -d
-</code></pre></p>
-<p>Multiple Modules
-<pre><code class="bash">./poller.php -h localhost -m ports,entity-physical -d
-</code></pre></p>
-<p>It is then advisable to sanitise the output before pasting it somewhere as the debug output will contain snmp details
-amongst other items including port descriptions.</p>
-<p>The output will contain:</p>
-<p>DB Updates</p>
-<p>RRD Updates</p>
-<p>SNMP Response</p></div>
+<p>If you are running Apache 2.2.18 or higher then change <code>AllowEncodedSlashes On</code> to <code>AllowEncodedSlashes NoDecode</code></p>
+<p>If you have Apache 2.3 or newer then please add the following line before <code>AllowOverride All</code>:</p>
+<pre><code>Require all granted
+</code></pre>
+<p>On at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:</p>
+<pre><code>php5enmod mcrypt
+</code></pre>
+<p>Change <code>librenms.example.com</code> to the appropriate hostname for your domain, then enable the vhost and restart Apache:</p>
+<pre><code>a2ensite librenms.conf
+a2enmod rewrite
+service apache2 restart
+</code></pre>
+<p>If this is the only site you are hosting on this server (it should be :)) then you will need to disable the default site setup in Ubuntu:</p>
+<pre><code>a2dissite 000-default
+</code></pre>
+<p>(To get to your LibreNMS install externally, you'll also need add it to your DNS or hosts file.)</p>
+<h3 id="manual-vs-web-installer">Manual vs. web installer</h3>
+<p>At this stage you can either launch the web installer by going to http://librenms.example.com/install.php, follow the onscreen instructions then skip to the 'Add localhost' section. Alternatively if you want to continue the setup manually then just keep following these instructions.</p>
+<pre><code>cp config.php.default config.php
+vim config.php
+</code></pre>
+<p>Change the values to the right of the equal sign for lines beginning with <code>$config[db_]</code> to match your database information as setup above.</p>
+<p>Change the value of <code>$config['snmp']['community']</code> from <code>public</code> to whatever your read-only SNMP community is.  If you have multiple communities, set it to the most common.</p>
+<p><strong> Be sure you have no characters (including whitespace like: newlines, spaces, tabs, etc) outside of the <code>&lt;?php?&gt;</code> blocks. Your graphs will break otherwise. </strong></p>
+<h3 id="initialise-the-database">Initialise the database</h3>
+<p>Initiate the follow database with the following command:</p>
+<pre><code>php build-base.php
+</code></pre>
+<h3 id="create-admin-user">Create admin user</h3>
+<p>Create the admin user - priv should be 10</p>
+<pre><code>php adduser.php &lt;name&gt; &lt;pass&gt; 10 &lt;email&gt;
+</code></pre>
+<p>Substitute your desired username, password and email address--and leave the angled brackets off.</p>
+<h3 id="validate-your-install">Validate your install</h3>
+<p>Run validate.php as root in the librenms directory</p>
+<pre><code>php validate.php
+</code></pre>
+<p>This will check your install to verify it is set up correctly.</p>
+<h3 id="add-localhost">Add localhost</h3>
+<pre><code>php addhost.php localhost public v2c
+</code></pre>
+<p>This assumes you haven't made community changes--if you have, replace <code>public</code> with your community.  It also assumes SNMP v2c.  If you're using v3, there are additional steps (NOTE: instructions for SNMPv3 to come).</p>
+<p>Discover localhost::</p>
+<pre><code>php discovery.php -h all
+</code></pre>
+<h3 id="create-cronjob">Create cronjob</h3>
+<p>LibreNMS uses Job Snijders' <a href="https://github.com/Atrato/observium-poller-wrapper">poller-wrapper.py</a>.  By default, the cron job runs <code>poller-wrapper.py</code> with 16 threads.  The current recommendation is to use 4 threads per core as a rule of thumb.  If the thread count needs to be changed, you can do so by editing the cron file (<code>/etc/cron.d/librenms</code>).  Just add a number after <code>poller-wrapper.py</code>, as in the example below:</p>
+<pre><code>/opt/librenms/poller-wrapper.py 12 &gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+<p>Create the cronjob</p>
+<pre><code>cp librenms.nonroot.cron /etc/cron.d/librenms
+</code></pre>
+<h3 id="daily-updates">Daily Updates</h3>
+<p>LibreNMS performs daily updates by default.  At 00:15 system time every day, a <code>git pull --no-edit --quiet</code> is performed.  You can override this default by editing your <code>config.php</code> file.  Remove the comment (the <code>#</code> mark) on the line:</p>
+<pre><code>#$config['update'] = 0;
+</code></pre>
+<p>so that it looks like this:</p>
+<pre><code>$config['update'] = 0;
+</code></pre>
+<h3 id="install-complete">Install complete</h3>
+<p>Please allow for 2-3 runs of the poller-wrapper for data to start appearing in the WebUI.
+If you don't see data after this, please refer to the <a href="http://docs.librenms.org/Support/FAQ/">FAQ</a> for assistance.</p>
+<p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>
+<p>It would be great if you would consider opting into the stats system we have, please see <a href="http://docs.librenms.org/General/Callback-Stats-and-Privacy/">this page</a> on what it is and how to enable it.</p></div>
             
         </div>
 
