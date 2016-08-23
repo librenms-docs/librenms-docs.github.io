@@ -589,7 +589,15 @@
     
         <li class="main active"><a href="#applications">Applications</a></li>
         
+            <li><a href="#apache">Apache</a></li>
+        
             <li><a href="#bind9-aka-named">BIND9 aka named</a></li>
+        
+            <li><a href="#dhcp-stats">DHCP Stats</a></li>
+        
+            <li><a href="#mailscanner">Mailscanner</a></li>
+        
+            <li><a href="#memcached">Memcached</a></li>
         
             <li><a href="#mysql">MySQL</a></li>
         
@@ -597,23 +605,19 @@
         
             <li><a href="#ntpd-server">NTPD Server</a></li>
         
+            <li><a href="#os-updates">OS Updates</a></li>
+        
             <li><a href="#powerdns">PowerDNS</a></li>
         
             <li><a href="#powerdns-recursor">PowerDNS Recursor</a></li>
         
-            <li><a href="#tinydns-aka-djbdns">TinyDNS aka  djbdns</a></li>
-        
-            <li><a href="#os-updates">OS Updates</a></li>
-        
-            <li><a href="#dhcp-stats">DHCP Stats</a></li>
-        
-            <li><a href="#memcached">Memcached</a></li>
-        
-            <li><a href="#unbound">Unbound</a></li>
-        
             <li><a href="#proxmox">Proxmox</a></li>
         
             <li><a href="#raspberry-pi">Raspberry PI</a></li>
+        
+            <li><a href="#tinydns-aka-djbdns">TinyDNS aka  djbdns</a></li>
+        
+            <li><a href="#unbound">Unbound</a></li>
         
     
         <li class="main "><a href="#agent-setup">Agent Setup</a></li>
@@ -627,20 +631,35 @@
 <p>You can use Application support to graph performance statistics from many applications.</p>
 <p>Different applications support a variety of ways collect data: by direct connection to the application, snmpd extend, or the agent.</p>
 <ol>
+<li><a href="#apache">Apache</a> - SNMP extend</li>
 <li><a href="#bind9-aka-named">BIND9/named</a> - Agent</li>
+<li><a href="#dhcp-stats">DHCP Stats</a> - SNMP extend</li>
+<li><a href="#mailscanner">Mailscanner</a> - SNMP extend</li>
+<li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#mysql">MySQL</a> - Agent</li>
 <li><a href="#nginx">NGINX</a> - Agent</li>
-<li><a href="#ntpd-server">NTPD</a> - extend SNMP, Agent</li>
+<li><a href="#ntpd-server">NTPD</a> - SNMP extend, Agent</li>
+<li><a href="#os-updates">OS Updates</a> - SNMP extend</li>
 <li><a href="#powerdns">PowerDNS</a> - Agent</li>
-<li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Agent</li>
+<li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Direct, Agent</li>
+<li><a href="#proxmos">Proxmox</a> - SNMP extend</li>
+<li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
-<li><a href="#os-updates">OS Updates</a> - extend SNMP</li>
-<li><a href="#dhcp-stats">DHCP Stats</a> - extend SNMP</li>
-<li><a href="#memcached">Memcached</a> - extend SNMP</li>
 <li><a href="#unbound">Unbound</a> - Agent</li>
-<li><a href="#proxmos">Proxmox</a> - extend SNMP</li>
-<li><a href="#raspberry-pi">Raspberry PI</a> - extend SNMP</li>
 <li><a href="#agent-setup">Agent Setup</a></li>
+</ol>
+<h3 id="apache">Apache</h3>
+<h5 id="snmp-extend">SNMP Extend</h5>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -o /etc/snmp/apache-stats.py
+</code></pre></li>
+<li>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<pre><code>extend apache /etc/snmp/apache-stats.py
+</code></pre></li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>Apache</code> under the Applications tab.</li>
 </ol>
 <h3 id="bind9-aka-named">BIND9 aka named</h3>
 <h5 id="agent">Agent</h5>
@@ -662,6 +681,42 @@ Restart your bind9/named after changing the configuration.</p>
 <p>Verify that everything works by executing <code>rndc stats &amp;&amp; cat /etc/bind/named.stats</code>.
 In case you get a <code>Permission Denied</code> error, make sure you chown'ed correctly.</p>
 <p>Note: if you change the path you will need to change the path in <code>scripts/agent-local/bind</code>.</p>
+<h3 id="dhcp-stats">DHCP Stats</h3>
+<p>A small shell script that reports current DHCP leases stats.</p>
+<h5 id="snmp-extend_1">SNMP Extend</h5>
+<ol>
+<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
+<li>Make the script executable (chmod +x /opt/dhcp-status.sh)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<pre><code>extend dhcpstats /opt/dhcp-status.sh
+</code></pre></li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>DHCP Stats</code> under the Applications tab.</li>
+</ol>
+<h3 id="mailscanner">Mailscanner</h3>
+<h5 id="snmp-extend_2">SNMP Extend</h5>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailscanner.php -o /etc/snmp/mailscanner.php
+</code></pre></li>
+<li>Make the script executable (chmod +x /etc/snmp/mailscanner.php)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<pre><code>extend mailscanner /etc/snmp/mailscanner.php
+</code></pre></li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>Mailscanner</code> under the Applications tab.</li>
+</ol>
+<h3 id="memcached">Memcached</h3>
+<h5 id="snmp-extend_3">SNMP Extend</h5>
+<ol>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/usr/local/bin</code> (or any other suitable location) on your remote server.</li>
+<li>Make the script executable: <code>chmod +x /usr/local/memcached</code></li>
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<pre><code>extend memcached /usr/local/bin/memcached
+</code></pre></li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check <code>Memcached</code> under the Applications tab.</li>
+</ol>
 <h3 id="mysql">MySQL</h3>
 <h5 id="agent_1">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
@@ -690,7 +745,7 @@ $mysql_port = 3306;
 
 <h3 id="ntpd-server">NTPD Server</h3>
 <p>Supports NTPD Server (not client, that is separate)</p>
-<h5 id="extend-snmp">Extend SNMP</h5>
+<h5 id="snmp-extend_4">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntpd-server.php -o /etc/snmp/ntpd-server.php
@@ -704,6 +759,21 @@ $mysql_port = 3306;
 </ol>
 <h5 id="agent_3">Agent</h5>
 <p>Support is built into the agent, and this app will be automatically enabled.</p>
+<h3 id="os-updates">OS Updates</h3>
+<p>A small shell script that checks your system package manager for any available updates. Supports apt-get/pacman/yum/zypper package managers).</p>
+<p>For pacman users automatically refreshing the database, it is recommended you use an alternative database location <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
+<h5 id="snmp-extend_5">SNMP Extend</h5>
+<ol>
+<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
+<li>Make the script executable (chmod +x /opt/os-updates.sh)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<pre><code>extend osupdate /opt/os-updates.sh
+</code></pre></li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>OS Updates</code> under the Applications tab.</li>
+</ol>
+<p><em>Note</em>: apt-get depends on an updated package index. There are several ways to have your system run <code>apt-get update</code> automatically. The easiest is to create <code>/etc/apt/apt.conf.d/10periodic</code> and pasting the following in it: <code>APT::Periodic::Update-Package-Lists "1";</code>.
+If you have apticron, cron-apt or apt-listchanges installed and configured, chances are that packages are already updated periodically.</p>
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
 <h5 id="agent_4">Agent</h5>
@@ -720,6 +790,31 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <h5 id="agent_5">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
+<h3 id="proxmox">Proxmox</h3>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<code>wget https://github.com/librenms/librenms-agent/blob/master/agent-local/proxmox -o /usr/local/bin/proxmox</code></li>
+<li>Make the script executable: <code>chmod +x /usr/local/proxmox</code></li>
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<code>extend proxmox /usr/local/bin/proxmox</code>
+(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</li>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check <code>Proxmox</code> on the Applications tab.</li>
+</ol>
+<h3 id="raspberry-pi">Raspberry PI</h3>
+<p>SNMP extend script to get your PI data into your host.</p>
+<h5 id="snmp-extend_6">SNMP Extend</h5>
+<ol>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
+<li>Make the script executable: <code>chmod +x /opt/raspberry.sh</code></li>
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<pre><code>extend raspberry /opt/raspberry.sh
+</code></pre></li>
+<li>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:
+<pre><code>snmp ALL=(ALL) NOPASSWD: /opt/raspberry.sh, /usr/bin/vcgencmd*
+</code></pre></li>
+<li>Restart snmpd on PI host</li>
+</ol>
 <h3 id="tinydns-aka-djbdns">TinyDNS aka  djbdns</h3>
 <h5 id="agent_6">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
@@ -737,43 +832,6 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
 <li>Restart TinyDNS and Daemontools: <code>/etc/init.d/svscan restart</code>
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.</li>
 </ol>
-<h3 id="os-updates">OS Updates</h3>
-<p>A small shell script that checks your system package manager for any available updates. Supports apt-get/pacman/yum/zypper package managers).</p>
-<p>For pacman users automatically refreshing the database, it is recommended you use an alternative database location <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
-<h5 id="extend-snmp_1">Extend SNMP</h5>
-<ol>
-<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-<li>Make the script executable (chmod +x /opt/os-updates.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
-<pre><code>extend osupdate /opt/os-updates.sh
-</code></pre></li>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>OS Updates</code> under the Applications tab.</li>
-</ol>
-<p><em>Note</em>: apt-get depends on an updated package index. There are several ways to have your system run <code>apt-get update</code> automatically. The easiest is to create <code>/etc/apt/apt.conf.d/10periodic</code> and pasting the following in it: <code>APT::Periodic::Update-Package-Lists "1";</code>.
-If you have apticron, cron-apt or apt-listchanges installed and configured, chances are that packages are already updated periodically.</p>
-<h3 id="dhcp-stats">DHCP Stats</h3>
-<p>A small shell script that reports current DHCP leases stats.</p>
-<h5 id="extend-snmp_2">Extend SNMP</h5>
-<ol>
-<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-<li>Make the script executable (chmod +x /opt/dhcp-status.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
-<pre><code>extend dhcpstats /opt/dhcp-status.sh
-</code></pre></li>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>DHCP Stats</code> under the Applications tab.</li>
-</ol>
-<h3 id="memcached">Memcached</h3>
-<ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/usr/local/bin</code> (or any other suitable location) on your remote server.</li>
-<li>Make the script executable: <code>chmod +x /usr/local/memcached</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
-<pre><code>extend memcached /usr/local/bin/memcached
-</code></pre></li>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check <code>Memcached</code> under the Applications tab.</li>
-</ol>
 <h3 id="unbound">Unbound</h3>
 <h5 id="agent_7">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
@@ -786,32 +844,6 @@ server:
 </code></pre>
 
 <p>Restart your unbound after changing the configuration,v erify it is working by running /usr/lib/check_mk_agent/local/unbound.sh</p>
-<h3 id="proxmox">Proxmox</h3>
-<ol>
-<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
-<code>wget https://github.com/librenms/librenms-agent/blob/master/agent-local/proxmox -o /usr/local/bin/proxmox</code></li>
-<li>Make the script executable: <code>chmod +x /usr/local/proxmox</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
-<code>extend proxmox /usr/local/bin/proxmox</code>
-(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</li>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check <code>Proxmox</code> on the Applications tab.</li>
-</ol>
-<p>=======</p>
-<h3 id="raspberry-pi">Raspberry PI</h3>
-<p>SNMP extend script to get your PI data into your host.</p>
-<h5 id="extend-snmp_3">Extend SNMP</h5>
-<ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
-<li>Make the script executable: <code>chmod +x /opt/raspberry.sh</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
-<pre><code>extend raspberry /opt/raspberry.sh
-</code></pre></li>
-<li>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:
-<pre><code>snmp ALL=(ALL) NOPASSWD: /opt/raspberry.sh, /usr/bin/vcgencmd*
-</code></pre></li>
-<li>Restart snmpd on PI host</li>
-</ol>
 <h2 id="agent-setup">Agent Setup</h2>
 <p>To gather data from remote systems you can use LibreNMS in combination with check_mk (found <a href="https://github.com/librenms/librenms-agent">here</a>).</p>
 <p>Make sure that systemd or xinetd is installed on the host you want to run the agent on.</p>
