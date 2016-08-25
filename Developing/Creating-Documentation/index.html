@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Developing/Creating-Documentation/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Creating Documentation - LibreNMS Docs</title>
+	    <title>Creating Documentation - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -593,10 +594,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Creating-Documentation.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Creating-Documentation.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -618,12 +621,15 @@ simple to do this:</p>
 <p>Please ensure you add the document to the relevant section within <code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
 Forgetting this step will result in your document never seeing the light of day :)</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

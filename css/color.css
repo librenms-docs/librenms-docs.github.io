@@ -1,3 +1,7 @@
+a > .fa {
+    color: #000;
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     color: #fff;
     background-color: #da223a

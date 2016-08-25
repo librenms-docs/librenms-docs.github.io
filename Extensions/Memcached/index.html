@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Extensions/Memcached/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Memcached - LibreNMS Docs</title>
+	    <title>Memcached - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -593,10 +594,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Memcached.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Memcached.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -608,17 +611,23 @@ $config['memcached']['host']    = &quot;localhost&quot;;
 $config['memcached']['port']    = 11211;
 </code></pre>
 
-<p>By default values are kept for 4 Minutes inside the memcached, you can adjust this retention time by modifying the <code>$config['memcached']['ttl']</code> value to any desired amount of seconds.
-It's strongly discouraged to set this above <code>300</code> (5 Minutes) to avoid interference with the polling, discovery and alerting processes.</p>
+<p>By default values are kept for 4 Minutes inside the memcached, you can adjust this retention time by modifying the <code>$config['memcached']['ttl']</code> value to any desired amount of seconds.</p>
+<blockquote>
+<p>This means that you can see what appears to be stale data for up to 4 minutes. If you edit an alert rule for example then those changes may not show immediately.</p>
+</blockquote>
+<p>It's strongly discouraged to set this above <code>300</code> (5 Minutes) to avoid interference with the polling, discovery and alerting processes.</p>
 <p>If you use the Distributed Poller, you can point this to the same memcached instance. However a local memcached will perform better in any case.</p>
 <p>By default <code>memcached</code> on many distributions starts itself with 64 MB of memory for it to store data in. If you have lots of devices or look at graphs frequently, it might be worth it to expand <code>memcached</code>'s footprint a bit. Generally this can be done in <code>/etc/memcached.conf</code>, replacing <code>-m 64</code> with <code>-m 512</code>, or however many megs of memory you want to allocate for <code>memcached</code>. Then restart the <code>memcached</code> service.</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

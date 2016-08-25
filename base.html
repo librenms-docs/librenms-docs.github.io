@@ -10,7 +10,7 @@
         {% if favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ favicon }}">
         {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
 
-	<title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+	    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
         <link href="{{ base_url }}/css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="{{ base_url }}/css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -45,18 +45,22 @@
         {% include "nav.html" %}
 
         <div class="container">
+            <div class="row">
             {% block content %}
                 <div class="col-md-3">{% include "toc.html" %}</div>
                 <div class="col-md-9" role="main">{% include "content.html" %}</div>
             {% endblock %}
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            {% if copyright %}
-                <p>{{ copyright }}</p>
-            {% endif %}
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                {% if copyright %}
+                    <p>{{ copyright }}</p>
+                {% endif %}
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="{{ base_url }}/js/jquery-1.12.4.min.js"></script>

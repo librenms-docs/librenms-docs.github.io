@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Support/Poller Support/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Poller Support - LibreNMS Docs</title>
+	    <title>Poller Support - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -603,10 +604,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Support/Poller Support.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Support/Poller Support.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -625,7 +628,9 @@
 
 Debugging and testing options:
 -r                                           Do not create or update RRDs
+-f                                           Do not insert data into InfluxDB
 -d                                           Enable debugging output
+-v                                           Enable verbose debugging output
 -m                                           Specify module(s) to be run
 </code></pre>
 
@@ -633,8 +638,8 @@ Debugging and testing options:
 even. all will run poller against all devices.</p>
 <p><code>-i</code> This can be used to stagger the poller process.</p>
 <p><code>-r</code> This option will suppress the creation or update of RRD files.</p>
-<p><code>-d</code> Enables debugging output (verbose output) so that you can see what is happening during a poller run. This includes
-things like rrd updates, SQL queries and response from snmp.</p>
+<p><code>-d</code> Enables debugging output (verbose output but with most sensitive data masked) so that you can see what is happening during a poller run. This includes things like rrd updates, SQL queries and response from snmp.</p>
+<p><code>-v</code> Enables verbose debugging output with all data in tact.</p>
 <p><code>-m</code> This enables you to specify the module you want to run for poller.</p>
 <h4 id="poller-config">Poller config</h4>
 <p>These are the default poller config items. You can globally disable a module by setting it to 0. If you just want to
@@ -725,19 +730,21 @@ all modules, single or multiple modules:</p>
 <p>Multiple Modules
 <pre><code class="bash">./poller.php -h localhost -m ports,entity-physical -d
 </code></pre></p>
-<p>It is then advisable to sanitise the output before pasting it somewhere as the debug output will contain snmp details
-amongst other items including port descriptions.</p>
+<p>Using <code>-d</code> shouldn't output much sensitive information, <code>-v</code> will so it is then advisable to sanitise the output before pasting it somewhere as the debug output will contain snmp details amongst other items including port descriptions.</p>
 <p>The output will contain:</p>
 <p>DB Updates</p>
 <p>RRD Updates</p>
 <p>SNMP Response</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Extensions/Plugin-System/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Plugin System - LibreNMS Docs</title>
+	    <title>Plugin System - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -595,14 +596,19 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Plugin-System.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Plugin-System.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
 <h1 id="developing-for-the-plugin-system">Developing for the Plugin System</h1>
+<blockquote>
+<p>This will most likely be deprecated in favour of adding the possible extensions to the core code base.</p>
+</blockquote>
 <p>This documentation will hopefully give you a basis for how to write a plugin for LibreNMS.</p>
 <p>A test plugin is available on GitHub: https://github.com/laf/Test</p>
 <p>Plugins need to be installed into html/plugins</p>
@@ -646,12 +652,15 @@ class Test {
 <p>menu()
 * This is called to build the plugin menu system and you can use this to link to your plugin (you don't have to).</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

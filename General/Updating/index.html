@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/General/Updating/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Updating - LibreNMS Docs</title>
+	    <title>Updating - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -599,38 +600,40 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/General/Updating.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/General/Updating.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
 <h2 id="updating-your-install">Updating your install</h2>
 <p>If you would like to perform a manual update
 then you can do this by running the following command as the <strong>librenms</strong> user:</p>
-<pre><code>./daily.sh
-</code></pre>
+<p><code>./daily.sh</code></p>
 <p>This will update both the core LibreNMS files but also update the database
 structure if updates are available.</p>
 <h2 id="configuring-the-update-channel">Configuring the update channel</h2>
 <p>LibreNMS follows the master branch on github for daily updates.
 You can change to the monthly releases by setting:</p>
-<pre><code>$config['update_channel'] = 'release';
-</code></pre>
+<p><code>$config['update_channel'] = 'release';</code></p>
 <h2 id="disabling-automatic-updates">Disabling automatic updates</h2>
 <p>LibreNMS by default performs updates on a daily basis. This can be disabled
 by ensuring:</p>
-<pre><code>$config['update'] = 0;
-</code></pre>
+<p><code>$config['update'] = 0;</code></p>
 <p>is no longer commented out. </p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

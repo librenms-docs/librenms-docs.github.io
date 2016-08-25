@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/General/Callback-Stats-and-Privacy/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Callback Stats and Privacy - LibreNMS Docs</title>
+	    <title>Callback Stats and Privacy - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -601,10 +602,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/General/Callback-Stats-and-Privacy.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/General/Callback-Stats-and-Privacy.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -638,12 +641,15 @@
 <h4 id="how-do-i-enable-stats-submission">How do I enable stats submission?</h4>
 <p>If you're happy with all of this - please consider switching the call back system on, you can do this within the About LibreNMS page within your control panel. In the Statistics section you will find a toggle switch to enable / disable the feature. If you've previously had it switched on and want to opt out and remove your data, click the 'Clear remote stats' button and on the next submission all the data you've sent us will be removed!</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Developing/Code-Guidelines/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Code Guidelines - LibreNMS Docs</title>
+	    <title>Code Guidelines - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -595,10 +596,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Code-Guidelines.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Code-Guidelines.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -643,12 +646,15 @@ Below are a few key items from that specification, please make sure to follow th
 </code></pre></p>
 <p>The <code>?&gt;</code> <a href="http://www.php-fig.org/psr/psr-2/#2-2-files">must be excluded</a> from all files that only include PHP (no html). For instance anything in includes/ or html/includes don't need the tag along with config.php.</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

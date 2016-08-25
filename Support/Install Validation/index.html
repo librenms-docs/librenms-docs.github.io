@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Support/Install Validation/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Install Validation - LibreNMS Docs</title>
+	    <title>Install Validation - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -593,15 +594,17 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Install Validation.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Install Validation.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
 <h2 id="install-validation">Install validation</h2>
-<p>With a lot of configuration possibilities and at present the only way to do this being by manually editing config.php then it's not
+<p>With a lot of configuration possibilities, manually editing config.php means it's not
 uncommon that mistakes get made. It's also impossible to validate user input in config.php when you're just using a text editor :)</p>
 <p>So, to try and help with some of the general issues people come across we've put together a simple validation tool which at present will:</p>
 <ul>
@@ -620,17 +623,21 @@ uncommon that mistakes get made. It's also impossible to validate user input in 
 <li>dist-poller - This will test your distributed poller configuration.</li>
 <li>rrdcheck - This will test your rrd files to see if they are unreadable or corrupted (source of broken graphs).</li>
 </ul>
-<p>Output, this is color coded to try and make things a little easier:</p>
-<p>Green OK - This is a good thing, you can skip over these :)</p>
-<p>Yellow WARN - You probably want to check this out.</p>
-<p>Red FAIL - This is going to need your attention!</p></div>
+<p>You can run validate.php as <code>root</code> by executing <code>./validate.php</code> within your install directory.</p>
+<p>The output will provide you either a clean bill of health or a list of things you need to fix:</p>
+<p>OK - This is a good thing, you can skip over these :)</p>
+<p>WARN - You probably want to check this out.</p>
+<p>FAIL - This is going to need your attention!</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

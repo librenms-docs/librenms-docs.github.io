@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Developing/Using-Git/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Using Git - LibreNMS Docs</title>
+	    <title>Using Git - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -605,10 +606,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Using-Git.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Using-Git.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -674,11 +677,11 @@ you created is 123 then use issue-123 as the branch name.</p>
 pull request then commit away.</p>
 <pre><code class="bash">git add path/to/new/files/or/folders
 git commit -a -m 'Added feature to do X, Y and Z'
-git checkout master
-git pull upstream master
-git push origin master
-git checkout issue-123
-git pull origin master
+git push origin issue-123
+</code></pre>
+
+<p>If you need to rebase against master then you can do this with:</p>
+<pre><code class="bash">git pull upstream master
 git push origin issue-123
 </code></pre>
 
@@ -688,23 +691,19 @@ be helpful to do this before you submit your pull request.</p>
 <p>Now you will be ready to submit a pull request from within GitHub. To do this, go to your GitHub page for the LibreNMS
 repo. Now select the branch you have just been working on (issue-123) from the drop down to the left and then click
 'Pull Request'. Fill in the details to describe the work you have done and click 'Create pull request'.</p>
-<p>Thanks for your first pull request :) Now, that might have been a simple update, if things get a bit more complicated
-then you will need to break down your pull request into separate commits (still a single pull request). This is usually
-done when:</p>
-<ul>
-<li>You want to add / update MIBS. Do this in a separate commit including the link to where you got them from.</li>
-<li>You are adding say 3 related features in one go, try and break them down into 3 separate commits.</li>
-<li>Icons for new OS support need to be added as a separate commit including a link to where you got the logo from.</li>
-</ul>
+<p>Thanks for your first pull request :)</p>
 <p>Ok, that should get you started on the contributing path. If you have any other questions then stop by our IRC Channel
 on Freenode ##librenms.</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

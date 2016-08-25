@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Installation/Migrating-from-Observium/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Migrating from Observium - LibreNMS Docs</title>
+	    <title>Migrating from Observium - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -593,10 +594,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Migrating-from-Observium.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Migrating-from-Observium.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -605,12 +608,15 @@
 <p>See <a href="https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/">his</a> blog for full details.</p>
 <p>We have mirrored the scripts he's provided with consent, these are available in the <code>scripts\Migration</code> folder of your installation..</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

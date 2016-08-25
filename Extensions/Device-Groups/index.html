@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Extensions/Device-Groups/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Device Groups - LibreNMS Docs</title>
+	    <title>Device Groups - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -599,10 +600,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Device-Groups.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Device-Groups.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -612,25 +615,28 @@
 <p>Patterns work in the same was as Entities within the alerting system, the format of the pattern is based on the MySQL structure your data is in such
 as <strong>tablename.columnname</strong>. If you are ensure of what the entity is you want then have a browse around inside MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
 <p>As a working example and a common question, let's assume you want to group devices by hostname. If you hostname format is dcX.[devicetype].example.com. You would use the pattern
-devices.hostname. Select the condition which in this case would Like and then enter <code>dc1\..*\.example.com</code>. This would then match dc1.sw01.example.com, dc1.rtr01.example.com but not
+<code>devices.hostname</code>. Select the condition which in this case would be <code>Like</code> and then enter <code>dc1\..*\.example.com</code>. This would then match dc1.sw01.example.com, dc1.rtr01.example.com but not
  dc2.sw01.example.com.</p>
 <h4 id="wildcards">Wildcards</h4>
-<p>As with alerts, the <code>Like</code> operation allows RegExp.</p>
+<p>As with alerts, the <code>Like</code> operation allows MySQL Regular expressions.</p>
 <p>A list of common entities is maintained in our <a href="http://docs.librenms.org/Extensions/Alerting/#entities">Alerting docs</a>.</p>
 <h3 id="conditions">Conditions</h3>
 <p>Please see our <a href="http://docs.librenms.org/Extensions/Alerting/#syntax">Alerting docs</a> for explanations.</p>
 <h3 id="connection">Connection</h3>
 <p>If you only want to group based on one pattern then select And. If however you want to build a group based on multiple patterns then you can build a SQL like
-query using And / Or. As an example, we want to base our group on the devices hostname AND it's type. Use the pattern as before, devices.hostname, select the condition which in this case would Like and then enter dc1.@.example.com then click And. Now enter devices.type in the pattern, select Equals and enter firewall. This would then match dc1.fw01.example.com but not dc1.sw01.example.com as that is a network type.</p>
+query using And / Or. As an example, we want to base our group on the devices hostname AND it's type. Use the pattern as before, <code>devices.hostname</code>, select the condition which in this case would be <code>Like</code> and then enter <code>dc1.@.example.com</code> then click And. Now enter <code>devices.type</code> in the pattern, select <code>Equals</code> and enter <code>firewall</code>. This would then match dc1.fw01.example.com but not dc1.sw01.example.com as that is a network type.</p>
 <p>You can now select this group from the Devices -&gt; All Devices link in the navigation at the top. You can also use the group to map alert rules to by creating an alert mapping
-Overview -&gt; Alerts -&gt; Rule Mapping.</p></div>
+<code>Overview -&gt; Alerts -&gt; Rule Mapping</code>.</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

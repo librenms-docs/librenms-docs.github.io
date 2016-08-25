@@ -1,8 +1,10 @@
 {% if meta.source %}
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 {% for filename in meta.source %}
-    <i class="fa fa-pencil"></i> <a href="{{ repo_url }}/edit/master/doc/{{ filename }}" target="_blank">Edit on GitHub</a>
+    <a href="{{ repo_url }}/edit/master/doc/{{ filename }}" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 {% endfor %}
+  </div>
 </div>
 {% endif %}
 

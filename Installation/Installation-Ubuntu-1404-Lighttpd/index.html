@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Ubuntu 14.04 (Lighttpd) - LibreNMS Docs</title>
+	    <title>Ubuntu 14.04 (Lighttpd) - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -626,10 +627,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Installation-Ubuntu-1404-Lighttpd.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Installation-Ubuntu-1404-Lighttpd.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -785,12 +788,15 @@ If you don't see data after this, please refer to the <a href="http://docs.libre
 <p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>
 <p>It would be great if you would consider opting into the stats system we have, please see <a href="http://docs.librenms.org/General/Callback-Stats-and-Privacy/">this page</a> on what it is and how to enable it.</p></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>

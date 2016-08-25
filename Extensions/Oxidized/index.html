@@ -9,7 +9,7 @@
         <link rel="canonical" href="http://docs.librenms.org/Extensions/Oxidized/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Oxidized - LibreNMS Docs</title>
+	    <title>Oxidized - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -583,6 +583,7 @@
 </div>
 
         <div class="container">
+            <div class="row">
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
@@ -597,10 +598,12 @@
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-<div class="source-links">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
 
-    <i class="fa fa-pencil"></i> <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Oxidized.md" target="_blank">Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Oxidized.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
+  </div>
 </div>
 
 
@@ -645,12 +648,12 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
 
 <p>LibreNMS is able to reload the Oxidized list of nodes, each time a device is added to LibreNMS.
 To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized Integration or add the following to your config.php.</p>
-<pre><code class="php">$config['oxidized']['reload_nodes'] = TRUE;
+<pre><code class="php">$config['oxidized']['reload_nodes'] = true;
 
 </code></pre>
 
 <h4 id="using-groups">Using Groups</h4>
-<p>To return a group to Oxidized you can do this by matching a regex for either hostname, os or location. The order is hostname is matched first, if nothing is found then os is tried and then location is attempted.
+<p>To return a group to Oxidized you can do this by matching a regex for either <code>hostname</code>, <code>os</code> or <code>location</code>. The order is <code>hostname</code> is matched first, if nothing is found then <code>os</code> is tried and then <code>location</code> is attempted.
 The first match found will be used. To match on the device hostnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
 <pre><code class="php">$config['oxidized']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
 $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'group' =&gt; 'london-switches');
@@ -674,12 +677,15 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
 $config['oxidized']['ignore_os'] = array('linux');
 </code></pre></div>
             
+            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
         </footer>
 
         <script src="../../js/jquery-1.12.4.min.js"></script>
