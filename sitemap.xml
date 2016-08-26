@@ -365,6 +365,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.librenms.org/Developing/Validating-Code/</loc>
+     <lastmod>2016-08-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
