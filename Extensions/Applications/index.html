@@ -667,14 +667,15 @@
 <h5 id="snmp-extend">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -o /etc/snmp/apache-stats.py
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
 </code></pre></li>
 <li>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
 <pre><code>extend apache /etc/snmp/apache-stats.py
 </code></pre></li>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>Apache</code> under the Applications tab.</li>
+<li>On the device page in Librenms, edit your host and check the <code>Apache</code> under the Applications tab.
+(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</li>
 </ol>
 <h3 id="bind9-aka-named">BIND9 aka named</h3>
 <h5 id="agent">Agent</h5>
