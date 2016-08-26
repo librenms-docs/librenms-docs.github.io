@@ -1847,9 +1847,38 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?st
     &quot;err-msg&quot;: &quot;&quot;,
     &quot;count&quot;: 1,
     &quot;services&quot;: [
-        {
-            &quot;Need example&quot;
-        }
+        [
+            {
+                &quot;service_id&quot;: &quot;13&quot;,
+                &quot;device_id&quot;: &quot;1&quot;,
+                &quot;service_ip&quot;: &quot;demo1.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;ntp_peer&quot;,
+                &quot;service_desc&quot;: &quot;NTP&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.10&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1470962470&quot;,
+                &quot;service_message&quot;: &quot;NTP OK: Offset -0.000717 secs&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;offset\&quot;:\&quot;s\&quot;}&quot;
+            }
+        ],
+        [
+            {
+                &quot;service_id&quot;: &quot;2&quot;,
+                &quot;device_id&quot;: &quot;2&quot;,
+                &quot;service_ip&quot;: &quot;demo2.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;esxi_hardware.py&quot;,
+                &quot;service_desc&quot;: &quot;vmware hardware&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.11 -U USER -P PASS -p&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1471702206&quot;,
+                &quot;service_message&quot;: &quot;OK - Server: Supermicro X9SCL/X9SCM s/n: 0123456789 System BIOS: 2.2 2015-02-20&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;P2Vol_0_Processor_1_Vcore\&quot;:\&quot;\&quot;,\&quot;P2Vol_1_System_Board_1_-12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_2_System_Board_1_12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_3_System_Board_1_3.3VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_4_System_Board_1_5VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_5_System_Board_1_AVCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_6_System_Board_1_VBAT\&quot;:\&quot;\&quot;,\&quot;P2Vol_7_System_Board_1_&quot;
+            }
+        ]
     ]
 }
 </code></pre></p>
@@ -1875,9 +1904,22 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:h
     &quot;err-msg&quot;: &quot;&quot;,
     &quot;count&quot;: 1,
     &quot;services&quot;: [
-        {
-            &quot;Need example&quot;
-        }
+        [
+            {
+                &quot;service_id&quot;: &quot;2&quot;,
+                &quot;device_id&quot;: &quot;2&quot;,
+                &quot;service_ip&quot;: &quot;demo2.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;esxi_hardware.py&quot;,
+                &quot;service_desc&quot;: &quot;vmware hardware&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.11 -U USER -P PASS -p&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1471702206&quot;,
+                &quot;service_message&quot;: &quot;OK - Server: Supermicro X9SCL/X9SCM s/n: 0123456789 System BIOS: 2.2 2015-02-20&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;P2Vol_0_Processor_1_Vcore\&quot;:\&quot;\&quot;,\&quot;P2Vol_1_System_Board_1_-12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_2_System_Board_1_12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_3_System_Board_1_3.3VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_4_System_Board_1_5VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_5_System_Board_1_AVCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_6_System_Board_1_VBAT\&quot;:\&quot;\&quot;,\&quot;P2Vol_7_System_Board_1_&quot;
+            }
+        ]
     ]
 }
 </code></pre></p></div>
