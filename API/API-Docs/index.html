@@ -703,13 +703,18 @@
 </ul>
 </li>
 <li><a href="#api-resources"><code>resources</code></a><ul>
-<li><a href="#api-resources-list_arp"><code>list_arp</code></a>
-Describes the API structure.</li>
+<li><a href="#api-resources-list_arp"><code>list_arp</code></a></li>
+</ul>
+</li>
+<li><a href="#api-services"><code>services</code></a><ul>
+<li><a href="#api-services-list_services"><code>list_services</code></a></li>
+<li><a href="#api-services-get_service_for_host"><code>get_service_for_host</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<p>Describes the API structure.</p>
 <h1 id="structure-top"><a name="api-structure"><code>Structure</code></a> <a href="#top"><code>top</code></a></h1>
 <h2 id="versioning-top"><a name="api-versioning"><code>Versioning</code></a> <a href="#top"><code>top</code></a></h2>
 <p>Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: http://blog.librenms.org/2014/09/restful-apis/</p>
@@ -1813,6 +1818,59 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/i
             &quot;mac_address&quot;: &quot;da160e5c2002&quot;,
             &quot;ipv4_address&quot;: &quot;1.1.1.1&quot;,
             &quot;context_name&quot;: &quot;&quot;
+        }
+    ]
+}
+</code></pre></p>
+<h3 id="function-list_services-top"><a name="api-services-list_services">Function: <code>list_services</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve all services</p>
+<p>Route: /api/v0/services</p>
+<p>Input:</p>
+<ul>
+<li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
+<li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
+</ul>
+<p>Example:
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=2
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=0&amp;type=tcp
+</code></pre></p>
+<p>Output:
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;services&quot;: [
+        {
+            &quot;Need example&quot;
+        }
+    ]
+}
+</code></pre></p>
+<h3 id="function-get_service_for_host-top"><a name="api-services-get_service_for_host">Function: <code>get_service_for_host</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve services for device</p>
+<p>Route: /api/v0/services/:hostname</p>
+<ul>
+<li>id or hostname is the specific device</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
+<li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
+</ul>
+<p>Example:
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=2
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=0&amp;type=tcp
+</code></pre></p>
+<p>Output:
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;services&quot;: [
+        {
+            &quot;Need example&quot;
         }
     ]
 }
