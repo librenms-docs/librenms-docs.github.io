@@ -596,10 +596,6 @@
     
         <li class="main active"><a href="#creating-documentation">Creating Documentation</a></li>
         
-            <li><a href="#writing-documentation">Writing documentation</a></li>
-        
-            <li><a href="#building-documentation">Building documentation</a></li>
-        
     
     </ul>
 </div></div>
@@ -614,7 +610,6 @@
 
 
 <h1 id="creating-documentation">Creating Documentation</h1>
-<h3 id="writing-documentation">Writing documentation</h3>
 <p>One of the goals of the LibreNMS project is to enable users to get all of the help they need from our documentation.</p>
 <p>When you are adding a new feature or extension, we need to have full documentation to go along with it. It's quite 
 simple to do this:</p>
@@ -630,25 +625,7 @@ simple to do this:</p>
 <li>If you rename a file, please add a redirect in for the old file by using <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code> within the old file name.</li>
 </ul>
 <p>Please ensure you add the document to the relevant section within <code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
-Forgetting this step will result in your document never seeing the light of day :)</p>
-<h3 id="building-documentation">Building documentation</h3>
-<p>Our build process in GitHub automatically builds http://docs.librenms.org from everything in the <code>doc/</code> folder. You can simulate this 
-process to test what the docs will look like before you submit your PR.</p>
-<p>We use <a href="http://www.mkdocs.org/">mkdocs</a> to build the documentation so you need to install that first (we assume you have <code>pip</code> installed):</p>
-<pre><code class="bash">pip install --user mkdocs
-pip install --user pymdown-extensions
-</code></pre>
-
-<p>Now you will need to install the LibreNMS theme:</p>
-<pre><code class="bash">git clone https://github.com/librenms-docs/librenms_theme.git
-</code></pre>
-
-<p>Now you are ready to build your docs and check them, you can do this with mkdocs:</p>
-<pre><code class="bash">mkdocs serve
-</code></pre>
-
-<p>This will launch a web service on localhost port 8000. You can change the port or bind the web server to a different IP by adding 
-<code>-a 0.0.0.0:8080</code></p></div>
+Forgetting this step will result in your document never seeing the light of day :)</p></div>
             
             </div>
         </div>
