@@ -4,7 +4,7 @@
     
     <url>
      <loc>http://docs.librenms.org/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,55 +13,55 @@
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Ubuntu-image/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/CentOS-image/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Nginx/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-CentOS-7-Apache/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installing-LibreNMS/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Migrating-from-Observium/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -71,43 +71,43 @@
         
     <url>
      <loc>http://docs.librenms.org/General/Acknowledgement/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Callback-Stats-and-Privacy/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Changelog/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Contributing/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Credits/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Updating/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/General/Welcome-to-Observium-users/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -117,205 +117,205 @@
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Alerting/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Applications/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Authentication/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Auto-Discovery/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Billing-Module/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Component/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Dell-OpenManage/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Device-Groups/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Distributed-Poller/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Email-Alerting/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Globe-Frontpage/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Graylog/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/IRC-Bot/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/IRC-Bot-Extensions/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/InfluxDB/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Interface-Description-Parsing/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/MIB-based-polling/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Memcached/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Network-Map/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Oxidized/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Plugin-System/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Poller-Service/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Port-Description-Parser/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Proxmox/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/RRDCached/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/RRDTune/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/SNMP-Proxy/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/SNMP-Trap-Handler/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Services/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Smokeping/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Sub-Directory/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Syslog/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Two-Factor-Auth/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Extensions/Varnish/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -325,49 +325,49 @@
         
     <url>
      <loc>http://docs.librenms.org/Developing/Code-Guidelines/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Code-Structure/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Creating-Documentation/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Dynamic-Config/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Sensor-State-Support/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Style-Guidelines/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Developing/Validating-Code/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -376,7 +376,7 @@
     
     <url>
      <loc>http://docs.librenms.org/API/API-Docs/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -385,49 +385,49 @@
         
     <url>
      <loc>http://docs.librenms.org/Support/Configuration/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Discovery Support/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/FAQ/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Features/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Install Validation/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Performance/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Poller Support/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -437,37 +437,37 @@
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
-     <lastmod>2016-08-27</lastmod>
+     <lastmod>2016-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
