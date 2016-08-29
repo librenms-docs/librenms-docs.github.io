@@ -1016,6 +1016,16 @@
             "title": "Disabling automatic updates"
         }, 
         {
+            "location": "/General/Releases/", 
+            "text": "LibreNMS Releases\n\n\nWe try to ensure that breaking changes aren't introduced by utilising various automated \ncode testing, syntax testing and unit testing along with manual code review. However \nbugs can and do get introduced as well as major refactoring to improve the quality of \nthe code base.\n\n\nWith this in mind, we provide a monthly stable release which is released on or around \nthe last Sunday of the month. Code pull requests (aside from Bug fixes) are stopped days \nleading up to the release to ensure that we have a clean working branch at that point.\n\n\nThe releases are titled after that month in the format \nYYYYMM\n, i.e \n201608\n. The \nChangelog is also updated and will reference the release number and date so you can see \nwhat changes have been made since the last release.", 
+            "title": "Releases"
+        }, 
+        {
+            "location": "/General/Releases/#librenms-releases", 
+            "text": "We try to ensure that breaking changes aren't introduced by utilising various automated \ncode testing, syntax testing and unit testing along with manual code review. However \nbugs can and do get introduced as well as major refactoring to improve the quality of \nthe code base.  With this in mind, we provide a monthly stable release which is released on or around \nthe last Sunday of the month. Code pull requests (aside from Bug fixes) are stopped days \nleading up to the release to ensure that we have a clean working branch at that point.  The releases are titled after that month in the format  YYYYMM , i.e  201608 . The \nChangelog is also updated and will reference the release number and date so you can see \nwhat changes have been made since the last release.", 
+            "title": "LibreNMS Releases"
+        }, 
+        {
             "location": "/General/Welcome-to-Observium-users/", 
             "text": "Welcome to Observium users\n\n\nLibreNMS is a fork of Observium.  The reason for the fork is nothing to do\nwith Observium's \nmove to community vs. paid versions\n.  It is simply\nthat we have different priorities and values to the Observium development\nteam.  We decided to fork (reluctantly) because we like using Observium,\nbut we want to collaborate on a community-based project with like-minded\nIT professionals.  See \nREADME.md\n and the references there for more\ninformation about the kind of community we're trying to promote.\n\n\nLibreNMS was forked from \nthe last GPL-licensed version of Observium\n.\n\nThis means you won't be able to take an existing Observium installation\nlater than r3250 and just change it to LibreNMS.  This would probably break\n(although if you were on a version between r3250 and the next database\nschema change, it might be feasible).  Upgrades from versions earlier than\nr3251 might work.  Please try it on an unimportant system and tell us your\nexperiences!\n\n\nThanks to one of our users Dan Brown who has written a migration script to be able move your Observium install over to LibreNMS \nDan Brown\n. This also takes care of moving from one cpu architect to another. Give it a try :)\n\n\nHow LibreNMS will be different from Observium:\n\n\n\n\nWe will have an inclusive community, where it's OK to ask stupid\n  questions, and OK to ask for things that aren't on the roadmap.  If you'd\n  like to see something added, add or comment on the relevant issue in our\n  \nGitHub issue database\n.\n\n\nDevelopment decisions will be community-driven.  We want to make software\n  that fulfills its users' needs.  See the [ROADMAP][4] for more thoughts\n  on our current plans.\n\n\nDevelopment will probably proceed at a slower pace, at least initially.\n\n\nThere are no plans for a paid version, and we don't anticipate this ever\n  changing.\n\n\nThere are no current plans for paid support, but this may be added later\n  if there is sufficient demand.\n\n\nWe use git for version control and GitHub for hosting to make it as easy\n  and painless as possible to create forked or private versions.\n\n\n\n\nReasons why you might want to use Observium instead of LibreNMS:\n\n\n\n\nYou have a financial investment in Observium and aren't concerned about\n  community contributions.\n\n\nYou need functionality that has been added to Observium since r3250.\n The beauty of LibreNMS is that you can contribute missing features.\n\n\nYou don't like the \nGNU General Public License, version 3\n or the\n  \nphilosophy of Free Software/copyleft\n in general.\n\n\n\n\nReasons why you might want to use LibreNMS instead of Observium:\n\n\n\n\nYou want to work with others on the project, knowing that \nyour\n  investment of time and effort will not be wasted\n.\n\n\nYou want to add and experiment with features that are not a priority for\n  the Observium developers.  See \nCONTRIBUTING\n for more details.\n\n\nYou want to make use of the additional features LibreNMS can offer.", 
             "title": "Welcome to Observium users"
@@ -2684,6 +2694,56 @@
             "location": "/Developing/Creating-Documentation/#creating-documentation", 
             "text": "One of the goals of the LibreNMS project is to enable users to get all of the help they need from our documentation.  When you are adding a new feature or extension, we need to have full documentation to go along with it. It's quite \nsimple to do this:   Find the relevant directory to store your new document in, General, Support and Extensions are the most likely choices.  Think of a descriptive name that's not too long, it should match what they may be looking for or describes the feature.  In the body of the document, be descriptive but keep things simple. Some tips:  If the document could cover different distros like CentOS and Ubuntu please try and include the information for them all.\n  If that's not possible then at least put a placeholder in asking for contributions.  Ensure you use the correct formating for  commands  and  code blocks  by wrapping one liners in backticks or blocks in ```.    If you rename a file, please add a redirect in for the old file by using  meta http-equiv=\"refresh\" content=\"0; url=/NewLocation/\" /  within the old file name.   Please ensure you add the document to the relevant section within  pages  of  mkdocs.yml  so that it's in the correct menu and is built.\nForgetting this step will result in your document never seeing the light of day :)", 
             "title": "Creating Documentation"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/", 
+            "text": "Developing/Merging-Pull-Requests.md\n\n\nMerging Pull Requests\n\n\nGitHub\n\n\nWe will now build the monthly change log from our GitHub commits. When merging a commit, please \nensure you:\n\n\n\n\nClick the \nMerge pull request\n button\n\n\nGive the merge a descriptive but short title\n\n\nFor the commit message prepend it with one of the following tags for the pull request to appear in the changelog:\n\n\ndevices: or newdevice: For new device support.\n\n\nfeature: or feat: To indicate this is a new or updated feature\n\n\nwebui: or web: To indicate this is an update to the WebUI\n\n\nfix: or bugfix: To show this is a bug fix.\n\n\nrefactoring: or refactor: When the changes are refactoring a large portion of code\n\n\n\n\n\n\nYou can reference an issue number with \n#xyz\n, i.e \n#1234\n\n\nUse the \nConfirm squash and merge\n button to merge.\n\n\n\n\nExample commits\n\n\nFeature\n\n\nfeature: Added new availability map #4401\n\n\nNew device\n\n\nnewdevice: Added support for Cisco ASA #4402", 
+            "title": "Merging Pull Requests"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/#merging-pull-requests", 
+            "text": "", 
+            "title": "Merging Pull Requests"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/#github", 
+            "text": "We will now build the monthly change log from our GitHub commits. When merging a commit, please \nensure you:   Click the  Merge pull request  button  Give the merge a descriptive but short title  For the commit message prepend it with one of the following tags for the pull request to appear in the changelog:  devices: or newdevice: For new device support.  feature: or feat: To indicate this is a new or updated feature  webui: or web: To indicate this is an update to the WebUI  fix: or bugfix: To show this is a bug fix.  refactoring: or refactor: When the changes are refactoring a large portion of code    You can reference an issue number with  #xyz , i.e  #1234  Use the  Confirm squash and merge  button to merge.", 
+            "title": "GitHub"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/#example-commits", 
+            "text": "", 
+            "title": "Example commits"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/#feature", 
+            "text": "feature: Added new availability map #4401", 
+            "title": "Feature"
+        }, 
+        {
+            "location": "/Developing/Merging-Pull-Requests/#new-device", 
+            "text": "newdevice: Added support for Cisco ASA #4402", 
+            "title": "New device"
+        }, 
+        {
+            "location": "/Developing/Creating-Release/", 
+            "text": "Developing/Creating-Release.md\n\n\nCreating a release\n\n\nGitHub\n\n\nYou can create a new release on \nGitHub\n.\n\n\nEnter the tag version that month, i.e for September 2016 you would enter \n201609\n.\n\n\nEnter a title, we usually use \nAugust 2016 Release\n\n\nEnter a placeholder for the body, we will edit this later.\n\n\nCreate changelog\n\n\nWe utilise \nReadmegen\n to automatically populate the Changelog.\n\n\nInstall \nreadmegen\n using \ncomposer\n:\n\n\n./composer.phar update\n\n\n\n\nYou can now create the update change log by running (201608 was our last release):\n\n\n./vendor/bin/readmegen --from 201608 --release 201609\n\n\n\n\nNow commit and push the change that has been made to \ndoc\\General\\Changelog.md", 
+            "title": "Creating Release"
+        }, 
+        {
+            "location": "/Developing/Creating-Release/#creating-a-release", 
+            "text": "", 
+            "title": "Creating a release"
+        }, 
+        {
+            "location": "/Developing/Creating-Release/#github", 
+            "text": "You can create a new release on  GitHub .  Enter the tag version that month, i.e for September 2016 you would enter  201609 .  Enter a title, we usually use  August 2016 Release  Enter a placeholder for the body, we will edit this later.", 
+            "title": "GitHub"
+        }, 
+        {
+            "location": "/Developing/Creating-Release/#create-changelog", 
+            "text": "We utilise  Readmegen  to automatically populate the Changelog.  Install  readmegen  using  composer :  ./composer.phar update  You can now create the update change log by running (201608 was our last release):  ./vendor/bin/readmegen --from 201608 --release 201609  Now commit and push the change that has been made to  doc\\General\\Changelog.md", 
+            "title": "Create changelog"
         }, 
         {
             "location": "/Developing/Dynamic-Config/", 
