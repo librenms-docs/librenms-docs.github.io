@@ -12,12 +12,12 @@
         }, 
         {
             "location": "/Installation/Installing-LibreNMS/", 
-            "text": "Installing LibreNMS\n\n\nWe have some pre-built VirtualBox images you can use to get started:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nIf you want to install yourself then we have some new documentation which should make it easy.\n\n\n\n\nPlease note the following docs are new and may not be 100% complate, please provide feedback on your experience.\n\n\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
+            "text": "Installing LibreNMS\n\n\nWe have some pre-built VirtualBox images you can use to get started:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nIf you want to install yourself then we have some new documentation which should make it easy.\n\n\n\n\nPlease note the following docs are new and may not be 100% complete, please provide feedback on your experience.\n\n\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
             "title": "Installing LibreNMS"
         }, 
         {
             "location": "/Installation/Installing-LibreNMS/#installing-librenms", 
-            "text": "We have some pre-built VirtualBox images you can use to get started:  Ubuntu 16.04  CentOS 7  If you want to install yourself then we have some new documentation which should make it easy.   Please note the following docs are new and may not be 100% complate, please provide feedback on your experience.   Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
+            "text": "We have some pre-built VirtualBox images you can use to get started:  Ubuntu 16.04  CentOS 7  If you want to install yourself then we have some new documentation which should make it easy.   Please note the following docs are new and may not be 100% complete, please provide feedback on your experience.   Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
             "title": "Installing LibreNMS"
         }, 
         {
@@ -407,12 +407,12 @@
         }, 
         {
             "location": "/Installation/Installing-LibreNMS/", 
-            "text": "Installing LibreNMS\n\n\nWe have some pre-built VirtualBox images you can use to get started:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nIf you want to install yourself then we have some new documentation which should make it easy.\n\n\n\n\nPlease note the following docs are new and may not be 100% complate, please provide feedback on your experience.\n\n\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
+            "text": "Installing LibreNMS\n\n\nWe have some pre-built VirtualBox images you can use to get started:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nIf you want to install yourself then we have some new documentation which should make it easy.\n\n\n\n\nPlease note the following docs are new and may not be 100% complete, please provide feedback on your experience.\n\n\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
             "title": "Older Docs"
         }, 
         {
             "location": "/Installation/Installing-LibreNMS/#installing-librenms", 
-            "text": "We have some pre-built VirtualBox images you can use to get started:  Ubuntu 16.04  CentOS 7  If you want to install yourself then we have some new documentation which should make it easy.   Please note the following docs are new and may not be 100% complate, please provide feedback on your experience.   Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
+            "text": "We have some pre-built VirtualBox images you can use to get started:  Ubuntu 16.04  CentOS 7  If you want to install yourself then we have some new documentation which should make it easy.   Please note the following docs are new and may not be 100% complete, please provide feedback on your experience.   Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
             "title": "Installing LibreNMS"
         }, 
         {
