@@ -837,6 +837,16 @@ The template-parser understands <code>if</code> and <code>foreach</code> control
 <li>Transport name: <code>%transport</code></li>
 <li>Contacts, must be iterated in a foreach, <code>%key</code> holds email and <code>%value</code> holds name: <code>%contacts</code></li>
 </ul>
+<blockquote>
+<p>NOTE: Placeholder names which are contained within another need to be ordered correctly. As an example:</p>
+</blockquote>
+<pre><code class="text">Limit: %value.sensor_limit / %value.sensor_limit_low
+</code></pre>
+
+<p>Should be done as:</p>
+<pre><code class="text">Limit: %value.sensor_limit_low / %value.sensor_limit
+</code></pre>
+
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining own templates for your rules to include more specific information.
 Templates can be matched against several rules.</p>
 <h2 id="examples_1"><a name="templates-examples">Examples</a></h2>
