@@ -616,6 +616,8 @@
         
             <li><a href="#command-options">Command options</a></li>
         
+            <li><a href="#discovery-wrapper">Discovery wrapper</a></li>
+        
             <li><a href="#discovery-config">Discovery config</a></li>
         
             <li><a href="#discovery-modules">Discovery modules</a></li>
@@ -668,6 +670,15 @@ new will poll only those devices that have recently been added or have been sele
 <p><code>-d</code> Enables debugging output (verbose output but with most sensitive data masked) so that you can see what is happening during a discovery run. This includes things like rrd updates, SQL queries and response from snmp.</p>
 <p><code>-v</code> Enables verbose debugging output with all data in tact.</p>
 <p><code>-m</code> This enables you to specify the module you want to run for discovery.</p>
+<h4 id="discovery-wrapper">Discovery wrapper</h4>
+<p>We have a <code>discovery-wrapper.py</code> script which is based on <code>poller-wrapper.py</code> by <a href="https://github.com/job">Job Snijders</a>.
+You can enable support for this within cron by replacing:</p>
+<p><code>33  */6   * * *   librenms    /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1</code></p>
+<p>With:</p>
+<p><code>33  */6   * * *   librenms    /opt/librenms/discovery-wrapper.php 1 &gt;&gt; /dev/null 2&gt;&amp;1</code></p>
+<p>The default is for discovery wrapper to only use 1 thread so that it mimics the current behaviour. However if your 
+system is powerful enough and the devices can cope then you can increase the thread count from 1 to a value of your
+choosing.</p>
 <h4 id="discovery-config">Discovery config</h4>
 <p>These are the default discovery config items. You can globally disable a module by setting it to 0. If you just want to
 disable it for one device then you can do this within the WebUI -&gt; Device -&gt; Settings -&gt; Modules.</p>
