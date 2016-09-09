@@ -620,6 +620,8 @@
         
             <li><a href="#enable-authentication-module">Enable authentication module</a></li>
         
+            <li><a href="#note-for-selinux-users">Note for SELinux users</a></li>
+        
             <li><a href="#mysql-authentication">MySQL Authentication</a></li>
         
             <li><a href="#http-authentication">HTTP Authentication</a></li>
@@ -686,6 +688,11 @@ Here we will provide configuration details for these modules.</p>
 <h4 id="enable-authentication-module">Enable authentication module</h4>
 <p>To enable a particular authentication module you need to set this up in config.php.</p>
 <pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
+</code></pre>
+
+<h4 id="note-for-selinux-users">Note for SELinux users</h4>
+<p>When using SELinux on the LibreNMS server, you need to allow Apache (httpd) to connect LDAP/Active Directory server, this is disabled by default. You can use SELinux Booleans to allow network access to LDAP resources with this command:</p>
+<pre><code class="shell">setsebool -P httpd_can_connect_ldap=1
 </code></pre>
 
 <h4 id="mysql-authentication">MySQL Authentication</h4>
@@ -781,6 +788,11 @@ $config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']  = 7;
 </code></pre>
 
 <p>Replace <code>&lt;ad-admingroup&gt;</code> with your Active Directory admin-user group and <code>&lt;ad-usergroup&gt;</code> with your standard user group.</p>
+<h5 id="active-directory-redundancy">Active Directory redundancy</h5>
+<p>You can set two Active Directory servers by editing the <code>$config['auth_ad_url']</code> like this example:</p>
+<pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
+</code></pre>
+
 <h4 id="radius-authentication">Radius Authentication</h4>
 <p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
 <blockquote>
