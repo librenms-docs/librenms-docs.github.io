@@ -671,12 +671,14 @@ RFC4226 suggests a resynchronization attempt in case the passcode mismatches, pr
 The main advantage over timebased OTP is the attacker doesn't only need to know the Secretkey but also the server's Counter in order to create valid passcodes.
 RFC4226 suggests a resynchronization attempt in case the passcode mismatches, providing the attacker a range of up to +4 increments from the actual counter to create passcodes.</p>
 <h1 id="configuration"><a name="config">Configuration</a></h1>
-<p>Enable Two-Factor:
+<p>Enable Two-Factor:</p>
 <pre><code class="php">$config['twofactor'] = true;
-</code></pre></p>
-<p>Set throttle-time (in seconds):
+</code></pre>
+
+<p>Set throttle-time (in seconds):</p>
 <pre><code class="php">$config['twofactor_lock'] = 300;
-</code></pre></p>
+</code></pre>
+
 <h1 id="usage"><a name="usage">Usage</a></h1>
 <p>These steps imply that TwoFactor has been enabled in your <code>config.php</code></p>
 <p>Create a Two-Factor key:

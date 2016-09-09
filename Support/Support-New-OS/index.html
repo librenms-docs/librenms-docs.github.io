@@ -684,9 +684,10 @@ $config['os'][$os]['over'][2]['text']  = 'Memory Usage';
 
 <h3 id="discovery-os">Discovery OS</h3>
 <p>We create a new file named as our OS definition and in this directory:</p>
-<p><pre><code class="bash">includes/discovery/os/pulse.inc.php
+<pre><code class="bash">includes/discovery/os/pulse.inc.php
 </code></pre>
-This file just sets the $os variable, done by checking the SNMP tree for a particular value that matches the OS you are adding. Typically, this will come from the presence of specific values in sysObjectID or sysDescr, or the existence of a particular enterprise tree.
+
+<p>This file just sets the $os variable, done by checking the SNMP tree for a particular value that matches the OS you are adding. Typically, this will come from the presence of specific values in sysObjectID or sysDescr, or the existence of a particular enterprise tree.
 Look at other files to get help in the code structure.</p>
 <pre><code class="php">&lt;?php
 
@@ -698,9 +699,10 @@ if (!$os) {
 </code></pre>
 
 <p>Here is the file location for polling the new OS within a vendor MIB or a standard one:</p>
-<p><pre><code class="bash">includes/polling/os/pulse.inc.php
+<pre><code class="bash">includes/polling/os/pulse.inc.php
 </code></pre>
-This file will usually set the variables for $version, $hardware and $hostname retrieved from an snmp lookup.</p>
+
+<p>This file will usually set the variables for $version, $hardware and $hostname retrieved from an snmp lookup.</p>
 <pre><code class="php">&lt;?php
 
 $version = trim(snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;),'&quot;');
@@ -728,12 +730,14 @@ snmpget -v2c -c public -OUsb -m PULSESECURE-PSG-MIB -M /opt/librenms/mibs -t 30 
 </code></pre>
 
 <h4 id="the-final-check">The final check</h4>
-<p>Discovery
+<p>Discovery</p>
 <pre><code class="bash">./discovery.php -h HOSTNAME
-</code></pre></p>
-<p>Polling
+</code></pre>
+
+<p>Polling</p>
 <pre><code class="bash">./poller.php -h HOSTNAME
-</code></pre></p>
+</code></pre>
+
 <p>At this step we should see all the values retrieved in LibreNMS.</p>
 <h4 id="full-support-for-a-new-os">FULL SUPPORT FOR A NEW OS</h4>
 <h3 id="mib_1">MIB</h3>
@@ -883,10 +887,11 @@ if ($device['os'] == 'pulse') {
 </code></pre>
 
 <p>Here is the file location for the specific graphs based on the OID in the vendor MIB:</p>
-<p><pre><code class="bash">includes/polling/os/pulse.inc.php
+<pre><code class="bash">includes/polling/os/pulse.inc.php
 </code></pre>
-We declare two specific graphs for users and sessions numbers. Theses two graphs will be displayed on the firewall section of the graphs tab as it was written in the definition include file.</p>
-<p><pre><code class="php">&lt;?php
+
+<p>We declare two specific graphs for users and sessions numbers. Theses two graphs will be displayed on the firewall section of the graphs tab as it was written in the definition include file.</p>
+<pre><code class="php">&lt;?php
 
 $version = trim(snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;),'&quot;');
 $hardware = &quot;Juniper &quot; . trim(snmp_get($device, &quot;productName.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;),'&quot;');
@@ -918,7 +923,8 @@ if (is_numeric($sessions)) {
     $graphs['pulse_sessions'] = true;
 }
 </code></pre>
-We finish in the declaration of the two graph types in the database:</p>
+
+<p>We finish in the declaration of the two graph types in the database:</p>
 <p>We can do that within a file to share our work and contribute in the development of LibreNMS. :-)</p>
 <pre><code class="bash">sql-schema/xxx.sql
 //check the file number in GitHub
@@ -983,12 +989,14 @@ require 'includes/graphs/generic_simplex.inc.php';
 </code></pre>
 
 <h4 id="the-final-check_1">The final check</h4>
-<p>Discovery
+<p>Discovery</p>
 <pre><code class="bash">./discovery.php -h HOSTNAME
-</code></pre></p>
-<p>Polling
+</code></pre>
+
+<p>Polling</p>
 <pre><code class="bash">./poller.php -h HOSTNAME
-</code></pre></p>
+</code></pre>
+
 <p>At this step we should see all the values retrieved in LibreNMS.</p></div>
             
             </div>

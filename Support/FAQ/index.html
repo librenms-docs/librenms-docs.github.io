@@ -763,9 +763,10 @@ Before this all rrd files were set to 100G max values, now you can enable suppor
 <p>Running RRDCached is also highly advised in larger installs but has benefits no matter the size.</p>
 <h4 id="how-do-i-change-the-ip-hostname-of-a-device"><a name="faq16"> How do I change the IP / hostname of a device?</a></h4>
 <p>There is a host rename tool called renamehost.php in your librenms root directory. When renaming you are also changing the device's IP / hostname address for monitoring.
-Usage:
+Usage:</p>
 <pre><code class="bash">./renamehost.php &lt;old hostname&gt; &lt;new hostname&gt;
-</code></pre></p>
+</code></pre>
+
 <h4 id="my-device-doesnt-finish-polling-within-300-seconds"><a name="faq19"> My device doesn't finish polling within 300 seconds</a></h4>
 <p>We have a few things you can try:</p>
 <ul>
@@ -840,9 +841,10 @@ It can be helpful for others to test these new features, using Git, this is made
 <pre><code class="bash">cd /opt/librenms
 </code></pre>
 
-<p>Firstly ensure that your current branch is in good state:
+<p>Firstly ensure that your current branch is in good state:</p>
 <pre><code class="bash">git status
-</code></pre></p>
+</code></pre>
+
 <p>If you see <code>nothing to commit, working directory clean</code> then let's go for it :)</p>
 <p>Let's say that you want to test a users (f0o) new development branch (issue-1337) then you can do the following:</p>
 <pre><code class="bash">git remote add f0o https://github.com/f0o/librenms.git

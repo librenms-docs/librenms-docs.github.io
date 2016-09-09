@@ -649,21 +649,23 @@
 <p>PluginName.php - This file is used to process calls into the plugin from the main LibreNMS install.
                  Here only functions within the class for your plugin that LibreNMS calls will be executed.
                  For a list of currently enabled system hooks, please see further down.
-                 The minimum code required in this file is (replace Test with the name of your plugin):
+                 The minimum code required in this file is (replace Test with the name of your plugin):</p>
 <pre><code>&lt;?php
 
 class Test {
 }
 
 ?&gt;
-</code></pre></p>
+</code></pre>
+
 <p>PluginName.inc.php - This file is the main included file when browsing to the plugin itself.
                      You can use this to display / edit / remove whatever you like.
-                     The minimum code required in this file is:
+                     The minimum code required in this file is:</p>
 <pre><code>&lt;?php
 
 ?&gt;
-</code></pre></p>
+</code></pre>
+
 <h3 id="system-hooks">System Hooks</h3>
 <p>System hooks are called as functions within your plugin class, so for example to create a menu entry within the Plugin dropdown you would do:</p>
 <pre><code>  public function menu() {

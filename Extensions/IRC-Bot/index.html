@@ -810,18 +810,20 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
 </code></pre>
 
 <h3 id="channel-notations">Channel notations:</h3>
-<p>Channels can be defined using Array-Notation like:
+<p>Channels can be defined using Array-Notation like:</p>
 <pre><code class="php">   ...
    $config['irc_chan'][] = &quot;#librenms&quot;;
    $config['irc_chan'][] = &quot;#otherchan&quot;;
    $config['irc_chan'][] = &quot;#noc&quot;;
    ...
 </code></pre>
-Or using a single string using <code>,</code> as delimiter between various channels:
+
+<p>Or using a single string using <code>,</code> as delimiter between various channels:</p>
 <pre><code class="php">   ...
    $config['irc_chan'] = &quot;#librenms,#otherchan,#noc&quot;;
    ...
-</code></pre></p>
+</code></pre>
+
 <h1 id="extensions"><a name="extensions">Extensions?!</a></h1>
 <p>The bot is coded in a unified way.
 This makes writing extensions by far less painful.
@@ -831,19 +833,20 @@ The user who requested something is accessible via <code>$this-&gt;user</code>.
 Send your reply/ies via <code>$this-&gt;respond($string)</code>.</p>
 <p>A more detailed documentation of the functions and variables available for extensions can be found at <a href="../IRC-Bot-Extensions">IRC-Bot Extensions</a>;</p>
 <p>Confused? Here an Echo-Example:</p>
-<p>File: config.php
+<p>File: config.php</p>
 <pre><code class="php">   ...
    $config['irc_external'][] = &quot;echo&quot;;
    ...
 </code></pre>
-File: includes/ircbot/echo.inc.php
+
+<p>File: includes/ircbot/echo.inc.php</p>
 <pre><code class="php">   //Prefix everything with `You said: '...'`  and return what was sent.
    if( $this-&gt;user['name'] != &quot;root&quot; ) {
       return $this-&gt;respond(&quot;You said: '&quot;.$params.&quot;'&quot;);
    } else {
       return $this-&gt;respond(&quot;root shouldn't be online so late!&quot;);
    }
-</code></pre></p></div>
+</code></pre></div>
             
             </div>
         </div>

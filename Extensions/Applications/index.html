@@ -684,13 +684,19 @@
 <h3 id="apache">Apache</h3>
 <h5 id="snmp-extend">SNMP Extend</h5>
 <ol>
-<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
 <pre><code>extend apache /etc/snmp/apache-stats.py
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>Apache</code> under the Applications tab.
 (In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</li>
@@ -698,12 +704,13 @@
 <h3 id="bind9-aka-named">BIND9 aka named</h3>
 <h5 id="agent">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>bind</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<p>Create stats file with appropriate permissions:
+<p>Create stats file with appropriate permissions:</p>
 <pre><code class="shell">~$ touch /etc/bind/named.stats
 ~$ chown bind:bind /etc/bind/named.stats
 </code></pre>
-Change <code>user:group</code> to the user and group that's running bind/named.</p>
-<p>Bind/named configuration:
+
+<p>Change <code>user:group</code> to the user and group that's running bind/named.</p>
+<p>Bind/named configuration:</p>
 <pre><code class="text">options {
     ...
     statistics-file &quot;/etc/bind/named.stats&quot;;
@@ -711,7 +718,8 @@ Change <code>user:group</code> to the user and group that's running bind/named.<
     ...
 };
 </code></pre>
-Restart your bind9/named after changing the configuration.</p>
+
+<p>Restart your bind9/named after changing the configuration.</p>
 <p>Verify that everything works by executing <code>rndc stats &amp;&amp; cat /etc/bind/named.stats</code>.
 In case you get a <code>Permission Denied</code> error, make sure you chown'ed correctly.</p>
 <p>Note: if you change the path you will need to change the path in <code>scripts/agent-local/bind</code>.</p>
@@ -721,22 +729,31 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <ol>
 <li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
 <li>Make the script executable (chmod +x /opt/dhcp-status.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
 <pre><code>extend dhcpstats /opt/dhcp-status.sh
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>DHCP Stats</code> under the Applications tab.</li>
 </ol>
 <h3 id="mailscanner">Mailscanner</h3>
 <h5 id="snmp-extend_2">SNMP Extend</h5>
 <ol>
-<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailscanner.php -O /etc/snmp/mailscanner.php
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Make the script executable (chmod +x /etc/snmp/mailscanner.php)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
 <pre><code>extend mailscanner /etc/snmp/mailscanner.php
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>Mailscanner</code> under the Applications tab.</li>
 </ol>
@@ -745,9 +762,12 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/usr/local/bin</code> (or any other suitable location) on your remote server.</li>
 <li>Make the script executable: <code>chmod +x /usr/local/memcached</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+</ol>
 <pre><code>extend memcached /usr/local/bin/memcached
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check <code>Memcached</code> under the Applications tab.</li>
 </ol>
@@ -781,13 +801,19 @@ $mysql_port = 3306;
 <p>Supports NTPD Server (not client, that is separate)</p>
 <h5 id="snmp-extend_4">SNMP Extend</h5>
 <ol>
-<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntpd-server.php -O /etc/snmp/ntpd-server.php
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Make the script executable (chmod +x /etc/snmp/ntdp-server.php)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
 <pre><code>extend ntpdserver /etc/snmp/ntpd-server.php
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>Ntpd-server</code> under the Applications tab.</li>
 </ol>
@@ -800,9 +826,12 @@ $mysql_port = 3306;
 <ol>
 <li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
 <li>Make the script executable (chmod +x /opt/os-updates.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
 <pre><code>extend osupdate /opt/os-updates.sh
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>OS Updates</code> under the Applications tab.</li>
 </ol>
@@ -841,12 +870,18 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
 <li>Make the script executable: <code>chmod +x /opt/raspberry.sh</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+</ol>
 <pre><code>extend raspberry /opt/raspberry.sh
-</code></pre></li>
-<li>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:
+</code></pre>
+
+<ol>
+<li>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:</li>
+</ol>
 <pre><code>snmp ALL=(ALL) NOPASSWD: /opt/raspberry.sh, /usr/bin/vcgencmd*
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart snmpd on PI host</li>
 </ol>
 <h3 id="tinydns-aka-djbdns">TinyDNS aka  djbdns</h3>
@@ -855,14 +890,20 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <p><em>Note</em>: We assume that you use DJB's <a href="http://cr.yp.to/daemontools.html">Daemontools</a> to start/stop tinydns.
 And that your tinydns instance is located in <code>/service/dns</code>, adjust this path if necessary.</p>
 <ol>
-<li>Replace your <em>log</em>'s <code>run</code> file, typically located in <code>/service/dns/log/run</code> with:
+<li>Replace your <em>log</em>'s <code>run</code> file, typically located in <code>/service/dns/log/run</code> with:</li>
+</ol>
 <pre><code class="shell">#!/bin/sh
 exec setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
-</code></pre></li>
-<li>Create tinystats directory and chown:
+</code></pre>
+
+<ol>
+<li>Create tinystats directory and chown:</li>
+</ol>
 <pre><code class="shell">mkdir /service/dns/log/main/tinystats
 chown dnslog:nofiles /service/dns/log/main/tinystats
-</code></pre></li>
+</code></pre>
+
+<ol>
 <li>Restart TinyDNS and Daemontools: <code>/etc/init.d/svscan restart</code>
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.</li>
 </ol>

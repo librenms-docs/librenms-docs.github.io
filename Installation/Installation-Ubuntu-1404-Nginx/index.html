@@ -676,14 +676,16 @@
 <p>** Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
 </blockquote>
 <p>You are free to choose between using MySQL or MariaDB:</p>
-<p><strong>MySQL</strong>
+<p><strong>MySQL</strong></p>
 <pre><code class="bash">apt-get install mysql-server mysql-client
 mysql -uroot -p
-</code></pre></p>
-<p><strong>MariaDB</strong>
+</code></pre>
+
+<p><strong>MariaDB</strong></p>
 <pre><code class="bash">apt-get install mariadb-server mariadb-client
 mysql -uroot -p
-</code></pre></p>
+</code></pre>
+
 <p>Input the MySQL root password to enter the MySQL command-line interface.</p>
 <p>Create the database:</p>
 <pre><code class="sql">CREATE DATABASE librenms;
@@ -749,7 +751,7 @@ chmod 775 rrd
 If you're planing on running rrdcached, make sure that the path is also chmod'ed to 775 and chown'ed to librenms:librenms.</p>
 </blockquote>
 <p>Add configuration for <code>nginx</code> at <code>/etc/nginx/conf.d/librenms.conf</code> with the following content:</p>
-<p><pre><code class="nginx">server {
+<pre><code class="nginx">server {
  listen      80;
  server_name librenms.example.com;
  root        /opt/librenms/html;
@@ -774,7 +776,8 @@ If you're planing on running rrdcached, make sure that the path is also chmod'ed
  }
 }
 </code></pre>
-On at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:</p>
+
+<p>On at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:</p>
 <pre><code>php5enmod mcrypt
 </code></pre>
 <p>(To get to your LibreNMS install externally, you'll also need add it to your DNS or hosts file.)</p>

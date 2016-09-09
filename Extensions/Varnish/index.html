@@ -680,20 +680,23 @@ Varnish cache server
 <p>Now we need to configure Varnish to listen to HTTP requests on port 80 and
 relay those requests to the Apache HTTP server on port 8080 (see block diagram).</p>
 <ul>
-<li>Stop Varnish.
-<pre><code class="bash">systemctl stop varnish
-</code></pre></li>
-<li>
-<p>Create a back-up of varnish.params just in case you make a mistake.
-<pre><code class="bash">cp /etc/varnish/varnish.params /etc/varnish/varnish.params.bak
-</code></pre></p>
-</li>
-<li>
-<p>Edit the varnish.params config.
-<pre><code class="bash">vim /etc/varnish/varnish.params
-</code></pre></p>
-</li>
+<li>Stop Varnish.</li>
 </ul>
+<pre><code class="bash">systemctl stop varnish
+</code></pre>
+
+<ul>
+<li>Create a back-up of varnish.params just in case you make a mistake.</li>
+</ul>
+<pre><code class="bash">cp /etc/varnish/varnish.params /etc/varnish/varnish.params.bak
+</code></pre>
+
+<ul>
+<li>Edit the varnish.params config.</li>
+</ul>
+<pre><code class="bash">vim /etc/varnish/varnish.params
+</code></pre>
+
 <p>Set the VCL location, IP address, port, and cache location and size. <code>malloc</code> sets the cache location to RAM, and <code>512M</code> sets the cache size to 512MB.</p>
 <pre><code class="vcl">VARNISH_LISTEN_ADDRESS=192.168.1.10
 VARNISH_LISTEN_PORT=80
@@ -739,23 +742,26 @@ DAEMON_OPTS=&quot;-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_tim
 <h4 id="configure-apache-for-varnish">Configure Apache for Varnish</h4>
 <p>Edit librenms.conf and modify the Apache Virtual Host listening port.</p>
 <ul>
-<li>Modify:<code>&lt;VirtualHost *:80&gt;</code> to: <code>&lt;VirtualHost *:8080&gt;</code>
-<pre><code class="bash">vim /etc/httpd/conf.d/librenms.conf
-</code></pre></li>
+<li>Modify:<code>&lt;VirtualHost *:80&gt;</code> to: <code>&lt;VirtualHost *:8080&gt;</code></li>
 </ul>
+<pre><code class="bash">vim /etc/httpd/conf.d/librenms.conf
+</code></pre>
+
 <p>Varnish can not share a port with Apache. Change the Apache listening port to 8080.</p>
 <ul>
-<li>
-<p>Modify:<code>Listen 80</code> to:<code>Listen 8080</code>
+<li>Modify:<code>Listen 80</code> to:<code>Listen 8080</code></li>
+</ul>
 <pre><code class="bash">vim /etc/httpd/conf/httpd.conf
-</code></pre></p>
-</li>
-<li>
-<p>Create the librenms.vcl
+</code></pre>
+
+<ul>
+<li>Create the librenms.vcl</li>
+</ul>
 <pre><code class="bash">cd /etc/varnish
 touch librenms.vcl
-</code></pre></p>
-</li>
+</code></pre>
+
+<ul>
 <li>Set ownership and permissions for Varnish files.</li>
 </ul>
 <pre><code class="bash">chown varnish:varnish default.vcl varnish.params secret
@@ -763,9 +769,10 @@ chmod 644 default.vcl varnish.params secret
 </code></pre>
 
 <p>Edit the librenms.vcl.</p>
-<p><pre><code class="bash">vim librenms.vcl
+<pre><code class="bash">vim librenms.vcl
 </code></pre>
-Paste example VCL config, read config comments for more information.</p>
+
+<p>Paste example VCL config, read config comments for more information.</p>
 <pre><code class="vcl">#
 # This is an example VCL file for Varnish.
 #
@@ -845,10 +852,11 @@ sub vcl_deliver {
 </code></pre>
 
 <ul>
-<li>Reload rules to remove the temporary port rule we added earlier.
-<pre><code class="bash">firewall-cmd --reload
-</code></pre></li>
+<li>Reload rules to remove the temporary port rule we added earlier.</li>
 </ul>
+<pre><code class="bash">firewall-cmd --reload
+</code></pre>
+
 <p>Varnish caching does not take effect immediately.  You will need to browse the LibreNMS website to build up the cache.</p>
 <p>Use the command <code>varnishstat</code> to monitor Varnish caching.  Over time you should see 'MAIN.cache_hit' and 'MAIN.client_req' increase.  With the above VCL the hit to request ratio is approximately 84%.</p>
 <ul>

@@ -737,23 +737,27 @@ $config['poller_modules']['mib']                          = 0;
 <p><code>cisco-asa-firewall</code>: Cisco ASA firewall support.</p>
 <p><code>mib</code>: Support for generic MIB parsing.</p>
 <h4 id="running">Running</h4>
-<p>Here are some examples of running poller from within your install directory.
+<p>Here are some examples of running poller from within your install directory.</p>
 <pre><code class="bash">./poller.php -h localhost
 
 ./poller.php -h localhost -m ports
-</code></pre></p>
+</code></pre>
+
 <h4 id="debugging">Debugging</h4>
 <p>To provide debugging output you will need to run the poller process with the <code>-d</code> flag. You can do this either against
 all modules, single or multiple modules:</p>
-<p>All Modules
+<p>All Modules</p>
 <pre><code class="bash">./poller.php -h localhost -d
-</code></pre></p>
-<p>Single Module
+</code></pre>
+
+<p>Single Module</p>
 <pre><code class="bash">./poller.php -h localhost -m ports -d
-</code></pre></p>
-<p>Multiple Modules
+</code></pre>
+
+<p>Multiple Modules</p>
 <pre><code class="bash">./poller.php -h localhost -m ports,entity-physical -d
-</code></pre></p>
+</code></pre>
+
 <p>Using <code>-d</code> shouldn't output much sensitive information, <code>-v</code> will so it is then advisable to sanitise the output before pasting it somewhere as the debug output will contain snmp details amongst other items including port descriptions.</p>
 <p>The output will contain:</p>
 <p>DB Updates</p>

@@ -688,13 +688,14 @@ description Cust: Customer A [100Mbps]</p>
 <p>description Cust: Customer A (this customer is gold) [10Gbps]
 description Cust: Customer A {ID4321} [1Gbps]</p>
 <p>This information is then held within the ports table within the database, as an example:</p>
-<p>description Core: NAS bond [1Gbps]
+<p>description Core: NAS bond [1Gbps]</p>
 <pre><code class="sh">port_descr_type: core
 port_descr_descr: NAS bond
 port_descr_circuit: NULL
 port_descr_speed: 1Gbps
 port_descr_notes: NULL
-</code></pre></p>
+</code></pre>
+
 <h3 id="custom-interface-parser">Custom interface parser</h3>
 <p>It's also possible to write your own parser, the existing one is: includes/port-descr-parser.inc.php</p>
 <p>Once you've created your own then you can enable it with:</p>

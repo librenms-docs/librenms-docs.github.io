@@ -713,12 +713,13 @@ userlevel for that user which is done in one of two ways:</p>
 <p>A user exists in MySQL still where the usernames match up.</p>
 </li>
 <li>
-<p>A global guest user (which still needs to be added into MySQL:
-<pre><code class="php">$config['http_auth_guest'] = &quot;guest&quot;;
-</code></pre>
-This will then assign the userlevel for guest to all authenticated users.</p>
+<p>A global guest user (which still needs to be added into MySQL:</p>
 </li>
 </ul>
+<pre><code class="php">$config['http_auth_guest'] = &quot;guest&quot;;
+</code></pre>
+
+<p>This will then assign the userlevel for guest to all authenticated users.</p>
 <h4 id="ldap-authentication">LDAP Authentication</h4>
 <p>Config option: <code>ldap</code></p>
 <p>This one is a little more complicated :)</p>

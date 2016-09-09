@@ -746,23 +746,27 @@ $config['discovery_modules']['charge']                    = 1;
 <p><code>services</code>: *Nix services support.</p>
 <p><code>charge</code>: APC Charge detection and support.</p>
 <h4 id="running">Running</h4>
-<p>Here are some examples of running discovery from within your install directory.
+<p>Here are some examples of running discovery from within your install directory.</p>
 <pre><code class="bash">./discovery.php -h localhost
 
 ./discovery.php -h localhost -m ports
-</code></pre></p>
+</code></pre>
+
 <h4 id="debugging">Debugging</h4>
 <p>To provide debugging output you will need to run the discovery process with the <code>-d</code> flag. You can do this either against
 all modules, single or multiple modules:</p>
-<p>All Modules
+<p>All Modules</p>
 <pre><code class="bash">./discovery.php -h localhost -d
-</code></pre></p>
-<p>Single Module
+</code></pre>
+
+<p>Single Module</p>
 <pre><code class="bash">./discovery.php -h localhost -m ports -d
-</code></pre></p>
-<p>Multiple Modules
+</code></pre>
+
+<p>Multiple Modules</p>
 <pre><code class="bash">./discovery.php -h localhost -m ports,entity-physical -d
-</code></pre></p>
+</code></pre>
+
 <p>Using <code>-d</code> shouldn't output much sensitive information, <code>-v</code> will so it is then advisable to sanitise the output before pasting it somewhere as the debug output will contain snmp details amongst other items including port descriptions.</p>
 <p>The output will contain:</p>
 <p>DB Updates</p>
@@ -772,14 +776,14 @@ all modules, single or multiple modules:</p>
 <p>Using the SNMP-Scanner may take a long time to finish depending on the size of your network. Tests have shown that a sparsely-populated /24 is scanned within 2 Minutes whereas a sparsely populated /16 will take about 11 Hours.</p>
 <p>If possible, divide your network into smaller subnets and scan these subnets instead. You can use an utility like the GNU Screen or tmux to avoid aborting the scan when logging out of your Shell. You can run several instances of the SNMP-Scanner simultaneously.</p>
 <p>To run the SNMP-Scanner you need to execute the <code>snmp-scan.php</code> from within your LibreNMS installation directory.</p>
-<p>Here the script's help-page for reference:
+<p>Here the script's help-page for reference:</p>
 <pre><code class="text">Usage: ./snmp-scan.php -r &lt;CIDR_Range&gt; [-d] [-l] [-h]
   -r CIDR_Range     CIDR noted IP-Range to scan
                     Example: 192.168.0.0/24
   -d                Enable Debug
   -l                Show Legend
   -h                Print this text
-</code></pre></p></div>
+</code></pre></div>
             
             </div>
         </div>

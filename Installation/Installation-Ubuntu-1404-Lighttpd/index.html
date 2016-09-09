@@ -670,14 +670,16 @@
 <p>** Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
 </blockquote>
 <p>You are free to choose between using MySQL or MariaDB:</p>
-<p><strong>MySQL</strong>
+<p><strong>MySQL</strong></p>
 <pre><code class="bash">apt-get install mysql-server mysql-client
 mysql -uroot -p
-</code></pre></p>
-<p><strong>MariaDB</strong>
+</code></pre>
+
+<p><strong>MariaDB</strong></p>
 <pre><code class="bash">apt-get install mariadb-server mariadb-client
 mysql -uroot -p
-</code></pre></p>
+</code></pre>
+
 <p>Enter the MySQL root password to enter the MySQL command-line interface.</p>
 <p>Create database.</p>
 <pre><code class="sql">CREATE DATABASE librenms;

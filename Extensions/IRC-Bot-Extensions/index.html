@@ -647,11 +647,12 @@ Before a command is executed, the IRC-Bot ensures that the MySQL-Socket is worki
 Below you will find a table with related functions and attributes.
 You can chain-load any built-in command by calling <code>$this-&gt;_command("My Parameters")</code>.
 You cannot chain-load external commands.</p>
-<p>To enable your command, edit your <code>config.php</code> and add something like this:
+<p>To enable your command, edit your <code>config.php</code> and add something like this:</p>
 <pre><code class="php">   ...
    $config['irc_external'][] = &quot;mycommand&quot;;
    ...
-</code></pre></p>
+</code></pre>
+
 <p>See: <a href="#example">Example</a></p>
 <h1 id="functions-and-attributes">Functions and Attributes</h1>
 <p>... that are accessible from within an extension</p>
@@ -800,7 +801,7 @@ You cannot chain-load external commands.</p>
 </tbody>
 </table>
 <h1 id="example"><a name="example">Example!</a></h1>
-<p><code>includes/ircbot/join-ng.inc.php</code>
+<p><code>includes/ircbot/join-ng.inc.php</code></p>
 <pre><code class="php">   if( $this-&gt;user['level'] != 10 ) {
       return $this-&gt;respond(&quot;Sorry only admins can make me join.&quot;);
    }
@@ -810,12 +811,13 @@ You cannot chain-load external commands.</p>
    } else {
       $this-&gt;respond(&quot;Sorry, only people from #noc can make join.&quot;);
    }
-</code></pre></p>
-<p><code>config.php</code>
+</code></pre>
+
+<p><code>config.php</code></p>
 <pre><code class="php">   ...
    $config['irc_external'][] = &quot;join-ng&quot;;
    ...
-</code></pre></p></div>
+</code></pre></div>
             
             </div>
         </div>

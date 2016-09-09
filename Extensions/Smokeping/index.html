@@ -724,9 +724,10 @@ Modify any other values you wish, then exit and save.</p>
 </code></pre>
 
 <p>Exit and save.</p>
-<p>Include <code>librenms.conf</code> in smokeping's config:
+<p>Include <code>librenms.conf</code> in smokeping's config:</p>
 <pre><code class="bash">nano /etc/smokeping/config
-</code></pre></p>
+</code></pre>
+
 <p>Add the following line at the end:</p>
 <pre><code class="bash">@include /etc/smokeping/config.d/librenms.conf
 </code></pre>
@@ -743,12 +744,13 @@ $config['smokeping']['integration'] = true;
 </code></pre>
 
 <p>Exit and save.</p>
-<p>Run the following commands:
+<p>Run the following commands:</p>
 <pre><code class="bash">a2enconf smokeping
 a2enmod cgid
 service apache2 restart
 service smokeping restart
-</code></pre></p>
+</code></pre>
+
 <p>Return to your normal user shell</p>
 <pre><code class="bash">exit
 </code></pre>

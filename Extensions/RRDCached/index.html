@@ -614,6 +614,8 @@
     
         <li class="main active"><a href="#setting-up-rrdcached">Setting up RRDCached</a></li>
         
+            <li><a href="#support-matrix">Support matrix</a></li>
+        
             <li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
         
             <li><a href="#rrdcached-installation-centos-7">RRDCached installation CentOS 7</a></li>
@@ -641,17 +643,65 @@ To enable this set the following config:</p>
 <pre><code class="php">$config['rrdtool_version'] = 1.5.5;
 </code></pre>
 
+<h3 id="support-matrix">Support matrix</h3>
+<p>Shared FS: Is a shared filesystem required?</p>
+<p>Features: Supported features in the version indicated.</p>
+<pre><code>      G = Graphs.
+
+      C = Create RRD files.
+
+      U = Update RRD files.
+
+      T = Tune RRD files.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Shared FS</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.4.x</td>
+<td>Yes</td>
+<td>G,U</td>
+</tr>
+<tr>
+<td>&lt;1.5.5</td>
+<td>Yes</td>
+<td>G,U</td>
+</tr>
+<tr>
+<td>&gt;=1.5.5</td>
+<td>No</td>
+<td>G,C,U</td>
+</tr>
+<tr>
+<td>&gt;=1.6.x</td>
+<td>No</td>
+<td>G,C,U</td>
+</tr>
+</tbody>
+</table>
 <h3 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h3>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
 In this example, we'll use the Repoforge repository.</p>
-<p><pre><code class="ssh">rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+<pre><code class="ssh">rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 vi /etc/yum.repos.d/rpmforge.repo
 </code></pre>
-- Enable the Extra repo</p>
-<p><pre><code class="ssh">yum update rrdtool
+
+<ul>
+<li>Enable the Extra repo</li>
+</ul>
+<pre><code class="ssh">yum update rrdtool
 vi /etc/yum.repos.d/rpmforge.repo
 </code></pre>
-- Disable the [rpmforge] and [rpmforge-extras] repos again</p>
+
+<ul>
+<li>Disable the [rpmforge] and [rpmforge-extras] repos again</li>
+</ul>
 <pre><code class="ssh">vi /etc/sysconfig/rrdcached
 
 # Settings for rrdcached
@@ -667,37 +717,41 @@ service rrdcached start
 </code></pre>
 
 <ul>
-<li>Edit /opt/librenms/config.php to include:
-<pre><code class="php">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
-</code></pre></li>
+<li>Edit /opt/librenms/config.php to include:</li>
 </ul>
+<pre><code class="php">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
+</code></pre>
+
 <h3 id="rrdcached-installation-centos-7">RRDCached installation CentOS 7</h3>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 7.x installation.
 We'll use the epel-release and setup a RRDCached as a service.
 It is recommended that you monitor your LibreNMS server with LibreNMS so you can view the disk I/O usage delta.
 See <a href="http://librenms.readthedocs.org/Installation/Installation-CentOS-7-Apache/" title="Add localhost to LibreNMS">Installation (RHEL CentOS)</a> for localhost monitoring.</p>
 <ul>
-<li>
-<p>Install the EPEL and update the repos and RRDtool.
+<li>Install the EPEL and update the repos and RRDtool.</li>
+</ul>
 <pre><code class="ssh">yum install epel-release
 yum update
 yum update rrdtool
-</code></pre></p>
-</li>
-<li>
-<p>Create the needed directories, set ownership and permissions.
+</code></pre>
+
+<ul>
+<li>Create the needed directories, set ownership and permissions.</li>
+</ul>
 <pre><code class="ssh">mkdir /var/run/rrdcached
 chown librenms:librenms /var/run/rrdcached
 chmod 755 /var/run/rrdcached
-</code></pre></p>
-</li>
-<li>
-<p>Create an rrdcached service for easy daemon management.
+</code></pre>
+
+<ul>
+<li>Create an rrdcached service for easy daemon management.</li>
+</ul>
 <pre><code class="ssh">touch /etc/systemd/system/rrdcached.service
-</code></pre></p>
-</li>
-<li>
-<p>Edit rrdcached.service and paste the example config:
+</code></pre>
+
+<ul>
+<li>Edit rrdcached.service and paste the example config:</li>
+</ul>
 <pre><code class="ssh">[Unit]
 Description=Data caching daemon for rrdtool
 After=network.service
@@ -709,25 +763,27 @@ ExecStart=/usr/bin/rrdcached -w 1800 -z 1800 -f 3600 -s librenms -U librenms -G 
 
 [Install]
 WantedBy=default.target
-</code></pre></p>
-</li>
-<li>
-<p>Reload the systemd unit files from disk, so it can recognize the newly created rrdcached.service. Enable the rrdcached.service on boot and start the service.
+</code></pre>
+
+<ul>
+<li>Reload the systemd unit files from disk, so it can recognize the newly created rrdcached.service. Enable the rrdcached.service on boot and start the service.</li>
+</ul>
 <pre><code class="ssh">systemctl daemon-reload
 systemctl enable --now rrdcached.service
-</code></pre></p>
-</li>
-<li>
-<p>Edit /opt/librenms/config.php to include:
-<pre><code class="ssh">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
-</code></pre></p>
-</li>
-<li>
-<p>Restart Apache
-<pre><code class="ssh">systemctl restart httpd
-</code></pre></p>
-</li>
+</code></pre>
+
+<ul>
+<li>Edit /opt/librenms/config.php to include:</li>
 </ul>
+<pre><code class="ssh">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
+</code></pre>
+
+<ul>
+<li>Restart Apache</li>
+</ul>
+<pre><code class="ssh">systemctl restart httpd
+</code></pre>
+
 <p>Check to see if the graphs are being drawn in LibreNMS. This might take a few minutes.
 After at least one poll cycle (5 mins), check the LibreNMS disk I/O performance delta.
 Disk I/O can be found under the menu Devices&gt;All Devices&gt;[localhost hostname]&gt;Health&gt;Disk I/O.</p>

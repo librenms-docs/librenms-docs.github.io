@@ -837,6 +837,7 @@ The template-parser understands <code>if</code> and <code>foreach</code> control
 <li>Transport name: <code>%transport</code></li>
 <li>Contacts, must be iterated in a foreach, <code>%key</code> holds email and <code>%value</code> holds name: <code>%contacts</code></li>
 </ul>
+<p>Placeholders can be used within the subjects for templates as well although %faults is most likely going to be worthless.</p>
 <blockquote>
 <p>NOTE: Placeholder names which are contained within another need to be ordered correctly. As an example:</p>
 </blockquote>
@@ -850,7 +851,7 @@ The template-parser understands <code>if</code> and <code>foreach</code> control
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining own templates for your rules to include more specific information.
 Templates can be matched against several rules.</p>
 <h2 id="examples_1"><a name="templates-examples">Examples</a></h2>
-<p>Default Template:
+<p>Default Template:</p>
 <pre><code class="text">%title\r\n
 Severity: %severity\r\n
 {if %state == 0}Time elapsed: %elapsed\r\n{/if}
@@ -860,10 +861,12 @@ Rule: {if %name}%name{else}%rule{/if}\r\n
 {if %faults}Faults:\r\n
 {foreach %faults}  #%key: %value.string\r\n{/foreach}{/if}
 Alert sent to: {foreach %contacts}%value &lt;%key&gt; {/foreach}
-</code></pre></p>
-<p>Conditional formatting example, will display a link to the host in email or just the hostname in any other transport:
+</code></pre>
+
+<p>Conditional formatting example, will display a link to the host in email or just the hostname in any other transport:</p>
 <pre><code class="text">{if %transport == mail}&lt;a href=&quot;https://my.librenms.install/device/device=%hostname/&quot;&gt;%hostname&lt;/a&gt;{else}%hostname{/if}
-</code></pre></p>
+</code></pre>
+
 <p>Note the use of double-quotes.  Single quotes (<code>'</code>) in templates will be escaped (replaced with <code>\'</code>) in the output and should therefore be avoided.</p>
 <h2 id="included"><a name="templates-included">Included</a></h2>
 <p>We include a few templates for you to use, these are specific to the type of alert rules you are creating. For example if you create a rule that would alert on BGP sessions then you can 
@@ -875,22 +878,20 @@ assign the BGP template to this rule to provide more information.</p>
 <li>Temperature</li>
 </ul>
 <h1 id="transports"><a name="transports">Transports</a></h1>
-<p>Transports are located within <code>$config['install_dir']/includes/alerts/transports.*.php</code> and defined as well as configured via ~~<code>$config['alert']['transports']['Example'] = 'Some Options'</code>~~.</p>
+<p>Transports are located within <code>$config['install_dir']/includes/alerts/transports.*.php</code> and defined as well as configured via <del><code>$config['alert']['transports']['Example'] = 'Some Options'</code></del>.</p>
 <p>Contacts will be gathered automatically and passed to the configured transports.
-By default the Contacts will be only gathered when the alert triggers and will ignore future changes in contacts for the incident. If you want contacts to be re-gathered before each dispatch, please set ~~<code>$config['alert']['fixed-contacts'] = false;</code>~~ in your config.php.</p>
+By default the Contacts will be only gathered when the alert triggers and will ignore future changes in contacts for the incident. If you want contacts to be re-gathered before each dispatch, please set <del><code>$config['alert']['fixed-contacts'] = false;</code></del> in your config.php.</p>
 <p>The contacts will always include the <code>SysContact</code> defined in the Device's SNMP configuration and also every LibreNMS-User that has at least <code>read</code>-permissions on the entity that is to be alerted.
 At the moment LibreNMS only supports Port or Device permissions.
-You can exclude the <code>SysContact</code> by setting:
-~~
+You can exclude the <code>SysContact</code> by setting:</p>
 <pre><code class="php">$config['alert']['syscontact'] = false;
 </code></pre>
-~
-To include users that have <code>Global-Read</code> or <code>Administrator</code> permissions it is required to add these additions to the <code>config.php</code> respectively:
-~
+
+<p>To include users that have <code>Global-Read</code> or <code>Administrator</code> permissions it is required to add these additions to the <code>config.php</code> respectively:</p>
 <pre><code class="php">$config['alert']['globals'] = true; //Include Global-Read into alert-contacts
 $config['alert']['admins']  = true; //Include Administrators into alert-contacts
 </code></pre>
-~~</p>
+
 <h2 id="e-mail"><a name="transports-email">E-Mail</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
@@ -899,13 +900,14 @@ $config['alert']['admins']  = true; //Include Administrators into alert-contacts
 set the devices sysContact, override the sysContact or have your users emails set like:</p>
 <p><code>email@domain.com, alerting@domain.com</code></p>
 <p>E-Mail transport is enabled with adding the following to your <code>config.php</code>:
-~
+~</p>
 <pre><code class="php">$config['alert']['transports']['mail'] = true;
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <p>The E-Mail transports uses the same email-configuration like the rest of LibreNMS.
 As a small reminder, here is it's configuration directives including defaults:
-~~
+~~</p>
 <pre><code class="php">$config['email_backend']                   = 'mail';               // Mail backend. Allowed: &quot;mail&quot; (PHP's built-in), &quot;sendmail&quot;, &quot;smtp&quot;.
 $config['email_from']                      = NULL;                 // Mail from. Default: &quot;ProjectName&quot; &lt;projectid@`hostname`&gt;
 $config['email_user']                      = $config['project_id'];
@@ -922,55 +924,60 @@ $config['email_smtp_password']             = NULL;                 // Password f
 $config['alert']['default_only']           = false;                //Only issue to default_mail
 $config['alert']['default_mail']           = '';                   //Default email
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="api"><a name="transports-api">API</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
 <p>API transports definitions are a bit more complex than the E-Mail configuration.
-The basis for configuration is ~~<code>$config['alert']['transports']['api'][METHOD]</code>~~ where <code>METHOD</code> can be <code>get</code>,<code>post</code> or <code>put</code>.
+The basis for configuration is <del><code>$config['alert']['transports']['api'][METHOD]</code></del> where <code>METHOD</code> can be <code>get</code>,<code>post</code> or <code>put</code>.
 This basis has to contain an array with URLs of each API to call.
 The URL can have the same placeholders as defined in the <a href="#templates-syntax">Template-Syntax</a>.
 If the <code>METHOD</code> is <code>get</code>, all placeholders will be URL-Encoded.
 The API transport uses cURL to call the APIs, therefore you might need to install <code>php5-curl</code> or similar in order to make it work.
 <strong>Note</strong>: it is highly recommended to define own <a href="#templates">Templates</a> when you want to use the API transport. The default template might exceed URL-length for GET requests and therefore cause all sorts of errors.</p>
 <p>Example:
-~~
+~~</p>
 <pre><code class="php">$config['alert']['transports']['api']['get'][] = &quot;https://api.thirdparti.es/issue?apikey=abcdefg&amp;subject=%title&quot;;
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="nagios-compatible"><a name="transports-nagios">Nagios Compatible</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
 <p>The nagios transport will feed a FIFO at the defined location with the same format that nagios would.
 This allows you to use other Alerting-Systems to work with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.
-~~
+~~</p>
 <pre><code class="php">$config['alert']['transports']['nagios'] = &quot;/path/to/my.fifo&quot;; //Flapjack expects it to be at '/var/cache/nagios3/event_stream.fifo'
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="irc"><a name="transports-irc">IRC</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
 <p>The IRC transports only works together with the LibreNMS IRC-Bot.
 Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/librenms/librenms/blob/master/doc/Extensions/IRC-Bot.md">here</a>.
-~~
+~~</p>
 <pre><code class="php">$config['alert']['transports']['irc'] = true;
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="slack"><a name="transports-slack">Slack</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
 <p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the <a href="https://api.slack.com/docs/message-attachments">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Slack will be made. Below is an example of how to send alerts to two channels with different customised options:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '#Alerting');
 
 $config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
 
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="hipchat"><a name="transports-hipchat">HipChat</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
@@ -991,7 +998,7 @@ for details on acceptable values.</p>
 because the v2 API is still in beta.</p>
 </blockquote>
 <p>Below are two examples of sending messages to a HipChat room.</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['hipchat'][] = array(&quot;url&quot; =&gt; &quot;https://api.hipchat.com/v1/rooms/message?auth_token=9109jawregoaih&quot;,
                                                     &quot;room_id&quot; =&gt; &quot;1234567&quot;,
                                                     &quot;from&quot; =&gt; &quot;LibreNMS&quot;);
@@ -1003,7 +1010,8 @@ $config['alert']['transports']['hipchat'][] = array(&quot;url&quot; =&gt; &quot;
                                                     &quot;notify&quot; =&gt; 1,
                                                     &quot;message_format&quot; =&gt; &quot;text&quot;);
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <blockquote>
 <p>Note: The default message format for HipChat messages is HTML.  It is
 recommended that you specify the <code>text</code> message format to prevent unexpected
@@ -1017,72 +1025,79 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <p>Enabling PagerDuty transports is almost as easy as enabling email-transports.</p>
 <p>All you need is to create a Service with type Generic API on your PagerDuty dashboard.</p>
 <p>Now copy your API-Key from the newly created Service and setup the transport like:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['pagerduty'] = 'MYAPIKEYGOESHERE';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <p>That's it!</p>
 <p><strong>Note</strong>: Currently ACK notifications are not transported to PagerDuty, This is going to be fixed within the next major version (version by date of writing: 2015.05)</p>
 <h2 id="pushover"><a name="transports-pushover">Pushover</a></h2>
 <p>Enabling Pushover support is fairly easy, there are only two required parameters.</p>
 <p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
 <p>Now copy your API Token/Key from the newly created Application and setup the transport in your config.php like:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['pushover'][] = array(
                                                     &quot;appkey&quot; =&gt; 'APPLICATIONAPIKEYGOESHERE',
                                                     &quot;userkey&quot; =&gt; 'USERKEYGOESHERE',
                                                     );
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <p>To modify the Critical alert sound, add the 'sound_critical' parameter, example:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['pushover'][] = array(
                                                     &quot;appkey&quot; =&gt; 'APPLICATIONAPIKEYGOESHERE',
                                                     &quot;userkey&quot; =&gt; 'USERKEYGOESHERE',
                                                     &quot;sound_critical&quot; =&gt; 'siren',
                                                     );
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="boxcar"><a name="transports-boxcar">Boxcar</a></h2>
 <p>Enabling Boxcar support is super easy.
 Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport in your config.php like:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
                                                     &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
                                                     );
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <p>To modify the Critical alert sound, add the 'sound_critical' parameter, example:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
                                                     &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
                                                     &quot;sound_critical&quot; =&gt; 'detonator-charge',
                                                     );
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="pushbullet"><a name="transports-pushbullet">Pushbullet</a></h2>
 <p>Enabling Pushbullet is a piece of cake.
 Get your Access Token from your Pushbullet's settings page and set it in your config like:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['pushbullet'] = 'MYFANCYACCESSTOKEN';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="clickatell"><a name="transports-clickatell">Clickatell</a></h2>
 <p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.
 Please consult Clickatell's documentation regarding number formatting.
 Here an example using 3 numbers, any amount of numbers is supported:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['clickatell']['token'] = 'MYFANCYACCESSTOKEN';
 $config['alert']['transports']['clickatell']['to'][]  = '+1234567890';
 $config['alert']['transports']['clickatell']['to'][]  = '+1234567891';
 $config['alert']['transports']['clickatell']['to'][]  = '+1234567892';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="playsms"><a name="transports-playsms">PlaySMS</a></h2>
 <p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP-API using a Username and WebService-Token.
 Please consult PlaySMS's documentation regarding number formatting.
 Here an example using 3 numbers, any amount of numbers is supported:</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['playsms']['url']   = 'https://localhost/index.php?app=ws';
 $config['alert']['transports']['playsms']['user']  = 'user1';
 $config['alert']['transports']['playsms']['token'] = 'MYFANCYACCESSTOKEN';
@@ -1090,28 +1105,31 @@ $config['alert']['transports']['playsms']['from']  = '+1234567892'; //Optional
 $config['alert']['transports']['playsms']['to'][]  = '+1234567890';
 $config['alert']['transports']['playsms']['to'][]  = '+1234567891';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="victorops"><a name="transports-victorops">VictorOps</a></h2>
 <p>VictorOps provide a webHook url to make integration extremely simple. To get the URL required login to your VictorOps account and go to:</p>
 <p>Settings -&gt; Integrations -&gt; REST Endpoint -&gt; Enable Integration.</p>
 <p>The URL provided will have $routing_key at the end, you need to change this to something that is unique to the system sending the alerts such as librenms. I.e:</p>
 <p><code>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</code></p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['victorops']['url'] = 'https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <h2 id="canopsis"><a name="transports-canopsis">Canopsis</a></h2>
 <p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis which are then converted to canopsis events. To configure the transport, go to:</p>
 <p>Global Settings -&gt; Alerting Settings -&gt; Canopsis Transport.</p>
 <p>You will need to fill this paramaters :</p>
-<p>~~
+<p>~~</p>
 <pre><code class="php">$config['alert']['transports']['canopsis']['host'] = 'www.xxx.yyy.zzz';
 $config['alert']['transports']['canopsis']['port'] = '5672';
 $config['alert']['transports']['canopsis']['user'] = 'admin';
 $config['alert']['transports']['canopsis']['passwd'] = 'my_password';
 $config['alert']['transports']['canopsis']['vhost'] = 'canopsis';
 </code></pre>
-~~</p>
+
+<p>~~</p>
 <p>For more information about canopsis and its events, take a look here :
  http://www.canopsis.org/
  http://www.canopsis.org/wp-content/themes/canopsis/doc/sakura/user-guide/event-spec.html</p>
@@ -1159,19 +1177,22 @@ $config['alert']['transports']['canopsis']['vhost'] = 'canopsis';
 <h1 id="macros"><a name="macros">Macros</a></h1>
 <p>Macros are shorthands to either portion of rules or pure SQL enhanced with placeholders.
 You can define your own macros in your <code>config.php</code>.</p>
-<p>Example macro-implementation of Debian-Devices
+<p>Example macro-implementation of Debian-Devices</p>
 <pre><code class="php">$config['alert']['macros']['rule']['is_debian'] = '%devices.features ~ &quot;@debian@&quot;';
 </code></pre>
-And in the Rule:
+
+<p>And in the Rule:</p>
 <pre><code>...  &amp;&amp; %macros.is_debian = &quot;1&quot; &amp;&amp; ...
-</code></pre></p>
+</code></pre>
+
 <p>This Example-macro is a Boolean-macro, it applies a form of filter to the set of results defined by the rule.
 All macros that are not unary should return Boolean.</p>
 <p>You can only apply <em>Equal</em> or <em>Not-Equal</em> Operations on Boolean-macros where <code>True</code> is represented by <code>"1"</code> and <code>False</code> by <code>"0"</code>.</p>
 <p>Note, if using a /, spaces must be inserted around it.</p>
-<p>Example 
+<p>Example </p>
 <pre><code class="php">((%ports.ifInOctets_rate*8) / %ports.ifSpeed)*100
-</code></pre></p>
+</code></pre>
+
 <h2 id="device-boolean"><a name="macros-device">Device</a> (Boolean)</h2>
 <p>Entity: <code>%macros.device</code></p>
 <p>Description: Only select devices that aren't deleted, ignored or disabled.</p>

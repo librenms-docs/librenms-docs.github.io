@@ -634,17 +634,19 @@
 <p>The ultimate goal is to be able to create traffic bills for VMs, no matter on which physical machine that VM runs.</p>
 <h3 id="enabling-proxmox-graphs">Enabling Proxmox graphs</h3>
 <p>To enable Proxmox graphs, do the following:</p>
-<p>In config.php, enable Proxmox:
+<p>In config.php, enable Proxmox:</p>
 <pre><code class="php">$config['enable_proxmox'] = 1;
-</code></pre></p>
+</code></pre>
+
 <p>Then, install <a href="http://docs.librenms.org/Extensions/Applications/">librenms-agent</a> on the machines running Proxmox and enable the Proxmox-script using:</p>
 <pre><code class="bash">cp /opt/librenms-agent/proxmox /usr/lib/check_mk_agent/local/proxmox
 chmod +x /usr/lib/check_mk_agent/local/proxmox
 </code></pre>
 
-<p>Then, restart the xinetd service
+<p>Then, restart the xinetd service</p>
 <pre><code class="bash">/etc/init.d/xinetd restart
-</code></pre></p>
+</code></pre>
+
 <p>Then in LibreNMS active the librenms-agent and proxmox application flag for the device you are monitoring.
 You should now see an application in LibreNMS, as well as a new menu-item in the topmenu, allowing you to choose which cluster you want to look at.</p></div>
             

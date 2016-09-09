@@ -679,7 +679,7 @@ $config['distributed_poller_memcached_port']             = '11211';
 <h4 id="pollers">Pollers</h4>
 <p>Pollers can be installed and run from anywhere, the only requirements are:</p>
 <p>They can access the Memcache instance
-They can create RRD files via some method such as a shared filesystem
+They can create RRD files via some method such as a shared filesystem or RRDTool &gt;=1.5.5
 They can access the MySQL server</p>
 <p>You can either assign pollers into groups and set a poller group against certain devices, this will mean that those devices will only be processed by certain pollers (default poller group is 0) or you can assign all pollers to the default poller group for them to process any and all devices.</p>
 <p>This will provide the ability to have a single poller behind a NAT firewall monitor internal devices and report back to your central system. You will then be able to monitor those devices from the Web UI as normal.</p>
@@ -691,32 +691,35 @@ They can access the MySQL server</p>
 <p>The following config is taken from a live setup which consists of a Web server, DB server, RRDCached server and 3 pollers.</p>
 <p>Web Server:
 Running Apache and an install of LibreNMS in /opt/librenms
- - config.php
+ - config.php</p>
 <pre><code class="php">$config['distributed_poller'] = true;
 $config['rrdcached']    = &quot;example.com:42217&quot;;
-</code></pre></p>
+</code></pre>
+
 <p>Database Server:
 Running Memcache and MariaDB
  - Memcache</p>
-<p>Ubuntu (/etc/memcached.conf)
+<p>Ubuntu (/etc/memcached.conf)</p>
 <pre><code class="conf">-d
 -m 64
 -p 11211
 -u memcache
 -l ip.ip.ip.ip
-</code></pre></p>
+</code></pre>
+
 <p>RRDCached Server:
 Running RRDCached
   - RRDCached</p>
-<p>Ubuntu (/etc/default/rrdcached)
+<p>Ubuntu (/etc/default/rrdcached)</p>
 <pre><code class="conf">OPTS=&quot;-l 0:42217&quot;
 OPTS=&quot;$OPTS -j /var/lib/rrdcached/journal/ -F&quot;
 OPTS=&quot;$OPTS -b /opt/librenms/rrd -B&quot;
 OPTS=&quot;$OPTS -w 1800 -z 900&quot;
-</code></pre></p>
+</code></pre>
+
 <p>Poller 1:
 Running an install of LibreNMS in /opt/librenms</p>
-<p><code>config.php</code>
+<p><code>config.php</code></p>
 <pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
 $config['distributed_poller_group']          = '0';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
@@ -726,18 +729,20 @@ $config['distributed_poller_port']           = 11211;
 $config['distributed_poller']                = true;
 $config['rrdcached']                         = &quot;example.com:42217&quot;;
 $config['update']                            = 0;
-</code></pre></p>
+</code></pre>
+
 <p><code>/etc/cron.d/librenms</code>
-Runs discovery and polling for group 0, daily.sh to deal with notifications and DB cleanup and alerts.
+Runs discovery and polling for group 0, daily.sh to deal with notifications and DB cleanup and alerts.</p>
 <pre><code class="conf">33  */6 * * * librenms /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1
 */5 *   * * * librenms /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
 */5 *   * * * librenms /opt/librenms/poller-wrapper.py 24 &gt;&gt; /opt/librenms/logs/wrapper.log
 15  0   * * * librenms /opt/librenms/daily.sh &gt;&gt; /dev/null 2&gt;&amp;1
 *   *   * * * librenms /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
-</code></pre></p>
+</code></pre>
+
 <p>Poller 2:
 Running an install of LibreNMS in /opt/librenms</p>
-<p><code>config.php</code>
+<p><code>config.php</code></p>
 <pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
 $config['distributed_poller_group']          = '0';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
@@ -747,16 +752,18 @@ $config['distributed_poller_port']           = 11211;
 $config['distributed_poller']                = true;
 $config['rrdcached']                         = &quot;example.com:42217&quot;;
 $config['update']                            = 0;
-</code></pre></p>
+</code></pre>
+
 <p><code>/etc/cron.d/librenms</code>
-Runs billing as well as polling for group 0.
+Runs billing as well as polling for group 0.</p>
 <pre><code class="conf">*/5 * * * * librenms /opt/librenms/poller-wrapper.py 24 &gt;&gt; /opt/librenms/logs/wrapper.log
 */5 * * * * librenms /opt/librenms/poll-billing.php &gt;&gt; /dev/null 2&gt;&amp;1
 01  * * * * librenms /opt/librenms/billing-calculate.php &gt;&gt; /dev/null 2&gt;&amp;1
-</code></pre></p>
+</code></pre>
+
 <p>Poller 3:
 Running an install of LibreNMS in /opt/librenms</p>
-<p><code>config.php</code>
+<p><code>config.php</code></p>
 <pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
 $config['distributed_poller_group']          = '2,3';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
@@ -766,13 +773,14 @@ $config['distributed_poller_port']           = 11211;
 $config['distributed_poller']                = true;
 $config['rrdcached']                         = &quot;example.com:42217&quot;;
 $config['update']                            = 0;
-</code></pre></p>
+</code></pre>
+
 <p><code>/etc/cron.d/librenms</code>
-Runs discovery and polling for groups 2 and 3.
+Runs discovery and polling for groups 2 and 3.</p>
 <pre><code class="conf">33  */6 * * * librenms /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1
 */5 *   * * * librenms /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
 */5 *   * * * librenms /opt/librenms/poller-wrapper.py 16 &gt;&gt; /opt/librenms/logs/wrapper.log
-</code></pre></p></div>
+</code></pre></div>
             
             </div>
         </div>

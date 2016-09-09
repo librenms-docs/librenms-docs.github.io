@@ -640,16 +640,18 @@ to LibreNMS - localhost is a good one.</p>
 <h2 id="setup">Setup</h2>
 <p>Firstly, install Nagios plugins however you would like, this could be via yum, apt-get or direct from source.</p>
 <p>Next, you need to enable the services within config.php with the following:</p>
-<p><pre><code class="php">$config['show_services']           = 1;
+<pre><code class="php">$config['show_services']           = 1;
 </code></pre>
-This will enable a new service menu within your navbar.</p>
+
+<p>This will enable a new service menu within your navbar.</p>
 <pre><code class="php">$config['nagios_plugins']   = &quot;/usr/lib/nagios/plugins&quot;;
 </code></pre>
 
 <p>This will point LibreNMS at the location of the nagios plugins - please ensure that any plugins you use are set to executable.</p>
-<p>Finally, you now need to add check-services.php to the current cron file (/etc/cron.d/librenms typically) like:
+<p>Finally, you now need to add check-services.php to the current cron file (/etc/cron.d/librenms typically) like:</p>
 <pre><code class="bash">*/5 * * * * librenms /opt/librenms/check-services.php &gt;&gt; /dev/null 2&gt;&amp;1
-</code></pre></p>
+</code></pre>
+
 <p>Now you can add services via the main Services link in the navbar, or via the 'Add Service' link within the device, services page.</p>
 <h2 id="performance-data">Performance data</h2>
 <p>By default, the check-services script will collect all performance data that the Nagios script returns and display each datasource on a separate graph.

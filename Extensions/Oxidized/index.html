@@ -640,9 +640,10 @@ When you have that, you only need the following config to enable the display of 
 $config['oxidized']['url']             = 'http://127.0.0.1:8888';
 </code></pre>
 
-<p>LibreNMS supports config versioning if Oxidized does.  This is known to work with the git output module.
+<p>LibreNMS supports config versioning if Oxidized does.  This is known to work with the git output module.</p>
 <pre><code class="php">$config['oxidized']['features']['versioning'] = true;
-</code></pre></p>
+</code></pre>
+
 <p>Oxidized supports various ways to utilise credentials to login to devices, you can specify global username/password within Oxidized, Group level username/password or per device.
 LibreNMS currently supports sending groups back to Oxidized so that you can then define group credentials within Oxidized. To enable this support please switch on 'Enable the return of groups to Oxidized':</p>
 <pre><code class="php">$config['oxidized']['group_support'] = true;

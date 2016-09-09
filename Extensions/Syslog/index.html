@@ -635,12 +635,14 @@
 <p>This document will explain how to send syslog data to LibreNMS.</p>
 <h3 id="syslog-server-installation">Syslog server installation</h3>
 <h4 id="syslog-ng">syslog-ng</h4>
-<p>For Debian / Ubuntu:
+<p>For Debian / Ubuntu:</p>
 <pre><code class="ssh">apt-get install syslog-ng
-</code></pre></p>
-<p>For CentOS / RedHat
+</code></pre>
+
+<p>For CentOS / RedHat</p>
 <pre><code class="ssh">yum install syslog-ng
-</code></pre></p>
+</code></pre>
+
 <p>Once syslog-ng is installed, edit the relevant config file (most likely /etc/syslog-ng/syslog-ng.conf) and paste the following:</p>
 <pre><code class="ssh">@version: 3.5
 @include &quot;scl.conf&quot;
@@ -724,14 +726,15 @@ $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslog
 </code></pre>
 
 <p>Ancient versions of rsyslog may require different syntax.</p>
-<p>This is an example for rsyslog 5 (default on Debian 7):
+<p>This is an example for rsyslog 5 (default on Debian 7):</p>
 <pre><code class="bash"># Feed syslog messages to librenms
 $ModLoad omprog
 $template librenms,&quot;%FROMHOST%||%syslogfacility-text%||%syslogpriority-text%||%syslogseverity%||%syslogtag%||%$YEAR%-%$MONTH%-%$DAY% %timegenerated:8:25%||%msg%||%programname%\n&quot;
 
 $ActionOMProgBinary /opt/librenms/syslog.php
 *.* :omprog:;librenms
-</code></pre></p>
+</code></pre>
+
 <p>If your rsyslog server is recieving messages relayed by another syslog server, you may try replacing <code>%fromhost%</code> with <code>%hostname%</code>, since <code>fromhost</code> is the host the message was received from, not the host that generated the message.  The <code>fromhost</code> property is preferred as it avoids problems caused by devices sending incorrect hostnames in syslog messages.</p>
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
 <pre><code class="ssh">$config['enable_syslog'] = 1;

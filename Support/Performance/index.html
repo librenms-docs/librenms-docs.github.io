@@ -655,9 +655,10 @@ which will make suggestions on things you can change specific to your setup.</p>
 MySQL crashes or your server does but it provides an amazing difference in IO use.</p>
 <h4 id="polling-modules">Polling modules</h4>
 <p>Disable polling (and discovery) modules that you do not need. You can do this globally in <code>config.php</code> like:</p>
-<p>Disable OSPF polling
+<p>Disable OSPF polling</p>
 <pre><code class="php">$config['poller_modules']['ospf'] = 0;
-</code></pre></p>
+</code></pre>
+
 <p>You can disable modules globally then re-enable the module per device or the opposite way. For a list of modules please see
 <a href="http://docs.librenms.org/Support/Poller%20Support/">Poller modules</a></p>
 <h4 id="snmp-max-repeaters">SNMP Max Repeaters</h4>

@@ -769,10 +769,11 @@ Output
 <ul>
 <li>Passing parameters via the api route. For example when obtaining a devices details you will pass the hostname of the device in the route: <code>/api/v0/devices/:hostname</code>.</li>
 <li>Passing parameters via the query string. For example you can list all devices on your install but limit the output to devices that are currently down: <code>/api/v0/devices?type=down</code></li>
-<li>Passing data in via JSON, this will mainly be used when adding or updating information via the API, for instance adding a new device:
-<pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
-</code></pre></li>
+<li>Passing data in via JSON, this will mainly be used when adding or updating information via the API, for instance adding a new device:</li>
 </ul>
+<pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+</code></pre>
+
 <h2 id="output-top"><a name="api-output"><code>Output</code></a> <a href="#top"><code>top</code></a></h2>
 <p>Output from the API currently is via two output types.</p>
 <ul>
@@ -789,10 +790,11 @@ Output
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;Removed device localhost&quot;,
@@ -806,7 +808,8 @@ Output
         }
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_device-top"><a name="api-route-3">Function: <code>get_device</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get details of a given device.</p>
 <p>Route: /api/v0/devices/:hostname</p>
@@ -815,10 +818,11 @@ Output
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;devices&quot;: [
@@ -831,7 +835,8 @@ Output
         }
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_graphs-top"><a name="api-route-5">Function: <code>get_graphs</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get a list of available graphs for a device, this does not include ports.</p>
 <p>Route: /api/v0/devices/:hostname/graphs</p>
@@ -840,10 +845,11 @@ Output
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -863,7 +869,8 @@ Output
         }
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_graph_generic_by_hostname-top"><a name="api-route-6">Function: <code>get_graph_generic_by_hostname</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get a specific graph for a device, this does not include ports.</p>
 <p>Route: /api/v0/devices/:hostname/:type</p>
@@ -878,9 +885,10 @@ Output
 <li>width: The graph width, defaults to 1075.</li>
 <li>height: The graph height, defaults to 300.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/device_poller_perf
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <p>Output is an image.</p>
 <h3 id="function-get_port_graphs-top"><a name="api-route-7">Function: <code>get_port_graphs</code></a> <a href="#top"><code>top</code></a></h3>
@@ -893,9 +901,10 @@ Output
 <ul>
 <li>columns: Comma separated list of columns you want returned.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -925,9 +934,10 @@ Output
 <ul>
 <li>valid_mappings: Filter the result by only showing valid mappings ("0" values not shown).</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/port_stack?valid_mappings
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
   &quot;status&quot;: &quot;ok&quot;,
@@ -965,9 +975,10 @@ Output
 <li>disabled: Filter the result by disabled (Equals).</li>
 <li>ignore: Filter the result by ignore (Equals).</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -1015,9 +1026,10 @@ Output
 <li>hostname can be either the device hostname or id</li>
 <li>type is the type of component to add</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X POST -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/APITEST
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -1042,9 +1054,10 @@ Output
 <ul>
 <li>hostname can be either the device hostname or id</li>
 </ul>
-<p>In this example we set the label and add a new field: TestField:
+<p>In this example we set the label and add a new field: TestField:</p>
 <pre><code class="curl">curl -X PUT -d '{&quot;4459&quot;: {&quot;type&quot;: &quot;APITEST&quot;,&quot;label&quot;: &quot;This is a test label&quot;,&quot;status&quot;: 1,&quot;ignore&quot;: 0,&quot;disabled&quot;: 0,&quot;error&quot;: &quot;&quot;,&quot;TestField&quot;: &quot;TestData&quot;}}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -1061,9 +1074,10 @@ Output
 <li>hostname can be either the device hostname or id</li>
 <li>component is the component ID to be deleted.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/4459
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -1082,9 +1096,10 @@ Output
 <ul>
 <li>columns: Comma separated list of columns you want returned.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
@@ -1114,9 +1129,10 @@ Output
 <li>height: The graph height, defaults to 300.</li>
 <li>ifDescr: If this is set to true then we will use ifDescr to lookup the port instead of ifName. Pass the ifDescr value you want to search as you would ifName.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <p>Output is an image.</p>
 <h3 id="function-list_devices-top"><a name="api-route-10">Function: <code>list_devices</code></a> <a href="#top"><code>top</code></a></h3>
@@ -1135,10 +1151,11 @@ Output
 <li>ipv4: search by IPv4 address</li>
 <li>ipv6: search by IPv6 address (compressed or uncompressed)</li>
 <li>query: If searching by, then this will be used as the input.
-Example:
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
-</code></pre></li>
+Example:</li>
 </ul>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
@@ -1155,9 +1172,10 @@ Example:
 }
 </code></pre>
 
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?type=mac&amp;query=00000c9ff013
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
@@ -1199,9 +1217,10 @@ Example:
 <li>cryptopass: SNMP Crypto Password</li>
 <li>cryptoalgo: SNMP Crypto algorithm (AES, DES)</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
@@ -1214,9 +1233,10 @@ Example:
 <p>Route: /api/v0/oxidized</p>
 <p>Input (JSON):</p>
 <p>-</p>
-<p>Examples:
+<p>Examples:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">[
     {
@@ -1241,9 +1261,10 @@ Example:
 <li>field: The column name within the database</li>
 <li>data: The data to update the column with</li>
 </ul>
-<p>Examples:
+<p>Examples:</p>
 <pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: &quot;notes&quot;, &quot;data&quot;: &quot;This server should be kept online&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre></p>
+</code></pre>
+
 <p>Output:</p>
 <pre><code class="text">[
     {
@@ -1261,10 +1282,11 @@ Example:
 </ul>
 <p>Input (JSON):</p>
 <p>-</p>
-<p>Examples:
+<p>Examples:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/groups
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">[
     {
         &quot;status&quot;: &quot;ok&quot;,
@@ -1280,17 +1302,19 @@ Example:
         ]
     }
 ]
-</code></pre></p>
+</code></pre>
+
 <h2 id="device-groups-top"><a name="api-devicegroups"><code>Device Groups</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-get_devicegroups-top"><a name="api-route-get_devicegroups">Function <code>get_devicegroups</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List all device groups.</p>
 <p>Route: /api/v0/devicegroups</p>
 <p>Input (JSON):</p>
 <p>-</p>
-<p>Examples:
+<p>Examples:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">[
     {
         &quot;status&quot;: &quot;ok&quot;,
@@ -1306,7 +1330,8 @@ Example:
         ]
     }
 ]
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_devices_by_group-top"><a name="api-route-get_devices_by_group">Function <code>get_devices_by_group</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List all devices matching the group provided.</p>
 <p>Route: /api/v0/devicegroups/:name</p>
@@ -1315,10 +1340,11 @@ Example:
 </ul>
 <p>Input (JSON):</p>
 <p>-</p>
-<p>Examples:
+<p>Examples:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups/LinuxServers
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">[
      {
          &quot;status&quot;: &quot;ok&quot;,
@@ -1337,7 +1363,8 @@ Example:
          ]
      }
 ]
-</code></pre></p>
+</code></pre>
+
 <h2 id="routing-top"><a name="api-routing"><code>Routing</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-list_bgp-top"><a name="api-route-1">Function: <code>list_bgp</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List the current BGP sessions.</p>
@@ -1346,10 +1373,11 @@ Example:
 <ul>
 <li>hostname = either the devices hostname or id.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1358,7 +1386,8 @@ Example:
 
  ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-list_ipsec-top"><a name="list_ipsec">Function: <code>list_ipsec</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List the current IPSec tunnels which are active.</p>
 <p>Route: /api/v0/routing/ipsec/data/:hostname</p>
@@ -1367,10 +1396,11 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/ipsec/data/localhost
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -1386,7 +1416,8 @@ Example:
         &quot;tunnel_status&quot;: &quot;active&quot;
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <blockquote>
 <p>Please note, this will only show active VPN sessions not all configured.</p>
 </blockquote>
@@ -1399,10 +1430,11 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/vlans
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;count&quot;: 0,
@@ -1416,7 +1448,8 @@ Example:
     }
   ]
 }
-</code></pre></p>
+</code></pre>
+
 <h2 id="alerts-top"><a name="api-alerts"><code>Alerts</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-get_alert-top"><a name="api-route-12">Function: <code>get_alert</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get details of an alert</p>
@@ -1426,10 +1459,11 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1446,7 +1480,8 @@ Example:
    &quot;timestamp&quot;: &quot;2014-12-11 14:40:02&quot;
   },
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-ack_alert-top"><a name="api-route-13">Function: <code>ack_alert</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Acknowledge an alert</p>
 <p>Route: /api/v0/alerts/:id</p>
@@ -1455,16 +1490,18 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
  &quot;message&quot;: &quot;Alert has been acknowledged&quot;
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-unmute_alert-top"><a name="api-route-24">Function: <code>unmute_alert</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Unmute an alert</p>
 <p>Route: /api/v0/alerts/unmute/:id</p>
@@ -1473,16 +1510,18 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/unmute/1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
  &quot;message&quot;: &quot;Alert has been unmuted&quot;
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-list_alerts-top"><a name="api-route-14">Function: <code>list_alerts</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List all alerts</p>
 <p>Route: /api/v0/alerts</p>
@@ -1490,10 +1529,11 @@ Example:
 <ul>
 <li>state: Filter the alerts by state, 0 = ok, 1 = alert, 2 = ack</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts?state=1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1509,7 +1549,8 @@ Example:
    &quot;timestamp&quot;: &quot;2014-12-11 14:40:02&quot;
   }
 }
-</code></pre></p>
+</code></pre>
+
 <h2 id="rules-top"><a name="api-rules"><code>Rules</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-get_alert_rule-top"><a name="api-route-15">Function: <code>get_alert_rule</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get the alert rule details.</p>
@@ -1519,10 +1560,11 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1539,7 +1581,8 @@ Example:
   }
  ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-delete_rule-top"><a name="api-route-16">Function: <code>delete_rule</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Delete an alert rule by id</p>
 <p>Route: /api/v0/rules/:id</p>
@@ -1548,26 +1591,29 @@ Example:
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
  &quot;message&quot;: &quot;Alert rule has been removed&quot;
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-list_alert_rules-top"><a name="api-route-17">Function: <code>list_alert_rules</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List the alert rules.</p>
 <p>Route: /api/v0/rules</p>
 <p>-</p>
 <p>Input:</p>
 <p>-</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1583,7 +1629,8 @@ Example:
    &quot;name&quot;: &quot;A test rule&quot;
   },
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-add_rule-top"><a name="api-route-18">Function: <code>add_rule</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Add a new alert rule.</p>
 <p>Route: /api/v0/rules</p>
@@ -1600,16 +1647,18 @@ Example:
 <li>invert: This would invert the rules check.</li>
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X POST -d '{&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">rules
 {
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-edit_rule-top"><a name="api-route-19">Function: <code>edit_rule</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Edit an existing alert rule</p>
 <p>Route: /api/v0/rules</p>
@@ -1627,16 +1676,18 @@ Example:
 <li>invert: This would invert the rules check.</li>
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">rules
 {
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;
 }
-</code></pre></p>
+</code></pre>
+
 <h2 id="inventory-top"><a name="api-inventory"><code>Inventory</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-get_inventory-top"><a name="api-route-20">Function: <code>get_inventory</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve the inventory for a device. If you call this without any parameters then you will only get part of the inventory. This is because a lot of devices nest each component, for instance you may initially have the chassis, within this the ports - 1 being an sfp cage, then the sfp itself. The way this API call is designed is to enable a recursive lookup. The first call will retrieve the root entry, included within this response will be entPhysicalIndex, you can then call for entPhysicalContainedIn which will then return the next layer of results.</p>
@@ -1649,10 +1700,11 @@ Example:
 <li>entPhysicalClass: This is used to restrict the class of the inventory, for example you can specify chassis to only return items in the inventory that are labelled as chassis.</li>
 <li>entPhysicalContainedIn: This is used to retrieve items within the inventory assigned to a previous component, for example specifying the chassis (entPhysicalIndex) will retrieve all items where the chassis is the parent.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/inventory/localhost?entPhysicalContainedIn=65536
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -1681,16 +1733,18 @@ Example:
         }
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h2 id="bills-top"><a name="api-bills"><code>Bills</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-list_bills-top"><a name="api-route-22">Function: <code>list_bills</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve the list of bills currently in the system.</p>
 <p>Route: /api/v0/bills</p>
 <p>Input:</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1726,7 +1780,8 @@ Example:
   }
  ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_bill-top"><a name="api-route-23">Function: <code>get_bill</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve a specific bill</p>
 <p>Route: /api/v0/bills/:id
@@ -1738,12 +1793,13 @@ Example:
 <li>custid is the customer reference</li>
 </ul>
 <p>Input:</p>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?ref=:customerref
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custid=:custid
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
@@ -1779,7 +1835,8 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custi
   }
  ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-list_arp-top"><a name="api-resources-list_arp">Function: <code>list_arp</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve a specific ARP entry or all ARP enties for a device</p>
 <p>Route: /api/v0/resources/ip/arp/:ip</p>
@@ -1790,11 +1847,12 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custi
 <ul>
 <li>device if you specify all for the IP then you need to populate this with the hostname or id of the device.</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/arp/1.1.1.1
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/arp/1.1.1.1?device=localhost
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -1808,7 +1866,8 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/i
         }
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-list_services-top"><a name="api-services-list_services">Function: <code>list_services</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve all services</p>
 <p>Route: /api/v0/services</p>
@@ -1817,12 +1876,13 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/i
 <li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
 <li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=2
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=0&amp;type=tcp
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -1862,7 +1922,8 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?st
         ]
     ]
 }
-</code></pre></p>
+</code></pre>
+
 <h3 id="function-get_service_for_host-top"><a name="api-services-get_service_for_host">Function: <code>get_service_for_host</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve services for device</p>
 <p>Route: /api/v0/services/:hostname</p>
@@ -1874,12 +1935,13 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?st
 <li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
 <li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
 </ul>
-<p>Example:
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=2
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=0&amp;type=tcp
-</code></pre></p>
-<p>Output:
+</code></pre>
+
+<p>Output:</p>
 <pre><code class="text">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;err-msg&quot;: &quot;&quot;,
@@ -1903,7 +1965,7 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:h
         ]
     ]
 }
-</code></pre></p></div>
+</code></pre></div>
             
             </div>
         </div>
