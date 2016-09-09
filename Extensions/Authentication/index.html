@@ -769,14 +769,15 @@ To disabled this caching (highly discourage) set this option to 0.</p>
 Please ensure that you set the $config['authlog_purge'] value to be greater than $config['active_directory]['users_purge'] otherwise old users won't be removed.</p>
 </blockquote>
 <h5 id="sample-configuration">Sample configuration</h5>
-<pre><code>$config['auth_ad_url']                      = &quot;ldaps://your-domain.controll.er&quot;;
-$config['auth_ad_check_certificates']       = 1; // or 0
-$config['auth_ad_domain']                   = &quot;your-domain.com&quot;;
-$config['auth_ad_base_dn']                  = &quot;dc=your-domain,dc=com&quot;;
+<pre><code>$config['auth_ad_url']                     = &quot;ldaps://&lt;your-domain.controll.er&gt;&quot;;
+$config['auth_ad_domain']                  = &quot;&lt;your-domain.com&gt;&quot;;
+$config['auth_ad_base_dn']                 = &quot;&lt;dc=your-domain,dc=com&gt;&quot;;
+$config['auth_ad_check_certificates']      = true;  // require a valid ssl certificate
+$config['auth_ad_debug']                   = false; // enable for verbose debug messages
+$config['active_directory']['users_purge'] = 30;    // purge users who haven't logged in for 30 days.
+$config['auth_ad_require_groupmembership'] = false; // require users to be members of a group listed below
 $config['auth_ad_groups']['&lt;ad-admingroup&gt;']['level'] = 10;
-$config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']   = 7;
-$config['auth_ad_require_groupmembership']  = 0;
-$config['active_directory']['users_purge']  = 14;//Purge users who haven't logged in for 14 days.
+$config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']  = 7;
 </code></pre>
 
 <p>Replace <code>&lt;ad-admingroup&gt;</code> with your Active Directory admin-user group and <code>&lt;ad-usergroup&gt;</code> with your standard user group.</p>
