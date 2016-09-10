@@ -628,7 +628,9 @@
         
             <li><a href="#nginx">NGINX</a></li>
         
-            <li><a href="#ntpd-server">NTPD Server</a></li>
+            <li><a href="#ntp-client">NTP Client</a></li>
+        
+            <li><a href="#ntp-server-ntpd">NTP Server (NTPD)</a></li>
         
             <li><a href="#os-updates">OS Updates</a></li>
         
@@ -671,7 +673,8 @@
 <li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#mysql">MySQL</a> - Agent</li>
 <li><a href="#nginx">NGINX</a> - Agent</li>
-<li><a href="#ntpd-server">NTPD</a> - SNMP extend, Agent</li>
+<li><a href="#ntp-client">NTP Client</a> - SNMP extend</li>
+<li><a href="#ntp-server">NTP Server</a> - SNMP extend</li>
 <li><a href="#os-updates">OS Updates</a> - SNMP extend</li>
 <li><a href="#powerdns">PowerDNS</a> - Agent</li>
 <li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Direct, Agent</li>
@@ -797,32 +800,50 @@ $mysql_port = 3306;
 }
 </code></pre>
 
-<h3 id="ntpd-server">NTPD Server</h3>
-<p>Supports NTPD Server (not client, that is separate)</p>
+<h3 id="ntp-client">NTP Client</h3>
+<p>A shell script that gets stats from ntp client.</p>
 <h5 id="snmp-extend_4">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntpd-server.php -O /etc/snmp/ntpd-server.php
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client.sh -O /opt/ntp-client.sh
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/ntdp-server.php)</li>
+<li>Make the script executable (chmod +x /opt/ntp-client.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
-<pre><code>extend ntpdserver /etc/snmp/ntpd-server.php
+<pre><code>extend ntp-client /etc/snmp/ntp-client.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>Ntpd-server</code> under the Applications tab.</li>
+<li>On the device page in Librenms, edit your host and check the <code>NTP Client</code> under the Applications tab.</li>
 </ol>
-<h5 id="agent_3">Agent</h5>
-<p>Support is built into the agent, and this app will be automatically enabled.</p>
+<h3 id="ntp-server-ntpd">NTP Server (NTPD)</h3>
+<p>A shell script that gets stats from ntp server (ntpd).</p>
+<h5 id="snmp-extend_5">SNMP Extend</h5>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-server.sh -O /opt/ntp-server.sh
+</code></pre>
+
+<ol>
+<li>Make the script executable (chmod +x /opt/ntp-server.sh)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
+<pre><code>extend ntp-server /etc/snmp/ntp-server.sh
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>NTP Server</code> under the Applications tab.</li>
+</ol>
 <h3 id="os-updates">OS Updates</h3>
 <p>A small shell script that checks your system package manager for any available updates. Supports apt-get/pacman/yum/zypper package managers).</p>
 <p>For pacman users automatically refreshing the database, it is recommended you use an alternative database location <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
-<h5 id="snmp-extend_5">SNMP Extend</h5>
+<h5 id="snmp-extend_6">SNMP Extend</h5>
 <ol>
 <li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
 <li>Make the script executable (chmod +x /opt/os-updates.sh)</li>
@@ -839,7 +860,7 @@ $mysql_port = 3306;
 If you have apticron, cron-apt or apt-listchanges installed and configured, chances are that packages are already updated periodically.</p>
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
-<h5 id="agent_4">Agent</h5>
+<h5 id="agent_3">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>powerdns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="powerdns-recursor">PowerDNS Recursor</h3>
 <p>A recursive DNS server: https://www.powerdns.com/recursor.html</p>
@@ -850,7 +871,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <p><code>$config['apps']['powerdns-recursor']['api-key']</code> required, this is defined in the Recursor config
 <code>$config['apps']['powerdns-recursor']['port']</code> numeric, defines the port to connect to PowerDNS Recursor on.  The default is 8082
 <code>$config['apps']['powerdns-recursor']['https']</code> true or false, defaults to use http.</p>
-<h5 id="agent_5">Agent</h5>
+<h5 id="agent_4">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
 <h3 id="proxmox">Proxmox</h3>
@@ -866,7 +887,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 </ol>
 <h3 id="raspberry-pi">Raspberry PI</h3>
 <p>SNMP extend script to get your PI data into your host.</p>
-<h5 id="snmp-extend_6">SNMP Extend</h5>
+<h5 id="snmp-extend_7">SNMP Extend</h5>
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
 <li>Make the script executable: <code>chmod +x /opt/raspberry.sh</code></li>
@@ -885,7 +906,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <li>Restart snmpd on PI host</li>
 </ol>
 <h3 id="tinydns-aka-djbdns">TinyDNS aka  djbdns</h3>
-<h5 id="agent_6">Agent</h5>
+<h5 id="agent_5">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p><em>Note</em>: We assume that you use DJB's <a href="http://cr.yp.to/daemontools.html">Daemontools</a> to start/stop tinydns.
 And that your tinydns instance is located in <code>/service/dns</code>, adjust this path if necessary.</p>
@@ -908,7 +929,7 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.</li>
 </ol>
 <h3 id="unbound">Unbound</h3>
-<h5 id="agent_7">Agent</h5>
+<h5 id="agent_6">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Unbound configuration:</p>
 <pre><code class="text"># Enable extended statistics.
