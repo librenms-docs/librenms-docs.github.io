@@ -646,6 +646,8 @@
         
             <li><a href="#unbound">Unbound</a></li>
         
+            <li><a href="#ups-nut">UPS-nut</a></li>
+        
     
         <li class="main "><a href="#agent-setup">Agent Setup</a></li>
         
@@ -682,6 +684,7 @@
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
 <li><a href="#unbound">Unbound</a> - Agent</li>
+<li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
 <li><a href="#agent-setup">Agent Setup</a></li>
 </ol>
 <h3 id="apache">Apache</h3>
@@ -940,6 +943,21 @@ server:
 </code></pre>
 
 <p>Restart your unbound after changing the configuration,v erify it is working by running /usr/lib/check_mk_agent/local/unbound.sh</p>
+<h3 id="ups-nut">UPS-nut</h3>
+<p>A small shell script that exports nut ups status.</p>
+<h5 id="snmp-extend_8">SNMP Extend</h5>
+<ol>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
+<li>Make the script executable (chmod +x /opt/ups-nut.sh)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
+<pre><code>extend ups-nut /opt/ups-nut.sh
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>UPS nut</code> under the Applications tab.</li>
+</ol>
 <h2 id="agent-setup">Agent Setup</h2>
 <p>To gather data from remote systems you can use LibreNMS in combination with check_mk (found <a href="https://github.com/librenms/librenms-agent">here</a>).</p>
 <p>Make sure that systemd or xinetd is installed on the host you want to run the agent on.</p>
