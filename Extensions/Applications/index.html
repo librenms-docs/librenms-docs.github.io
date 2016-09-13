@@ -734,10 +734,10 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <h5 id="snmp-extend_1">SNMP Extend</h5>
 <ol>
 <li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-<li>Make the script executable (chmod +x /opt/dhcp-status.sh)</li>
+<li>Make the script executable (chmod +x /etc/snmp/dhcp-status.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
-<pre><code>extend dhcpstats /opt/dhcp-status.sh
+<pre><code>extend dhcpstats /etc/snmp/dhcp-status.sh
 </code></pre>
 
 <ol>
@@ -766,11 +766,11 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <h3 id="memcached">Memcached</h3>
 <h5 id="snmp-extend_3">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/usr/local/bin</code> (or any other suitable location) on your remote server.</li>
-<li>Make the script executable: <code>chmod +x /usr/local/memcached</code></li>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/etc/snmp/</code> on your remote server.</li>
+<li>Make the script executable: <code>chmod +x /etc/snmp/memcached</code></li>
 <li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
 </ol>
-<pre><code>extend memcached /usr/local/bin/memcached
+<pre><code>extend memcached /etc/snmp/memcached
 </code></pre>
 
 <ol>
@@ -809,11 +809,11 @@ $mysql_port = 3306;
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client.sh -O /opt/ntp-client.sh
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client.sh -O /etc/snmp/ntp-client.sh
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /opt/ntp-client.sh)</li>
+<li>Make the script executable (chmod +x /etc/snmp/ntp-client.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
 <pre><code>extend ntp-client /etc/snmp/ntp-client.sh
@@ -829,11 +829,11 @@ $mysql_port = 3306;
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-server.sh -O /opt/ntp-server.sh
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-server.sh -O /etc/snmp/ntp-server.sh
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /opt/ntp-server.sh)</li>
+<li>Make the script executable (chmod +x /etc/snmp/ntp-server.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
 <pre><code>extend ntp-server /etc/snmp/ntp-server.sh
@@ -849,10 +849,10 @@ $mysql_port = 3306;
 <h5 id="snmp-extend_6">SNMP Extend</h5>
 <ol>
 <li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-<li>Make the script executable (chmod +x /opt/os-updates.sh)</li>
+<li>Make the script executable (chmod +x /etc/snmp/os-updates.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
-<pre><code>extend osupdate /opt/os-updates.sh
+<pre><code>extend osupdate /etc/snmp/os-updates.sh
 </code></pre>
 
 <ol>
@@ -892,17 +892,17 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <p>SNMP extend script to get your PI data into your host.</p>
 <h5 id="snmp-extend_7">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
-<li>Make the script executable: <code>chmod +x /opt/raspberry.sh</code></li>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/etc/snmp/</code> (or any other suitable location) on your PI host.</li>
+<li>Make the script executable: <code>chmod +x /etc/snmp/raspberry.sh</code></li>
 <li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
 </ol>
-<pre><code>extend raspberry /opt/raspberry.sh
+<pre><code>extend raspberry /etc/snmp/raspberry.sh
 </code></pre>
 
 <ol>
 <li>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:</li>
 </ol>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /opt/raspberry.sh, /usr/bin/vcgencmd*
+<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/raspberry.sh, /usr/bin/vcgencmd*
 </code></pre>
 
 <ol>
@@ -947,11 +947,11 @@ server:
 <p>A small shell script that exports nut ups status.</p>
 <h5 id="snmp-extend_8">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/opt/</code> (or any other suitable location) on your PI host.</li>
-<li>Make the script executable (chmod +x /opt/ups-nut.sh)</li>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</li>
+<li>Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
-<pre><code>extend ups-nut /opt/ups-nut.sh
+<pre><code>extend ups-nut /etc/snmp/ups-nut.sh
 </code></pre>
 
 <ol>
