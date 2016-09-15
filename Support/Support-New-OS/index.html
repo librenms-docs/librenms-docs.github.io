@@ -617,30 +617,29 @@
     
         <li class="main "><a href="#mib">MIB</a></li>
         
-    
-        <li class="main "><a href="#new-os-definition">New OS definition</a></li>
+            <li><a href="#new-os-definition">New OS definition</a></li>
         
-    
-        <li class="main "><a href="#discovery-os">Discovery OS</a></li>
+            <li><a href="#discovery-os">Discovery OS</a></li>
         
             <li><a href="#the-final-check">The final check</a></li>
         
-            <li><a href="#full-support-for-a-new-os">FULL SUPPORT FOR A NEW OS</a></li>
-        
     
-        <li class="main "><a href="#mib_1">MIB</a></li>
+        <li class="main "><a href="#full-support-for-a-new-os">Full support for a new OS</a></li>
         
-    
-        <li class="main "><a href="#new-os-definition_1">New OS definition</a></li>
+            <li><a href="#mib_1">MIB</a></li>
         
-    
-        <li class="main "><a href="#discovery-os_1">Discovery OS</a></li>
+            <li><a href="#new-os-definition_1">New OS definition</a></li>
+        
+            <li><a href="#discovery-os_1">Discovery OS</a></li>
         
             <li><a href="#polling-os">Polling OS</a></li>
         
             <li><a href="#displaying">Displaying</a></li>
         
             <li><a href="#the-final-check_1">The final check</a></li>
+        
+    
+        <li class="main "><a href="#os-test-units">OS Test units</a></li>
         
     
     </ul>
@@ -662,7 +661,7 @@
 <pre><code class="bash">/opt/librenms/mibs
 </code></pre>
 
-<h3 id="new-os-definition">New OS definition</h3>
+<h4 id="new-os-definition">New OS definition</h4>
 <p>Let's begin to declare the new OS in LibreNMS. At first we modify the definition file located here:</p>
 <pre><code class="bash">includes/definitions.inc.php
 </code></pre>
@@ -682,7 +681,7 @@ $config['os'][$os]['over'][2]['text']  = 'Memory Usage';
 //The icon described before is the image we have to create and put in the directory html/images/os
 </code></pre>
 
-<h3 id="discovery-os">Discovery OS</h3>
+<h4 id="discovery-os">Discovery OS</h4>
 <p>We create a new file named as our OS definition and in this directory:</p>
 <pre><code class="bash">includes/discovery/os/pulse.inc.php
 </code></pre>
@@ -692,7 +691,7 @@ Look at other files to get help in the code structure.</p>
 <pre><code class="php">&lt;?php
 
 if (!$os) {
-    if (strstr($sysDescr, 'Pulse Connect Secure')) {
+    if (str_contains($sysDescr, 'Pulse Connect Secure')) {
         $os = 'pulse';
     }
 }
@@ -739,8 +738,8 @@ snmpget -v2c -c public -OUsb -m PULSESECURE-PSG-MIB -M /opt/librenms/mibs -t 30 
 </code></pre>
 
 <p>At this step we should see all the values retrieved in LibreNMS.</p>
-<h4 id="full-support-for-a-new-os">FULL SUPPORT FOR A NEW OS</h4>
-<h3 id="mib_1">MIB</h3>
+<h3 id="full-support-for-a-new-os">Full support for a new OS</h3>
+<h4 id="mib_1">MIB</h4>
 <p>At first we copy the MIB file into the default directory:</p>
 <pre><code class="bash">/opt/librenms/mibs
 </code></pre>
@@ -755,7 +754,7 @@ snmpget -v2c -c public -OUsb -m PULSESECURE-PSG-MIB -M /opt/librenms/mibs -t 30 
 iveCpuUtil.0 = Gauge32: 28
 </code></pre>
 
-<h3 id="new-os-definition_1">New OS definition</h3>
+<h4 id="new-os-definition_1">New OS definition</h4>
 <p>Let's begin to declare the new OS in LibreNMS. At first we modify the definition file located here:</p>
 <pre><code class="bash">includes/definitions.inc.php
 </code></pre>
@@ -785,7 +784,7 @@ $config['graph_types']['device']['pulse_sessions']['order']        = '0';
 $config['graph_types']['device']['pulse_sessions']['descr']        = 'Active Sessions';
 </code></pre>
 
-<h3 id="discovery-os_1">Discovery OS</h3>
+<h4 id="discovery-os_1">Discovery OS</h4>
 <p>We create a new file named as our OS definition and in this directory:</p>
 <pre><code class="bash">includes/discovery/os/pulse.inc.php
 </code></pre>
@@ -997,7 +996,34 @@ require 'includes/graphs/generic_simplex.inc.php';
 <pre><code class="bash">./poller.php -h HOSTNAME
 </code></pre>
 
-<p>At this step we should see all the values retrieved in LibreNMS.</p></div>
+<p>At this step we should see all the values retrieved in LibreNMS.</p>
+<h3 id="os-test-units">OS Test units</h3>
+<p>We have a testing unit for new OS', please ensure you add a test for any new OS' or updates to existing OS discovery.</p>
+<p>The OS test unit file is located <code>tests/OSDiscoveryTest.php</code>. An example of this is as follows:</p>
+<pre><code class="php">    public function testZxr10()
+    {
+        $this-&gt;checkOS('zxr10', 'ZTE Ethernet Switch  ZXR10 5250-52TM-H, Version: V2.05.11B23');
+    }
+</code></pre>
+
+<p>This test looks for the sysDescr of <code>ZTE Ethernet Switch  ZXR10 5250-52TM-H, Version: V2.05.11B23</code> and if it matches 
+the <code>zxr10</code> OS discovery file then the check will pass.</p>
+<p>A slightly more complicated test would be:</p>
+<pre><code class="php">    public function testAiros()
+    {
+        $this-&gt;checkOS('airos', 'Linux', '.1.3.6.1.4.1.10002.1');
+        $this-&gt;checkOS('airos', 'Linux', '.1.3.6.1.4.1.41112.1.4');
+
+        $mockSnmp = array(
+            'dot11manufacturerName.5' =&gt; 'Ubiquiti',
+        );
+        $this-&gt;checkOS('airos', 'Linux', '', $mockSnmp);
+    }
+</code></pre>
+
+<p>The first two <code>$this-&gt;checkOS</code> calls pass on both a <code>sysDescr</code> value (<code>Linux</code>) and a <code>sysObjectID</code>.</p>
+<p>The third call uses another snmp response (although fake) which the specific OS discovery for <code>airos</code> relies on.</p>
+<p>You can run <code>scripts/pre-commit.php -u</code> to run the unit tests to check your code.</p></div>
             
             </div>
         </div>
