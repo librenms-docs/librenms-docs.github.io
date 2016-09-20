@@ -815,11 +815,13 @@ This file will usually set the variables for $version and $hardware gained from 
 This is a 32x32 png format image of the OS you are adding support for.</p>
 <p>You will also need to supply a test unit within <code>tests/OSDiscoveryTest.php</code>. Please see <a href="../Support-New-OS/">Support-New-OS</a> for further information.</p>
 <h4 id="what-information-do-you-need-to-add-a-new-os"><a name="faq20"> What information do you need to add a new OS?</a></h4>
-<p>Please provide the following output as seperate non-expiring pastebin.com links.</p>
-<p>Replace the relevant information in these commands such as HOSTNAME and COMMUNITY.</p>
+<p>Under the device, click the gear and select Capture. 
+Please provide the output of Discovery, Poller, and Snmpwalk as separate non-expiring pastebin.com links.</p>
+<p>You can also use the command line to obtain the information.  Especially, if snmpwalk results in a large amount of data.
+Replace the relevant information in these commands such as HOSTNAME and COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1 devices.</p>
 <pre><code class="bash">./discovery.php -h HOSTNAME -d -m os
 ./poller.php -h HOSTNAME -r -f -d -m os
-snmpbulkwalk -On -v2c -c COMMUNITY HOSTNAME .
+snmpbulkwalk -Onet -v2c -c COMMUNITY HOSTNAME .
 </code></pre>
 
 <p>If possible please also provide what the OS name should be if it doesn't exist already.</p>
