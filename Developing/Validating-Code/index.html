@@ -612,6 +612,12 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#validating-code">Validating Code</a></li>
+        
+    
+        <li class="main "><a href="#git-hooks">Git Hooks</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -624,6 +630,7 @@
 </div>
 
 
+<h4 id="validating-code">Validating Code</h4>
 <p>As part of the pull request process with GitHub we run some automated build tests to ensure that 
 the code is error free, standards <a href="http://docs.librenms.org/Developing/Code-Guidelines/">compliant</a>
 and our test suite builds successfully.</p>
@@ -641,7 +648,19 @@ unless otherwise noted.</p>
 <p>Once composer is installed you can now run the code validation script:</p>
 <p><code>./scripts/pre-commit.php</code></p>
 <p>If you see <code>Tests ok, submit away :)</code> then all is well. If you see other output then it should contain 
-what you need to resolve the issues and re-test.</p></div>
+what you need to resolve the issues and re-test.</p>
+<h4 id="git-hooks">Git Hooks</h4>
+<p>Git has a hook system which you can use to trigger checks at various stages. Utilising the <code>pre-commit.php</code> 
+you can make this part of your commit process. You can do this in two ways:</p>
+<ol>
+<li>If you already make use of <code>.git/hooks/pre-commit</code> then you can add:</li>
+</ol>
+<p>./scripts/pre-commit.php</p>
+<p>to be excecuted when you run <code>git commit</code>.</p>
+<ol>
+<li>You can symlink the <code>pre-commit.php</code> file so it's executed directly on a <code>git commit</code>:</li>
+</ol>
+<p><code>ln -s /opt/librenms/scripts/pre-commit.php /opt/librenms/.git/hooks/pre-commit</code></p></div>
             
             </div>
         </div>
