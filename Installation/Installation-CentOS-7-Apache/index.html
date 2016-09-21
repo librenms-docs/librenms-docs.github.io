@@ -753,8 +753,8 @@ vim /etc/httpd/conf.d/librenms.conf
 <p>Once you have completed the web installer steps. Please add the following to <code>config.php</code></p>
 <p><code>$config['fping'] = "/usr/sbin/fping";</code></p>
 <h4 id="configure-snmpd">Configure snmpd</h4>
-<pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmpd/snmpd.conf
-vim /etc/snmpd/snmpd.conf
+<pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+vim /etc/snmp/snmpd.conf
 </code></pre>
 
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
