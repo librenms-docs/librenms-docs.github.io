@@ -794,6 +794,14 @@ $config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']  = 7;
 <pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
 </code></pre>
 
+<h5 id="active-directory-ldap-filters">Active Directory LDAP filters</h5>
+<p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
+<p>The defaults are:</p>
+<pre><code>$config['auth_ad_user_filter'] = &quot;(objectclass=user)&quot;;
+$config['auth_ad_group_filter'] = &quot;(objectclass=group)&quot;;
+</code></pre>
+
+<p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for the group filter.</p>
 <h4 id="radius-authentication">Radius Authentication</h4>
 <p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
 <blockquote>
