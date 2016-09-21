@@ -718,9 +718,8 @@ $ModLoad omprog
 
 $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timereported:8:25%||%msg%||%programname%\n&quot;
 
-:inputname, isequal, &quot;imudp&quot; action(type=&quot;omprog&quot;
-                                    binary=&quot;/opt/librenms/syslog.php&quot;
-                                    template=&quot;librenms&quot;)
+*.* action(type=&quot;omprog&quot; binary=&quot;/opt/librenms/syslog.php&quot; template=&quot;librenms&quot;)
+
 &amp; stop
 
 </code></pre>
