@@ -236,6 +236,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/NFSen/</loc>
+     <lastmod>2016-09-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Oxidized/</loc>
      <lastmod>2016-09-23</lastmod>
      <changefreq>daily</changefreq>
