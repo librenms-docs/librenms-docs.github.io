@@ -455,6 +455,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.librenms.org/Support/SNMP-Configuration-Examples/</loc>
+     <lastmod>2016-09-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

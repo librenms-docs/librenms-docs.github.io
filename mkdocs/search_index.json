@@ -3746,6 +3746,111 @@
             "title": "OS Test units"
         }, 
         {
+            "location": "/Support/SNMP-Configuration-Examples/", 
+            "text": "SNMP configuration examples\n\n\nTable of Content:\n- \nDevices\n\n    - \nCisco\n\n        - \nAdaptive Security Appliance (ASA)\n\n        - \nIOS / IOS XE / NX-OS\n\n        - \nWireless LAN Controller (WLC)\n\n    - \nInfoblox\n\n        - \nNIOS 7.x\n\n    - \nJuniper\n\n        - \nJunos OS\n\n    - \nPalo Alto\n\n        - \nPANOS 6.x/7.x\n\n- \nOperating systems\n\n    - \nLinux (snmpd)\n\n    - \nWindows Server 2008 R2\n\n    - \nWindows Server 2012 R2\n\n\nDevices\n\n\nCisco\n\n\nAdaptive Security Appliance (ASA)\n\n\n\n\nLaunch ASDM and connect to your device\n\n\nGo to Configuration \n Management Access \n SNMP\n\n\nAdd your community string\n\n\nAdd in the \"SNMP Host Access List\" section your LibreNMS server IP address\n\n\nClick Apply and Save\n\n\n\n\nIOS / IOS XE / NX-OS\n\n\nsnmp-server community YOUR-COMMUNITY RO\nsnmp-server contact YOUR-CONTACT\nsnmp-server location YOUR-LOCATION\n\n\n\n\nWireless LAN Controller (WLC)\n\n\n\n\nAccess the web admin page and log in\n\n\nIf you are running version 8.1 and later, on the new dashboard click \"Advanced\"\n\n\nGo to management Tab\n\n\nOn SNMP sub-menu, select \"Communities\"\n\n\nClick \"New...\"\n\n\nAdd your community name and leave IP addresses empty\n\n\nClick Apply and Save\n\n\n\n\nInfoblox\n\n\nNIOS 7.x\n\n\n\n\nAccess the web admin page and log in\n\n\nGo to Grid tab \n Grid Manager\n\n\nIn the right menu select \"Grid properties\"\n\n\nSelect \"SNMP\" menu\n\n\nClick \"Enable SNMPv1/SNMPv2 Queries\"\n\n\nAdd your community\n\n\nClick Save \n Close\n\n\n\n\nJuniper\n\n\nJunos OS\n\n\nset snmp description description\nset snmp location location\nset snmp contact contact\nset snmp community YOUR-COMMUNITY authorization read-only\n\n\n\n\nPalo Alto\n\n\nPANOS 6.x/7.x\n\n\n\n\nAccess the web admin page and log in\n\n\nGo to Device tab \n Setup\n\n\nGo to the sub-tab \"Operations\"\n\n\nClick \"SNMP Setup\"   \n\n\nEnter your SNMP community and then click \"OK\"\n\n\nClick Apply\n\n\n\n\nNote that you need to allow SNMP on the needed interfaces. To do that you need to create a network \"Interface Mgmt\" profile for standard interface and allow SNMP under \"Device \n Management \n Management Interface Settings\" for out of band management interface.\n\n\nOperating systems\n\n\nLinux (snmpd)\n\n\nReplace your snmpd.conf file by the example below and edit it with appropriate community in \"RANDOMSTRINGGOESHERE\".\n\n\nvi /etc/snmp/snmpd.conf\n\n\n\n\n# Change RANDOMSTRINGGOESHERE to your preferred SNMP community string\ncom2sec readonly  default         RANDOMSTRINGGOESHERE\n\ngroup MyROGroup v2c        readonly\nview all    included  .1                               80\naccess MyROGroup \n      any       noauth    exact  all    none   none\n\nsyslocation Rack, Room, Building, City, Country [GPSX,Y]\nsyscontact Your Name \nyour@email.address\n\n\n#Distro Detection\nextend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro\n\n\n\n\nThe LibreNMS server include a copy of this example here:\n\n\n/opt/librenms/snmpd.conf.example\n\n\n\n\nRestart the snmpd service:\n\n\nCentOS 6 / Red hat 6\n\n\nservice snmpd restart\n\n\n\n\nCentOS 7 / Red hat 7\n\n\nsystemctl restart snmpd\n\n\n\n\nUbuntu\n\n\nservice snmpd restart\n\n\n\n\nWindows Server 2008 R2\n\n\n\n\nLog in to your Windows Server 2008 R2\n\n\nStart \"Server Manager\" under \"Administrative Tools\"\n\n\nClick \"Features\" and then click \"Add Feature\"\n\n\nCheck (if not checked) \"SNMP Service\", click \"Next\" until \"Install\"\n\n\nStart \"Services\" under \"Administrative Tools\"\n\n\nEdit \"SNMP Service\" properties\n\n\nGo to the security tab\n\n\nIn \"Accepted community name\" click \"Add\" to add your community string and permission\n\n\nIn \"Accept SNMP packets from these hosts\" click \"Add\" and add your LibreNMS server IP address\n\n\nValidate change by clicking \"Apply\"\n\n\n\n\nWindows Server 2012 R2\n\n\n\n\nLog in to your Windows Server 2012 R2\n\n\nStart \"Server Manager\" under \"Administrative Tools\"\n\n\nClick \"Manage\" and then \"Add Roles and Features\"\n\n\nContinue by pressing \"Next\" to the \"Features\" menu\n\n\nInstall (if not installed) \"SNMP Service\"\n\n\nStart \"Services\" under \"Administrative Tools\"\n\n\nEdit \"SNMP Service\" properties\n\n\nGo to the security tab\n\n\nIn \"Accepted community name\" click \"Add\" to add your community string and permission\n\n\nIn \"Accept SNMP packets from these hosts\" click \"Add\" and add your LibreNMS server IP address\n\n\nValidate change by clicking \"Apply\"", 
+            "title": "SNMP Configuration Examples"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#snmp-configuration-examples", 
+            "text": "Table of Content:\n-  Devices \n    -  Cisco \n        -  Adaptive Security Appliance (ASA) \n        -  IOS / IOS XE / NX-OS \n        -  Wireless LAN Controller (WLC) \n    -  Infoblox \n        -  NIOS 7.x \n    -  Juniper \n        -  Junos OS \n    -  Palo Alto \n        -  PANOS 6.x/7.x \n-  Operating systems \n    -  Linux (snmpd) \n    -  Windows Server 2008 R2 \n    -  Windows Server 2012 R2", 
+            "title": "SNMP configuration examples"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#devices", 
+            "text": "", 
+            "title": "Devices"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#cisco", 
+            "text": "", 
+            "title": "Cisco"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#adaptive-security-appliance-asa", 
+            "text": "Launch ASDM and connect to your device  Go to Configuration   Management Access   SNMP  Add your community string  Add in the \"SNMP Host Access List\" section your LibreNMS server IP address  Click Apply and Save", 
+            "title": "Adaptive Security Appliance (ASA)"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#ios-ios-xe-nx-os", 
+            "text": "snmp-server community YOUR-COMMUNITY RO\nsnmp-server contact YOUR-CONTACT\nsnmp-server location YOUR-LOCATION", 
+            "title": "IOS / IOS XE / NX-OS"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#wireless-lan-controller-wlc", 
+            "text": "Access the web admin page and log in  If you are running version 8.1 and later, on the new dashboard click \"Advanced\"  Go to management Tab  On SNMP sub-menu, select \"Communities\"  Click \"New...\"  Add your community name and leave IP addresses empty  Click Apply and Save", 
+            "title": "Wireless LAN Controller (WLC)"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#infoblox", 
+            "text": "", 
+            "title": "Infoblox"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#nios-7x", 
+            "text": "Access the web admin page and log in  Go to Grid tab   Grid Manager  In the right menu select \"Grid properties\"  Select \"SNMP\" menu  Click \"Enable SNMPv1/SNMPv2 Queries\"  Add your community  Click Save   Close", 
+            "title": "NIOS 7.x"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#juniper", 
+            "text": "", 
+            "title": "Juniper"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#junos-os", 
+            "text": "set snmp description description\nset snmp location location\nset snmp contact contact\nset snmp community YOUR-COMMUNITY authorization read-only", 
+            "title": "Junos OS"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#palo-alto", 
+            "text": "", 
+            "title": "Palo Alto"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#panos-6x7x", 
+            "text": "Access the web admin page and log in  Go to Device tab   Setup  Go to the sub-tab \"Operations\"  Click \"SNMP Setup\"     Enter your SNMP community and then click \"OK\"  Click Apply   Note that you need to allow SNMP on the needed interfaces. To do that you need to create a network \"Interface Mgmt\" profile for standard interface and allow SNMP under \"Device   Management   Management Interface Settings\" for out of band management interface.", 
+            "title": "PANOS 6.x/7.x"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#operating-systems", 
+            "text": "", 
+            "title": "Operating systems"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#linux-snmpd", 
+            "text": "Replace your snmpd.conf file by the example below and edit it with appropriate community in \"RANDOMSTRINGGOESHERE\".  vi /etc/snmp/snmpd.conf  # Change RANDOMSTRINGGOESHERE to your preferred SNMP community string\ncom2sec readonly  default         RANDOMSTRINGGOESHERE\n\ngroup MyROGroup v2c        readonly\nview all    included  .1                               80\naccess MyROGroup        any       noauth    exact  all    none   none\n\nsyslocation Rack, Room, Building, City, Country [GPSX,Y]\nsyscontact Your Name  your@email.address \n\n#Distro Detection\nextend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro  The LibreNMS server include a copy of this example here:  /opt/librenms/snmpd.conf.example", 
+            "title": "Linux (snmpd)"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#restart-the-snmpd-service", 
+            "text": "", 
+            "title": "Restart the snmpd service:"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#centos-6-red-hat-6", 
+            "text": "service snmpd restart", 
+            "title": "CentOS 6 / Red hat 6"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#centos-7-red-hat-7", 
+            "text": "systemctl restart snmpd", 
+            "title": "CentOS 7 / Red hat 7"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#ubuntu", 
+            "text": "service snmpd restart", 
+            "title": "Ubuntu"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#windows-server-2008-r2", 
+            "text": "Log in to your Windows Server 2008 R2  Start \"Server Manager\" under \"Administrative Tools\"  Click \"Features\" and then click \"Add Feature\"  Check (if not checked) \"SNMP Service\", click \"Next\" until \"Install\"  Start \"Services\" under \"Administrative Tools\"  Edit \"SNMP Service\" properties  Go to the security tab  In \"Accepted community name\" click \"Add\" to add your community string and permission  In \"Accept SNMP packets from these hosts\" click \"Add\" and add your LibreNMS server IP address  Validate change by clicking \"Apply\"", 
+            "title": "Windows Server 2008 R2"
+        }, 
+        {
+            "location": "/Support/SNMP-Configuration-Examples/#windows-server-2012-r2", 
+            "text": "Log in to your Windows Server 2012 R2  Start \"Server Manager\" under \"Administrative Tools\"  Click \"Manage\" and then \"Add Roles and Features\"  Continue by pressing \"Next\" to the \"Features\" menu  Install (if not installed) \"SNMP Service\"  Start \"Services\" under \"Administrative Tools\"  Edit \"SNMP Service\" properties  Go to the security tab  In \"Accepted community name\" click \"Add\" to add your community string and permission  In \"Accept SNMP packets from these hosts\" click \"Add\" and add your LibreNMS server IP address  Validate change by clicking \"Apply\"", 
+            "title": "Windows Server 2012 R2"
+        }, 
+        {
             "location": "/Installation/Installation-Ubuntu-1404-Nginx/", 
             "text": "NOTE: These instructions have been tested on a fresh install of Ubuntu 12.04 and 14.04.\n\n\nNOTE: These instructions assume you are the root user.  If you are not, prepend \nsudo\n to the shell commands (the ones that aren't at \nmysql\n prompts) or temporarily become a user with root privileges with \nsudo -s\n or \nsudo -i\n.\n\n\n\n\nOn the DB Server\n\n\nThis host is where the MySQL database runs.  It could be the same machine as your network management server (this is the most common initial deployment scenario).\n\n\n\n\n** Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.\n\n\n\n\nYou are free to choose between using MySQL or MariaDB:\n\n\nMySQL\n\n\napt-get install mysql-server mysql-client\nmysql -uroot -p\n\n\n\n\nMariaDB\n\n\napt-get install mariadb-server mariadb-client\nmysql -uroot -p\n\n\n\n\nInput the MySQL root password to enter the MySQL command-line interface.\n\n\nCreate the database:\n\n\nCREATE DATABASE librenms;\nGRANT ALL PRIVILEGES ON librenms.*\n  TO 'librenms'@'\nip\n'\n  IDENTIFIED BY '\npassword\n'\n;\nFLUSH PRIVILEGES;\nexit\n\n\n\n\nReplace \nip\n above with the IP or DNS name of the server running LibreNMS.  If your database is on the same server as LibreNMS, you can use \nlocalhost\n.\n\n\nIf you are deploying a separate database server, you need to change the \nbind-address\n.  If your MySQL database resides on the same server as LibreNMS, you should skip this step.\n\n\nvim /etc/mysql/my.cnf\n\n\n\nWithin the [mysqld] section please add:\n\n\ninnodb_file_per_table=1\n\n\n\nFind the line: \nbind-address = 127.0.0.1\n\n\nChange \n127.0.0.1\n to the IP address that your MySQL server should listen on.  Restart MySQL:\n\n\nIf you see a line that starts \nsql-mode\n then change this to \nsql-mode=\"\"\n.\n\n\nservice mysql restart\n\n\n\nOn the NMS\n\n\nThis host is where the web server and SNMP poller run.  It could be the same machine as your database server.\n\n\nInstall the required software:\n\n\napt-get install nginx-full php5-fpm php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl php5-mcrypt php5-json php-net-ipv4 php-net-ipv6 snmp snmpd graphviz fping imagemagick whois mtr-tiny nmap python-mysqldb rrdtool git\n\n\n\nThe packages listed above are an all-inclusive list of packages that were necessary on a clean install of Ubuntu 12.04/14.04.\n\n\nYou need to configure snmpd appropriately if you have not already done so.  An absolute minimal config for snmpd is:\n\n\nrocommunity public 127.0.0.1\n\n\n\nAdding the above line to \n/etc/snmp/snmpd.conf\n and running \nservice snmpd restart\n will activate this config.\n\n\nIn \n/etc/php5/fpm/php.ini\n and \n/etc/php5/cli/php.ini\n, ensure date.timezone is set to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid\nexamples are: \"America/New York\", \"Australia/Brisbane\", \"Etc/UTC\".\nPlease also ensure that \nallow_url_fopen\n is enabled. Other functions needed for LibreNMS include \nexec,passthru,shell_exec,escapeshellarg,escapeshellcmd,proc_close,proc_open,popen\n.\n\n\nAdding the librenms-user\n\n\nuseradd librenms -d /opt/librenms -M -r\nusermod -a -G librenms www-data\n\n\n\nCloning\n\n\nLibreNMS is installed using git.  If you're not familiar with git, check out the \ngit book\n or the tips at \ngit ready\n.  The initial install from github.com is called a \ngit clone\n; subsequent updates are done through \ngit pull\n.\n\n\nYou can clone the repository via HTTPS or SSH.  In either case, you need to ensure that the appropriate port (443 for HTTPS, 22 for SSH) is open in the outbound direction for your server.\n\n\ncd /opt\ngit clone https://github.com/librenms/librenms.git librenms\ncd /opt/librenms\n\n\n\nThe recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command \ngit clone git@github.com:librenms/librenms.git librenms\n instead.\n\n\nSometimes the initial clone can take quite a while (nearly 3 minutes on a 10 Mbps fibre connection in Australia is a recent example).  If it's a big problem to you, you can save about 50% of the bandwidth by not pulling down the full git history.  This comes with some limitations (namely that you can't use it as the basis for further git repos), but if you're not planning to develop for LibreNMS it's an acceptable option.  To perform the initial clone without full history, run the following instead:\n\n\ncd /opt\ngit clone --depth 1 https://github.com/librenms/librenms.git librenms\ncd /opt/librenms\n\n\n\nWeb Interface\n\n\nTo prepare the web interface (and adding devices shortly), you'll need to create and chown a directory as well as create a Nginx vhost.\n\n\nFirst, create and chown the \nrrd\n directory and create the \nlogs\n directory:\n\n\nmkdir rrd logs\nchown -R librenms:librenms /opt/librenms\nchmod 775 rrd\n\n\n\n\n\nNOTE: If you're not running Ubuntu or Debian, you will need to change \nwww-data\n to the user and group which run the Nginx web server.\nIf you're planing on running rrdcached, make sure that the path is also chmod'ed to 775 and chown'ed to librenms:librenms.\n\n\n\n\nAdd configuration for \nnginx\n at \n/etc/nginx/conf.d/librenms.conf\n with the following content:\n\n\nserver {\n listen      80;\n server_name librenms.example.com;\n root        /opt/librenms/html;\n index       index.php;\n access_log  /opt/librenms/logs/access_log;\n error_log   /opt/librenms/logs/error_log;\n location / {\n  try_files $uri $uri/ @librenms;\n }\n location ~ \\.php {\n  fastcgi_param PATH_INFO $fastcgi_path_info;\n  include fastcgi_params;\n  fastcgi_split_path_info ^(.+\\.php)(/.+)$;\n  fastcgi_pass unix:/var/run/php5-fpm.sock;\n }\n location ~ /\\.ht {\n  deny all;\n }\n location @librenms {\n  rewrite api/v0(.*)$ /api_v0.php/$1 last;\n  rewrite ^(.+)$ /index.php/$1 last;\n }\n}\n\n\n\n\nOn at least Ubuntu 14.04 (and possibly other distributions and versions as well), mcrypt is not enabled on install.  Run the following to enable it:\n\n\nphp5enmod mcrypt\n\n\n\n(To get to your LibreNMS install externally, you'll also need add it to your DNS or hosts file.)\n\n\nStart the web-server:\n\n\nRestart nginx:\n\n\nservice nginx restart\n\n\n\nRestart php5-fpm:\n\n\nservice php5-fpm restart\n\n\n\nManual vs. web installer\n\n\nAt this stage you can either launch the web installer by going to http://librenms.example.com/install.php, follow the onscreen instructions then skip to the 'Add localhost' section. Alternatively if you want to continue the setup manually then just keep following these instructions.\n\n\ncp config.php.default config.php\nvim config.php\n\n\n\nChange the values to the right of the equal sign for lines beginning with \n$config[db_]\n to match your database information as setup above.\n\n\nChange the value of \n$config['snmp']['community']\n from \npublic\n to whatever your read-only SNMP community is.  If you have multiple communities, set it to the most common.\n\n\n Be sure you have no characters (including whitespace like: newlines, spaces, tabs, etc) outside of the \n?php?\n blocks. Your graphs will break otherwise. \n\n\nInitialise the database\n\n\nInitiate the follow database with the following command:\n\n\nphp build-base.php\n\n\n\nCreate admin user\n\n\nCreate the admin user - priv should be 10\n\n\nphp adduser.php \nname\n \npass\n 10 \nemail\n\n\n\n\nSubstitute your desired username, password and email address--and leave the angled brackets off.\n\n\nValidate your install\n\n\nRun validate.php as root in the librenms directory\n\n\nphp validate.php\n\n\n\nThis will check your install to verify it is set up correctly.\n\n\nAdd localhost\n\n\nphp addhost.php localhost public v2c\n\n\n\nThis assumes you haven't made community changes--if you have, replace \npublic\n with your community.  It also assumes SNMP v2c.  If you're using v3, there are additional steps (NOTE: instructions for SNMPv3 to come).\n\n\nDiscover localhost::\n\n\nphp discovery.php -h all\n\n\n\nCreate cronjob\n\n\nLibreNMS uses Job Snijders' \npoller-wrapper.py\n.  By default, the cron job runs \npoller-wrapper.py\n with 16 threads.  The current recommendation is to use 4 threads per core as a rule of thumb.  If the thread count needs to be changed, you can do so by editing the cron file (\n/etc/cron.d/librenms\n).  Just add a number after \npoller-wrapper.py\n, as in the example below:\n\n\n/opt/librenms/poller-wrapper.py 12 \n /dev/null 2\n1\n\n\n\nCreate the cronjob\n\n\ncp librenms.nonroot.cron /etc/cron.d/librenms\n\n\n\nDaily Updates\n\n\nLibreNMS performs daily updates by default.  At 00:15 system time every day, a \ngit pull --no-edit --quiet\n is performed.  You can override this default by editing your \nconfig.php\n file.  Remove the comment (the \n#\n mark) on the line:\n\n\n#$config['update'] = 0;\n\n\n\nso that it looks like this:\n\n\n$config['update'] = 0;\n\n\n\nInstall complete\n\n\nPlease allow for 2-3 runs of the poller-wrapper for data to start appearing in the WebUI.\nIf you don't see data after this, please refer to the \nFAQ\n for assistance.\n\n\nThat's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.\n\n\nIt would be great if you would consider opting into the stats system we have, please see \nthis page\n on what it is and how to enable it.", 
             "title": "Ubuntu 14.04 (Nginx)"
