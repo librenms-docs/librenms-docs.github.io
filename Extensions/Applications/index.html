@@ -660,6 +660,8 @@
         
             <li><a href="#ups-nut">UPS-nut</a></li>
         
+            <li><a href="#ups-apcups">UPS-apcups</a></li>
+        
     
         <li class="main "><a href="#agent-setup">Agent Setup</a></li>
         
@@ -697,6 +699,7 @@
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
 <li><a href="#unbound">Unbound</a> - Agent</li>
 <li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
+<li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
 <li><a href="#agent-setup">Agent Setup</a></li>
 </ol>
 <h3 id="apache">Apache</h3>
@@ -969,6 +972,21 @@ server:
 <ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>UPS nut</code> under the Applications tab.</li>
+</ol>
+<h3 id="ups-apcups">UPS-apcups</h3>
+<p>A small shell script that exports apcacess ups status.</p>
+<h5 id="snmp-extend_9">SNMP Extend</h5>
+<ol>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</li>
+<li>Make the script executable (chmod +x /etc/snmp/ups-apcups.sh)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+</ol>
+<pre><code>extend ups-apcups /etc/snmp/ups-apcups.sh
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+<li>On the device page in Librenms, edit your host and check the <code>UPS apcups</code> under the Applications tab.</li>
 </ol>
 <h2 id="agent-setup">Agent Setup</h2>
 <p>To gather data from remote systems you can use LibreNMS in combination with check_mk (found <a href="https://github.com/librenms/librenms-agent">here</a>).</p>
