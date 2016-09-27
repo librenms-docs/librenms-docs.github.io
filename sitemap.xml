@@ -336,7 +336,25 @@
     
         
     <url>
+     <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
+     <lastmod>2016-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Developing/Code-Guidelines/</loc>
+     <lastmod>2016-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Developing/Style-Guidelines/</loc>
+     <lastmod>2016-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Developing/Validating-Code/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -354,13 +372,7 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Merging-Pull-Requests/</loc>
-     <lastmod>2016-09-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Developing/Creating-Release/</loc>
+     <loc>http://docs.librenms.org/Developing/Support-New-OS/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -378,19 +390,13 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Style-Guidelines/</loc>
+     <loc>http://docs.librenms.org/Developing/Merging-Pull-Requests/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
-     <lastmod>2016-09-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Developing/Validating-Code/</loc>
+     <loc>http://docs.librenms.org/Developing/Creating-Release/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -450,12 +456,6 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
-     <lastmod>2016-09-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://docs.librenms.org/Support/SNMP-Configuration-Examples/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
@@ -497,6 +497,12 @@
         
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
+     <lastmod>2016-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
      <lastmod>2016-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
