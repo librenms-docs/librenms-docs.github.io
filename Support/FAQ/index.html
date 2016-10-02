@@ -674,6 +674,8 @@
         
             <li><a href="#why-does-a-device-show-as-a-warning"> Why does a device show as a warning?</a></li>
         
+            <li><a href="#why-do-i-not-see-all-interfaces-in-the-overall-traffic-graph-for-a-device"> Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
+        
             <li><a href="#how-do-i-add-support-for-a-new-os"> How do I add support for a new OS?</a></li>
         
             <li><a href="#what-information-do-you-need-to-add-a-new-os"> What information do you need to add a new OS?</a></li>
@@ -718,6 +720,7 @@
 <li><a href="#faq18">Things aren't working correctly?</a></li>
 <li><a href="#faq21">What do the values mean in my graphs?</a></li>
 <li><a href="#faq22">Why does a device show as a warning?</a></li>
+<li><a href="#faq23">Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -819,6 +822,34 @@ here are those values:</p>
 <h4 id="why-does-a-device-show-as-a-warning"><a name="faq22"> Why does a device show as a warning?</a></h4>
 <p>This is indicating that the device has rebooted within the last 24 hours (by default). If you want to adjust this 
 threshold then you can do so by setting <code>$config['uptime_warning']</code> in config.php. The value must be in seconds.</p>
+<h4 id="why-do-i-not-see-all-interfaces-in-the-overall-traffic-graph-for-a-device"><a name="faq23"> Why do I not see all interfaces in the Overall traffic graph for a device?</a></h4>
+<p>By default numerous interface types and interface descriptions are excluded from this graph. The excluded defailts are:</p>
+<pre><code class="php">$config['device_traffic_iftype'][] = '/loopback/';
+$config['device_traffic_iftype'][] = '/tunnel/';
+$config['device_traffic_iftype'][] = '/virtual/';
+$config['device_traffic_iftype'][] = '/mpls/';
+$config['device_traffic_iftype'][] = '/ieee8023adLag/';
+$config['device_traffic_iftype'][] = '/l2vlan/';
+$config['device_traffic_iftype'][] = '/ppp/';
+
+$config['device_traffic_descr'][] = '/loopback/';
+$config['device_traffic_descr'][] = '/vlan/';
+$config['device_traffic_descr'][] = '/tunnel/';
+$config['device_traffic_descr'][] = '/bond/';
+$config['device_traffic_descr'][] = '/null/';
+$config['device_traffic_descr'][] = '/dummy/';
+</code></pre>
+
+<p>If you would like to re-include l2vlan interfaces for instance, you first need to <code>unset</code> the config array and set your options:</p>
+<pre><code class="php">unset($config['device_traffic_iftype']);
+$config['device_traffic_iftype'][] = '/loopback/';
+$config['device_traffic_iftype'][] = '/tunnel/';
+$config['device_traffic_iftype'][] = '/virtual/';
+$config['device_traffic_iftype'][] = '/mpls/';
+$config['device_traffic_iftype'][] = '/ieee8023adLag/';
+$config['device_traffic_iftype'][] = '/ppp/';
+</code></pre>
+
 <h4 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h4>
 <p>The easiest way to show you how to do that is to link to an existing pull request that has been merged in on <a href="https://github.com/librenms/librenms/pull/352/files">GitHub</a></p>
 <p>To go into a bit more detail, the following are usually needed:</p>
