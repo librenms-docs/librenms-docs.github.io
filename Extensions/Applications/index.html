@@ -810,6 +810,14 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <h5 id="agent_2">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so please verify those are installed.</p>
+<p>CentOS</p>
+<pre><code>yum install php-cli php-mysql
+</code></pre>
+
+<p>Debian</p>
+<pre><code>apt-get install php5-cli php5-mysql
+</code></pre>
+
 <p>Unlike most other scripts, the MySQL script requires a configuration file <code>/usr/lib/check_mk_agent/local/mysql.cnf</code> with following content:</p>
 <pre><code class="php">&lt;?php
 $mysql_user = 'root';
