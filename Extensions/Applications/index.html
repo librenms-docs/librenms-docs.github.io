@@ -638,6 +638,8 @@
         
             <li><a href="#dhcp-stats">DHCP Stats</a></li>
         
+            <li><a href="#gspd">GSPD</a></li>
+        
             <li><a href="#mailscanner">Mailscanner</a></li>
         
             <li><a href="#memcached">Memcached</a></li>
@@ -691,6 +693,7 @@
 <li><a href="#apache">Apache</a> - SNMP extend</li>
 <li><a href="#bind9-aka-named">BIND9/named</a> - Agent</li>
 <li><a href="#dhcp-stats">DHCP Stats</a> - SNMP extend</li>
+<li><a href="#gpsd">GPSD</a> - Agent</li>
 <li><a href="#mailscanner">Mailscanner</a> - SNMP extend</li>
 <li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#mysql">MySQL</a> - Agent</li>
@@ -719,8 +722,8 @@
 
 <ol>
 <li>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</li>
-<li>Verify it is working by running /etc/snmp/apache-stats.py<br />
-(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)  </li>
+<li>Verify it is working by running /etc/snmp/apache-stats.py
+(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
 <pre><code>extend apache /etc/snmp/apache-stats.py
@@ -732,8 +735,8 @@
 <h5 id="agent">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>apache</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <ol>
-<li>Verify it is working by running /usr/lib/check_mk_agent/local/apache<br />
-(If you get error like "Can't locate LWP/Simple.pm". libwww-perl needs to be installed: apt-get install libwww-perl)  </li>
+<li>Verify it is working by running /usr/lib/check_mk_agent/local/apache
+(If you get error like "Can't locate LWP/Simple.pm". libwww-perl needs to be installed: apt-get install libwww-perl)</li>
 <li>On the device page in Librenms, edit your host and check the <code>Apache</code> under the Applications tab.</li>
 </ol>
 <h3 id="bind9-aka-named">BIND9 aka named</h3>
@@ -773,6 +776,12 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>DHCP Stats</code> under the Applications tab.</li>
 </ol>
+<h3 id="gspd">GSPD</h3>
+<p>A small shell script that reports GPSD status.</p>
+<h5 id="agent_2">Agent</h5>
+<p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>gpsd</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
+<p>You may need to configure <code>$server</code> or <code>$port</code>.</p>
+<p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/gpsd</code></p>
 <h3 id="mailscanner">Mailscanner</h3>
 <h5 id="snmp-extend_2">SNMP Extend</h5>
 <ol>
@@ -807,7 +816,7 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <li>On the device page in Librenms, edit your host and check <code>Memcached</code> under the Applications tab.</li>
 </ol>
 <h3 id="mysql">MySQL</h3>
-<h5 id="agent_2">Agent</h5>
+<h5 id="agent_3">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so please verify those are installed.</p>
 <p>CentOS</p>
@@ -829,7 +838,7 @@ $mysql_port = 3306;
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h3 id="nginx">NGINX</h3>
 <p>NGINX is a free, open-source, high-performance HTTP server: https://www.nginx.org/</p>
-<h5 id="agent_3">Agent</h5>
+<h5 id="agent_4">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>It's required to have the following directive in your nginx configuration responsible for the localhost server:</p>
 <pre><code class="text">location /nginx-status {
@@ -900,7 +909,7 @@ $mysql_port = 3306;
 If you have apticron, cron-apt or apt-listchanges installed and configured, chances are that packages are already updated periodically.</p>
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
-<h5 id="agent_4">Agent</h5>
+<h5 id="agent_5">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>powerdns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="powerdns-recursor">PowerDNS Recursor</h3>
 <p>A recursive DNS server: https://www.powerdns.com/recursor.html</p>
@@ -911,7 +920,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <p><code>$config['apps']['powerdns-recursor']['api-key']</code> required, this is defined in the Recursor config
 <code>$config['apps']['powerdns-recursor']['port']</code> numeric, defines the port to connect to PowerDNS Recursor on.  The default is 8082
 <code>$config['apps']['powerdns-recursor']['https']</code> true or false, defaults to use http.</p>
-<h5 id="agent_5">Agent</h5>
+<h5 id="agent_6">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
 <h3 id="proxmox">Proxmox</h3>
@@ -946,7 +955,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <li>Restart snmpd on PI host</li>
 </ol>
 <h3 id="tinydns-aka-djbdns">TinyDNS aka  djbdns</h3>
-<h5 id="agent_6">Agent</h5>
+<h5 id="agent_7">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p><em>Note</em>: We assume that you use DJB's <a href="http://cr.yp.to/daemontools.html">Daemontools</a> to start/stop tinydns.
 And that your tinydns instance is located in <code>/service/dns</code>, adjust this path if necessary.</p>
@@ -969,7 +978,7 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.</li>
 </ol>
 <h3 id="unbound">Unbound</h3>
-<h5 id="agent_7">Agent</h5>
+<h5 id="agent_8">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Unbound configuration:</p>
 <pre><code class="text"># Enable extended statistics.
