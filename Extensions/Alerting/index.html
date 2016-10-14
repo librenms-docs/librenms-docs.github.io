@@ -989,7 +989,8 @@ Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/l
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
-<p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the <a href="https://api.slack.com/docs/message-attachments">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Slack will be made. Below is an example of how to send alerts to two channels with different customised options:</p>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the <a href="https://api.slack.com/docs/message-attachments">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Slack will be made. Below is an example of how to send alerts to two channels with different customised options: </p>
 <p>~~</p>
 <pre><code class="php">$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '#Alerting');
 
@@ -1002,6 +1003,7 @@ $config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hook
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>The HipChat transport requires the following:</p>
 <p><strong>room_id</strong> = HipChat Room ID</p>
 <p><strong>url</strong> = HipChat API URL+API Key</p>
@@ -1042,6 +1044,7 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Enabling PagerDuty transports is almost as easy as enabling email-transports.</p>
 <p>All you need is to create a Service with type Generic API on your PagerDuty dashboard.</p>
 <p>Now copy your API-Key from the newly created Service and setup the transport like:</p>
@@ -1053,6 +1056,7 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <p>That's it!</p>
 <p><strong>Note</strong>: Currently ACK notifications are not transported to PagerDuty, This is going to be fixed within the next major version (version by date of writing: 2015.05)</p>
 <h2 id="pushover"><a name="transports-pushover">Pushover</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Enabling Pushover support is fairly easy, there are only two required parameters.</p>
 <p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
 <p>Now copy your API Token/Key from the newly created Application and setup the transport in your config.php like:</p>
@@ -1075,6 +1079,7 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 
 <p>~~</p>
 <h2 id="boxcar"><a name="transports-boxcar">Boxcar</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Enabling Boxcar support is super easy.
 Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport in your config.php like:</p>
 <p>~~</p>
@@ -1094,6 +1099,7 @@ Copy your access token from the Boxcar app or from the Boxcar.io website and set
 
 <p>~~</p>
 <h2 id="pushbullet"><a name="transports-pushbullet">Pushbullet</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Enabling Pushbullet is a piece of cake.
 Get your Access Token from your Pushbullet's settings page and set it in your config like:</p>
 <p>~~</p>
@@ -1102,6 +1108,7 @@ Get your Access Token from your Pushbullet's settings page and set it in your co
 
 <p>~~</p>
 <h2 id="clickatell"><a name="transports-clickatell">Clickatell</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.
 Please consult Clickatell's documentation regarding number formatting.
 Here an example using 3 numbers, any amount of numbers is supported:</p>
@@ -1114,6 +1121,7 @@ $config['alert']['transports']['clickatell']['to'][]  = '+1234567892';
 
 <p>~~</p>
 <h2 id="playsms"><a name="transports-playsms">PlaySMS</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP-API using a Username and WebService-Token.
 Please consult PlaySMS's documentation regarding number formatting.
 Here an example using 3 numbers, any amount of numbers is supported:</p>
@@ -1128,6 +1136,7 @@ $config['alert']['transports']['playsms']['to'][]  = '+1234567891';
 
 <p>~~</p>
 <h2 id="victorops"><a name="transports-victorops">VictorOps</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>VictorOps provide a webHook url to make integration extremely simple. To get the URL required login to your VictorOps account and go to:</p>
 <p>Settings -&gt; Integrations -&gt; REST Endpoint -&gt; Enable Integration.</p>
 <p>The URL provided will have $routing_key at the end, you need to change this to something that is unique to the system sending the alerts such as librenms. I.e:</p>

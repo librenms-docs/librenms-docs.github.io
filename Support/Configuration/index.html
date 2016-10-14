@@ -636,6 +636,8 @@
         
             <li><a href="#programs">Programs</a></li>
         
+            <li><a href="#proxy-support">Proxy support</a></li>
+        
             <li><a href="#memcached">Memcached</a></li>
         
             <li><a href="#rrdcached">RRDCached</a></li>
@@ -785,10 +787,22 @@ $config['neato']            = &quot;/usr/bin/neato&quot;;
 $config['sfdp']             = &quot;/usr/bin/sfdp&quot;;
 </code></pre>
 
+<h4 id="proxy-support">Proxy support</h4>
+<p>For alerting and the callback functionality, we support the use of a http proxy setting. 
+These can be any one of the following:</p>
+<pre><code class="php">$config['callback_proxy'] = 'proxy.domain.com';
+$config['http_proxy']     = 'proxy.domain.com';
+</code></pre>
+
+<p>We can also make use of one of these environment variables which can be set in <code>/etc/environment</code>:</p>
+<pre><code class="bash">http_proxy=proxy.domain.com
+https_proxy=proxy.domain.com
+</code></pre>
+
 <h4 id="memcached">Memcached</h4>
-<p>[Memcached](../Extensions/Memcached.md]</p>
+<p><a href="../../Extensions/Memcached/">Memcached</a></p>
 <h4 id="rrdcached">RRDCached</h4>
-<p>[RRDCached](../Extensions/RRDCached.md]</p>
+<p><a href="../../Extensions/RRDCached/">RRDCached</a></p>
 <h4 id="webui-settings">WebUI Settings</h4>
 <pre><code class="php">$config['base_url'] = &quot;http://demo.librenms.org&quot;;
 </code></pre>
