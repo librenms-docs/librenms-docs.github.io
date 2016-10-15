@@ -873,7 +873,7 @@ Please provide the output of Discovery, Poller, and Snmpwalk as separate non-exp
 Replace the relevant information in these commands such as HOSTNAME and COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1 devices.</p>
 <pre><code class="bash">./discovery.php -h HOSTNAME -d -m os
 ./poller.php -h HOSTNAME -r -f -d -m os
-snmpbulkwalk -Onet -v2c -c COMMUNITY HOSTNAME .
+snmpbulkwalk -OUneb -v2c -c COMMUNITY HOSTNAME .
 </code></pre>
 
 <p>If possible please also provide what the OS name should be if it doesn't exist already.</p>
