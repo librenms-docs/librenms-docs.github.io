@@ -687,6 +687,8 @@
         
             <li><a href="#canopsis">Canopsis</a></li>
         
+            <li><a href="#osticket">osTicket</a></li>
+        
     
         <li class="main "><a href="#entities">Entities</a></li>
         
@@ -763,6 +765,7 @@
 <li><a href="#transports-playsms">PlaySMS</a></li>
 <li><a href="#transports-victorops">VictorOps</a></li>
 <li><a href="#transports-canopsis">Canopsis</a></li>
+<li><a href="#transports-osticket">osTicket</a></li>
 </ul>
 </li>
 <li><a href="#entities">Entities</a><ul>
@@ -1168,6 +1171,17 @@ $config['alert']['transports']['canopsis']['vhost'] = 'canopsis';
 <p>For more information about canopsis and its events, take a look here :
  http://www.canopsis.org/
  http://www.canopsis.org/wp-content/themes/canopsis/doc/sakura/user-guide/event-spec.html</p>
+<h2 id="osticket"><a name="transports-osticket">osTicket</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>osTicket, open source ticket system. LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets. To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; osTicket Transport.</p>
+<p>This can also be done manually in config.php :</p>
+<p>~~</p>
+<pre><code class="php">$config['alert']['transports']['osticket']['url'] = 'http://osticket.example.com/api/http.php/tickets.json';
+$config['alert']['transports']['osticket']['token'] = '123456789';
+</code></pre>
+
+<p>~~</p>
 <h1 id="entities"><a name="entities">Entities</h1>
 <p>Entities as described earlier are based on the table and column names within the database, if you are unsure of what the entity is you want then have a browse around inside MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
 <h2 id="devices"><a name="entity-devices">Devices</a></h2>
