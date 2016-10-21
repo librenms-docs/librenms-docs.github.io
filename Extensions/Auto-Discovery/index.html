@@ -702,6 +702,26 @@ add, then you can exclude this with the following:</p>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['xdp'] = false;</code> to disable.</p>
 <p>This includes FDP, CDP and LLDP support based on the device type.</p>
+<p>Devices may be excluded from xdp discovery by sysname and sysdesc.</p>
+<pre><code class="php">//Exclude devices by name
+$config['autodiscovery']['xdp_exclude']['sysname_regexp'][] = '/host1/';
+$config['autodiscovery']['xdp_exclude']['sysname_regexp'][] = '/^dev/';
+
+//Exclude devices by description
+$config['autodiscovery']['xdp_exclude']['sysdesc_regexp'][] = '/Vendor X/';
+$config['autodiscovery']['xdp_exclude']['sysdesc_regexp'][] = '/Vendor Y/';
+</code></pre>
+
+<p>Devices may be excluded from cdp discovery by platform.</p>
+<pre><code class="php">//Exclude devices by platform(Cisco only)
+$config['autodiscovery']['cdp_exclude']['platform_regexp'][] = '/WS-C3750G/';
+</code></pre>
+
+<p>These devices are excluded by default:</p>
+<pre><code class="php">$config['autodiscovery']['xdp_exclude']['sysdesc_regexp'][] = '/-K9W8-/'; // Cisco Lightweight Access Point
+$config['autodiscovery']['cdp_exclude']['platform_regexp'][] = '/^Cisco IP Phone/'; //Cisco IP Phone
+</code></pre>
+
 <h4 id="ospf">OSPF</h4>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['ospf'] = false;</code> to disable.</p>
