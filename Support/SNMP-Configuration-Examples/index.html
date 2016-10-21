@@ -752,6 +752,11 @@ extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
 <pre><code>/opt/librenms/snmpd.conf.example
 </code></pre>
 
+<p>The binary /usr/bin/distro must be copied from the original source repository:</p>
+<pre><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+chmod +x /usr/bin/distro
+</code></pre>
+
 <h4 id="restart-the-snmpd-service">Restart the snmpd service:</h4>
 <h5 id="centos-6-red-hat-6">CentOS 6 / Red hat 6</h5>
 <pre><code>service snmpd restart
