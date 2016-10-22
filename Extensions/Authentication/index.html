@@ -795,7 +795,7 @@ To disabled this caching (highly discourage) set this option to 0.</p>
 <p>This is similar to LDAP Authentication. Install <strong>php_ldap</strong> for CentOS/RHEL or <strong>php5-ldap</strong> for Debian/Ubuntu.</p>
 <p>If you have issues with secure LDAP try setting <code>$config['auth_ad_check_certificates']</code> to <code>0</code>.</p>
 <h5 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h5>
-<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the authenticated user has to be a member of the specific group. Otherwise all users can authenticate, but are limited to user level 0 and only have access to shared dashboards.</p>
+<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the authenticated user has to be a member of the specific group. Otherwise all users can authenticate, and will be either level 0 or you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will have read only access unless otherwise specified.</p>
 <blockquote>
 <p>Cleanup of old accounts is done using the authlog. You will need to set the cleanup date for when old accounts will be purged which will happen AUTOMATICALLY.
 Please ensure that you set the $config['authlog_purge'] value to be greater than $config['active_directory]['users_purge'] otherwise old users won't be removed.</p>
