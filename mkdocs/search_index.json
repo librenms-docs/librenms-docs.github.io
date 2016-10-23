@@ -2,13 +2,8 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to the LibreNMS docs\n\n\nSome of these docs are work in progress or may be missing configuration examples for varying distros.\nIf you find this is the case then please feel free to edit them on \nGitHub\n\nand submit a pull request.\n\n\nThe docs should provide you with information on various elements to the software:\n\n\n\n\nInstallation\n\n\nSupport\n / \nFAQ\n\n\nContributing to LibreNMS\n\n\nDeveloping for LibreNMS\n\n\nAvailable extensions (features)", 
+            "text": "Installing\n\n            \nUbuntu 16.04 + Nginx\n\n            \nCentOS 7 + Nginx\n\n            \nMigrating from Observium\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n Extensions\n\n            \nAuto Discovery\n\n            \nOxidized\n\n            \nRRDCached\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n Alerting\n\n            \nRules\n\n            \nTemplates\n\n            \nTransports\n\n            \nMore...\n\n        \n\n    \n\n\n\n\n\n\n    \n\n        \n\n            \n API\n\n            \nAPI Docs\n\n            \nAPI Structure\n\n            \nAPI Endpoints\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n Support\n\n            \nFAQ\n\n            \nInstall validation\n\n            \nPerformance tweaks\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n Developing\n\n            \nCode Guidelines\n\n            \nValidating Code\n\n            \nUsing Git\n\n            \nMore...", 
             "title": "Home"
-        }, 
-        {
-            "location": "/#welcome-to-the-librenms-docs", 
-            "text": "Some of these docs are work in progress or may be missing configuration examples for varying distros.\nIf you find this is the case then please feel free to edit them on  GitHub \nand submit a pull request.  The docs should provide you with information on various elements to the software:   Installation  Support  /  FAQ  Contributing to LibreNMS  Developing for LibreNMS  Available extensions (features)", 
-            "title": "Welcome to the LibreNMS docs"
         }, 
         {
             "location": "/Installation/Installing-LibreNMS/", 
