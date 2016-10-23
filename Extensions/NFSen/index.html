@@ -633,7 +633,9 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#nfsen">NFSen</a></li>
@@ -642,8 +644,9 @@
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -676,6 +679,7 @@ $config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/siteb/';
 <p><code>$config['nfsen_suffix']</code> This value will be removed from the domain name and can be useful if your rrd files are 
 something like <code>host1.rrd</code> but your device hostname is <code>domain.host1.rrd</code>. You can then set $config['nfsen_suffix'] = 'domain';</p>
 <p>You should a new tab for the device called Nfsen.</p></div>
+                
             
             </div>
         </div>

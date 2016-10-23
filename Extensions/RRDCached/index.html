@@ -633,7 +633,9 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#setting-up-rrdcached">Setting up RRDCached</a></li>
@@ -646,8 +648,9 @@
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -812,6 +815,7 @@ systemctl enable --now rrdcached.service
 After at least one poll cycle (5 mins), check the LibreNMS disk I/O performance delta.
 Disk I/O can be found under the menu Devices&gt;All Devices&gt;[localhost hostname]&gt;Health&gt;Disk I/O.</p>
 <p>Depending on many factors, you should see the Ops/sec drop by ~30-40%.</p></div>
+                
             
             </div>
         </div>

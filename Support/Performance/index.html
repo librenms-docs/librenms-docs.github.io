@@ -633,7 +633,9 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#performance-optimisations">Performance optimisations</a></li>
@@ -652,8 +654,9 @@
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -700,6 +703,7 @@ but replace <REPEATERS> with varying numbers from 10 upto around 50. You will al
 <h4 id="recursive-dns">Recursive DNS</h4>
 <p>If your install uses hostnames for devices and you have quite a lot then it's advisable to setup a local recursive dns instance on the 
 LibreNMS server. Something like pdns-recursor can be used and then configure <code>/etc/resolv.conf</code> to use 127.0.0.1 for queries.</p></div>
+                
             
             </div>
         </div>

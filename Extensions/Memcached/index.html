@@ -633,15 +633,18 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#memcached">Memcached</a></li>
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -666,6 +669,7 @@ $config['memcached']['port']    = 11211;
 <p>It's strongly discouraged to set this above <code>300</code> (5 Minutes) to avoid interference with the polling, discovery and alerting processes.</p>
 <p>If you use the Distributed Poller, you can point this to the same memcached instance. However a local memcached will perform better in any case.</p>
 <p>By default <code>memcached</code> on many distributions starts itself with 64 MB of memory for it to store data in. If you have lots of devices or look at graphs frequently, it might be worth it to expand <code>memcached</code>'s footprint a bit. Generally this can be done in <code>/etc/memcached.conf</code>, replacing <code>-m 64</code> with <code>-m 512</code>, or however many megs of memory you want to allocate for <code>memcached</code>. Then restart the <code>memcached</code> service.</p></div>
+                
             
             </div>
         </div>

@@ -633,7 +633,9 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#setting-up-services">Setting up Services</a></li>
@@ -646,8 +648,9 @@
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -711,6 +714,7 @@ RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
 <p>To create an alerting rule to alert on service=critical, your alerting rule would look like:</p>
 <pre><code>%services.service_status = "2"
 </code></pre></div>
+                
             
             </div>
         </div>

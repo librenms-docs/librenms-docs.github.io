@@ -633,7 +633,9 @@
         <div class="container">
             <div class="row">
             
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#librenms-releases">LibreNMS Releases</a></li>
@@ -646,8 +648,9 @@
         
     
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+</div>
+</div>
+                    <div class="col-md-9" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
@@ -681,6 +684,7 @@ Changelog is also updated and will reference the release number and date so you 
 what changes have been made since the last release.</p>
 <p>To switch to using stable branches you can set <code>$config['update_channel'] = 'release';</code> 
 in config.php and then switch to the latest release branch with <code>git fetch --tags &amp;&amp; git checkout $(git describe --tags $(git rev-list --tags --max-count=1))</code>.</p></div>
+                
             
             </div>
         </div>
