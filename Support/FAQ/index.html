@@ -684,6 +684,8 @@
         
             <li><a href="#why-do-i-not-see-all-interfaces-in-the-overall-traffic-graph-for-a-device"> Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
         
+            <li><a href="#how-do-i-move-my-librenms-install-to-another-server"> How do I move my LibreNMS install to another server?</a></li>
+        
             <li><a href="#how-do-i-add-support-for-a-new-os"> How do I add support for a new OS?</a></li>
         
             <li><a href="#what-information-do-you-need-to-add-a-new-os"> What information do you need to add a new OS?</a></li>
@@ -730,6 +732,7 @@
 <li><a href="#faq21">What do the values mean in my graphs?</a></li>
 <li><a href="#faq22">Why does a device show as a warning?</a></li>
 <li><a href="#faq23">Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
+<li><a href="#faq24">How do I move my LibreNMS install to another server?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -862,6 +865,17 @@ $config['device_traffic_iftype'][] = '/ieee8023adLag/';
 $config['device_traffic_iftype'][] = '/ppp/';
 </code></pre>
 
+<h4 id="how-do-i-move-my-librenms-install-to-another-server"><a name="faq24"> How do I move my LibreNMS install to another server?</a></h4>
+<p>If you are moving from one CPU architecture to another then you will need to dump the rrd files and re-create them. If you are in     <br />
+this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/">Dan Brown's migration scripts</a>.        </p>
+<p>If you are just moving to another server with the same CPU architecture then the following steps should be all that's needed:       </p>
+<pre><code>- Install LibreNMS as per our normal documentation, you don't need to run through the web installer or building the sql schema.     
+- Stop cron by commenting out all lines in `/etc/cron.d/librenms`
+- Dump the MySQL database `librenms` and import this into your new server.
+- Copy the `rrd/` folder to the new server.
+- Copy the `config.php` file to the new server.
+- Renable cron by uncommenting all lines in `/etc/cron.d/librenms`
+</code></pre>
 <h4 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h4>
 <p>The easiest way to show you how to do that is to link to an existing pull request that has been merged in on <a href="https://github.com/librenms/librenms/pull/352/files">GitHub</a></p>
 <p>To go into a bit more detail, the following are usually needed:</p>
