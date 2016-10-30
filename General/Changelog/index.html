@@ -638,7 +638,7 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#release-201609">Release: 201609</a></li>
+        <li class="main active"><a href="#v121">v1.21</a></li>
         
             <li><a href="#features">Features</a></li>
         
@@ -651,6 +651,21 @@
             <li><a href="#devices">Devices</a></li>
         
             <li><a href="#webui">WebUI</a></li>
+        
+    
+        <li class="main "><a href="#release-201609">Release: 201609</a></li>
+        
+            <li><a href="#features_1">Features</a></li>
+        
+            <li><a href="#bugfixes_1">Bugfixes</a></li>
+        
+            <li><a href="#documentation_1">Documentation</a></li>
+        
+            <li><a href="#refactoring_1">Refactoring</a></li>
+        
+            <li><a href="#devices_1">Devices</a></li>
+        
+            <li><a href="#webui_1">WebUI</a></li>
         
             <li><a href="#august-2016">August 2016</a></li>
         
@@ -730,9 +745,127 @@
 </div>
 
 
+<h2 id="v121">v1.21</h2>
+<p><em>(2016-10-30)</em></p>
+<h4 id="features">Features</h4>
+<ul>
+<li>Added support for global max repeaters for snmp (<a href="https://github.com/librenms/librenms/issues/4880">#4880</a>)</li>
+<li>Added custom css and include directories which are ignored by git (<a href="https://github.com/librenms/librenms/issues/4871">#4871</a>)</li>
+<li>Add an option for ad authentication to have a default level (<a href="https://github.com/librenms/librenms/issues/4801">#4801</a>)</li>
+<li>Add ping and RxLevel for SAF devices (<a href="https://github.com/librenms/librenms/issues/4840">#4840</a>)</li>
+<li>Added ability to exclude devices from xDP disco based on sysdescr, sysname or platform</li>
+<li>Add Extra Mimosa Discovery (<a href="https://github.com/librenms/librenms/issues/4831">#4831</a>)</li>
+<li>Add support for NX-OS fan status (<a href="https://github.com/librenms/librenms/issues/4824">#4824</a>)</li>
+<li>Add osTicket Alert Transport (<a href="https://github.com/librenms/librenms/issues/4791">#4791</a>)</li>
+<li>Add SonicWALL Sessions <a href="https://github.com/librenms/librenms/issues/1686">#1686</a></li>
+<li>Updated libvirt-vminfo to support oVirt</li>
+<li>Enhance Unifi Wireless Client count for multiple VAPs (<a href="https://github.com/librenms/librenms/issues/4794">#4794</a>)</li>
+<li>Added CEF Display page (<a href="https://github.com/librenms/librenms/issues/3978">#3978</a>)</li>
+<li>Added CPU detection for Synology DSM <a href="https://github.com/librenms/librenms/issues/2081">#2081</a> (<a href="https://github.com/librenms/librenms/issues/4756">#4756</a>)</li>
+<li>Added CPU detection for Synology DSM <a href="https://github.com/librenms/librenms/issues/2081">#2081</a></li>
+<li>Stop displaying sensitive info in the settings page (<a href="https://github.com/librenms/librenms/issues/4724">#4724</a>)</li>
+<li>Added Cisco Integrated Management Console inventory and sensor support <a href="https://github.com/librenms/librenms/issues/4454">#4454</a></li>
+<li>Added support for show faults array in recovery alerts (<a href="https://github.com/librenms/librenms/issues/4708">#4708</a>)</li>
+<li>Add description and notes to be used in alerts templates (<a href="https://github.com/librenms/librenms/issues/4706">#4706</a>)</li>
+<li>validate.php: check poller and discovery status (<a href="https://github.com/librenms/librenms/issues/4663">#4663</a>)</li>
+<li>Added GlobalProtect sessions to PANOS</li>
+</ul>
+<h4 id="bugfixes">Bugfixes</h4>
+<ul>
+<li>Replace \\l with \l on GPRINT lines (<a href="https://github.com/librenms/librenms/issues/4882">#4882</a>)</li>
+<li>fix missing config entries on global settings page <a href="https://github.com/librenms/librenms/issues/4884">#4884</a></li>
+<li>Fix the detection of NX-OS fan names (<a href="https://github.com/librenms/librenms/issues/4864">#4864</a>)</li>
+<li>API call to services only returned first one</li>
+<li>Change the wording for the create default rules button</li>
+<li>incomplete polling on aruba controllers</li>
+<li>Fixed wifi clients not reporting when value 0</li>
+<li>ZyWALL Fixes for OS and mem polling <a href="https://github.com/librenms/librenms/issues/1652">#1652</a></li>
+<li>Fix irc bot user level (<a href="https://github.com/librenms/librenms/issues/4833">#4833</a>)</li>
+<li>Updated min/max values for ubnt graphs (<a href="https://github.com/librenms/librenms/issues/4811">#4811</a>)</li>
+<li>Fix Riverbed temperature discovery (<a href="https://github.com/librenms/librenms/issues/4832">#4832</a>)</li>
+<li>only poll cipsec for cisco devices. (<a href="https://github.com/librenms/librenms/issues/4819">#4819</a>)</li>
+<li>Zywall Fixes <a href="https://github.com/librenms/librenms/issues/1652">#1652</a></li>
+<li>do not show fail if running as the librenms user + slightly less false positives (<a href="https://github.com/librenms/librenms/issues/4821">#4821</a>)</li>
+<li>Do not create rrd folder when -r is specified for poller (<a href="https://github.com/librenms/librenms/issues/4812">#4812</a>)</li>
+<li>Delete all port_id references <a href="https://github.com/librenms/librenms/issues/4684">#4684</a></li>
+<li>Used dos2unix on all mibs to prevent .index issue (<a href="https://github.com/librenms/librenms/issues/4803">#4803</a>)</li>
+<li>availability map multiple instances (<a href="https://github.com/librenms/librenms/issues/4773">#4773</a>)</li>
+<li>top widget multiple instances (<a href="https://github.com/librenms/librenms/issues/4757">#4757</a>)</li>
+<li>Updated bin/bash to use env in cronic script (<a href="https://github.com/librenms/librenms/issues/4752">#4752</a>)</li>
+<li>skip ip_exists function when we force add (<a href="https://github.com/librenms/librenms/issues/4738">#4738</a>)</li>
+<li>Stopped showing sub menus when empty <a href="https://github.com/librenms/librenms/issues/4713">#4713</a></li>
+<li>Samsun ML typo, remove need for hex_string translation (<a href="https://github.com/librenms/librenms/issues/4788">#4788</a>)</li>
+<li>apc load, runtime and current sensors (<a href="https://github.com/librenms/librenms/issues/4780">#4780</a>)</li>
+<li>Prevent accidental anonymous binds (<a href="https://github.com/librenms/librenms/issues/4784">#4784</a>)</li>
+<li>Update brocade fanspeed description</li>
+<li>qnap temperature sensors <a href="https://github.com/librenms/librenms/issues/4586">#4586</a></li>
+<li>Stop displaying sensitive info in the settings page (<a href="https://github.com/librenms/librenms/issues/4724">#4724</a>)</li>
+<li>Ignore meraki bad_uptime <a href="https://github.com/librenms/librenms/issues/4691">#4691</a></li>
+<li>Fixed trying to map devices to alert rules</li>
+<li>Re-enable the edit device groups button (<a href="https://github.com/librenms/librenms/issues/4726">#4726</a>)</li>
+<li>Raise version size for packages table to 255 char  (<a href="https://github.com/librenms/librenms/issues/4656">#4656</a>)</li>
+<li>Adjusted padding based on screen width to fit all icons (<a href="https://github.com/librenms/librenms/issues/4711">#4711</a>)</li>
+<li>fixed count test for cisco-otv poller module (<a href="https://github.com/librenms/librenms/issues/4714">#4714</a>)</li>
+<li>Fall back to ipNetToMediaPhysAddress when ipNetToPhysicalPhysAddress not available <a href="https://github.com/librenms/librenms/issues/4559">#4559</a></li>
+<li>ipmi poller, run with USER rights and surround username and password with '' <a href="https://github.com/librenms/librenms/issues/4710">#4710</a></li>
+<li>Wrapped ipmi user / pass in quotes <a href="https://github.com/librenms/librenms/issues/4686">#4686</a> and <a href="https://github.com/librenms/librenms/issues/4702">#4702</a></li>
+<li>Use snmpv3 username even when NoAuthNoPriv is selected <a href="https://github.com/librenms/librenms/issues/4677">#4677</a></li>
+</ul>
+<h4 id="documentation">Documentation</h4>
+<ul>
+<li>homepage headers: vertical align, match color, add spacing (<a href="https://github.com/librenms/librenms/issues/4870">#4870</a>)</li>
+<li>Added FAQ on moving install to another server</li>
+<li>Updated index page to make it look more attractive (<a href="https://github.com/librenms/librenms/issues/4855">#4855</a>)</li>
+<li>Adding setup of distro script for Linux (snmpd) configuration</li>
+<li>Added doc on security and vulnerabilities</li>
+<li>Update Graylog.md (<a href="https://github.com/librenms/librenms/issues/4717">#4717</a>)</li>
+</ul>
+<h4 id="refactoring">Refactoring</h4>
+<ul>
+<li>populate native vlans in the ports_vlan table for cisco devices too (<a href="https://github.com/librenms/librenms/issues/4805">#4805</a>)</li>
+<li>Small poller improvements, removes unecessary queries / execs (<a href="https://github.com/librenms/librenms/issues/4741">#4741</a>)</li>
+<li>Cleanup poller include files (<a href="https://github.com/librenms/librenms/issues/4751">#4751</a>)</li>
+<li>Update alert rules to generate sql query and store in db (<a href="https://github.com/librenms/librenms/issues/4748">#4748</a>)</li>
+<li>toner support (<a href="https://github.com/librenms/librenms/issues/4795">#4795</a>)</li>
+<li>Updated and added more options for http proxy support (<a href="https://github.com/librenms/librenms/issues/4718">#4718</a>)</li>
+<li>small fixes for cisco-voice code (<a href="https://github.com/librenms/librenms/issues/4719">#4719</a>)</li>
+<li>Improve sensors polling for performance increase (<a href="https://github.com/librenms/librenms/issues/4725">#4725</a>)</li>
+<li>Improve sensors polling for performance increase</li>
+<li>Rewrite for qnap fanspeeds (<a href="https://github.com/librenms/librenms/issues/4590">#4590</a>)</li>
+<li>edituser page to allow user selection of a default dashboard (<a href="https://github.com/librenms/librenms/issues/4551">#4551</a>)</li>
+<li>snmp cleanup (<a href="https://github.com/librenms/librenms/issues/4683">#4683</a>)</li>
+</ul>
+<h4 id="devices">Devices</h4>
+<ul>
+<li>Added support for Megatec NetAgent II</li>
+<li>Add UniFi Wireless MIB polling for Capacity <a href="https://github.com/librenms/librenms/issues/4266">#4266</a></li>
+<li>Added support for Sinetica UPS ¢4613</li>
+<li>Added additional support for Synology DSM devices <a href="https://github.com/librenms/librenms/issues/2738">#2738</a></li>
+<li>Add additional F5 sensor support (<a href="https://github.com/librenms/librenms/issues/4642">#4642</a>)</li>
+<li>Added Unifi Wireless Client statistics <a href="https://github.com/librenms/librenms/issues/4772">#4772</a></li>
+<li>Additional support for Hikvision products</li>
+<li>More dnos additions <a href="https://github.com/librenms/librenms/issues/4745">#4745</a> (<a href="https://github.com/librenms/librenms/issues/4749">#4749</a>)</li>
+<li>Additional support for Hikvision products (<a href="https://github.com/librenms/librenms/issues/4750">#4750</a>)</li>
+<li>Add support for Moxa <a href="https://github.com/librenms/librenms/issues/4733">#4733</a></li>
+<li>Add additional features to SAF Tehnika (<a href="https://github.com/librenms/librenms/issues/4666">#4666</a>)</li>
+<li>Add support for more Pulse Secure devices <a href="https://github.com/librenms/librenms/issues/4680">#4680</a></li>
+<li>Add support for more DNOS devices <a href="https://github.com/librenms/librenms/issues/4627">#4627</a></li>
+<li>Added support for Sinetica UPS</li>
+<li>Add support for Mimosa Wireless <a href="https://github.com/librenms/librenms/issues/4676">#4676</a></li>
+<li>Add support for Mimosa Wireless <a href="https://github.com/librenms/librenms/issues/4676">#4676</a></li>
+</ul>
+<h4 id="webui">WebUI</h4>
+<ul>
+<li>Allow users to set their default dashboard from preferences page</li>
+<li>Updated devices view (<a href="https://github.com/librenms/librenms/issues/4700">#4700</a>)</li>
+<li>Disable page refresh on the search pages.  Users can manually hit the refresh on the grid. (<a href="https://github.com/librenms/librenms/issues/4787">#4787</a>)</li>
+<li>Display vlans for all devices. <a href="https://github.com/librenms/librenms/issues/4349">#4349</a>, <a href="https://github.com/librenms/librenms/issues/3059">#3059</a></li>
+<li>Added sorting and poller time support to top-devices widget <a href="https://github.com/librenms/librenms/issues/4668">#4668</a></li>
+</ul>
+<hr />
 <h2 id="release-201609">Release: 201609</h2>
 <p><em>September 2016</em></p>
-<h4 id="features">Features</h4>
+<h4 id="features_1">Features</h4>
 <ul>
 <li>Added alerts output to capture system (<a href="https://github.com/librenms/librenms/issues/4574">#4574</a>)</li>
 <li>Add support for ups-apcups via snmp</li>
@@ -753,7 +886,7 @@
 <li>Added Cisco Stackwise Support <a href="https://github.com/librenms/librenms/issues/4301">#4301</a></li>
 <li>Add Cisco WAAS Optimized TCP Connections Graph (<a href="https://github.com/librenms/librenms/issues/4645">#4645</a>)</li>
 </ul>
-<h4 id="bugfixes">Bugfixes</h4>
+<h4 id="bugfixes_1">Bugfixes</h4>
 <ul>
 <li>Toner nrg os capacity (<a href="https://github.com/librenms/librenms/issues/4177">#4177</a>)</li>
 <li>Fixed swos detection <a href="https://github.com/librenms/librenms/issues/4533">#4533</a></li>
@@ -810,7 +943,7 @@
 <li>Missing variable in services api call</li>
 <li>Added influxdb options to check-services.php</li>
 </ul>
-<h4 id="documentation">Documentation</h4>
+<h4 id="documentation_1">Documentation</h4>
 <ul>
 <li>Include PHP Install instructions for MySQL app</li>
 <li>Added FAQ for why interfaces are missing from overall traffic graphs (<a href="https://github.com/librenms/librenms/issues/4696">#4696</a>)</li>
@@ -829,7 +962,7 @@
 <li>Added docs + file changes to support creating new releases/changelog</li>
 <li>Update snmpd setup in Installation-Ubuntu-1604 docs <a href="https://github.com/librenms/librenms/issues/4243">#4243</a></li>
 </ul>
-<h4 id="refactoring">Refactoring</h4>
+<h4 id="refactoring_1">Refactoring</h4>
 <ul>
 <li>Centralize MIB include directory specification (<a href="https://github.com/librenms/librenms/issues/4603">#4603</a>)</li>
 <li>OS discovery files (a-z)</li>
@@ -842,7 +975,7 @@
 <li>Moved IRCBot class to LibreNMS namespace <a href="https://github.com/librenms/librenms/issues/4246">#4246</a> </li>
 <li>Update code in /includes to be psr2 compliant <a href="https://github.com/librenms/librenms/issues/4220">#4220</a></li>
 </ul>
-<h4 id="devices">Devices</h4>
+<h4 id="devices_1">Devices</h4>
 <ul>
 <li>Samsung Printer Discovery <a href="https://github.com/librenms/librenms/issues/4251">#4251</a> (<a href="https://github.com/librenms/librenms/issues/4258">#4258</a>)</li>
 <li>HP 1820 Discovery <a href="https://github.com/librenms/librenms/issues/3933">#3933</a> (<a href="https://github.com/librenms/librenms/issues/4259">#4259</a>)</li>
@@ -869,7 +1002,7 @@
 <li>Added support for macOS Sierra (<a href="https://github.com/librenms/librenms/issues/4557">#4557</a>)</li>
 <li>Improve BDCOM detection (<a href="https://github.com/librenms/librenms/issues/4329">#4329</a>)</li>
 </ul>
-<h4 id="webui">WebUI</h4>
+<h4 id="webui_1">WebUI</h4>
 <ul>
 <li>top devices enhancement <a href="https://github.com/librenms/librenms/issues/4447">#4447</a></li>
 <li>Individual devices now use bootgrid syslog (<a href="https://github.com/librenms/librenms/issues/4584">#4584</a>)</li>
