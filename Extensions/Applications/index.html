@@ -935,7 +935,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <h3 id="proxmox">Proxmox</h3>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)
-<code>wget https://github.com/librenms/librenms-agent/blob/master/agent-local/proxmox -O /usr/local/bin/proxmox</code></li>
+<code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox</code></li>
 <li>Make the script executable: <code>chmod +x /usr/local/bin/proxmox</code></li>
 <li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
 <code>extend proxmox /usr/local/bin/proxmox</code>
