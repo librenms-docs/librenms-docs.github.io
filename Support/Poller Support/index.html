@@ -644,6 +644,8 @@
         
             <li><a href="#poller-config">Poller config</a></li>
         
+            <li><a href="#os-based-poller-config">OS based Poller config</a></li>
+        
             <li><a href="#poller-modules">Poller modules</a></li>
         
             <li><a href="#running">Running</a></li>
@@ -727,6 +729,15 @@ $config['poller_modules']['entity-physical']              = 1;
 $config['poller_modules']['applications']                 = 1;
 $config['poller_modules']['cisco-asa-firewall']           = 1;
 $config['poller_modules']['mib']                          = 0;
+</code></pre>
+
+<h4 id="os-based-poller-config">OS based Poller config</h4>
+<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions.inc.php</code>
+OS based settings have preference over global. Device based settings have preference over all others</p>
+<p>Poller performance improvement can be achieved by deactivating all modules that are not supported by specific OS.</p>
+<p>E.g. to deactivate spanning tree but activate unix-agent module for linux OS</p>
+<pre><code class="php">$config['os']['linux']['poller_modules']['stp']  = 0;
+$config['os']['linux']['poller_modules']['unix-agent'] = 1;
 </code></pre>
 
 <h4 id="poller-modules">Poller modules</h4>

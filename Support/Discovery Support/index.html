@@ -646,6 +646,8 @@
         
             <li><a href="#discovery-config">Discovery config</a></li>
         
+            <li><a href="#os-based-discovery-config">OS based Discovery config</a></li>
+        
             <li><a href="#discovery-modules">Discovery modules</a></li>
         
             <li><a href="#running">Running</a></li>
@@ -739,6 +741,15 @@ $config['discovery_modules']['toner']                     = 1;
 $config['discovery_modules']['ucd-diskio']                = 1;
 $config['discovery_modules']['services']                  = 1;
 $config['discovery_modules']['charge']                    = 1;
+</code></pre>
+
+<h4 id="os-based-discovery-config">OS based Discovery config</h4>
+<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions.inc.php</code>
+OS based settings have preference over global. Device based settings have preference over all others</p>
+<p>Discover performance improvement can be achieved by deactivating all modules that are not supported by specific OS.</p>
+<p>E.g. to deactivate spanning tree but activate discovery-arp module for linux OS</p>
+<pre><code class="php">$config['os']['linux']['discovery_modules']['stp'] = 0;
+$config['os']['linux']['discovery_modules']['discovery-arp'] = 1;
 </code></pre>
 
 <h4 id="discovery-modules">Discovery modules</h4>
