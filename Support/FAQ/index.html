@@ -686,6 +686,8 @@
         
             <li><a href="#how-do-i-move-my-librenms-install-to-another-server"> How do I move my LibreNMS install to another server?</a></li>
         
+            <li><a href="#why-is-my-edgerouter-device-not-detected"> Why is my EdgeRouter device not detected?</a></li>
+        
             <li><a href="#how-do-i-add-support-for-a-new-os"> How do I add support for a new OS?</a></li>
         
             <li><a href="#what-information-do-you-need-to-add-a-new-os"> What information do you need to add a new OS?</a></li>
@@ -733,6 +735,7 @@
 <li><a href="#faq22">Why does a device show as a warning?</a></li>
 <li><a href="#faq23">Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
 <li><a href="#faq24">How do I move my LibreNMS install to another server?</a></li>
+<li><a href="#faq25">Why is my EdgeRouter device not detected?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -876,6 +879,10 @@ this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-
 - Copy the `config.php` file to the new server.
 - Renable cron by uncommenting all lines in `/etc/cron.d/librenms`
 </code></pre>
+<h4 id="why-is-my-edgerouter-device-not-detected"><a name="faq25"> Why is my EdgeRouter device not detected?</a></h4>
+<p>If you have <code>service snmp description</code> set in your config then this will be why, please remove this. For some reason Ubnt have decided setting this 
+ value should override the sysDescr value returned which breaks our detection.</p>
+<p>If you don't have that set then this may be then due to an update of EdgeOS or a new device type, please <a href="https://github.com/librenms/librenms/issues/new">create an issue</a>.</p>
 <h4 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h4>
 <p>The easiest way to show you how to do that is to link to an existing pull request that has been merged in on <a href="https://github.com/librenms/librenms/pull/352/files">GitHub</a></p>
 <p>To go into a bit more detail, the following are usually needed:</p>
