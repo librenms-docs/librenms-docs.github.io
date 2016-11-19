@@ -691,8 +691,6 @@
         
             <li><a href="#osticket">osTicket</a></li>
         
-            <li><a href="#microsoft-teams">Microsoft Teams</a></li>
-        
     
         <li class="main "><a href="#entities">Entities</a></li>
         
@@ -771,7 +769,6 @@
 <li><a href="#transports-victorops">VictorOps</a></li>
 <li><a href="#transports-canopsis">Canopsis</a></li>
 <li><a href="#transports-osticket">osTicket</a></li>
-<li><a href="#transports-msteams">Microsoft Teams</a></li>
 </ul>
 </li>
 <li><a href="#entities">Entities</a><ul>
@@ -1191,16 +1188,6 @@ $config['alert']['transports']['osticket']['token'] = '123456789';
 </code></pre>
 
 <p>~~</p>
-<h2 id="microsoft-teams"><a name="transports-msteams">Microsoft Teams</a></h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector API which are then posted to a specific channel. To configure the transport, go to:</p>
-<p>Global Settings -&gt; Alerting Settings -&gt; Microsoft Teams Transport.</p>
-<p>This can also be done manually in config.php :</p>
-<p>~</p>
-<pre><code class="php">$config['alert']['transports']['msteams']['url'] = 'https://outlook.office365.com/webhook/123456789';
-</code></pre>
-
-<p>~</p>
 <h1 id="entities"><a name="entities">Entities</h1>
 <p>Entities as described earlier are based on the table and column names within the database, if you are unsure of what the entity is you want then have a browse around inside MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
 <h2 id="devices"><a name="entity-devices">Devices</a></h2>
