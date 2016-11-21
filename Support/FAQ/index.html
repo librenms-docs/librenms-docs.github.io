@@ -688,6 +688,8 @@
         
             <li><a href="#why-is-my-edgerouter-device-not-detected"> Why is my EdgeRouter device not detected?</a></li>
         
+            <li><a href="#why-are-some-of-my-disks-not-showing"> Why are some of my disks not showing?</a></li>
+        
             <li><a href="#how-do-i-add-support-for-a-new-os"> How do I add support for a new OS?</a></li>
         
             <li><a href="#what-information-do-you-need-to-add-a-new-os"> What information do you need to add a new OS?</a></li>
@@ -736,6 +738,7 @@
 <li><a href="#faq23">Why do I not see all interfaces in the Overall traffic graph for a device?</a></li>
 <li><a href="#faq24">How do I move my LibreNMS install to another server?</a></li>
 <li><a href="#faq25">Why is my EdgeRouter device not detected?</a></li>
+<li><a href="#faq26">Why are some of my disks not showing?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -883,6 +886,13 @@ this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-
 <p>If you have <code>service snmp description</code> set in your config then this will be why, please remove this. For some reason Ubnt have decided setting this 
  value should override the sysDescr value returned which breaks our detection.</p>
 <p>If you don't have that set then this may be then due to an update of EdgeOS or a new device type, please <a href="https://github.com/librenms/librenms/issues/new">create an issue</a>.</p>
+<h4 id="why-are-some-of-my-disks-not-showing"><a name="faq26"> Why are some of my disks not showing?</a></h4>
+<p>If you are monitoring a linux server then net-snmp doesn't always expose all disks via hrStorage (HOST-RESOURCES-MIB). We have additional support which will retrieve disks via dskTable (UCD-SNMP-MIB). 
+To expose these disks you need to add additional config to your snmpd.conf file. For example, to expose <code>/dev/sda1</code> which may be mounted as <code>/storage</code> you can specify:</p>
+<p><code>disk /dev/sda1</code></p>
+<p>Or</p>
+<p><code>disk /storage</code></p>
+<p>Restart snmpd and LibreNMS should populate the additional disk after a fresh discovery.</p>
 <h4 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h4>
 <p>The easiest way to show you how to do that is to link to an existing pull request that has been merged in on <a href="https://github.com/librenms/librenms/pull/352/files">GitHub</a></p>
 <p>To go into a bit more detail, the following are usually needed:</p>
