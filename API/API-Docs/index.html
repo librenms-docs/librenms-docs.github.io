@@ -1287,8 +1287,8 @@ Example:</li>
 </ul>
 <p>Input (JSON):</p>
 <ul>
-<li>field: The column name within the database</li>
-<li>data: The data to update the column with</li>
+<li>field: The column name within the database (can be an array of fields)</li>
+<li>data: The data to update the column with (can be an array of data))</li>
 </ul>
 <p>Examples:</p>
 <pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: &quot;notes&quot;, &quot;data&quot;: &quot;This server should be kept online&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
@@ -1299,6 +1299,18 @@ Example:</li>
     {
         &quot;status&quot;: &quot;ok&quot;,
         &quot;message&quot;: &quot;Device notes has been updated&quot;
+    }
+]
+</code></pre>
+
+<pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: [&quot;notes&quot;,&quot;purpose&quot;], &quot;data&quot;: [&quot;This server should be kept online&quot;, &quot;For serving web traffic&quot;]}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Device fields have been updated&quot;
     }
 ]
 </code></pre>
