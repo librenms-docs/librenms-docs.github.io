@@ -665,6 +665,8 @@
         - <a href="#adaptive-security-appliance-asa">Adaptive Security Appliance (ASA)</a>
         - <a href="#ios--ios-xe--nx-os">IOS / IOS XE / NX-OS</a>
         - <a href="#wireless-lan-controller-wlc">Wireless LAN Controller (WLC)</a>
+    - <a href="#hpe3par">HPE 3PAR</a>
+        - <a href="#inform-os-32x">Inform OS 3.2.x</a>
     - <a href="#infoblox">Infoblox</a>
         - <a href="#nios-7x">NIOS 7.x</a>
     - <a href="#juniper">Juniper</a>
@@ -701,6 +703,21 @@ snmp-server location YOUR-LOCATION
 <li>Add your community name and leave IP addresses empty</li>
 <li>Click Apply and Save</li>
 </ol>
+<h3 id="hpe-3par">HPE 3PAR</h3>
+<h4 id="inform-os-32x">Inform OS 3.2.x</h4>
+<ul>
+<li>Access the CLI</li>
+<li>Add an SNMP Manager with your LibreNMS IP address:</li>
+</ul>
+<pre><code>addsnmpmgr &lt;librenms ip&gt;
+</code></pre>
+
+<ul>
+<li>Add your SNMP community:</li>
+</ul>
+<pre><code>setsnmppw &lt;community&gt;
+</code></pre>
+
 <h3 id="infoblox">Infoblox</h3>
 <h4 id="nios-7x">NIOS 7.x</h4>
 <ol>
