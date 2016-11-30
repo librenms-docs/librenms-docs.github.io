@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Extensions/Dell-OpenManage/">
+        <link rel="canonical" href="http://docs.librenms.org/Extensions/RRDCached-Security/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	    <title>Dell OpenManage - LibreNMS Docs</title>
+	    <title>RRDCached Security - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -197,7 +197,7 @@
                 
                 
                 
-                    <li id="dropdown-Extensions" class="dropdown active">
+                    <li id="dropdown-Extensions" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -238,8 +238,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Dell OpenManage</a>
+<li >
+    <a href="../Dell-OpenManage/">Dell OpenManage</a>
 </li>
 
                         
@@ -554,7 +554,7 @@
                 
                 
                 
-                    <li id="dropdown-hidden" class="dropdown">
+                    <li id="dropdown-hidden" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -601,8 +601,8 @@
 
                         
                             
-<li >
-    <a href="../RRDCached-Security/">RRDCached Security</a>
+<li class="active">
+    <a href="./">RRDCached Security</a>
 </li>
 
                         
@@ -644,39 +644,46 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dell-openmanage-support">Dell OpenManage Support</a></li>
+        <li class="main active"><a href="#securing-with-nginx">Securing with nginx</a></li>
         
     
     </ul>
 </div>
 </div>
                     <div class="col-md-9" role="main">
-<div class="row">
-  <div class="source-links col-md-offset-8 col-md-4">
 
-    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Dell-OpenManage.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
-
-  </div>
-</div>
-
-
-<h2 id="dell-openmanage-support">Dell OpenManage Support</h2>
-<p>For Dell OpenManage support you will need to install Dell OpenManage (yeah - really :)) (minimum 5.1) onto the device you want to monitor. Ensure that net-snmp is using srvadmin, you should see something similar to:</p>
-<pre><code class="bash">master agentx
-view all included .1
-access notConfigGroup &quot;&quot; any noauth exact all none none
-smuxpeer .1.3.6.1.4.1.674.10892.1
+<h3 id="securing-with-nginx">Securing with nginx</h3>
+<p>According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>, under "SECURITY CONSIDERATIONS", rrdcached has no authentication or security except for running under a unix socket. To secure your rrdcached installation, you can proxy it using nginx to allow only specific IPs to connect.</p>
+<p>using the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.</p>
+<p>(You can use <code>./conf.d</code> for your configuration as well)</p>
+<p><code>mkdir /etc/nginx/streams-{available,enabled}</code></p>
+<p>add the following to your nginx.conf file:</p>
+<pre><code class="nginx">#/etc/nginx/nginx.conf
+...
+stream {
+    include /etc/nginx/streams-enabled/*;
+}
 </code></pre>
 
-<p>Restart net-snmp:</p>
-<pre><code class="bash">service snmpd restart
+<p>add this to <code>/etc/nginx/streams-available/rrd</code></p>
+<pre><code class="nginx">server {
+    listen 42217;
+
+    error_log  /var/log/nginx/rrd.stream.error.log;
+
+    allow $LibreNMS_IP;
+    deny all;
+
+    proxy_pass unix:/var/run/rrdcached/rrdcached.sock;
+}
 </code></pre>
 
-<p>Ensure that srvadmin is started, this is usually done by executing:</p>
-<pre><code class="bash">/opt/dell/srvadmin/sbin/srvadmin-services.sh start
-</code></pre>
-
-<p>Once this has been done, add the device to LibreNMS as normal and you will start to receive Temperatures and Fanspeed data.</p></div>
+<p>replace <code>$LibreNMS_IP</code> with the ip of the server that will be using rrdcached. You can specify more than one <code>allow</code> statement.
+This will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.</p>
+<p>next, we'll symlink the config to streams-enabled:
+<code>ln -s /etc/nginx/streams-{available,enabled}/rrd</code></p>
+<p>and reload nginx
+<code>service nginx reload</code></p></div>
                 
             
             </div>
