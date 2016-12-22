@@ -700,8 +700,6 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
         debug: false
         http:
           url: https://librenms/api/v0/oxidized
-          scheme: https
-          delimiter: !ruby/regexp /:/
           map:
             name: hostname
             model: os
@@ -725,6 +723,10 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
 
 <p>To match on a device os of edgeos then please use the following:</p>
 <pre><code class="php">$config['oxidized']['group']['os'][] = array('match' =&gt; 'edgeos', 'group' =&gt; 'wireless');
+</code></pre>
+
+<p>Verify the return of groups by querying the API:</p>
+<pre><code>curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized               
 </code></pre>
 
 <p>If you need to, you can specify credentials for groups by using the following in your Oxidized config:</p>
