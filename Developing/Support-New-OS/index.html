@@ -668,8 +668,6 @@
         
             <li><a href="#new-os-definition_1">New OS definition</a></li>
         
-            <li><a href="#discovery-os_1">Discovery OS</a></li>
-        
             <li><a href="#polling-os">Polling OS</a></li>
         
             <li><a href="#displaying">Displaying</a></li>
@@ -701,23 +699,19 @@
 </code></pre>
 
 <h4 id="new-os-definition">New OS definition</h4>
-<p>Let's begin to declare the new OS in LibreNMS. At first we modify the definition file located here:</p>
-<pre><code class="bash">includes/definitions.inc.php
+<p>Let's begin to declare the new OS in LibreNMS. At first we create a new definition file located here:</p>
+<pre><code class="bash">includes/definitions/$os.yaml
 </code></pre>
 
-<pre><code class="php">// Pulse Secure OS definition
-$os = 'pulse';
-$config['os'][$os]['text']             = 'Pulse Secure';
-$config['os'][$os]['type']             = 'firewall';
-$config['os'][$os]['icon']             = 'junos';
-$config['os'][$os]['over'][0]['graph'] = 'device_bits';
-$config['os'][$os]['over'][0]['text']  = 'Device Traffic';
-$config['os'][$os]['over'][1]['graph'] = 'device_processor';
-$config['os'][$os]['over'][1]['text']  = 'CPU Usage';
-$config['os'][$os]['over'][2]['graph'] = 'device_mempool';
-$config['os'][$os]['over'][2]['text']  = 'Memory Usage';
-
-//The icon described before is the image we have to create and put in the directory html/images/os
+<p>This is a <a href="https://en.wikipedia.org/wiki/YAML">Yaml file</a>. Please be careful of the formatting of this file.</p>
+<pre><code class="yaml">os: pulse
+text: 'Pulse Secure'
+type: firewall
+icon: pulse
+over:
+    - { graph: device_bits, text: 'Device Traffic' }
+    - { graph: device_processor, text: 'CPU Usage' }
+    - { graph: device_mempool, text: 'Memory Usage' }
 </code></pre>
 
 <h4 id="discovery-os">Discovery OS</h4>
@@ -792,38 +786,37 @@ iveCpuUtil.0 = Gauge32: 28
 </code></pre>
 
 <h4 id="new-os-definition_1">New OS definition</h4>
-<p>Let's begin to declare the new OS in LibreNMS. At first we modify the definition file located here:</p>
-<pre><code class="bash">includes/definitions.inc.php
+<p>Let's begin to declare the new OS in LibreNMS. At first we create a new definition file located here:</p>
+<pre><code class="bash">includes/definitions/$os.yaml
 </code></pre>
 
-<pre><code class="php">// Pulse Secure OS definition
-$os = 'pulse';
-$config['os'][$os]['text']             = 'Pulse Secure';
-$config['os'][$os]['type']             = 'firewall';
-$config['os'][$os]['icon']             = 'junos';
-$config['os'][$os]['over'][0]['graph'] = 'device_bits';
-$config['os'][$os]['over'][0]['text']  = 'Device Traffic';
-$config['os'][$os]['over'][1]['graph'] = 'device_processor';
-$config['os'][$os]['over'][1]['text']  = 'CPU Usage';
-$config['os'][$os]['over'][2]['graph'] = 'device_mempool';
-$config['os'][$os]['over'][2]['text']  = 'Memory Usage';
+<p>This is a <a href="https://en.wikipedia.org/wiki/YAML">Yaml file</a>. Please be careful of the formatting of this file.</p>
+<pre><code class="yaml">os: pulse
+text: 'Pulse Secure'
+type: firewall
+icon: pulse
+over:
+    - { graph: device_bits, text: 'Device Traffic' }
+    - { graph: device_processor, text: 'CPU Usage' }
+    - { graph: device_mempool, text: 'Memory Usage' }
+</code></pre>
 
-//The icon described before is the image we have to create and put in the directory html/images/os
-
-//Don't forget to declare the specific graphs if needed. It will be located near the end of the file.
-
-//Pulse Secure Graphs
+<p>If you are adding custom graphs, please add the following to <code>includes/definitions.inc.php</code>:</p>
+<p>//Don't forget to declare the specific graphs if needed. It will be located near the end of the file.</p>
+<p>//Pulse Secure Graphs
 $config['graph_types']['device']['pulse_users']['section']         = 'firewall';
 $config['graph_types']['device']['pulse_users']['order']           = '0';
 $config['graph_types']['device']['pulse_users']['descr']           = 'Active Users';
 $config['graph_types']['device']['pulse_sessions']['section']      = 'firewall';
 $config['graph_types']['device']['pulse_sessions']['order']        = '0';
-$config['graph_types']['device']['pulse_sessions']['descr']        = 'Active Sessions';
-</code></pre>
+$config['graph_types']['device']['pulse_sessions']['descr']        = 'Active Sessions';</p>
+<pre><code>
+#### Discovery OS
 
-<h4 id="discovery-os_1">Discovery OS</h4>
-<p>We create a new file named as our OS definition and in this directory:</p>
-<pre><code class="bash">includes/discovery/os/pulse.inc.php
+We create a new file named as our OS definition and in this directory:
+
+```bash
+includes/discovery/os/pulse.inc.php
 </code></pre>
 
 <p>Look at other files to get help in the code structure. For this example, it can be like this :</p>

@@ -756,7 +756,7 @@ $config['discovery_modules']['charge']                    = 1;
 </code></pre>
 
 <h4 id="os-based-discovery-config">OS based Discovery config</h4>
-<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions.inc.php</code>
+<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions/$os.yaml</code>
 OS based settings have preference over global. Device based settings have preference over all others</p>
 <p>Discover performance improvement can be achieved by deactivating all modules that are not supported by specific OS.</p>
 <p>E.g. to deactivate spanning tree but activate discovery-arp module for linux OS</p>

@@ -744,7 +744,7 @@ $config['poller_modules']['mib']                          = 0;
 </code></pre>
 
 <h4 id="os-based-poller-config">OS based Poller config</h4>
-<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions.inc.php</code>
+<p>You can enable or disable modules for a specific OS by add corresponding line in <code>includes/definitions/$os.yaml</code>
 OS based settings have preference over global. Device based settings have preference over all others</p>
 <p>Poller performance improvement can be achieved by deactivating all modules that are not supported by specific OS.</p>
 <p>E.g. to deactivate spanning tree but activate unix-agent module for linux OS</p>
