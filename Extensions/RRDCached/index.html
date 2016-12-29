@@ -654,6 +654,8 @@
         
             <li><a href="#support-matrix">Support matrix</a></li>
         
+            <li><a href="#rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</a></li>
+        
             <li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
         
             <li><a href="#rrdcached-installation-centos-7">RRDCached installation CentOS 7</a></li>
@@ -724,6 +726,30 @@ To enable this set the following config:</p>
 </tr>
 </tbody>
 </table>
+<h3 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h3>
+<pre><code class="ssh">sudo apt-get install rrdcached
+</code></pre>
+
+<ul>
+<li>Edit /opt/librenms/config.php to include:</li>
+</ul>
+<pre><code class="php">$config['rrdcached']    = &quot;unix:/var/run/rrdcached.sock&quot;;
+</code></pre>
+
+<ul>
+<li>Edit /etc/default/rrdcached to include:</li>
+</ul>
+<pre><code class="ssh">DAEMON=/usr/bin/rrdcached
+WRITE_TIMEOUT=1800
+WRITE_JITTER=1800
+BASE_PATH=/opt/librenms/rrd/
+JOURNAL_PATH=/var/lib/rrdcached/journal/
+PIDFILE=/var/run/rrdcached.pid
+SOCKFILE=/var/run/rrdcached.sock
+SOCKGROUP=librenms
+BASE_OPTIONS=&quot;-B -F&quot;
+</code></pre>
+
 <h3 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h3>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
 In this example, we'll use the Repoforge repository.</p>
