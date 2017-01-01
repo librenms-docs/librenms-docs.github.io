@@ -650,16 +650,11 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#v12201">v1.22.01</a></li>
-        
-            <li><a href="#bugfixes">Bugfixes</a></li>
-        
-    
-        <li class="main "><a href="#v122">v1.22</a></li>
+        <li class="main active"><a href="#123">1.23</a></li>
         
             <li><a href="#features">Features</a></li>
         
-            <li><a href="#bugfixes_1">Bugfixes</a></li>
+            <li><a href="#bugfixes">Bugfixes</a></li>
         
             <li><a href="#documentation">Documentation</a></li>
         
@@ -669,8 +664,15 @@
         
             <li><a href="#webui">WebUI</a></li>
         
+            <li><a href="#security">Security</a></li>
+        
     
-        <li class="main "><a href="#v121">v1.21</a></li>
+        <li class="main "><a href="#v12201">v1.22.01</a></li>
+        
+            <li><a href="#bugfixes_1">Bugfixes</a></li>
+        
+    
+        <li class="main "><a href="#v122">v1.22</a></li>
         
             <li><a href="#features_1">Features</a></li>
         
@@ -685,7 +687,7 @@
             <li><a href="#webui_1">WebUI</a></li>
         
     
-        <li class="main "><a href="#release-201609">Release: 201609</a></li>
+        <li class="main "><a href="#v121">v1.21</a></li>
         
             <li><a href="#features_2">Features</a></li>
         
@@ -698,6 +700,21 @@
             <li><a href="#devices_2">Devices</a></li>
         
             <li><a href="#webui_2">WebUI</a></li>
+        
+    
+        <li class="main "><a href="#release-201609">Release: 201609</a></li>
+        
+            <li><a href="#features_3">Features</a></li>
+        
+            <li><a href="#bugfixes_4">Bugfixes</a></li>
+        
+            <li><a href="#documentation_3">Documentation</a></li>
+        
+            <li><a href="#refactoring_3">Refactoring</a></li>
+        
+            <li><a href="#devices_3">Devices</a></li>
+        
+            <li><a href="#webui_3">WebUI</a></li>
         
             <li><a href="#august-2016">August 2016</a></li>
         
@@ -777,16 +794,111 @@
 </div>
 
 
+<h2 id="123">1.23</h2>
+<p><em>(2017-01-01)</em></p>
+<h4 id="features">Features</h4>
+<ul>
+<li>Add nagios check_procs support (<a href="https://github.com/librenms/librenms/issues/5214">#5214</a>)</li>
+<li>Added support for sending email notifications to default_contact if updating fails (<a href="https://github.com/librenms/librenms/issues/5026">#5026</a>)</li>
+<li>Enable override of $config values set in includes/definitions.inc.php (<a href="https://github.com/librenms/librenms/issues/5096">#5096</a>)</li>
+<li>Add APC UPS battery replacement status <a href="https://github.com/librenms/librenms/issues/5088">#5088</a></li>
+</ul>
+<h4 id="bugfixes">Bugfixes</h4>
+<ul>
+<li>APC PDU2 Voltage Discovery (<a href="https://github.com/librenms/librenms/issues/5276">#5276</a>)</li>
+<li>Empty mac adds an entry to the arp table (<a href="https://github.com/librenms/librenms/issues/5270">#5270</a>)</li>
+<li>Restrict inventory api calls to the device requested (<a href="https://github.com/librenms/librenms/issues/5267">#5267</a>)</li>
+<li>Update any IP fields using inet6_ntop()  <a href="https://github.com/librenms/librenms/issues/5207">#5207</a></li>
+<li>Fixed passing of data to load_all_os() function (<a href="https://github.com/librenms/librenms/issues/5235">#5235</a>)</li>
+<li>Support columns filter in get_port_stats_by_port_hostname api call (<a href="https://github.com/librenms/librenms/issues/5230">#5230</a>)</li>
+<li>Restore usage of -i -n in polling (<a href="https://github.com/librenms/librenms/issues/5228">#5228</a>)</li>
+<li>Empty routing menu where only CEF is present (<a href="https://github.com/librenms/librenms/issues/5225">#5225</a>)</li>
+<li>Added service params for check_smtp (<a href="https://github.com/librenms/librenms/issues/5223">#5223</a>)</li>
+<li>Misc warning fixes in mib polling (<a href="https://github.com/librenms/librenms/issues/5222">#5222</a>)</li>
+<li>Added service params for check_imap (<a href="https://github.com/librenms/librenms/issues/5213">#5213</a>)</li>
+<li>Execute commands using the numeric conventions of the C locale. (<a href="https://github.com/librenms/librenms/issues/5192">#5192</a>)</li>
+<li>Remove usage of -CI, it is not allowed for snmpbulkwalk <a href="https://github.com/librenms/librenms/issues/5164">#5164</a></li>
+<li>Update F5 fanspeed discovery (<a href="https://github.com/librenms/librenms/issues/5200">#5200</a>)</li>
+<li>Fix state_indexes for state overview sensors (<a href="https://github.com/librenms/librenms/issues/5191">#5191</a>)</li>
+<li>Better Cisco hardware formatting (<a href="https://github.com/librenms/librenms/issues/5184">#5184</a>)</li>
+<li>Cisco hardware name detection (<a href="https://github.com/librenms/librenms/issues/5167">#5167</a>)</li>
+<li>Changed sql query for state sensors on device overview page to ignore null sensor_id (<a href="https://github.com/librenms/librenms/issues/5180">#5180</a>)</li>
+<li>daily.sh install path (<a href="https://github.com/librenms/librenms/issues/5152">#5152</a>)</li>
+<li>Cleanup printing ifAlias (<a href="https://github.com/librenms/librenms/issues/4874">#4874</a>)</li>
+<li>Fixed broken http-auth auth module <a href="https://github.com/librenms/librenms/issues/5053">#5053</a> (<a href="https://github.com/librenms/librenms/issues/5146">#5146</a>)</li>
+<li>Fix get_port_stats_by_port_hostname() to only return non-deleted ports <a href="https://github.com/librenms/librenms/issues/5131">#5131</a></li>
+<li>Stop openbsd using snmpEngineTime (<a href="https://github.com/librenms/librenms/issues/5111">#5111</a>)</li>
+<li>Update raspberrypi sensor discover to check for sensor data (<a href="https://github.com/librenms/librenms/issues/5114">#5114</a>)</li>
+<li>Add check for differently named Cisco Power sensor (<a href="https://github.com/librenms/librenms/issues/5119">#5119</a>)</li>
+<li>Ability to detect Cisco ASA version when polling a security context (<a href="https://github.com/librenms/librenms/issues/5098">#5098</a>)</li>
+<li>Fixed setting userlevel for  LDAP auth <a href="https://github.com/librenms/librenms/issues/5090">#5090</a></li>
+<li>Arp-table uses array_column() breaking discovery on php &lt;=5.4 (<a href="https://github.com/librenms/librenms/issues/5099">#5099</a>)</li>
+<li>Allow html but not script, head and html tags in notes widget <a href="https://github.com/librenms/librenms/issues/4898">#4898</a> (<a href="https://github.com/librenms/librenms/issues/5006">#5006</a>)</li>
+</ul>
+<h4 id="documentation">Documentation</h4>
+<ul>
+<li>Updated rrdcached docs to include Ubuntu 16.x (<a href="https://github.com/librenms/librenms/issues/5263">#5263</a>)</li>
+<li>Updated Oxidized.md (<a href="https://github.com/librenms/librenms/issues/5224">#5224</a>)</li>
+<li>Removed mailing list in various places + small improvements to docs (<a href="https://github.com/librenms/librenms/issues/5154">#5154</a>)</li>
+<li>Added Remote monitoring using tinc VPN (<a href="https://github.com/librenms/librenms/issues/5122">#5122</a>)</li>
+<li>Added documentation on securing rrdcached. (<a href="https://github.com/librenms/librenms/issues/5093">#5093</a>)</li>
+<li>Adding how to configure HPE 3PAR to documentation (<a href="https://github.com/librenms/librenms/issues/5087">#5087</a>)</li>
+<li>Fixed example timezones (<a href="https://github.com/librenms/librenms/issues/5083">#5083</a>)</li>
+</ul>
+<h4 id="refactoring">Refactoring</h4>
+<ul>
+<li>Removed and moved more mibs (<a href="https://github.com/librenms/librenms/issues/5232">#5232</a>)</li>
+<li>Move OS definitions into yaml files (<a href="https://github.com/librenms/librenms/issues/5189">#5189</a>)</li>
+<li>Updated Ups nut support</li>
+<li>Mibs E-G (<a href="https://github.com/librenms/librenms/issues/5190">#5190</a>)</li>
+<li>Moved / deleted mibs A-D (<a href="https://github.com/librenms/librenms/issues/5173">#5173</a>)</li>
+<li>Updated location of mibs starting with S (<a href="https://github.com/librenms/librenms/issues/5142">#5142</a>)</li>
+<li>Update some devices to disable poller/disco modules by default (<a href="https://github.com/librenms/librenms/issues/5010">#5010</a>)</li>
+<li>More Cisco ASA Polling Performance Improvements (<a href="https://github.com/librenms/librenms/issues/5104">#5104</a>)</li>
+<li>Moved mibs T-U (or removed) where possible (<a href="https://github.com/librenms/librenms/issues/5013">#5013</a>)</li>
+</ul>
+<h4 id="devices">Devices</h4>
+<ul>
+<li>Lancom wireless devices (<a href="https://github.com/librenms/librenms/issues/5237">#5237</a>)</li>
+<li>Added additional detection for Cisco WAP 321 <a href="https://github.com/librenms/librenms/issues/5172">#5172</a> (<a href="https://github.com/librenms/librenms/issues/5248">#5248</a>)</li>
+<li>Added support for TPLink JetStream <a href="https://github.com/librenms/librenms/issues/5194">#5194</a> (<a href="https://github.com/librenms/librenms/issues/5249">#5249</a>)</li>
+<li>Added HPE MSL support <a href="https://github.com/librenms/librenms/issues/5072">#5072</a> (<a href="https://github.com/librenms/librenms/issues/5239">#5239</a>)</li>
+<li>Added support for DCN switches <a href="https://github.com/librenms/librenms/issues/5031">#5031</a> (<a href="https://github.com/librenms/librenms/issues/5238">#5238</a>)</li>
+<li>Added support for Cisco APIC devices (<a href="https://github.com/librenms/librenms/issues/5236">#5236</a>)</li>
+<li>Zyxel ZyWALL Improvement <a href="https://github.com/librenms/librenms/issues/5185">#5185</a></li>
+<li>Added CPU detection for Zyxel GS2200-24 (<a href="https://github.com/librenms/librenms/issues/5218">#5218</a>)</li>
+<li>removed all references to 'multimatics' and instead added generex OS</li>
+<li>Added additional support for F5 BigIP LTM objects</li>
+<li>Added additional support for Synology dsm (<a href="https://github.com/librenms/librenms/issues/5145">#5145</a>)</li>
+<li>Add OS Detection support for Alcatel-Lucent/Nokia ESS 7450 Ethernet service switch <a href="https://github.com/librenms/librenms/issues/5187">#5187</a></li>
+<li>Added Bluecoat ProxySG Support (<a href="https://github.com/librenms/librenms/issues/5165">#5165</a>)</li>
+<li>Added support for Arris CMTS (<a href="https://github.com/librenms/librenms/issues/5143">#5143</a>)</li>
+<li>Added os Discovery for Brocade NOS V4.X and below. (<a href="https://github.com/librenms/librenms/issues/5158">#5158</a>)</li>
+<li>Added support for Mirth OS <a href="https://github.com/librenms/librenms/issues/2639">#2639</a></li>
+<li>Juniper SA support <a href="https://github.com/librenms/librenms/issues/4328">#4328</a></li>
+<li>Added support for Zyxel MES3528 (<a href="https://github.com/librenms/librenms/issues/5120">#5120</a>)</li>
+<li>Add more Edge core switches</li>
+<li>Add support for Ubiquiti EdgePoint Switch models (<a href="https://github.com/librenms/librenms/issues/5079">#5079</a>)</li>
+</ul>
+<h4 id="webui">WebUI</h4>
+<ul>
+<li>Standardised all rowCount parameters for tables (<a href="https://github.com/librenms/librenms/issues/5067">#5067</a>)</li>
+</ul>
+<h4 id="security">Security</h4>
+<ul>
+<li>Update PHPMailer to version 5.2.19 (<a href="https://github.com/librenms/librenms/issues/5253">#5253</a>)</li>
+</ul>
+<hr />
 <h2 id="v12201">v1.22.01</h2>
 <p><em>(2016-11-30)</em></p>
-<h4 id="bugfixes">Bugfixes</h4>
+<h4 id="bugfixes_1">Bugfixes</h4>
 <ul>
 <li>arp-table uses array_column() breaking discovery on php &lt;=5.4 (<a href="https://github.com/librenms/librenms/issues/5099">#5099</a>)</li>
 </ul>
 <hr />
 <h2 id="v122">v1.22</h2>
 <p><em>(2016-11-25)</em></p>
-<h4 id="features">Features</h4>
+<h4 id="features_1">Features</h4>
 <ul>
 <li>validate list devices that have not been polled in the last 5 minutes or took more than 5 minutes to poll (<a href="https://github.com/librenms/librenms/issues/5037">#5037</a>)</li>
 <li>Add Microsoft Teams Alert Transport (<a href="https://github.com/librenms/librenms/issues/5023">#5023</a>)</li>
@@ -795,7 +907,7 @@
 <li>Improve Dell OpenManage Discovery (<a href="https://github.com/librenms/librenms/issues/4957">#4957</a>)</li>
 <li>Added the option to select alert rules from a collection</li>
 </ul>
-<h4 id="bugfixes_1">Bugfixes</h4>
+<h4 id="bugfixes_2">Bugfixes</h4>
 <ul>
 <li>use password type for SMTP Auth <a href="https://github.com/librenms/librenms/issues/5051">#5051</a></li>
 <li>Added alert init module to ajax_form <a href="https://github.com/librenms/librenms/issues/5058">#5058</a></li>
@@ -826,13 +938,13 @@
 <li>Renamed hp3par os polling file to informos (<a href="https://github.com/librenms/librenms/issues/4861">#4861</a>)</li>
 <li>Updated Cisco ASA state sensors descr to be a bit more verbose</li>
 </ul>
-<h4 id="documentation">Documentation</h4>
+<h4 id="documentation_1">Documentation</h4>
 <ul>
 <li>Added FAQ on why EdgeRouters might not be detected (<a href="https://github.com/librenms/librenms/issues/4985">#4985</a>)</li>
 <li>Update freenode links (<a href="https://github.com/librenms/librenms/issues/4935">#4935</a>)</li>
 <li>Issue template to ask people to use irc / community for creating issues</li>
 </ul>
-<h4 id="refactoring">Refactoring</h4>
+<h4 id="refactoring_1">Refactoring</h4>
 <ul>
 <li>Rewrite arp-table discovery (<a href="https://github.com/librenms/librenms/issues/5048">#5048</a>)</li>
 <li>Collection and output of db and snmp stats (<a href="https://github.com/librenms/librenms/issues/5049">#5049</a>)</li>
@@ -849,7 +961,7 @@
 <li>Refactored and added support for $config['log_dir'] to daily.sh</li>
 <li>Improve Cisco ASA Polling Performance (<a href="https://github.com/librenms/librenms/issues/4999">#4999</a>)</li>
 </ul>
-<h4 id="devices">Devices</h4>
+<h4 id="devices_1">Devices</h4>
 <ul>
 <li>Updated edge-core to edgecos and added further detection (<a href="https://github.com/librenms/librenms/issues/5024">#5024</a>)</li>
 <li>Added basic support for Ceragon devices</li>
@@ -859,7 +971,7 @@
 <li>Added support for Dell Remote consoles <a href="https://github.com/librenms/librenms/issues/4881">#4881</a></li>
 <li>Added support for FortiSwitch <a href="https://github.com/librenms/librenms/issues/4852">#4852</a> (<a href="https://github.com/librenms/librenms/issues/4858">#4858</a>)</li>
 </ul>
-<h4 id="webui">WebUI</h4>
+<h4 id="webui_1">WebUI</h4>
 <ul>
 <li>Availability map compact view, use square tiles instead of rectangles (<a href="https://github.com/librenms/librenms/issues/5038">#5038</a>)</li>
 <li>Add link to recently added device (<a href="https://github.com/librenms/librenms/issues/5032">#5032</a>)</li>
@@ -872,7 +984,7 @@
 <hr />
 <h2 id="v121">v1.21</h2>
 <p><em>(2016-10-30)</em></p>
-<h4 id="features_1">Features</h4>
+<h4 id="features_2">Features</h4>
 <ul>
 <li>Added support for global max repeaters for snmp (<a href="https://github.com/librenms/librenms/issues/4880">#4880</a>)</li>
 <li>Added custom css and include directories which are ignored by git (<a href="https://github.com/librenms/librenms/issues/4871">#4871</a>)</li>
@@ -895,7 +1007,7 @@
 <li>validate.php: check poller and discovery status (<a href="https://github.com/librenms/librenms/issues/4663">#4663</a>)</li>
 <li>Added GlobalProtect sessions to PANOS</li>
 </ul>
-<h4 id="bugfixes_2">Bugfixes</h4>
+<h4 id="bugfixes_3">Bugfixes</h4>
 <ul>
 <li>Replace \\l with \l on GPRINT lines (<a href="https://github.com/librenms/librenms/issues/4882">#4882</a>)</li>
 <li>fix missing config entries on global settings page <a href="https://github.com/librenms/librenms/issues/4884">#4884</a></li>
@@ -936,7 +1048,7 @@
 <li>Wrapped ipmi user / pass in quotes <a href="https://github.com/librenms/librenms/issues/4686">#4686</a> and <a href="https://github.com/librenms/librenms/issues/4702">#4702</a></li>
 <li>Use snmpv3 username even when NoAuthNoPriv is selected <a href="https://github.com/librenms/librenms/issues/4677">#4677</a></li>
 </ul>
-<h4 id="documentation_1">Documentation</h4>
+<h4 id="documentation_2">Documentation</h4>
 <ul>
 <li>homepage headers: vertical align, match color, add spacing (<a href="https://github.com/librenms/librenms/issues/4870">#4870</a>)</li>
 <li>Added FAQ on moving install to another server</li>
@@ -945,7 +1057,7 @@
 <li>Added doc on security and vulnerabilities</li>
 <li>Update Graylog.md (<a href="https://github.com/librenms/librenms/issues/4717">#4717</a>)</li>
 </ul>
-<h4 id="refactoring_1">Refactoring</h4>
+<h4 id="refactoring_2">Refactoring</h4>
 <ul>
 <li>populate native vlans in the ports_vlan table for cisco devices too (<a href="https://github.com/librenms/librenms/issues/4805">#4805</a>)</li>
 <li>Small poller improvements, removes unecessary queries / execs (<a href="https://github.com/librenms/librenms/issues/4741">#4741</a>)</li>
@@ -960,7 +1072,7 @@
 <li>edituser page to allow user selection of a default dashboard (<a href="https://github.com/librenms/librenms/issues/4551">#4551</a>)</li>
 <li>snmp cleanup (<a href="https://github.com/librenms/librenms/issues/4683">#4683</a>)</li>
 </ul>
-<h4 id="devices_1">Devices</h4>
+<h4 id="devices_2">Devices</h4>
 <ul>
 <li>Added support for Megatec NetAgent II</li>
 <li>Add UniFi Wireless MIB polling for Capacity <a href="https://github.com/librenms/librenms/issues/4266">#4266</a></li>
@@ -979,7 +1091,7 @@
 <li>Add support for Mimosa Wireless <a href="https://github.com/librenms/librenms/issues/4676">#4676</a></li>
 <li>Add support for Mimosa Wireless <a href="https://github.com/librenms/librenms/issues/4676">#4676</a></li>
 </ul>
-<h4 id="webui_1">WebUI</h4>
+<h4 id="webui_2">WebUI</h4>
 <ul>
 <li>Allow users to set their default dashboard from preferences page</li>
 <li>Updated devices view (<a href="https://github.com/librenms/librenms/issues/4700">#4700</a>)</li>
@@ -990,7 +1102,7 @@
 <hr />
 <h2 id="release-201609">Release: 201609</h2>
 <p><em>September 2016</em></p>
-<h4 id="features_2">Features</h4>
+<h4 id="features_3">Features</h4>
 <ul>
 <li>Added alerts output to capture system (<a href="https://github.com/librenms/librenms/issues/4574">#4574</a>)</li>
 <li>Add support for ups-apcups via snmp</li>
@@ -1011,7 +1123,7 @@
 <li>Added Cisco Stackwise Support <a href="https://github.com/librenms/librenms/issues/4301">#4301</a></li>
 <li>Add Cisco WAAS Optimized TCP Connections Graph (<a href="https://github.com/librenms/librenms/issues/4645">#4645</a>)</li>
 </ul>
-<h4 id="bugfixes_3">Bugfixes</h4>
+<h4 id="bugfixes_4">Bugfixes</h4>
 <ul>
 <li>Toner nrg os capacity (<a href="https://github.com/librenms/librenms/issues/4177">#4177</a>)</li>
 <li>Fixed swos detection <a href="https://github.com/librenms/librenms/issues/4533">#4533</a></li>
@@ -1068,7 +1180,7 @@
 <li>Missing variable in services api call</li>
 <li>Added influxdb options to check-services.php</li>
 </ul>
-<h4 id="documentation_2">Documentation</h4>
+<h4 id="documentation_3">Documentation</h4>
 <ul>
 <li>Include PHP Install instructions for MySQL app</li>
 <li>Added FAQ for why interfaces are missing from overall traffic graphs (<a href="https://github.com/librenms/librenms/issues/4696">#4696</a>)</li>
@@ -1087,7 +1199,7 @@
 <li>Added docs + file changes to support creating new releases/changelog</li>
 <li>Update snmpd setup in Installation-Ubuntu-1604 docs <a href="https://github.com/librenms/librenms/issues/4243">#4243</a></li>
 </ul>
-<h4 id="refactoring_2">Refactoring</h4>
+<h4 id="refactoring_3">Refactoring</h4>
 <ul>
 <li>Centralize MIB include directory specification (<a href="https://github.com/librenms/librenms/issues/4603">#4603</a>)</li>
 <li>OS discovery files (a-z)</li>
@@ -1100,7 +1212,7 @@
 <li>Moved IRCBot class to LibreNMS namespace <a href="https://github.com/librenms/librenms/issues/4246">#4246</a> </li>
 <li>Update code in /includes to be psr2 compliant <a href="https://github.com/librenms/librenms/issues/4220">#4220</a></li>
 </ul>
-<h4 id="devices_2">Devices</h4>
+<h4 id="devices_3">Devices</h4>
 <ul>
 <li>Samsung Printer Discovery <a href="https://github.com/librenms/librenms/issues/4251">#4251</a> (<a href="https://github.com/librenms/librenms/issues/4258">#4258</a>)</li>
 <li>HP 1820 Discovery <a href="https://github.com/librenms/librenms/issues/3933">#3933</a> (<a href="https://github.com/librenms/librenms/issues/4259">#4259</a>)</li>
@@ -1127,7 +1239,7 @@
 <li>Added support for macOS Sierra (<a href="https://github.com/librenms/librenms/issues/4557">#4557</a>)</li>
 <li>Improve BDCOM detection (<a href="https://github.com/librenms/librenms/issues/4329">#4329</a>)</li>
 </ul>
-<h4 id="webui_2">WebUI</h4>
+<h4 id="webui_3">WebUI</h4>
 <ul>
 <li>top devices enhancement <a href="https://github.com/librenms/librenms/issues/4447">#4447</a></li>
 <li>Individual devices now use bootgrid syslog (<a href="https://github.com/librenms/librenms/issues/4584">#4584</a>)</li>
