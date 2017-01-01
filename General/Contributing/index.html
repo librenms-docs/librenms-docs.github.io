@@ -796,11 +796,30 @@ message.  Accurate attribution is crucial to our success as a Free Software
 project.</p>
 <ul>
 <li>
-<p>To incorporate larger blocks of code from third parties (e.g. JavaScript
-  libraries):</p>
+<p>For any dependency</p>
 <ul>
-<li>Include its name, source URL, copyright notice, and license in
-  doc/General/Credits.md</li>
+<li>Include its name, source URL, copyright notice, and license in doc/General/Credits.md</li>
+</ul>
+</li>
+<li>
+<p>To add a php dependency, please use composer</p>
+<ul>
+<li>Add the dependency <code>composer require --update-no-dev -o slim/slim</code></li>
+<li>
+<p>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/ composer.json; git commit</code></p>
+</li>
+<li>
+<p>Updating php dependencies</p>
+<ul>
+<li>Update dependencies <code>composer update --no-dev -o</code></li>
+<li>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/; git commit</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>To add a javascript or other dependency</p>
+<ul>
 <li>Where possible please include libraries in the lib/ folder.</li>
 <li>Add it in a separate commit into its own directory, using
   git subtree if it is available via git:
@@ -808,11 +827,7 @@ project.</p>
   I.e:
   <code>ssh
   git subtree add --squash --prefix=lib/jquery-bootgrid https://github.com/rstaib/jquery-bootgrid.git master</code></li>
-<li>Add the code to integrate it in a separate commit.  Include:<ul>
-<li>code to update it in Makefile</li>
-</ul>
-</li>
-<li>Scrutinizer exclusions to .scrutinizer.yml (not needed if added to lib/ folder).</li>
+<li>Add the code to integrate it in a separate commit.</li>
 <li>symlinks where necessary to maintain sensible paths</li>
 </ul>
 </li>
@@ -837,7 +852,7 @@ project.</p>
   copyright, granting Adam ownership.</p>
 <p>Please note that the above is necessary even if you don't care about
   keeping the copyright to your code, because otherwise we could be accused
-  of misappropriating Obserivum's code.  As the code bases develop, we
+  of misappropriating Observium's code.  As the code bases develop, we
   expect them to diverge, which means this will become less of an issue
   anyway.</p>
 <ul>
