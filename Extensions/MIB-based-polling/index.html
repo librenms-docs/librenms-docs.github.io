@@ -838,27 +838,21 @@ graph.</p>
 </ol>
 <h2 id="configuration">Configuration</h2>
 <h3 id="main-configuration">Main Configuration</h3>
-<p>In <code>/opt/librenms/config.php</code> add <code>$config['poller_modules']['mib'] = 1;</code></p>
+<p>In <code>/opt/librenms/config.php</code> add <code>$config['poller_modules']['mib'] = 1;</code> to enable MIB polling globally.
+Alternatively you can enable MIB polling per device by enabling it within the modules section for the specific device.</p>
 <h3 id="discovery_1">Discovery</h3>
-<p>You need to add your desired MIBs to <code>/opt/librenms/mibs</code> folder. Afterwards you need to register your MIBs to the discovery function. </p>
+<p>You need to add your desired MIBs to <code>/opt/librenms/mibs</code> folder. 
+You will then need to create a list of the OIDs you wish to use in the OS definition.</p>
 <h4 id="example">Example</h4>
-<p><code>/opt/librenms/includes/discovery/os/f5.inc.php</code></p>
-<pre><code>&lt;?php
-if (starts_with($sysObjectId, '.1.3.6.1.4.1.3375.2.1')) {
-    $os = 'f5';
-}
-
-### MIB definition as an array 
-$f5_mibs = array(
-    'ltmVirtualServStatEntry' =&gt; 'F5-BIGIP-LOCAL-MIB',
-);
-
-### Actual registering of the MIB
-register_mibs($device, $f5_mibs, &quot;includes/discovery/os/f5.inc.php&quot;);
-
+<p><code>/opt/librenms/includes/definitions/ruckuswireless.yaml</code></p>
+<pre><code class="yaml">register_mibs:
+    ruckusZDSystemStats: RUCKUS-ZD-SYSTEM-MIB
+    ruckusZDWLANTable: RUCKUS-ZD-WLAN-MIB
+    ruckusZDWLANAPTable: RUCKUS-ZD-WLAN-MIB
+    ruckusZDWLANAPRadioStatsTable: RUCKUS-ZD-WLAN-MIB
 </code></pre>
 
-<p>The important thing is the array $f5_mibs where you define which parts (ltmVirtualServStatEntry) of the MIB (F5-BIGIP-LOCAL-MIB) you are going to add. The registering is also important, otherwise poller cannot make use of the MIB.</p>
+<p>These OIDs and MIBs will then be registered as part of the OS discovery ready for mib polling to work.</p>
 <h2 id="todo">TODO</h2>
 <p>What's not included in MIB-based polling at present?  These may be present in
 future versions.  Pull requests gratefully accepted!</p>
