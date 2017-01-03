@@ -662,6 +662,8 @@
         
             <li><a href="#librenms-integration">LibreNMS integration</a></li>
         
+            <li><a href="#smokeping-and-rrdcached">Smokeping and RRDCached</a></li>
+        
             <li><a href="#configure-librenms">Configure LibreNMS</a></li>
         
     
@@ -772,6 +774,23 @@ Modify any other values you wish, then exit and save.</p>
 </code></pre>
 
 <p>Exit and save.</p>
+<h3 id="smokeping-and-rrdcached">Smokeping and RRDCached</h3>
+<p>If you are using the standard smokeping data dir (/opt/smokeping/data) then you may need to alter the rrdcached config slightly.</p>
+<p>In the standard configuration the -B argument may have been used to restrict rrdcached to read only from a single base dir.</p>
+<p>If this is true, when you try an open one of the smokeping graphs from within LibreNMS you will see something like this error at the end of the rrdcached command:</p>
+<pre><code class="bash">ERROR: rrdcached: /var/lib/smokeping/&lt;device name&gt;.rrd: Permission denied
+</code></pre>
+
+<p>So you will need to either change the dir in which smokeping saves its rrd files to be the same as the main librenms dir or you can remove the -B argument from the rrdcached config to allow it to read from more than one dir.</p>
+<p>To remove the -B switch:</p>
+<pre><code class="bash">sudo nano /etc/default/rrdcached
+</code></pre>
+
+<p>then find:</p>
+<pre><code class="bash">BASE_OPTIONS=
+</code></pre>
+
+<p>If -B is in the list of arguments delete it.</p>
 <h3 id="configure-librenms">Configure LibreNMS</h3>
 <pre><code class="bash">nano /opt/librenms/config.php
 </code></pre>
