@@ -706,7 +706,7 @@
 </blockquote>
 <h4 id="install-configure-mysql">Install / Configure MySQL</h4>
 <pre><code class="bash">yum install mariadb-server mariadb
-service mariadb restart
+systemctl restart mariadb
 mysql -uroot -p
 </code></pre>
 
@@ -725,7 +725,7 @@ exit
 sql-mode=&quot;&quot;
 </code></pre>
 
-<p><code>service mariadb restart</code></p>
+<p><code>systemctl restart mariadb</code></p>
 <h3 id="web-server">Web Server</h3>
 <h4 id="install-configure-apache">Install / Configure Apache</h4>
 <pre><code class="bash">yum install epel-release
@@ -784,7 +784,7 @@ vim /etc/httpd/conf.d/librenms.conf
 </code></pre>
 
 <h4 id="restart-web-server">Restart Web server</h4>
-<pre><code class="bash">service httpd restart
+<pre><code class="bash">systemctl restart httpd
 </code></pre>
 
 <h4 id="web-installer">Web installer</h4>
@@ -799,15 +799,14 @@ vim /etc/snmp/snmpd.conf
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
 <pre><code class="bash">curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
-service snmpd restart
+systemctl restart snmpd
 </code></pre>
 
 <h4 id="cron-job">Cron job</h4>
 <p><code>cp librenms.nonroot.cron /etc/cron.d/librenms</code></p>
 <h4 id="final-steps">Final steps</h4>
 <pre><code class="bash">chown -R librenms:librenms /opt/librenms
-systemctl enable httpd
-systemctl enable mariadb
+systemctl enable httpd mariadb
 </code></pre>
 
 <p>Run validate.php as root in the librenms directory:</p>
