@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="LibreNMS">
+        <link rel="canonical" href="http://docs.librenms.org/Developing/Sensor-State-Support/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	    <title>Sensor State Support - LibreNMS Docs</title>
+
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/color.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../librenms.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-79149977-2', 'docs.librenms.org');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Installation" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-General" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../General/Acknowledgement/">Acknowledgement</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Changelog/">Changelog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Contributing/">Contributing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Credits/">Credits</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Updating/">Updating</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Releases/">Releases</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Security/">Security</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Welcome-to-Observium-users/">Welcome to Observium users</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Extensions" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Extensions/Alerting/">Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Applications/">Applications</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Authentication/">Authentication</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Auto-Discovery/">Auto Discovery</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Billing-Module/">Billing Module</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Component/">Component</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Dell-OpenManage/">Dell OpenManage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Device-Groups/">Device Groups</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Distributed-Poller/">Distributed Poller</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Email-Alerting/">Email Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Globe-Frontpage/">Globe Frontpage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Graylog/">Graylog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot/">IRC Bot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot-Extensions/">IRC Bot Extensions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/InfluxDB/">InfluxDB</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Interface-Description-Parsing/">Interface Description Parsing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/MIB-based-polling/">MIB based polling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Memcached/">Memcached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Network-Map/">Network Map</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/NFSen/">NFSen</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Oxidized/">Oxidized</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Plugin-System/">Plugin System</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Poller-Service/">Poller Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Port-Description-Parser/">Port Description Parser</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Proxmox/">Proxmox</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached/">RRDCached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDTune/">RRDTune</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Proxy/">SNMP Proxy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Trap-Handler/">SNMP Trap Handler</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Services/">Services</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Smokeping/">Smokeping</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Sub-Directory/">Sub Directory</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Syslog/">Syslog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Two-Factor-Auth/">Two Factor Auth</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Varnish/">Varnish</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Developing" class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Using-Git/">Using Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Code-Guidelines/">Code Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Style-Guidelines/">Style Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Validating-Code/">Validating Code</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Code-Structure/">Code Structure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Creating-Documentation/">Creating Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Dynamic-Config/">Dynamic Config</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Sensor State Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Merging-Pull-Requests/">Merging Pull Requests</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Creating-Release/">Creating Release</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../API/API-Docs/">API</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Support" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Support/Configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Discovery Support/">Discovery Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/FAQ/">FAQ</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Features/">Features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Install Validation/">Install Validation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Performance/">Performance</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Poller Support/">Poller Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-hidden" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached-Security/">RRDCached Security</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i>
+                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/librenms/librenms">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="row">
+            
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#sensor-state-support">Sensor State Support</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#logic">Logic</a></li>
+        
+            <li><a href="#example">Example</a></li>
+        
+    
+    </ul>
+</div>
+</div>
+                    <div class="col-md-9" role="main">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
+
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Sensor-State-Support.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+
+  </div>
+</div>
+
+
+<h1 id="sensor-state-support">Sensor State Support</h1>
+<h3 id="introduction">Introduction</h3>
+<p>In this section we are briefly going to walk through, what it takes to write sensor state support.
+We will also briefly get around the concepts of the current sensor state monitoring.</p>
+<h3 id="logic">Logic</h3>
+<p>For sensor state monitoring, we have 4 DB tables we need to concentrate about.
+- sensors
+- state_indexes
+- state_translations
+- sensors_to_state_indexes</p>
+<p>We will just briefly tie a comment to each one of them.</p>
+<h4 id="sensors">sensors</h4>
+<p><em>Each time a sensor needs to be polled, the system needs to know which sensor is it that it need to poll, at what oid is this sensor located and what class the sensor is etc.
+This information is fetched from the sensors table.</em></p>
+<h4 id="state_indexes">state_indexes</h4>
+<p><em>Is where we keep track of which state sensors we monitor.</em></p>
+<h4 id="state_translations">state_translations</h4>
+<p><em>Is where we map the possible returned state sensor values to a generic LibreNMS value, in order to make displaying and alerting more generic.
+We also map these values to the actual state sensor(state_index) where these values are actually returned from.</em></p>
+<p><em>The LibreNMS generic states is derived from Nagios:</em></p>
+<pre><code>0 = OK
+
+1 = Warning
+
+2 = Critical
+
+3 = Unknown
+</code></pre>
+
+<h4 id="sensors_to_state_indexes">sensors_to_state_indexes</h4>
+<p><em>Is as you might have guessed, where the sensor_id is mapped to a state_index_id.</em></p>
+<h3 id="example">Example</h3>
+<p>This example will be based on a Cisco power supply sensor and is all it takes to have sensor state support for Cisco power supplys in Cisco switches.
+The file should be located in /includes/discovery/sensors/state/cisco.inc.php.</p>
+<pre><code class="php">&lt;?php
+
+if ($device['os_group'] == 'cisco') {
+    $oids = snmpwalk_cache_multi_oid($device, 'ciscoEnvMonSupplyStatusTable', array(), 'CISCO-ENVMON-MIB');
+    $cur_oid = '.1.3.6.1.4.1.9.9.13.1.5.1.3.';
+
+    if (is_array($oids)) {
+
+        //Create State Index
+        $state_name = 'ciscoEnvMonSupplyState';
+        $state_index_id = create_state_index($state_name);
+
+        //Create State Translation
+        if ($state_index_id) {
+            $states = array(
+                 array($state_index_id,'normal',0,1,0) ,
+                 array($state_index_id,'warning',0,2,1) ,
+                 array($state_index_id,'critical',0,3,2) ,
+                 array($state_index_id,'shutdown',0,4,3) ,
+                 array($state_index_id,'notPresent',0,5,3) ,
+                 array($state_index_id,'notFunctioning',0,6,2)
+             );
+            foreach($states as $value){ 
+                $insert = array(
+                    'state_index_id' =&gt; $value[0],
+                    'state_descr' =&gt; $value[1],
+                    'state_draw_graph' =&gt; $value[2],
+                    'state_value' =&gt; $value[3],
+                    'state_generic_value' =&gt; $value[4]
+                );
+                dbInsert($insert, 'state_translations');
+            }
+        }
+
+        foreach ($oids as $index =&gt; $entry) {
+            //Discover Sensors
+            discover_sensor($valid['sensor'], 'state', $device, $cur_oid.$index, $index, $state_name, $entry['ciscoEnvMonSupplyStatusDescr'], '1', '1', null, null, null, null, $entry['ciscoEnvMonSupplyState'], 'snmp', $index);
+
+            //Create Sensor To State Index
+            create_sensor_to_state_index($device, $state_name, $index);
+        }
+    }
+}
+</code></pre></div>
+                
+            
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
+        </footer>
+
+        <script src="../../js/jquery-1.12.4.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
