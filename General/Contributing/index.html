@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="LibreNMS">
+        <link rel="canonical" href="http://docs.librenms.org/General/Contributing/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	    <title>Contributing - LibreNMS Docs</title>
+
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/color.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../librenms.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-79149977-2', 'docs.librenms.org');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Installation" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-General" class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Acknowledgement/">Acknowledgement</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Changelog/">Changelog</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Contributing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Credits/">Credits</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Updating/">Updating</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Releases/">Releases</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Security/">Security</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Welcome-to-Observium-users/">Welcome to Observium users</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Extensions" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Extensions/Alerting/">Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Applications/">Applications</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Authentication/">Authentication</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Auto-Discovery/">Auto Discovery</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Billing-Module/">Billing Module</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Component/">Component</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Dell-OpenManage/">Dell OpenManage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Device-Groups/">Device Groups</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Distributed-Poller/">Distributed Poller</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Email-Alerting/">Email Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Globe-Frontpage/">Globe Frontpage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Graylog/">Graylog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot/">IRC Bot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot-Extensions/">IRC Bot Extensions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/InfluxDB/">InfluxDB</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Interface-Description-Parsing/">Interface Description Parsing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/MIB-based-polling/">MIB based polling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Memcached/">Memcached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Network-Map/">Network Map</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/NFSen/">NFSen</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Oxidized/">Oxidized</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Plugin-System/">Plugin System</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Poller-Service/">Poller Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Port-Description-Parser/">Port Description Parser</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Proxmox/">Proxmox</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached/">RRDCached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDTune/">RRDTune</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Proxy/">SNMP Proxy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Trap-Handler/">SNMP Trap Handler</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Services/">Services</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Smokeping/">Smokeping</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Sub-Directory/">Sub Directory</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Syslog/">Syslog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Two-Factor-Auth/">Two Factor Auth</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Varnish/">Varnish</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Developing" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Developing/Using-Git/">Using Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Code-Guidelines/">Code Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Style-Guidelines/">Style Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Validating-Code/">Validating Code</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Code-Structure/">Code Structure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Sensor-State-Support/">Sensor State Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Merging-Pull-Requests/">Merging Pull Requests</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Creating-Release/">Creating Release</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../API/API-Docs/">API</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Support" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Support/Configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Discovery Support/">Discovery Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/FAQ/">FAQ</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Features/">Features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Install Validation/">Install Validation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Performance/">Performance</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Poller Support/">Poller Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-hidden" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached-Security/">RRDCached Security</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i>
+                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/librenms/librenms">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="row">
+            
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#contributor-agreement">Contributor Agreement</a></li>
+        
+    
+        <li class="main "><a href="#local-patches">Local patches</a></li>
+        
+    
+        <li class="main "><a href="#copyright">Copyright</a></li>
+        
+    
+        <li class="main "><a href="#general-guidelines">General Guidelines</a></li>
+        
+    
+        <li class="main "><a href="#integrating-other-code">Integrating other code</a></li>
+        
+    
+        <li class="main "><a href="#proposed-workflow-for-submitting-pull-requests">Proposed workflow for submitting pull requests</a></li>
+        
+    
+    </ul>
+</div>
+</div>
+                    <div class="col-md-9" role="main">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
+
+    <a href="https://github.com/librenms/librenms/edit/master/doc/General/Contributing.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+
+  </div>
+</div>
+
+
+<p>All contributors to LibreNMS retain copyright to their own code and are not
+required to sign over their rights to any other party.</p>
+<h2 id="contributor-agreement">Contributor Agreement</h2>
+<p>By contributing code to LibreNMS (whether by a GitHub pull request, or by
+any other means), you assert that:</p>
+<ul>
+<li>
+<p>You have the rights to include the code, either as its original author,
+  or due to it being released to you under a compatible license.</p>
+</li>
+<li>
+<p>You are not aware of any third party claims on the code, including
+  copyright, patent, trademark, or any other legal claim.</p>
+</li>
+<li>
+<p>You have acknowledged in the content of your contribution (usually as a
+  source code comment) any and all sources and influences used in the
+  production of that contribution.</p>
+</li>
+<li>
+<p>You have not viewed code written under the <a href="http://www.observium.org/wiki/License" title="Observium License">Observium License</a> in the
+  production of contributed code.  This includes all Observium code after
+  Subversion revision 3250 and any patches or other code covered by that
+  license after Tue May 29 13:08:01 2012 +0000 (the date of Observium r3250).</p>
+</li>
+<li>
+<p>You are not running a copy of non-GPLed Observium, whether as part of your
+  work duties, or personally, or in any other capacity, and you have removed
+  any copies of non-GPLed Observium source code from your personal and work
+  systems.</p>
+</li>
+</ul>
+<p>To agree with these assertions, please submit a GitHub pull request against
+<a href="https://github.com/librenms/librenms/blob/master/AUTHORS.md" title="LibreNMS contributor list">AUTHORS.md</a>, adding or altering a <strong>single line</strong> <em>containing your name,
+email address, and GitHub user id</em> in the file (so that it can be matched to
+your commits), and stating in the <em>commit log</em> (not the pull request text):</p>
+<pre><code>I agree to the conditions of the Contributor Agreement contained in doc/General/Contributing.md.
+</code></pre>
+
+<h2 id="local-patches">Local patches</h2>
+<p>Please note that the above contributor agreement means that if you have
+developed a feature for a non-GPL version of Observium, we can't include it
+in LibreNMS, even if you have not released it to the public.  If there's a
+feature you use to which this applies, please document its functionality in
+an issue, and we'll do our best to include equivalent functionality in
+LibreNMS.</p>
+<h2 id="copyright">Copyright</h2>
+<p>We recommend that if you add a new file containing original code to the code
+base that you include a copyright notice in it as per the Free Software
+Foundation's guidelines.  You might find something like the following header
+appropriate (although this is not legal advice ;-). Please also ensure you add 
+the package information to the header.</p>
+<pre><code>&lt;?php
+/*
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.  Please see LICENSE.txt at the top level of
+ * the source code distribution for details.
+ */
+
+ * @package    LibreNMS
+ * @subpackage webui
+ * @link       http://librenms.org
+ * @copyright  2016 Internet Widgitz Pty Ltd &lt;info@widgitz.com&gt;
+ * @author     Me &lt;me@infowidgitz.com&gt;
+
+</code></pre>
+
+<p>The GPLv3 itself also contains recommendations about applying the GPL to
+your code.  Please see LICENSE.txt at the top of this source code
+distribution for details.</p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<ul>
+<li>
+<p>Test your patches first.  It's easy to set up git to push to a bare
+  repository on a local test system, and pull from this into a live test
+  installation at very frequent intervals.</p>
+</li>
+<li>
+<p>Don't break the poller.  User interface blemishes are not critical, but
+  losing data from network monitoring systems might be.</p>
+</li>
+<li>
+<p>As a general rule, if you're replacing lines of code with new lines of
+  code, don't comment them out, just delete them.  Commented out code makes
+  the patch and the resultant code harder to read, and there's no good
+  reason to it since we can easily get them back from git.</p>
+</li>
+<li>
+<p>If you're fixing a bug or making another minor change, don't reformat the
+  code at the same time.  This makes it harder to see what's changed.  If
+  you need to reformat it after making the change, do so in a separate
+  commit.</p>
+</li>
+<li>
+<p>Please join us in IRC at irc.freenode.net in channel ##librenms if you're
+  able.  Collaborating in real time makes the coordination of contributions
+  easier.  If you're not a regular IRC user, just browse to <a href="http://webchat.freenode.net/">Freenode
+  web chat</a> and follow the prompts to chat
+  via the web client.</p>
+</li>
+<li>
+<p>Ensure you read the Code Guidelines documentation and understand the code
+  style that should be adhered to <a href="https://github.com/librenms/librenms/blob/master/doc/Developing/Code-Guidelines.md">6</a>.</p>
+</li>
+</ul>
+<h2 id="integrating-other-code">Integrating other code</h2>
+<p>Giving credit where credit is due is critical to the Free Software
+philosophy.  If you use code from somewhere else, even if it's trivial,
+be sure to note this as a comment in the code (preferably) or the commit
+message.  Accurate attribution is crucial to our success as a Free Software
+project.</p>
+<ul>
+<li>
+<p>For any dependency</p>
+<ul>
+<li>Include its name, source URL, copyright notice, and license in doc/General/Credits.md</li>
+</ul>
+</li>
+<li>
+<p>To add a php dependency, please use composer</p>
+<ul>
+<li>Add the dependency <code>composer require --update-no-dev -o slim/slim</code></li>
+<li>
+<p>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/ composer.json; git commit</code></p>
+</li>
+<li>
+<p>Updating php dependencies</p>
+<ul>
+<li>Update dependencies <code>composer update --no-dev -o</code></li>
+<li>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/; git commit</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>To add a javascript or other dependency</p>
+<ul>
+<li>Where possible please include libraries in the lib/ folder.</li>
+<li>Add it in a separate commit into its own directory, using
+  git subtree if it is available via git:
+  git subtree add --squash --prefix=lib/<library name> <library git url> <library branch name>
+  I.e:
+  <code>ssh
+  git subtree add --squash --prefix=lib/jquery-bootgrid https://github.com/rstaib/jquery-bootgrid.git master</code></li>
+<li>Add the code to integrate it in a separate commit.</li>
+<li>symlinks where necessary to maintain sensible paths</li>
+</ul>
+</li>
+<li>
+<p>Don't submit code whose license conflicts with the GPLv3.  If you're not
+  sure, consult the <a href="http://www.gnu.org/licenses/license-list.html" title="Free Software Foundation's license list">Free Software Foundation's license list</a> and see if
+  your code's license is on the compatible or incompatible list.  If you
+  prefer a non-copyleft license, Apache 2.0 is the recommended choice as per
+  the FSF guidelines.</p>
+</li>
+<li>
+<p>The current Observium license is incompatible with GPLv3.  Don't submit
+  code from current Observium unless you are the copyright holder, and you
+  specifically state in the code that you are releasing it under GPLv3 (or a
+  compatible license).</p>
+</li>
+</ul>
+<p>Because contributing to Observium requires that you reassign copyright to
+  Adam Armstrong, if you want to release the same code for both Observium
+  and LibreNMS, you need to release it for LibreNMS first and mark it with
+  your own copyright notice, then release it to Observium and remove your
+  copyright, granting Adam ownership.</p>
+<p>Please note that the above is necessary even if you don't care about
+  keeping the copyright to your code, because otherwise we could be accused
+  of misappropriating Observium's code.  As the code bases develop, we
+  expect them to diverge, which means this will become less of an issue
+  anyway.</p>
+<ul>
+<li>Because the GPL's provisions about linking don't apply to PHP-based
+  projects, we interpret the linking provisions of the license to refer to
+  the use of PHP library functions called from LibreNMS code.</li>
+</ul>
+<p>We consider inclusion of files such as MIBs in the LibreNMS repository to
+  be merely aggregation in a distribution medium as per the last paragraph
+  of the GPLv3 section 5 ("Conveying Modified Source Versions"), and because
+  they are not combined with LibreNMS to form a larger program, the GPLv3
+  does not apply to them.  This is not a legal ruling - it is simply a
+  statement of our intent and current interpretation.</p>
+<h2 id="proposed-workflow-for-submitting-pull-requests">Proposed workflow for submitting pull requests</h2>
+<p>Please see the new <a href="http://docs.librenms.org/Developing/Using-Git/">Using Git</a> document which gives you step-by-step
+instructions on using git to submit a pull request.</p></div>
+                
+            
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
+        </footer>
+
+        <script src="../../js/jquery-1.12.4.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

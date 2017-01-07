@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="LibreNMS">
+        <link rel="canonical" href="http://docs.librenms.org/Developing/Code-Structure/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	    <title>Code Structure - LibreNMS Docs</title>
+
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/color.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../librenms.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-79149977-2', 'docs.librenms.org');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Installation" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-General" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../General/Acknowledgement/">Acknowledgement</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Changelog/">Changelog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Contributing/">Contributing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Credits/">Credits</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Updating/">Updating</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Releases/">Releases</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Security/">Security</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Welcome-to-Observium-users/">Welcome to Observium users</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Extensions" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Extensions/Alerting/">Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Applications/">Applications</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Authentication/">Authentication</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Auto-Discovery/">Auto Discovery</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Billing-Module/">Billing Module</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Component/">Component</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Dell-OpenManage/">Dell OpenManage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Device-Groups/">Device Groups</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Distributed-Poller/">Distributed Poller</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Email-Alerting/">Email Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Globe-Frontpage/">Globe Frontpage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Graylog/">Graylog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot/">IRC Bot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot-Extensions/">IRC Bot Extensions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/InfluxDB/">InfluxDB</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Interface-Description-Parsing/">Interface Description Parsing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/MIB-based-polling/">MIB based polling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Memcached/">Memcached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Network-Map/">Network Map</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/NFSen/">NFSen</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Oxidized/">Oxidized</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Plugin-System/">Plugin System</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Poller-Service/">Poller Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Port-Description-Parser/">Port Description Parser</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Proxmox/">Proxmox</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached/">RRDCached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDTune/">RRDTune</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Proxy/">SNMP Proxy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Trap-Handler/">SNMP Trap Handler</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Services/">Services</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Smokeping/">Smokeping</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Sub-Directory/">Sub Directory</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Syslog/">Syslog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Two-Factor-Auth/">Two Factor Auth</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Varnish/">Varnish</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Developing" class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Using-Git/">Using Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Code-Guidelines/">Code Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Style-Guidelines/">Style Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Validating-Code/">Validating Code</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Code Structure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Creating-Documentation/">Creating Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Dynamic-Config/">Dynamic Config</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Sensor-State-Support/">Sensor State Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Merging-Pull-Requests/">Merging Pull Requests</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Creating-Release/">Creating Release</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../API/API-Docs/">API</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Support" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Support/Configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Discovery Support/">Discovery Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/FAQ/">FAQ</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Features/">Features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Install Validation/">Install Validation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Performance/">Performance</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Poller Support/">Poller Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-hidden" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached-Security/">RRDCached Security</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i>
+                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/librenms/librenms">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="row">
+            
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#code-structure">Code structure.</a></li>
+        
+            <li><a href="#doc">doc/</a></li>
+        
+            <li><a href="#librenms">LibreNMS/</a></li>
+        
+            <li><a href="#html">html/</a></li>
+        
+            <li><a href="#htmlapi_v0php">html/api_v0.php</a></li>
+        
+            <li><a href="#htmlindexphp">html/index.php</a></li>
+        
+            <li><a href="#htmlcss">html/css</a></li>
+        
+            <li><a href="#htmlcsscustom">html/css/custom</a></li>
+        
+            <li><a href="#htmlforms">html/forms</a></li>
+        
+            <li><a href="#htmlincludes">html/includes</a></li>
+        
+            <li><a href="#htmlincludesapi_functionsincphp">html/includes/api_functions.inc.php</a></li>
+        
+            <li><a href="#htmlincludesauthenticateincphp-htmlincludesauthentication">html/includes/authenticate.inc.php, html/includes/authentication/</a></li>
+        
+            <li><a href="#htmlincludesfunctionsincphp">html/includes/functions.inc.php</a></li>
+        
+            <li><a href="#htmlincludesreports">html/includes/reports/</a></li>
+        
+            <li><a href="#htmlincludestable">html/includes/table/</a></li>
+        
+            <li><a href="#htmljs">html/js/</a></li>
+        
+            <li><a href="#htmlpages">html/pages</a></li>
+        
+            <li><a href="#includes">includes/</a></li>
+        
+            <li><a href="#includesdiscovery-includespolling">includes/discovery/, includes/polling/</a></li>
+        
+            <li><a href="#lib">lib/</a></li>
+        
+            <li><a href="#logs">logs/</a></li>
+        
+            <li><a href="#mibs">mibs/</a></li>
+        
+            <li><a href="#rrd">rrd/</a></li>
+        
+            <li><a href="#sql-schema">sql-schema/</a></li>
+        
+    
+    </ul>
+</div>
+</div>
+                    <div class="col-md-9" role="main">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
+
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/Code-Structure.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+
+  </div>
+</div>
+
+
+<h1 id="code-structure">Code structure.</h1>
+<p>This document will try and provide a good overview of how the code is structured within LibreNMS. We will go through the main directories and provide information on how and when they are used.</p>
+<h3 id="doc">doc/</h3>
+<p>This is the location of all the documentation for LibreNMS, this is in GitHub markdown format and can be viewed <a href="http://docs.librenms.org/">online</a></p>
+<h3 id="librenms">LibreNMS/</h3>
+<p>Any classes should be under this directory, with a directory structure that matches the namespace.  One class per file. See <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> for details.</p>
+<h3 id="html">html/</h3>
+<p>All web accessible files are located here.</p>
+<h3 id="htmlapi_v0php">html/api_v0.php</h3>
+<p>This is the API routing file which directs users to the correct API function based on the API endpoint call.</p>
+<h3 id="htmlindexphp">html/index.php</h3>
+<p>This is the main file which all links within LibreNMS are parsed through. It loads the majority of the relevant includes needed for the control panel to function. CSS and JS files are also loaded here.</p>
+<h3 id="htmlcss">html/css</h3>
+<p>All used css files are located here. Apart from legacy files, anything in here is now a symlink.</p>
+<h3 id="htmlcsscustom">html/css/custom</h3>
+<p>This is a folder you can put custom css files into that won't interfere with auto updates</p>
+<h3 id="htmlforms">html/forms</h3>
+<p>This folder contains all of the files that are dynamically included from an ajax call to html/ajax_form.php.</p>
+<h3 id="htmlincludes">html/includes</h3>
+<p>This is where the majority of the website core files are located. These tend to be files that contain functions or often used code segments that can be included where needed rather than duplicating code.</p>
+<h3 id="htmlincludesapi_functionsincphp">html/includes/api_functions.inc.php</h3>
+<p>All of the functions and calls for the API are located here.</p>
+<h3 id="htmlincludesauthenticateincphp-htmlincludesauthentication">html/includes/authenticate.inc.php, html/includes/authentication/</h3>
+<p>These files are what provides the authentication layer to the user. In the folder are separate files based on the auth type used, this means new authentication types can be added easily enough.</p>
+<h3 id="htmlincludesfunctionsincphp">html/includes/functions.inc.php</h3>
+<p>This contains the majority of functions used throughout the standard web ui.</p>
+<h3 id="htmlincludesreports">html/includes/reports/</h3>
+<p>In here is a list of of files that generate PDF reports available to the user. These are dynamically called in from html/pdf.pdf based on the report the user requests.</p>
+<h3 id="htmlincludestable">html/includes/table/</h3>
+<p>This folder contains all of the ajax calls when generating the table of data. Most have been converted over so if you are planning to add a new table of data then you will do so here for all of the back end data calls.</p>
+<h3 id="htmljs">html/js/</h3>
+<p>All used JS files are located here. Apart from legacy files, anything in here is now a symlink.</p>
+<h3 id="htmlpages">html/pages</h3>
+<p>This folder contains the URL structure when browsing the Web UI. So for example /devices/ is actually a call to html/pages/devices.inc.php, /device/tab=ports/ is html/pages/device/ports.inc.php.</p>
+<h3 id="includes">includes/</h3>
+<p>This folder is quite big and contains all the files to make the cli and polling / discovery to work.</p>
+<h3 id="includesdiscovery-includespolling">includes/discovery/, includes/polling/</h3>
+<p>All the discovery and polling code. The format is usually quite similar between discovery and polling. Both are made up of modules and the files within the relevant directories will match that module. So for instance if you want to update the os detection for a device, you would look in includes/discovery/os/ for a file named after the operating system such as linux: includes/discovery/linux.inc.php. Within here you would update or add support for newer OS'. This is the same for polling as well.</p>
+<h3 id="lib">lib/</h3>
+<p>This is for all of the libraries used by LibreNMS. If you are including a 3rd party module, you would add the files in here either via git subtree if it's hosted on GitHub or just by copying the folder. Please ensure you maintain any copyright notices. You will then need to either reference the files in this folder directly from where you need them or alternatively as is the case with css and js libraries then symlink the needed files.</p>
+<h3 id="logs">logs/</h3>
+<p>Usually contains your web servers logs but can also contain poller logs and other items,</p>
+<h3 id="mibs">mibs/</h3>
+<p>Here is where all of the mibs are located, traditionally this has meant having all mibs in one directory but for certain vendors this has changed and these are now located in sub folders.</p>
+<h3 id="rrd">rrd/</h3>
+<p>Simple enough, this is where all of the rrd files are created. They are stored in folders based on the device hostname.</p>
+<h3 id="sql-schema">sql-schema/</h3>
+<p>In here are all of the SQL schema files. These are used to setup a new instance of LibreNMS automatically when build-base.php is called or when an update is done and includes/sql-schema/update.php is called.</p></div>
+                
+            
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
+        </footer>
+
+        <script src="../../js/jquery-1.12.4.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
