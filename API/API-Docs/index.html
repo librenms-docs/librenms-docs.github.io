@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="LibreNMS">
+        <link rel="canonical" href="http://docs.librenms.org/API/API-Docs/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	    <title>API - LibreNMS Docs</title>
+
+        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/color.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../librenms.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-79149977-2', 'docs.librenms.org');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Installation" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-General" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../General/Acknowledgement/">Acknowledgement</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Changelog/">Changelog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Contributing/">Contributing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Credits/">Credits</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Updating/">Updating</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Releases/">Releases</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Security/">Security</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../General/Welcome-to-Observium-users/">Welcome to Observium users</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Extensions" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Extensions/Alerting/">Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Applications/">Applications</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Authentication/">Authentication</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Auto-Discovery/">Auto Discovery</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Billing-Module/">Billing Module</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Component/">Component</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Dell-OpenManage/">Dell OpenManage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Device-Groups/">Device Groups</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Distributed-Poller/">Distributed Poller</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Email-Alerting/">Email Alerting</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Globe-Frontpage/">Globe Frontpage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Graylog/">Graylog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot/">IRC Bot</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/IRC-Bot-Extensions/">IRC Bot Extensions</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/InfluxDB/">InfluxDB</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Interface-Description-Parsing/">Interface Description Parsing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/MIB-based-polling/">MIB based polling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Memcached/">Memcached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Network-Map/">Network Map</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/NFSen/">NFSen</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Oxidized/">Oxidized</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Plugin-System/">Plugin System</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Poller-Service/">Poller Service</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Port-Description-Parser/">Port Description Parser</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Proxmox/">Proxmox</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached/">RRDCached</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDTune/">RRDTune</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Proxy/">SNMP Proxy</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/SNMP-Trap-Handler/">SNMP Trap Handler</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Services/">Services</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Smokeping/">Smokeping</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Sub-Directory/">Sub Directory</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Syslog/">Syslog</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Two-Factor-Auth/">Two Factor Auth</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/Varnish/">Varnish</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Developing" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Developing/Using-Git/">Using Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Code-Guidelines/">Code Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Style-Guidelines/">Style Guidelines</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Validating-Code/">Validating Code</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Code-Structure/">Code Structure</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Sensor-State-Support/">Sensor State Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Merging-Pull-Requests/">Merging Pull Requests</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Developing/Creating-Release/">Creating Release</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">API</a>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-Support" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Support/Configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Discovery Support/">Discovery Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/FAQ/">FAQ</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Features/">Features</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Install Validation/">Install Validation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Performance/">Performance</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Poller Support/">Poller Support</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li id="dropdown-hidden" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Extensions/RRDCached-Security/">RRDCached Security</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i>
+                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/librenms/librenms">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="row">
+            
+                
+                    <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#structure-top">Structure</a></li>
+        
+            <li><a href="#versioning-top">Versioning</a></li>
+        
+            <li><a href="#tokens-top">Tokens</a></li>
+        
+            <li><a href="#endpoints-top">Endpoints</a></li>
+        
+            <li><a href="#input-top">Input</a></li>
+        
+            <li><a href="#output-top">Output</a></li>
+        
+    
+        <li class="main "><a href="#endpoints-top_1">Endpoints</a></li>
+        
+            <li><a href="#devices-top">Devices</a></li>
+        
+            <li><a href="#device-groups-top">Device Groups</a></li>
+        
+            <li><a href="#routing-top">Routing</a></li>
+        
+            <li><a href="#switching-top">Switching</a></li>
+        
+            <li><a href="#alerts-top">Alerts</a></li>
+        
+            <li><a href="#rules-top">Rules</a></li>
+        
+            <li><a href="#inventory-top">Inventory</a></li>
+        
+            <li><a href="#bills-top">Bills</a></li>
+        
+    
+    </ul>
+</div>
+</div>
+                    <div class="col-md-9" role="main">
+<div class="row">
+  <div class="source-links col-md-offset-8 col-md-4">
+
+    <a href="https://github.com/librenms/librenms/edit/master/doc/API/API-Docs.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+
+  </div>
+</div>
+
+
+<ul>
+<li>API
+<a name="top"></a></li>
+<li><a href="#api-structure"><code>Structure</code></a><ul>
+<li><a href="#api-versioning"><code>Versioning</code></a></li>
+<li><a href="#api-tokens"><code>token</code></a></li>
+<li><a href="#api-end_points"><code>end-points</code></a></li>
+<li><a href="#api-input"><code>input</code></a></li>
+<li><a href="#api-output"><code>output</code></a></li>
+</ul>
+</li>
+<li><a href="#api-endpoints"><code>endpoints</code></a><ul>
+<li><a href="#api-devices"><code>devices</code></a><ul>
+<li><a href="#api-route-2"><code>del_device</code></a></li>
+<li><a href="#api-route-3"><code>get_device</code></a></li>
+<li><a href="#api-route-5"><code>get_graphs</code></a></li>
+<li><a href="#api-route-6"><code>get_graph_generic_by_hostname</code></a></li>
+<li><a href="#api-route-7"><code>get_port_graphs</code></a></li>
+<li><a href="#api-route-29"><code>get_port_stack</code></a></li>
+<li><a href="#api-route-25"><code>get_components</code></a></li>
+<li><a href="#api-route-26"><code>add_components</code></a></li>
+<li><a href="#api-route-27"><code>edit_components</code></a></li>
+<li><a href="#api-route-28"><code>delete_components</code></a></li>
+<li><a href="#api-route-8"><code>get_port_stats_by_port_hostname</code></a></li>
+<li><a href="#api-route-9"><code>get_graph_by_port_hostname</code></a></li>
+<li><a href="#api-route-10"><code>list_devices</code></a></li>
+<li><a href="#api-route-11"><code>add_device</code></a></li>
+<li><a href="#api-route-21"><code>list_oxidized</code></a></li>
+<li><a href="#api-route-update_device_field"><code>update_device_field</code></a></li>
+<li><a href="#api-route-get_device_groups"><code>get_device_groups</code></a></li>
+</ul>
+</li>
+<li><a href="#api-devicegroups"><code>devicegroups</code></a><ul>
+<li><a href="#api-route-get_devicegroups"><code>get_devicegroups</code></a></li>
+<li><a href="#api-route-get_devices_by_group"><code>get_devices_by_group</code></a></li>
+</ul>
+</li>
+<li><a href="#api-routing"><code>routing</code></a><ul>
+<li><a href="#api-route-1"><code>list_bgp</code></a></li>
+<li><a href="#list_ipsec"><code>list_ipsec</code></a></li>
+</ul>
+</li>
+<li><a href="#api-switching"><code>switching</code></a><ul>
+<li><a href="#api-route-4"><code>get_vlans</code></a></li>
+</ul>
+</li>
+<li><a href="#api-alerts"><code>alerts</code></a><ul>
+<li><a href="#api-route-12"><code>get_alert</code></a></li>
+<li><a href="#api-route-13"><code>ack_alert</code></a></li>
+<li><a href="#api-route-24"><code>unmute_alert</code></a></li>
+<li><a href="#api-route-14"><code>list_alerts</code></a></li>
+</ul>
+</li>
+<li><a href="#api-rules"><code>rules</code></a><ul>
+<li><a href="#api-route-15"><code>get_alert_rule</code></a></li>
+<li><a href="#api-route-16"><code>delete_rule</code></a></li>
+<li><a href="#api-route-17"><code>list_alert_rules</code></a></li>
+<li><a href="#api-route-18"><code>add_rule</code></a></li>
+<li><a href="#api-route-19"><code>edit_rule</code></a></li>
+</ul>
+</li>
+<li><a href="#api-inventory"><code>inventory</code></a><ul>
+<li><a href="#api-route-20"><code>get_inventory</code></a></li>
+</ul>
+</li>
+<li><a href="#api-bills"><code>bills</code></a><ul>
+<li><a href="#api-route-22"><code>list_bills</code></a></li>
+<li><a href="#api-route-23"><code>get_bill</code></a></li>
+</ul>
+</li>
+<li><a href="#api-resources"><code>resources</code></a><ul>
+<li><a href="#api-resources-list_arp"><code>list_arp</code></a></li>
+</ul>
+</li>
+<li><a href="#api-services"><code>services</code></a><ul>
+<li><a href="#api-services-list_services"><code>list_services</code></a></li>
+<li><a href="#api-services-get_service_for_host"><code>get_service_for_host</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Describes the API structure.</p>
+<h1 id="structure-top"><a name="api-structure"><code>Structure</code></a> <a href="#top"><code>top</code></a></h1>
+<h2 id="versioning-top"><a name="api-versioning"><code>Versioning</code></a> <a href="#top"><code>top</code></a></h2>
+<p>Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: http://blog.librenms.org/2014/09/restful-apis/</p>
+<p>We have currently settled on using versioning within the API end point itself <code>/api/v0</code>. As the API itself is new and still in active development we also decided that v0 would be the best starting point to indicate it's in development.</p>
+<h2 id="tokens-top"><a name="api-tokens"><code>Tokens</code></a> <a href="#top"><code>top</code></a></h2>
+<p>To access any of the token end points you will be required to authenticate using a token. Tokens can be created directly from within the LibreNMS web interface by going to <code>/api-access/</code>.</p>
+<ul>
+<li>Click on 'Create API access token'.</li>
+<li>Select the user you would like to generate the token for.</li>
+<li>Enter an optional description.</li>
+<li>Click Create API Token.</li>
+</ul>
+<h2 id="endpoints-top"><a name="api-end_points"><code>Endpoints</code></a> <a href="#top"><code>top</code></a></h2>
+<p>Whilst this documentation will describe and show examples of the end points, we've designed the API so you should be able to traverse through it without know any of the available API routes.</p>
+<p>You can do this by first calling <code>/api/v0</code>:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0
+
+Output
+{
+ &quot;list_bgp&quot;: &quot;https://librenms.org/api/v0/bgp&quot;,
+  ...
+ &quot;edit_rule&quot;: &quot;https://librenms.org/api/v0/rules&quot;
+}
+</code></pre>
+
+<h2 id="input-top"><a name="api-input"><code>Input</code></a> <a href="#top"><code>top</code></a></h2>
+<p>Input to the API is done in three different ways, sometimes a combination two or three of these.</p>
+<ul>
+<li>Passing parameters via the api route. For example when obtaining a devices details you will pass the hostname of the device in the route: <code>/api/v0/devices/:hostname</code>.</li>
+<li>Passing parameters via the query string. For example you can list all devices on your install but limit the output to devices that are currently down: <code>/api/v0/devices?type=down</code></li>
+<li>Passing data in via JSON, this will mainly be used when adding or updating information via the API, for instance adding a new device:</li>
+</ul>
+<pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+</code></pre>
+
+<h2 id="output-top"><a name="api-output"><code>Output</code></a> <a href="#top"><code>top</code></a></h2>
+<p>Output from the API currently is via two output types.</p>
+<ul>
+<li>JSON Most API responses will output json. As show in the example for calling the API endpoint.</li>
+<li>PNG This is for when the request is for an image such as a graph for a switch port.</li>
+</ul>
+<h1 id="endpoints-top_1"><a name="api-endpoints"><code>Endpoints</code></a> <a href="#top"><code>top</code></a></h1>
+<h2 id="devices-top"><a name="api-devices"><code>Devices</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-del_device-top"><a name="api-route-2">Function: <code>del_device</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Delete a given device.</p>
+<p>Route: /api/v0/devices/:hostname</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Removed device localhost&quot;,
+    &quot;devices&quot;: [
+        {
+            &quot;device_id&quot;: &quot;1&quot;,
+            &quot;hostname&quot;: &quot;localhost&quot;,
+            ...
+            &quot;serial&quot;: null,
+            &quot;icon&quot;: null
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_device-top"><a name="api-route-3">Function: <code>get_device</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get details of a given device.</p>
+<p>Route: /api/v0/devices/:hostname</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;devices&quot;: [
+        {
+            &quot;device_id&quot;: &quot;1&quot;,
+            &quot;hostname&quot;: &quot;localhost&quot;,
+            ...
+            &quot;serial&quot;: null,
+            &quot;icon&quot;: null
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_graphs-top"><a name="api-route-5">Function: <code>get_graphs</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of available graphs for a device, this does not include ports.</p>
+<p>Route: /api/v0/devices/:hostname/graphs</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 3,
+    &quot;graphs&quot;: [
+        {
+            &quot;desc&quot;: &quot;Poller Time&quot;,
+            &quot;name&quot;: &quot;device_poller_perf&quot;
+        },
+        {
+            &quot;desc&quot;: &quot;Ping Response&quot;,
+            &quot;name&quot;: &quot;device_ping_perf&quot;
+        },
+        {
+            &quot;desc&quot;: &quot;System Uptime&quot;,
+            &quot;name&quot;: &quot;uptime&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_graph_generic_by_hostname-top"><a name="api-route-6">Function: <code>get_graph_generic_by_hostname</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a specific graph for a device, this does not include ports.</p>
+<p>Route: /api/v0/devices/:hostname/:type</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>type is the type of graph you want, use <a href="#api-route-5"><code>get_graphs</code></a> to see the graphs available. Defaults to device_uptime.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>width: The graph width, defaults to 1075.</li>
+<li>height: The graph height, defaults to 300.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/device_poller_perf
+</code></pre>
+
+<p>Output:</p>
+<p>Output is an image.</p>
+<h3 id="function-get_port_graphs-top"><a name="api-route-7">Function: <code>get_port_graphs</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of ports for a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/ports</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>columns: Comma separated list of columns you want returned.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 3,
+    &quot;ports&quot;: [
+        {
+            &quot;ifName&quot;: &quot;lo&quot;
+        },
+        {
+            &quot;ifName&quot;: &quot;eth0&quot;
+        },
+        {
+            &quot;ifName&quot;: &quot;eth1&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_port_stack-top"><a name="api-route-29">Function: <code>get_port_stack</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of port mappings for a device.  This is useful for showing physical ports that are in a virtual port-channel.</p>
+<p>Route: /api/v0/devices/:hostname/port_stack</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>valid_mappings: Filter the result by only showing valid mappings ("0" values not shown).</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/port_stack?valid_mappings
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;err-msg&quot;: &quot;&quot;,
+  &quot;count&quot;: 2,
+  &quot;mappings&quot;: [
+    {
+      &quot;device_id&quot;: &quot;3742&quot;,
+      &quot;port_id_high&quot;: &quot;1001000&quot;,
+      &quot;port_id_low&quot;: &quot;51001&quot;,
+      &quot;ifStackStatus&quot;: &quot;active&quot;
+    },
+    {
+      &quot;device_id&quot;: &quot;3742&quot;,
+      &quot;port_id_high&quot;: &quot;1001000&quot;,
+      &quot;port_id_low&quot;: &quot;52001&quot;,
+      &quot;ifStackStatus&quot;: &quot;active&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="function-get_components-top"><a name="api-route-25">Function: <code>get_components</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of components for a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/components</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>type: Filter the result by type (Equals).</li>
+<li>id: Filter the result by id (Equals).</li>
+<li>label: Filter the result by label (Contains).</li>
+<li>status: Filter the result by status (Equals).</li>
+<li>disabled: Filter the result by disabled (Equals).</li>
+<li>ignore: Filter the result by ignore (Equals).</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 3,
+    &quot;components&quot;: {
+        &quot;2&quot;: {
+            &quot;TestAttribute-1&quot;: &quot;Value1&quot;,
+            &quot;TestAttribute-2&quot;: &quot;Value2&quot;,
+            &quot;TestAttribute-3&quot;: &quot;Value3&quot;,
+            &quot;type&quot;: &quot;TestComponent-1&quot;,
+            &quot;label&quot;: &quot;This is a really cool blue component&quot;,
+            &quot;status&quot;: &quot;1&quot;,
+            &quot;ignore&quot;: &quot;0&quot;,
+            &quot;disabled&quot;: &quot;0&quot;
+        },
+        &quot;20&quot;: {
+            &quot;TestAttribute-1&quot;: &quot;Value4&quot;,
+            &quot;TestAttribute-2&quot;: &quot;Value5&quot;,
+            &quot;TestAttribute-3&quot;: &quot;Value6&quot;,
+            &quot;type&quot;: &quot;TestComponent-1&quot;,
+            &quot;label&quot;: &quot;This is a really cool red component&quot;,
+            &quot;status&quot;: &quot;1&quot;,
+            &quot;ignore&quot;: &quot;0&quot;,
+            &quot;disabled&quot;: &quot;0&quot;
+        },
+        &quot;27&quot;: {
+            &quot;TestAttribute-1&quot;: &quot;Value7&quot;,
+            &quot;TestAttribute-2&quot;: &quot;Value8&quot;,
+            &quot;TestAttribute-3&quot;: &quot;Value9&quot;,
+            &quot;type&quot;: &quot;TestComponent-2&quot;,
+            &quot;label&quot;: &quot;This is a really cool yellow widget&quot;,
+            &quot;status&quot;: &quot;1&quot;,
+            &quot;ignore&quot;: &quot;0&quot;,
+            &quot;disabled&quot;: &quot;0&quot;
+        }
+    }
+}
+</code></pre>
+
+<h3 id="function-add_components-top"><a name="api-route-26">Function: <code>add_components</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Create a new component of a type on a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/components/:type</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>type is the type of component to add</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X POST -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/APITEST
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;components&quot;: {
+        &quot;4459&quot;: {
+            &quot;type&quot;: &quot;APITEST&quot;,
+            &quot;label&quot;: &quot;&quot;,
+            &quot;status&quot;: 1,
+            &quot;ignore&quot;: 0,
+            &quot;disabled&quot;: 0,
+            &quot;error&quot;: &quot;&quot;
+        }
+    }
+}
+</code></pre>
+
+<h3 id="function-edit_components-top"><a name="api-route-27">Function: <code>edit_components</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Edit an existing component on a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/components</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>In this example we set the label and add a new field: TestField:</p>
+<pre><code class="curl">curl -X PUT -d '{&quot;4459&quot;: {&quot;type&quot;: &quot;APITEST&quot;,&quot;label&quot;: &quot;This is a test label&quot;,&quot;status&quot;: 1,&quot;ignore&quot;: 0,&quot;disabled&quot;: 0,&quot;error&quot;: &quot;&quot;,&quot;TestField&quot;: &quot;TestData&quot;}}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1
+}
+</code></pre>
+
+<p>Just take the JSON array from add_components or edit_components, edit as you wish and submit it back to edit_components.</p>
+<h3 id="function-delete_components-top"><a name="api-route-28">Function: <code>delete_components</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Delete an existing component on a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/components/:component</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>component is the component ID to be deleted.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/4459
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;
+}
+</code></pre>
+
+<h3 id="function-get_port_stats_by_port_hostname-top"><a name="api-route-8">Function: <code>get_port_stats_by_port_hostname</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get information about a particular port for a device.</p>
+<p>Route: /api/v0/devices/:hostname/ports/:ifname</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>ifname can be any of the interface names for the device which can be obtained using <a href="#api-route-7"><code>get_port_graphs</code></a>. Please ensure that the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need to be urlencoded.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>columns: Comma separated list of columns you want returned.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;port&quot;: {
+  &quot;port_id&quot;: &quot;2&quot;,
+  &quot;device_id&quot;: &quot;1&quot;,
+  ...
+  &quot;poll_prev&quot;: &quot;1418412902&quot;,
+  &quot;poll_period&quot;: &quot;300&quot;
+ }
+}
+</code></pre>
+
+<h3 id="function-get_graph_by_port_hostname-top"><a name="api-route-9">Function: <code>get_graph_by_port_hostname</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a graph of a port for a particular device.</p>
+<p>Route: /api/v0/devices/:hostname/ports/:ifname/:type</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>ifname can be any of the interface names for the device which can be obtained using <a href="#api-route-7"><code>get_port_graphs</code></a>. Please ensure that the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need to be urlencoded.</li>
+<li>type is the port type you want the graph for, you can request a list of ports for a device with <a href="#api-route-7"><code>get_port_graphs</code></a>.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>width: The graph width, defaults to 1075.</li>
+<li>height: The graph height, defaults to 300.</li>
+<li>ifDescr: If this is set to true then we will use ifDescr to lookup the port instead of ifName. Pass the ifDescr value you want to search as you would ifName.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
+</code></pre>
+
+<p>Output:</p>
+<p>Output is an image.</p>
+<h3 id="function-list_devices-top"><a name="api-route-10">Function: <code>list_devices</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Return a list of devices.</p>
+<p>Route: /api/v0/devices</p>
+<p>Input:</p>
+<ul>
+<li>order: How to order the output, default is by hostname. Can be prepended by DESC or ASC to change the order.</li>
+<li>type: can be one of the following to filter or search by:<ul>
+<li>all: All devices</li>
+<li>ignored: Only ignored devices</li>
+<li>up: Only devices that are up</li>
+<li>down: Only devices that are down</li>
+<li>disabled: Disabled devices</li>
+<li>mac: search by mac address</li>
+<li>ipv4: search by IPv4 address</li>
+<li>ipv6: search by IPv6 address (compressed or uncompressed)</li>
+</ul>
+</li>
+<li>query: If searching by, then this will be used as the input.
+Example:</li>
+</ul>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;count&quot;: 1,
+ &quot;devices&quot;: [
+  {
+   &quot;device_id&quot;: &quot;1&quot;,
+   &quot;hostname&quot;: &quot;localhost&quot;,
+   ...
+   &quot;serial&quot;: null,
+   &quot;icon&quot;: null
+  }
+ ]
+}
+</code></pre>
+
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?type=mac&amp;query=00000c9ff013
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;count&quot;: 1,
+ &quot;devices&quot;: [
+  {
+   &quot;device_id&quot;: &quot;1&quot;,
+   &quot;hostname&quot;: &quot;localhost&quot;,
+   ...
+   &quot;serial&quot;: null,
+   &quot;icon&quot;: null
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="function-add_device-top"><a name="api-route-11">Function: <code>add_device</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Add a new device.</p>
+<p>Route: /api/v0/devices</p>
+<p>Input (JSON):</p>
+<ul>
+<li>hostname: device hostname</li>
+<li>port: SNMP port (defaults to port defined in config).</li>
+<li>transport: SNMP protocol (defaults to transport defined in config).</li>
+<li>version: SNMP version to use, v1, v2c or v3. Defaults to v2c.</li>
+<li>poller_group: This is the poller_group id used for distributed poller setup. Defaults to 0.</li>
+<li>force_add: Force the device to be added regardless of it being able to respond to snmp or icmp.</li>
+</ul>
+<p>For SNMP v1 or v2c</p>
+<ul>
+<li>community: Required for SNMP v1 or v2c.</li>
+</ul>
+<p>For SNMP v3</p>
+<ul>
+<li>authlevel: SNMP authlevel (NoAuthNoPriv, AuthNoPriv, AuthPriv).</li>
+<li>authname: SNMP Auth username</li>
+<li>authpass: SNMP Auth password</li>
+<li>authalgo: SNMP Auth algorithm (MD5, SHA)</li>
+<li>cryptopass: SNMP Crypto Password</li>
+<li>cryptoalgo: SNMP Crypto algorithm (AES, DES)</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Device localhost.localdomain (57) has been added successfully&quot;
+}
+</code></pre>
+
+<h3 id="function-list_oxidized-top"><a name="api-route-21">Function: <code>list_oxidized</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List devices for use with Oxidized. If you have group support enabled then a group will also be returned based on your config.</p>
+<p>Route: /api/v0/oxidized</p>
+<p>Input (JSON):</p>
+<p>-</p>
+<p>Examples:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;hostname&quot;: &quot;localhost&quot;,
+        &quot;os&quot;: &quot;linux&quot;
+    },
+    {
+        &quot;hostname&quot;: &quot;otherserver&quot;,
+        &quot;os&quot;: &quot;linux&quot;
+    }
+]
+</code></pre>
+
+<h3 id="function-update_device_field-top"><a name="api-route-update_device_field">Function: <code>update_device_field</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Update devices field in the database.</p>
+<p>Route: /api/v0/devices/:hostname</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input (JSON):</p>
+<ul>
+<li>field: The column name within the database (can be an array of fields)</li>
+<li>data: The data to update the column with (can be an array of data))</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: &quot;notes&quot;, &quot;data&quot;: &quot;This server should be kept online&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Device notes has been updated&quot;
+    }
+]
+</code></pre>
+
+<pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: [&quot;notes&quot;,&quot;purpose&quot;], &quot;data&quot;: [&quot;This server should be kept online&quot;, &quot;For serving web traffic&quot;]}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Device fields have been updated&quot;
+    }
+]
+</code></pre>
+
+<h3 id="function-get_device_groups-top"><a name="api-route-get_device_groups">Function <code>get_device_groups</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List the device groups that a device is matched on.</p>
+<p>Route: /api/v0/devices/:hostname/groups</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input (JSON):</p>
+<p>-</p>
+<p>Examples:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/groups
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Found 1 device groups&quot;,
+        &quot;count&quot;: 1,
+        &quot;groups&quot;: [
+        {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;name&quot;: &quot;Testing&quot;,
+            &quot;desc&quot;: &quot;Testing&quot;,
+            &quot;pattern&quot;: &quot;%devices.status = \&quot;1\&quot; &amp;&amp;&quot;
+        }
+        ]
+    }
+]
+</code></pre>
+
+<h2 id="device-groups-top"><a name="api-devicegroups"><code>Device Groups</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_devicegroups-top"><a name="api-route-get_devicegroups">Function <code>get_devicegroups</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List all device groups.</p>
+<p>Route: /api/v0/devicegroups</p>
+<p>Input (JSON):</p>
+<p>-</p>
+<p>Examples:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Found 1 device groups&quot;,
+        &quot;count&quot;: 1,
+        &quot;groups&quot;: [
+        {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;name&quot;: &quot;Testing&quot;,
+            &quot;desc&quot;: &quot;Testing&quot;,
+            &quot;pattern&quot;: &quot;%devices.status = \&quot;1\&quot; &amp;&amp;&quot;
+        }
+        ]
+    }
+]
+</code></pre>
+
+<h3 id="function-get_devices_by_group-top"><a name="api-route-get_devices_by_group">Function <code>get_devices_by_group</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List all devices matching the group provided.</p>
+<p>Route: /api/v0/devicegroups/:name</p>
+<ul>
+<li>name Is the name of the device group which can be obtained using <a href="#api-route-get_devicegroups"><code>get_devicegroups</code></a>. Please ensure that the name is urlencoded if it needs to be (i.e Linux Servers would need to be urlencoded.</li>
+</ul>
+<p>Input (JSON):</p>
+<p>-</p>
+<p>Examples:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups/LinuxServers
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">[
+     {
+         &quot;status&quot;: &quot;ok&quot;,
+         &quot;message&quot;: &quot;Found 3 in group LinuxServers&quot;,
+         &quot;count&quot;: 3,
+         &quot;devices&quot;: [
+            {
+                &quot;device_id&quot;: &quot;15&quot;
+            },
+            {
+                &quot;device_id&quot;: &quot;18&quot;
+            },
+            {
+                &quot;device_id&quot;: &quot;20&quot;
+            }
+         ]
+     }
+]
+</code></pre>
+
+<h2 id="routing-top"><a name="api-routing"><code>Routing</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-list_bgp-top"><a name="api-route-1">Function: <code>list_bgp</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List the current BGP sessions.</p>
+<p>Route: /api/v0/bgp</p>
+<p>Input:</p>
+<ul>
+<li>hostname = either the devices hostname or id.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 0,
+ &quot;bgp_sessions&quot;: [
+
+ ]
+}
+</code></pre>
+
+<h3 id="function-list_ipsec-top"><a name="list_ipsec">Function: <code>list_ipsec</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List the current IPSec tunnels which are active.</p>
+<p>Route: /api/v0/routing/ipsec/data/:hostname</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/ipsec/data/localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 0,
+    &quot;ipsec&quot;: [
+        &quot;tunnel_id&quot;: &quot;1&quot;,
+        &quot;device_id&quot;: &quot;1&quot;,
+        &quot;peer_port&quot;: &quot;0&quot;,
+        &quot;peer_addr&quot;: &quot;127.0.0.1&quot;,
+        &quot;local_addr&quot;: &quot;127.0.0.2&quot;,
+        &quot;local_port&quot;: &quot;0&quot;,
+        &quot;tunnel_name&quot;: &quot;&quot;,
+        &quot;tunnel_status&quot;: &quot;active&quot;
+    ]
+}
+</code></pre>
+
+<blockquote>
+<p>Please note, this will only show active VPN sessions not all configured.</p>
+</blockquote>
+<h2 id="switching-top"><a name="api-switching"><code>Switching</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_vlans-top"><a name="api-route-4">Function: <code>get_vlans</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of all VLANs for a given device.</p>
+<p>Route: /api/v0/devices/:hostname/vlans</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/vlans
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;count&quot;: 0,
+    &quot;vlans&quot;: [
+    {
+   &quot;vlan_vlan&quot;: &quot;1&quot;,
+   &quot;vlan_domain&quot;: &quot;1&quot;,
+   &quot;vlan_name&quot;: &quot;default&quot;,
+   &quot;vlan_type&quot;: &quot;ethernet&quot;,
+   &quot;vlan_mtu&quot;: null
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="alerts-top"><a name="api-alerts"><code>Alerts</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_alert-top"><a name="api-route-12">Function: <code>get_alert</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get details of an alert</p>
+<p>Route: /api/v0/alerts/:id</p>
+<ul>
+<li>id is the alert id, you can obtain a list of alert ids from <a href="#api-route-14"><code>list_alerts</code></a>.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 7,
+ &quot;alerts&quot;: [
+  {
+   &quot;hostname&quot;: &quot;localhost&quot;,
+   &quot;id&quot;: &quot;1&quot;,
+   &quot;device_id&quot;: &quot;1&quot;,
+   &quot;rule_id&quot;: &quot;1&quot;,
+   &quot;state&quot;: &quot;1&quot;,
+   &quot;alerted&quot;: &quot;1&quot;,
+   &quot;open&quot;: &quot;1&quot;,
+   &quot;timestamp&quot;: &quot;2014-12-11 14:40:02&quot;
+  },
+}
+</code></pre>
+
+<h3 id="function-ack_alert-top"><a name="api-route-13">Function: <code>ack_alert</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Acknowledge an alert</p>
+<p>Route: /api/v0/alerts/:id</p>
+<ul>
+<li>id is the alert id, you can obtain a list of alert ids from <a href="#api-route-14"><code>list_alerts</code></a>.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;message&quot;: &quot;Alert has been acknowledged&quot;
+}
+</code></pre>
+
+<h3 id="function-unmute_alert-top"><a name="api-route-24">Function: <code>unmute_alert</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Unmute an alert</p>
+<p>Route: /api/v0/alerts/unmute/:id</p>
+<ul>
+<li>id is the alert id, you can obtain a list of alert ids from <a href="#api-route-14"><code>list_alerts</code></a>.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/unmute/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;message&quot;: &quot;Alert has been unmuted&quot;
+}
+</code></pre>
+
+<h3 id="function-list_alerts-top"><a name="api-route-14">Function: <code>list_alerts</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List all alerts</p>
+<p>Route: /api/v0/alerts</p>
+<p>Input:</p>
+<ul>
+<li>state: Filter the alerts by state, 0 = ok, 1 = alert, 2 = ack</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts?state=1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;alerts&quot;: [
+  {
+   &quot;id&quot;: &quot;1&quot;,
+   &quot;device_id&quot;: &quot;1&quot;,
+   &quot;rule_id&quot;: &quot;1&quot;,
+   &quot;state&quot;: &quot;1&quot;,
+   &quot;alerted&quot;: &quot;1&quot;,
+   &quot;open&quot;: &quot;1&quot;,
+   &quot;timestamp&quot;: &quot;2014-12-11 14:40:02&quot;
+  }
+}
+</code></pre>
+
+<h2 id="rules-top"><a name="api-rules"><code>Rules</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_alert_rule-top"><a name="api-route-15">Function: <code>get_alert_rule</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get the alert rule details.</p>
+<p>Route: /api/v0/rules/:id</p>
+<ul>
+<li>id is the rule id.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;rules&quot;: [
+  {
+   &quot;id&quot;: &quot;1&quot;,
+   &quot;device_id&quot;: &quot;1&quot;,
+   &quot;rule&quot;: &quot;%devices.os != \&quot;Juniper\&quot;&quot;,
+   &quot;severity&quot;: &quot;warning&quot;,
+   &quot;extra&quot;: &quot;{\&quot;mute\&quot;:true,\&quot;count\&quot;:\&quot;15\&quot;,\&quot;delay\&quot;:null,\&quot;invert\&quot;:false}&quot;,
+   &quot;disabled&quot;: &quot;0&quot;,
+   &quot;name&quot;: &quot;A test rule&quot;
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="function-delete_rule-top"><a name="api-route-16">Function: <code>delete_rule</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Delete an alert rule by id</p>
+<p>Route: /api/v0/rules/:id</p>
+<ul>
+<li>id is the rule id.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;message&quot;: &quot;Alert rule has been removed&quot;
+}
+</code></pre>
+
+<h3 id="function-list_alert_rules-top"><a name="api-route-17">Function: <code>list_alert_rules</code></a> <a href="#top"><code>top</code></a></h3>
+<p>List the alert rules.</p>
+<p>Route: /api/v0/rules</p>
+<p>-</p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;rules&quot;: [
+  {
+   &quot;id&quot;: &quot;1&quot;,
+   &quot;device_id&quot;: &quot;-1&quot;,
+   &quot;rule&quot;: &quot;%devices.os != \&quot;Juniper\&quot;&quot;,
+   &quot;severity&quot;: &quot;critical&quot;,
+   &quot;extra&quot;: &quot;{\&quot;mute\&quot;:false,\&quot;count\&quot;:\&quot;15\&quot;,\&quot;delay\&quot;:\&quot;300\&quot;,\&quot;invert\&quot;:false}&quot;,
+   &quot;disabled&quot;: &quot;0&quot;,
+   &quot;name&quot;: &quot;A test rule&quot;
+  },
+}
+</code></pre>
+
+<h3 id="function-add_rule-top"><a name="api-route-18">Function: <code>add_rule</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Add a new alert rule.</p>
+<p>Route: /api/v0/rules</p>
+<p>-</p>
+<p>Input (JSON):</p>
+<ul>
+<li>device_id: This is either the device id or -1 for a global rule</li>
+<li>rule: The rule which should be in the format %entity $condition $value (i.e %devices.status != 0 for devices marked as down).</li>
+<li>severity: The severity level the alert will be raised against, Ok, Warning, Critical.</li>
+<li>disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled</li>
+<li>count: This is how many polling runs before an alert will trigger and the frequency.</li>
+<li>delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one.</li>
+<li>mute: If mute is enabled then an alert will never be sent but will show up in the Web UI (true or false).</li>
+<li>invert: This would invert the rules check.</li>
+<li>name: This is the name of the rule and is mandatory.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X POST -d '{&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">rules
+{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;
+}
+</code></pre>
+
+<h3 id="function-edit_rule-top"><a name="api-route-19">Function: <code>edit_rule</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Edit an existing alert rule</p>
+<p>Route: /api/v0/rules</p>
+<p>-</p>
+<p>Input (JSON):</p>
+<ul>
+<li>rule_id: You must specify the rule_id to edit an existing rule, if this is absent then a new rule will be created.</li>
+<li>device_id: This is either the device id or -1 for a global rule</li>
+<li>rule: The rule which should be in the format %entity $condition $value (i.e %devices.status != 0 for devices marked as down).</li>
+<li>severity: The severity level the alert will be raised against, Ok, Warning, Critical.</li>
+<li>disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled</li>
+<li>count: This is how many polling runs before an alert will trigger and the frequency.</li>
+<li>delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one.</li>
+<li>mute: If mute is enabled then an alert will never be sent but will show up in the Web UI (true or false).</li>
+<li>invert: This would invert the rules check.</li>
+<li>name: This is the name of the rule and is mandatory.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">rules
+{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;
+}
+</code></pre>
+
+<h2 id="inventory-top"><a name="api-inventory"><code>Inventory</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_inventory-top"><a name="api-route-20">Function: <code>get_inventory</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve the inventory for a device. If you call this without any parameters then you will only get part of the inventory. This is because a lot of devices nest each component, for instance you may initially have the chassis, within this the ports - 1 being an sfp cage, then the sfp itself. The way this API call is designed is to enable a recursive lookup. The first call will retrieve the root entry, included within this response will be entPhysicalIndex, you can then call for entPhysicalContainedIn which will then return the next layer of results.</p>
+<p>Route: /api/v0/inventory/:hostname</p>
+<ul>
+<li>hostname can be either the device hostname or the device id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>entPhysicalClass: This is used to restrict the class of the inventory, for example you can specify chassis to only return items in the inventory that are labelled as chassis.</li>
+<li>entPhysicalContainedIn: This is used to retrieve items within the inventory assigned to a previous component, for example specifying the chassis (entPhysicalIndex) will retrieve all items where the chassis is the parent.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/inventory/localhost?entPhysicalContainedIn=65536
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;inventory&quot;: [
+        {
+            &quot;entPhysical_id&quot;: &quot;2&quot;,
+            &quot;device_id&quot;: &quot;32&quot;,
+            &quot;entPhysicalIndex&quot;: &quot;262145&quot;,
+            &quot;entPhysicalDescr&quot;: &quot;Linux 3.3.5 ehci_hcd RB400 EHCI&quot;,
+            &quot;entPhysicalClass&quot;: &quot;unknown&quot;,
+            &quot;entPhysicalName&quot;: &quot;1:1&quot;,
+            &quot;entPhysicalHardwareRev&quot;: &quot;&quot;,
+            &quot;entPhysicalFirmwareRev&quot;: &quot;&quot;,
+            &quot;entPhysicalSoftwareRev&quot;: &quot;&quot;,
+            &quot;entPhysicalAlias&quot;: &quot;&quot;,
+            &quot;entPhysicalAssetID&quot;: &quot;&quot;,
+            &quot;entPhysicalIsFRU&quot;: &quot;false&quot;,
+            &quot;entPhysicalModelName&quot;: &quot;0x0002&quot;,
+            &quot;entPhysicalVendorType&quot;: &quot;zeroDotZero&quot;,
+            &quot;entPhysicalSerialNum&quot;: &quot;rb400_usb&quot;,
+            &quot;entPhysicalContainedIn&quot;: &quot;65536&quot;,
+            &quot;entPhysicalParentRelPos&quot;: &quot;-1&quot;,
+            &quot;entPhysicalMfgName&quot;: &quot;0x1d6b&quot;,
+            &quot;ifIndex&quot;: &quot;0&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="bills-top"><a name="api-bills"><code>Bills</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-list_bills-top"><a name="api-route-22">Function: <code>list_bills</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve the list of bills currently in the system.</p>
+<p>Route: /api/v0/bills</p>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;bills&quot;: [
+  {
+   &quot;bill_id&quot;: &quot;1&quot;,
+   &quot;bill_name&quot;: &quot;Router bills&quot;,
+   &quot;bill_type&quot;: &quot;cdr&quot;,
+   &quot;bill_cdr&quot;: &quot;10000000&quot;,
+   &quot;bill_day&quot;: &quot;1&quot;,
+   &quot;bill_quota&quot;: &quot;0&quot;,
+   &quot;rate_95th_in&quot;: &quot;0&quot;,
+   &quot;rate_95th_out&quot;: &quot;0&quot;,
+   &quot;rate_95th&quot;: &quot;0&quot;,
+   &quot;dir_95th&quot;: &quot;in&quot;,
+   &quot;total_data&quot;: &quot;0&quot;,
+   &quot;total_data_in&quot;: &quot;0&quot;,
+   &quot;total_data_out&quot;: &quot;0&quot;,
+   &quot;rate_average_in&quot;: &quot;0&quot;,
+   &quot;rate_average_out&quot;: &quot;0&quot;,
+   &quot;rate_average&quot;: &quot;0&quot;,
+   &quot;bill_last_calc&quot;: &quot;2015-07-02 17:01:26&quot;,
+   &quot;bill_custid&quot;: &quot;Router&quot;,
+   &quot;bill_ref&quot;: &quot;Router&quot;,
+   &quot;bill_notes&quot;: &quot;Bill me&quot;,
+   &quot;bill_autoadded&quot;: &quot;0&quot;,
+   &quot;ports_total&quot;: &quot;0&quot;,
+   &quot;allowed&quot;: &quot;10Mbps&quot;,
+   &quot;used&quot;: &quot;0bps&quot;,
+   &quot;percent&quot;: 0,
+   &quot;overuse&quot;: &quot;-&quot;
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="function-get_bill-top"><a name="api-route-23">Function: <code>get_bill</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve a specific bill</p>
+<p>Route: /api/v0/bills/:id
+       /api/v0/bills?ref=:ref
+       /api/v0/bills?custid=:custid</p>
+<ul>
+<li>id is the specific bill id</li>
+<li>ref is the billing reference</li>
+<li>custid is the customer reference</li>
+</ul>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?ref=:customerref
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custid=:custid
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;bills&quot;: [
+  {
+   &quot;bill_id&quot;: &quot;1&quot;,
+   &quot;bill_name&quot;: &quot;Router bills&quot;,
+   &quot;bill_type&quot;: &quot;cdr&quot;,
+   &quot;bill_cdr&quot;: &quot;10000000&quot;,
+   &quot;bill_day&quot;: &quot;1&quot;,
+   &quot;bill_quota&quot;: &quot;0&quot;,
+   &quot;rate_95th_in&quot;: &quot;0&quot;,
+   &quot;rate_95th_out&quot;: &quot;0&quot;,
+   &quot;rate_95th&quot;: &quot;0&quot;,
+   &quot;dir_95th&quot;: &quot;in&quot;,
+   &quot;total_data&quot;: &quot;0&quot;,
+   &quot;total_data_in&quot;: &quot;0&quot;,
+   &quot;total_data_out&quot;: &quot;0&quot;,
+   &quot;rate_average_in&quot;: &quot;0&quot;,
+   &quot;rate_average_out&quot;: &quot;0&quot;,
+   &quot;rate_average&quot;: &quot;0&quot;,
+   &quot;bill_last_calc&quot;: &quot;2015-07-02 17:01:26&quot;,
+   &quot;bill_custid&quot;: &quot;Router&quot;,
+   &quot;bill_ref&quot;: &quot;Router&quot;,
+   &quot;bill_notes&quot;: &quot;Bill me&quot;,
+   &quot;bill_autoadded&quot;: &quot;0&quot;,
+   &quot;ports_total&quot;: &quot;0&quot;,
+   &quot;allowed&quot;: &quot;10Mbps&quot;,
+   &quot;used&quot;: &quot;0bps&quot;,
+   &quot;percent&quot;: 0,
+   &quot;overuse&quot;: &quot;-&quot;
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="function-list_arp-top"><a name="api-resources-list_arp">Function: <code>list_arp</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve a specific ARP entry or all ARP enties for a device</p>
+<p>Route: /api/v0/resources/ip/arp/:ip</p>
+<ul>
+<li>ip is the specific IP you would like to query, if this is all then you need to pass ?device=<em>hostname</em> (or device id)</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>device if you specify all for the IP then you need to populate this with the hostname or id of the device.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/arp/1.1.1.1
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/arp/1.1.1.1?device=localhost
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;arp&quot;: [
+        {
+            &quot;port_id&quot;: &quot;229&quot;,
+            &quot;mac_address&quot;: &quot;da160e5c2002&quot;,
+            &quot;ipv4_address&quot;: &quot;1.1.1.1&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-list_services-top"><a name="api-services-list_services">Function: <code>list_services</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve all services</p>
+<p>Route: /api/v0/services</p>
+<p>Input:</p>
+<ul>
+<li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
+<li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=2
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services?state=0&amp;type=tcp
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;services&quot;: [
+        [
+            {
+                &quot;service_id&quot;: &quot;13&quot;,
+                &quot;device_id&quot;: &quot;1&quot;,
+                &quot;service_ip&quot;: &quot;demo1.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;ntp_peer&quot;,
+                &quot;service_desc&quot;: &quot;NTP&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.10&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1470962470&quot;,
+                &quot;service_message&quot;: &quot;NTP OK: Offset -0.000717 secs&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;offset\&quot;:\&quot;s\&quot;}&quot;
+            }
+        ],
+        [
+            {
+                &quot;service_id&quot;: &quot;2&quot;,
+                &quot;device_id&quot;: &quot;2&quot;,
+                &quot;service_ip&quot;: &quot;demo2.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;esxi_hardware.py&quot;,
+                &quot;service_desc&quot;: &quot;vmware hardware&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.11 -U USER -P PASS -p&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1471702206&quot;,
+                &quot;service_message&quot;: &quot;OK - Server: Supermicro X9SCL/X9SCM s/n: 0123456789 System BIOS: 2.2 2015-02-20&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;P2Vol_0_Processor_1_Vcore\&quot;:\&quot;\&quot;,\&quot;P2Vol_1_System_Board_1_-12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_2_System_Board_1_12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_3_System_Board_1_3.3VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_4_System_Board_1_5VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_5_System_Board_1_AVCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_6_System_Board_1_VBAT\&quot;:\&quot;\&quot;,\&quot;P2Vol_7_System_Board_1_&quot;
+            }
+        ]
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_service_for_host-top"><a name="api-services-get_service_for_host">Function: <code>get_service_for_host</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Retrieve services for device</p>
+<p>Route: /api/v0/services/:hostname</p>
+<ul>
+<li>id or hostname is the specific device</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>state: only which have a certain state (valid options are 0=Ok, 1=Warning, 2=Critical).</li>
+<li>type: service type, used sql LIKE to find services, so for tcp, use type=tcp for http use type=http</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=2
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:hostname?state=0&amp;type=tcp
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;services&quot;: [
+        [
+            {
+                &quot;service_id&quot;: &quot;2&quot;,
+                &quot;device_id&quot;: &quot;2&quot;,
+                &quot;service_ip&quot;: &quot;demo2.yourdomian.net&quot;,
+                &quot;service_type&quot;: &quot;esxi_hardware.py&quot;,
+                &quot;service_desc&quot;: &quot;vmware hardware&quot;,
+                &quot;service_param&quot;: &quot;-H 192.168.1.11 -U USER -P PASS -p&quot;,
+                &quot;service_ignore&quot;: &quot;0&quot;,
+                &quot;service_status&quot;: &quot;0&quot;,
+                &quot;service_changed&quot;: &quot;1471702206&quot;,
+                &quot;service_message&quot;: &quot;OK - Server: Supermicro X9SCL/X9SCM s/n: 0123456789 System BIOS: 2.2 2015-02-20&quot;,
+                &quot;service_disabled&quot;: &quot;0&quot;,
+                &quot;service_ds&quot;: &quot;{\&quot;P2Vol_0_Processor_1_Vcore\&quot;:\&quot;\&quot;,\&quot;P2Vol_1_System_Board_1_-12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_2_System_Board_1_12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_3_System_Board_1_3.3VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_4_System_Board_1_5VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_5_System_Board_1_AVCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_6_System_Board_1_VBAT\&quot;:\&quot;\&quot;,\&quot;P2Vol_7_System_Board_1_&quot;
+            }
+        ]
+    ]
+}
+</code></pre></div>
+                
+            
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <hr>
+                
+                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            </div>
+        </footer>
+
+        <script src="../../js/jquery-1.12.4.min.js"></script>
+        <script src="../../js/bootstrap-3.3.7.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
