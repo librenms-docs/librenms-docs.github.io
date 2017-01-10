@@ -915,7 +915,12 @@ $mysql_port = 3306;
 <p>For pacman users automatically refreshing the database, it is recommended you use an alternative database location <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
 <h5 id="snmp-extend_6">SNMP Extend</h5>
 <ol>
-<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/os-updates.sh -O /etc/snmp/os-updates.sh
+</code></pre>
+
+<ol>
 <li>Make the script executable (chmod +x /etc/snmp/os-updates.sh)</li>
 <li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
 </ol>
