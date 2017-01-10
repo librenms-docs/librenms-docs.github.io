@@ -654,6 +654,8 @@
         
             <li><a href="#support-matrix">Support matrix</a></li>
         
+            <li><a href="#rrdcached-installation-debian-jessie-rrdcached-148">RRDCached installation Debian Jessie (rrdcached 1.4.8)</a></li>
+        
             <li><a href="#rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</a></li>
         
             <li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
@@ -726,6 +728,26 @@ To enable this set the following config:</p>
 </tr>
 </tbody>
 </table>
+<h3 id="rrdcached-installation-debian-jessie-rrdcached-148">RRDCached installation Debian Jessie (rrdcached 1.4.8)</h3>
+<pre><code class="ssh">sudo apt-get install rrdcached
+</code></pre>
+
+<ul>
+<li>Edit /opt/librenms/config.php to include:</li>
+</ul>
+<pre><code class="php">$config['rrdcached']    = &quot;unix:/var/run/rrdcached.sock&quot;;
+</code></pre>
+
+<ul>
+<li>Edit /etc/default/rrdcached to include:</li>
+</ul>
+<pre><code class="ssh">OPTS=&quot;-s librenms&quot;
+OPTS=&quot;$OPTS -l unix:/var/run/rrdcached.sock&quot;
+OPTS=&quot;$OPTS -j /var/lib/rrdcached/journal/ -F&quot;
+OPTS=&quot;$OPTS -b /opt/librenms/rrd/ -B&quot;
+OPTS=&quot;$OPTS -w 1800 -z 1800 -f 3600 -t 4&quot;
+</code></pre>
+
 <h3 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h3>
 <pre><code class="ssh">sudo apt-get install rrdcached
 </code></pre>
