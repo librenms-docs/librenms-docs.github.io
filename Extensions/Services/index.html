@@ -677,6 +677,10 @@
 <p>These services are tied into an existing device so you need at least one device that supports SNMP to be able to add it
 to LibreNMS - localhost is a good one.</p>
 <h2 id="setup">Setup</h2>
+<blockquote>
+<p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
+<code>services-wrapper.py</code> in cron instead of <code>check-services.php</code> across all polling nodes.</p>
+</blockquote>
 <p>Firstly, install Nagios plugins however you would like, this could be via yum, apt-get or direct from source.</p>
 <p>Next, you need to enable the services within config.php with the following:</p>
 <pre><code class="php">$config['show_services']           = 1;
