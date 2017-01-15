@@ -670,6 +670,8 @@
         
             <li><a href="#new-os-definition_1">New OS definition</a></li>
         
+            <li><a href="#discovery-os_1">Discovery OS</a></li>
+        
             <li><a href="#polling-os">Polling OS</a></li>
         
             <li><a href="#displaying">Displaying</a></li>
@@ -835,21 +837,20 @@ over:
 </code></pre>
 
 <p>If you are adding custom graphs, please add the following to <code>includes/definitions.inc.php</code>:</p>
-<p>//Don't forget to declare the specific graphs if needed. It will be located near the end of the file.</p>
-<p>//Pulse Secure Graphs
+<pre><code class="php">//Don't forget to declare the specific graphs if needed. It will be located near the end of the file.
+
+//Pulse Secure Graphs
 $config['graph_types']['device']['pulse_users']['section']         = 'firewall';
 $config['graph_types']['device']['pulse_users']['order']           = '0';
 $config['graph_types']['device']['pulse_users']['descr']           = 'Active Users';
 $config['graph_types']['device']['pulse_sessions']['section']      = 'firewall';
 $config['graph_types']['device']['pulse_sessions']['order']        = '0';
-$config['graph_types']['device']['pulse_sessions']['descr']        = 'Active Sessions';</p>
-<pre><code>
-#### Discovery OS
+$config['graph_types']['device']['pulse_sessions']['descr']        = 'Active Sessions';
+</code></pre>
 
-We create a new file named as our OS definition and in this directory:
-
-```bash
-includes/discovery/os/pulse.inc.php
+<h4 id="discovery-os_1">Discovery OS</h4>
+<p>We create a new file named as our OS definition and in this directory:</p>
+<pre><code class="bash">includes/discovery/os/pulse.inc.php
 </code></pre>
 
 <p>Look at other files to get help in the code structure. For this example, it can be like this :</p>
