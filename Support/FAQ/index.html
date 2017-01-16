@@ -912,8 +912,8 @@ To expose these disks you need to add additional config to your snmpd.conf file.
 Please provide the output of Discovery, Poller, and Snmpwalk as separate non-expiring pastebin.com links.</p>
 <p>You can also use the command line to obtain the information.  Especially, if snmpwalk results in a large amount of data.
 Replace the relevant information in these commands such as HOSTNAME and COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1 devices.</p>
-<pre><code class="bash">./discovery.php -h HOSTNAME -d -m os
-./poller.php -h HOSTNAME -r -f -d -m os
+<pre><code class="bash">./discovery.php -h HOSTNAME -d
+./poller.php -h HOSTNAME -r -f -d
 snmpbulkwalk -OUneb -v2c -c COMMUNITY HOSTNAME .
 </code></pre>
 
