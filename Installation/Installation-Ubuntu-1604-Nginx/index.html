@@ -773,7 +773,8 @@ vim /etc/nginx/conf.d/librenms.conf
 }
 </code></pre>
 
-<pre><code class="bash">systemctl restart nginx
+<pre><code class="bash">rm /etc/nginx/sites-enabled/default
+systemctl restart nginx
 </code></pre>
 
 <h4 id="web-installer">Web installer</h4>
