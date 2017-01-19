@@ -669,6 +669,8 @@
         
             <li><a href="#device-groups-top">Device Groups</a></li>
         
+            <li><a href="#port-groups-top">Port Groups</a></li>
+        
             <li><a href="#routing-top">Routing</a></li>
         
             <li><a href="#switching-top">Switching</a></li>
@@ -711,6 +713,8 @@
 <li><a href="#api-route-2"><code>del_device</code></a></li>
 <li><a href="#api-route-3"><code>get_device</code></a></li>
 <li><a href="#api-route-5"><code>get_graphs</code></a></li>
+<li><a href="#api-route-list_available_health_graphs"><code>list_available_health_graphs</code></a></li>
+<li><a href="#api-route-get_health_graph"><code>get_health_graph</code></a></li>
 <li><a href="#api-route-6"><code>get_graph_generic_by_hostname</code></a></li>
 <li><a href="#api-route-7"><code>get_port_graphs</code></a></li>
 <li><a href="#api-route-29"><code>get_port_stack</code></a></li>
@@ -730,6 +734,10 @@
 <li><a href="#api-devicegroups"><code>devicegroups</code></a><ul>
 <li><a href="#api-route-get_devicegroups"><code>get_devicegroups</code></a></li>
 <li><a href="#api-route-get_devices_by_group"><code>get_devices_by_group</code></a></li>
+</ul>
+</li>
+<li><a href="#api-portgroups"><code>portgroups</code></a><ul>
+<li><a href="#api-route-get_graph_by_portgroup"><code>get_graph_by_portgroup</code></a></li>
 </ul>
 </li>
 <li><a href="#api-routing"><code>routing</code></a><ul>
@@ -910,6 +918,126 @@ Output
 }
 </code></pre>
 
+<h3 id="function-list_available_health_graphs-top"><a name="api-route-list_available_health_graphs">Function: <code>list_available_health_graphs</code></a> <a href="#top"><code>top</code></a></h3>
+<p>This function allows to do three things:</p>
+<ul>
+<li>Get a list of overall health graphs available.</li>
+<li>Get a list of health graphs based on provided class.</li>
+<li>Get the health sensors information based on ID.</li>
+</ul>
+<p>Route: /api/v0/devices/:hostname/health(/:type)(/:sensor_id)</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>type (optional) is health type / sensor class</li>
+<li>sensor_id (optional) is the sensor id to retreive specific information.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health
+</code></pre>
+
+<p>Output:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 2,
+    &quot;graphs&quot;: [
+        {
+            &quot;desc&quot;: &quot;Airflow&quot;,
+            &quot;name&quot;: &quot;device_airflow&quot;
+        },
+        {
+            &quot;desc&quot;: &quot;Voltage&quot;,
+            &quot;name&quot;: &quot;device_voltage&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health/device_voltage
+</code></pre>
+
+<p>Output:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 2,
+    &quot;graphs&quot;: [
+        {
+            &quot;sensor_id&quot;: &quot;1&quot;,
+            &quot;desc&quot;: &quot;Input Feed A&quot;
+        },
+        {
+            &quot;sensor_id&quot;: &quot;2&quot;,
+            &quot;desc&quot;: &quot;Output Feed&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health/device_voltage/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;graphs&quot;: [
+        {
+            &quot;sensor_id&quot;: &quot;1&quot;,
+            &quot;sensor_deleted&quot;: &quot;0&quot;,
+            &quot;sensor_class&quot;: &quot;voltage&quot;,
+            &quot;device_id&quot;: &quot;1&quot;,
+            &quot;poller_type&quot;: &quot;snmp&quot;,
+            &quot;sensor_oid&quot;: &quot;.1.3.6.1.4.1.318.1.1.27.1.1.0&quot;,
+            &quot;sensor_index&quot;: &quot;1&quot;,
+            &quot;sensor_type&quot;: &quot;apc&quot;,
+            &quot;sensor_descr&quot;: &quot;Input&quot;,
+            &quot;sensor_divisor&quot;: &quot;1&quot;,
+            &quot;sensor_multiplier&quot;: &quot;1&quot;,
+            &quot;sensor_current&quot;: &quot;1&quot;,
+            &quot;sensor_limit&quot;: &quot;1.15&quot;,
+            &quot;sensor_limit_warn&quot;: null,
+            &quot;sensor_limit_low&quot;: &quot;0.85&quot;,
+            &quot;sensor_limit_low_warn&quot;: null,
+            &quot;sensor_alert&quot;: &quot;1&quot;,
+            &quot;sensor_custom&quot;: &quot;No&quot;,
+            &quot;entPhysicalIndex&quot;: null,
+            &quot;entPhysicalIndex_measured&quot;: null,
+            &quot;lastupdate&quot;: &quot;2017-01-13 13:50:26&quot;,
+            &quot;sensor_prev&quot;: &quot;1&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_health_graph-top"><a name="api-route-get_health_graph">Function: <code>get_health_graph</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a particular health class graph for a device, if you provide a sensor_id as well then a single sensor graph 
+will be provided. If no sensor_id value is provided then you will be sent a stacked sensor graph.</p>
+<p>Route: /api/v0/devices/:hostname/graphs/health/:type(/:sensor_id)</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>type is the name of the health graph as returned by <a href="#api-route-list_available_health_graphs"><code>list_available_health_graphs</code></a></li>
+<li>sensor_id (optional) restricts the graph to return a particular health sensor graph.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage
+</code></pre>
+
+<p>Output:</p>
+<p>Output is a stacked graph for the health type provided.</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage/1
+</code></pre>
+
+<p>Output:</p>
+<p>Output is the graph of the particular health type sensor provided.</p>
 <h3 id="function-get_graph_generic_by_hostname-top"><a name="api-route-6">Function: <code>get_graph_generic_by_hostname</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Get a specific graph for a device, this does not include ports.</p>
 <p>Route: /api/v0/devices/:hostname/:type</p>
@@ -1418,6 +1546,26 @@ Example:</li>
 ]
 </code></pre>
 
+<h2 id="port-groups-top"><a name="api-portgroups"><code>Port Groups</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_graph_by_portgroup-top"><a name="api-route-get_graph_by_portgroup">Function: <code>get_graph_by_portgroup</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get the graph based on the group type.</p>
+<p>Route: /api/v0/devices/portgroups/:group</p>
+<ul>
+<li>group is the type of port group graph you want, I.e Transit, Peering, etc. You can specify multiple types comma separated.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>width: The graph width, defaults to 1075.</li>
+<li>height: The graph height, defaults to 300.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/portgroups/transit,peering
+</code></pre>
+
+<p>Output:</p>
+<p>Output is an image.</p>
 <h2 id="routing-top"><a name="api-routing"><code>Routing</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-list_bgp-top"><a name="api-route-1">Function: <code>list_bgp</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List the current BGP sessions.</p>
