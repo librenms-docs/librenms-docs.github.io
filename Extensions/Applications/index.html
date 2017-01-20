@@ -690,6 +690,8 @@
         
             <li><a href="#ups-apcups">UPS-apcups</a></li>
         
+            <li><a href="#exim-stats">EXIM Stats</a></li>
+        
     
         <li class="main "><a href="#agent-setup">Agent Setup</a></li>
         
@@ -730,6 +732,7 @@
 <li><a href="#unbound">Unbound</a> - Agent</li>
 <li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
 <li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
+<li><a href="#exim-stats">EXIM Stats</a> - SNMP extend</li>
 <li><a href="#agent-setup">Agent Setup</a></li>
 </ol>
 <h3 id="apache">Apache</h3>
@@ -1044,6 +1047,26 @@ server:
 <ol>
 <li>Restart snmpd on your host</li>
 <li>On the device page in Librenms, edit your host and check the <code>UPS apcups</code> under the Applications tab.</li>
+</ol>
+<h3 id="exim-stats">EXIM Stats</h3>
+<p>SNMP extend script to get your exim stats data into your host.</p>
+<h5 id="snmp-extend_10">SNMP Extend</h5>
+<ol>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/1c091800b713e26395796b5d5379421fc268a39b/snmp/exim-stats.sh">exim stats</a> to <code>/etc/snmp/</code> (or any other suitable location) on your host.</li>
+<li>Make the script executable: <code>chmod +x /etc/snmp/exim-stats.sh</code></li>
+<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+</ol>
+<pre><code>extend exim-stats /etc/snmp/exim-stats.sh
+</code></pre>
+
+<ol>
+<li>If you are using sudo edit your sudo users (usually <code>visudo</code>) and add at the bottom:</li>
+</ol>
+<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/exim-stats.sh, /usr/bin/exim*
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
 </ol>
 <h2 id="agent-setup">Agent Setup</h2>
 <p>To gather data from remote systems you can use LibreNMS in combination with check_mk (found <a href="https://github.com/librenms/librenms-agent">here</a>).</p>
