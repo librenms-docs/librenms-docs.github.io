@@ -671,6 +671,9 @@
         <li class="main "><a href="#workflow-guide">Workflow guide</a></li>
         
     
+        <li class="main "><a href="#hints-and-tips">Hints and tips</a></li>
+        
+    
     </ul>
 </div>
 </div>
@@ -766,7 +769,18 @@ repo. Now select the branch you have just been working on (issue-123) from the d
 'Pull Request'. Fill in the details to describe the work you have done and click 'Create pull request'.</p>
 <p>Thanks for your first pull request :)</p>
 <p>Ok, that should get you started on the contributing path. If you have any other questions then stop by our IRC Channel
-on Freenode ##librenms.</p></div>
+on Freenode ##librenms.</p>
+<h3 id="hints-and-tips">Hints and tips</h3>
+<p>Undo last commit</p>
+<p><code>git reset --soft 'HEAD^'</code></p>
+<p>Remove specific commit</p>
+<p><code>git revert &lt;HASH&gt;</code></p>
+<p>Restore deleted file</p>
+<p><code>git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"</code></p>
+<p>Merge last two commits</p>
+<p><code>git rebase --interactive HEAD~2</code>
+In the text file that opens, change the last commit to squash from pick then save an exit.</p>
+<p>For more tips take a look at <a href="http://ohshitgit.com/">Oh shit, git!</a></p></div>
                 
             
             </div>
