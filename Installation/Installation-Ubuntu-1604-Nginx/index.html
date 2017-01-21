@@ -677,6 +677,8 @@
         
             <li><a href="#cron-job">Cron job</a></li>
         
+            <li><a href="#copy-logrotate-config">Copy logrotate config</a></li>
+        
             <li><a href="#final-steps">Final steps</a></li>
         
             <li><a href="#add-first-device">Add first device</a></li>
@@ -798,6 +800,10 @@ systemctl restart snmpd
 
 <h4 id="cron-job">Cron job</h4>
 <p><code>cp librenms.nonroot.cron /etc/cron.d/librenms</code></p>
+<h4 id="copy-logrotate-config">Copy logrotate config</h4>
+<p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can become large and be rotated out.  To rotate out the old logs you can use the provided logrotate config file:</p>
+<pre><code>cp misc/librenms.logrotate /etc/logrotate.d/librenms
+</code></pre>
 <h4 id="final-steps">Final steps</h4>
 <pre><code class="bash">chown -R librenms:librenms /opt/librenms
 </code></pre>
