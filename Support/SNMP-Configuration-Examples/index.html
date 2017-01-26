@@ -755,6 +755,16 @@ set snmp contact contact
 set snmp community YOUR-COMMUNITY authorization read-only
 </code></pre>
 
+<h3 id="mikrotik">Mikrotik</h3>
+<h4 id="routeros-6x">RouterOS 6.x</h4>
+<pre><code>#Terminal SNMP v2 Configuration
+/snmp community
+set [ find default=yes ] read-access=no
+add addresses=&lt;SRC IP/NETWORK&gt; name=&lt;COMMUNITY&gt;
+/snmp
+set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; location=&quot;&lt;LOCALTION&gt;&quot;
+</code></pre>
+
 <h3 id="palo-alto">Palo Alto</h3>
 <h4 id="panos-6x7x">PANOS 6.x/7.x</h4>
 <ol>
