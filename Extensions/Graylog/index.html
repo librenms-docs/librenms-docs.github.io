@@ -696,7 +696,9 @@ $config['graylog']['version']  = '2.1';
 number of your Graylog install.</p>
 <p>If you have altered the default uri for your Graylog setup then you can override the default of <code>/api/</code> using 
 <code>$config['graylog']['base_uri'] = '/somepath/';</code></p>
-<p>If you choose to use another user besides the admin user, please note that currently you must give the user "admin" permissions from within Graylog, "read" permissions alone are not sufficient.</p></div>
+<p>If you choose to use another user besides the admin user, please note that currently you must give the user "admin" permissions from within Graylog, "read" permissions alone are not sufficient.</p>
+<p>If you have enabled TLS for the Graylog API and you are using a self-signed certificate, please make sure that the certificate is trusted by your LibreNMS host, otherwise the connection will fail.
+Additionally, the certificate's Common Name (CN) has to match the FQDN or IP address specified in <code>$config['graylog']['server']</code>.</p></div>
                 
             
             </div>
