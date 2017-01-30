@@ -689,6 +689,7 @@
 <ul>
 <li>All data is anonymous.</li>
 <li>Generic statistics are taken from the database, these include things like device total, type and os, port types, speeds and total, total bgp peers. Take a look at the code for full details.</li>
+<li>Pairs of sysDescr and sysObjectID from devices with a small amount of sanitation to prevent things like hostnames from being submitted.</li>
 <li>We record version numbers of php, mysql, net-snmp and rrdtool</li>
 <li>A random UUID is generated on your own install.</li>
 <li>That's it!</li>
@@ -699,6 +700,7 @@
 <li>We store it, not for long - 3 months at the moment although this could change.</li>
 <li>We use it to generate pretty graphs for people to see.</li>
 <li>We use it to help prioritise issues and features that need to be worked on.</li>
+<li>We use sysDescr and sysObjectID to create unit tests and improve OS discovery</li>
 </ul>
 <h4 id="questions">Questions?</h4>
 <ul>
