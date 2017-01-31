@@ -3877,7 +3877,7 @@
         }, 
         {
             "location": "/Support/Example-Hardware-Setup/", 
-            "text": "Example hardware setups\n\n\nThe information in this document is direct from users, it's a place for people to share their \nsetups so you have an idea of what may be required for your install.\n\n\nTo obtain the device, port and sensor counts you can run:\n\n\nselect count(*) from devices;\nselect count(*) from ports where `deleted` = 0;\nselect count(*) from sensors where `sensor_deleted` = 0;\n\n\n\n\nlaf\n\n\n\n\nHome\n\n\n\n\nRunning in Proxmox.\n\n\n\n\n\n\n\n\n\n\nLibreNMS\n\n\nMySQL\n\n\n\n\n\n\n\n\n\n\nType\n\n\nVirtual\n\n\nVirtual\n\n\n\n\n\n\nOS\n\n\nCentOS 7\n\n\nCentOS 7\n\n\n\n\n\n\nCPU\n\n\n2 Sockets, 4 Cores\n\n\n1 Socket, 2 Cores\n\n\n\n\n\n\nMemory\n\n\n2GB\n\n\n2GB\n\n\n\n\n\n\nDisk Type\n\n\nRaid 1, SSD\n\n\nRaid 1, SSD\n\n\n\n\n\n\nDisk Space\n\n\n18GB\n\n\n30GB\n\n\n\n\n\n\nDevices\n\n\n20\n\n\n-\n\n\n\n\n\n\nPorts\n\n\n133\n\n\n-\n\n\n\n\n\n\nHealth sensors\n\n\n47\n\n\n-\n\n\n\n\n\n\nLoad\n\n\n 0.1\n\n\n 0.1", 
+            "text": "Example hardware setups\n\n\nThe information in this document is direct from users, it's a place for people to share their \nsetups so you have an idea of what may be required for your install.\n\n\nTo obtain the device, port and sensor counts you can run:\n\n\nselect count(*) from devices;\nselect count(*) from ports where `deleted` = 0;\nselect count(*) from sensors where `sensor_deleted` = 0;\n\n\n\n\nlaf\n\n\n\n\nHome\n\n\n\n\nRunning in Proxmox.\n\n\n\n\n\n\n\n\n\n\nLibreNMS\n\n\nMySQL\n\n\n\n\n\n\n\n\n\n\nType\n\n\nVirtual\n\n\nVirtual\n\n\n\n\n\n\nOS\n\n\nCentOS 7\n\n\nCentOS 7\n\n\n\n\n\n\nCPU\n\n\n2 Sockets, 4 Cores\n\n\n1 Socket, 2 Cores\n\n\n\n\n\n\nMemory\n\n\n2GB\n\n\n2GB\n\n\n\n\n\n\nDisk Type\n\n\nRaid 1, SSD\n\n\nRaid 1, SSD\n\n\n\n\n\n\nDisk Space\n\n\n18GB\n\n\n30GB\n\n\n\n\n\n\nDevices\n\n\n20\n\n\n-\n\n\n\n\n\n\nPorts\n\n\n133\n\n\n-\n\n\n\n\n\n\nHealth sensors\n\n\n47\n\n\n-\n\n\n\n\n\n\nLoad\n\n\n 0.1\n\n\n 0.1\n\n\n\n\n\n\n\n\nVente-Priv\u00e9e\n\n\n\n\nNOC\n\n\n\n\n\n\n\n\n\n\n\n\nLibreNMS\n\n\nMariaDB\n\n\n\n\n\n\n\n\n\n\nType\n\n\nDell R430\n\n\nDell R430\n\n\n\n\n\n\nOS\n\n\nDebian 7 (dotdeb)\n\n\nDebian 7 (dotdeb)\n\n\n\n\n\n\nCPU\n\n\n2 Sockets, 14 Cores\n\n\n1 Socket, 2 Cores\n\n\n\n\n\n\nMemory\n\n\n256GB\n\n\n256GB\n\n\n\n\n\n\nDisk Type\n\n\nRaid 10, SSD\n\n\nRaid 10, SSD\n\n\n\n\n\n\nDisk Space\n\n\n1TB\n\n\n1TB\n\n\n\n\n\n\nDevices\n\n\n1028\n\n\n-\n\n\n\n\n\n\nPorts\n\n\n26745\n\n\n-\n\n\n\n\n\n\nHealth sensors\n\n\n6238\n\n\n-\n\n\n\n\n\n\nLoad\n\n\n 0.5\n\n\n 0.5", 
             "title": "Example Hardware Setup"
         }, 
         {
@@ -3889,6 +3889,11 @@
             "location": "/Support/Example-Hardware-Setup/#laf", 
             "text": "Home   Running in Proxmox.      LibreNMS  MySQL      Type  Virtual  Virtual    OS  CentOS 7  CentOS 7    CPU  2 Sockets, 4 Cores  1 Socket, 2 Cores    Memory  2GB  2GB    Disk Type  Raid 1, SSD  Raid 1, SSD    Disk Space  18GB  30GB    Devices  20  -    Ports  133  -    Health sensors  47  -    Load   0.1   0.1", 
             "title": "laf"
+        }, 
+        {
+            "location": "/Support/Example-Hardware-Setup/#vente-privee", 
+            "text": "NOC       LibreNMS  MariaDB      Type  Dell R430  Dell R430    OS  Debian 7 (dotdeb)  Debian 7 (dotdeb)    CPU  2 Sockets, 14 Cores  1 Socket, 2 Cores    Memory  256GB  256GB    Disk Type  Raid 10, SSD  Raid 10, SSD    Disk Space  1TB  1TB    Devices  1028  -    Ports  26745  -    Health sensors  6238  -    Load   0.5   0.5", 
+            "title": "Vente-Priv\u00e9e"
         }, 
         {
             "location": "/Support/FAQ/", 
