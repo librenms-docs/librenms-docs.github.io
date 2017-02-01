@@ -689,6 +689,8 @@
         
             <li><a href="#slack">Slack</a></li>
         
+            <li><a href="#rocketchat">Rocket.chat</a></li>
+        
             <li><a href="#hipchat">HipChat</a></li>
         
             <li><a href="#pagerduty">PagerDuty</a></li>
@@ -779,6 +781,7 @@
 <li><a href="#transports-nagios">Nagios-Compatible</a></li>
 <li><a href="#transports-irc">IRC</a></li>
 <li><a href="#transports-slack">Slack</a></li>
+<li><a href="#transports-rocket">Rocket.chat</a></li>
 <li><a href="#transports-hipchat">HipChat</a></li>
 <li><a href="#transports-pagerduty">PagerDuty</a></li>
 <li><a href="#transports-pushover">Pushover</a></li>
@@ -1035,6 +1038,15 @@ $config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hook
 </code></pre>
 
 <p>~~</p>
+<h2 id="rocketchat"><a name="transports-slack">Rocket.chat</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>The Rocket.chat transport will POST the alert message to your Rocket.chat Incoming WebHook using the <a href="https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Rocket.chat will be made. Below is an example of how to send alerts to two channels with different customised options:</p>
+<pre><code class="php">$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '#Alerting');
+
+$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
+
+</code></pre>
+
 <h2 id="hipchat"><a name="transports-hipchat">HipChat</a></h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
