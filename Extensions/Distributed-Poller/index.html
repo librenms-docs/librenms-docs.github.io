@@ -696,7 +696,7 @@ distance away or are behind NAT firewalls.</p>
 <li>a rrdcached install</li>
 </ul>
 <p>By default, all hosts are shared and have the <code>poller_group = 0</code>. To pin a device to a poller, set it to a value greater than 0 and set the same value in the poller's config with <code>$config['distributed_poller_group']</code>. One can also specify a comma separated string of poller groups in $config['distributed_poller_group'].  The poller will then poll devices from any of the groups listed.  If new devices get added from the poller they will be assigned to the first poller group in the list unless the group is specified when adding the device.</p>
-<p>A standard configuration for a distrinuted poller would look like:</p>
+<p>A standard configuration for a distributed poller would look like:</p>
 <pre><code class="php">// Distributed Poller-Settings
 $config['distributed_poller']                            = true;
 $config['distributed_poller_name']                       = file_get_contents('/proc/sys/kernel/hostname');
