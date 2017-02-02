@@ -713,6 +713,8 @@
         
             <li><a href="#microsoft-teams">Microsoft Teams</a></li>
         
+            <li><a href="#cisco-spark">Cisco Spark</a></li>
+        
     
         <li class="main "><a href="#entities">Entities</a></li>
         
@@ -793,6 +795,7 @@
 <li><a href="#transports-canopsis">Canopsis</a></li>
 <li><a href="#transports-osticket">osTicket</a></li>
 <li><a href="#transports-msteams">Microsoft Teams</a></li>
+<li><a href="#transports-ciscospark">Cisco Spark</a></li>
 </ul>
 </li>
 <li><a href="#entities">Entities</a><ul>
@@ -1228,6 +1231,21 @@ $config['alert']['transports']['osticket']['token'] = '123456789';
 <p>This can also be done manually in config.php :</p>
 <p>~</p>
 <pre><code class="php">$config['alert']['transports']['msteams']['url'] = 'https://outlook.office365.com/webhook/123456789';
+</code></pre>
+
+<p>~</p>
+<h2 id="cisco-spark"><a name="transports-ciscospark">Cisco Spark</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make this possible you need to have a RoomID and a token. </p>
+<p>For more information about Cisco Spark RoomID and token, take a look here :
+ https://developer.ciscospark.com/getting-started.html
+ https://developer.ciscospark.com/resource-rooms.html</p>
+<p>To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; Cisco Spark transport.</p>
+<p>This can also be done manually in config.php :</p>
+<p>~</p>
+<pre><code class="php">$config['alert']['transports']['ciscospark']['token'] = '1234567890QWERTYUIOP';
+$config['alert']['transports']['ciscospark']['roomid'] = '1234567890QWERTYUIOP';
 </code></pre>
 
 <p>~</p>
