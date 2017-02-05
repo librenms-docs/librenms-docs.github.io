@@ -969,31 +969,33 @@ if ($device['os'] == 'pulse') {
 <p>We declare two specific graphs for users and sessions numbers. Theses two graphs will be displayed on the firewall section of the graphs tab as it was written in the definition include file.</p>
 <pre><code class="php">&lt;?php
 
-$version = trim(snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;),'&quot;');
-$hardware = &quot;Juniper &quot; . trim(snmp_get($device, &quot;productName.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;),'&quot;');
-$hostname = trim(snmp_get($device, &quot;sysName.0&quot;, &quot;-OQv&quot;, &quot;SNMPv2-MIB&quot;),'&quot;');
+$version = preg_replace('/[\r\n\&quot;]+/', ' ', snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));
+$hardware = &quot;Juniper &quot; . preg_replace('/[\r\n\&quot;]+/', ' ', snmp_get($device, &quot;productName.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));
+$hostname = trim($poll_device['sysName'], '&quot;');
 
-$users = snmp_get($device, 'PULSESECURE-PSG-MIB::iveConcurrentUsers.0', '-OQv');
+$users = snmp_get($device, 'iveConcurrentUsers.0', '-OQv', 'PULSESECURE-PSG-MIB');
 
 if (is_numeric($users)) {
     $rrd_def = 'DS:users:GAUGE:600:0:U';
+
     $fields = array(
-        'users' =&gt; $users
-    )
+        'users' =&gt; $users,
+    );
+
     $tags = compact('rrd_def');
     data_update($device, 'pulse_users', $tags, $fields);
     $graphs['pulse_users'] = true;
 }
 
-$sessions = snmp_get($device, 'PULSESECURE-PSG-MIB::iveConcurrentUsers.0', '-OQv');
+$sessions = snmp_get($device, 'iveConcurrentUsers.0', '-OQv', 'PULSESECURE-PSG-MIB');
 
 if (is_numeric($sessions)) {
-    $rrd_def = array(
-        'DS:sessions:GAUGE:600:0:U',
-    }
+    $rrd_def = 'DS:sessions:GAUGE:600:0:U';
+
     $fields = array(
-        'sessions' =&gt; $sessions
+        'sessions' =&gt; $sessions,
     );
+
     $tags = compact('rrd_def');
     data_update($device, 'pulse_sessions', $tags, $fields);
     $graphs['pulse_sessions'] = true;
