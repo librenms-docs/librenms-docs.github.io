@@ -675,6 +675,8 @@
         
             <li><a href="#device-groups-top">Device Groups</a></li>
         
+            <li><a href="#ports-top">Ports</a></li>
+        
             <li><a href="#port-groups-top">Port Groups</a></li>
         
             <li><a href="#routing-top">Routing</a></li>
@@ -723,6 +725,7 @@
 <li><a href="#api-route-get_health_graph"><code>get_health_graph</code></a></li>
 <li><a href="#api-route-6"><code>get_graph_generic_by_hostname</code></a></li>
 <li><a href="#api-route-7"><code>get_port_graphs</code></a></li>
+<li><a href="#api-route-get_device_ip_addresses"><code>get_device_ip_addresses</code></a></li>
 <li><a href="#api-route-29"><code>get_port_stack</code></a></li>
 <li><a href="#api-route-25"><code>get_components</code></a></li>
 <li><a href="#api-route-26"><code>add_components</code></a></li>
@@ -740,6 +743,12 @@
 <li><a href="#api-devicegroups"><code>devicegroups</code></a><ul>
 <li><a href="#api-route-get_devicegroups"><code>get_devicegroups</code></a></li>
 <li><a href="#api-route-get_devices_by_group"><code>get_devices_by_group</code></a></li>
+</ul>
+</li>
+<li><a href="#api-ports"><code>ports</code></a><ul>
+<li><a href="#api-get_all_ports"><code>get_all_ports</code></a></li>
+<li><a href="#api-route-get_port_info"><code>get_port_info</code></a></li>
+<li><a href="#api-route-get_port_ip_info"><code>get_port_ip_info</code></a></li>
 </ul>
 </li>
 <li><a href="#api-portgroups"><code>portgroups</code></a><ul>
@@ -1022,7 +1031,7 @@ Output
 </code></pre>
 
 <h3 id="function-get_health_graph-top"><a name="api-route-get_health_graph">Function: <code>get_health_graph</code></a> <a href="#top"><code>top</code></a></h3>
-<p>Get a particular health class graph for a device, if you provide a sensor_id as well then a single sensor graph 
+<p>Get a particular health class graph for a device, if you provide a sensor_id as well then a single sensor graph
 will be provided. If no sensor_id value is provided then you will be sent a stacked sensor graph.</p>
 <p>Route: /api/v0/devices/:hostname/graphs/health/:type(/:sensor_id)</p>
 <ul>
@@ -1092,6 +1101,33 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
         },
         {
             &quot;ifName&quot;: &quot;eth1&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_device_ip_addresses-top"><a name="api-route-get_device_ip_addresses">Function: <code>get_device_ip_addresses</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get a list of IP addresses (v4 and v6) associated with a device.</p>
+<p>Route: /api/v0/devices/:hostname/ip</p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ip
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;addresses&quot;: [
+        {
+          &quot;ipv4_address_id&quot;: &quot;290&quot;,
+          &quot;ipv4_address&quot;: &quot;192.168.99.292&quot;,
+          &quot;ipv4_prefixlen&quot;: &quot;30&quot;,
+          &quot;ipv4_network_id&quot;: &quot;247&quot;,
+          &quot;port_id&quot;: &quot;323&quot;,
+          &quot;context_name&quot;: &quot;&quot;
         }
     ]
 }
@@ -1517,6 +1553,166 @@ Example:</li>
         ]
     }
 ]
+</code></pre>
+
+<h2 id="ports-top"><a name="api-ports"><code>Ports</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-get_all_ports-top"><a name="api-get_all_ports">Function <code>get_all_ports</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get info for all ports on all devices.
+Strongly recommend that you use the <code>columns</code> parameter to avoid pulling too much data.</p>
+<p>Route: /api/v0/ports</p>
+<p>-</p>
+<p>Input:</p>
+<ul>
+<li>columns: Comma separated list of columns you want returned.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ports?columns=ifName%2Cport_id
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;err-msg&quot;: &quot;&quot;,
+  &quot;ports&quot;: [
+        {
+          &quot;ifName&quot;: &quot;Gi0/0/0&quot;,
+          &quot;port_id&quot;: &quot;1&quot;
+        },
+        {
+          &quot;ifName&quot;: &quot;Gi0/0/1&quot;,
+          &quot;port_id&quot;: &quot;2&quot;
+        },
+        ...
+        {
+          &quot;ifName&quot;: &quot;Vlan 3615&quot;,
+          &quot;port_id&quot;: &quot;5488&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="function-get_port_info-top"><a name="api-route-get_port_info">Function <code>get_port_info</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get all info for a particular port.</p>
+<p>Route: /api/v0/ports/:portid</p>
+<ul>
+<li>portid must be an integer</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ports/323
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;err-msg&quot;: &quot;&quot;,
+  &quot;port&quot;: [
+    {
+      &quot;port_id&quot;: &quot;323&quot;,
+      &quot;device_id&quot;: &quot;55&quot;,
+      &quot;port_descr_type&quot;: null,
+      &quot;port_descr_descr&quot;: null,
+      &quot;port_descr_circuit&quot;: null,
+      &quot;port_descr_speed&quot;: null,
+      &quot;port_descr_notes&quot;: null,
+      &quot;ifDescr&quot;: &quot;GigabitEthernet0/0/0&quot;,
+      &quot;ifName&quot;: &quot;Gi0/0/0&quot;,
+      &quot;portName&quot;: null,
+      &quot;ifIndex&quot;: &quot;1&quot;,
+      &quot;ifSpeed&quot;: &quot;1000000000&quot;,
+      &quot;ifConnectorPresent&quot;: &quot;true&quot;,
+      &quot;ifPromiscuousMode&quot;: &quot;false&quot;,
+      &quot;ifHighSpeed&quot;: &quot;1000&quot;,
+      &quot;ifOperStatus&quot;: &quot;up&quot;,
+      &quot;ifOperStatus_prev&quot;: null,
+      &quot;ifAdminStatus&quot;: &quot;up&quot;,
+      &quot;ifAdminStatus_prev&quot;: null,
+      &quot;ifDuplex&quot;: &quot;fullDuplex&quot;,
+      &quot;ifMtu&quot;: &quot;1560&quot;,
+      &quot;ifType&quot;: &quot;ethernetCsmacd&quot;,
+      &quot;ifAlias&quot;: &quot;ASR Interconnect Trunk&quot;,
+      &quot;ifPhysAddress&quot;: &quot;84bf20853e00&quot;,
+      &quot;ifHardType&quot;: null,
+      &quot;ifLastChange&quot;: &quot;42407358&quot;,
+      &quot;ifVlan&quot;: &quot;&quot;,
+      &quot;ifTrunk&quot;: &quot;&quot;,
+      &quot;ifVrf&quot;: &quot;0&quot;,
+      &quot;counter_in&quot;: null,
+      &quot;counter_out&quot;: null,
+      &quot;ignore&quot;: &quot;0&quot;,
+      &quot;disabled&quot;: &quot;0&quot;,
+      &quot;detailed&quot;: &quot;0&quot;,
+      &quot;deleted&quot;: &quot;0&quot;,
+      &quot;pagpOperationMode&quot;: null,
+      &quot;pagpPortState&quot;: null,
+      &quot;pagpPartnerDeviceId&quot;: null,
+      &quot;pagpPartnerLearnMethod&quot;: null,
+      &quot;pagpPartnerIfIndex&quot;: null,
+      &quot;pagpPartnerGroupIfIndex&quot;: null,
+      &quot;pagpPartnerDeviceName&quot;: null,
+      &quot;pagpEthcOperationMode&quot;: null,
+      &quot;pagpDeviceId&quot;: null,
+      &quot;pagpGroupIfIndex&quot;: null,
+      &quot;ifInUcastPkts&quot;: &quot;128518576&quot;,
+      &quot;ifInUcastPkts_prev&quot;: &quot;128517284&quot;,
+      &quot;ifInUcastPkts_delta&quot;: &quot;1292&quot;,
+      &quot;ifInUcastPkts_rate&quot;: &quot;4&quot;,
+      &quot;ifOutUcastPkts&quot;: &quot;128510560&quot;,
+      &quot;ifOutUcastPkts_prev&quot;: &quot;128509268&quot;,
+      &quot;ifOutUcastPkts_delta&quot;: &quot;1292&quot;,
+      &quot;ifOutUcastPkts_rate&quot;: &quot;4&quot;,
+      &quot;ifInErrors&quot;: &quot;0&quot;,
+      &quot;ifInErrors_prev&quot;: &quot;0&quot;,
+      &quot;ifInErrors_delta&quot;: &quot;0&quot;,
+      &quot;ifInErrors_rate&quot;: &quot;0&quot;,
+      &quot;ifOutErrors&quot;: &quot;0&quot;,
+      &quot;ifOutErrors_prev&quot;: &quot;0&quot;,
+      &quot;ifOutErrors_delta&quot;: &quot;0&quot;,
+      &quot;ifOutErrors_rate&quot;: &quot;0&quot;,
+      &quot;ifInOctets&quot;: &quot;12827393730&quot;,
+      &quot;ifInOctets_prev&quot;: &quot;12827276736&quot;,
+      &quot;ifInOctets_delta&quot;: &quot;116994&quot;,
+      &quot;ifInOctets_rate&quot;: &quot;387&quot;,
+      &quot;ifOutOctets&quot;: &quot;14957481766&quot;,
+      &quot;ifOutOctets_prev&quot;: &quot;14957301765&quot;,
+      &quot;ifOutOctets_delta&quot;: &quot;180001&quot;,
+      &quot;ifOutOctets_rate&quot;: &quot;596&quot;,
+      &quot;poll_time&quot;: &quot;1483779150&quot;,
+      &quot;poll_prev&quot;: &quot;1483778848&quot;,
+      &quot;poll_period&quot;: &quot;302&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="function-get_port_info-top_1"><a name="api-route-get_port_info">Function <code>get_port_info</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get all IP info (v4 and v6) for a given port id.</p>
+<p>Route: /api/v0/ports/:portid/ip</p>
+<ul>
+<li>portid must be an integer</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ports/323/ip
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;err-msg&quot;: &quot;&quot;,
+  &quot;addresses&quot;: [
+    {
+      &quot;ipv4_address_id&quot;: &quot;290&quot;,
+      &quot;ipv4_address&quot;: &quot;192.168.99.292&quot;,
+      &quot;ipv4_prefixlen&quot;: &quot;30&quot;,
+      &quot;ipv4_network_id&quot;: &quot;247&quot;,
+      &quot;port_id&quot;: &quot;323&quot;,
+      &quot;context_name&quot;: &quot;&quot;
+    }
+  ]
+}
 </code></pre>
 
 <h3 id="function-get_devices_by_group-top"><a name="api-route-get_devices_by_group">Function <code>get_devices_by_group</code></a> <a href="#top"><code>top</code></a></h3>
