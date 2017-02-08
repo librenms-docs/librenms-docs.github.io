@@ -1040,17 +1040,19 @@ Setting <code>rancid_ignorecomments</code> will disable showing lines that start
 
 <p>The above are examples, these will rewrite device snmp locations so you don't need to configure full location within snmp.</p>
 <h4 id="interfaces-to-be-ignored">Interfaces to be ignored</h4>
+<p>Examples:</p>
 <pre><code class="php">$config['bad_if'][] = &quot;voip-null&quot;;
 $config['bad_iftype'][] = &quot;voiceEncap&quot;;
+$config['bad_if_regexp'][] = '/^lo[0-9].*/';    // loopback
 </code></pre>
 
 <p>Numerous defaults exist for this array already (see includes/defaults.inc.php for the full list). You can expand this list
-by continuing the array.
-<code>bad_if</code> is matched against the ifDescr value.
-<code>bad_iftype</code> is matched against the ifType value.
-<code>bad_if_regexp</code> is matched against the ifDescr value as a regular expression.
-<code>bad_ifname_regexp</code> is matched against the ifName value as a regular expression.
-<code>bad_ifalias_regexp</code> is matched against the ifAlias value as a regular expression.</p>
+by continuing the array.</p>
+<p><code>bad_if</code> is matched against the ifDescr value.</p>
+<p><code>bad_iftype</code> is matched against the ifType value.</p>
+<p><code>bad_if_regexp</code> is matched against the ifDescr value as a regular expression.</p>
+<p><code>bad_ifname_regexp</code> is matched against the ifName value as a regular expression.</p>
+<p><code>bad_ifalias_regexp</code> is matched against the ifAlias value as a regular expression.</p>
 <h4 id="interfaces-to-be-rewritten">Interfaces to be rewritten</h4>
 <pre><code class="php">$config['rewrite_if']['cpu'] = 'Management Interface';
 $config['rewrite_if_regexp']['/cpu /'] = 'Management ';
