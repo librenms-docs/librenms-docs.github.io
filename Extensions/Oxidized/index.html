@@ -658,9 +658,7 @@
     
         <li class="main active"><a href="#oxidized-integration">Oxidized integration</a></li>
         
-            <li><a href="#config-viewing">Config viewing</a></li>
-        
-            <li><a href="#feeding-oxidized">Feeding Oxidized</a></li>
+            <li><a href="#detailed-integration-information">Detailed integration information</a></li>
         
     
     </ul>
@@ -677,7 +675,14 @@
 
 
 <h1 id="oxidized-integration">Oxidized integration</h1>
-<p>You can integrate LibreNMS with <a href="https://github.com/ytti/oxidized-web">Oxidized</a> in two ways:</p>
+<p>Integrating LibreNMS with <a href="https://github.com/ytti/oxidized-web">Oxidized</a> brings the following benefits:
+ - Config viewing: Current, History, and Diffs all under the <code>Configs</code> tab of each device
+ - Automatic addition of devices to Oxidized: Including filtering and grouping to ease credential management
+ - Configuration searching (Requires oxidized-web 0.8.0 or newer)</p>
+<p>First you will need to <a href="https://github.com/ytti/oxidized#installation">install Oxidized following their documentation</a>.</p>
+<p>Then you can procede to the LibreNMS Web UI and go to Oxidized Settings in the External Settings section of Global Settings. Enable it and enter the url to your oxidized instance.</p>
+<p>To have devices automatically added, you will need to configure oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding Oxidized</a></p>
+<h2 id="detailed-integration-information">Detailed integration information</h2>
 <h3 id="config-viewing">Config viewing</h3>
 <p>This is a straight forward use of Oxidized, it relies on you having a working Oxidized setup which is already taking config snapshots for your devices.
 When you have that, you only need the following config to enable the display of device configs within the device page itself:</p>
@@ -696,6 +701,11 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
 
 <p>You can set a default group that devices will fall back to with:</p>
 <pre><code class="php">$config['oxidized']['default_group'] = 'default';
+</code></pre>
+
+<h5 id="selinux">SELinux</h5>
+<p>If you're runnng SELinux, you'll need to allow httpd to connect outbound to the network, otherwise Oxidized integration in the web UI will silently fail:</p>
+<pre><code>setsebool -P httpd_can_network_connect 1
 </code></pre>
 
 <h3 id="feeding-oxidized">Feeding Oxidized</h3>
@@ -747,10 +757,6 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
 <p>It's also possible to exclude certain device types and OS' from being output via the API. This is currently only possible via config.php:</p>
 <pre><code class="php">$config['oxidized']['ignore_types'] = array('server');
 $config['oxidized']['ignore_os'] = array('linux');
-</code></pre>
-
-<p>If you're runnng SELinux, you'll need to allow httpd to connect outbound to the network, otherwise Oxidized integration in the web UI will silently fail:</p>
-<pre><code>setsebool -P httpd_can_network_connect 1
 </code></pre></div>
                 
             
