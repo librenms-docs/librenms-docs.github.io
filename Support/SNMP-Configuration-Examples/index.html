@@ -692,7 +692,8 @@
     - <a href="#palo-alto">Palo Alto</a>
         - <a href="#panos-6x7x">PANOS 6.x/7.x</a>
 - <a href="#operating-systems">Operating systems</a>
-    - <a href="#linux-snmpd">Linux (snmpd)</a>
+    - <a href="#linux-snmpd">Linux (snmpd v2)</a>
+    - <a href="#linux-snmpd-v3">Linux (snmpd v3)</a>
     - <a href="#windows-server-2008-r2">Windows Server 2008 R2</a>
     - <a href="#windows-server-2012-r2">Windows Server 2012 R2</a></p>
 <h2 id="devices">Devices</h2>
@@ -777,7 +778,7 @@ set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; loc
 </ol>
 <p>Note that you need to allow SNMP on the needed interfaces. To do that you need to create a network "Interface Mgmt" profile for standard interface and allow SNMP under "Device &gt; Management &gt; Management Interface Settings" for out of band management interface.</p>
 <h2 id="operating-systems">Operating systems</h2>
-<h3 id="linux-snmpd">Linux (snmpd)</h3>
+<h3 id="linux-snmpd-v2">Linux (snmpd v2)</h3>
 <p>Replace your snmpd.conf file by the example below and edit it with appropriate community in "RANDOMSTRINGGOESHERE".</p>
 <pre><code>vi /etc/snmp/snmpd.conf
 </code></pre>
@@ -805,6 +806,27 @@ extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
 chmod +x /usr/bin/distro
 </code></pre>
 
+<h3 id="linux-snmpd-v3">Linux (snmpd v3)</h3>
+<p>Go to /etc/snmp/snmpd.conf</p>
+<p>Open the file in vi or nano /etc/snmp/snmpd.conf and add the following line to create SNMPV3 User (replace username and passwords with your own):</p>
+<pre><code>createUser authPrivUser MD5 &quot;authPassword&quot; DES &quot;privPassword&quot;
+</code></pre>
+
+<p>Make sure the agent listens to all interfaces by adding the following line inside snmpd.conf:</p>
+<pre><code>agentAddress udp:161,udp6:[::1]:161
+</code></pre>
+
+<p>This line simply means listen to connections across all interfaces IPv4 and IPv6 respectively</p>
+<p>Uncomment and change the following line to give read access to the username created above (rouser is what LibreNMS uses) :</p>
+<pre><code>#rouser authPrivUser priv
+</code></pre>
+
+<p>Change the following details inside snmpd.conf</p>
+<pre><code>syslocation Rack, Room, Building, City, Country [GPSX,Y]
+syscontact Your Name &lt;your@email.address&gt;
+</code></pre>
+
+<p>Save and exit the file</p>
 <h4 id="restart-the-snmpd-service">Restart the snmpd service:</h4>
 <h5 id="centos-6-red-hat-6">CentOS 6 / Red hat 6</h5>
 <pre><code>service snmpd restart
