@@ -701,6 +701,8 @@
     
         <li class="main "><a href="#agent-setup">Agent Setup</a></li>
         
+            <li><a href="#munin">Munin</a></li>
+        
     
     </ul>
 </div>
@@ -719,6 +721,7 @@
 <p>You can use Application support to graph performance statistics from many applications.</p>
 <p>Different applications support a variety of ways collect data: by direct connection to the application, snmpd extend, or the agent.</p>
 <ol>
+<li><a href="#agent-setup">Agent Setup</a></li>
 <li><a href="#apache">Apache</a> - SNMP extend</li>
 <li><a href="#bind9-aka-named">BIND9/named</a> - Agent</li>
 <li><a href="#dhcp-stats">DHCP Stats</a> - SNMP extend</li>
@@ -739,7 +742,7 @@
 <li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
 <li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
 <li><a href="#exim-stats">EXIM Stats</a> - SNMP extend</li>
-<li><a href="#agent-setup">Agent Setup</a></li>
+<li><a href="#munin">Munin</a> - Agent</li>
 </ol>
 <h3 id="apache">Apache</h3>
 <p>Either use SNMP extend or use the agent.</p>
@@ -1153,7 +1156,30 @@ cd librenms-agent
 <li>Login to the LibreNMS web interface and edit the device you want to monitor. Under the modules section, ensure that unix-agent is enabled.</li>
 <li>Then under Applications, enable the apps that you plan to monitor.</li>
 <li>Wait for around 10 minutes and you should start seeing data in your graphs under Apps for the device.</li>
-</ol></div>
+</ol>
+<h3 id="munin">Munin</h3>
+<h4 id="agent_9">Agent</h4>
+<ol>
+<li>Install the script to your agent: <code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/munin -O /usr/lib/check_mk_agent/local/munin</code></li>
+<li>Make the script executable (<code>chmod +x /usr/lib/check_mk_agent/local/munin</code>)</li>
+<li>Create the munin scripts dir: <code>mkdir -p /usr/share/munin</code></li>
+<li>Install your munin scripts into the above directory.</li>
+</ol>
+<p>To create your own custom munin scripts, please see this example:</p>
+<pre><code>#!/bin/bash
+if [ &quot;$1&quot; = &quot;config&quot; ]; then
+    echo 'graph_title Some title'
+    echo 'graph_args --base 1000 -l 0' #not required
+    echo 'graph_vlabel Some label'
+    echo 'graph_scale no' #not required, can be yes/no
+    echo 'graph_category system' #Choose something meaningful, can be anything
+    echo 'graph_info This graph shows something awesome.' #Short desc
+    echo 'foobar.label Label for your unit' # Repeat these two lines as much as you like
+    echo 'foobar.info Desc for your unit.'
+    exit 0
+fi
+echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-timestamp
+</code></pre></div>
                 
             
             </div>
