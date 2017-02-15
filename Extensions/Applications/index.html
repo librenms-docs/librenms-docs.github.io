@@ -1021,12 +1021,16 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
 <p>Unbound configuration:</p>
 <pre><code class="text"># Enable extended statistics.
 server:
-        statistics-interval: 0
         extended-statistics: yes
         statistics-cumulative: yes
+
+remote-control:
+        control-enable: yes
+    control-interface: 127.0.0.1
+
 </code></pre>
 
-<p>Restart your unbound after changing the configuration,v erify it is working by running /usr/lib/check_mk_agent/local/unbound.sh</p>
+<p>Restart your unbound after changing the configuration, verify it is working by running /usr/lib/check_mk_agent/local/unbound.sh</p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
 <h5 id="snmp-extend_8">SNMP Extend</h5>
