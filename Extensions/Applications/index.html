@@ -743,6 +743,7 @@
 <li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
 <li><a href="#exim-stats">EXIM Stats</a> - SNMP extend</li>
 <li><a href="#munin">Munin</a> - Agent</li>
+<li><a href="#php-fpm">PHP-FPM</a> - SNMP extend</li>
 </ol>
 <h3 id="apache">Apache</h3>
 <p>Either use SNMP extend or use the agent.</p>
@@ -1183,7 +1184,22 @@ if [ &quot;$1&quot; = &quot;config&quot; ]; then
     exit 0
 fi
 echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-timestamp
-</code></pre></div>
+</code></pre>
+
+<h4 id="php-fpm">PHP-FPM</h4>
+<h5 id="snmp-extend_11">SNMP Extend</h5>
+<ol>
+<li>Copy the shell script, phpfpm-sp, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpm-sp -O /etc/snmp/phpfpm-sp)</li>
+<li>Make the script executable (chmod +x /etc/snmp/phpfpm-sp)</li>
+<li>Edit your snmpd.conf file (usually /etc/snmp/phpfpm-sp) and add:</li>
+</ol>
+<pre><code>extend phpfpmsp /etc/snmp/phpfpm-sp
+</code></pre>
+
+<p>5: Edit /etc/snmp/phpfpm-sp to include the status URL for the PHP-FPM pool you are monitoring.
+6. Restart snmpd on your host
+7. On the device page in Librenms, edit your host and check <code>PHP-FPM</code> under the Applications tab.</p>
+<p>It is worth noting that this only monitors a single pool. If you want to monitor multiple pools, this won't do it.</p></div>
                 
             
             </div>
