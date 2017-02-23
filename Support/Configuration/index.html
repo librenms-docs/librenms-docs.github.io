@@ -658,33 +658,53 @@
     
         <li class="main active"><a href="#directories">Directories</a></li>
         
-            <li><a href="#database-config">Database config</a></li>
+    
+        <li class="main "><a href="#database-config">Database config</a></li>
         
-            <li><a href="#programs">Programs</a></li>
+    
+        <li class="main "><a href="#programs">Programs</a></li>
         
-            <li><a href="#proxy-support">Proxy support</a></li>
+            <li><a href="#rrdtool">RRDTool</a></li>
         
-            <li><a href="#memcached">Memcached</a></li>
+            <li><a href="#fping">fping</a></li>
         
-            <li><a href="#rrdcached">RRDCached</a></li>
+            <li><a href="#snmp">SNMP</a></li>
         
-            <li><a href="#webui-settings">WebUI Settings</a></li>
+    
+        <li class="main "><a href="#proxy-support">Proxy support</a></li>
         
-            <li><a href="#add-host-settings">Add host settings</a></li>
+    
+        <li class="main "><a href="#memcached">Memcached</a></li>
         
-            <li><a href="#snmp-settings">SNMP Settings</a></li>
+    
+        <li class="main "><a href="#rrdcached">RRDCached</a></li>
         
-            <li><a href="#auto-discovery-settings">Auto discovery settings</a></li>
+    
+        <li class="main "><a href="#webui-settings">WebUI Settings</a></li>
         
-            <li><a href="#email-configuration">Email configuration</a></li>
+    
+        <li class="main "><a href="#add-host-settings">Add host settings</a></li>
         
-            <li><a href="#alerting">Alerting</a></li>
+    
+        <li class="main "><a href="#snmp-settings">SNMP Settings</a></li>
         
-            <li><a href="#billing">Billing</a></li>
+    
+        <li class="main "><a href="#auto-discovery-settings">Auto discovery settings</a></li>
         
-            <li><a href="#global-module-support">Global module support</a></li>
+    
+        <li class="main "><a href="#email-configuration">Email configuration</a></li>
         
-            <li><a href="#port-extensions">Port extensions</a></li>
+    
+        <li class="main "><a href="#alerting">Alerting</a></li>
+        
+    
+        <li class="main "><a href="#billing">Billing</a></li>
+        
+    
+        <li class="main "><a href="#global-module-support">Global module support</a></li>
+        
+    
+        <li class="main "><a href="#port-extensions">Port extensions</a></li>
         
     
         <li class="main "><a href="#external-integration">External integration</a></li>
@@ -697,33 +717,47 @@
         
             <li><a href="#nfsen">NFSen</a></li>
         
-            <li><a href="#location-mapping">Location mapping</a></li>
+    
+        <li class="main "><a href="#location-mapping">Location mapping</a></li>
         
-            <li><a href="#interfaces-to-be-ignored">Interfaces to be ignored</a></li>
+    
+        <li class="main "><a href="#interfaces-to-be-ignored">Interfaces to be ignored</a></li>
         
-            <li><a href="#interfaces-to-be-rewritten">Interfaces to be rewritten</a></li>
+    
+        <li class="main "><a href="#interfaces-to-be-rewritten">Interfaces to be rewritten</a></li>
         
-            <li><a href="#entity-sensors-to-be-ignored">Entity sensors to be ignored</a></li>
+    
+        <li class="main "><a href="#entity-sensors-to-be-ignored">Entity sensors to be ignored</a></li>
         
-            <li><a href="#storage-configuration">Storage configuration</a></li>
+    
+        <li class="main "><a href="#storage-configuration">Storage configuration</a></li>
         
-            <li><a href="#irc-bot">IRC Bot</a></li>
+    
+        <li class="main "><a href="#irc-bot">IRC Bot</a></li>
         
-            <li><a href="#authentication">Authentication</a></li>
+    
+        <li class="main "><a href="#authentication">Authentication</a></li>
         
-            <li><a href="#cleanup-options">Cleanup options</a></li>
+    
+        <li class="main "><a href="#cleanup-options">Cleanup options</a></li>
         
-            <li><a href="#syslog-options">Syslog options</a></li>
+    
+        <li class="main "><a href="#syslog-options">Syslog options</a></li>
         
-            <li><a href="#virtualization">Virtualization</a></li>
+    
+        <li class="main "><a href="#virtualization">Virtualization</a></li>
         
-            <li><a href="#bgp-support">BGP Support</a></li>
+    
+        <li class="main "><a href="#bgp-support">BGP Support</a></li>
         
-            <li><a href="#auto-updates">Auto updates</a></li>
+    
+        <li class="main "><a href="#auto-updates">Auto updates</a></li>
         
-            <li><a href="#ipmi">IPMI</a></li>
+    
+        <li class="main "><a href="#ipmi">IPMI</a></li>
         
-            <li><a href="#distributed-poller-settings">Distributed poller settings</a></li>
+    
+        <li class="main "><a href="#distributed-poller-settings">Distributed poller settings</a></li>
         
     
     </ul>
@@ -754,7 +788,7 @@
 </code></pre>
 
 <p>Log files created by LibreNMS will be stored within this directory.</p>
-<h4 id="database-config">Database config</h4>
+<h3 id="database-config">Database config</h3>
 <p>These are the configuration options you will need to use to specify to get started.</p>
 <pre><code class="php">$config['db_host'] = '127.0.0.1';
 $config['db_port'] = 3306;
@@ -763,12 +797,19 @@ $config['db_pass'] = '';
 $config['db_name'] = '';
 </code></pre>
 
-<h4 id="programs">Programs</h4>
+<h3 id="programs">Programs</h3>
 <p>A lot of these are self explanatory so no further information may be provided. Any extensions that have dedicated 
 documentation page will be linked to rather than having the config provided.</p>
+<h4 id="rrdtool">RRDTool</h4>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+<p>Settings -&gt; External Settings -&gt; RRDTool Setup</p>
+</blockquote>
 <pre><code class="php">$config['rrdtool'] = &quot;/usr/bin/rrdtool&quot;;
 </code></pre>
 
+<p>Please see <a href="../(1-Minute-Polling.md)">1 Minute polling</a> for information on configuring your install to record data more frequently.</p>
+<h4 id="fping">fping</h4>
 <pre><code class="php">$config['fping']            = &quot;/usr/bin/fping&quot;;
 $config['fping6']           = &quot;fping6&quot;;
 $config['fping_options']['retries'] = 3;
@@ -792,6 +833,7 @@ then it's possible that the poller would no longer complete in 5 minutes due to 
 </code></pre>
 
 <p>If you would like to do this on a per device basis then you can do so under Device -&gt; Edit -&gt; Misc -&gt; Disable ICMP Test? On</p>
+<h4 id="snmp">SNMP</h4>
 <pre><code class="php">$config['snmpwalk']         = &quot;/usr/bin/snmpwalk&quot;;
 $config['snmpget']          = &quot;/usr/bin/snmpget&quot;;
 $config['snmpbulkwalk']     = &quot;/usr/bin/snmpbulkwalk&quot;;
@@ -811,7 +853,7 @@ $config['neato']            = &quot;/usr/bin/neato&quot;;
 $config['sfdp']             = &quot;/usr/bin/sfdp&quot;;
 </code></pre>
 
-<h4 id="proxy-support">Proxy support</h4>
+<h3 id="proxy-support">Proxy support</h3>
 <p>For alerting and the callback functionality, we support the use of a http proxy setting. 
 These can be any one of the following:</p>
 <pre><code class="php">$config['callback_proxy'] = 'proxy.domain.com';
@@ -823,11 +865,11 @@ $config['http_proxy']     = 'proxy.domain.com';
 https_proxy=proxy.domain.com
 </code></pre>
 
-<h4 id="memcached">Memcached</h4>
+<h3 id="memcached">Memcached</h3>
 <p><a href="../../Extensions/Memcached/">Memcached</a></p>
-<h4 id="rrdcached">RRDCached</h4>
+<h3 id="rrdcached">RRDCached</h3>
 <p><a href="../../Extensions/RRDCached/">RRDCached</a></p>
-<h4 id="webui-settings">WebUI Settings</h4>
+<h3 id="webui-settings">WebUI Settings</h3>
 <pre><code class="php">$config['base_url'] = &quot;http://demo.librenms.org&quot;;
 </code></pre>
 
@@ -931,7 +973,7 @@ $config['int_l2tp']                = 0;  # Enable L2TP Port Types
 <pre><code class="php">$config['gui']['network-map']['style'] = 'old';
 </code></pre>
 
-<h4 id="add-host-settings">Add host settings</h4>
+<h3 id="add-host-settings">Add host settings</h3>
 <p>The following setting controls how hosts are added.  If a host is added as an ip address it is checked to ensure the ip is not already present.  If the ip is present the host is not added.
 If host is added by hostname this check is not performed.  If the setting is true hostnames are resolved and the check is also performed.  This helps prevents accidental duplicate hosts.</p>
 <pre><code class="php">$config['addhost_alwayscheckip']   = false; #true - check for duplicate ips even when adding host by name.
@@ -942,7 +984,7 @@ If host is added by hostname this check is not performed.  If the setting is tru
 <pre><code class="php">$config['allow_duplicate_sysName'] = false;
 </code></pre>
 
-<h4 id="snmp-settings">SNMP Settings</h4>
+<h3 id="snmp-settings">SNMP Settings</h3>
 <pre><code class="php">$config['snmp']['timeout'] = 1;            # timeout in seconds
 $config['snmp']['retries'] = 5;            # how many times to retry the query
 $config['snmp']['transports'] = array('udp', 'udp6', 'tcp', 'tcp6');
@@ -964,9 +1006,9 @@ $config['snmp']['v3'][0]['cryptoalgo'] = &quot;AES&quot;;          # AES | DES
 </code></pre>
 
 <p>The default v3 snmp details to use, you can expand this array with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
-<h4 id="auto-discovery-settings">Auto discovery settings</h4>
+<h3 id="auto-discovery-settings">Auto discovery settings</h3>
 <p><a href="../../Extensions/Auto-Discovery/">Auto-Discovery</a></p>
-<h4 id="email-configuration">Email configuration</h4>
+<h3 id="email-configuration">Email configuration</h3>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
 </blockquote>
@@ -985,11 +1027,11 @@ $config['email_smtp_password']        = NULL;
 
 <p>What type of mail transport to use for delivering emails. Valid options for <code>email_backend</code> are mail, sendmail or smtp.
 The varying options after that are to support the different transports.</p>
-<h4 id="alerting">Alerting</h4>
+<h3 id="alerting">Alerting</h3>
 <p><a href="../../Extensions/Alerting/">Alerting</a></p>
-<h4 id="billing">Billing</h4>
+<h3 id="billing">Billing</h3>
 <p><a href="../../Extensions/Billing-Module/">Billing</a></p>
-<h4 id="global-module-support">Global module support</h4>
+<h3 id="global-module-support">Global module support</h3>
 <pre><code class="php">$config['enable_bgp']                   = 1; # Enable BGP session collection and display
 $config['enable_syslog']                = 0; # Enable Syslog
 $config['enable_inventory']             = 1; # Enable Inventory
@@ -998,7 +1040,7 @@ $config['enable_vrfs']                  = 1; # Enable VRFs
 $config['enable_sla']                   = 0; # Enable Cisco SLA collection and display
 </code></pre>
 
-<h4 id="port-extensions">Port extensions</h4>
+<h3 id="port-extensions">Port extensions</h3>
 <p><a href="../../Extensions/Port-Description-Parser/">Port-Description-Parser</a></p>
 <pre><code class="php">$config['enable_ports_etherlike']       = 0;
 $config['enable_ports_junoseatmvp']     = 0;
@@ -1029,7 +1071,7 @@ Setting <code>rancid_ignorecomments</code> will disable showing lines that start
 <p><a href="../../Extensions/Smokeping/">Smokeping</a></p>
 <h4 id="nfsen">NFSen</h4>
 <p><a href="../../Extensions/NFSen/">NFSen</a></p>
-<h4 id="location-mapping">Location mapping</h4>
+<h3 id="location-mapping">Location mapping</h3>
 <p>Exact Matching:</p>
 <pre><code class="php">$config['location_map']['Under the Sink'] = &quot;Under The Sink, The Office, London, UK&quot;;
 </code></pre>
@@ -1039,7 +1081,7 @@ Setting <code>rancid_ignorecomments</code> will disable showing lines that start
 </code></pre>
 
 <p>The above are examples, these will rewrite device snmp locations so you don't need to configure full location within snmp.</p>
-<h4 id="interfaces-to-be-ignored">Interfaces to be ignored</h4>
+<h3 id="interfaces-to-be-ignored">Interfaces to be ignored</h3>
 <p>Examples:</p>
 <pre><code class="php">$config['bad_if'][] = &quot;voip-null&quot;;
 $config['bad_iftype'][] = &quot;voiceEncap&quot;;
@@ -1053,7 +1095,7 @@ by continuing the array.</p>
 <p><code>bad_if_regexp</code> is matched against the ifDescr value as a regular expression.</p>
 <p><code>bad_ifname_regexp</code> is matched against the ifName value as a regular expression.</p>
 <p><code>bad_ifalias_regexp</code> is matched against the ifAlias value as a regular expression.</p>
-<h4 id="interfaces-to-be-rewritten">Interfaces to be rewritten</h4>
+<h3 id="interfaces-to-be-rewritten">Interfaces to be rewritten</h3>
 <pre><code class="php">$config['rewrite_if']['cpu'] = 'Management Interface';
 $config['rewrite_if_regexp']['/cpu /'] = 'Management ';
 </code></pre>
@@ -1061,7 +1103,7 @@ $config['rewrite_if_regexp']['/cpu /'] = 'Management ';
 <p>Entries defined in <code>rewrite_if</code> are being replaced completely.
 Entries defined in <code>rewrite_if_regexp</code> only replace the match.
 Matches are compared case-insensitive.</p>
-<h4 id="entity-sensors-to-be-ignored">Entity sensors to be ignored</h4>
+<h3 id="entity-sensors-to-be-ignored">Entity sensors to be ignored</h3>
 <p>Some devices register bogus sensors as they are returned via SNMP but either don't exist or just don't return data.
 This allows you to ignore those based on the descr field in the database. You can either ignore globally or on a per 
 os basis.</p>
@@ -1069,7 +1111,7 @@ os basis.</p>
 $config['os']['cisco']['bad_entity_sensor_regex'] = '/Physical id [0-9]+/';
 </code></pre>
 
-<h4 id="storage-configuration">Storage configuration</h4>
+<h3 id="storage-configuration">Storage configuration</h3>
 <pre><code class="php">$config['ignore_mount_removable']  = 1;
 $config['ignore_mount_network']    = 1;
 $config['ignore_mount_optical']    = 1;
@@ -1098,11 +1140,11 @@ $config['ignore_mount_regexp'][] = &quot;/UMA/&quot;;
 </code></pre>
 
 <p>Mounted storage / mount points to ignore in discovery and polling.</p>
-<h4 id="irc-bot">IRC Bot</h4>
+<h3 id="irc-bot">IRC Bot</h3>
 <p><a href="../../Extensions/IRC-Bot/">IRC Bot</a></p>
-<h4 id="authentication">Authentication</h4>
+<h3 id="authentication">Authentication</h3>
 <p><a href="../../Extensions/Authentication/">Authentication</a></p>
-<h4 id="cleanup-options">Cleanup options</h4>
+<h3 id="cleanup-options">Cleanup options</h3>
 <p>These options rely on daily.sh running from cron as per the installation instructions.</p>
 <pre><code class="php">$config['syslog_purge']                                   = 30;
 $config['eventlog_purge']                                 = 30;
@@ -1118,9 +1160,9 @@ values are in days.</p>
 <p>NOTE: Please be aware that <code>$config['rrd_purge']</code> is <em>NOT</em> set by default. This option will remove any old data within 
 the rrd directory automatically - only enable this if you are comfortable with that happening.</p>
 </blockquote>
-<h4 id="syslog-options">Syslog options</h4>
+<h3 id="syslog-options">Syslog options</h3>
 <p><a href="../../Extensions/Syslog/">Syslog</a></p>
-<h4 id="virtualization">Virtualization</h4>
+<h3 id="virtualization">Virtualization</h3>
 <pre><code class="php">$config['enable_libvirt'] = 1;
 $config['libvirt_protocols']    = array(&quot;qemu+ssh&quot;,&quot;xen+ssh&quot;);
 $config['libvirt_username'] = 'root';
@@ -1140,14 +1182,14 @@ to indicate how you connect to libvirt.  You also need to:</p>
 </ol>
 <p>To test your setup, run <code>virsh -c qemu+ssh://vmhost/system list</code> or
 <code>virsh -c xen+ssh://vmhost list</code> as your librenms polling user.</p>
-<h4 id="bgp-support">BGP Support</h4>
-<pre><code class="php">$config['astext'][65332] = &quot;Cymru FullBogon Feed&quot;;
+<h3 id="bgp-support">BGP Support</h3>
+<pre><code class="php">$config['astext']['65332'] = &quot;Cymru FullBogon Feed&quot;;
 </code></pre>
 
 <p>You can use this array to rewrite the description of ASes that you have discovered.</p>
-<h4 id="auto-updates">Auto updates</h4>
+<h3 id="auto-updates">Auto updates</h3>
 <p><a href="../../General/Updating/">Updating</a></p>
-<h4 id="ipmi">IPMI</h4>
+<h3 id="ipmi">IPMI</h3>
 <p>Setup the types of IPMI protocols to test a host for and it what order.</p>
 <pre><code class="php">$config['ipmi']['type'] = array();
 $config['ipmi']['type'][] = &quot;lanplus&quot;;
@@ -1156,7 +1198,7 @@ $config['ipmi']['type'][] = &quot;imb&quot;;
 $config['ipmi']['type'][] = &quot;open&quot;;
 </code></pre>
 
-<h4 id="distributed-poller-settings">Distributed poller settings</h4>
+<h3 id="distributed-poller-settings">Distributed poller settings</h3>
 <p><a href="../../Extensions/Distributed-Poller/">Distributed Poller</a></p></div>
                 
             
