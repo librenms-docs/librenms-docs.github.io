@@ -420,6 +420,12 @@
     
         
     <url>
+     <loc>http://docs.librenms.org/Support/1-Minute-Polling/</loc>
+     <lastmod>2017-02-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Support/Configuration/</loc>
      <lastmod>2017-02-24</lastmod>
      <changefreq>daily</changefreq>
