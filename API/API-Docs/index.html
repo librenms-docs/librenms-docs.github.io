@@ -1729,7 +1729,9 @@ Strongly recommend that you use the <code>columns</code> parameter to avoid pull
 <li>name Is the name of the device group which can be obtained using <a href="#api-route-get_devicegroups"><code>get_devicegroups</code></a>. Please ensure that the name is urlencoded if it needs to be (i.e Linux Servers would need to be urlencoded.</li>
 </ul>
 <p>Input (JSON):</p>
-<p>-full: set to true to return all columns for the devices in a group</p>
+<ul>
+<li>full: set to any value to return all data for the devices in a given group</li>
+</ul>
 <p>Examples:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups/LinuxServers
 </code></pre>
