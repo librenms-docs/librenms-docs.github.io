@@ -774,7 +774,7 @@ mysql -uroot -p
 
 <p>Enter the MySQL/MariaDB root password to enter the command-line interface.</p>
 <p>Create database.</p>
-<pre><code class="sql">CREATE DATABASE librenms;
+<pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 GRANT ALL PRIVILEGES ON librenms.*
   TO 'librenms'@'&lt;ip&gt;'
   IDENTIFIED BY '&lt;password&gt;'

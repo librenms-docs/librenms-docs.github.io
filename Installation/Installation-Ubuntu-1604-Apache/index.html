@@ -720,7 +720,7 @@ systemctl restart mysql
 mysql -uroot -p
 </code></pre>
 
-<pre><code class="sql">CREATE DATABASE librenms;
+<pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 GRANT ALL PRIVILEGES ON librenms.*
   TO 'librenms'@'localhost'
   IDENTIFIED BY '&lt;password&gt;'
