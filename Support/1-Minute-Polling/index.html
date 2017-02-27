@@ -683,7 +683,7 @@
 <li>You must also change your cron entry for <code>poller-wrapper.py</code> for this to work (if you change from the default 300 seconds).</li>
 <li>Your polling <em>MUST</em> complete in the time you configure for the heartbeat step value. See <code>/pollers/tab=pollers/</code> in your WebUI for your current value.</li>
 <li>This will only affect RRD files created from the moment you change your settings.</li>
-<li>This change will affect all data storage mechanisms such as MySQL, RRD and InfluxDB. If you decreate the values then please be aware of the increase in space use for MySQL and InfluxDB.</li>
+<li>This change will affect all data storage mechanisms such as MySQL, RRD and InfluxDB. If you decrease the values then please be aware of the increase in space use for MySQL and InfluxDB.</li>
 </ul>
 <p>To make the changes, please navigate to <code>/settings/sub=external/</code> within your WebUI. Select RRDTool Setup and then update the two values for step and heartbeat intervals:</p>
 <ul>
