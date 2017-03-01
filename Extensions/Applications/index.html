@@ -751,6 +751,7 @@
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#php-fpm">PHP-FPM</a> - SNMP extend</li>
 <li><a href="#fail2ban">Fail2ban</a> - SNMP extend</li>
+<li><a href="#postfix">Postfix</a> - SNMP extend</li>
 </ol>
 <h3 id="apache">Apache</h3>
 <p>Either use SNMP extend or use the agent.</p>
@@ -1224,7 +1225,22 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 <p>7: Restart or reload cron on your system.</p>
 <p>8: On the device page in Librenms, edit your host and check <code>Fail2ban</code> under the Applications tab.</p>
 <p>In regards to the totals graphed there are two variables banned and firewalled. Firewalled is a count of banned entries the firewall for fail2ban and banned is the currently banned total from fail2ban-client. Both are graphed as the total will diverge with some configurations when fail2ban fails to see if a IP is in more than one jail when unbanning it. This is most likely to happen when the recidive is in use.</p>
-<p>If you have more than a few jails configured, you may need to use caching as each jail needs to be polled and fail2ban-client can't do so in a timely manner for than a few. This can result in failure of other SNMP information being polled.</p></div>
+<p>If you have more than a few jails configured, you may need to use caching as each jail needs to be polled and fail2ban-client can't do so in a timely manner for than a few. This can result in failure of other SNMP information being polled.</p>
+<h4 id="postfix">Postfix</h4>
+<h5 id="snmp-extend_13">SNMP Extend</h5>
+<p>1: Copy the shell script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfix-queues -O /etc/snmp/postfix-queues)</p>
+<p>1: Copy the Perl script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed)</p>
+<p>2: Make the scripts executable (chmod +x /etc/snmp/postfixdetailed /etc/snmp/postfix-queues)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend mailq /etc/snmp/postfix-queues
+extend postfixdetailed /etc/snmp/postfixdetailed
+</code></pre>
+
+<p>4: Restart snmpd.</p>
+<p>5: Install pflogsumm for your OS.</p>
+<p>6: Make sure the cache file in /etc/snmp/postfixdetailed is some place that snmpd can write too. This file is used for tracking changes between various values between each time it is called by snmpd. Also make sure the path for pflogsumm is correct.</p>
+<p>7: On the device page in Librenms, edit your host and check <code>Postfix</code> under the Applications tab. Before doing this, run /etc/snmp/postfixdetailed to create the initial cache file so you don't end up with some crazy initial starting value.</p>
+<p>Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is updated, so if this happens in between LibreNMS doing it then the values will be thrown off for that polling period.</p></div>
                 
             
             </div>
