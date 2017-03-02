@@ -687,8 +687,9 @@
 <h4 id="configuration">Configuration</h4>
 <p>The following is the configuration that can be used:</p>
 <pre><code class="php">$config['nfsen_enable'] = 1;
-$config['nfsen_split_char']   = &quot;_&quot;;
-$config['nfsen_rrds']   = &quot;/var/nfsen/profiles-stat/live/&quot;;
+$config['nfsen_split_char']   = '_';
+$config['nfsen_rrds'][]   = '/var/nfsen/profiles-stat/live/';
+$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat';
 $config['nfsen_suffix']   = &quot;_yourdomain_com&quot;;
 </code></pre>
 
@@ -699,9 +700,19 @@ specify more directories like:</p>
 $config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/siteb/';
 </code></pre>
 
+<p>Although for most setups, it will look like below, with the profiles-stat/live directory being where it stores the general RRDs for data sources.</p>
+<pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/live';
+</code></pre>
+
 <p><code>$config['nfsen_split_char']</code> This value tells us what to replace the full stops <code>.</code> in the devices hostname with.</p>
 <p><code>$config['nfsen_suffix']</code> This value will be removed from the domain name and can be useful if your rrd files are 
 something like <code>host1.rrd</code> but your device hostname is <code>domain.host1.rrd</code>. You can then set $config['nfsen_suffix'] = 'domain';</p>
+<p>If you wish to render info for configure channels for a device, you need add the various profile-stat directories your system uses, which for most systems will be as below.</p>
+<pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat';
+</code></pre>
+
+<p>When adding sources to nfsen.conf, it is important to use the hostname that matches what is configured in LibreNMS. </p>
+<p>When creating profiles under nfsen, be sure to use the hostname so it matches the name in LibreNMS. That is where channel data will be pulled from.</p>
 <p>You should a new tab for the device called Nfsen.</p></div>
                 
             
