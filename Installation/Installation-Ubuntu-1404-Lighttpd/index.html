@@ -803,7 +803,7 @@ chmod 775 rrd
 <p>Next, add the following to <code>/etc/lighttpd/librenms.conf</code></p>
 <pre><code> server.document-root = "/opt/librenms/html"
  url.rewrite-once = (
-   "^/(.*)\.(png|css|jpg|gif|php)$" =&gt; "/$0",
+   "^/(.*)\.(gif|jpg|jpeg|tiff|svg|png|css|php)$" =&gt; "/$0",
    "^/([a-z|0-9\-]+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/" =&gt; "/?page=$1&amp;$2&amp;$3&amp;$4&amp;$5&amp;$6&amp;$7&amp;$8&amp;$9&amp;$10",
    "^/([a-z|0-9\-]+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/" =&gt; "/?page=$1&amp;$2&amp;$3&amp;$4&amp;$5&amp;$6&amp;$7&amp;$8&amp;$9",
    "^/([a-z|0-9\-]+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/" =&gt; "/?page=$1&amp;$2&amp;$3&amp;$4&amp;$5&amp;$6&amp;$7&amp;$8",
