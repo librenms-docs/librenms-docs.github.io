@@ -751,6 +751,7 @@
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#php-fpm">PHP-FPM</a> - SNMP extend</li>
 <li><a href="#fail2ban">Fail2ban</a> - SNMP extend</li>
+<li><a href="#squid">Squid</a> - SNMP proxy</li>
 <li><a href="#freebsd-nfs-server">FreeBSD NFS Server</a> - SNMP extend</li>
 <li><a href="#freebsd-nfs-client">FreeBSD NFS Client</a> - SNMP extend</li>
 <li><a href="#postgres">Postgres</a> - SNMP extend</li>
@@ -1229,6 +1230,24 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 <p>8: On the device page in Librenms, edit your host and check <code>Fail2ban</code> under the Applications tab.</p>
 <p>In regards to the totals graphed there are two variables banned and firewalled. Firewalled is a count of banned entries the firewall for fail2ban and banned is the currently banned total from fail2ban-client. Both are graphed as the total will diverge with some configurations when fail2ban fails to see if a IP is in more than one jail when unbanning it. This is most likely to happen when the recidive is in use.</p>
 <p>If you have more than a few jails configured, you may need to use caching as each jail needs to be polled and fail2ban-client can't do so in a timely manner for than a few. This can result in failure of other SNMP information being polled.</p>
+<h4 id="squid">Squid</h4>
+<h5 id="snmp-proxy">SNMP Proxy</h5>
+<p>1: Enable SNMP for Squid like below, if you have not already, and restart it.</p>
+<pre><code>acl snmppublic snmp_community public
+snmp_port 3401
+snmp_access allow snmppublic localhost
+snmp_access deny all
+</code></pre>
+
+<p>2: Restart squid on your host.</p>
+<p>3: Edit your snmpd.conf file and add, making sure you have the same community, host, and port as above:</p>
+<pre><code>proxy -v 2c -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
+</code></pre>
+
+<p>4: On the device page in Librenms, edit your host and check <code>Squid</code> under the Applications tab.</p>
+<p>For more advanced information on Squid and SNMP or setting up proxying for net-snmp, please see the links below.</p>
+<p>http://wiki.squid-cache.org/Features/Snmp
+http://www.net-snmp.org/wiki/index.php/Snmpd_proxy</p>
 <h4 id="postgres">Postgres</h4>
 <h5 id="snmp-extend_13">SNMP Extend</h5>
 <p>1: Copy the shell script, postgres, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postgres -O /etc/snmp/postgres)</p>
