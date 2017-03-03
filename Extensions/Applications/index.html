@@ -751,6 +751,8 @@
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#php-fpm">PHP-FPM</a> - SNMP extend</li>
 <li><a href="#fail2ban">Fail2ban</a> - SNMP extend</li>
+<li><a href="#freebsd-nfs-server">FreeBSD NFS Server</a> - SNMP extend</li>
+<li><a href="#freebsd-nfs-client">FreeBSD NFS Client</a> - SNMP extend</li>
 <li><a href="#postgres">Postgres</a> - SNMP extend</li>
 <li><a href="#postfix">Postfix</a> - SNMP extend</li>
 </ol>
@@ -1240,8 +1242,28 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 <p>6: Verify the path to check_postgres.pl in /etc/snmp/postgres is correct.</p>
 <p>7: If you wish it to ignore the database postgres for totalling up the stats, set ignorePG to 1(the default) in /etc/snmp/postgres. If you are using netdata or the like, you may wish to set this or otherwise that total will be very skewed on systems with light or moderate usage.</p>
 <p>8: On the device page in Librenms, edit your host and check <code>Postgres</code> under the Applications tab.</p>
-<h4 id="postfix">Postfix</h4>
+<h4 id="freebsd-nfs-client">FreeBSD NFS Client</h4>
 <h5 id="snmp-extend_14">SNMP Extend</h5>
+<p>1: Copy the shell script, fbsdnfsserver, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsclient -O /etc/snmp/fbsdnfsclient)</p>
+<p>2: Make the script executable (chmod +x /etc/snmp/fbsdnfsclient)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend fbsdnfsclient /etc/snmp/fbsdnfsclient
+</code></pre>
+
+<p>4: Restart snmpd on your host</p>
+<p>5: On the device page in Librenms, edit your host and check <code>FreeBSD NFS Client</code> under the Applications tab.</p>
+<h4 id="freebsd-nfs-server">FreeBSD NFS Server</h4>
+<h5 id="snmp-extend_15">SNMP Extend</h5>
+<p>1: Copy the shell script, fbsdnfsserver, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsserver -O /etc/snmp/fbsdnfsserver)</p>
+<p>2: Make the script executable (chmod +x /etc/snmp/fbsdnfsserver)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend fbsdnfsserver /etc/snmp/fbsdnfsserver
+</code></pre>
+
+<p>4: Restart snmpd on your host</p>
+<p>5: On the device page in Librenms, edit your host and check <code>FreeBSD NFS Server</code> under the Applications tab.</p>
+<h4 id="postfix">Postfix</h4>
+<h5 id="snmp-extend_16">SNMP Extend</h5>
 <p>1: Copy the shell script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfix-queues -O /etc/snmp/postfix-queues)</p>
 <p>1: Copy the Perl script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed)</p>
 <p>2: Make the scripts executable (chmod +x /etc/snmp/postfixdetailed /etc/snmp/postfix-queues)</p>
