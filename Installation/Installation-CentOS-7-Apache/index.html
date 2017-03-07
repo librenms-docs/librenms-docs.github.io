@@ -739,7 +739,10 @@ exit
 sql-mode=&quot;&quot;
 </code></pre>
 
-<p><code>systemctl restart mariadb</code></p>
+<pre><code>systemctl enable mariadb  
+systemctl restart mariadb
+</code></pre>
+
 <h3 id="web-server">Web Server</h3>
 <h4 id="install-configure-apache">Install / Configure Apache</h4>
 <pre><code class="bash">yum install epel-release
