@@ -532,6 +532,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Agent-Setup/</loc>
+     <lastmod>2017-03-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/RRDCached-Security/</loc>
      <lastmod>2017-03-09</lastmod>
      <changefreq>daily</changefreq>
