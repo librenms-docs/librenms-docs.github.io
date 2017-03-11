@@ -668,6 +668,12 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#information">Information</a></li>
+        
+    
+        <li class="main "><a href="#converting-existing-rrd-files">Converting existing RRD files</a></li>
+        
+    
     </ul>
 </div>
 </div>
@@ -681,6 +687,7 @@
 </div>
 
 
+<h3 id="information">Information</h3>
 <p>We now have support for polling data at intervals to fit your needs.</p>
 <blockquote>
 <p>Please be aware of the following:</p>
@@ -695,7 +702,17 @@
 <ul>
 <li>Step is how often you want to insert data, so if you change to 1 minute polling then this should be 60.</li>
 <li>Heartbeat is how long to wait for data before registering a null value, i.e 120 seconds.</li>
-</ul></div>
+</ul>
+<h3 id="converting-existing-rrd-files">Converting existing RRD files</h3>
+<p>We provide a basic script to convert the default rrd files we generate to utilise your configured step and heartbeat 
+values. Please do ensure that you backup your RRD files before running this just in case. The script runs on a per 
+device basis or all devices at once.</p>
+<blockquote>
+<p>The rrd files must be accessible from the server you run this script from.</p>
+</blockquote>
+<p><code>./scripts/rrdstep.php</code></p>
+<p>This will provide the help information. To run it for localhost just run:</p>
+<p><code>./scripts/rrdstep.php -h localhost</code></p></div>
                 
             
             </div>
