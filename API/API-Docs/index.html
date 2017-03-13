@@ -764,6 +764,7 @@
 </ul>
 </li>
 <li><a href="#api-portgroups"><code>portgroups</code></a><ul>
+<li><a href="#api-route-get_graph_by_portgroup_multiport_bits"><code>get_graph_by_portgroup_multiport_bits</code></a></li>
 <li><a href="#api-route-get_graph_by_portgroup"><code>get_graph_by_portgroup</code></a></li>
 </ul>
 </li>
@@ -1783,13 +1784,34 @@ Strongly recommend that you use the <code>columns</code> parameter to avoid pull
 
 <p>Output:</p>
 <p>Output is an image.</p>
+<h3 id="function-get_graph_by_portgroup_multiport_bits-top"><a name="api-route-get_graph_by_portgroup_multiport_bits">Function: <code>get_graph_by_portgroup_multiport_bits</code></a> <a href="#top"><code>top</code></a></h3>
+<p>Get the graph based on the multiple port id separated by commas <code>,</code>.</p>
+<p>Route: /api/v0/devices/portgroups/multiport/bits/:id</p>
+<ul>
+<li>id is a comma separated list of port ids you want, I.e 1,2,3,4, etc. You can specify multiple IDs comma separated.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>width: The graph width, defaults to 1075.</li>
+<li>height: The graph height, defaults to 300.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/portgroups/multiport/bits/1,2,3
+</code></pre>
+
+<p>Output:</p>
+<p>Output is an image.</p>
 <h2 id="routing-top"><a name="api-routing"><code>Routing</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-list_bgp-top"><a name="api-route-1">Function: <code>list_bgp</code></a> <a href="#top"><code>top</code></a></h3>
 <p>List the current BGP sessions.</p>
 <p>Route: /api/v0/bgp</p>
 <p>Input:</p>
 <ul>
-<li>hostname = either the devices hostname or id.</li>
+<li>hostname = Either the devices hostname or id.
+<strong>OR</strong></li>
+<li>asn = The ASN you would like to filter by</li>
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
