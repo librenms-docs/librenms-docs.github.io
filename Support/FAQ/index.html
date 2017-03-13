@@ -933,14 +933,18 @@ To expose these disks you need to add additional config to your snmpd.conf file.
 <p>Please see <a href="../../Developing/Support-New-OS/">Supporting a new OS</a></p>
 <h4 id="what-information-do-you-need-to-add-a-new-os"><a name="faq20"> What information do you need to add a new OS?</a></h4>
 <p>Under the device, click the gear and select Capture. 
-Please provide the output of Discovery, Poller, and Snmpwalk as separate non-expiring pastebin.com links.</p>
+Please provide the output of Discovery, Poller, and Snmpwalk as separate non-expiring https://p.libren.ms/ links.</p>
 <p>You can also use the command line to obtain the information.  Especially, if snmpwalk results in a large amount of data.
 Replace the relevant information in these commands such as HOSTNAME and COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1 devices.</p>
-<pre><code class="bash">./discovery.php -h HOSTNAME -d
-./poller.php -h HOSTNAME -r -f -d
-snmpbulkwalk -OUneb -v2c -c COMMUNITY HOSTNAME .
+<blockquote>
+<p>These commands will automatically upload the data to LibreNMS servers.</p>
+</blockquote>
+<pre><code class="bash">./discovery.php -h HOSTNAME -d | ./pbin.sh
+./poller.php -h HOSTNAME -r -f -d | ./pbin.sh
+snmpbulkwalk -OUneb -v2c -c COMMUNITY HOSTNAME .  | ./pbin.sh
 </code></pre>
 
+<p>You can use the links provided by these commands within the issue.</p>
 <p>If possible please also provide what the OS name should be if it doesn't exist already.</p>
 <h4 id="what-can-i-do-to-help"><a name="faq9"> What can I do to help?</a></h4>
 <p>Thanks for asking, sometimes it's not quite so obvious and everyone can contribute something different. So here are some ways you can help LibreNMS improve.</p>
