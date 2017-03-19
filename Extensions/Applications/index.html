@@ -1222,8 +1222,6 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install (Gentoo) it doesn't rehook the logging and I'm forced to restart it entirely.</li>
 </ol>
 <h3 id="unbound">Unbound</h3>
-<h5 id="agent_10">Agent</h5>
-<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Unbound configuration:</p>
 <pre><code class="text"># Enable extended statistics.
 server:
@@ -1236,10 +1234,21 @@ remote-control:
 
 </code></pre>
 
-<p>Restart your unbound after changing the configuration, verify it is working by running /usr/lib/check_mk_agent/local/unbound.sh</p>
+<p>Restart your unbound after changing the configuration, verify it is working by running 'unbound-control stats'.</p>
+<h5 id="agent_10">Agent</h5>
+<p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
+<h5 id="snmp-extend_17">SNMP Extend</h5>
+<p>1: Copy the shell script, unbound, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound)</p>
+<p>2: Make the scripts executable (chmod +x /etc/snmp/unbound)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend unbound /etc/snmp/unbound
+</code></pre>
+
+<p>4: Restart snmpd.</p>
+<p>5: On the device page in Librenms, edit your host and check <code>Unbound</code> under the Applications tab.</p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
-<h5 id="snmp-extend_17">SNMP Extend</h5>
+<h5 id="snmp-extend_18">SNMP Extend</h5>
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</li>
 <li>Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</li>
@@ -1254,7 +1263,7 @@ remote-control:
 </ol>
 <h3 id="ups-apcups">UPS-apcups</h3>
 <p>A small shell script that exports apcacess ups status.</p>
-<h5 id="snmp-extend_18">SNMP Extend</h5>
+<h5 id="snmp-extend_19">SNMP Extend</h5>
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</li>
 <li>Make the script executable (chmod +x /etc/snmp/ups-apcups.sh)</li>
