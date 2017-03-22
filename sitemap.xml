@@ -254,6 +254,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/PeeringDB/</loc>
+     <lastmod>2017-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Plugin-System/</loc>
      <lastmod>2017-03-22</lastmod>
      <changefreq>daily</changefreq>
