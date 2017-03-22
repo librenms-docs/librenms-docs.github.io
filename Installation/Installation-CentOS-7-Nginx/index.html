@@ -778,6 +778,7 @@ listen.mode = 0660
 <h4 id="add-librenms-user">Add librenms user</h4>
 <pre><code class="bash">useradd librenms -d /opt/librenms -M -r
 usermod -a -G librenms nginx
+usermod -a -G librenms apache
 </code></pre>
 
 <h4 id="clone-repo">Clone repo</h4>
