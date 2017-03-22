@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Extensions/SNMP-Proxy/">
+        <link rel="canonical" href="http://docs.librenms.org/Extensions/Graphite/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	    <title>SNMP Proxy - LibreNMS Docs</title>
+	    <title>Graphite - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -274,8 +274,8 @@
 
                         
                             
-<li >
-    <a href="../Graphite/">Graphite</a>
+<li class="active">
+    <a href="./">Graphite</a>
 </li>
 
                         
@@ -376,8 +376,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">SNMP Proxy</a>
+<li >
+    <a href="../SNMP-Proxy/">SNMP Proxy</a>
 </li>
 
                         
@@ -680,9 +680,13 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#snmp-proxy">SNMP Proxy</a></li>
+        <li class="main active"><a href="#enabling-support-for-graphite">Enabling support for Graphite.</a></li>
         
-            <li><a href="#example-configuration">Example configuration</a></li>
+            <li><a href="#what-you-dont-get">What you don't get</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#graphite-configuration">Graphite Configuration</a></li>
         
     
     </ul>
@@ -692,33 +696,36 @@
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
-    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/SNMP-Proxy.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Graphite.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
   </div>
 </div>
 
 
-<h1 id="snmp-proxy">SNMP Proxy</h1>
-<p>If you have machines that you want to monitor but are not reachable directly, you can use <a href="http://www.net-snmp.org/wiki/index.php/Snmpd_proxy">SNMPD Proxy</a>. This will use the reachable SNMPD to proxy requests to the unreachable SNMPD.</p>
-<h2 id="example-configuration">Example configuration</h2>
-<p>We want to poll <code>unreachable.example.com</code> via <code>hereweare.example.com</code>. Use the following config:</p>
-<p>On <code>hereweare.example.com</code>:</p>
-<pre><code>        view all included .1
-        com2sec -Cn ctx_unreachable readonly &lt;poller-ip&gt; unreachable
-        access MyROGroup ctx_unreachable any noauth prefix all none none
-        proxy -Cn ctx_unreachable -v 2c -c private unreachable.example.com  .1.3
+<h1 id="enabling-support-for-graphite">Enabling support for Graphite.</h1>
+<p>This module sends all metrics to a remote graphite service. You need something like Grafana for graphing.</p>
+<h3 id="what-you-dont-get">What you don't get</h3>
+<ul>
+<li>Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.</li>
+</ul>
+<p>RRD will continue to function as normal so LibreNMS itself should continue to function as normal.</p>
+<h3 id="configuration">Configuration</h3>
+<pre><code class="php">$config['graphite']['enable'] = true;
+$config['graphite']['host'] = 'your.graphite.server';
+$config['graphite']['port'] = 2003; // this defaults to 2003 and is usually not needed
+$config['graphite']['prefix'] = 'your.metric.prefix';
 </code></pre>
 
-<p>On <code>unreachable.example.com</code>:</p>
-<pre><code>        view all included .1                               80
-        com2sec readonly &lt;hereweare.example.com ip address&gt; private
-        group MyROGroup v1 readonly
-        group MyROGroup v2c readonly
-        group MyROGroup usm readonly
-        access MyROGroup &quot;&quot; any noauth exact all none none
-</code></pre>
-
-<p>You can now poll community <code>private</code> on <code>unreachable.example.com</code> via community <code>unreachable</code> on host <code>hereweare.example.com</code>. Please note that requests on <code>unreachable.example.com</code> will be coming from <code>hereweare.example.com</code>, not your poller.</p></div>
+<p>Your metric path can be prefixed if required, otherwise the metric path for Graphite will be in the form of
+<code>hostname.measurement.fieldname</code>, interfaces will be stored as <code>hostname.ports.ifName.fieldname</code>.</p>
+<p>The same data then stored within rrd will be sent to Graphite and recorded. You can then create graphs within Grafana
+to display the information you need.</p>
+<h3 id="graphite-configuration">Graphite Configuration</h3>
+<p>As LibreNMS updates its metrics every 5 minutes, the following addition to your storage-schemas.conf is suggested.</p>
+<pre><code>[network]
+pattern = your\.metric\.prefix\..*
+retentions = 5m:30d,15m:90d,1h:1y
+</code></pre></div>
                 
             
             </div>

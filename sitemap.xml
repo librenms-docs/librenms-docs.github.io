@@ -200,6 +200,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Graphite/</loc>
+     <lastmod>2017-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/IRC-Bot/</loc>
      <lastmod>2017-03-22</lastmod>
      <changefreq>daily</changefreq>
