@@ -724,6 +724,8 @@
         
             <li><a href="#raspberry-pi">Raspberry PI</a></li>
         
+            <li><a href="#smart">SMART</a></li>
+        
             <li><a href="#squid">Squid</a></li>
         
             <li><a href="#tinydns-aka-djbdns">TinyDNS aka  djbdns</a></li>
@@ -776,6 +778,7 @@
 <li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Direct, Agent</li>
 <li><a href="#proxmox">Proxmox</a> - SNMP extend</li>
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
+<li><a href="#smart">SMART</a> - SNMP extend</li>
 <li><a href="#squid">Squid</a> - SNMP proxy</li>
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
 <li><a href="#unbound">Unbound</a> - Agent</li>
@@ -1186,6 +1189,36 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <ol>
 <li>Restart snmpd on PI host</li>
 </ol>
+<h3 id="smart">SMART</h3>
+<h4 id="snmp-extend_17">SNMP Extend</h4>
+<p>1: Copy the Perl script, smart, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O /etc/snmp/smart)</p>
+<p>2: Make the script executable (chmod +x /etc/snmp/smart)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend smart /etc/snmp/smart
+</code></pre>
+
+<p>4: You will also need to create the config file, which defaults to the same path as the script, but with .config appended. So if the script is located at /etc/snmp/smart, the config file will be /etc/snmp/smart.config. Alternatively you can also specific a config via -c.</p>
+<p>Anything starting with a # is comment. The format for variables is $variable=$value. Empty lines are ignored. Spaces and tabes at either the start or end of a line are ignored. Any line with out a = or # are treated as a disk.</p>
+<pre><code>#This is a comment
+cache=/var/cache/smart
+smartctl=/usr/bin/env smartctl
+ada0
+ada1
+</code></pre>
+
+<p>The variables are as below.</p>
+<pre><code>cache = The path to the cache file to use. Default: /var/cache/smart
+smartctl = The path to use for smartctl. Default: /usr/bin/env smartctl
+</code></pre>
+
+<p>If you want to guess at the configuration, call it with -g and it will print out what it thinks
+it should be. This will result in a usable config, but may miss some less common disk devices.</p>
+<p>5: Restart snmpd on your host</p>
+<p>6: On the device page in Librenms, edit your host and check <code>SMART</code> under the Applications tab.</p>
+<p>If you have a large number of more than one or two disks on a system, you should consider adding this to cron. Also make sure the cache file is some place it can be written to.</p>
+<pre><code> */3 * * * * /etc/snmp/smart -u
+</code></pre>
+
 <h3 id="squid">Squid</h3>
 <h4 id="snmp-proxy">SNMP Proxy</h4>
 <p>1: Enable SNMP for Squid like below, if you have not already, and restart it.</p>
@@ -1243,7 +1276,7 @@ remote-control:
 <p>Restart your unbound after changing the configuration, verify it is working by running 'unbound-control stats'.</p>
 <h5 id="agent_10">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<h5 id="snmp-extend_17">SNMP Extend</h5>
+<h5 id="snmp-extend_18">SNMP Extend</h5>
 <p>1: Copy the shell script, unbound, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound)</p>
 <p>2: Make the scripts executable (chmod +x /etc/snmp/unbound)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -1254,7 +1287,7 @@ remote-control:
 <p>5: On the device page in Librenms, edit your host and check <code>Unbound</code> under the Applications tab.</p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
-<h5 id="snmp-extend_18">SNMP Extend</h5>
+<h5 id="snmp-extend_19">SNMP Extend</h5>
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</li>
 <li>Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</li>
@@ -1269,7 +1302,7 @@ remote-control:
 </ol>
 <h3 id="ups-apcups">UPS-apcups</h3>
 <p>A small shell script that exports apcacess ups status.</p>
-<h5 id="snmp-extend_19">SNMP Extend</h5>
+<h5 id="snmp-extend_20">SNMP Extend</h5>
 <ol>
 <li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</li>
 <li>Make the script executable (chmod +x /etc/snmp/ups-apcups.sh)</li>
