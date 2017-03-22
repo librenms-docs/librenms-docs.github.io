@@ -883,12 +883,6 @@ systemctl enable --now rrdcached.service
 <pre><code class="ssh">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
 </code></pre>
 
-<ul>
-<li>Restart Apache</li>
-</ul>
-<pre><code class="ssh">systemctl restart httpd
-</code></pre>
-
 <p>Check to see if the graphs are being drawn in LibreNMS. This might take a few minutes.
 After at least one poll cycle (5 mins), check the LibreNMS disk I/O performance delta.
 Disk I/O can be found under the menu Devices&gt;All Devices&gt;[localhost hostname]&gt;Health&gt;Disk I/O.</p>
