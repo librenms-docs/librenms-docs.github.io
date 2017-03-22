@@ -711,6 +711,8 @@
         
             <li><a href="#boxcar">Boxcar</a></li>
         
+            <li><a href="#telegram">Telegram</a></li>
+        
             <li><a href="#pushbullet">Pushbullet</a></li>
         
             <li><a href="#clickatell">Clickatell</a></li>
@@ -802,6 +804,7 @@
 <li><a href="#transports-pagerduty">PagerDuty</a></li>
 <li><a href="#transports-pushover">Pushover</a></li>
 <li><a href="#transports-boxcar">Boxcar</a></li>
+<li><a href="#transports-telegram">Telegram</a></li>
 <li><a href="#transports-pushbullet">Pushbullet</a></li>
 <li><a href="#transports-clickatell">Clickatell</a></li>
 <li><a href="#transports-playsms">PlaySMS</a></li>
@@ -1164,6 +1167,33 @@ Copy your access token from the Boxcar app or from the Boxcar.io website and set
 </code></pre>
 
 <p>~~</p>
+<h2 id="telegram"><a name="transports-telegram">Telegram</a></h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<blockquote>
+<p>Thank you to <a href="https://github.com/snis">snis</a> for these instructions.</p>
+</blockquote>
+<ol>
+<li>
+<p>First you must create a telegram account and add BotFather to you list. To do this click on the following url: https://telegram.me/botfather</p>
+</li>
+<li>
+<p>Generate a new bot with the command "/newbot" BotFather is then asking for a username and a normal name. After that your bot is created and you get a HTTP token. (for more options for your bot type "/help")</p>
+</li>
+<li>
+<p>Add your bot to telegram with the following url: <code>http://telegram.me/&lt;botname&gt;</code> and send some text to the bot.</p>
+</li>
+<li>
+<p>Now copy your token code and go to the following page in chrome: <code>https://api.telegram.org/bot&lt;tokencode&gt;/getUpdates</code></p>
+</li>
+<li>
+<p>You see a json code with the message you sent to the bot. Copy the Chat id. In this example that is “-9787468”
+   <code>"message":{"message_id":7,"from":"id":656556,"first_name":"Joo","last_name":"Doo","username":"JohnDoo"},"chat":{"id":-9787468,"title":"Telegram Group"},"date":1435216924,"text":"Hi"}}]}</code></p>
+</li>
+<li>
+<p>Now create a new "Telegram transport" in LibreNMS (Global Settings -&gt; Alerting Settings -&gt; Telegram transport).
+Click on 'Add Telegram config' and put your chat id and token into the relevant box.</p>
+</li>
+</ol>
 <h2 id="pushbullet"><a name="transports-pushbullet">Pushbullet</a></h2>
 <p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>Enabling Pushbullet is a piece of cake.
