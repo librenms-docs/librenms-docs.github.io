@@ -801,10 +801,16 @@
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</li>
-<li>Verify it is working by running /etc/snmp/apache-stats.py
-(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/apache-stats.py)</p>
+</li>
+<li>
+<p>Verify it is working by running /etc/snmp/apache-stats.py
+(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend apache /etc/snmp/apache-stats.py
 </code></pre>
@@ -845,24 +851,35 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <p>A small shell script that reports current DHCP leases stats.</p>
 <h5 id="snmp-extend_1">SNMP Extend</h5>
 <ol>
-<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-<li>Make the script executable (chmod +x /etc/snmp/dhcp-status.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</p>
+</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/dhcp-status.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend dhcpstats /etc/snmp/dhcp-status.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>DHCP Stats</code> under the Applications tab.</li>
 </ol>
 <h3 id="exim-stats">EXIM Stats</h3>
 <p>SNMP extend script to get your exim stats data into your host.</p>
 <h5 id="snmp-extend_2">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/exim-stats.sh">exim stats</a> to <code>/etc/snmp/</code> (or any other suitable location) on your host.</li>
-<li>Make the script executable: <code>chmod +x /etc/snmp/exim-stats.sh</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+<li>
+<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/exim-stats.sh">exim stats</a> to <code>/etc/snmp/</code> (or any other suitable location) on your host.</p>
+</li>
+<li>
+<p>Make the script executable: <code>chmod +x /etc/snmp/exim-stats.sh</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
+</li>
 </ol>
 <pre><code>extend exim-stats /etc/snmp/exim-stats.sh
 </code></pre>
@@ -891,7 +908,6 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 </code></pre>
 
 <p>7: Restart or reload cron on your system.</p>
-<p>8: On the device page in Librenms, edit your host and check <code>Fail2ban</code> under the Applications tab.</p>
 <p>In regards to the totals graphed there are two variables banned and firewalled. Firewalled is a count of banned entries the firewall for fail2ban and banned is the currently banned total from fail2ban-client. Both are graphed as the total will diverge with some configurations when fail2ban fails to see if a IP is in more than one jail when unbanning it. This is most likely to happen when the recidive is in use.</p>
 <p>If you have more than a few jails configured, you may need to use caching as each jail needs to be polled and fail2ban-client can't do so in a timely manner for than a few. This can result in failure of other SNMP information being polled.</p>
 <h3 id="freebsd-nfs-client">FreeBSD NFS Client</h3>
@@ -903,7 +919,6 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 </code></pre>
 
 <p>4: Restart snmpd on your host</p>
-<p>5: On the device page in Librenms, edit your host and check <code>FreeBSD NFS Client</code> under the Applications tab.</p>
 <h3 id="freebsd-nfs-server">FreeBSD NFS Server</h3>
 <h4 id="snmp-extend_5">SNMP Extend</h4>
 <p>1: Copy the shell script, fbsdnfsserver, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsserver -O /etc/snmp/fbsdnfsserver)</p>
@@ -913,7 +928,6 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 </code></pre>
 
 <p>4: Restart snmpd on your host</p>
-<p>5: On the device page in Librenms, edit your host and check <code>FreeBSD NFS Server</code> under the Applications tab.</p>
 <h3 id="mailscanner">Mailscanner</h3>
 <h5 id="snmp-extend_6">SNMP Extend</h5>
 <ol>
@@ -923,15 +937,18 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/mailscanner.php)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/mailscanner.php)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend mailscanner /etc/snmp/mailscanner.php
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>Mailscanner</code> under the Applications tab.</li>
 </ol>
 <h3 id="gspd">GSPD</h3>
 <p>A small shell script that reports GPSD status.</p>
@@ -942,16 +959,21 @@ In case you get a <code>Permission Denied</code> error, make sure you chown'ed c
 <h3 id="memcached">Memcached</h3>
 <h5 id="snmp-extend_7">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/etc/snmp/</code> on your remote server.</li>
-<li>Make the script executable: <code>chmod +x /etc/snmp/memcached</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+<li>
+<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/etc/snmp/</code> on your remote server.</p>
+</li>
+<li>
+<p>Make the script executable: <code>chmod +x /etc/snmp/memcached</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
+</li>
 </ol>
 <pre><code>extend memcached /etc/snmp/memcached
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check <code>Memcached</code> under the Applications tab.</li>
 </ol>
 <h3 id="munin">Munin</h3>
 <h4 id="agent_3">Agent</h4>
@@ -981,8 +1003,12 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 <h5 id="agent_4">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so please verify those are installed.</p>
-<p>CentOS</p>
+<p>CentOS (May vary based on PHP version)</p>
 <pre><code>yum install php-cli php-mysql
+</code></pre>
+
+<p>Debian (May vary based on PHP version)</p>
+<pre><code>apt-get install php5-cli php5-mysql
 </code></pre>
 
 <p>Unlike most other scripts, the MySQL script requires a configuration file <code>mysql.cnf</code> in the same directory as the extend or agent script with following content:</p>
@@ -1003,24 +1029,12 @@ $mysql_port = 3306;
 
 <p>4: Restart snmpd.</p>
 <p>5: Install the PHP CLI language and your MySQL module of choice for PHP.</p>
-<p>7: On the device page in Librenms, edit your host and check <code>MySQL</code> under the Applications tab</p>
 <h4 id="agent_5">Agent</h4>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so please verify those are installed.</p>
-<p>CentOS</p>
-<pre><code>yum install php-cli php-mysql
-</code></pre>
-
-<p>Debian</p>
-<pre><code>apt-get install php5-cli php5-mysql
-</code></pre>
-
 <p>Make sure you set hostname, user, and pass are properly set in `/usr/lib/check_mk_agent/local/mysql.cnf</p>
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h3 id="nginx">NGINX</h3>
 <p>NGINX is a free, open-source, high-performance HTTP server: https://www.nginx.org/</p>
-<h5 id="agent_6">Agent</h5>
-<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>It's required to have the following directive in your nginx configuration responsible for the localhost server:</p>
 <pre><code class="text">location /nginx-status {
     stub_status on;
@@ -1030,9 +1044,32 @@ $mysql_port = 3306;
 }
 </code></pre>
 
+<h5 id="snmp-extend_9">SNMP Extend</h5>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx-stats -O /etc/snmp/nginx-stats
+</code></pre>
+
+<ol>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/nginx-stats)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
+</ol>
+<pre><code>extend nginx /etc/snmp/nginx-stats
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+</ol>
+<h5 id="agent_6">Agent</h5>
+<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="ntp-client">NTP Client</h3>
 <p>A shell script that gets stats from ntp client.</p>
-<h5 id="snmp-extend_9">SNMP Extend</h5>
+<h5 id="snmp-extend_10">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
@@ -1040,19 +1077,22 @@ $mysql_port = 3306;
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/ntp-client.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/ntp-client.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend ntp-client /etc/snmp/ntp-client.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>NTP Client</code> under the Applications tab.</li>
 </ol>
 <h3 id="ntp-server-ntpd">NTP Server (NTPD)</h3>
 <p>A shell script that gets stats from ntp server (ntpd).</p>
-<h5 id="snmp-extend_10">SNMP Extend</h5>
+<h5 id="snmp-extend_11">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
@@ -1060,18 +1100,21 @@ $mysql_port = 3306;
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/ntp-server.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/ntp-server.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend ntp-server /etc/snmp/ntp-server.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>NTP Server</code> under the Applications tab.</li>
 </ol>
 <h3 id="nvidia-gpu">Nvidia GPU</h3>
-<h5 id="snmp-extend_11">SNMP Extend</h5>
+<h5 id="snmp-extend_12">SNMP Extend</h5>
 <p>1: Copy the shell script, nvidia, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/nvidia -O /etc/snmp/nvidia)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/nvidia)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -1080,13 +1123,12 @@ $mysql_port = 3306;
 
 <p>5: Restart snmpd on your host.</p>
 <p>6: Verify you have nvidia-smi installed, which it generally should be if you have the driver from Nvida installed.</p>
-<p>7: On the device page in Librenms, edit your host and check <code>Nvidia</code> under the Applications tab.</p>
 <p>The GPU numbering on the graphs will correspond to how the nvidia-smi sees them as being.</p>
 <p>For questions about what the various values are/mean, please see the nvidia-smi man file under the section covering dmon.</p>
 <h3 id="os-updates">OS Updates</h3>
 <p>A small shell script that checks your system package manager for any available updates. Supports apt-get/pacman/yum/zypper package managers).</p>
 <p>For pacman users automatically refreshing the database, it is recommended you use an alternative database location <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
-<h5 id="snmp-extend_12">SNMP Extend</h5>
+<h5 id="snmp-extend_13">SNMP Extend</h5>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
@@ -1094,49 +1136,57 @@ $mysql_port = 3306;
 </code></pre>
 
 <ol>
-<li>Make the script executable (chmod +x /etc/snmp/os-updates.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/os-updates.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend osupdate /etc/snmp/os-updates.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>OS Updates</code> under the Applications tab.</li>
 </ol>
 <p><em>Note</em>: apt-get depends on an updated package index. There are several ways to have your system run <code>apt-get update</code> automatically. The easiest is to create <code>/etc/apt/apt.conf.d/10periodic</code> and pasting the following in it: <code>APT::Periodic::Update-Package-Lists "1";</code>.
 If you have apticron, cron-apt or apt-listchanges installed and configured, chances are that packages are already updated periodically.</p>
 <h3 id="php-fpm">PHP-FPM</h3>
-<h4 id="snmp-extend_13">SNMP Extend</h4>
+<h4 id="snmp-extend_14">SNMP Extend</h4>
 <ol>
-<li>Copy the shell script, phpfpm-sp, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpm-sp -O /etc/snmp/phpfpm-sp)</li>
-<li>Make the script executable (chmod +x /etc/snmp/phpfpm-sp)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/phpfpm-sp) and add:</li>
+<li>
+<p>Copy the shell script, phpfpm-sp, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpm-sp -O /etc/snmp/phpfpm-sp)</p>
+</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/phpfpm-sp)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend phpfpmsp /etc/snmp/phpfpm-sp
 </code></pre>
 
 <p>5: Edit /etc/snmp/phpfpm-sp to include the status URL for the PHP-FPM pool you are monitoring.
-6. Restart snmpd on your host
-7. On the device page in Librenms, edit your host and check <code>PHP-FPM</code> under the Applications tab.</p>
+6. Restart snmpd on your host</p>
 <p>It is worth noting that this only monitors a single pool. If you want to monitor multiple pools, this won't do it.</p>
 <h3 id="postfix">Postfix</h3>
-<h4 id="snmp-extend_14">SNMP Extend</h4>
+<h4 id="snmp-extend_15">SNMP Extend</h4>
 <p>1: Copy the shell script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfix-queues -O /etc/snmp/postfix-queues)</p>
-<p>1: Copy the Perl script, postfix-queues, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed)</p>
-<p>2: Make the scripts executable (chmod +x /etc/snmp/postfixdetailed /etc/snmp/postfix-queues)</p>
-<p>3: Edit your snmpd.conf file and add:</p>
+<p>2: Copy the Perl script, postfixdetailed, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed -O /etc/snmp/postfixdetailed)</p>
+<p>3: Make the scripts executable (chmod +x /etc/snmp/postfixdetailed /etc/snmp/postfix-queues)</p>
+<p>4: Edit your snmpd.conf file and add:</p>
 <pre><code>extend mailq /etc/snmp/postfix-queues
 extend postfixdetailed /etc/snmp/postfixdetailed
 </code></pre>
 
-<p>4: Restart snmpd.</p>
-<p>5: Install pflogsumm for your OS.</p>
-<p>6: Make sure the cache file in /etc/snmp/postfixdetailed is some place that snmpd can write too. This file is used for tracking changes between various values between each time it is called by snmpd. Also make sure the path for pflogsumm is correct.</p>
-<p>7: On the device page in Librenms, edit your host and check <code>Postfix</code> under the Applications tab. Before doing this, run /etc/snmp/postfixdetailed to create the initial cache file so you don't end up with some crazy initial starting value.</p>
-<p>Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is updated, so if this happens in between LibreNMS doing it then the values will be thrown off for that polling period.</p>
+<p>5: Restart snmpd.</p>
+<p>6: Install pflogsumm for your OS.</p>
+<p>7: Make sure the cache file in /etc/snmp/postfixdetailed is some place that snmpd can write too. This file is used for tracking changes between various values between each time it is called by snmpd. Also make sure the path for pflogsumm is correct.</p>
+<p>8: Run /etc/snmp/postfixdetailed to create the initial cache file so you don't end up with some crazy initial starting value.
+Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is updated, so if this happens in between LibreNMS doing it then the values will be thrown off for that polling period.</p>
 <h3 id="postgres">Postgres</h3>
-<h4 id="snmp-extend_15">SNMP Extend</h4>
+<h4 id="snmp-extend_16">SNMP Extend</h4>
 <p>1: Copy the shell script, postgres, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/postgres -O /etc/snmp/postgres)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/postgres)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -1147,41 +1197,62 @@ extend postfixdetailed /etc/snmp/postfixdetailed
 <p>5: Install the Nagios check check_postgres.pl on your system.</p>
 <p>6: Verify the path to check_postgres.pl in /etc/snmp/postgres is correct.</p>
 <p>7: If you wish it to ignore the database postgres for totalling up the stats, set ignorePG to 1(the default) in /etc/snmp/postgres. If you are using netdata or the like, you may wish to set this or otherwise that total will be very skewed on systems with light or moderate usage.</p>
-<p>8: On the device page in Librenms, edit your host and check <code>Postgres</code> under the Applications tab.</p>
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
+<h4 id="snmp-extend_17">SNMP Extend</h4>
 <h5 id="agent_7">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="powerdns-recursor">PowerDNS Recursor</h3>
 <p>A recursive DNS server: https://www.powerdns.com/recursor.html</p>
-<h5 id="direct">Direct</h5>
+<h4 id="direct">Direct</h4>
 <p>The LibreNMS polling host must be able to connect to port 8082 on the monitored device.
 The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/md/recursor/settings/#webserver</p>
-<h6 id="variables">Variables</h6>
+<h5 id="variables">Variables</h5>
 <p><code>$config['apps']['powerdns-recursor']['api-key']</code> required, this is defined in the Recursor config
 <code>$config['apps']['powerdns-recursor']['port']</code> numeric, defines the port to connect to PowerDNS Recursor on.  The default is 8082
 <code>$config['apps']['powerdns-recursor']['https']</code> true or false, defaults to use http.</p>
+<h4 id="snmp-extend_18">SNMP Extend</h4>
+<p>1: Copy the shell script, postgres, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor -O /etc/snmp/powerdns-recursor)</p>
+<p>2: Make the script executable (chmod +x /etc/snmp/powerdns-recursor)</p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend powerdns-recursor /etc/snmp/powerdns-recursor
+</code></pre>
+
+<p>4: Restart snmpd on your host</p>
 <h5 id="agent_8">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
 <h3 id="proxmox">Proxmox</h3>
 <ol>
-<li>Download the script onto the desired host (the host must be added to LibreNMS devices)
-<code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox</code></li>
-<li>Make the script executable: <code>chmod +x /usr/local/bin/proxmox</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
+<li>
+<p>Download the script onto the desired host (the host must be added to LibreNMS devices)
+<code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox</code></p>
+</li>
+<li>
+<p>Make the script executable: <code>chmod +x /usr/local/bin/proxmox</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
 <code>extend proxmox /usr/local/bin/proxmox</code>
-(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</li>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check <code>Proxmox</code> on the Applications tab.</li>
+(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</p>
+</li>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
 </ol>
 <h3 id="raspberry-pi">Raspberry PI</h3>
 <p>SNMP extend script to get your PI data into your host.</p>
-<h5 id="snmp-extend_16">SNMP Extend</h5>
+<h5 id="snmp-extend_19">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/etc/snmp/</code> (or any other suitable location) on your PI host.</li>
-<li>Make the script executable: <code>chmod +x /etc/snmp/raspberry.sh</code></li>
-<li>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</li>
+<li>
+<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/etc/snmp/</code> (or any other suitable location) on your PI host.</p>
+</li>
+<li>
+<p>Make the script executable: <code>chmod +x /etc/snmp/raspberry.sh</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
+</li>
 </ol>
 <pre><code>extend raspberry /etc/snmp/raspberry.sh
 </code></pre>
@@ -1196,7 +1267,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <li>Restart snmpd on PI host</li>
 </ol>
 <h3 id="smart">SMART</h3>
-<h4 id="snmp-extend_17">SNMP Extend</h4>
+<h4 id="snmp-extend_20">SNMP Extend</h4>
 <p>1: Copy the Perl script, smart, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O /etc/snmp/smart)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/smart)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -1220,7 +1291,6 @@ smartctl = The path to use for smartctl. Default: /usr/bin/env smartctl
 <p>If you want to guess at the configuration, call it with -g and it will print out what it thinks
 it should be. This will result in a usable config, but may miss some less common disk devices.</p>
 <p>5: Restart snmpd on your host</p>
-<p>6: On the device page in Librenms, edit your host and check <code>SMART</code> under the Applications tab.</p>
 <p>If you have a large number of more than one or two disks on a system, you should consider adding this to cron. Also make sure the cache file is some place it can be written to.</p>
 <pre><code> */3 * * * * /etc/snmp/smart -u
 </code></pre>
@@ -1239,7 +1309,6 @@ snmp_access deny all
 <pre><code>proxy -v 2c -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
 </code></pre>
 
-<p>4: On the device page in Librenms, edit your host and check <code>Squid</code> under the Applications tab.</p>
 <p>For more advanced information on Squid and SNMP or setting up proxying for net-snmp, please see the links below.</p>
 <p>http://wiki.squid-cache.org/Features/Snmp
 http://www.net-snmp.org/wiki/index.php/Snmpd_proxy</p>
@@ -1282,7 +1351,7 @@ remote-control:
 <p>Restart your unbound after changing the configuration, verify it is working by running 'unbound-control stats'.</p>
 <h5 id="agent_10">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<h5 id="snmp-extend_18">SNMP Extend</h5>
+<h5 id="snmp-extend_21">SNMP Extend</h5>
 <p>1: Copy the shell script, unbound, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound)</p>
 <p>2: Make the scripts executable (chmod +x /etc/snmp/unbound)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -1290,36 +1359,50 @@ remote-control:
 </code></pre>
 
 <p>4: Restart snmpd.</p>
-<p>5: On the device page in Librenms, edit your host and check <code>Unbound</code> under the Applications tab.</p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
-<h5 id="snmp-extend_19">SNMP Extend</h5>
+<h5 id="snmp-extend_22">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</li>
-<li>Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</p>
+</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend ups-nut /etc/snmp/ups-nut.sh
 </code></pre>
 
 <ol>
 <li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>UPS nut</code> under the Applications tab.</li>
 </ol>
 <h3 id="ups-apcups">UPS-apcups</h3>
 <p>A small shell script that exports apcacess ups status.</p>
-<h5 id="snmp-extend_20">SNMP Extend</h5>
+<h5 id="snmp-extend_23">SNMP Extend</h5>
 <ol>
-<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</li>
-<li>Make the script executable (chmod +x /etc/snmp/ups-apcups.sh)</li>
-<li>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</li>
+<li>
+<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</p>
+</li>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/ups-apcups.sh)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
 </ol>
 <pre><code>extend ups-apcups /etc/snmp/ups-apcups.sh
 </code></pre>
 
 <ol>
-<li>Restart snmpd on your host</li>
-<li>On the device page in Librenms, edit your host and check the <code>UPS apcups</code> under the Applications tab.</li>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
+<li>
+<p>On the device page in Librenms, edit your host and check the <code>UPS apcups</code> under the Applications tab.</p>
+</li>
 </ol></div>
                 
             
