@@ -743,10 +743,8 @@ mysql -uroot
 </code></pre>
 
 <pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-GRANT ALL PRIVILEGES ON librenms.*
-  TO 'librenms'@'localhost'
-  IDENTIFIED BY '&lt;password&gt;'
-;
+CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
 FLUSH PRIVILEGES;
 exit
 </code></pre>
