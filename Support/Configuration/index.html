@@ -1113,6 +1113,11 @@ Setting <code>rancid_ignorecomments</code> will disable showing lines that start
 <pre><code class="php">$config['location_map_regex']['/Sink/'] = &quot;Under The Sink, The Office, London, UK&quot;;
 </code></pre>
 
+<p>Regex Match Substitution:</p>
+<pre><code class="php">$config['location_map_regex_sub']['/Sink/'] = &quot;Under The Sink, The Office, London, UK [lat, long]&quot;;
+</code></pre>
+
+<p>If you have an SNMP SysLocation of "Rack10,Rm-314,Sink", Regex Match Substition yields "Rack10,Rm-314,Under The Sink, The Office, London, UK [lat, long]". This allows you to keep the SysLocation string short and keeps Rack/Room/Building information intact after the substitution.</p>
 <p>The above are examples, these will rewrite device snmp locations so you don't need to configure full location within snmp.</p>
 <h3 id="interfaces-to-be-ignored">Interfaces to be ignored</h3>
 <p>Examples:</p>
