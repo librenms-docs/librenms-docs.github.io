@@ -774,6 +774,8 @@
         
             <li><a href="#ups-apcups">UPS-apcups</a></li>
         
+            <li><a href="#sdfs-info">SDFS info</a></li>
+        
     
     </ul>
 </div>
@@ -817,6 +819,7 @@
 <li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Direct, Agent</li>
 <li><a href="#proxmox">Proxmox</a> - SNMP extend</li>
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
+<li><a href="#sdfs-info">SDFS info</a> - SNMP extend</li>
 <li><a href="#smart">SMART</a> - SNMP extend</li>
 <li><a href="#squid">Squid</a> - SNMP proxy</li>
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
@@ -1455,6 +1458,34 @@ remote-control:
 </li>
 <li>
 <p>On the device page in Librenms, edit your host and check the <code>UPS apcups</code> under the Applications tab.</p>
+</li>
+</ol>
+<h3 id="sdfs-info">SDFS info</h3>
+<p>A small shell script that exportfs SDFS volume info.</p>
+<h6 id="snmp-extend_25">SNMP Extend</h6>
+<ol>
+<li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
+</code></pre>
+
+<ol>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/sdfsinfo)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
+</ol>
+<pre><code>extend sdfsinfo /etc/snmp/sdfsinfo
+</code></pre>
+
+<ol>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
+<li>
+<p>On the device page in Librenms, edit your host and check the <code>SDFS info</code> under the Applications tab or wait for it to be auto-discovered.</p>
 </li>
 </ol></div>
                 
