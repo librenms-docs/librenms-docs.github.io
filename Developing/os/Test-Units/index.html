@@ -724,24 +724,13 @@
 
 
 <p>We have a testing unit for new OS', please ensure you add a test for any new OS' or updates to existing OS discovery.</p>
-<p>The OS test unit file is located <code>tests/OSDiscoveryTest.php</code>. An example of this is as follows:</p>
-<pre><code class="php">    public function testPulse()
-    {
-        $this-&gt;checkOS('pulse');
-        $this-&gt;checkOS('pulse', 'pulse-mag2600');
-        $this-&gt;checkOS('pulse', 'pulse-sa2500');
-        $this-&gt;checkOS('pulse', 'pulse-sa6500');
-        $this-&gt;checkOS('pulse', 'pulse-vaspe');
-        $this-&gt;checkOS('pulse', 'pulse-sa');
-    }
-</code></pre>
-
-<p>The above example has multiple test files, the first argument in the function call is the os name we expect the test 
-to pass as, the second argument is the filename to use for the test. If not filename is passed then the os name is used 
-for the file.</p>
+<p>All that you need to do is create an snmprec file in tests/snmpsim with the proper name. If adding the first test for
+this os, simply use the os name <code>pulse.snmprec</code> for example.  If you need to add multiple test files, you can add an
+underscore after the os name followed by a description, typically a model name.  For example: <code>pulse_mag2600.snmprec</code>.
+You can copy <code>skel.snmprec</code> to your intended name and fill in the data to make things a little easier.</p>
 <p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing for OS discovery. For this to work you need
 to supply an snmprec file. This is pretty simple and using pulse as the example again this would look like:</p>
-<p><code>tests/snmpsim/pulse-mag2600.snmprec</code></p>
+<p><code>tests/snmpsim/pulse_mag2600.snmprec</code></p>
 <pre><code>1.3.6.1.2.1.1.1.0|4|Pulse Secure,LLC,MAG-2600,8.0R14 (build 41869)
 1.3.6.1.2.1.1.2.0|6|1.3.6.1.4.1.12532.254.1.1
 </code></pre>
@@ -777,10 +766,6 @@ sysDescr (<code>.1.3.6.1.2.1.1.1.0</code>, 4 = Octet String) and sysObjectID (<c
 <tr>
 <td>ENTITY-MIB::entPhysicalMfgName.1</td>
 <td>1.3.6.1.2.1.47.1.1.1.1.12.1</td>
-</tr>
-<tr>
-<td>SML-MIB::product-Name.0</td>
-<td>1.3.6.1.4.1.2.6.182.3.3.1.0</td>
 </tr>
 </tbody>
 </table>
