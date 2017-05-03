@@ -1327,7 +1327,7 @@
         }, 
         {
             "location": "/General/Updating/", 
-            "text": "Updating your install\n\n\nIf you would like to perform a manual update\nthen you can do this by running the following command as the \nlibrenms\n user:\n\n\n./daily.sh\n\n\nThis will update both the core LibreNMS files but also update the database\nstructure if updates are available.\n\n\nConfiguring the update channel\n\n\nLibreNMS follows the master branch on github for daily updates.\nYou can change to the monthly releases by setting:\n\n\n$config['update_channel'] = 'release';\n\n\nDisabling automatic updates\n\n\nLibreNMS by default performs updates on a daily basis. This can be disabled\nby ensuring:\n\n\n$config['update'] = 0;\n\n\nis no longer commented out.", 
+            "text": "Updating your install\n\n\nIf you would like to perform a manual update\nthen you can do this by running the following command as the \nlibrenms\n user:\n\n\n./daily.sh\n\n\nThis will update both the core LibreNMS files but also update the database\nstructure if updates are available.\n\n\nAdvanced users\n\n\nIf you absolutely must update manually then you can do so by running the following commands:\n\n\ncd /opt/librenms\ngit pull\nphp includes/sql-schema/update.php\n\n\n\n\nConfiguring the update channel\n\n\nLibreNMS follows the master branch on github for daily updates.\n\n\nStable branch\n\n\nYou can change to the stable monthly branch by setting:\n\n\n$config['update_channel'] = 'release';\n\n\n\n\nChoose this branch if you want to have a stable release \n\n\n\n\nDevelopment branch\n\n\nYou can change to the development branch by setting:\n\n\n$config['update_channel'] = 'master';\n\n\n\n\nChoose this branch if you want the latest features at the cost that sometimes bugs are inadvertently introduced. \n\n\n\n\nDisabling automatic updates\n\n\nLibreNMS by default performs updates on a daily basis. This can be disabled by setting:\n\n\n$config['update'] = 0;", 
             "title": "Updating"
         }, 
         {
@@ -1336,13 +1336,28 @@
             "title": "Updating your install"
         }, 
         {
+            "location": "/General/Updating/#advanced-users", 
+            "text": "If you absolutely must update manually then you can do so by running the following commands:  cd /opt/librenms\ngit pull\nphp includes/sql-schema/update.php", 
+            "title": "Advanced users"
+        }, 
+        {
             "location": "/General/Updating/#configuring-the-update-channel", 
-            "text": "LibreNMS follows the master branch on github for daily updates.\nYou can change to the monthly releases by setting:  $config['update_channel'] = 'release';", 
+            "text": "LibreNMS follows the master branch on github for daily updates.", 
             "title": "Configuring the update channel"
         }, 
         {
+            "location": "/General/Updating/#stable-branch", 
+            "text": "You can change to the stable monthly branch by setting:  $config['update_channel'] = 'release';   Choose this branch if you want to have a stable release", 
+            "title": "Stable branch"
+        }, 
+        {
+            "location": "/General/Updating/#development-branch", 
+            "text": "You can change to the development branch by setting:  $config['update_channel'] = 'master';   Choose this branch if you want the latest features at the cost that sometimes bugs are inadvertently introduced.", 
+            "title": "Development branch"
+        }, 
+        {
             "location": "/General/Updating/#disabling-automatic-updates", 
-            "text": "LibreNMS by default performs updates on a daily basis. This can be disabled\nby ensuring:  $config['update'] = 0;  is no longer commented out.", 
+            "text": "LibreNMS by default performs updates on a daily basis. This can be disabled by setting:  $config['update'] = 0;", 
             "title": "Disabling automatic updates"
         }, 
         {

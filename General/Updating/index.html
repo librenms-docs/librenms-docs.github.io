@@ -712,8 +712,14 @@
     
         <li class="main active"><a href="#updating-your-install">Updating your install</a></li>
         
+            <li><a href="#advanced-users">Advanced users</a></li>
+        
     
         <li class="main "><a href="#configuring-the-update-channel">Configuring the update channel</a></li>
+        
+            <li><a href="#stable-branch">Stable branch</a></li>
+        
+            <li><a href="#development-branch">Development branch</a></li>
         
     
         <li class="main "><a href="#disabling-automatic-updates">Disabling automatic updates</a></li>
@@ -738,15 +744,30 @@ then you can do this by running the following command as the <strong>librenms</s
 <p><code>./daily.sh</code></p>
 <p>This will update both the core LibreNMS files but also update the database
 structure if updates are available.</p>
+<h4 id="advanced-users">Advanced users</h4>
+<p>If you absolutely must update manually then you can do so by running the following commands:</p>
+<pre><code class="bash">cd /opt/librenms
+git pull
+php includes/sql-schema/update.php
+</code></pre>
+
 <h2 id="configuring-the-update-channel">Configuring the update channel</h2>
-<p>LibreNMS follows the master branch on github for daily updates.
-You can change to the monthly releases by setting:</p>
+<p>LibreNMS follows the master branch on github for daily updates.</p>
+<h4 id="stable-branch">Stable branch</h4>
+<p>You can change to the stable monthly branch by setting:</p>
 <p><code>$config['update_channel'] = 'release';</code></p>
+<blockquote>
+<p>Choose this branch if you want to have a stable release </p>
+</blockquote>
+<h4 id="development-branch">Development branch</h4>
+<p>You can change to the development branch by setting:</p>
+<p><code>$config['update_channel'] = 'master';</code></p>
+<blockquote>
+<p>Choose this branch if you want the latest features at the cost that sometimes bugs are inadvertently introduced. </p>
+</blockquote>
 <h2 id="disabling-automatic-updates">Disabling automatic updates</h2>
-<p>LibreNMS by default performs updates on a daily basis. This can be disabled
-by ensuring:</p>
-<p><code>$config['update'] = 0;</code></p>
-<p>is no longer commented out. </p></div>
+<p>LibreNMS by default performs updates on a daily basis. This can be disabled by setting:</p>
+<p><code>$config['update'] = 0;</code></p></div>
                 
             
             </div>
