@@ -780,6 +780,9 @@
         <li class="main "><a href="#interfaces-to-be-ignored">Interfaces to be ignored</a></li>
         
     
+        <li class="main "><a href="#interfaces-that-shouldnt-be-ignored">Interfaces that shouldn't be ignored</a></li>
+        
+    
         <li class="main "><a href="#interfaces-to-be-rewritten">Interfaces to be rewritten</a></li>
         
     
@@ -1163,6 +1166,14 @@ by continuing the array.</p>
 <p><code>bad_if_regexp</code> is matched against the ifDescr value as a regular expression.</p>
 <p><code>bad_ifname_regexp</code> is matched against the ifName value as a regular expression.</p>
 <p><code>bad_ifalias_regexp</code> is matched against the ifAlias value as a regular expression.</p>
+<h3 id="interfaces-that-shouldnt-be-ignored">Interfaces that shouldn't be ignored</h3>
+<p>Examples:</p>
+<pre><code class="php">$config['good_if'][] = 'FastEthernet';
+$config['os']['ios']['good_id'][] = 'FastEthernet';
+</code></pre>
+
+<p><code>good_if</code> is matched against ifDescr value. This can be a bad_if value as well which would stop that port from being ignored. 
+I.e If bad_if and good_if both contained FastEthernet then ports with this value in the ifDescr will be valid.</p>
 <h3 id="interfaces-to-be-rewritten">Interfaces to be rewritten</h3>
 <pre><code class="php">$config['rewrite_if']['cpu'] = 'Management Interface';
 $config['rewrite_if_regexp']['/cpu /'] = 'Management ';
