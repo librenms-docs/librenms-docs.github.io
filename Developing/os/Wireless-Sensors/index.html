@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Developing/os/Test-Units/">
+        <link rel="canonical" href="http://docs.librenms.org/Developing/os/Wireless-Sensors/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	    <title>Test Units - LibreNMS Docs</title>
+	    <title>Wireless Sensors - LibreNMS Docs</title>
 
         <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -655,8 +655,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Test Units</a>
+<li >
+    <a href="../Test-Units/">Test Units</a>
 </li>
 
                         
@@ -667,8 +667,8 @@
 
                         
                             
-<li >
-    <a href="../Wireless-Sensors/">Wireless Sensors</a>
+<li class="active">
+    <a href="./">Wireless Sensors</a>
 </li>
 
                         
@@ -723,116 +723,89 @@
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
-    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/os/Test-Units.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/os/Wireless-Sensors.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
   </div>
 </div>
 
 
-<p>We have a testing unit for new OS', please ensure you add a test for any new OS' or updates to existing OS discovery.</p>
-<p>All that you need to do is create an snmprec file in tests/snmpsim with the proper name. If adding the first test for
-this os, simply use the os name <code>pulse.snmprec</code> for example.  If you need to add multiple test files, you can add an
-underscore after the os name followed by a description, typically a model name.  For example: <code>pulse_mag2600.snmprec</code>.
-You can copy <code>skel.snmprec</code> to your intended name and fill in the data to make things a little easier.</p>
-<p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing for OS discovery. For this to work you need
-to supply an snmprec file. This is pretty simple and using pulse as the example again this would look like:</p>
-<p><code>tests/snmpsim/pulse_mag2600.snmprec</code></p>
-<pre><code>1.3.6.1.2.1.1.1.0|4|Pulse Secure,LLC,MAG-2600,8.0R14 (build 41869)
-1.3.6.1.2.1.1.2.0|6|1.3.6.1.4.1.12532.254.1.1
-</code></pre>
-
-<p>During testing LibreNMS will use any info in the snmprec file for snmp calls.  This one provides
-sysDescr (<code>.1.3.6.1.2.1.1.1.0</code>, 4 = Octet String) and sysObjectID (<code>.1.3.6.1.2.1.1.2.0</code>, 6 = Object Identifier),
- which is the minimum that should be provided for new snmprec files.</p>
-<p>To look up the numeric OID and type of an string OID with snmptranslate:</p>
-<pre><code class="bash">snmptranslate -On -Td SNMPv2-MIB::sysDescr.0
-</code></pre>
-
-<p>Common OIDs used in discovery:</p>
-<table>
-<thead>
-<tr>
-<th>String OID</th>
-<th>Numeric OID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SNMPv2-MIB::sysDescr.0</td>
-<td>1.3.6.1.2.1.1.1.0</td>
-</tr>
-<tr>
-<td>SNMPv2-MIB::sysObjectID.0</td>
-<td>1.3.6.1.2.1.1.2.0</td>
-</tr>
-<tr>
-<td>ENTITY-MIB::entPhysicalDescr.1</td>
-<td>1.3.6.1.2.1.47.1.1.1.1.2.1</td>
-</tr>
-<tr>
-<td>ENTITY-MIB::entPhysicalMfgName.1</td>
-<td>1.3.6.1.2.1.47.1.1.1.1.12.1</td>
-</tr>
-</tbody>
-</table>
-<p>List of SNMP data types:</p>
+<p>This document will guide you through adding wireless sensors for your new wireless device.</p>
+<p>Currently we have support for the following wireless metrics along with the values we expect to see the data in:</p>
 <table>
 <thead>
 <tr>
 <th>Type</th>
-<th>Value</th>
+<th>Measurement</th>
+<th>Interface</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>OCTET STRING</td>
-<td>4</td>
+<td>ccq</td>
+<td>%</td>
+<td>WirelessCcqDiscovery</td>
 </tr>
 <tr>
-<td>HEX STRING</td>
-<td>4x</td>
+<td>clients</td>
+<td>count</td>
+<td>WirelessClientsDiscovery</td>
 </tr>
 <tr>
-<td>Integer32</td>
-<td>2</td>
-</tr>
-<tr>
-<td>NULL</td>
-<td>5</td>
-</tr>
-<tr>
-<td>OBJECT IDENTIFIER</td>
-<td>6</td>
-</tr>
-<tr>
-<td>IpAddress</td>
-<td>64</td>
-</tr>
-<tr>
-<td>Counter32</td>
-<td>65</td>
-</tr>
-<tr>
-<td>Gauge32</td>
-<td>66</td>
-</tr>
-<tr>
-<td>TimeTicks</td>
-<td>67</td>
-</tr>
-<tr>
-<td>Opaque</td>
-<td>68</td>
-</tr>
-<tr>
-<td>Counter64</td>
-<td>70</td>
+<td>noise-floor</td>
+<td>dBm/Hz</td>
+<td>WirelessNoiseFloorDiscovery</td>
 </tr>
 </tbody>
 </table>
-<p>Hex encoded strings (4x) should be used for any strings that contain line returns.</p>
-<p>You can run <code>./scripts/pre-commit.php -u</code> to run the unit tests to check your code.</p>
-<p>If you would like to run tests locally against a full snmpsim instance, run <code>./scripts/pre-commit.php -u --snmpsim</code>.</p></div>
+<p>You will need to create a new OS class for your os if one doen't exist under <code>LibreNMS/OS</code>.  The name of this file
+should be the os name in camel case for example <code>airos -&gt; Airos</code>, <code>ios-wlc -&gt; IosWlc</code>.</p>
+<p>Your new OS class should extend LibreNMS\OS and implement the interfaces for the sensors your os supports.</p>
+<pre><code class="php">namespace LibreNMS\OS;
+
+use LibreNMS\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
+use LibreNMS\OS;
+
+class Airos extends OS implements WirelessClientsDiscovery
+{
+    public functon discoverWirelessClients()
+    {
+        $oid = '.1.3.6.1.4.1.41112.1.4.5.1.15.1'; //UBNT-AirMAX-MIB::ubntWlStatStaCount.1
+        return array(
+            new WirelessSensor('clients', $this-&gt;getDeviceId(), $oid, 'airos', 1, 'Clients')
+        );
+    }
+}
+</code></pre>
+
+<p>All discovery interfaces will require you to return an array of WirelessSensor objects.</p>
+<p><code>new WirelessSensor()</code> Accepts the following arguments:</p>
+<ul>
+<li>$type = Required. This is the sensor class from the table above (i.e humidity).</li>
+<li>$device_id = Required. You can get this value with $this-&gt;getDeviceId()</li>
+<li>$oids = Required. This must be the numerical OID for where the data can be found, i.e .1.2.3.4.5.6.7.0.
+  If this is an array of oids, you should probably specify an $aggregator.</li>
+<li>$index = Required. This must be unique for this sensor type, device and subtype.
+  Typically it's the index from the table being walked or it could be the name of the OID if it's a single value.</li>
+<li>$subtype = Required. This should be the OS name, i.e airos.</li>
+<li>$description = Required. This is a descriptive value for the sensor.
+  Shown to the user, if this is a per-ssid statistic, using <code>SSID: $ssid</code> here is appropriate</li>
+<li>$current = Defaults to null. Can be used to set the current value on discovery.
+  If this is null the values will be polled right away and if they do not return valid value(s), the sensor will not be discovered.
+  Supplying a value here implies you have already verified this sensor is valid.</li>
+<li>$divisor = Defaults to 1. This is used to divided the returned value.</li>
+<li>$multiplier = Defaults to 1. This is used to multiply the returned value.</li>
+<li>$aggregator = Defaults to sum. Valid values: sum, avg. This will combine multiple values from multiple oids into one.</li>
+<li>$access_point_id = Defaults to null. If this is a wireless controller, you can link sensors to entries in the access_points table.</li>
+<li>$high_limit = Defaults to null. Sets the high limit for the sensor, used in alerting to report out range sensors.</li>
+<li>$low_limit = Defaults to null. Sets the low threshold limit for the sensor, used in alerting to report out range sensors.</li>
+<li>$high_warn = Defaults to null. Sets the high warning limit for the sensor, used in alerting to report near out of range sensors.</li>
+<li>$low_warn = Defaults to null. Sets the low warning limit for the sensor, used in alerting to report near out of range sensors.</li>
+<li>$entPhysicalIndex = Defaults to null. Sets the entPhysicalIndex to be used to look up further hardware if available.</li>
+<li>$entPhysicalIndexMeasured = Defaults to null. Sets the type of entPhysicalIndex used, i.e ports.</li>
+</ul>
+<p>Polling is done automatically based on the discovered data.  If for some reason you need to override polling, you can implement 
+the required polling interface in <code>LibreNMS/Interfaces/Polling/Sensors</code>.  Using the polling interfaces should be avoided if possible.</p>
+<p>Graphing is performed automatically for wireless sensors, no custom graphing is required or supported.</p></div>
                 
             
             </div>
