@@ -737,23 +737,93 @@
 <th>Type</th>
 <th>Measurement</th>
 <th>Interface</th>
+<th>Descrtiption</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>ap-count</td>
+<td>%</td>
+<td>WirelessApCountDiscovery</td>
+<td>The number of APs attached to this controller</td>
+</tr>
+<tr>
+<td>capacity</td>
+<td>%</td>
+<td>WirelessCapacityDiscovery</td>
+<td>The % of operating rate vs theoretical max</td>
+</tr>
+<tr>
 <td>ccq</td>
 <td>%</td>
 <td>WirelessCcqDiscovery</td>
+<td>The Client Connection Quality</td>
 </tr>
 <tr>
 <td>clients</td>
 <td>count</td>
 <td>WirelessClientsDiscovery</td>
+<td>The number of clients connected to/managed by this device</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>km</td>
+<td>WirelessDistanceDiscovery</td>
+<td>The distance of a radio link in Kilometers</td>
+</tr>
+<tr>
+<td>error-ratio</td>
+<td>%</td>
+<td>WirelessErrorRatioDiscovery</td>
+<td>The percent of errored packets or bits, etc</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>MHz</td>
+<td>WirelessFrequencyDiscovery</td>
+<td>The frequency of the radio in MHz, channels can be converted</td>
 </tr>
 <tr>
 <td>noise-floor</td>
 <td>dBm/Hz</td>
 <td>WirelessNoiseFloorDiscovery</td>
+<td>The amount of noise received by the radio</td>
+</tr>
+<tr>
+<td>power</td>
+<td>dBm</td>
+<td>WirelessPowerDiscovery</td>
+<td>The power of transmit or receive, including signal level</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>%</td>
+<td>WirelessQualityDiscovery</td>
+<td>The % of quality of the link, 100% = perfect link</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>bps</td>
+<td>WirelessRateDiscovery</td>
+<td>The negotiated rate of the connection (not data transfer)</td>
+</tr>
+<tr>
+<td>rssi</td>
+<td>dBm</td>
+<td>WirelessRssiDiscovery</td>
+<td>The Received Signal Strength Indicator</td>
+</tr>
+<tr>
+<td>snr</td>
+<td>dBm</td>
+<td>WirelessSnrDiscovery</td>
+<td>The Signal to Noise ratio, which is signal - noise floor</td>
+</tr>
+<tr>
+<td>utilization</td>
+<td>%</td>
+<td>WirelessUtilizationDiscovery</td>
+<td>The % of utilization compared to the current rate</td>
 </tr>
 </tbody>
 </table>
