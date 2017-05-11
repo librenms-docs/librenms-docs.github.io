@@ -789,16 +789,14 @@ Other options are available:</p>
 called cisco.</p>
 <p><code>bad_ifXEntry</code>: This is a list of models for which to tell LibreNMS that the device doesn't support ifXEntry and to 
  ignore it:</p>
-<p>```yaml
- bad_ifXEntry:
+<pre><code class="yaml"> bad_ifXEntry:
      - cisco1941
      - cisco886Va
-     - cisco2811</p>
-<pre><code>
-`mib_dir`: You can use this to specify the additional directories to look in for MIBs:
+     - cisco2811
+</code></pre>
 
-```yaml
-mib_dir:
+<p><code>mib_dir</code>: You can use this to specify the additional directories to look in for MIBs:</p>
+<pre><code class="yaml">mib_dir:
     - juniper
     - cisco
 </code></pre>
