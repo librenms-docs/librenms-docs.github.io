@@ -733,6 +733,8 @@
         
             <li><a href="#selinux">SELinux</a></li>
         
+            <li><a href="#allow-access-through-firewall">Allow access through firewall</a></li>
+        
             <li><a href="#restart-web-server">Restart Web server</a></li>
         
             <li><a href="#web-installer">Web installer</a></li>
@@ -873,6 +875,11 @@ vim /etc/nginx/conf.d/librenms.conf
     semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
     restorecon -RFvv /opt/librenms/logs/
     setsebool -P httpd_can_sendmail=1
+</code></pre>
+
+<h4 id="allow-access-through-firewall">Allow access through firewall</h4>
+<pre><code class="bash">firewall-cmd --zone public --add-service http
+firewall-cmd --permanent --zone public --add-service http
 </code></pre>
 
 <h4 id="restart-web-server">Restart Web server</h4>
