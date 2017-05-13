@@ -723,6 +723,9 @@
         
             <li><a href="#syntax">Syntax</a></li>
         
+    
+        <li class="main "><a href="#options">Options</a></li>
+        
             <li><a href="#examples">Examples</a></li>
         
             <li><a href="#procedure">Procedure</a></li>
@@ -731,6 +734,8 @@
         <li class="main "><a href="#templates">Templates</a></li>
         
             <li><a href="#syntax_1">Syntax</a></li>
+        
+            <li><a href="#testing">Testing</a></li>
         
             <li><a href="#examples_1">Examples</a></li>
         
@@ -812,9 +817,6 @@
             <li><a href="#misc-boolean">Misc</a></li>
         
     
-        <li class="main "><a href="#additional-options">Additional Options</a></li>
-        
-    
     </ul>
 </div>
 </div>
@@ -833,12 +835,14 @@
 <li><a href="#about">About</a></li>
 <li><a href="#rules">Rules</a><ul>
 <li><a href="#rules-syntax">Syntax</a></li>
+<li><a href="#extra">Options</a></li>
 <li><a href="#rules-examples">Examples</a></li>
 <li><a href="#rules-procedure">Procedure</a></li>
 </ul>
 </li>
 <li><a href="#templates">Templates</a><ul>
 <li><a href="#templates-syntax">Syntax</a></li>
+<li><a href="#templates-testing">Testing</a></li>
 <li><a href="#templates-examples">Examples</a></li>
 <li><a href="#templates-included">Included</a></li>
 </ul>
@@ -885,7 +889,6 @@
 <li><a href="#macros-misc">Misc</a></li>
 </ul>
 </li>
-<li><a href="#extra">Additional Options</a></li>
 </ul>
 <h1 id="about"><a name="about">About</a></h1>
 <p>LibreNMS includes a highly customizable alerting system.
@@ -917,6 +920,17 @@ Rules can contain braces and <strong>Glues</strong>.
 <strong>Glues</strong> can be either <code>&amp;&amp;</code> for <code>AND</code> or <code>||</code> for <code>OR</code>.</p>
 <p><strong>Note</strong>: The difference between <code>Equals</code> and <code>Like</code> (and its negation) is that <code>Equals</code> does a strict comparison and <code>Like</code> allows the usage of RegExp.
 Arithmetics are allowed as well.</p>
+<h1 id="options"><a name="extra">Options</a></h1>
+<p>Here are some of the other options available when adding an alerting rule:</p>
+<ul>
+<li>Rule name: The name associated with the rule.</li>
+<li>Severity: How "important" the rule is.</li>
+<li>Max alerts: The maximum number of alerts sent for the event.  <code>-1</code> means unlimited.</li>
+<li>Delay: The amount of time in seconds to wait after a rule is matched before sending an alert.</li>
+<li>Interval: The interval of time in seconds between alerts for an event until Max is reached.</li>
+<li>Mute alerts: Disable sending alerts for this rule.</li>
+<li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
+</ul>
 <h2 id="examples"><a name="rules-examples">Examples</a></h2>
 <p>Alert when:</p>
 <ul>
@@ -981,6 +995,13 @@ The template-parser understands <code>if</code> and <code>foreach</code> control
 
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining own templates for your rules to include more specific information.
 Templates can be matched against several rules.</p>
+<h2 id="testing"><a name="templates-testing">Testing</a></h2>
+<p>It's possible to test your new template before assigning it to a rule. To do so you can run <code>./scripts/est-template.php</code>. The script will provide the help 
+info when ran without any paramaters.</p>
+<p>As an example, if you wanted to test template ID 10 against localhost running rule ID 2 then you would run:</p>
+<p><code>./scripts/test-template.php -t 10 -d localhost -r 2</code></p>
+<p>If the rule is currently alerting for localhost then you will get the full template as expected to see on email, if it's not then you will just see the 
+template without any fault information.</p>
 <h2 id="examples_1"><a name="templates-examples">Examples</a></h2>
 <p>Default Template:</p>
 <pre><code class="text">%title\r\n
@@ -1509,18 +1530,7 @@ All macros that are not unary should return Boolean.</p>
 <h3 id="pdu-over-amperage-apc">PDU over amperage [APC]</h3>
 <p>Entity: <code>%sensors.sensor_class = "current" &amp;&amp; %sensors.sensor_descr = "Bank Total" &amp;&amp; %sensors.sensor_current &gt; %sensors.sensor_limit &amp;&amp; %devices.os = "apc"</code></p>
 <p>Description: APC PDU over amperage</p>
-<p>Example: <code>%macros.pdu_over_amperage_apc = "1"</code></p>
-<h1 id="additional-options"><a name="extra">Additional Options</a></h1>
-<p>Here are some of the other options available when adding an alerting rule:</p>
-<ul>
-<li>Rule name: The name associated with the rule.</li>
-<li>Severity: How "important" the rule is.</li>
-<li>Max alerts: The maximum number of alerts sent for the event.  <code>-1</code> means unlimited.</li>
-<li>Delay: The amount of time in seconds to wait after a rule is matched before sending an alert.</li>
-<li>Interval: The interval of time in seconds between alerts for an event until Max is reached.</li>
-<li>Mute alerts: Disable sending alerts for this rule.</li>
-<li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
-</ul></div>
+<p>Example: <code>%macros.pdu_over_amperage_apc = "1"</code></p></div>
                 
             
             </div>
