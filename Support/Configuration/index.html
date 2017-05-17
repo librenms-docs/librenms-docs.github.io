@@ -1175,7 +1175,7 @@ by continuing the array.</p>
 <h3 id="interfaces-that-shouldnt-be-ignored">Interfaces that shouldn't be ignored</h3>
 <p>Examples:</p>
 <pre><code class="php">$config['good_if'][] = 'FastEthernet';
-$config['os']['ios']['good_id'][] = 'FastEthernet';
+$config['os']['ios']['good_if'][] = 'FastEthernet';
 </code></pre>
 
 <p><code>good_if</code> is matched against ifDescr value. This can be a bad_if value as well which would stop that port from being ignored. 
