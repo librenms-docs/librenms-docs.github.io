@@ -1010,14 +1010,14 @@ info when ran without any paramaters.</p>
 template without any fault information.</p>
 <h2 id="examples_1"><a name="templates-examples">Examples</a></h2>
 <p>Default Template:</p>
-<pre><code class="text">%title\r\n
-Severity: %severity\r\n
-{if %state == 0}Time elapsed: %elapsed\r\n{/if}
-Timestamp: %timestamp\r\n
-Unique-ID: %uid\r\n
-Rule: {if %name}%name{else}%rule{/if}\r\n
-{if %faults}Faults:\r\n
-{foreach %faults}  #%key: %value.string\r\n{/foreach}{/if}
+<pre><code class="text">%title
+Severity: %severity
+{if %state == 0}Time elapsed: %elapsed{/if}
+Timestamp: %timestamp
+Unique-ID: %uid
+Rule: {if %name}%name{else}%rule{/if}
+{if %faults}Faults:
+{foreach %faults}  #%key: %value.string{/foreach}{/if}
 Alert sent to: {foreach %contacts}%value &lt;%key&gt; {/foreach}
 </code></pre>
 
