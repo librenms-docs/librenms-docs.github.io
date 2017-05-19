@@ -88,6 +88,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/General/CODE_OF_CONDUCT/</loc>
+     <lastmod>2017-05-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/General/Contributing/</loc>
      <lastmod>2017-05-19</lastmod>
      <changefreq>daily</changefreq>
