@@ -819,7 +819,7 @@ globally enabling it (not recommended): <code>$config['polling']['selected_ports
 <h3 id="web-interface">Web interface</h3>
 <h4 id="http2">HTTP/2</h4>
 <p>If you are running https then you should enable http/2 support in whatever web server you use:</p>
-<p>For Nginx (1.9.5 and above) change <code>listen 443 http2;</code> to <code>listen 443 ssl http2;</code> in the Virtualhost config.</p>
+<p>For Nginx (1.9.5 and above) change <code>listen 443 ssl;</code> to <code>listen 443 ssl http2;</code> in the Virtualhost config.</p>
 <p>For Apache (2.4.17 an above) set <code>Protocols h2 http/1.1</code> in the Virtualhost config.</p></div>
                 
             
