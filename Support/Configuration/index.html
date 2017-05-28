@@ -1281,7 +1281,7 @@ to indicate how you connect to libvirt.  You also need to:</p>
 <h3 id="auto-updates">Auto updates</h3>
 <p><a href="../../General/Updating/">Updating</a></p>
 <h3 id="ipmi">IPMI</h3>
-<p>Setup the types of IPMI protocols to test a host for and it what order.</p>
+<p>Setup the types of IPMI protocols to test a host for and it what order. Don't forget to install ipmitool on the monitoring host.</p>
 <pre><code class="php">$config['ipmi']['type'] = array();
 $config['ipmi']['type'][] = &quot;lanplus&quot;;
 $config['ipmi']['type'][] = &quot;lan&quot;;
