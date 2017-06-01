@@ -792,6 +792,8 @@
         
             <li><a href="#syslog">Syslog</a></li>
         
+            <li><a href="#elasticsearch">Elasticsearch</a></li>
+        
     
         <li class="main "><a href="#entities">Entities</a></li>
         
@@ -875,6 +877,7 @@
 <li><a href="#transports-ciscospark">Cisco Spark</a></li>
 <li><a href="#transports-smseagle">SMSEagle</a></li>
 <li><a href="#transports-syslog">Syslog</a></li>
+<li><a href="#transports-elasticsearch">Elasticsearch</a></li>
 </ul>
 </li>
 <li><a href="#entities">Entities</a><ul>
@@ -1398,11 +1401,27 @@ $config['alert']['transports']['syslog']['syslog_facility'] = 3;
 </code></pre>
 
 <p>~</p>
+<h2 id="elasticsearch"><a name="transports-elasticsearch">Elasticsearch</a></h2>
+<p>You can have LibreNMS emit alerts to an elasticsearch database. Each fault will be sent as a separate document.
+The index pattern uses strftime() formatting.
+The proxy setting uses the proxy set in config.php if true and does not if false; this allows you to use local servers.</p>
+<p>~</p>
+<pre><code class="php">$config['alert']['transports']['elasticsearch']['es_host']   = '127.0.0.1';
+$config['alert']['transports']['elasticsearch']['es_port']  = 9200;
+$config['alert']['transports']['elasticsearch']['es_index']  = 'librenms-%Y.%m.%d';
+$config['alert']['transports']['elasticsearch']['es_proxy'] = false;
+</code></pre>
+
+<p>~</p>
 <h1 id="entities"><a name="entities">Entities</h1>
 <p>Entities as described earlier are based on the table and column names within the database, if you are unsure of what the entity is you want then have a browse around inside MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
 <h2 id="devices"><a name="entity-devices">Devices</a></h2>
-<p><strong>devices.hostname</strong> = The devices hostname.</p>
-<p><strong>devices.location</strong> = The devices location.</p>
+<p><strong>devices.hostname</strong> = The device hostname.</p>
+<p><strong>devices.sysName</strong> = The device sysName.</p>
+<p><strong>devices.sysDescr</strong> = The device sysDescr.</p>
+<p><strong>devices.hardware</strong> = The device hardware.</p>
+<p><strong>devices.version</strong> = The device os version.</p>
+<p><strong>devices.location</strong> = The device location.</p>
 <p><strong>devices.status</strong> = The status of the device, 1 = up, 0 = down.</p>
 <p><strong>devices.status_reason</strong> = The reason the device was detected as down (icmp or snmp).</p>
 <p><strong>devices.ignore</strong> = If the device is ignored this will be set to 1.</p>
