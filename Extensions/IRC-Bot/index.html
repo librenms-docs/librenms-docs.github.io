@@ -735,6 +735,8 @@
         
             <li><a href="#channel-notations">Channel notations:</a></li>
         
+            <li><a href="#hostmask-authentication">Hostmask authentication:</a></li>
+        
     
         <li class="main "><a href="#extensions">Extensions?!</a></li>
         
@@ -833,6 +835,11 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
 <td><code>$config['irc_port']</code></td>
 <td><code>6667</code></td>
 <td>Required; To enable SSL append a <code>+</code> before the Port. (Example: <code>+6697</code>)</td>
+</tr>
+<tr>
+<td><code>$config['irc_auth']</code></td>
+<td></td>
+<td>Optional: Array of hostmasks that are automatically authenticated.</td>
 </tr>
 </tbody>
 </table>
@@ -935,6 +942,15 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
    ...
 </code></pre>
 
+<h3 id="hostmask-authentication">Hostmask authentication:</h3>
+<pre><code class="php">   ...
+   $config['irc_auth']['admin'][] = &quot;*!root@nms.host.invalid&quot;;
+   $config['irc_auth']['admin'][] = &quot;*!*peter@peters.computer.invalid&quot;;
+   $config['irc_auth']['john][] = &quot;john!doe@login.server.invalid&quot;;
+   ...
+</code></pre>
+
+<p>Any client matching one of the first two hostmasks will automatically be authenticated as the "admin" user in LibreNMS, and clients matching the last line will be authenticated as the user "john" in LibreNMS, without using .auth and a waiting for a valid token.</p>
 <h1 id="extensions"><a name="extensions">Extensions?!</a></h1>
 <p>The bot is coded in a unified way.
 This makes writing extensions by far less painful.
