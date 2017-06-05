@@ -837,6 +837,16 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
 <td>Required; To enable SSL append a <code>+</code> before the Port. (Example: <code>+6697</code>)</td>
 </tr>
 <tr>
+<td><code>$config['irc_ctcp']</code></td>
+<td><code>false</code></td>
+<td>Optional; Enable/disable ctcp-replies from the bot (currently VERSION, PING and TIME).</td>
+</tr>
+<tr>
+<td><code>$config['irc_ctcp_version']</code></td>
+<td><code>LibreNMS IRCbot. https://www.librenms.org/</code></td>
+<td>Optional: Reply-string to CTCP VERSION requests</td>
+</tr>
+<tr>
 <td><code>$config['irc_auth']</code></td>
 <td></td>
 <td>Optional: Array of hostmasks that are automatically authenticated.</td>
