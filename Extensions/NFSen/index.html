@@ -771,9 +771,13 @@ something like <code>host1.rrd</code> but your device hostname is <code>domain.h
 <pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat';
 </code></pre>
 
-<p>When adding sources to nfsen.conf, it is important to use the hostname that matches what is configured in LibreNMS. </p>
+<p>When adding sources to nfsen.conf, it is important to use the hostname that matches what is configured in LibreNMS, because the rrd files NfSen creates is named after the source name (ident), and it doesn't allow you to use an IP address instead. However, in LibreNMS, if your device is added by an IP address, add your source with any name of your choice, and create a symbolic link to the rrd file.</p>
+<pre><code class="sh">cd /var/nfsen/profiles-stat/sitea/
+ln -s mychannel.rrd librenmsdeviceIP.rrd
+</code></pre>
+
 <p>When creating profiles under nfsen, be sure to use the hostname so it matches the name in LibreNMS. That is where channel data will be pulled from.</p>
-<p>You should a new tab for the device called Nfsen.</p></div>
+<p>You should see a new tab for the device called Nfsen.</p></div>
                 
             
             </div>
