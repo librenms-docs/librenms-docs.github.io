@@ -1349,6 +1349,10 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <h3 id="proxmox">Proxmox</h3>
 <ol>
 <li>
+<p>For Proxmox 4.4+ install the libpve-apiclient-perl package
+<code>apt install libpve-apiclient-perl</code></p>
+</li>
+<li>
 <p>Download the script onto the desired host (the host must be added to LibreNMS devices)
 <code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/proxmox -O /usr/local/bin/proxmox</code></p>
 </li>
