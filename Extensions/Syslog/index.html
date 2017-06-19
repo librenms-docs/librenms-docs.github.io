@@ -728,6 +728,8 @@
         
             <li><a href="#client-configuration">Client configuration</a></li>
         
+            <li><a href="#external-hooks">External hooks</a></li>
+        
     
     </ul>
 </div>
@@ -811,7 +813,7 @@ log {
 <pre><code class="ssh">service syslog-ng restart
 </code></pre>
 
-<p>Add the following to your LibreNMS config.php file to enable the Syslog extension:</p>
+<p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
 <pre><code class="ssh">$config['enable_syslog'] = 1;
 </code></pre>
 
@@ -881,7 +883,24 @@ logging librenms.ip
 <pre><code class="config">logging server librenms.ip 5 use-vrf default facility local6
 </code></pre>
 
-<p>If you have permitted udp and tcp 514 through any firewall then that should be all you need. Logs should start appearing and displayed within the LibreNMS web UI.</p></div>
+<p>If you have permitted udp and tcp 514 through any firewall then that should be all you need. Logs should start appearing and displayed within the LibreNMS web UI.</p>
+<h3 id="external-hooks">External hooks</h3>
+<p>Trigger external scripts based on specific syslog patterns being matched with syslog hooks. Add the following to your LibreNMS <code>config.php</code> to enable hooks:</p>
+<pre><code class="ssh">$config['enable_syslog_hooks'] = 1;
+</code></pre>
+
+<p>The below are some example hooks to call an external script in the event of a configuration change on Cisco IOS, IOS-XR and NX-OS devices. Add to your <code>config.php</code> file to enable.</p>
+<h4 id="cisco-ios_1">Cisco IOS</h4>
+<pre><code class="ssh">$config['os']['ios']['syslog_hook'][] = Array('regex' =&gt; '/%SYS-(SW[0-9]+-)?5-CONFIG_I/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
+
+<h4 id="cisco-nxos_1">Cisco NXOS</h4>
+<pre><code class="ssh">$config['os']['nxos']['syslog_hook'][] = Array('regex' =&gt; '/%VSHD-5-VSHD_SYSLOG_CONFIG_I/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
+
+<h4 id="cisco-iosxr">Cisco IOSXR</h4>
+<pre><code class="ssh">$config['os']['iosxr']['syslog_hook'][] = Array('regex' =&gt; '/%GBL-CONFIG-6-DB_COMMIT/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre></div>
                 
             
             </div>

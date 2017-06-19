@@ -825,6 +825,11 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
 <p>It's also possible to exclude certain device types and OS' from being output via the API. This is currently only possible via config.php:</p>
 <pre><code class="php">$config['oxidized']['ignore_types'] = array('server');
 $config['oxidized']['ignore_os'] = array('linux');
+</code></pre>
+
+<h3 id="trigger-configuration-downloads">Trigger configuration downloads</h3>
+<p>Using the Oxidized REST API and <a href="../../Extensions/Syslog/#external-hooks">Syslog Hooks</a>, Oxidized can trigger configuration downloads whenever a configuration change event has been logged. An example script to do this is included in <code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new worker thread and perform the download immediately with the following configuration</p>
+<pre><code class="bash">next_adds_job: true
 </code></pre></div>
                 
             
