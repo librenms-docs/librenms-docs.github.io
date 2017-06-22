@@ -722,11 +722,21 @@
 <div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#auto-discovery-support">Auto discovery support</a></li>
+        <li class="main active"><a href="#auto-discovery-support">Auto Discovery Support</a></li>
         
-            <li><a href="#getting-started-with-auto-discovery">Getting started with auto discovery.</a></li>
+            <li><a href="#getting-started">Getting Started</a></li>
         
-            <li><a href="#discovery-methods">Discovery methods</a></li>
+            <li><a href="#snmp-details">SNMP Details</a></li>
+        
+            <li><a href="#allowed-networks">Allowed Networks</a></li>
+        
+            <li><a href="#exclusions">Exclusions</a></li>
+        
+            <li><a href="#additional-options">Additional Options</a></li>
+        
+            <li><a href="#discovery-methods">Discovery Methods</a></li>
+        
+            <li><a href="#snmp-scan">SNMP Scan</a></li>
         
     
     </ul>
@@ -742,8 +752,8 @@
 </div>
 
 
-<h1 id="auto-discovery-support">Auto discovery support</h1>
-<h3 id="getting-started-with-auto-discovery">Getting started with auto discovery.</h3>
+<h1 id="auto-discovery-support">Auto Discovery Support</h1>
+<h3 id="getting-started">Getting Started</h3>
 <p>LibreNMS provides the ability to automatically add devices on your network, we can do this with via 
 a few methods which will be explained below and also indicate if they are enabled by default.</p>
 <p>All discovery methods run when discovery.php runs (every 6 hours by default and within 5 minutes for new devices).</p>
@@ -751,7 +761,7 @@ a few methods which will be explained below and also indicate if they are enable
 <p>Please note that you need at least ONE device added before auto-discovery will work.</p>
 </blockquote>
 <p>The first thing to do though is add the required configuration options to <code>config.php</code>.</p>
-<h4 id="snmp-details">SNMP Details</h4>
+<h3 id="snmp-details">SNMP Details</h3>
 <p>To add devices automatically we need to know your snmp details, examples of SNMP v1, v2c and v3 are below:</p>
 <pre><code class="php">// v1 or v2c
 $config['snmp']['community'][] = &quot;my_custom_community&quot;;
@@ -767,29 +777,41 @@ $config['snmp']['v3'][0]['cryptoalgo'] = 'AES';
 </code></pre>
 
 <p>These details will be attempted when adding devices, you can specify any mixture of these.</p>
-<h4 id="your-networks">Your networks</h4>
+<h3 id="allowed-networks">Allowed Networks</h3>
+<h4 id="your-networks">Your Networks</h4>
 <p>To add devices, we need to know what are your subnets so we don't go blindly attempting to add devices not 
 under your control.</p>
 <pre><code class="php">$config['nets'][] = '192.168.0.0/24';
 $config['nets'][] = '172.2.4.0/22';
 </code></pre>
 
-<h4 id="exclusions">Exclusions</h4>
+<h3 id="exclusions">Exclusions</h3>
 <p>If you have added a network as above but a single device exists within it that you can't auto 
 add, then you can exclude this with the following:</p>
 <pre><code class="php">$config['autodiscovery']['nets-exclude'][] = '192.168.0.1/32';
 </code></pre>
 
-<p>If you want to enable / disable certain auto-discovery modules then see the rest of this doc for further info.</p>
-<h3 id="discovery-methods">Discovery methods</h3>
-<h4 id="arp">ARP</h4>
+<h2 id="additional-options">Additional Options</h2>
+<h4 id="discovering-devices-by-ip">Discovering devices by IP</h4>
+<p>By default we don't add devices by IP address, we look for a reverse dns name to be found and add with that. If this fails 
+and you would like to still add devices automatically then you will need to set <code>$config['discovery_by_ip'] = true;</code></p>
+<h4 id="short-hostnames">Short hostnames</h4>
+<p>If your devices only return a short hostname such as lax-fa0-dc01 but the full name should be lax-fa0-dc01.example.com then you can 
+set <code>$config['mydomain'] = 'example.com';</code></p>
+<h4 id="allow-duplicate-sysname">Allow Duplicate sysName</h4>
+<p>By default we require unique sysNames when adding devices (this is returned over snmp by your devices). If you would like to allow 
+devices to be added with duplicate sysNames then please set <code>$config['allow_duplicate_sysName'] = true;</code>.</p>
+<h2 id="discovery-methods">Discovery Methods</h2>
+<p>Below are the methods for auto discovering devices.  Each one can be enabled or disabled and may have additional configuration options.</p>
+<h3 id="arp">ARP</h3>
 <p>Disabled by default.</p>
+<p>Adds devices that are listed in another device's arp table.  This module depends on the arp-table module being enabled and returning data.</p>
 <p>To enable, switch on globally the <code>$config['discovery_modules']['discovery-arp'] = 1;</code> or per device within the Modules section.</p>
-<h4 id="xdp">XDP</h4>
+<h3 id="xdp">XDP</h3>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['xdp'] = false;</code> to disable.</p>
 <p>This includes FDP, CDP and LLDP support based on the device type.</p>
-<p>Devices may be excluded from xdp discovery by sysname and sysdesc.</p>
+<p>Devices may be excluded from xdp discovery by sysName and sysDescr.</p>
 <pre><code class="php">//Exclude devices by name
 $config['autodiscovery']['xdp_exclude']['sysname_regexp'][] = '/host1/';
 $config['autodiscovery']['xdp_exclude']['sysname_regexp'][] = '/^dev/';
@@ -809,29 +831,21 @@ $config['autodiscovery']['cdp_exclude']['platform_regexp'][] = '/WS-C3750G/';
 $config['autodiscovery']['cdp_exclude']['platform_regexp'][] = '/^Cisco IP Phone/'; //Cisco IP Phone
 </code></pre>
 
-<h4 id="ospf">OSPF</h4>
+<h3 id="ospf">OSPF</h3>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['ospf'] = false;</code> to disable.</p>
-<h4 id="bgp">BGP</h4>
+<h3 id="bgp">BGP</h3>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['bgp'] = false;</code> to disable.</p>
 <p>This module is invoked from bgp-peers discovery module.</p>
-<h4 id="snmp-scan">SNMP Scan</h4>
-<p>This isn't actually an auto- mechanism but manually invoked.</p>
+<h2 id="snmp-scan">SNMP Scan</h2>
+<p>This isn't actually an auto-discovery mechanism, but manually invoked.</p>
 <p>It's designed to scan through all of the subnets in your config or what you have manually specified 
-to automatically add devices. An example of it's usage is:</p>
+to automatically add devices.</p>
+<p>SNMP Scan will scan <code>$config['nets']</code> by default and respects <code>$config['autodiscovery']['nets-exclude']</code>.</p>
+<p>An example of it's usage is:</p>
 <pre><code class="bash">./snmp-scan.php -r 192.168.0.0/24
-</code></pre>
-
-<h4 id="discovering-devices-by-ip">Discovering devices by IP</h4>
-<p>By default we don't add devices by IP address, we look for a reverse dns name to be found and add with that. If this fails 
-and you would like to still add devices automatically then you will need to set <code>$config['discovery_by_ip'] = true;</code></p>
-<h4 id="short-hostnames">Short hostnames</h4>
-<p>If your devices only return a short hostname such as lax-fa0-dc01 but the full name should be lax-fa0-dc01.example.com then you can 
-set <code>$config['mydomain'] = 'example.com';</code></p>
-<h4 id="unique-sysname">Unique sysName</h4>
-<p>By default we require unique sysNames when adding devices (this is returned over snmp by your devices). If you would like to allow 
-devices to be added with duplicate sysNames then please set <code>$config['allow_duplicate_sysName'] = true;</code>.</p></div>
+</code></pre></div>
                 
             
             </div>
