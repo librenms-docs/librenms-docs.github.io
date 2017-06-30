@@ -871,7 +871,6 @@ modules:
     sensors:
         airflow:
             -
-                oid_name: netbotz_airflow
                 oid: airFlowSensorTable
                 value: airFlowSensorValue
                 divisor: 10
@@ -893,7 +892,7 @@ modules:
 <li><code>low_warn_limit</code> (optional): This is the warning low threshold that <code>value</code> should be (used in alerting).</li>
 <li><code>warn_limit</code> (optional): This is the warning high threshold that <code>value</code> should be (used in alerting).</li>
 <li><code>high_limit</code> (optional): This is the critical high threshold that <code>value</code> should be (used in alerting).</li>
-<li><code>descr</code> (required): This is the key within the table that contains the description of this sensor.</li>
+<li><code>descr</code> (required): The visible label for this sensor. It can be a key with in the table or a static string, optionally using <code>{{ index }}</code></li>
 <li><code>index</code> (optional): This is the index value we use to uniquely identify this sensor. <code>{{ $index }}</code> will be replaced by the <code>index</code> from the snmp walk.</li>
 <li><code>skip_values</code> (optional): This is an array of values we should skip over.</li>
 </ul>
