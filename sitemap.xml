@@ -435,6 +435,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.librenms.org/Support/SSL-Configuration/</loc>
+     <lastmod>2017-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
