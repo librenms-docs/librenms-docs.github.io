@@ -1378,7 +1378,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <code>$config['apps']['powerdns-recursor']['port']</code> numeric, defines the port to connect to PowerDNS Recursor on.  The default is 8082
 <code>$config['apps']['powerdns-recursor']['https']</code> true or false, defaults to use http.</p>
 <h4 id="snmp-extend_22">SNMP Extend</h4>
-<p>1: Copy the shell script, postgres, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor -O /etc/snmp/powerdns-recursor)</p>
+<p>1: Copy the shell script, powerdns-recursor, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor -O /etc/snmp/powerdns-recursor)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/powerdns-recursor)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
 <pre><code>extend powerdns-recursor /etc/snmp/powerdns-recursor
