@@ -152,6 +152,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Agent-Setup/</loc>
+     <lastmod>2017-07-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Billing-Module/</loc>
      <lastmod>2017-07-18</lastmod>
      <changefreq>daily</changefreq>
