@@ -828,6 +828,8 @@
         
             <li><a href="#elasticsearch">Elasticsearch</a></li>
         
+            <li><a href="#jira">JIRA</a></li>
+        
     
     </ul>
 </div>
@@ -1214,6 +1216,18 @@ The proxy setting uses the proxy set in config.php if true and does not if false
 $config['alert']['transports']['elasticsearch']['es_port']  = 9200;
 $config['alert']['transports']['elasticsearch']['es_index']  = 'librenms-%Y.%m.%d';
 $config['alert']['transports']['elasticsearch']['es_proxy'] = false;
+</code></pre>
+
+<p>~</p>
+<h2 id="jira"><a name="transports-jira">JIRA</a></h2>
+<p>You can have LibreNMS create issues on a Jira instance for critical and warning alerts. The Jira transport only sets summary and description fiels. Therefore your Jira project must not have any other mandatory field for the provided issuetype. The config fields that need to set are Jira URL, Jira username, Jira password, Project key, and issue type. 
+Currently http authentication is used to access Jira and Jira username and password will be stored as cleartext in the LibreNMS database.</p>
+<p>~</p>
+<pre><code class="php">$config['alert']['transports']['jira']['url']   = 'https://myjira.mysite.com';
+$config['alert']['transports']['jira']['username']  = 'myjirauser';
+$config['alert']['transports']['jira']['password'] = 'myjirapass';
+$config['alert']['transports']['jira']['prjkey'][]  = 'JIRAPROJECTKEY';
+$config['alert']['transports']['jira']['issuetype'][]  = 'Myissuetype';
 </code></pre>
 
 <p>~</p></div>
