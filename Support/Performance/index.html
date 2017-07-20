@@ -858,6 +858,9 @@ edit device -&gt; snmp -&gt; Max OIDs.</p>
 <h4 id="optimise-poller-wrapper">Optimise poller-wrapper</h4>
 <p>The default 16 threads that <code>poller-wrapper.py</code> runs as isn't necessarily the optimal number. A general rule of thumb is 
 2 threads per core but we suggest that you play around with lowering / increasing the number until you get the optimal value.</p>
+<p>This can be changed by going to the cron job for librenms. Usually in /etc/cron.d/librenms and changing the "16"</p>
+<p><em>/5  *    * </em> *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16</p>
+<p>KEEP in MIND that this dosnt always help, it depnds on your system and CPU. So Be careful. </p>
 <h4 id="recursive-dns">Recursive DNS</h4>
 <p>If your install uses hostnames for devices and you have quite a lot then it's advisable to setup a local recursive dns instance on the 
 LibreNMS server. Something like pdns-recursor can be used and then configure <code>/etc/resolv.conf</code> to use 127.0.0.1 for queries.</p>
