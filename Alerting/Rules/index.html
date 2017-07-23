@@ -793,6 +793,8 @@
         
             <li><a href="#procedure">Procedure</a></li>
         
+            <li><a href="#testing-alerts">Testing alerts</a></li>
+        
     
     </ul>
 </div>
@@ -860,7 +862,10 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code></li>
 </ul>
 <h2 id="procedure"><a name="rules-procedure">Procedure</a></h2>
-<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p></div>
+<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
+<h2 id="testing-alerts">Testing alerts</h2>
+<p>You can test your transports by forcing an actual active alert to run regardless of the interval or delay values.</p>
+<p><code>./scripts/test-alert.php</code>. This script accepts -r for the rule id, -h for the device id or hostname and -d for debug.</p></div>
                 
             
             </div>
