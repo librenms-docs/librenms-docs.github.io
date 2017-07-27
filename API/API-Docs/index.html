@@ -817,6 +817,10 @@
         
             <li><a href="#bills-top">Bills</a></li>
         
+            <li><a href="#services-top">Services</a></li>
+        
+            <li><a href="#logs-top">Logs</a></li>
+        
     
     </ul>
 </div>
@@ -922,6 +926,13 @@
 <li><a href="#api-services"><code>services</code></a><ul>
 <li><a href="#api-services-list_services"><code>list_services</code></a></li>
 <li><a href="#api-services-get_service_for_host"><code>get_service_for_host</code></a></li>
+</ul>
+</li>
+<li><a href="#api-logs"><code>logs</code></a><ul>
+<li><a href="#api-logs-list_eventlog"><code>list_eventlog</code></a></li>
+<li><a href="#api-logs-list_syslog"><code>list_syslog</code></a></li>
+<li><a href="#api-logs-list_alertlog"><code>list_alertlog</code></a></li>
+<li><a href="#api-logs-list_authlog"><code>list_authlog</code></a></li>
 </ul>
 </li>
 </ul>
@@ -2439,6 +2450,7 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/i
 }
 </code></pre>
 
+<h2 id="services-top"><a name="api-services"><code>Services</code></a> <a href="#top"><code>top</code></a></h2>
 <h3 id="function-list_services-top"><a name="api-services-list_services">Function: <code>list_services</code></a> <a href="#top"><code>top</code></a></h3>
 <p>Retrieve all services</p>
 <p>Route: /api/v0/services</p>
@@ -2534,6 +2546,71 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:h
                 &quot;service_ds&quot;: &quot;{\&quot;P2Vol_0_Processor_1_Vcore\&quot;:\&quot;\&quot;,\&quot;P2Vol_1_System_Board_1_-12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_2_System_Board_1_12V\&quot;:\&quot;\&quot;,\&quot;P2Vol_3_System_Board_1_3.3VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_4_System_Board_1_5VCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_5_System_Board_1_AVCC\&quot;:\&quot;\&quot;,\&quot;P2Vol_6_System_Board_1_VBAT\&quot;:\&quot;\&quot;,\&quot;P2Vol_7_System_Board_1_&quot;
             }
         ]
+    ]
+}
+</code></pre>
+
+<h2 id="logs-top"><a name="api-logs"><code>Logs</code></a> <a href="#top"><code>top</code></a></h2>
+<h3 id="function-list_eventlog-top"><a name="api-logs-list_eventlog">Function: <code>list_eventlog</code></a> <a href="#top"><code>top</code></a></h3>
+<h3 id="function-list_syslog-top"><a name="api-logs-list_syslog">Function: <code>list_syslog</code></a> <a href="#top"><code>top</code></a></h3>
+<h3 id="function-list_alertlog-top"><a name="api-logs-list_alertlog">Function: <code>list_alertlog</code></a> <a href="#top"><code>top</code></a></h3>
+<h3 id="function-list_authlog-top"><a name="api-logs-list_authlog">Function: <code>list_authlog</code></a> <a href="#top"><code>top</code></a></h3>
+<p>All the <code>list_*logs</code> calls are aliased to <code>list_logs</code>.</p>
+<p>Retrieve all logs or logs for a specific device.</p>
+<p>Route: /api/v0/logs/eventlog/:hostname
+Route: /api/v0/logs/syslog/:hostname
+Route: /api/v0/logs/alertlog/:hostname
+Route: /api/v0/logs/authlog/:hostname</p>
+<ul>
+<li>id or hostname is the specific device</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>start: The page number to request.</li>
+<li>limit: The limit of results to be returned.</li>
+<li>from: The date and time to search from.</li>
+<li>to: The data and time to search to.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/logs/eventlog/:hostname
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/logs/syslog/:hostname?limit=20
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/logs/eventlog/:hostname?limit=20&amp;start=5&amp;from=2017-07-22%2023:00:00
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="text">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;err-msg&quot;: &quot;&quot;,
+    &quot;count&quot;: 5,
+    &quot;total&quot;: &quot;15&quot;,
+    &quot;logs&quot;: [
+        {
+            &quot;hostname&quot;: &quot;localhost&quot;,
+            &quot;sysName&quot;: &quot;web01.1.novalocal&quot;,
+            &quot;event_id&quot;: &quot;10050349&quot;,
+            &quot;host&quot;: &quot;279&quot;,
+            &quot;device_id&quot;: &quot;279&quot;,
+            &quot;datetime&quot;: &quot;2017-07-22 19:57:47&quot;,
+            &quot;message&quot;: &quot;ifAlias:  -&gt;  &lt;pptp-something-something-tunnel-something&gt;&quot;,
+            &quot;type&quot;: &quot;interface&quot;,
+            &quot;reference&quot;: &quot;NULL&quot;,
+            &quot;username&quot;: &quot;&quot;,
+            &quot;severity&quot;: &quot;3&quot;
+        },
+        ....
+        {
+            &quot;hostname&quot;: &quot;localhost&quot;,
+            &quot;sysName&quot;: &quot;web01.1.novalocal&quot;,
+            &quot;event_id&quot;: &quot;10050353&quot;,
+            &quot;host&quot;: &quot;279&quot;,
+            &quot;device_id&quot;: &quot;279&quot;,
+            &quot;datetime&quot;: &quot;2017-07-22 19:57:47&quot;,
+            &quot;message&quot;: &quot;ifHighSpeed:  -&gt;  0&quot;,
+            &quot;type&quot;: &quot;interface&quot;,
+            &quot;reference&quot;: &quot;NULL&quot;,
+            &quot;username&quot;: &quot;&quot;,
+            &quot;severity&quot;: &quot;3&quot;
+        }
     ]
 }
 </code></pre></div>
