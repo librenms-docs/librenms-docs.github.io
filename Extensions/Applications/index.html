@@ -1064,7 +1064,7 @@ Further details: https://getchip.com/pages/chip</p>
 <h4 id="snmp-extend_5">SNMP Extend</h4>
 <p>1: Copy the shell script, fail2ban, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/fail2ban -O /etc/snmp/fail2ban)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/fail2ban)</p>
-<p>3: Edit your snmpd.conf file (usually /etc/snmp/fail2ban) and add:</p>
+<p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 <pre><code>extend fail2ban /etc/snmp/fail2ban
 </code></pre>
 
