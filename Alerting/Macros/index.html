@@ -873,6 +873,9 @@ All macros that are not unary should return Boolean.</p>
 <p>Entity: <code>%macros.sensor</code></p>
 <p>Description: Only select sensors that aren't ignored.</p>
 <p>Source: <code>(%sensors.sensor_alert = 1)</code></p>
+<p>Entity: <code>%macros.sensor_port_link</code></p>
+<p>Description: Only selects sensors that have a port linked to them, the port is up and the device is up.</p>
+<p>Source: <code>(%sensors.entity_link_type = 'port' &amp;&amp; %sensors.entity_link_index = %ports.ifIndex &amp;&amp; %macros.port_up &amp;&amp; %macros.device_up))</code></p>
 <h2 id="misc-boolean"><a name="macros-misc">Misc</a> (Boolean)</h2>
 <h3 id="packet-loss">Packet Loss</h3>
 <p>Entity: <code>(%macros.packet_loss_5m)</code></p>
