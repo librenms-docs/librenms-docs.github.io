@@ -807,7 +807,7 @@
 
 
 <h1 id="templates"><a name="templates">Templates</a></h1>
-<p>Templates can be assigned to a single or a group of rules and can contain any kind of text.</p>
+<p>Templates can be assigned to a single or a group of rules and can contain any kind of text. There is also a default template which is used for any rule that isn't associated with a template. This template can be found under <code>Alert Templates</code> page and can be edited. It also has an option revert it back to its default content. </p>
 <p>The template-parser understands <code>if</code> and <code>foreach</code> controls and replaces certain placeholders with information gathered about the alert.</p>
 <h2 id="syntax"><a name="templates-syntax">Syntax</a></h2>
 <p>Controls:</p>
@@ -885,7 +885,7 @@ Alert sent to: {foreach %contacts}%value &lt;%key&gt; {/foreach}
 <h2 id="included"><a name="templates-included">Included</a></h2>
 <p>We include a few templates for you to use, these are specific to the type of alert rules you are creating. For example if you create a rule that would alert on BGP sessions then you can 
 assign the BGP template to this rule to provide more information.</p>
-<p>The included templates are:</p>
+<p>The included templates apart from the default template are:</p>
 <ul>
 <li>BGP Sessions</li>
 <li>Ports</li>

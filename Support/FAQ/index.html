@@ -853,6 +853,9 @@
         <li class="main "><a href="#what-is-the-demo-user-for"> What is the Demo User for?</a></li>
         
     
+        <li class="main "><a href="#why-does-modifying-default-alert-template-fail"> Why does modifying 'Default Alert Template' fail?</a></li>
+        
+    
     </ul>
 </div>
 </div>
@@ -897,6 +900,7 @@
 <li><a href="#faq28">What is the Difference between Disable Device and Ignore a Device?</a></li>
 <li><a href="#faq29">Why can't Normal and Global View users see Oxidized?</a></li>
 <li><a href="#faq30">What is the Demo User for?</a></li>
+<li><a href="#faq31">Why does modifying 'Default Alert Template' fail?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -1124,7 +1128,11 @@ git checkout issue-1337
 <h3 id="why-cant-normal-and-global-view-users-see-oxidized"><a name="faq29"> Why can't Normal and Global View users see Oxidized?</a></h3>
 <p>Configs can often contain sensitive data. Because of that only global admins can see configs.</p>
 <h3 id="what-is-the-demo-user-for"><a name="faq30"> What is the Demo User for?</a></h3>
-<p>Demo users allow full access except adding/editing users and deleting devices and can't change passwords.</p></div>
+<p>Demo users allow full access except adding/editing users and deleting devices and can't change passwords.</p>
+<h3 id="why-does-modifying-default-alert-template-fail"><a name="faq31"> Why does modifying 'Default Alert Template' fail?</a></h3>
+<p>This template's entry could be missing in the database. Please run:</p>
+<pre><code class="bash">mysql -u librenms -p &lt; sql-schema/202.sql
+</code></pre></div>
                 
             
             </div>
