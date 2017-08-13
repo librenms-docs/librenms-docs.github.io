@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Extensions/OpenTSDB/">
+        <link rel="canonical" href="http://docs.librenms.org/Extensions/Metric-Storage/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	    <title>OpenTSDB - LibreNMS Docs</title>
+	    <title>Metric Storage - LibreNMS Docs</title>
 
         <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
@@ -281,12 +281,6 @@
                         
                             
 <li >
-    <a href="../Graphite/">Graphite</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../IRC-Bot/">IRC Bot</a>
 </li>
 
@@ -294,12 +288,6 @@
                             
 <li >
     <a href="../IRC-Bot-Extensions/">IRC Bot Extensions</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../InfluxDB/">InfluxDB</a>
 </li>
 
                         
@@ -322,6 +310,12 @@
 
                         
                             
+<li class="active">
+    <a href="./">Metric Storage</a>
+</li>
+
+                        
+                            
 <li >
     <a href="../Network-Map/">Network Map</a>
 </li>
@@ -330,12 +324,6 @@
                             
 <li >
     <a href="../NFSen/">NFSen</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">OpenTSDB</a>
 </li>
 
                         
@@ -614,55 +602,37 @@
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Ubuntu 14.04 (Nginx)</a>
+    <a href="../../Alerting/Rules/">Rules</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Ubuntu 14.04 (Apache)</a>
+    <a href="../../Alerting/Templates/">Templates</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Ubuntu 14.04 (Lighttpd)</a>
+    <a href="../../Alerting/Transports/">Transports</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">CentOS 6 (Apache/Nginx)</a>
+    <a href="../../Alerting/Entities/">Entities</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+    <a href="../../Alerting/Macros/">Macros</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Support-New-OS/">Support New OS</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Agent-Setup/">Agent Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../RRDCached-Security/">RRDCached Security</a>
+    <a href="../../Alerting/Rules/">Rules</a>
 </li>
 
                         
@@ -704,43 +674,79 @@
                         
                             
 <li >
+    <a href="../Agent-Setup/">Agent Setup</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../Alerting/">Alerting</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Rules/">Rules</a>
+    <a href="../metrics/InfluxDB/">InfluxDB</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Templates/">Templates</a>
+    <a href="../metrics/Graphite/">Graphite</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Transports/">Transports</a>
+    <a href="../metrics/OpenTSDB/">OpenTSDB</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Entities/">Entities</a>
+    <a href="../RRDCached-Security/">RRDCached Security</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Macros/">Macros</a>
+    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Installation Ubuntu 1404 Nginx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../Alerting/Rules/">Rules</a>
+    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Installation Ubuntu 1404 Apache</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Installation Ubuntu 1404 Lighttpd</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">Installation CentOS 6 Apache Nginx</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../Support/Support-New-OS/">Support New OS</a>
 </li>
 
                         
@@ -778,53 +784,29 @@
             <div class="row">
             
                 
-                    <div class="col-md-3">
-<div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#enabling-support-for-opentsdb">Enabling support for OpenTSDB.</a></li>
-        
-            <li><a href="#requirements">Requirements</a></li>
-        
-            <li><a href="#what-you-dont-get">What you don't get</a></li>
-        
-            <li><a href="#configuration">Configuration</a></li>
-        
-    
-    </ul>
-</div>
-</div>
-                    <div class="col-md-9" role="main">
+                    <div class="col-md-12" role="main">
 <div class="row">
   <div class="source-links col-md-offset-8 col-md-4">
 
-    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/OpenTSDB.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Metric-Storage.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
 
   </div>
 </div>
 
 
-<h1 id="enabling-support-for-opentsdb">Enabling support for OpenTSDB.</h1>
-<p>This module sends all metrics to OpenTSDB server. You need something like Grafana for graphing.</p>
-<h3 id="requirements">Requirements</h3>
+<h3 id="metric-storage">Metric storage</h3>
+<p>By default we ship all metrics to RRD files, either directly or via <a href="../RRDCached/">RRDCached</a>. On top of this 
+you can ship metrics to InfluxDB, Graphite and / or OpenTSDB. At present you can't use these backends to display 
+graphs within LibreNMS and will need to use something like <a href="https://grafana.com/">Grafana</a>.</p>
+<p>For further information on configuring LibreNMS to ship data to one of the other backends then please see 
+the documentation below.</p>
+<blockquote>
 <ul>
-<li>OpenTSDB</li>
-<li>Grafana</li>
+<li><a href="../metrics/InfluxDB/">InfluxDB</a></li>
+<li><a href="../metrics/Graphite/">Graphite</a></li>
+<li><a href="../metrics/OpenTSDB/">OpenTSDB</a></li>
 </ul>
-<h3 id="what-you-dont-get">What you don't get</h3>
-<ul>
-<li>Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.</li>
-</ul>
-<p>RRD will continue to function normally so LibreNMS itself should continue to function normally.</p>
-<p>You can add the following to <code>config.php</code>.</p>
-<h3 id="configuration">Configuration</h3>
-<pre><code class="php">// OpenTSDB default configuration
-$config['opentsdb']['enable'] = true;
-$config['opentsdb']['host'] = '127.0.0.1';  // your OpenTSDB server
-$config['opentsdb']['port'] = 4242;
-</code></pre>
-
-<p>The same data than the one stored within rrd will be sent to OpenTSDB and recorded. You can then create graphs within Grafana to display the information you need.</p></div>
+</blockquote></div>
                 
             
             </div>

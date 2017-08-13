@@ -206,12 +206,6 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Extensions/Graphite/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://docs.librenms.org/Extensions/IRC-Bot/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
@@ -219,12 +213,6 @@
         
     <url>
      <loc>http://docs.librenms.org/Extensions/IRC-Bot-Extensions/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Extensions/InfluxDB/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -248,6 +236,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Metric-Storage/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Network-Map/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
@@ -255,12 +249,6 @@
         
     <url>
      <loc>http://docs.librenms.org/Extensions/NFSen/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Extensions/OpenTSDB/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -528,55 +516,37 @@
     
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
+     <loc>http://docs.librenms.org/Alerting/Rules/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
+     <loc>http://docs.librenms.org/Alerting/Templates/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
+     <loc>http://docs.librenms.org/Alerting/Transports/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
+     <loc>http://docs.librenms.org/Alerting/Entities/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/</loc>
+     <loc>http://docs.librenms.org/Alerting/Macros/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Extensions/Agent-Setup/</loc>
-     <lastmod>2017-08-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.librenms.org/Extensions/RRDCached-Security/</loc>
+     <loc>http://docs.librenms.org/Alerting/Rules/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -618,43 +588,79 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Agent-Setup/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Alerting/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Rules/</loc>
+     <loc>http://docs.librenms.org/Extensions/metrics/InfluxDB/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Templates/</loc>
+     <loc>http://docs.librenms.org/Extensions/metrics/Graphite/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Transports/</loc>
+     <loc>http://docs.librenms.org/Extensions/metrics/OpenTSDB/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Entities/</loc>
+     <loc>http://docs.librenms.org/Extensions/RRDCached-Security/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Macros/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Rules/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-(Debian-Ubuntu)/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-(RHEL-CentOS)/</loc>
+     <lastmod>2017-08-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.librenms.org/Support/Support-New-OS/</loc>
      <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
