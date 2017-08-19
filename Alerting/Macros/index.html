@@ -435,7 +435,7 @@
                 
                 
                     <li >
-                        <a href="../Alerting/">Alerting</a>
+                        <a href="../">Alerting</a>
                     </li>
                 
                 
@@ -790,15 +790,15 @@
     
         <li class="main active"><a href="#macros">Macros</a></li>
         
-            <li><a href="#device-boolean">Device</a></li>
+            <li><a href="#device-boolean">Device (Boolean)</a></li>
         
-            <li><a href="#port-boolean">Port</a></li>
+            <li><a href="#port-boolean">Port (Boolean)</a></li>
         
             <li><a href="#time">Time</a></li>
         
-            <li><a href="#sensors-boolean">Sensors</a></li>
+            <li><a href="#sensors-boolean">Sensors (Boolean)</a></li>
         
-            <li><a href="#misc-boolean">Misc</a></li>
+            <li><a href="#misc-boolean">Misc (Boolean)</a></li>
         
     
     </ul>
@@ -814,7 +814,7 @@
 </div>
 
 
-<h1 id="macros"><a name="macros">Macros</a></h1>
+<h1 id="macros">Macros</h1>
 <p>Macros are shorthands to either portion of rules or pure SQL enhanced with placeholders.</p>
 <p>You can define your own macros in your <code>config.php</code>.</p>
 <p>Example macro-implementation of Debian-Devices</p>
@@ -832,57 +832,57 @@ All macros that are not unary should return Boolean.</p>
 <pre><code class="php">((%ports.ifInOctets_rate*8) / %ports.ifSpeed)*100
 </code></pre>
 
-<h2 id="device-boolean"><a name="macros-device">Device</a> (Boolean)</h2>
+<h2 id="device-boolean">Device (Boolean)</h2>
 <p>Entity: <code>%macros.device</code></p>
 <p>Description: Only select devices that aren't deleted, ignored or disabled.</p>
 <p>Source: <code>(%devices.disabled = "0" &amp;&amp; %devices.ignore = "0")</code></p>
-<h3 id="device-is-up-boolean"><a name="macros-device-up">Device is up</a> (Boolean)</h3>
+<h3 id="device-is-up-boolean">Device is up (Boolean)</h3>
 <p>Entity: <code>%macros.device_up</code></p>
 <p>Description: Only select devices that are up.</p>
 <p>Implies: %macros.device</p>
 <p>Source: <code>(%devices.status = "1" &amp;&amp; %macros.device)</code></p>
-<h3 id="device-is-down-boolean"><a name="macros-device-down">Device is down</a> (Boolean)</h3>
+<h3 id="device-is-down-boolean">Device is down (Boolean)</h3>
 <p>Entity: <code>%macros.device_down</code></p>
 <p>Description: Only select devices that are down.</p>
 <p>Implies: %macros.device</p>
 <p>Source: <code>(%devices.status = "0" &amp;&amp; %macros.device)</code></p>
-<h2 id="port-boolean"><a name="macros-port">Port</a> (Boolean)</h2>
+<h2 id="port-boolean">Port (Boolean)</h2>
 <p>Entity: <code>%macros.port</code></p>
 <p>Description: Only select ports that aren't deleted, ignored or disabled.</p>
 <p>Source: <code>(%ports.deleted = "0" &amp;&amp; %ports.ignore = "0" &amp;&amp; %ports.disabled = "0")</code></p>
-<h3 id="port-is-up-boolean"><a name="macros-port-up">Port is up</a> (Boolean)</h3>
+<h3 id="port-is-up-boolean">Port is up (Boolean)</h3>
 <p>Entity: <code>%macros.port_up</code></p>
 <p>Description: Only select ports that are up and also should be up.</p>
 <p>Implies: %macros.port</p>
 <p>Source: <code>(%ports.ifOperStatus = "up" &amp;&amp; %ports.ifAdminStatus = "up" &amp;&amp; %macros.port)</code></p>
-<h3 id="port-is-down-boolean"><a name="macros-port-down">Port is down</a> (Boolean)</h3>
+<h3 id="port-is-down-boolean">Port is down (Boolean)</h3>
 <p>Entity: <code>%macros.port_down</code></p>
 <p>Description: Only select ports that are down.</p>
 <p>Implies: %macros.port</p>
 <p>Source: <code>(%ports.ifOperStatus = "down" &amp;&amp; %ports.ifAdminStatus != "down" &amp;&amp; %macros.port)</code></p>
-<h3 id="port-usage-in-percent-decimal"><a name="macros-port-usage-perc">Port-Usage in Percent</a> (Decimal)</h3>
+<h3 id="port-usage-in-percent-decimal">Port-Usage in Percent (Decimal)</h3>
 <p>Entity: <code>%macros.port_usage_perc</code></p>
 <p>Description: Return port-usage in percent.</p>
 <p>Source: <code>((%ports.ifInOctets_rate*8) / %ports.ifSpeed)*100</code></p>
-<h2 id="time"><a name="macros-time">Time</a></h2>
-<h3 id="now-datetime"><a name="macros-time-now">Now</a> (Datetime)</h3>
+<h2 id="time">Time</h2>
+<h3 id="now-datetime">Now (Datetime)</h3>
 <p>Entity: <code>%macros.now</code></p>
 <p>Description: Alias of MySQL's NOW()</p>
 <p>Source: <code>NOW()</code></p>
-<h3 id="past-n-minutes-datetime"><a name="macros-time-past-Nm">Past N Minutes</a> (Datetime)</h3>
+<h3 id="past-n-minutes-datetime">Past N Minutes (Datetime)</h3>
 <p>Entity: <code>%macros.past_$m</code></p>
 <p>Description: Returns a MySQL Timestamp dated <code>$</code> Minutes in the past. <code>$</code> can only be a supported Resolution.</p>
 <p>Example: <code>%macros.past_5m</code> is Last 5 Minutes.</p>
 <p>Resolution: 5,10,15,30,60</p>
 <p>Source: <code>DATE_SUB(NOW(),INTERVAL $ MINUTE)</code></p>
-<h2 id="sensors-boolean"><a name="macros-sensors">Sensors</a> (Boolean)</h2>
+<h2 id="sensors-boolean">Sensors (Boolean)</h2>
 <p>Entity: <code>%macros.sensor</code></p>
 <p>Description: Only select sensors that aren't ignored.</p>
 <p>Source: <code>(%sensors.sensor_alert = 1)</code></p>
 <p>Entity: <code>%macros.sensor_port_link</code></p>
 <p>Description: Only selects sensors that have a port linked to them, the port is up and the device is up.</p>
 <p>Source: <code>(%sensors.entity_link_type = 'port' &amp;&amp; %sensors.entity_link_index = %ports.ifIndex &amp;&amp; %macros.port_up &amp;&amp; %macros.device_up))</code></p>
-<h2 id="misc-boolean"><a name="macros-misc">Misc</a> (Boolean)</h2>
+<h2 id="misc-boolean">Misc (Boolean)</h2>
 <h3 id="packet-loss">Packet Loss</h3>
 <p>Entity: <code>(%macros.packet_loss_5m)</code></p>
 <p>Description: Packet loss % value for the device within the last 5 minutes.</p>
