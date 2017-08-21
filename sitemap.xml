@@ -353,7 +353,7 @@
 
     
     <url>
-     <loc>http://docs.librenms.org/API/API-Docs/</loc>
+     <loc>http://docs.librenms.org/API/</loc>
      <lastmod>2017-08-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
