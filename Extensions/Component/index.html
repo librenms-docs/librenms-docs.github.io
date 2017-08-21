@@ -827,40 +827,11 @@
 </div>
 
 
-<p>Table of Content:</p>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#database">Database Structure</a><ul>
-<li><a href="#reserved">Reserved Fields</a></li>
-</ul>
-</li>
-<li><a href="#using">Using Components</a><ul>
-<li><a href="#get">Getting Current Components</a><ul>
-<li><a href="#options">Options</a><ul>
-<li><a href="#filter">Filtering Results</a></li>
-<li><a href="#sort">Sorting Results</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#create">Creating Components</a></li>
-<li><a href="#delete">Deleting Components</a></li>
-<li><a href="#update">Editing Components</a><ul>
-<li><a href="#update-edit">Edit the Array</a></li>
-<li><a href="#update-write">Writing the Components</a></li>
-</ul>
-</li>
-<li><a href="#api">API</a></li>
-<li><a href="#alert">Alerting</a></li>
-</ul>
-</li>
-<li><a href="#example">Example Code</a></li>
-</ul>
-<h1 id="about"><a name="about">About</a></h1>
+<h1 id="about">About</h1>
 <p>The Component extension provides a generic database storage mechanism for discovery and poller modules.
 The Driver behind this extension was to provide the features of ports, in a generic manner to discovery/poller modules.</p>
 <p>It provides a status (Nagios convention), the ability to Disable (do not poll), or Ignore (do not Alert).</p>
-<h1 id="database-structure"><a name="database">Database Structure</a></h1>
+<h1 id="database-structure">Database Structure</h1>
 <p>The database structure contains the component table:</p>
 <pre><code class="SQL">mysql&gt; select * from component limit 1;
 +----+-----------+------+------------+--------+----------+--------+-------+
@@ -873,17 +844,17 @@ The Driver behind this extension was to provide the features of ports, in a gene
 
 <p>These fields are described below:</p>
 <ul>
-<li>id - ID for each component, unique index</li>
-<li>device_id - device_id from the devices table</li>
-<li>type - name from the component_type table</li>
-<li>label - Display label for the component</li>
-<li>status - The status of the component, retrieved from the device</li>
-<li>disabled - Should this component be polled?</li>
-<li>ignore - Should this component be alerted on</li>
-<li>error - Error message if in Alert state</li>
+<li><code>id</code> - ID for each component, unique index</li>
+<li><code>device_id</code> - device_id from the devices table</li>
+<li><code>type</code> - name from the component_type table</li>
+<li><code>label</code> - Display label for the component</li>
+<li><code>status</code> - The status of the component, retrieved from the device</li>
+<li><code>disabled</code> - Should this component be polled?</li>
+<li><code>ignore</code> - Should this component be alerted on</li>
+<li><code>error</code> - Error message if in Alert state</li>
 </ul>
 <p>The component_prefs table holds custom data in an Attribute/Value format:</p>
-<pre><code class="SQL">mysql&gt; select * from component_prefs limit 1;
+<pre><code class="sql">mysql&gt; select * from component_prefs limit 1;
 +----+-----------+-----------+-----------+
 | id | component | attribute | value     |
 +----+-----------+-----------+-----------+
@@ -892,26 +863,26 @@ The Driver behind this extension was to provide the features of ports, in a gene
 2 rows in set (0.00 sec)
 </code></pre>
 
-<h2 id="reserved-fields"><a name="reserved">Reserved Fields</a></h2>
-<p>When this data from both the component and component_prefs tables is returned in one single consolidated array, there is the potential for someone to attempt to set an attribute (in the component_prefs) table that is used in the components table.
-Because of this all fields of the component table are reserved, they cannot be used as custom attributes, if you update these the module will attempt to write them to the component table, not the component_prefs table.</p>
-<h1 id="using-components"><a name="using">Using Components</a></h1>
+<h2 id="reserved-fields">Reserved Fields</h2>
+<p>When this data from both the <code>component</code> and <code>component_prefs</code> tables is returned in one single consolidated array, there is the potential for someone to attempt to set an attribute (in the <code>component_prefs</code>) table that is used in the <code>component</code> table.
+Because of this all fields of the <code>component</code> table are reserved, they cannot be used as custom attributes, if you update these the module will attempt to write them to the <code>component</code> table, not the <code>component_prefs</code> table.</p>
+<h1 id="using-components">Using Components</h1>
 <p>Create an instance of the component class:</p>
 <pre><code class="php">$COMPONENT = new LibreNMS\Component();
 </code></pre>
 
-<h2 id="retrieving-components"><a name="get">Retrieving Components</a></h2>
+<h2 id="retrieving-components">Retrieving Components</h2>
 <p>Now you can retrieve an array of the available components:</p>
-<pre><code class="php">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID,$OPTIONS);
+<pre><code class="php">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID, $OPTIONS);
 </code></pre>
 
 <p><code>getComponents</code> takes 2 arguments:</p>
 <ul>
-<li>DEVICE_ID or null for all devices.</li>
-<li>OPTIONS - an array of various options.</li>
+<li><code>DEVICE_ID</code> or null for all devices.</li>
+<li><code>OPTIONS</code> - an array of various options.</li>
 </ul>
 <p><code>getComponents</code> will return an array containing components in the following format:</p>
-<pre><code>Array
+<pre><code class="php">Array
 (
     [X] =&gt; Array
     (
@@ -940,22 +911,23 @@ Because of this all fields of the component table are reserved, they cannot be u
     )
 )
 </code></pre>
-<p>Where X is the Device ID and Y1/Y2 is the Component ID. In the example above, 'TEST_ATTR' is a custom field, the rest are reserved fields.</p>
-<h3 id="options"><a name="options">Options</a></h3>
+
+<p>Where X is the Device ID and Y1/Y2 is the Component ID. In the example above, <code>TEST_ATTR</code> is a custom field, the rest are reserved fields.</p>
+<h3 id="options">Options</h3>
 <p>Options can be supplied to <code>getComponents</code> to influence which and how components are returned.</p>
-<h4 id="filtering"><a name="filter">Filtering</a></h4>
+<h4 id="filtering">Filtering</h4>
 <p>You can filter on any of the <a href="#reserved">reserved</a> fields. Filters are created in the following format:</p>
 <pre><code class="php">$options['filter']['FIELD'] = array ('OPERATOR', 'CRITERIA');
 </code></pre>
 
 <p>Where:</p>
 <ul>
-<li>FIELD - The <a href="#reserved">reserved</a> field to filter on</li>
-<li>OPERATOR - 'LIKE' or '=', are we checking if the FIELD equals or contains the CRITERIA.</li>
-<li>CRITERIA - The criteria to search on</li>
+<li><code>FIELD</code> - The <a href="#reserved">reserved</a> field to filter on</li>
+<li><code>OPERATOR</code> - 'LIKE' or '=', are we checking if the FIELD equals or contains the CRITERIA.</li>
+<li><code>CRITERIA</code> - The criteria to search on</li>
 </ul>
 <p>There are 2 filtering shortcuts:</p>
-<p>$DEVICE_ID is a synonym for:</p>
+<p><code>$DEVICE_ID</code> is a synonym for:</p>
 <pre><code class="php">$OPTIONS['filter']['device_id'] = array ('=', $DEVICE_ID);
 </code></pre>
 
@@ -963,28 +935,28 @@ Because of this all fields of the component table are reserved, they cannot be u
 <pre><code class="php">$OPTIONS['filter']['type'] = array ('=', $TYPE);
 </code></pre>
 
-<h4 id="sorting"><a name="sort">Sorting</a></h4>
+<h4 id="sorting">Sorting</h4>
 <p>You can sort the records that are returned by specifying the following option:</p>
 <pre><code class="php">$OPTIONS['sort'][FIELD] = 'DIRECTION';
 </code></pre>
 
 <p>Where Direction is one of:</p>
 <ul>
-<li>ASC - Ascending, from Low to High</li>
-<li>DESC - Descending, from High to Low</li>
+<li><code>ASC</code> - Ascending, from Low to High</li>
+<li><code>DESC</code> - Descending, from High to Low</li>
 </ul>
-<h2 id="creating-components"><a name="creating">Creating Components</a></h2>
-<p>To create a new component, run the createComponent function.</p>
-<pre><code class="php">$ARRAY = $COMPONENT-&gt;createComponent($DEVICE_ID,$TYPE);
+<h2 id="creating-components">Creating Components</h2>
+<p>To create a new component, run the <code>createComponent</code> function.</p>
+<pre><code class="php">$ARRAY = $COMPONENT-&gt;createComponent($DEVICE_ID, $TYPE);
 </code></pre>
 
 <p><code>createComponent</code> takes 2 arguments:</p>
 <ul>
-<li>DEVICE_ID - The ID of the device to attach the component to.</li>
-<li>TYPE - The unique type for your module.</li>
+<li><code>DEVICE_ID</code> - The ID of the device to attach the component to.</li>
+<li><code>TYPE</code> - The unique type for your module.</li>
 </ul>
 <p>This will return a new, empty array with a component ID and Type set, all other fields will be set to defaults.</p>
-<pre><code>Array
+<pre><code class="php">Array
 (
     [1] =&gt; Array
     (
@@ -997,28 +969,29 @@ Because of this all fields of the component table are reserved, they cannot be u
     )
 )
 </code></pre>
-<h2 id="deleting-components"><a name="delete">Deleting Components</a></h2>
+
+<h2 id="deleting-components">Deleting Components</h2>
 <p>When a component is no longer needed, it can be deleted.</p>
 <pre><code class="php">$COMPONENT-&gt;deleteComponent($COMPONENT_ID)
 </code></pre>
 
-<p>This will return True on success or False on failure.</p>
-<h2 id="editing-components"><a name="update">Editing Components</a></h2>
+<p>This will return <code>True</code> on success or <code>False</code> on failure.</p>
+<h2 id="editing-components">Editing Components</h2>
 <p>To edit a component, the procedure is:</p>
 <ol>
 <li><a href="#get">Get the Current Components</a></li>
 <li><a href="#update-edit">Edit the array</a></li>
 <li><a href="#update-write">Write the components</a></li>
 </ol>
-<h3 id="edit-the-array"><a name="update-edit">Edit the Array</a></h3>
-<p>Once you have a component array from getComponents the first thing to do is extract the components for only the single device you are editing. This is required because the setComponentPrefs function only saves a single device at a time.</p>
-<pre><code class="php">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID,$OPTIONS);
+<h3 id="edit-the-array">Edit the Array</h3>
+<p>Once you have a component array from <code>getComponents</code> the first thing to do is extract the components for only the single device you are editing. This is required because the <code>setComponentPrefs</code> function only saves a single device at a time.</p>
+<pre><code class="php">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID, $OPTIONS);
 $ARRAY = $ARRAY[$DEVICE_ID];
 </code></pre>
 
 <p>Then simply edit this array to suit your needs.
 If you need to add a new Attribute/Value pair you can:</p>
-<pre><code class="php">$ARRAY[COMPONENT_ID]['New Attribute'] = 'Value';
+<pre><code class="php">$ARRAY[COMPONENT_ID]['New Attribute'] = &quot;Value&quot;;
 </code></pre>
 
 <p>If you need to delete a previously set Attribute/Value pair you can:</p>
@@ -1029,22 +1002,22 @@ If you need to add a new Attribute/Value pair you can:</p>
 <pre><code class="php">$ARRAY[COMPONENT_ID]['Existing Attribute'] = &quot;New Value&quot;;
 </code></pre>
 
-<h3 id="write-the-components"><a name="update-write">Write the components</a></h3>
+<h3 id="write-the-components">Write the components</h3>
 <p>To write component changes back to the database simply:</p>
-<pre><code class="php">$COMPONENT-&gt;setComponentPrefs($DEVICE_ID,$ARRAY)
+<pre><code class="php">$COMPONENT-&gt;setComponentPrefs($DEVICE_ID, $ARRAY)
 </code></pre>
 
 <p>When writing the component array there are several caveats to be aware of, these are:</p>
 <ul>
-<li>$ARRAY must be in the format of a single device ID - <code>$ARRAY[$COMPONENT_ID][Attribute] = 'Value';</code> NOT in the multi device format returned by getComponents - $ARRAY[$DEVICE_ID][$COMPONENT_ID][Attribute] = 'Value';`</li>
+<li><code>$ARRAY</code> must be in the format of a single device ID - <code>$ARRAY[$COMPONENT_ID][Attribute] = 'Value';</code> NOT in the multi device format returned by <code>getComponents</code> - <code>$ARRAY[$DEVICE_ID][$COMPONENT_ID][Attribute] = 'Value';</code></li>
 <li>You cannot edit the Component ID or the Device ID</li>
 <li><a href="#reserved">reserved</a> fields can not be removed</li>
 <li>if a change is found an entry will be written to the eventlog.</li>
 </ul>
-<h2 id="api"><a name="api">API</a></h2>
+<h2 id="api">API</h2>
 <p>Component details are available via the API.
-Please see the <a href="http://docs.librenms.org/API/API-Docs/#api-route-25">API-Docs</a> for details.</p>
-<h2 id="alerting"><a name="alert">Alerting</a></h2>
+Please see the <a href="../../API/#function-get_components">API-Docs</a> for details.</p>
+<h2 id="alerting">Alerting</h2>
 <p>It is intended that discovery/poller modules will detect the status of a component during the polling cycle.
 Status is logged using the Nagios convention for status codes, where:
     0 = Ok,
@@ -1065,20 +1038,20 @@ Status is logged using the Nagios convention for status codes, where:
 <p>If there is a particular component you would like excluded from alerting, simply set the ignore field to 1.</p>
 <p>The data that is written to each alert when it is raised is in the following format:</p>
 <p><code>COMPONENT_TYPE - LABEL - ERROR</code></p>
-<h1 id="example-code"><a name="examples">Example Code</a></h1>
+<h1 id="example-code">Example Code</h1>
 <p>To see an example of how the component module can used, please see the following modules:</p>
 <ul>
 <li>Cisco CBQoS<ul>
-<li>includes/discovery/cisco-cbqos.inc.php</li>
-<li>includes/polling/cisco-cbqos.inc.php</li>
-<li>html/includes/graphs/device/cbqos_traffic.inc.php</li>
+<li><code>includes/discovery/cisco-cbqos.inc.php</code></li>
+<li><code>includes/polling/cisco-cbqos.inc.php</code></li>
+<li><code>html/includes/graphs/device/cbqos_traffic.inc.php</code></li>
 </ul>
 </li>
 <li>Cisco OTV<ul>
-<li>includes/discovery/cisco-otv.inc.php</li>
-<li>includes/polling/cisco-otv.inc.php</li>
-<li>html/includes/graphs/device/cisco-otv-mac.inc.php</li>
-<li>html/pages/routing/cisco-otv.inc.php</li>
+<li><code>includes/discovery/cisco-otv.inc.php</code></li>
+<li><code>includes/polling/cisco-otv.inc.php</code></li>
+<li><code>html/includes/graphs/device/cisco-otv-mac.inc.php</code></li>
+<li><code>html/pages/routing/cisco-otv.inc.php</code></li>
 </ul>
 </li>
 </ul></div>
