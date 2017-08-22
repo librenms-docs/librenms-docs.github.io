@@ -859,7 +859,7 @@ FLUSH PRIVILEGES;
 exit
 </code></pre>
 
-<p><code>vim /etc/my.cnf</code></p>
+<p><code>vi /etc/my.cnf</code></p>
 <p>Within the [mysqld] section please add:</p>
 <pre><code class="bash">innodb_file_per_table=1
 sql-mode=&quot;&quot;
@@ -891,6 +891,7 @@ listen.mode = 0660
 
 <p>Restart PHP.</p>
 <pre><code class="bash">systemctl restart php-fpm
+systemctl enable php-fpm
 </code></pre>
 
 <h4 id="add-librenms-user">Add librenms user</h4>
@@ -908,7 +909,7 @@ git clone https://github.com/librenms/librenms.git librenms
 <pre><code class="bash">cd /opt/librenms
 mkdir rrd logs
 chmod 775 rrd
-vim /etc/nginx/conf.d/librenms.conf
+vi /etc/nginx/conf.d/librenms.conf
 </code></pre>
 
 <p>Add the following config:</p>
@@ -940,6 +941,16 @@ vim /etc/nginx/conf.d/librenms.conf
 }
 </code></pre>
 
+<p>If LibreNMS will be your only vhost on this server then you will need to remove the default server block for nginx.</p>
+<p>Edit <code>/etc/nginx/nginx.conf</code> and look for a large block of text starting like:</p>
+<pre><code>server {
+        listen       80;
+        server_name  localhost;
+...
+}
+</code></pre>
+
+<p>Remove this block of text.</p>
 <h4 id="selinux">SELinux</h4>
 <pre><code class="bash">    yum install policycoreutils-python
     semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
@@ -966,7 +977,7 @@ firewall-cmd --permanent --zone public --add-service http
 <p><code>$config['fping'] = "/usr/sbin/fping";</code></p>
 <h4 id="configure-snmpd">Configure snmpd</h4>
 <pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
-vim /etc/snmp/snmpd.conf
+vi /etc/snmp/snmpd.conf
 </code></pre>
 
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
