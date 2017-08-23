@@ -2397,18 +2397,8 @@
         }, 
         {
             "location": "/Extensions/Email-Alerting/", 
-            "text": "This page is deprecated\n\n\nPlease see \nThe new alerting docs", 
+            "text": "", 
             "title": "Email Alerting"
-        }, 
-        {
-            "location": "/Extensions/Email-Alerting/#this-page-is-deprecated", 
-            "text": "", 
-            "title": "This page is deprecated"
-        }, 
-        {
-            "location": "/Extensions/Email-Alerting/#please-see-the-new-alerting-docs", 
-            "text": "", 
-            "title": "Please see The new alerting docs"
         }, 
         {
             "location": "/Extensions/Globe-Frontpage/", 
