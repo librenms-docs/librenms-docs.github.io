@@ -1080,6 +1080,41 @@ $config['int_l2tp']                = 0;  # Enable L2TP Port Types
 </code></pre>
 
 <p>Enable / disable certain menus from being shown in the WebUI.</p>
+<p>You are able to adjust the number and time frames of the quick select time options for graphs and the mini graphs shown per row.</p>
+<p>Quick select:</p>
+<pre><code class="php">$config['graphs']['mini']['normal'] = array(
+    'day' =&gt; '24 Hours',
+    'week' =&gt; 'One Week',
+    'month' =&gt; 'One Month',
+    'year' =&gt; 'One Year',
+);
+$config['graphs']['mini']['widescreen'] = array(
+    'sixhour' =&gt; '6 Hours',
+    'day' =&gt; '24 Hours',
+    'twoday' =&gt; '48 Hours',
+    'week' =&gt; 'One Week',
+    'twoweek' =&gt; 'Two Weeks',
+    'month' =&gt; 'One Month',
+    'twomonth' =&gt; 'Two Months',
+    'year' =&gt; 'One Year',
+    'twoyear' =&gt; 'Two Years',
+);
+</code></pre>
+
+<p>Mini graphs:</p>
+<pre><code class="php">$config['graphs']['row']['normal'] = array(
+    'sixhour' =&gt; '6 Hours',
+    'day' =&gt; '24 Hours',
+    'twoday' =&gt; '48 Hours',
+    'week' =&gt; 'One Week',
+    'twoweek' =&gt; 'Two Weeks',
+    'month' =&gt; 'One Month',
+    'twomonth' =&gt; 'Two Months',
+    'year' =&gt; 'One Year',
+    'twoyear' =&gt; 'Two Years',
+);
+</code></pre>
+
 <pre><code class="php">$config['web_mouseover']      = true;
 </code></pre>
 
