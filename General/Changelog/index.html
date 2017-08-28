@@ -1086,6 +1086,7 @@
 <li>Forced OS Cache rebuild for unit tests (<a href="https://github.com/librenms/librenms/issues/7163">#7163</a>)</li>
 <li>New IP parsing classes.  Removes usage of Pear Net_IPv4 and Net_IPv6. (<a href="https://github.com/librenms/librenms/issues/7106">#7106</a>)</li>
 <li>Added support to cisco sensors to link them to ports + macro/docs for alerting (<a href="https://github.com/librenms/librenms/issues/6959">#6959</a>)</li>
+<li>snmp exec support (<a href="https://github.com/librenms/librenms/issues/7126">#7126</a>)</li>
 </ul>
 <h4 id="bugfixes">Bugfixes</h4>
 <ul>
@@ -1105,11 +1106,18 @@
 <li>Check session directory is writable before install.php (<a href="https://github.com/librenms/librenms/issues/7103">#7103</a>)</li>
 <li>Raritan CPU temperature discovery (<a href="https://github.com/librenms/librenms/issues/7130">#7130</a>)</li>
 <li>Strip " and / from snmpwalk_cache_oid() (<a href="https://github.com/librenms/librenms/issues/7063">#7063</a>)</li>
-<li>Fixed Raspberry Pi sensors support</li>
-<li>Added missing get_group_list() to ldap-authorization auth method</li>
+<li>Fixed Raspberry Pi sensors support (<a href="https://github.com/librenms/librenms/issues/7068">#7068</a>)</li>
+<li>Added missing get_group_list() to ldap-authorization auth method (<a href="https://github.com/librenms/librenms/issues/7102">#7102</a>)</li>
 <li>Service warning/critical alert rules (<a href="https://github.com/librenms/librenms/issues/7105">#7105</a>)</li>
-<li>Fixed Raspberry Pi sensors support (<a href="https://github.com/librenms/librenms/pull/7068">#7068</a>)</li>
 <li>Added device status reason to up messages. (<a href="https://github.com/librenms/librenms/issues/7085">#7085</a>)</li>
+<li>Fix string quoting in snmp trim (<a href="https://github.com/librenms/librenms/issues/7120">#7120</a>)</li>
+<li>Fix missed call to removed is_ip function (<a href="https://github.com/librenms/librenms/issues/7132">#7132</a>)</li>
+<li>fix bugs introduced to address-search (<a href="https://github.com/librenms/librenms/issues/7138">#7138</a>)</li>
+<li>Update avaya-ers.inc.php (<a href="https://github.com/librenms/librenms/issues/7138">#7139</a>)</li>
+<li>Fix RPI frequency/voltage sensors (<a href="https://github.com/librenms/librenms/issues/7144">#7144</a>)</li>
+<li>Attempt to fix repeated sql issue we come across (<a href="https://github.com/librenms/librenms/issues/7123">#7123</a>)</li>
+<li>multiple fixes under agentStpSwitchConfigGroup in EdgeSwitch-SWITCHIN (<a href="https://github.com/librenms/librenms/issues/7180">#7180</a>)</li>
+<li>Fixed typo Predicated -&gt; Predicted (2 instances) (<a href="https://github.com/librenms/librenms/issues/7222">#7222</a>)</li>
 </ul>
 <h4 id="documentation">Documentation</h4>
 <ul>
@@ -1117,14 +1125,15 @@
 <li>Updated some old links for alerting (<a href="https://github.com/librenms/librenms/issues/7211">#7211</a>)</li>
 <li>Updated CentOS 7 + Nginx install docs (<a href="https://github.com/librenms/librenms/issues/7209">#7209</a>)</li>
 <li>Update CentOS 7 + Nginx install docs to set SCRIPT_FILENAME (<a href="https://github.com/librenms/librenms/issues/7200">#7200</a>)</li>
-<li>Update Component.md</li>
-<li>Update Two-Factor-Auth formatting</li>
+<li>Update Component.md  (<a href="https://github.com/librenms/librenms/issues/7196">#7196</a>)</li>
+<li>Update Two-Factor-Auth formatting (<a href="https://github.com/librenms/librenms/issues/7194">#7194</a>)</li>
 <li>Update IRC-Bot for systemd use  (<a href="https://github.com/librenms/librenms/issues/7084">#7084</a>)</li>
-<li>Updated API docs formatting</li>
+<li>Updated API docs formatting (<a href="https://github.com/librenms/librenms/issues/7187">#7187</a>)</li>
 <li>Updated alerting docs / formatting (<a href="https://github.com/librenms/librenms/issues/7185">#7185</a>)</li>
-<li>Swap mdx_del_ins with pymdownx.tilde</li>
+<li>Swap mdx_del_ins with pymdownx.tilde (<a href="https://github.com/librenms/librenms/issues/7186">#7186</a>)</li>
 <li>Centralised the Metric storage docs (<a href="https://github.com/librenms/librenms/issues/7109">#7109</a>)</li>
-<li>Allow host renames with selinux enforcing for CentOS installs</li>
+<li>Allow host renames with selinux enforcing for CentOS installs (<a href="https://github.com/librenms/librenms/issues/7136">#7136</a>)</li>
+<li>Update Using-Git.md (<a href="https://github.com/librenms/librenms/issues/7178">#7178</a>)</li>
 </ul>
 <h4 id="refactoring">Refactoring</h4>
 <ul>
@@ -1133,7 +1142,7 @@
 <li>Udated edgecos OS polling (<a href="https://github.com/librenms/librenms/issues/7149">#7149</a>)</li>
 <li>Ability to edit default alert template (<a href="https://github.com/librenms/librenms/issues/7121">#7121</a>)</li>
 <li>Replace escapeshellcmd with Purifier in service checks (<a href="https://github.com/librenms/librenms/issues/7118">#7118</a>)</li>
-<li>Use ifName if ifDescr is blank</li>
+<li>Use ifName if ifDescr is blank <a href="https://github.com/librenms/librenms/issues/7079">#7079</a></li>
 </ul>
 <h4 id="devices">Devices</h4>
 <ul>
@@ -1142,7 +1151,7 @@
 <li>Added additional sensor support for Sentry4 devices (<a href="https://github.com/librenms/librenms/issues/7198">#7198</a>)</li>
 <li>Added additional vlan support for Juniper devices (<a href="https://github.com/librenms/librenms/issues/7203">#7203</a>)</li>
 <li>Added Kemp LoadMaster Version Info (<a href="https://github.com/librenms/librenms/issues/7205">#7205</a>)</li>
-<li>Updated fans/temp detection for Brocade VDX devices</li>
+<li>Updated fans/temp detection for Brocade VDX devices(<a href="https://github.com/librenms/librenms/issues/7183">#7183</a>)</li>
 <li>Added further sensor support for Geist Watchdog (<a href="https://github.com/librenms/librenms/issues/7143">#7143</a>)</li>
 <li>Added detection for Hitachi Data Systems SAN (<a href="https://github.com/librenms/librenms/issues/7160">#7160</a>)</li>
 <li>Udated edgecos OS polling to include more models</li>
@@ -1151,24 +1160,27 @@
 <li>Added RSSI Support for Cisco IOS wireless devices (<a href="https://github.com/librenms/librenms/issues/7147">#7147</a>)</li>
 <li>Added support for Gude ETS devices (<a href="https://github.com/librenms/librenms/issues/7145">#7145</a>)</li>
 <li>Added support for Trango Apex Lynx OS (<a href="https://github.com/librenms/librenms/issues/7142">#7142</a>)</li>
-<li>Added dry contact state support for AKCP devices</li>
-<li>Added fan and temp sensor state discovery Avaya ERS</li>
+<li>Added dry contact state support for AKCP devices (<a href="https://github.com/librenms/librenms/issues/7124">#7124</a>)</li>
+<li>Added fan and temp sensor state discovery Avaya ERS (<a href="https://github.com/librenms/librenms/issues/7134">#7134</a>)</li>
 <li>Added support for Emerson energy systems (<a href="https://github.com/librenms/librenms/issues/7128">#7128</a>)</li>
-<li>Added detection for Alteon OS</li>
+<li>Added detection for Alteon OS (<a href="https://github.com/librenms/librenms/issues/7088">#7088</a>)</li>
 <li>Added additional sensors for Microsemi PowerDsine PoE Switches (<a href="https://github.com/librenms/librenms/issues/7114">#7114</a>)</li>
 <li>Added detection for NEC Univerge devices (<a href="https://github.com/librenms/librenms/pull/7108">#7108</a>)</li>
-<li>Added VLAN discovery support for Avaya ERS devices</li>
+<li>Added VLAN discovery support for Avaya ERS devices (<a href="https://github.com/librenms/librenms/pull/7098">#7098</a>) </li>
 <li>Added ROS support for state sensors and system temps</li>
 <li>Removed check for switch model or firmware version for Avaya ERS switches</li>
 <li>Updated QNAP to include CPU temps (<a href="https://github.com/librenms/librenms/pull/7110">#7110</a>)</li>
 <li>Added basic VLAN disco support for Avaya-ERS switches (<a href="https://github.com/librenms/librenms/pull/7098">#7098</a>)</li>
+<li>Update ees.yaml to use correct overview graphs (<a href="https://github.com/librenms/librenms/pull/7137">#7137</a>)</li>
+<li>Update edgecos OS polling to include more models (<a href="https://github.com/librenms/librenms/pull/7153">#7153</a>)</li>
+<li>Added Raspbian Logo (<a href="https://github.com/librenms/librenms/pull/7201">#7201</a>)</li>
 </ul>
 <h4 id="webui">WebUI</h4>
 <ul>
 <li>Added ability for users to configure selectable times for graphs  (<a href="https://github.com/librenms/librenms/issues/7193">#7193</a>)</li>
 <li>Updated pi-hole graphs for better grouping (<a href="https://github.com/librenms/librenms/issues/7179">#7179</a>)</li>
 <li>Removed ability to use OR for generating rules (<a href="https://github.com/librenms/librenms/issues/7150">#7150</a>)</li>
-<li>Update avaya-ers to use ifName for displaying</li>
+<li>Update avaya-ers to use ifName for displaying (<a href="https://github.com/librenms/librenms/issues/7113">#7113</a>)</li>
 </ul>
 <h4 id="security">Security</h4>
 <ul>
