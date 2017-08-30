@@ -796,6 +796,8 @@
         
             <li><a href="#alerting">Alerting</a></li>
         
+            <li><a href="#debug">Debug</a></li>
+        
     
     </ul>
 </div>
@@ -871,6 +873,14 @@ RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
 </code></pre>
 <p>To create an alerting rule to alert on service=critical, your alerting rule would look like:</p>
 <pre><code>%services.service_status = "2"
+</code></pre>
+<h2 id="debug">Debug</h2>
+<p>Change user to librenms for example </p>
+<pre><code>su - librenms
+</code></pre>
+
+<p>then you can run the following command to help troubleshoot services. </p>
+<pre><code>./check-services.php -d
 </code></pre></div>
                 
             
