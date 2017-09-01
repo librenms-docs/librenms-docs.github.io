@@ -955,7 +955,11 @@ logging librenms.ip
 <pre><code class="ssh">$config['enable_syslog_hooks'] = 1;
 </code></pre>
 
-<p>The below are some example hooks to call an external script in the event of a configuration change on Cisco IOS, IOS-XR and NX-OS devices. Add to your <code>config.php</code> file to enable.</p>
+<p>The below are some example hooks to call an external script in the event of a configuration change on Cisco ASA, IOS, NX-OS and IOS-XR devices. Add to your <code>config.php</code> file to enable.</p>
+<h4 id="cisco-asa_1">Cisco ASA</h4>
+<pre><code class="ssh">$config['os']['asa']['syslog_hook'][] = Array('regex' =&gt; '/%ASA-(config-)?5-111005/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
+
 <h4 id="cisco-ios_1">Cisco IOS</h4>
 <pre><code class="ssh">$config['os']['ios']['syslog_hook'][] = Array('regex' =&gt; '/%SYS-(SW[0-9]+-)?5-CONFIG_I/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
 </code></pre>
