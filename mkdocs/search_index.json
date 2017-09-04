@@ -4627,7 +4627,7 @@
         }, 
         {
             "location": "/Developing/Support-New-OS/", 
-            "text": "This document is broken down into the relevant sections depending on what support you are adding.\nDuring all of these examples we will be using the OS of \npulse\n as the example OS we will add. \n\n\n\n\n\n\nAdding the initial detection.\n\n\nAdding Memory and CPU information.\n\n\nAdding Health / Sensor information.\n\n\nAdding Wireless Sensor information.\n\n\nAdding custom graphs.\n\n\nAdding Unit tests (required).", 
+            "text": "This document is broken down into the relevant sections depending on what support you are adding.\nDuring all of these examples we will be using the OS of \npulse\n as the example OS we will add. \n\n\n\n\n\n\nAdding the initial detection.\n\n\nAdding Memory and CPU information.\n\n\nAdding Health / Sensor information.\n\n\nAdding Wireless Sensor information.\n\n\nAdding custom graphs.\n\n\nAdding Unit tests (required).\n\n\n\n\n\n\nWe currently have a script in pre-beta stages that can help speed up the process of deploying a new OS.\nIt has support for add sensors in a basic form (except state sensors).\n\n\nIn this example, we will add a new OS called test-os using the device ID 101 that has already been added.\nIt will be of the type network and belongs to the vendor, Cisco:\n\n\n./scripts/new-os.php -h 101 -o test-os -t network -v cisco\n\n\nThe process will then step you through the process with some more questions. Please be warned, this is \ncurrently pre-beta and may cause some issues. Please let us know of any on IRC.", 
             "title": "Adding support for a new OS"
         }, 
         {
