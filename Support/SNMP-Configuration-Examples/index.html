@@ -977,8 +977,9 @@ syscontact Your Name &lt;your@email.address&gt;
 extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
 </code></pre>
 
-<pre><code>#If you have 'dmidecode' installed on your host, you can add the following lines for additional hardware detection
-extend .1.3.6.1.4.1.2021.7890.2 hardware '/usr/sbin/dmidecode -s system-product-name'
+<p>If you have 'dmidecode' installed on your host, you can add the following lines for additional hardware detection.</p>
+<p><strong>NOTE</strong>: On some systems the snmpd is running as an own user, making dmidecode unable to read out <code>/dev/mem</code> and thus showing multiple errors. Either add the snmp user to the <code>kmem</code> group or remove these lines again.</p>
+<pre><code>extend .1.3.6.1.4.1.2021.7890.2 hardware '/usr/sbin/dmidecode -s system-product-name'
 extend .1.3.6.1.4.1.2021.7890.3 manufacturer '/usr/sbin/dmidecode -s system-manufacturer'
 extend .1.3.6.1.4.1.2021.7890.4 serial '/usr/sbin/dmidecode -s system-serial-number'
 </code></pre>
