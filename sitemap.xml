@@ -588,6 +588,12 @@
     </url>
         
     <url>
+     <loc>http://docs.librenms.org/Developing/os/Settings/</loc>
+     <lastmod>2017-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Agent-Setup/</loc>
      <lastmod>2017-09-13</lastmod>
      <changefreq>daily</changefreq>

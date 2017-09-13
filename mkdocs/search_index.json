@@ -4627,7 +4627,7 @@
         }, 
         {
             "location": "/Developing/Support-New-OS/", 
-            "text": "This document is broken down into the relevant sections depending on what support you are adding.\nDuring all of these examples we will be using the OS of \npulse\n as the example OS we will add. \n\n\n\n\n\n\nAdding the initial detection.\n\n\nAdding Memory and CPU information.\n\n\nAdding Health / Sensor information.\n\n\nAdding Wireless Sensor information.\n\n\nAdding custom graphs.\n\n\nAdding Unit tests (required).\n\n\n\n\n\n\nWe currently have a script in pre-beta stages that can help speed up the process of deploying a new OS.\nIt has support for add sensors in a basic form (except state sensors).\n\n\nIn this example, we will add a new OS called test-os using the device ID 101 that has already been added.\nIt will be of the type network and belongs to the vendor, Cisco:\n\n\n./scripts/new-os.php -h 101 -o test-os -t network -v cisco\n\n\nThe process will then step you through the process with some more questions. Please be warned, this is \ncurrently pre-beta and may cause some issues. Please let us know of any on IRC.", 
+            "text": "This document is broken down into the relevant sections depending on what support you are adding.\nDuring all of these examples we will be using the OS of \npulse\n as the example OS we will add. \n\n\n\n\n\n\nAdding the initial detection.\n\n\nAdding Memory and CPU information.\n\n\nAdding Health / Sensor information.\n\n\nAdding Wireless Sensor information.\n\n\nAdding custom graphs.\n\n\nAdding Unit tests (required).\n\n\nOptional Settings\n\n\n\n\n\n\nWe currently have a script in pre-beta stages that can help speed up the process of deploying a new OS.\nIt has support for add sensors in a basic form (except state sensors).\n\n\nIn this example, we will add a new OS called test-os using the device ID 101 that has already been added.\nIt will be of the type network and belongs to the vendor, Cisco:\n\n\n./scripts/new-os.php -h 101 -o test-os -t network -v cisco\n\n\nThe process will then step you through the process with some more questions. Please be warned, this is \ncurrently pre-beta and may cause some issues. Please let us know of any on IRC.", 
             "title": "Adding support for a new OS"
         }, 
         {
@@ -5234,6 +5234,21 @@
             "location": "/Developing/os/Custom-Graphs/#displaying", 
             "text": "The specific graphs are not displayed automatically so we need to write the following PHP code:  Pulse Sessions  html/includes/graphs/device/pulse_sessions.inc.php  ?php\n\n$rrd_filename = rrd_name($device['hostname'], 'pulse_sessions');\n\nrequire 'includes/graphs/common.inc.php';\n\n$ds = 'sessions';\n\n$colour_area = '9999cc';\n$colour_line = '0000cc';\n\n$colour_area_max = '9999cc';\n\n$graph_max = 1;\n$graph_min = 0;\n\n$unit_text = 'Sessions';\n\nrequire 'includes/graphs/generic_simplex.inc.php';  Pulse Users  html/includes/graphs/device/pulse_users.inc.php  ?php\n\n$rrd_filename = rrd_name($device['hostname'], 'pulse_users');\n\nrequire 'includes/graphs/common.inc.php';\n\n$ds = 'users';\n\n$colour_area = '9999cc';\n$colour_line = '0000cc';\n\n$colour_area_max = '9999cc';\n\n$graph_max = 1;\n\n$unit_text = 'Users';\n\nrequire 'includes/graphs/generic_simplex.inc.php';  That should be it, after data has started to be collected graphs should appear in the WebUI.", 
             "title": "Displaying"
+        }, 
+        {
+            "location": "/Developing/os/Settings/", 
+            "text": "Optional OS Settings\n\n\nThis page documents settings that can be set in the os yaml files or in config.php.\nAll settings listed here are optional. If they are not set, the global default will be used.\n\n\nUsers can override these settings in their config.php.\n\n\nFor example, to set an alternate icon for ios:\n\n\n$config['os']['ios']['icon'] = 'fuzzybunny';\n\n\n\n\nStorage Settings\n\n\nSee also: \nGlobal Storage Config\n\n\nignore_mount array: # exact match\n    - /var/run\nignore_mount_string: # substring\n    - run\nignore_mount_regexp: # regex\n    - \n/^\\/var/", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/Developing/os/Settings/#optional-os-settings", 
+            "text": "This page documents settings that can be set in the os yaml files or in config.php.\nAll settings listed here are optional. If they are not set, the global default will be used.  Users can override these settings in their config.php.  For example, to set an alternate icon for ios:  $config['os']['ios']['icon'] = 'fuzzybunny';", 
+            "title": "Optional OS Settings"
+        }, 
+        {
+            "location": "/Developing/os/Settings/#storage-settings", 
+            "text": "See also:  Global Storage Config  ignore_mount array: # exact match\n    - /var/run\nignore_mount_string: # substring\n    - run\nignore_mount_regexp: # regex\n    -  /^\\/var/", 
+            "title": "Storage Settings"
         }, 
         {
             "location": "/Extensions/Agent-Setup/", 
