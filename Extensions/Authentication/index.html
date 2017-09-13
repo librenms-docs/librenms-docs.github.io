@@ -798,27 +798,44 @@
         
             <li><a href="#available-authentication-modules">Available authentication modules</a></li>
         
-            <li><a href="#user-levels">User levels</a></li>
-        
             <li><a href="#enable-authentication-module">Enable authentication module</a></li>
+        
+            <li><a href="#user-levels">User levels</a></li>
         
             <li><a href="#note-for-selinux-users">Note for SELinux users</a></li>
         
             <li><a href="#testing-authentication">Testing authentication</a></li>
         
-            <li><a href="#mysql-authentication">MySQL Authentication</a></li>
+    
+        <li class="main "><a href="#mysql-authentication">MySQL Authentication</a></li>
         
-            <li><a href="#http-authentication">HTTP Authentication</a></li>
+    
+        <li class="main "><a href="#active-directory-authentication">Active Directory Authentication</a></li>
         
-            <li><a href="#ldap-authentication">LDAP Authentication</a></li>
+            <li><a href="#require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</a></li>
         
-            <li><a href="#http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</a></li>
+            <li><a href="#sample-configuration">Sample configuration</a></li>
         
-            <li><a href="#active-directory-authentication">Active Directory Authentication</a></li>
+            <li><a href="#active-directory-redundancy">Active Directory redundancy</a></li>
         
-            <li><a href="#radius-authentication">Radius Authentication</a></li>
+            <li><a href="#active-directory-ldap-filters">Active Directory LDAP filters</a></li>
+        
+    
+        <li class="main "><a href="#ldap-authentication">LDAP Authentication</a></li>
+        
+            <li><a href="#ldap-server-redundancy">LDAP server redundancy</a></li>
+        
+    
+        <li class="main "><a href="#radius-authentication">Radius Authentication</a></li>
+        
+            <li><a href="#old-account-cleanup_1">Old account cleanup</a></li>
+        
+    
+        <li class="main "><a href="#http-authentication">HTTP Authentication</a></li>
         
             <li><a href="#http-authentication-ad-authorization">HTTP Authentication / AD Authorization</a></li>
+        
+            <li><a href="#http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</a></li>
         
     
     </ul>
@@ -837,25 +854,30 @@
 <h1 id="authentication-modules">Authentication modules</h1>
 <p>LibreNMS supports multiple authentication modules along with <a href="http://docs.librenms.org/Extensions/Two-Factor-Auth/">Two Factor Auth</a>.
 Here we will provide configuration details for these modules.</p>
-<h4 id="available-authentication-modules">Available authentication modules</h4>
+<h3 id="available-authentication-modules">Available authentication modules</h3>
 <ul>
 <li>
-<p>MySQL: mysql</p>
+<p>MySQL: <a href="#mysql-authentication">mysql</a></p>
 </li>
 <li>
-<p>LDAP: ldap</p>
+<p>Active Directory: <a href="#active-directory-authentication">active_directory</a></p>
 </li>
 <li>
-<p>Active Directory: active_directory</p>
+<p>LDAP: <a href="#ldap-authentication">ldap</a></p>
 </li>
 <li>
-<p>HTTP Auth: http-auth</p>
+<p>Radius: <a href="#radius-authentication">radius</a></p>
 </li>
 <li>
-<p>Radius: radius</p>
+<p>HTTP Auth: <a href="#http-authentication">http-auth</a>, <a href="#http-authentication-ad-authorization">ad_authorization</a>, <a href="#http-authentication-ldap-authorization">ldap_authorization</a></p>
 </li>
 </ul>
-<h4 id="user-levels">User levels</h4>
+<h3 id="enable-authentication-module">Enable authentication module</h3>
+<p>To enable a particular authentication module you need to set this up in config.php.</p>
+<pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
+</code></pre>
+
+<h3 id="user-levels">User levels</h3>
 <ul>
 <li>
 <p>1: Normal User. You will need to assign device / port permissions for users at this level.</p>
@@ -870,32 +892,123 @@ Here we will provide configuration details for these modules.</p>
 <p>11: Demo Account. Provides full read/write with certain restrictions (i.e can't delete devices).</p>
 </li>
 </ul>
-<h4 id="enable-authentication-module">Enable authentication module</h4>
-<p>To enable a particular authentication module you need to set this up in config.php.</p>
-<pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
-</code></pre>
-
-<h4 id="note-for-selinux-users">Note for SELinux users</h4>
+<h3 id="note-for-selinux-users">Note for SELinux users</h3>
 <p>When using SELinux on the LibreNMS server, you need to allow Apache (httpd) to connect LDAP/Active Directory server, this is disabled by default. You can use SELinux Booleans to allow network access to LDAP resources with this command:</p>
 <pre><code class="shell">setsebool -P httpd_can_connect_ldap=1
 </code></pre>
 
-<h4 id="testing-authentication">Testing authentication</h4>
+<h3 id="testing-authentication">Testing authentication</h3>
 <p>You can test authentication with this script:</p>
 <pre><code class="shell">./scripts/auth_test.php
 </code></pre>
 
 <p>Enable debug output to troubleshoot issues</p>
-<h3 id="mysql-authentication">MySQL Authentication</h3>
+<h1 id="mysql-authentication">MySQL Authentication</h1>
 <p>Config option: <code>mysql</code></p>
-<p>This is default option with LibreNMS so you should have already got the configuration setup.</p>
+<p>This is default option with LibreNMS so you should have already have the configuration setup.</p>
 <pre><code class="php">$config['db_host'] = &quot;HOSTNAME&quot;;
 $config['db_user'] = &quot;DBUSER&quot;;
 $config['db_pass'] = &quot;DBPASS&quot;;
 $config['db_name'] = &quot;DBNAME&quot;;
 </code></pre>
 
-<h3 id="http-authentication">HTTP Authentication</h3>
+<h1 id="active-directory-authentication">Active Directory Authentication</h1>
+<p>Config option: <code>active_directory</code></p>
+<p>Install <strong>php_ldap</strong>  or <strong>php7.0-ldap</strong>, making sure to install the same version as PHP.</p>
+<p>If you have issues with secure LDAP try setting <code>$config['auth_ad_check_certificates']</code> to <code>0</code>, this will ignore certificate errors.</p>
+<h3 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h3>
+<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the authenticated user has to be a member of the specific group.
+Otherwise all users can authenticate, and will be either level 0 or you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will have read only access unless otherwise specified.</p>
+<h4 id="old-account-cleanup">Old account cleanup</h4>
+<p>Cleanup of old accounts is done by checking the authlog. You will need to set the number of days when old accounts will be purged AUTOMATICALLY by daily.sh.</p>
+<blockquote>
+<p>Please ensure that you set the $config['authlog_purge'] value to be greater than $config['active_directory']['users_purge'] otherwise old users won't be removed.</p>
+</blockquote>
+<h3 id="sample-configuration">Sample configuration</h3>
+<pre><code>$config['auth_mechanism'] = &quot;active_directory&quot;;
+$config['auth_ad_url']                     = &quot;ldaps://&lt;your-domain.controll.er&gt;&quot;;  // you can add multiple servers, separated by a space
+$config['auth_ad_domain']                  = &quot;&lt;your-domain.com&gt;&quot;;
+$config['auth_ad_base_dn']                 = &quot;&lt;dc=your-domain,dc=com&gt;&quot;;  // groups and users must be under this dn
+$config['auth_ad_check_certificates']      = true;  // require a valid ssl certificate
+$config['auth_ad_binduser']                = 'examplebinduser';
+$config['auth_ad_bindpassword']            = 'examplepassword';
+$config['auth_ad_timeout']                 = 5; // time to wait before giving up (or trying the next server)
+$config['auth_ad_debug']                   = false; // enable for verbose debug messages
+$config['active_directory']['users_purge'] = 30;    // purge users who haven't logged in for 30 days.
+$config['auth_ad_require_groupmembership'] = false; // require users to be members of a group listed below
+$config['auth_ad_groups']['&lt;ad-admingroup&gt;']['level'] = 10;
+$config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']  = 7;
+</code></pre>
+
+<p>Replace <code>&lt;ad-admingroup&gt;</code> with your Active Directory admin-user group and <code>&lt;ad-usergroup&gt;</code> with your standard user group.
+It is <strong>highly suggested</strong> to create a bind user, otherwise "remember me", alerting users, and the API will not work.</p>
+<h3 id="active-directory-redundancy">Active Directory redundancy</h3>
+<p>You can set two Active Directory servers by editing the <code>$config['auth_ad_url']</code> like this example:</p>
+<pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
+</code></pre>
+
+<h3 id="active-directory-ldap-filters">Active Directory LDAP filters</h3>
+<p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
+<p>The defaults are:</p>
+<pre><code>$config['auth_ad_user_filter'] = &quot;(objectclass=user)&quot;;
+$config['auth_ad_group_filter'] = &quot;(objectclass=group)&quot;;
+</code></pre>
+
+<p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for the group filter.</p>
+<h1 id="ldap-authentication">LDAP Authentication</h1>
+<p>Config option: <code>ldap</code></p>
+<p>Install <strong>php_ldap</strong>  or <strong>php7.0-ldap</strong>, making sure to install the same version as PHP.</p>
+<pre><code class="php">$config['auth_ldap_version'] = 3; # v2 or v3
+$config['auth_ldap_server'] = &quot;ldap.example.com&quot;;
+$config['auth_ldap_port']   = 389;
+$config['auth_ldap_prefix'] = &quot;uid=&quot;;
+$config['auth_ldap_suffix'] = &quot;,ou=People,dc=example,dc=com&quot;;
+$config['auth_ldap_group']  = &quot;cn=groupname,ou=groups,dc=example,dc=com&quot;;
+$config['auth_ldap_groupbase'] = &quot;ou=group,dc=example,dc=com&quot;;
+$config['auth_ldap_groups']['admin']['level'] = 10;
+$config['auth_ldap_groups']['pfy']['level'] = 7;
+$config['auth_ldap_groups']['support']['level'] = 1;
+$config['auth_ldap_groupmemberattr'] = &quot;memberUid&quot;;
+$config['auth_ldap_uid_attribute'] = 'uidnumber';
+</code></pre>
+
+<p>Typically auth_ldap_suffix, auth_ldap_group, auth_ldap_groupbase, auth_ldap_groups are what's required to be configured.</p>
+<h3 id="ldap-server-redundancy">LDAP server redundancy</h3>
+<p>You can set two LDAP servers by editing the <code>$config['auth_ldap_server']</code> like this example:</p>
+<pre><code>$config['auth_ldap_server'] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
+</code></pre>
+
+<p>An example config setup for use with Jumpcloud LDAP as a service is:</p>
+<pre><code class="php">$config['auth_mechanism'] = &quot;ldap&quot;;
+unset($config['auth_ldap_group']);
+unset($config['auth_ldap_groups']);
+$config['auth_ldap_groups']['librenms']['level'] = 10;
+$config['auth_ldap_version'] = 3;
+$config['auth_ldap_server'] = &quot;ldap.jumpcloud.com&quot;;
+$config['auth_ldap_port'] = 389;
+$config['auth_ldap_prefix'] = &quot;uid=&quot;;
+$config['auth_ldap_suffix'] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
+$config['auth_ldap_groupbase'] = &quot;cn=librenms,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
+$config['auth_ldap_groupmemberattr'] = &quot;memberUid&quot;;
+</code></pre>
+
+<p>Replace {id} with the unique ID provided by Jumpcloud.</p>
+<h1 id="radius-authentication">Radius Authentication</h1>
+<p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
+<pre><code class="php">$config['radius']['hostname']   = 'localhost';
+$config['radius']['port']       = '1812';
+$config['radius']['secret']     = 'testing123';
+$config['radius']['timeout']    = 3;
+$config['radius']['users_purge'] = 14;//Purge users who haven't logged in for 14 days.
+$config['radius']['default_level'] = 1;//Set the default user level when automatically creating a user.
+</code></pre>
+
+<h4 id="old-account-cleanup_1">Old account cleanup</h4>
+<p>Cleanup of old accounts is done by checking the authlog. You will need to set the number of days when old accounts will be purged AUTOMATICALLY by daily.sh.</p>
+<blockquote>
+<p>Please ensure that you set the $config['authlog_purge'] value to be greater than $config['radius']['users_purge'] otherwise old users won't be removed.</p>
+</blockquote>
+<h1 id="http-authentication">HTTP Authentication</h1>
 <p>Config option: <code>http-auth</code></p>
 <p>LibreNMS will expect the user to have authenticated via your webservice already. At this stage it will need to assign a
 userlevel for that user which is done in one of two ways:</p>
@@ -911,107 +1024,7 @@ userlevel for that user which is done in one of two ways:</p>
 </code></pre>
 
 <p>This will then assign the userlevel for guest to all authenticated users.</p>
-<h3 id="ldap-authentication">LDAP Authentication</h3>
-<p>Config option: <code>ldap</code></p>
-<p>This one is a little more complicated :)</p>
-<p>First of all, install <strong><em>php-ldap</em></strong> for CentOS/RHEL or <strong><em>php5-ldap</em></strong> for Ubuntu/Debian.</p>
-<pre><code class="php">$config['auth_ldap_version'] = 3; # v2 or v3
-$config['auth_ldap_server'] = &quot;ldap.example.com&quot;;
-$config['auth_ldap_port']   = 389;
-$config['auth_ldap_prefix'] = &quot;uid=&quot;;
-$config['auth_ldap_suffix'] = &quot;,ou=People,dc=example,dc=com&quot;;
-$config['auth_ldap_group']  = &quot;cn=groupname,ou=groups,dc=example,dc=com&quot;;
-$config['auth_ldap_groupbase'] = &quot;ou=group,dc=example,dc=com&quot;;
-$config['auth_ldap_groups']['admin']['level'] = 10;
-$config['auth_ldap_groups']['pfy']['level'] = 7;
-$config['auth_ldap_groups']['support']['level'] = 1;
-$config['auth_ldap_groupmemberattr'] = &quot;memberUid&quot;;
-$config['auth_ldap_uid_attribute'] = 'uidnumber';
-</code></pre>
-
-<p>Typically auth_ldap_suffix, auth_ldap_group, auth_ldap_groupbase, auth_ldap_groups are what's required to be configured.
-It is highly suggested to create a bind user, other wise "remember me", alerting AD users, and the API will not work.</p>
-<p>An example config setup for use with Jumpcloud LDAP as a service is:</p>
-<pre><code class="php">$config['auth_mechanism'] = &quot;ldap&quot;; # default, other options: ldap, http-auth
-unset($config['auth_ldap_group']);
-unset($config['auth_ldap_groups']);
-$config['auth_ldap_groups']['librenms']['level'] = 10;
-$config['auth_ldap_version'] = 3; # v2 or v3
-$config['auth_ldap_server'] = &quot;ldap.jumpcloud.com&quot;;
-$config['auth_ldap_port'] = 389;
-$config['auth_ldap_prefix'] = &quot;uid=&quot;;
-$config['auth_ldap_suffix'] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupbase'] = &quot;cn=librenms,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupmemberattr'] = &quot;memberUid&quot;;
-</code></pre>
-
-<p>Replace {id} with the unique ID provided by Jumpcloud.</p>
-<h3 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h3>
-<p>Config option: <code>ldap-authorization</code></p>
-<p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>ldap</em></strong></p>
-<p>LibreNMS will expect the user to have authenticated via your webservice already (e.g. using Kerberos Authentication in Apache) but will use LDAP to determine and assign the userlevel of a user.
-The userlevel will be calculated by using LDAP group membership information as the <strong><em>ldap</em></strong> module does.</p>
-<p>The configuration is the same as for the <strong><em>ldap</em></strong> module with one extra option: auth_ldap_cache_ttl.
-This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
-The default value is 300 seconds.
-To disabled this caching (highly discourage) set this option to 0.</p>
-<pre><code class="php">$config['auth_ldap_cache_ttl'] = 300;
-</code></pre>
-
-<h3 id="active-directory-authentication">Active Directory Authentication</h3>
-<p>Config option: <code>active_directory</code></p>
-<p>This is similar to LDAP Authentication. Install <strong>php_ldap</strong> for CentOS/RHEL or <strong>php5-ldap</strong> for Debian/Ubuntu.</p>
-<p>If you have issues with secure LDAP try setting <code>$config['auth_ad_check_certificates']</code> to <code>0</code>.</p>
-<h5 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h5>
-<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the authenticated user has to be a member of the specific group. Otherwise all users can authenticate, and will be either level 0 or you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will have read only access unless otherwise specified.</p>
-<blockquote>
-<p>Cleanup of old accounts is done using the authlog. You will need to set the cleanup date for when old accounts will be purged which will happen AUTOMATICALLY.
-Please ensure that you set the $config['authlog_purge'] value to be greater than $config['active_directory]['users_purge'] otherwise old users won't be removed.</p>
-</blockquote>
-<h5 id="sample-configuration">Sample configuration</h5>
-<pre><code>$config['auth_ad_url']                     = &quot;ldaps://&lt;your-domain.controll.er&gt;&quot;;  // you can add multiple servers, separated by a space
-$config['auth_ad_domain']                  = &quot;&lt;your-domain.com&gt;&quot;;
-$config['auth_ad_base_dn']                 = &quot;&lt;dc=your-domain,dc=com&gt;&quot;;
-$config['auth_ad_check_certificates']      = true;  // require a valid ssl certificate
-$config['auth_ad_binduser']                = 'examplebinduser';
-$config['auth_ad_bindpassword']            = 'examplepassword';
-$config['auth_ad_timeout']                 = 5; // time to wait before giving up (or trying the next server)
-$config['auth_ad_debug']                   = false; // enable for verbose debug messages
-$config['active_directory']['users_purge'] = 30;    // purge users who haven't logged in for 30 days.
-$config['auth_ad_require_groupmembership'] = false; // require users to be members of a group listed below
-$config['auth_ad_groups']['&lt;ad-admingroup&gt;']['level'] = 10;
-$config['auth_ad_groups']['&lt;ad-usergroup&gt;']['level']  = 7;
-</code></pre>
-
-<p>Replace <code>&lt;ad-admingroup&gt;</code> with your Active Directory admin-user group and <code>&lt;ad-usergroup&gt;</code> with your standard user group.</p>
-<h5 id="active-directory-redundancy">Active Directory redundancy</h5>
-<p>You can set two Active Directory servers by editing the <code>$config['auth_ad_url']</code> like this example:</p>
-<pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
-</code></pre>
-
-<h5 id="active-directory-ldap-filters">Active Directory LDAP filters</h5>
-<p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
-<p>The defaults are:</p>
-<pre><code>$config['auth_ad_user_filter'] = &quot;(objectclass=user)&quot;;
-$config['auth_ad_group_filter'] = &quot;(objectclass=group)&quot;;
-</code></pre>
-
-<p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for the group filter.</p>
-<h3 id="radius-authentication">Radius Authentication</h3>
-<p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
-<blockquote>
-<p>Cleanup of old accounts is done using the authlog. You will need to set the cleanup date for when old accounts will be purged which will happen AUTOMATICALLY.
-Please ensure that you set the $config['authlog_purge'] value to be greater than $config['radius']['users_purge'] otherwise old users won't be removed.</p>
-</blockquote>
-<pre><code class="php">$config['radius']['hostname']   = 'localhost';
-$config['radius']['port']       = '1812';
-$config['radius']['secret']     = 'testing123';
-$config['radius']['timeout']    = 3;
-$config['radius']['users_purge'] = 14;//Purge users who haven't logged in for 14 days.
-$config['radius']['default_level'] = 1;//Set the default user level when automatically creating a user.
-</code></pre>
-
-<h3 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h3>
+<h2 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h2>
 <p>Config option: <code>ad-authorization</code></p>
 <p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>active</em>directory</strong>_</p>
 <p>LibreNMS will expect the user to have authenticated via your webservice already (e.g. using Kerberos Authentication in Apache) but will use Active Directory lookups to determine and assign the userlevel of a user.
@@ -1026,6 +1039,18 @@ To disable this caching (highly discourage) set this option to 0.</p>
 <pre><code class="php">$config['auth_ad_binduser']     = &quot;ad_binduser&quot;;
 $config['auth_ad_bindpassword'] = &quot;ad_bindpassword&quot;;
 $config['auth_ldap_cache_ttl']  = 300;
+</code></pre>
+
+<h2 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h2>
+<p>Config option: <code>ldap-authorization</code></p>
+<p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>ldap</em></strong></p>
+<p>LibreNMS will expect the user to have authenticated via your webservice already (e.g. using Kerberos Authentication in Apache) but will use LDAP to determine and assign the userlevel of a user.
+The userlevel will be calculated by using LDAP group membership information as the <strong><em>ldap</em></strong> module does.</p>
+<p>The configuration is the same as for the <strong><em>ldap</em></strong> module with one extra option: auth_ldap_cache_ttl.
+This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
+The default value is 300 seconds.
+To disabled this caching (highly discourage) set this option to 0.</p>
+<pre><code class="php">$config['auth_ldap_cache_ttl'] = 300;
 </code></pre></div>
                 
             
