@@ -796,6 +796,8 @@
     
         <li class="main active"><a href="#optional-os-settings">Optional OS Settings</a></li>
         
+            <li><a href="#ignoring-interfaces">Ignoring Interfaces</a></li>
+        
             <li><a href="#storage-settings">Storage Settings</a></li>
         
     
@@ -818,6 +820,27 @@ All settings listed here are optional. If they are not set, the global default w
 <p>Users can override these settings in their config.php.</p>
 <p>For example, to set an alternate icon for ios:</p>
 <pre><code class="php">$config['os']['ios']['icon'] = 'fuzzybunny';
+</code></pre>
+
+<h3 id="ignoring-interfaces">Ignoring Interfaces</h3>
+<p>See also: <a href="../../../Support/Configuration/#interfaces-to-be-ignored">Global Ignoring Interfaces Config</a></p>
+<blockquote>
+<p>These settings are merged with the global settings, so you can only undo global ones with good_if</p>
+</blockquote>
+<pre><code class="yaml">empty_ifdescr: false # allow empty ifDescr
+bad_if: # ifDescr (substring, case insensitive)
+    - lp0
+bad_if_regexp: # ifDescr (regex, case insensitive)
+    - &quot;/^ng[0-9]+$/&quot;
+bad_ifname_regexp: # ifName (regex, case insensitive)
+    - &quot;/^xdsl_channel /&quot;
+bad_ifalias_regexp: # ifAlias (regex, case insensitive)
+    - &quot;/^vlan/&quot;
+bad_iftype: # ifType (substring)
+    - sonet
+good_if: # ignore all other bad_if settings ifDescr (substring, case insensitive)
+    - virtual
+
 </code></pre>
 
 <h3 id="storage-settings">Storage Settings</h3>
