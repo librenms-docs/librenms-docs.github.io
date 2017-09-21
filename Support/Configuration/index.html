@@ -903,6 +903,11 @@
         <li class="main "><a href="#distributed-poller-settings">Distributed poller settings</a></li>
         
     
+        <li class="main "><a href="#api-settings">API Settings</a></li>
+        
+            <li><a href="#cors-support">CORS Support</a></li>
+        
+    
     </ul>
 </div>
 </div>
@@ -1397,7 +1402,18 @@ $config['ipmi']['type'][] = &quot;open&quot;;
 </code></pre>
 
 <h3 id="distributed-poller-settings">Distributed poller settings</h3>
-<p><a href="../../Extensions/Distributed-Poller/">Distributed Poller</a></p></div>
+<p><a href="../../Extensions/Distributed-Poller/">Distributed Poller</a></p>
+<h2 id="api-settings">API Settings</h2>
+<h3 id="cors-support">CORS Support</h3>
+<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</p>
+<p>CORS support for the API is disabled by default. Below you will find the standard options,
+all of which you can configure.</p>
+<pre><code class="php">$config['api']['cors']['enabled'] = false;
+$config['api']['cors']['origin'] = '*';
+$config['api']['cors']['maxage'] = '86400';
+$config['api']['cors']['allowmethods'] = array('POST', 'GET', 'PUT', 'DELETE', 'PATCH');
+$config['api']['cors']['allowheaders'] = array('Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Auth-Token');
+</code></pre></div>
                 
             
             </div>
