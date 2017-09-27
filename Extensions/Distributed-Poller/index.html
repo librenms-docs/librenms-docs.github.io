@@ -900,6 +900,13 @@ OPTS=&quot;$OPTS -b /opt/librenms/rrd -B&quot;
 OPTS=&quot;$OPTS -w 1800 -z 900&quot;
 </code></pre>
 
+<p>Ubuntu (/etc/default/rrdcached) - RRDCached 1.5.5 and above.</p>
+<pre><code>OPTS=&quot;-l 0:42217&quot;
+OPTS=&quot;$OPTS -R -j /var/lib/rrdcached/journal/ -F&quot;
+OPTS=&quot;$OPTS -b /opt/librenms/rrd -B&quot;
+OPTS=&quot;$OPTS -w 1800 -z 900&quot;
+</code></pre>
+
 <p>Poller 1:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
