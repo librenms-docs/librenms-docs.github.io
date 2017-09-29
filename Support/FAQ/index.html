@@ -868,6 +868,9 @@
         <li class="main "><a href="#why-does-modifying-default-alert-template-fail"> Why does modifying 'Default Alert Template' fail?</a></li>
         
     
+        <li class="main "><a href="#why-would-alert-un-mute-itself"> Why would alert un-mute itself?</a></li>
+        
+    
     </ul>
 </div>
 </div>
@@ -913,6 +916,7 @@
 <li><a href="#faq29">Why can't Normal and Global View users see Oxidized?</a></li>
 <li><a href="#faq30">What is the Demo User for?</a></li>
 <li><a href="#faq31">Why does modifying 'Default Alert Template' fail?</a></li>
+<li><a href="#faq32">Why would alert un-mute itself</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -1046,10 +1050,10 @@ $config['device_traffic_iftype'][] = '/ppp/';
 </code></pre>
 
 <h4 id="how-do-i-move-my-librenms-install-to-another-server"><a name="faq24"> How do I move my LibreNMS install to another server?</a></h4>
-<p>If you are moving from one CPU architecture to another then you will need to dump the rrd files and re-create them. If you are in     <br />
-this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/">Dan Brown's migration scripts</a>.        </p>
-<p>If you are just moving to another server with the same CPU architecture then the following steps should be all that's needed:       </p>
-<pre><code>- Install LibreNMS as per our normal documentation, you don't need to run through the web installer or building the sql schema.     
+<p>If you are moving from one CPU architecture to another then you will need to dump the rrd files and re-create them. If you are in   <br />
+this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/">Dan Brown's migration scripts</a>.    </p>
+<p>If you are just moving to another server with the same CPU architecture then the following steps should be all that's needed:   </p>
+<pre><code>- Install LibreNMS as per our normal documentation, you don't need to run through the web installer or building the sql schema.   
 - Stop cron by commenting out all lines in `/etc/cron.d/librenms`
 - Dump the MySQL database `librenms` and import this into your new server.
 - Copy the `rrd/` folder to the new server.
@@ -1144,7 +1148,11 @@ git checkout issue-1337
 <h3 id="why-does-modifying-default-alert-template-fail"><a name="faq31"> Why does modifying 'Default Alert Template' fail?</a></h3>
 <p>This template's entry could be missing in the database. Please run:</p>
 <pre><code class="bash">mysql -u librenms -p &lt; sql-schema/202.sql
-</code></pre></div>
+</code></pre>
+
+<h3 id="why-would-alert-un-mute-itself"><a name="faq32"> Why would alert un-mute itself?</a></h3>
+<p>If alert un-mutes itself then it most likely means that the alert cleared and is then triggered again.
+Please review eventlog as it will tell you in there.</p></div>
                 
             
             </div>
