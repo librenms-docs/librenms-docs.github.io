@@ -1,1099 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/General/Changelog/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-
-	    <title>Changelog - LibreNMS Docs</title>
-
-        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link href="../../css/color.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <link href="../../librenms.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-79149977-2', 'docs.librenms.org');
-            ga('send', 'pageview');
-        </script>
-        
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-General" class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../Acknowledgement/">Acknowledgement</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Changelog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../CODE_OF_CONDUCT/">Code of Conduct</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Contributing/">Contributing</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Credits/">Credits</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Updating/">Updating</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Releases/">Releases</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Security/">Security</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Welcome-to-Observium-users/">Welcome to Observium users</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Installation" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Extensions" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Extensions/Applications/">Applications</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Authentication/">Authentication</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Auto-Discovery/">Auto Discovery</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Agent-Setup/">Agent Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Billing-Module/">Billing Module</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Component/">Component</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Dell-OpenManage/">Dell OpenManage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Device-Groups/">Device Groups</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Distributed-Poller/">Distributed Poller</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Email-Alerting/">Email Alerting</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Globe-Frontpage/">Globe Frontpage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Graylog/">Graylog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/IRC-Bot/">IRC Bot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/IRC-Bot-Extensions/">IRC Bot Extensions</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Interface-Description-Parsing/">Interface Description Parsing</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/MIB-based-polling/">MIB based polling</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Memcached/">Memcached</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Metric-Storage/">Metric Storage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Network-Map/">Network Map</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/NFSen/">NFSen</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Oxidized/">Oxidized</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/PeeringDB/">PeeringDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Plugin-System/">Plugin System</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Poller-Service/">Poller Service</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Port-Description-Parser/">Port Description Parser</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Proxmox/">Proxmox</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/RRDCached/">RRDCached</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/RRDTune/">RRDTune</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/SNMP-Proxy/">SNMP Proxy</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/SNMP-Trap-Handler/">SNMP Trap Handler</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Services/">Services</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Smokeping/">Smokeping</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Sub-Directory/">Sub Directory</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Syslog/">Syslog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Two-Factor-Auth/">Two Factor Auth</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Varnish/">Varnish</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../API/">API</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../Alerting/">Alerting</a>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Support" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Support/1-Minute-Polling/">1 Minute Polling</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Configuration/">Configuration</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Discovery Support/">Discovery Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Example-Hardware-Setup/">Example Hardware Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/FAQ/">FAQ</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Features/">Features</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Install Validation/">Install Validation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Performance/">Performance</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Poller Support/">Poller Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/SSL-Configuration/">SSL Configuration</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Developing" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Developing/Using-Git/">Using Git</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Code-Guidelines/">Code Guidelines</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Style-Guidelines/">Style Guidelines</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Validating-Code/">Validating Code</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Code-Structure/">Code Structure</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Support-New-OS/">Adding support for a new OS</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Sensor-State-Support/">Sensor State Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Merging-Pull-Requests/">Merging Pull Requests</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Creating-Release/">Creating Release</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-hidden" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Alerting/Rules/">Rules</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Templates/">Templates</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Transports/">Transports</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Entities/">Entities</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Macros/">Macros</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Rules/">Rules</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Initial-Detection/">Initial Detection</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Mem-CPU-Information/">Mem CPU Information</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Test-Units/">Test Units</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Health-Information/">Health Information</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Wireless-Sensors/">Wireless Sensors</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Custom-Graphs/">Custom Graphs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Settings/">Settings</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Agent-Setup/">Agent Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/Alerting/">Alerting</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/metrics/InfluxDB/">InfluxDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/metrics/Graphite/">Graphite</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/metrics/OpenTSDB/">OpenTSDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Extensions/RRDCached-Security/">RRDCached Security</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Installation Ubuntu 1404 Nginx</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Installation Ubuntu 1404 Apache</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Installation Ubuntu 1404 Lighttpd</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">Installation CentOS 6 Apache Nginx</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Support-New-OS/">Support New OS</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
-            
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i>
-                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
-                    </a>
-                </li>
-                
-                
-                    <li>
-                        <a href="https://github.com/librenms/librenms">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-
-        <div class="container">
-            <div class="row">
-            
-                
-                    <div class="col-md-3">
-<div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-        <li class="main active"><a href="#132">1.32</a></li>
-        
-            <li><a href="#features">Features</a></li>
-        
-            <li><a href="#bugfixes">Bugfixes</a></li>
-        
-            <li><a href="#documentation">Documentation</a></li>
-        
-            <li><a href="#refactoring">Refactoring</a></li>
-        
-            <li><a href="#devices">Devices</a></li>
-        
-            <li><a href="#webui">WebUI</a></li>
-        
-            <li><a href="#api">API</a></li>
-        
-    
-        <li class="main "><a href="#131">1.31</a></li>
-        
-            <li><a href="#features_1">Features</a></li>
-        
-            <li><a href="#bugfixes_1">Bugfixes</a></li>
-        
-            <li><a href="#documentation_1">Documentation</a></li>
-        
-            <li><a href="#refactoring_1">Refactoring</a></li>
-        
-            <li><a href="#devices_1">Devices</a></li>
-        
-            <li><a href="#webui_1">WebUI</a></li>
-        
-            <li><a href="#security">Security</a></li>
-        
-    
-        <li class="main "><a href="#130">1.30</a></li>
-        
-            <li><a href="#features_2">Features</a></li>
-        
-            <li><a href="#bugfixes_2">Bugfixes</a></li>
-        
-            <li><a href="#documentation_2">Documentation</a></li>
-        
-            <li><a href="#refactoring_2">Refactoring</a></li>
-        
-            <li><a href="#devices_2">Devices</a></li>
-        
-            <li><a href="#webui_2">WebUI</a></li>
-        
-            <li><a href="#security_1">Security</a></li>
-        
-            <li><a href="#api_1">API</a></li>
-        
-    
-        <li class="main "><a href="#129">1.29</a></li>
-        
-            <li><a href="#features_3">Features</a></li>
-        
-            <li><a href="#bugfixes_3">Bugfixes</a></li>
-        
-            <li><a href="#documentation_3">Documentation</a></li>
-        
-            <li><a href="#devices_3">Devices</a></li>
-        
-            <li><a href="#webui_3">WebUI</a></li>
-        
-            <li><a href="#alerts">Alerts</a></li>
-        
-            <li><a href="#api_2">API</a></li>
-        
-            <li><a href="#refactor">Refactor</a></li>
-        
-    
-        <li class="main "><a href="#128">1.28</a></li>
-        
-            <li><a href="#features_4">Features</a></li>
-        
-            <li><a href="#bugfixes_4">Bugfixes</a></li>
-        
-            <li><a href="#documentation_4">Documentation</a></li>
-        
-            <li><a href="#refactoring_3">Refactoring</a></li>
-        
-            <li><a href="#devices_4">Devices</a></li>
-        
-            <li><a href="#webui_4">WebUI</a></li>
-        
-            <li><a href="#security_2">Security</a></li>
-        
-            <li><a href="#alerting">Alerting</a></li>
-        
-    
-        <li class="main "><a href="#127">1.27</a></li>
-        
-            <li><a href="#features_5">Features</a></li>
-        
-            <li><a href="#bugfixes_5">Bugfixes</a></li>
-        
-            <li><a href="#documentation_5">Documentation</a></li>
-        
-            <li><a href="#refactoring_4">Refactoring</a></li>
-        
-            <li><a href="#devices_5">Devices</a></li>
-        
-            <li><a href="#webui_5">WebUI</a></li>
-        
-            <li><a href="#api_3">API</a></li>
-        
-    
-        <li class="main "><a href="#126">1.26</a></li>
-        
-            <li><a href="#features_6">Features</a></li>
-        
-            <li><a href="#bugfixes_6">Bugfixes</a></li>
-        
-            <li><a href="#documentation_6">Documentation</a></li>
-        
-            <li><a href="#refactoring_5">Refactoring</a></li>
-        
-            <li><a href="#devices_6">Devices</a></li>
-        
-            <li><a href="#webui_6">WebUI</a></li>
-        
-            <li><a href="#security_3">Security</a></li>
-        
-            <li><a href="#api_4">API</a></li>
-        
-    
-        <li class="main "><a href="#125">1.25</a></li>
-        
-            <li><a href="#features_7">Features</a></li>
-        
-            <li><a href="#bugfixes_7">Bugfixes</a></li>
-        
-            <li><a href="#documentation_7">Documentation</a></li>
-        
-            <li><a href="#refactoring_6">Refactoring</a></li>
-        
-            <li><a href="#devices_7">Devices</a></li>
-        
-            <li><a href="#webui_7">WebUI</a></li>
-        
-            <li><a href="#api_5">API</a></li>
-        
-    
-        <li class="main "><a href="#124">1.24</a></li>
-        
-            <li><a href="#features_8">Features</a></li>
-        
-            <li><a href="#bugfixes_8">Bugfixes</a></li>
-        
-            <li><a href="#documentation_8">Documentation</a></li>
-        
-            <li><a href="#refactoring_7">Refactoring</a></li>
-        
-            <li><a href="#devices_8">Devices</a></li>
-        
-            <li><a href="#webui_8">WebUI</a></li>
-        
-    
-        <li class="main "><a href="#123">1.23</a></li>
-        
-            <li><a href="#features_9">Features</a></li>
-        
-            <li><a href="#bugfixes_9">Bugfixes</a></li>
-        
-            <li><a href="#documentation_9">Documentation</a></li>
-        
-            <li><a href="#refactoring_8">Refactoring</a></li>
-        
-            <li><a href="#devices_9">Devices</a></li>
-        
-            <li><a href="#webui_9">WebUI</a></li>
-        
-            <li><a href="#security_4">Security</a></li>
-        
-    
-        <li class="main "><a href="#v12201">v1.22.01</a></li>
-        
-            <li><a href="#bugfixes_10">Bugfixes</a></li>
-        
-    
-        <li class="main "><a href="#v122">v1.22</a></li>
-        
-            <li><a href="#features_10">Features</a></li>
-        
-            <li><a href="#bugfixes_11">Bugfixes</a></li>
-        
-            <li><a href="#documentation_10">Documentation</a></li>
-        
-            <li><a href="#refactoring_9">Refactoring</a></li>
-        
-            <li><a href="#devices_10">Devices</a></li>
-        
-            <li><a href="#webui_10">WebUI</a></li>
-        
-    
-        <li class="main "><a href="#v121">v1.21</a></li>
-        
-            <li><a href="#features_11">Features</a></li>
-        
-            <li><a href="#bugfixes_12">Bugfixes</a></li>
-        
-            <li><a href="#documentation_11">Documentation</a></li>
-        
-            <li><a href="#refactoring_10">Refactoring</a></li>
-        
-            <li><a href="#devices_11">Devices</a></li>
-        
-            <li><a href="#webui_11">WebUI</a></li>
-        
-    
-        <li class="main "><a href="#release-201609">Release: 201609</a></li>
-        
-            <li><a href="#features_12">Features</a></li>
-        
-            <li><a href="#bugfixes_13">Bugfixes</a></li>
-        
-            <li><a href="#documentation_12">Documentation</a></li>
-        
-            <li><a href="#refactoring_11">Refactoring</a></li>
-        
-            <li><a href="#devices_12">Devices</a></li>
-        
-            <li><a href="#webui_12">WebUI</a></li>
-        
-            <li><a href="#august-2016">August 2016</a></li>
-        
-            <li><a href="#july-2016">July 2016</a></li>
-        
-            <li><a href="#june-2016">June 2016</a></li>
-        
-            <li><a href="#may-2016">May 2016</a></li>
-        
-            <li><a href="#april-2016">April 2016</a></li>
-        
-            <li><a href="#march-2016">March 2016</a></li>
-        
-            <li><a href="#february-2016">February 2016</a></li>
-        
-            <li><a href="#january-2016">January 2016</a></li>
-        
-            <li><a href="#december-2015">December 2015</a></li>
-        
-            <li><a href="#november-2015">November 2015</a></li>
-        
-            <li><a href="#october-2015">October 2015</a></li>
-        
-            <li><a href="#september-2015">September 2015</a></li>
-        
-            <li><a href="#august-2015">August 2015</a></li>
-        
-            <li><a href="#july-2015">July 2015</a></li>
-        
-            <li><a href="#june-2015">June 2015</a></li>
-        
-            <li><a href="#may-2015">May 2015</a></li>
-        
-            <li><a href="#apr-2015">Apr 2015</a></li>
-        
-            <li><a href="#mar-2015">Mar 2015</a></li>
-        
-            <li><a href="#feb-2015">Feb 2015</a></li>
-        
-            <li><a href="#jan-2015">Jan 2015</a></li>
-        
-            <li><a href="#dec-2014">Dec 2014</a></li>
-        
-            <li><a href="#nov-2014">Nov 2014</a></li>
-        
-            <li><a href="#oct-2014">Oct 2014</a></li>
-        
-            <li><a href="#sep-2014">Sep 2014</a></li>
-        
-            <li><a href="#aug-2014">Aug 2014</a></li>
-        
-            <li><a href="#jul-2014">Jul 2014</a></li>
-        
-            <li><a href="#jun-2014">Jun 2014</a></li>
-        
-            <li><a href="#mar-2014">Mar 2014</a></li>
-        
-            <li><a href="#feb-2014">Feb 2014</a></li>
-        
-            <li><a href="#jan-2014">Jan 2014</a></li>
-        
-            <li><a href="#nov-2013">Nov 2013</a></li>
-        
-            <li><a href="#oct-2013">Oct 2013</a></li>
-        
-    
-    </ul>
-</div>
-</div>
-                    <div class="col-md-9" role="main">
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/General/Changelog/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Changelog - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-<h2 id="132">1.32</h2>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "1.32", url: "#132", children: [
+              {title: "Features", url: "#features" },
+              {title: "Bugfixes", url: "#bugfixes" },
+              {title: "Documentation", url: "#documentation" },
+              {title: "Refactoring", url: "#refactoring" },
+              {title: "Devices", url: "#devices" },
+              {title: "WebUI", url: "#webui" },
+              {title: "API", url: "#api" },
+          ]},
+          {title: "1.31", url: "#131", children: [
+              {title: "Features", url: "#features_1" },
+              {title: "Bugfixes", url: "#bugfixes_1" },
+              {title: "Documentation", url: "#documentation_1" },
+              {title: "Refactoring", url: "#refactoring_1" },
+              {title: "Devices", url: "#devices_1" },
+              {title: "WebUI", url: "#webui_1" },
+              {title: "Security", url: "#security" },
+          ]},
+          {title: "1.30", url: "#130", children: [
+              {title: "Features", url: "#features_2" },
+              {title: "Bugfixes", url: "#bugfixes_2" },
+              {title: "Documentation", url: "#documentation_2" },
+              {title: "Refactoring", url: "#refactoring_2" },
+              {title: "Devices", url: "#devices_2" },
+              {title: "WebUI", url: "#webui_2" },
+              {title: "Security", url: "#security_1" },
+              {title: "API", url: "#api_1" },
+          ]},
+          {title: "1.29", url: "#129", children: [
+              {title: "Features", url: "#features_3" },
+              {title: "Bugfixes", url: "#bugfixes_3" },
+              {title: "Documentation", url: "#documentation_3" },
+              {title: "Devices", url: "#devices_3" },
+              {title: "WebUI", url: "#webui_3" },
+              {title: "Alerts", url: "#alerts" },
+              {title: "API", url: "#api_2" },
+              {title: "Refactor", url: "#refactor" },
+          ]},
+          {title: "1.28", url: "#128", children: [
+              {title: "Features", url: "#features_4" },
+              {title: "Bugfixes", url: "#bugfixes_4" },
+              {title: "Documentation", url: "#documentation_4" },
+              {title: "Refactoring", url: "#refactoring_3" },
+              {title: "Devices", url: "#devices_4" },
+              {title: "WebUI", url: "#webui_4" },
+              {title: "Security", url: "#security_2" },
+              {title: "Alerting", url: "#alerting" },
+          ]},
+          {title: "1.27", url: "#127", children: [
+              {title: "Features", url: "#features_5" },
+              {title: "Bugfixes", url: "#bugfixes_5" },
+              {title: "Documentation", url: "#documentation_5" },
+              {title: "Refactoring", url: "#refactoring_4" },
+              {title: "Devices", url: "#devices_5" },
+              {title: "WebUI", url: "#webui_5" },
+              {title: "API", url: "#api_3" },
+          ]},
+          {title: "1.26", url: "#126", children: [
+              {title: "Features", url: "#features_6" },
+              {title: "Bugfixes", url: "#bugfixes_6" },
+              {title: "Documentation", url: "#documentation_6" },
+              {title: "Refactoring", url: "#refactoring_5" },
+              {title: "Devices", url: "#devices_6" },
+              {title: "WebUI", url: "#webui_6" },
+              {title: "Security", url: "#security_3" },
+              {title: "API", url: "#api_4" },
+          ]},
+          {title: "1.25", url: "#125", children: [
+              {title: "Features", url: "#features_7" },
+              {title: "Bugfixes", url: "#bugfixes_7" },
+              {title: "Documentation", url: "#documentation_7" },
+              {title: "Refactoring", url: "#refactoring_6" },
+              {title: "Devices", url: "#devices_7" },
+              {title: "WebUI", url: "#webui_7" },
+              {title: "API", url: "#api_5" },
+          ]},
+          {title: "1.24", url: "#124", children: [
+              {title: "Features", url: "#features_8" },
+              {title: "Bugfixes", url: "#bugfixes_8" },
+              {title: "Documentation", url: "#documentation_8" },
+              {title: "Refactoring", url: "#refactoring_7" },
+              {title: "Devices", url: "#devices_8" },
+              {title: "WebUI", url: "#webui_8" },
+          ]},
+          {title: "1.23", url: "#123", children: [
+              {title: "Features", url: "#features_9" },
+              {title: "Bugfixes", url: "#bugfixes_9" },
+              {title: "Documentation", url: "#documentation_9" },
+              {title: "Refactoring", url: "#refactoring_8" },
+              {title: "Devices", url: "#devices_9" },
+              {title: "WebUI", url: "#webui_9" },
+              {title: "Security", url: "#security_4" },
+          ]},
+          {title: "v1.22.01", url: "#v12201", children: [
+              {title: "Bugfixes", url: "#bugfixes_10" },
+          ]},
+          {title: "v1.22", url: "#v122", children: [
+              {title: "Features", url: "#features_10" },
+              {title: "Bugfixes", url: "#bugfixes_11" },
+              {title: "Documentation", url: "#documentation_10" },
+              {title: "Refactoring", url: "#refactoring_9" },
+              {title: "Devices", url: "#devices_10" },
+              {title: "WebUI", url: "#webui_10" },
+          ]},
+          {title: "v1.21", url: "#v121", children: [
+              {title: "Features", url: "#features_11" },
+              {title: "Bugfixes", url: "#bugfixes_12" },
+              {title: "Documentation", url: "#documentation_11" },
+              {title: "Refactoring", url: "#refactoring_10" },
+              {title: "Devices", url: "#devices_11" },
+              {title: "WebUI", url: "#webui_11" },
+          ]},
+          {title: "Release: 201609", url: "#release-201609", children: [
+              {title: "Features", url: "#features_12" },
+              {title: "Bugfixes", url: "#bugfixes_13" },
+              {title: "Documentation", url: "#documentation_12" },
+              {title: "Refactoring", url: "#refactoring_11" },
+              {title: "Devices", url: "#devices_12" },
+              {title: "WebUI", url: "#webui_12" },
+              {title: "August 2016", url: "#august-2016" },
+              {title: "July 2016", url: "#july-2016" },
+              {title: "June 2016", url: "#june-2016" },
+              {title: "May 2016", url: "#may-2016" },
+              {title: "April 2016", url: "#april-2016" },
+              {title: "March 2016", url: "#march-2016" },
+              {title: "February 2016", url: "#february-2016" },
+              {title: "January 2016", url: "#january-2016" },
+              {title: "December 2015", url: "#december-2015" },
+              {title: "November 2015", url: "#november-2015" },
+              {title: "October 2015", url: "#october-2015" },
+              {title: "September 2015", url: "#september-2015" },
+              {title: "August 2015", url: "#august-2015" },
+              {title: "July 2015", url: "#july-2015" },
+              {title: "June 2015", url: "#june-2015" },
+              {title: "May 2015", url: "#may-2015" },
+              {title: "Apr 2015", url: "#apr-2015" },
+              {title: "Mar 2015", url: "#mar-2015" },
+              {title: "Feb 2015", url: "#feb-2015" },
+              {title: "Jan 2015", url: "#jan-2015" },
+              {title: "Dec 2014", url: "#dec-2014" },
+              {title: "Nov 2014", url: "#nov-2014" },
+              {title: "Oct 2014", url: "#oct-2014" },
+              {title: "Sep 2014", url: "#sep-2014" },
+              {title: "Aug 2014", url: "#aug-2014" },
+              {title: "Jul 2014", url: "#jul-2014" },
+              {title: "Jun 2014", url: "#jun-2014" },
+              {title: "Mar 2014", url: "#mar-2014" },
+              {title: "Feb 2014", url: "#feb-2014" },
+              {title: "Jan 2014", url: "#jan-2014" },
+              {title: "Nov 2013", url: "#nov-2013" },
+              {title: "Oct 2013", url: "#oct-2013" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+    
+
+
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms/edit/master/doc/General/Changelog.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h2 id="132">1.32</h2>
 <p><em>(2017-10-01)</em></p>
 <h4 id="features">Features</h4>
 <ul>
-<li>Added more rules to the collection of alert rules (<a href="https://github.com/librenms/librenms/issues/7363">#7363</a>)</li>
+<li>Added more rules to the collection of alert rules (<a href="https://github.com/librenms/librenms/issues/763">#7363</a>)</li>
 <li>Allow ignore_mount, ignore_mount_string, ignore_mount_regex per OS (<a href="https://github.com/librenms/librenms/issues/7304">#7304</a>)</li>
 <li>Added script to generate config for new OS (<a href="https://github.com/librenms/librenms/issues/7161">#7161</a>)</li>
 <li>Added Syslog hook for ASA support (<a href="https://github.com/librenms/librenms/issues/7268">#7268</a>)</li>
@@ -1189,7 +319,6 @@
 <li>Added simple OSPF API route (<a href="https://github.com/librenms/librenms/pull/7298">#7298</a>)</li>
 </ul>
 <hr />
-<p>source: General/Changelog.md</p>
 <h2 id="131">1.31</h2>
 <p><em>(2017-08-26)</em></p>
 <h4 id="features_1">Features</h4>
@@ -4409,51 +3538,18 @@
 <h3 id="oct-2013">Oct 2013</h3>
 <ul>
 <li>Initial release</li>
-</ul></div>
-                
-            
-            </div>
-        </div>
+</ul>
 
-        <footer>
-            <div class="container">
-                <hr>
-                
-                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-            </div>
-        </footer>
+  <br>
+    
 
-        <script src="../../js/jquery-1.12.4.min.js"></script>
-        <script src="../../js/bootstrap-3.3.7.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script>var base_url = '../..';</script>
-        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-        <script src="../../js/base.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <br>
+</div>
 
-    </body>
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
 </html>

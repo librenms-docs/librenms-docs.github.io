@@ -1,818 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <meta name="author" content="LibreNMS">
-        <link rel="canonical" href="http://docs.librenms.org/Extensions/Oxidized/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-
-	    <title>Oxidized - LibreNMS Docs</title>
-
-        <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.6.3.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link href="../../css/color.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <link href="../../librenms.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-79149977-2', 'docs.librenms.org');
-            ga('send', 'pageview');
-        </script>
-        
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="../..">LibreNMS Docs</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-General" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../General/Acknowledgement/">Acknowledgement</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Callback-Stats-and-Privacy/">Callback Stats and Privacy</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Changelog/">Changelog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/CODE_OF_CONDUCT/">Code of Conduct</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Contributing/">Contributing</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Credits/">Credits</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Updating/">Updating</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Releases/">Releases</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Security/">Security</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../General/Welcome-to-Observium-users/">Welcome to Observium users</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Installation" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Installation/Installing-LibreNMS/">Installing LibreNMS</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Ubuntu-image/">Ubuntu VM Image</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/CentOS-image/">CentOS VM Image</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 (Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 (Apache)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-7-Nginx/">CentOS 7 (Nginx)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-7-Apache/">CentOS 7 (Apache)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installing-LibreNMS/">Older Docs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Migrating-from-Observium/">Migrating from Observium</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Extensions" class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../Applications/">Applications</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Authentication/">Authentication</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Auto-Discovery/">Auto Discovery</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Agent-Setup/">Agent Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Billing-Module/">Billing Module</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Component/">Component</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Dell-OpenManage/">Dell OpenManage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Device-Groups/">Device Groups</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Distributed-Poller/">Distributed Poller</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Email-Alerting/">Email Alerting</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Globe-Frontpage/">Globe Frontpage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Graylog/">Graylog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../IRC-Bot/">IRC Bot</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../IRC-Bot-Extensions/">IRC Bot Extensions</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Interface-Description-Parsing/">Interface Description Parsing</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../MIB-based-polling/">MIB based polling</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Memcached/">Memcached</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Metric-Storage/">Metric Storage</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Network-Map/">Network Map</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../NFSen/">NFSen</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Oxidized</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../PeeringDB/">PeeringDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Plugin-System/">Plugin System</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Poller-Service/">Poller Service</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Port-Description-Parser/">Port Description Parser</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Proxmox/">Proxmox</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../RRDCached/">RRDCached</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../RRDTune/">RRDTune</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../SNMP-Proxy/">SNMP Proxy</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../SNMP-Trap-Handler/">SNMP Trap Handler</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Services/">Services</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Smokeping/">Smokeping</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Sub-Directory/">Sub Directory</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Syslog/">Syslog</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Two-Factor-Auth/">Two Factor Auth</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Varnish/">Varnish</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../API/">API</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../Alerting/">Alerting</a>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Support" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Support/1-Minute-Polling/">1 Minute Polling</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Configuration/">Configuration</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Discovery Support/">Discovery Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Example-Hardware-Setup/">Example Hardware Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/FAQ/">FAQ</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Features/">Features</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Install Validation/">Install Validation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Performance/">Performance</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Poller Support/">Poller Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Remote-Monitoring-VPN/">Remote Monitoring VPN</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/SNMP-Configuration-Examples/">SNMP Configuration Examples</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/SSL-Configuration/">SSL Configuration</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-Developing" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Developing/Using-Git/">Using Git</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Code-Guidelines/">Code Guidelines</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Style-Guidelines/">Style Guidelines</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Validating-Code/">Validating Code</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Code-Structure/">Code Structure</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Creating-Documentation/">Creating Documentation</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Support-New-OS/">Adding support for a new OS</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Dynamic-Config/">Dynamic Config</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Sensor-State-Support/">Sensor State Support</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Merging-Pull-Requests/">Merging Pull Requests</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/Creating-Release/">Creating Release</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li id="dropdown-hidden" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">hidden <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../Alerting/Rules/">Rules</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Templates/">Templates</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Transports/">Transports</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Entities/">Entities</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Macros/">Macros</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Alerting/Rules/">Rules</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Initial-Detection/">Initial Detection</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Mem-CPU-Information/">Mem CPU Information</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Test-Units/">Test Units</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Health-Information/">Health Information</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Wireless-Sensors/">Wireless Sensors</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Custom-Graphs/">Custom Graphs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Developing/os/Settings/">Settings</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Agent-Setup/">Agent Setup</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../Alerting/">Alerting</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../metrics/InfluxDB/">InfluxDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../metrics/Graphite/">Graphite</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../metrics/OpenTSDB/">OpenTSDB</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../RRDCached-Security/">RRDCached Security</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Nginx/">Installation Ubuntu 1404 Nginx</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Apache/">Installation Ubuntu 1404 Apache</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-Ubuntu-1404-Lighttpd/">Installation Ubuntu 1404 Lighttpd</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/">Installation CentOS 6 Apache Nginx</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-(Debian-Ubuntu)/">Installation (Debian Ubuntu)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Installation/Installation-(RHEL-CentOS)/">Installation (RHEL CentOS)</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../Support/Support-New-OS/">Support New OS</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
-            
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i>
-                        <span class="visible-xs-inline visible-md-inline visible-lg-inline">Search</span>
-                    </a>
-                </li>
-                
-                
-                    <li>
-                        <a href="https://github.com/librenms/librenms">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            <span class="visible-xs-inline visible-lg-inline">GitHub</span>
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-
-        <div class="container">
-            <div class="row">
-            
-                
-                    <div class="col-md-3">
-<div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-        <li class="main active"><a href="#oxidized-integration">Oxidized integration</a></li>
-        
-            <li><a href="#detailed-integration-information">Detailed integration information</a></li>
-        
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/Oxidized/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Oxidized - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
     
-    </ul>
-</div>
-</div>
-                    <div class="col-md-9" role="main">
-<div class="row">
-  <div class="source-links col-md-offset-8 col-md-4">
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Oxidized intro", url: "#oxidized-intro", children: [
+              {title: "Detailed integration information", url: "#detailed-integration-information" },
+              {title: "Feeding Oxidized", url: "#feeding-oxidized" },
+              {title: "Working with groups", url: "#working-with-groups" },
+              {title: "Miscellaneous", url: "#miscellaneous" },
+              {title: "Trigger configuration backups", url: "#trigger-configuration-backups" },
+          ]},
+        ];
 
-    <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Oxidized.md" target="_blank"><i class="fa fa-pencil"></i> Edit on GitHub</a>
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  </div>
-</div>
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
 
-<h1 id="oxidized-integration">Oxidized integration</h1>
+
+<div class="container-fluid wm-page-content">
+    
+
+
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Oxidized.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h1 id="oxidized-intro">Oxidized intro</h1>
+<hr />
 <p>Integrating LibreNMS with <a href="https://github.com/ytti/oxidized-web">Oxidized</a> brings the following benefits:</p>
 <ul>
 <li>Config viewing: Current, History, and Diffs all under the Configs tab of each device</li>
@@ -822,8 +85,8 @@
 <p>First you will need to <a href="https://github.com/ytti/oxidized#installation">install Oxidized following their documentation</a>.</p>
 <p>Then you can procede to the LibreNMS Web UI and go to Oxidized Settings in the External Settings section of Global Settings. Enable it and enter the url to your oxidized instance.</p>
 <p>To have devices automatically added, you will need to configure oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding Oxidized</a></p>
-<h2 id="detailed-integration-information">Detailed integration information</h2>
-<h3 id="config-viewing">Config viewing</h3>
+<h3 id="detailed-integration-information">Detailed integration information</h3>
+<hr />
 <p>This is a straight forward use of Oxidized, it relies on you having a working Oxidized setup which is already taking config snapshots for your devices.
 When you have that, you only need the following config to enable the display of device configs within the device page itself:</p>
 <pre><code class="php">$config['oxidized']['enabled']         = TRUE;
@@ -843,12 +106,13 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
 <pre><code class="php">$config['oxidized']['default_group'] = 'default';
 </code></pre>
 
-<h5 id="selinux">SELinux</h5>
+<h4 id="selinux">SELinux</h4>
 <p>If you're runnng SELinux, you'll need to allow httpd to connect outbound to the network, otherwise Oxidized integration in the web UI will silently fail:</p>
 <pre><code>setsebool -P httpd_can_network_connect 1
 </code></pre>
 
 <h3 id="feeding-oxidized">Feeding Oxidized</h3>
+<hr />
 <p>Oxidized has support for feeding devices into it via an API call, support for Oxidized has been added to the LibreNMS API. A sample config for Oxidized is provided below.</p>
 <p>You will need to configure default credentials for your devices in the Oxidized config, LibreNMS doesn't provide login credentials at this time.</p>
 <pre><code class="bash">      source:
@@ -870,7 +134,7 @@ To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized In
 
 </code></pre>
 
-<h4 id="using-groups">Using Groups</h4>
+<h3 id="working-with-groups">Working with groups</h3>
 <p>To return a group to Oxidized you can do this by matching a regex for either <code>hostname</code>, <code>os</code> or <code>location</code>. The order is <code>hostname</code> is matched first, if nothing is found then <code>os</code> is tried and then <code>location</code> is attempted.
 The first match found will be used. To match on the device hostnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
 <pre><code class="php">$config['oxidized']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
@@ -892,61 +156,28 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
     password: &lt;password&gt;
 </code></pre>
 
-<h4 id="miscellaneous">Miscellaneous</h4>
+<h3 id="miscellaneous">Miscellaneous</h3>
 <p>If you have devices which you do not wish to appear in Oxidized then you can edit those devices in Device -&gt; Edit -&gt; Misc and enable "Exclude from Oxidized?"</p>
 <p>It's also possible to exclude certain device types and OS' from being output via the API. This is currently only possible via config.php:</p>
 <pre><code class="php">$config['oxidized']['ignore_types'] = array('server');
 $config['oxidized']['ignore_os'] = array('linux');
 </code></pre>
 
-<h3 id="trigger-configuration-downloads">Trigger configuration downloads</h3>
+<h3 id="trigger-configuration-backups">Trigger configuration backups</h3>
 <p>Using the Oxidized REST API and <a href="../../Extensions/Syslog/#external-hooks">Syslog Hooks</a>, Oxidized can trigger configuration downloads whenever a configuration change event has been logged. An example script to do this is included in <code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new worker thread and perform the download immediately with the following configuration</p>
 <pre><code class="bash">next_adds_job: true
-</code></pre></div>
-                
-            
-            </div>
-        </div>
+</code></pre>
 
-        <footer>
-            <div class="container">
-                <hr>
-                
-                <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-            </div>
-        </footer>
+  <br>
+    
 
-        <script src="../../js/jquery-1.12.4.min.js"></script>
-        <script src="../../js/bootstrap-3.3.7.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script>var base_url = '../..';</script>
-        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-        <script src="../../js/base.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <br>
+</div>
 
-    </body>
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
 </html>
