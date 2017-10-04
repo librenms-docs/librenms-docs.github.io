@@ -33,23 +33,21 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Install Required Packages", url: "#install-required-packages", children: [
+              {title: "Add librenms user", url: "#add-librenms-user" },
+              {title: "Install LibreNMS", url: "#install-librenms" },
+          ]},
           {title: "DB Server", url: "#db-server", children: [
-              {title: "Install / Configure MySQL", url: "#install-configure-mysql" },
+              {title: "Configure MySQL", url: "#configure-mysql" },
           ]},
           {title: "Web Server", url: "#web-server", children: [
-              {title: "Install / Configure Nginx", url: "#install-configure-nginx" },
-              {title: "Add librenms user", url: "#add-librenms-user" },
-              {title: "Clone repo", url: "#clone-repo" },
-              {title: "Web interface", url: "#web-interface" },
-              {title: "SELinux", url: "#selinux" },
-              {title: "Allow access through firewall", url: "#allow-access-through-firewall" },
-              {title: "Restart Web server", url: "#restart-web-server" },
-              {title: "Web installer", url: "#web-installer" },
-              {title: "Configure snmpd", url: "#configure-snmpd" },
+              {title: "Configure and Start PHP-FPM", url: "#configure-and-start-php-fpm" },
+              {title: "Configure NGINX", url: "#configure-nginx" },
               {title: "Cron job", url: "#cron-job" },
-              {title: "Copy logrotate config", url: "#copy-logrotate-config" },
+              {title: "Set permissions", url: "#set-permissions" },
+          ]},
+          {title: "Web installer", url: "#web-installer", children: [
               {title: "Final steps", url: "#final-steps" },
-              {title: "Add first device", url: "#add-first-device" },
               {title: "What next?", url: "#what-next" },
               {title: "Closing", url: "#closing" },
           ]},
@@ -88,18 +86,31 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <blockquote>
-<p>NOTE: These instructions assume you are the root user.  If you are not, prepend <code>sudo</code> to the shell commands (the ones that aren't at <code>mysql&gt;</code> prompts) or temporarily become a user with root privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
+<p>NOTE: These instructions assume you are the <strong>root</strong> user.  If you are not, prepend <code>sudo</code> to the shell commands (the ones that aren't at <code>mysql&gt;</code> prompts) or temporarily become a user with root privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </blockquote>
-<h3 id="db-server">DB Server</h3>
-<blockquote>
-<p>NOTE: Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
-</blockquote>
-<h4 id="install-configure-mysql">Install / Configure MySQL</h4>
-<pre><code class="bash">yum install mariadb-server mariadb
-systemctl restart mariadb
+<h2 id="install-required-packages">Install Required Packages</h2>
+<pre><code>yum install epel-release
+
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+
+yum install composer cronie fping git ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nginx nmap php71w php71w-cli php71w-common php71w-curl php71w-fpm php71w-gd php71w-mcrypt php71w-mysql php71w-snmp php70w-xml php71w-zip python-memcached rrdtool
+</code></pre>
+<h4 id="add-librenms-user">Add librenms user</h4>
+<pre><code>useradd librenms -d /opt/librenms -M -r
+usermod -a -G librenms nginx
+</code></pre>
+<h4 id="install-librenms">Install LibreNMS</h4>
+<pre><code>cd /opt
+git clone https://github.com/librenms/librenms.git librenms
+</code></pre>
+<h2 id="db-server">DB Server</h2>
+<h4 id="configure-mysql">Configure MySQL</h4>
+<pre><code>systemctl restart mariadb
 mysql -uroot
 </code></pre>
-
+<blockquote>
+<p>NOTE: Please change the 'password' below to something secure.</p>
+</blockquote>
 <pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
@@ -107,67 +118,54 @@ FLUSH PRIVILEGES;
 exit
 </code></pre>
 
-<p><code>vi /etc/my.cnf</code></p>
-<p>Within the [mysqld] section please add:</p>
+<pre><code>vi /etc/my.cnf
+</code></pre>
+<blockquote>
+<p>NOTE: Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
+</blockquote>
+<p>Within the <code>[mysqld]</code> section please add:</p>
 <pre><code class="bash">innodb_file_per_table=1
 sql-mode=&quot;&quot;
 lower_case_table_names=0
 </code></pre>
 
-<pre><code>systemctl enable mariadb  
+<pre><code>systemctl enable mariadb
 systemctl restart mariadb
 </code></pre>
-
-<h3 id="web-server">Web Server</h3>
-<h4 id="install-configure-nginx">Install / Configure Nginx</h4>
-<pre><code class="bash">yum install epel-release
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-
-yum install php70w php70w-cli php70w-gd php70w-mysql php70w-snmp php70w-curl php70w-common php70w-fpm php70w-xml nginx net-snmp mariadb ImageMagick jwhois nmap mtr rrdtool MySQL-python net-snmp-utils cronie php70w-mcrypt fping git
+<h2 id="web-server">Web Server</h2>
+<h3 id="configure-and-start-php-fpm">Configure and Start PHP-FPM</h3>
+<p>Ensure date.timezone is set in php.ini to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid examples are: "America/New_York", "Australia/Brisbane", "Etc/UTC".</p>
+<pre><code>vi /etc/php.ini
 </code></pre>
-
-<p>In <code>/etc/php.ini</code> ensure date.timezone is set to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid examples are: "America/New_York", "Australia/Brisbane", "Etc/UTC".</p>
 <p>In <code>/etc/php-fpm.d/www.conf</code> make these changes:</p>
-<pre><code class="nginx">;listen = 127.0.0.1:9000
-listen = /var/run/php-fpm/php7.0-fpm.sock
+<pre><code>vi /etc/php-fpm.d/www.conf
+</code></pre>
+<pre><code class="nginx">;user = apache
+user = nginx
+
+group = apache   ; keep group as apache
+
+;listen = 127.0.0.1:9000
+listen = /var/run/php-fpm/php7.1-fpm.sock
 
 listen.owner = nginx
 listen.group = nginx
 listen.mode = 0660
 </code></pre>
 
-<p>Restart PHP.</p>
-<pre><code class="bash">systemctl restart php-fpm
-systemctl enable php-fpm
+<pre><code>systemctl enable php-fpm
+systemctl restart php-fpm
 </code></pre>
-
-<h4 id="add-librenms-user">Add librenms user</h4>
-<pre><code class="bash">useradd librenms -d /opt/librenms -M -r
-usermod -a -G librenms nginx
-usermod -a -G librenms apache
+<h3 id="configure-nginx">Configure NGINX</h3>
+<pre><code>vi /etc/nginx/conf.d/librenms.conf
 </code></pre>
-
-<h4 id="clone-repo">Clone repo</h4>
-<pre><code class="bash">cd /opt
-git clone https://github.com/librenms/librenms.git librenms
-</code></pre>
-
-<h4 id="web-interface">Web interface</h4>
-<pre><code class="bash">cd /opt/librenms
-mkdir rrd logs
-chmod 775 rrd
-vi /etc/nginx/conf.d/librenms.conf
-</code></pre>
-
-<p>Add the following config:</p>
+<p>Add the following config, edit <code>server_name</code> as required:</p>
 <pre><code class="nginx">server {
  listen      80;
  server_name librenms.example.com;
  root        /opt/librenms/html;
  index       index.php;
- access_log  /opt/librenms/logs/access_log;
- error_log   /opt/librenms/logs/error_log;
+
  charset utf-8;
  gzip on;
  gzip_types text/css application/javascript text/javascript application/x-javascript image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon;
@@ -180,8 +178,7 @@ vi /etc/nginx/conf.d/librenms.conf
  location ~ \.php {
   include fastcgi.conf;
   fastcgi_split_path_info ^(.+\.php)(/.+)$;
-  fastcgi_pass unix:/var/run/php-fpm/php7.0-fpm.sock;
-  fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+  fastcgi_pass unix:/var/run/php-fpm/php7.1-fpm.sock;
  }
  location ~ /\.ht {
   deny all;
@@ -189,71 +186,67 @@ vi /etc/nginx/conf.d/librenms.conf
 }
 </code></pre>
 
-<p>If LibreNMS will be your only vhost on this server then you will need to remove the default server block for nginx.</p>
-<p>Edit <code>/etc/nginx/nginx.conf</code> and look for a large block of text starting like:</p>
-<pre><code>server {
-        listen       80;
-        server_name  localhost;
-...
-}
+<blockquote>
+<p>NOTE: If this is the only site you are hosting on this server (it should be :)) then you will need to disable the default site.
+Delete the <code>server</code> section from <code>/etc/nginx/nginx.conf</code></p>
+</blockquote>
+<pre><code>systemctl enable nginx
+systemctl restart nginx
 </code></pre>
-
-<p>Remove this block of text.</p>
 <h4 id="selinux">SELinux</h4>
-<pre><code class="bash">    yum install policycoreutils-python
-    semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
-    semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
-    semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/rrd(/.*)?'
-    semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/rrd(/.*)?'
-    restorecon -RFvv /opt/librenms/logs/
-    restorecon -RFvv /opt/librenms/rrd/
-    setsebool -P httpd_can_sendmail=1
-</code></pre>
+<pre><code>yum install policycoreutils-python
 
+semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
+restorecon -RFvv /opt/librenms/logs/
+semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/rrd(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/rrd(/.*)?'
+restorecon -RFvv /opt/librenms/rrd/
+setsebool -P httpd_can_sendmail=1
+setsebool -P httpd_execmem 1
+</code></pre>
 <h4 id="allow-access-through-firewall">Allow access through firewall</h4>
-<pre><code class="bash">firewall-cmd --zone public --add-service http
+<pre><code>firewall-cmd --zone public --add-service http
 firewall-cmd --permanent --zone public --add-service http
+firewall-cmd --zone public --add-service https
+firewall-cmd --permanent --zone public --add-service https
 </code></pre>
-
-<h4 id="restart-web-server">Restart Web server</h4>
-<pre><code class="bash">systemctl restart nginx
-</code></pre>
-
-<h4 id="web-installer">Web installer</h4>
-<p>Now head to: http://librenms.example.com/install.php and follow the on-screen instructions.</p>
-<p>Once you have completed the web installer steps. Please add the following to <code>config.php</code></p>
-<p><code>$config['fping'] = "/usr/sbin/fping";</code></p>
 <h4 id="configure-snmpd">Configure snmpd</h4>
-<pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+<pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+
 vi /etc/snmp/snmpd.conf
 </code></pre>
-
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
-<pre><code class="bash">curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+<pre><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
+systemctl enable snmpd
 systemctl restart snmpd
 </code></pre>
-
-<h4 id="cron-job">Cron job</h4>
-<p><code>cp librenms.nonroot.cron /etc/cron.d/librenms</code></p>
+<h3 id="cron-job">Cron job</h3>
+<pre><code>cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms`
+</code></pre>
 <h4 id="copy-logrotate-config">Copy logrotate config</h4>
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can become large and be rotated out.  To rotate out the old logs you can use the provided logrotate config file:</p>
-<pre><code>cp misc/librenms.logrotate /etc/logrotate.d/librenms
+<pre><code>cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 </code></pre>
-<h4 id="final-steps">Final steps</h4>
-<pre><code class="bash">chown -R librenms:librenms /opt/librenms
-systemctl enable nginx mariadb
+<h3 id="set-permissions">Set permissions</h3>
+<pre><code>chown -R librenms:librenms /opt/librenms
+setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs
+setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 </code></pre>
-
+<h2 id="web-installer">Web installer</h2>
+<p>Now head to the web installer and follow the on-screen instructions.</p>
+<pre><code>http://librenms.example.com/install.php
+</code></pre>
+<h3 id="final-steps">Final steps</h3>
 <p>Run validate.php as root in the librenms directory:</p>
-<pre><code class="bash">cd /opt/librenms
+<pre><code>cd /opt/librenms
 ./validate.php
 </code></pre>
-
 <p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>
 <h4 id="add-first-device">Add first device</h4>
 <p>We now suggest that you add localhost as your first device from within the WebUI.</p>
-<h4 id="what-next">What next?</h4>
+<h3 id="what-next">What next?</h3>
 <p>Now that you've installed LibreNMS, we'd suggest that you have a read of a few other docs to get you going:</p>
 <ul>
 <li><a href="http://docs.librenms.org/Support/Performance">Performance tuning</a></li>
@@ -261,8 +254,9 @@ systemctl enable nginx mariadb
 <li><a href="http://docs.librenms.org/Extensions/Device-Groups/">Device Groups</a></li>
 <li><a href="http://docs.librenms.org/Extensions/Auto-Discovery/">Auto discovery</a></li>
 </ul>
-<h4 id="closing">Closing</h4>
+<h3 id="closing">Closing</h3>
 <p>We hope you enjoy using LibreNMS. If you do, it would be great if you would consider opting into the stats system we have, please see <a href="http://docs.librenms.org/General/Callback-Stats-and-Privacy/">this page</a> on what it is and how to enable it.</p>
+<p>If you would like to help make LibreNMS better there are <a href="http://docs.librenms.org/Support/FAQ/#what-can-i-do-to-help">many ways to help</a>. You can also <a href="https://t.libren.ms/donations">support our Collective</a>. </p>
 
   <br>
     
