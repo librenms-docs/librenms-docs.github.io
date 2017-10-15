@@ -135,9 +135,10 @@ To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized In
 </code></pre>
 
 <h3 id="working-with-groups">Working with groups</h3>
-<p>To return a group to Oxidized you can do this by matching a regex for either <code>hostname</code>, <code>os</code> or <code>location</code>. The order is <code>hostname</code> is matched first, if nothing is found then <code>os</code> is tried and then <code>location</code> is attempted.
-The first match found will be used. To match on the device hostnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
+<p>To return a group to Oxidized you can do this by matching a regex for either <code>hostname</code>, <code>sysname</code>, <code>os</code> or <code>location</code>. The order is <code>hostname</code> is matched first, if nothing is found then <code>sysname</code> is tried, then <code>os</code>, and finally <code>location</code> is attempted.
+The first match found will be used. To match on the device hostnames or sysnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
 <pre><code class="php">$config['oxidized']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
+$config['oxidized']['group']['sysname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
 $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'group' =&gt; 'london-switches');
 </code></pre>
 
