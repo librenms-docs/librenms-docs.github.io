@@ -93,7 +93,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
-yum install composer cronie fping git httpd ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nmap php71w php71w-cli php71w-common php71w-curl php71w-gd php71w-mcrypt php71w-mysql php71w-snmp php70w-xml php71w-zip python-memcached rrdtool
+yum install cronie fping git httpd ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nmap php71w php71w-cli php71w-common php71w-curl php71w-gd php71w-mcrypt php71w-mysql php71w-snmp php71w-xml php71w-zip python-memcached rrdtool
 </code></pre>
 <h4 id="add-librenms-user">Add librenms user</h4>
 <pre><code>useradd librenms -d /opt/librenms -M -r
@@ -105,8 +105,8 @@ git clone https://github.com/librenms/librenms.git librenms
 </code></pre>
 <h2 id="db-server">DB Server</h2>
 <h4 id="configure-mysql">Configure MySQL</h4>
-<pre><code>systemctl restart mariadb
-mysql -uroot
+<pre><code>systemctl start mariadb
+mysql -u root
 </code></pre>
 <blockquote>
 <p>NOTE: Please change the 'password' below to something secure.</p>
@@ -162,9 +162,11 @@ systemctl restart mariadb
 systemctl restart httpd
 </code></pre>
 <h4 id="selinux">SELinux</h4>
+<p>Install the policy tool for SELinux:</p>
 <pre><code>yum install policycoreutils-python
-
-semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
+</code></pre>
+<p>Configure the contexts needed by LibreNMS:</p>
+<pre><code>semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
 restorecon -RFvv /opt/librenms/logs/
 semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/rrd(/.*)?'
