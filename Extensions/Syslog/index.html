@@ -159,7 +159,7 @@ source s_net {
 # Destinations
 ########################
 destination d_librenms {
-        program(&quot;/opt/librenms/syslog.php&quot; template (&quot;$HOST||$FACILITY||$PRIORITY||$LEVEL||$TAG||$YEAR-$MONTH-$DAY $HOUR:$MIN:$SEC||$MSG||$PROGRAM\n&quot;) template-escape(yes));
+        program(&quot;/opt/librenms/syslog.php&quot; template (&quot;$HOST||$FACILITY||$PRIORITY||$LEVEL||$TAG||$R_YEAR-$R_MONTH-$R_DAY $R_HOUR:$R_MIN:$R_SEC||$MSG||$PROGRAM\n&quot;) template-escape(yes));
 };
 
 ########################
@@ -197,7 +197,7 @@ $UDPServerRun 514
 <pre><code class="ssh"># Feed syslog messages to librenms
 $ModLoad omprog
 
-$template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timereported:8:25%||%msg%||%programname%\n&quot;
+$template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n&quot;
 
 *.* action(type=&quot;omprog&quot; binary=&quot;/opt/librenms/syslog.php&quot; template=&quot;librenms&quot;)
 
