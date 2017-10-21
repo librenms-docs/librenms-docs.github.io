@@ -52,6 +52,8 @@
           ]},
           {title: "Add host settings", url: "#add-host-settings", children: [
           ]},
+          {title: "Global poller and discovery modules", url: "#global-poller-and-discovery-modules", children: [
+          ]},
           {title: "SNMP Settings", url: "#snmp-settings", children: [
           ]},
           {title: "Auto discovery settings", url: "#auto-discovery-settings", children: [
@@ -137,53 +139,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="/edit/master/doc/S" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/u" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/p" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/p" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/o" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/r" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/t" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc//" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/C" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/o" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/n" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/f" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/i" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/g" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/u" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/r" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/a" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/t" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/i" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/o" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/n" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/." target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/m" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-          <span class="label label-primary"><a href="/edit/master/doc/d" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms/edit/master/doc/Support/Configuration.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
@@ -442,6 +398,12 @@ If host is added by hostname this check is not performed.  If the setting is tru
 
 <p>By default we allow hosts to be added with duplicate sysName's, you can disable this with the following config:</p>
 <pre><code class="php">$config['allow_duplicate_sysName'] = false;
+</code></pre>
+
+<h3 id="global-poller-and-discovery-modules">Global poller and discovery modules</h3>
+<p>Generally, it is a better to set these <a href="../../Developing/os/Settings/#poller-and-discovery-modules">per OS</a> or device.</p>
+<pre><code class="php">$config['discovery_modules]['arp-table'] = 1;
+$config['poller_modules]['bgp-peers'] = 0;
 </code></pre>
 
 <h3 id="snmp-settings">SNMP Settings</h3>
