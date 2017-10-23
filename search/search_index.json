@@ -2077,13 +2077,18 @@
         }, 
         {
             "location": "/Extensions/Dell-OpenManage/", 
-            "text": "Dell OpenManage Support\n\n\nFor Dell OpenManage support you will need to install Dell OpenManage (yeah - really :)) (minimum 5.1) onto the device you want to monitor. Ensure that net-snmp is using srvadmin, you should see something similar to:\n\n\nmaster agentx\nview all included .1\naccess notConfigGroup \n any noauth exact all none none\nsmuxpeer .1.3.6.1.4.1.674.10892.1\n\n\n\n\nRestart net-snmp:\n\n\nservice snmpd restart\n\n\n\n\nEnsure that srvadmin is started, this is usually done by executing:\n\n\n/opt/dell/srvadmin/sbin/srvadmin-services.sh start\n\n\n\n\nOnce this has been done, add the device to LibreNMS as normal and you will start to receive Temperatures and Fanspeed data.", 
-            "title": "Dell OpenManage"
+            "text": "Dell OpenManage Support\n\n\n\n\nFor Dell OpenManage support you will need to install Dell OpenManage (yeah - really :)) (minimum 5.1) onto the device you want to monitor. Ensure that net-snmp is using srvadmin, you should see something similar to:\n\n\nmaster agentx\nview all included .1\naccess notConfigGroup \n any noauth exact all none none\nsmuxpeer .1.3.6.1.4.1.674.10892.1\n\n\n\n\nRestart net-snmp:\n\n\nservice snmpd restart\n\n\n\n\nEnsure that srvadmin is started, this is usually done by executing:\n\n\n/opt/dell/srvadmin/sbin/srvadmin-services.sh start\n\n\n\n\nOnce this has been done, add the device to LibreNMS as normal and you will start to receive Temperatures and Fanspeed data.\n\n\nWindows\n\n\nDownload OpenManage from Dell's support page \nLink\n and install OpenManage on your windows server. Make sure you have SNMP setup and running on your windows server.", 
+            "title": "Dell OpenManage Support"
         }, 
         {
             "location": "/Extensions/Dell-OpenManage/#dell-openmanage-support", 
             "text": "For Dell OpenManage support you will need to install Dell OpenManage (yeah - really :)) (minimum 5.1) onto the device you want to monitor. Ensure that net-snmp is using srvadmin, you should see something similar to:  master agentx\nview all included .1\naccess notConfigGroup   any noauth exact all none none\nsmuxpeer .1.3.6.1.4.1.674.10892.1  Restart net-snmp:  service snmpd restart  Ensure that srvadmin is started, this is usually done by executing:  /opt/dell/srvadmin/sbin/srvadmin-services.sh start  Once this has been done, add the device to LibreNMS as normal and you will start to receive Temperatures and Fanspeed data.", 
             "title": "Dell OpenManage Support"
+        }, 
+        {
+            "location": "/Extensions/Dell-OpenManage/#windows", 
+            "text": "Download OpenManage from Dell's support page  Link  and install OpenManage on your windows server. Make sure you have SNMP setup and running on your windows server.", 
+            "title": "Windows"
         }, 
         {
             "location": "/Extensions/Globe-Frontpage/", 

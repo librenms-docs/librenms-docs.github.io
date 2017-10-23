@@ -11,7 +11,7 @@
     <link rel="canonical" href="http://docs.librenms.org/Extensions/Dell-OpenManage/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Dell OpenManage - LibreNMS Docs</title>
+    <title>Dell OpenManage Support - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -34,6 +34,7 @@
         
         var pageToc = [
           {title: "Dell OpenManage Support", url: "#dell-openmanage-support", children: [
+              {title: "Windows", url: "#windows" },
           ]},
         ];
 
@@ -71,7 +72,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       </div>
     
 
-    <h2 id="dell-openmanage-support">Dell OpenManage Support</h2>
+    <h1 id="dell-openmanage-support">Dell OpenManage Support</h1>
+<hr />
 <p>For Dell OpenManage support you will need to install Dell OpenManage (yeah - really :)) (minimum 5.1) onto the device you want to monitor. Ensure that net-snmp is using srvadmin, you should see something similar to:</p>
 <pre><code class="bash">master agentx
 view all included .1
@@ -88,6 +90,8 @@ smuxpeer .1.3.6.1.4.1.674.10892.1
 </code></pre>
 
 <p>Once this has been done, add the device to LibreNMS as normal and you will start to receive Temperatures and Fanspeed data.</p>
+<h3 id="windows">Windows</h3>
+<p>Download OpenManage from Dell's support page <a href="http://www.dell.com/support/contents/us/en/04/article/product-support/self-support-knowledgebase/enterprise-resource-center/systemsmanagement/OMSA">Link</a> and install OpenManage on your windows server. Make sure you have SNMP setup and running on your windows server. </p>
 
   <br>
     
