@@ -35,9 +35,12 @@
         var pageToc = [
           {title: "Ubuntu 16.04", url: "#ubuntu-1604", children: [
               {title: "Enabling HTTPS - Nginx", url: "#enabling-https-nginx" },
-              {title: "Enabling HTTPS - Apache", url: "#enabling-https-apache" },
           ]},
           {title: "CentOS", url: "#centos", children: [
+              {title: "Enabling HTTPS - Apache", url: "#enabling-https-apache" },
+              {title: "Step 1", url: "#step-1_1" },
+              {title: "Step 2", url: "#step-2_1" },
+              {title: "Step 3", url: "#step-3_1" },
           ]},
         ];
 
@@ -126,10 +129,38 @@ server {
 <code>sudo systemctl restart nginx</code></p>
 <h4 id="step-3">Step 3</h4>
 <p>Follow the rest of the tutorial, especially if you have the server's firewall enabled.</p>
-<h3 id="enabling-https-apache">Enabling HTTPS - Apache</h3>
-<p>Placeholder</p>
 <h1 id="centos">CentOS</h1>
-<p>Placeholder</p>
+<h4 id="enabling-https-apache">Enabling HTTPS - Apache</h4>
+<p>This example is specifically for CentOS 7 with Apache
+Please follow <a href="https://wiki.centos.org/HowTos/Https">this</a> How To from CentOS wiki on setting up Apache with a SSL cert.</p>
+<h4 id="step-1_1">Step 1</h4>
+<p>Follow the How to until you get to step 3. This is going to be little different with LibreNMS. 
+You will need to make changes in here <code>sudo vi /etc/httpd/conf.d/librenms.conf</code></p>
+<p>Your VirtualHost for 443 will need to look something like this for LibreNMS
+(obviously changing librenms.example.com to your actual domain name)</p>
+<pre><code>&lt;VirtualHost *:443&gt;
+        SSLEngine on
+        SSLCertificateFile /etc/pki/tls/certs/ca.crt
+        SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+        &lt;Directory &quot;/opt/librenms/html/&quot;&gt;
+        DocumentRoot /opt/librenms/html/
+        AllowOverride All
+        AllowEncodedSlashes NoDecode
+        Require all granted
+        Options FollowSymLinks MultiViews
+        &lt;/Directory&gt;
+        DocumentRoot /opt/librenms/html/
+        ServerName librenms.example.com
+        CustomLog /opt/librenms/logs/access_log combined
+        ErrorLog /opt/librenms/logs/error_log
+
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h4 id="step-2_1">Step 2</h4>
+<p>Then restart Apache <code>sudo systemctl restart httpd</code></p>
+<h4 id="step-3_1">Step 3</h4>
+<p>Follow the rest of the How To, especially if you have the server's firewall enabled.</p>
 
   <br>
     
