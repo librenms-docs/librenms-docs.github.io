@@ -33,6 +33,11 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Network Map", url: "#network-map", children: [
+              {title: "Network Map Configurator.", url: "#network-map-configurator" },
+              {title: "Note", url: "#note" },
+              {title: "Configurator Output", url: "#configurator-output" },
+          ]},
         ];
 
     </script>
@@ -69,7 +74,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       </div>
     
 
-    <p>LibreNMS has the ability to show you a network map based on:</p>
+    <h1 id="network-map">Network Map</h1>
+<p>LibreNMS has the ability to show you a network map based on:</p>
 <ul>
 <li>xDP Discovery</li>
 <li>MAC addresses</li>
@@ -78,54 +84,59 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <pre><code class="php">$config['network_map_items'] = array('mac','xdp');
 </code></pre>
 
-<p>Either remove mac or xdp depending on which you want.</p>
+<p>Either remove mac or xdp depending on which you want.
+XDP is based on FDP, CDP and LLDP support based on the device type.</p>
 <p>A global map will be drawn from the information in the database, it is worth noting that this could lead to a large network map.
-Network maps for individual devices are available showing the relationship with other devices.</p>
-<p>One can also specify the parameters to be used for drawing and updating the network map.
-Please see http://visjs.org/docs/network/ for details on the configuration parameters.</p>
-<pre><code class="php">$config['network_map_vis_options'] = '{
-  layout:{
-      randomSeed:2
-  },
-  &quot;edges&quot;: {
-    &quot;smooth&quot;: {
-        enabled: false
-    },
-    font: {
-        size: 12,
-        color: &quot;red&quot;,
-        face: &quot;sans&quot;,
-        background: &quot;white&quot;,
-        strokeWidth:3,
-        align: &quot;middle&quot;,
-        strokeWidth: 2
-    }
-  },
-  &quot;physics&quot;: {
-    &quot;forceAtlas2Based&quot;: {
-      &quot;gravitationalConstant&quot;: -800,
-      &quot;centralGravity&quot;: 0.03,
-      &quot;springLength&quot;: 50,
-      &quot;springConstant&quot;: 0,
-      &quot;damping&quot;: 1,
-      &quot;avoidOverlap&quot;: 1
-    },
-    &quot;maxVelocity&quot;: 50,
-    &quot;minVelocity&quot;: 0.01,
-    &quot;solver&quot;: &quot;forceAtlas2Based&quot;,
-    &quot;timestep&quot;: 0.30
-  }
-}';
-</code></pre>
-
-<p>You may also access the dyanamic configuraiton interface (example here: http://visjs.org/examples/network/other/configuration.html) from within LibreNMS by adding the following as the first line of the network_map_vis_options parameters:</p>
+Network maps for individual devices are available showing the relationship with other devices.
+Also you can Build Device Groups and those Device Groups can be drawn with Network Map.</p>
+<h3 id="network-map-configurator">Network Map Configurator.</h3>
+<p>This link will show you all the options and explain what they do. <a href="http://visjs.org/docs/network/">Link</a><br />
+You may also access the dyanamic configuraiton interface <a href="http://visjs.org/examples/network/other/configuration.html">example here</a> from within LibreNMS by adding the following to config.php</p>
 <pre><code class="php">$config['network_map_vis_options'] = '{
   &quot;configure&quot;: { &quot;enabled&quot;: true},
 }';
 </code></pre>
 
-<p>Note that you may want to disable the automatic page refresh while you're tweaking your configuration, as the refresh will reset the dynamic configuration UI to the values currently saved in librenms/config.php.</p>
-<p>Once you've achieved your desired map appearance, click the generate options button at the bottom to be given the necessary parameters to add to your librenms/config.php file.</p>
+<h3 id="note">Note</h3>
+<p>You may want to disable the automatic page refresh while you're tweaking your configuration, as the refresh will reset the dynamic configuration UI to the values currently saved in config.php
+This can be done by going clicking on the Settings Icon then Refresh Pause.</p>
+<h3 id="configurator-output">Configurator Output</h3>
+<p>Once you've achieved your desired map appearance, click the generate options button at the bottom to be given the necessary parameters to add to your config.php file.
+You will need to paste the genrated config into config.php the format will need to look something like this. 
+Note that the configuartor will output the config with <code>var options</code> you will need strip that out and at the end of the config you need to add in <code>}';</code> see the example below. </p>
+<pre><code class="php">$config['network_map_vis_options'] = '{
+  &quot;nodes&quot;: {
+    &quot;color&quot;: {
+      &quot;background&quot;: &quot;rgba(20,252,18,1)&quot;
+    },
+    &quot;font&quot;: {
+      &quot;face&quot;: &quot;tahoma&quot;
+    },
+    &quot;physics&quot;: false
+  },
+  &quot;edges&quot;: {
+    &quot;smooth&quot;: {
+      &quot;forceDirection&quot;: &quot;none&quot;
+    }
+  },
+  &quot;interaction&quot;: {
+    &quot;hover&quot;: true,
+    &quot;multiselect&quot;: true,
+    &quot;navigationButtons&quot;: true
+  },
+  &quot;manipulation&quot;: {
+    &quot;enabled&quot;: true
+  },
+  &quot;physics&quot;: {
+    &quot;barnesHut&quot;: {
+      &quot;avoidOverlap&quot;: 0.11
+    },
+    &quot;minVelocity&quot;: 0.75
+  }
+}';
+</code></pre>
+
+<p><img alt="Example Network Map" src="../../img/networkmap.PNG" /></p>
 
   <br>
     

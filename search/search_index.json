@@ -2187,8 +2187,28 @@
         }, 
         {
             "location": "/Extensions/Network-Map/", 
-            "text": "LibreNMS has the ability to show you a network map based on:\n\n\n\n\nxDP Discovery\n\n\nMAC addresses\n\n\n\n\nBy default, both are are included but you can enable / disable either one using the following config option:\n\n\n$config['network_map_items'] = array('mac','xdp');\n\n\n\n\nEither remove mac or xdp depending on which you want.\n\n\nA global map will be drawn from the information in the database, it is worth noting that this could lead to a large network map.\nNetwork maps for individual devices are available showing the relationship with other devices.\n\n\nOne can also specify the parameters to be used for drawing and updating the network map.\nPlease see http://visjs.org/docs/network/ for details on the configuration parameters.\n\n\n$config['network_map_vis_options'] = '{\n  layout:{\n      randomSeed:2\n  },\n  \nedges\n: {\n    \nsmooth\n: {\n        enabled: false\n    },\n    font: {\n        size: 12,\n        color: \nred\n,\n        face: \nsans\n,\n        background: \nwhite\n,\n        strokeWidth:3,\n        align: \nmiddle\n,\n        strokeWidth: 2\n    }\n  },\n  \nphysics\n: {\n    \nforceAtlas2Based\n: {\n      \ngravitationalConstant\n: -800,\n      \ncentralGravity\n: 0.03,\n      \nspringLength\n: 50,\n      \nspringConstant\n: 0,\n      \ndamping\n: 1,\n      \navoidOverlap\n: 1\n    },\n    \nmaxVelocity\n: 50,\n    \nminVelocity\n: 0.01,\n    \nsolver\n: \nforceAtlas2Based\n,\n    \ntimestep\n: 0.30\n  }\n}';\n\n\n\n\nYou may also access the dyanamic configuraiton interface (example here: http://visjs.org/examples/network/other/configuration.html) from within LibreNMS by adding the following as the first line of the network_map_vis_options parameters:\n\n\n$config['network_map_vis_options'] = '{\n  \nconfigure\n: { \nenabled\n: true},\n}';\n\n\n\n\nNote that you may want to disable the automatic page refresh while you're tweaking your configuration, as the refresh will reset the dynamic configuration UI to the values currently saved in librenms/config.php.\n\n\nOnce you've achieved your desired map appearance, click the generate options button at the bottom to be given the necessary parameters to add to your librenms/config.php file.", 
+            "text": "Network Map\n\n\nLibreNMS has the ability to show you a network map based on:\n\n\n\n\nxDP Discovery\n\n\nMAC addresses\n\n\n\n\nBy default, both are are included but you can enable / disable either one using the following config option:\n\n\n$config['network_map_items'] = array('mac','xdp');\n\n\n\n\nEither remove mac or xdp depending on which you want.\nXDP is based on FDP, CDP and LLDP support based on the device type.\n\n\nA global map will be drawn from the information in the database, it is worth noting that this could lead to a large network map.\nNetwork maps for individual devices are available showing the relationship with other devices.\nAlso you can Build Device Groups and those Device Groups can be drawn with Network Map.\n\n\nNetwork Map Configurator.\n\n\nThis link will show you all the options and explain what they do. \nLink\n\nYou may also access the dyanamic configuraiton interface \nexample here\n from within LibreNMS by adding the following to config.php\n\n\n$config['network_map_vis_options'] = '{\n  \nconfigure\n: { \nenabled\n: true},\n}';\n\n\n\n\nNote\n\n\nYou may want to disable the automatic page refresh while you're tweaking your configuration, as the refresh will reset the dynamic configuration UI to the values currently saved in config.php\nThis can be done by going clicking on the Settings Icon then Refresh Pause.\n\n\nConfigurator Output\n\n\nOnce you've achieved your desired map appearance, click the generate options button at the bottom to be given the necessary parameters to add to your config.php file.\nYou will need to paste the genrated config into config.php the format will need to look something like this. \nNote that the configuartor will output the config with \nvar options\n you will need strip that out and at the end of the config you need to add in \n}';\n see the example below. \n\n\n$config['network_map_vis_options'] = '{\n  \nnodes\n: {\n    \ncolor\n: {\n      \nbackground\n: \nrgba(20,252,18,1)\n\n    },\n    \nfont\n: {\n      \nface\n: \ntahoma\n\n    },\n    \nphysics\n: false\n  },\n  \nedges\n: {\n    \nsmooth\n: {\n      \nforceDirection\n: \nnone\n\n    }\n  },\n  \ninteraction\n: {\n    \nhover\n: true,\n    \nmultiselect\n: true,\n    \nnavigationButtons\n: true\n  },\n  \nmanipulation\n: {\n    \nenabled\n: true\n  },\n  \nphysics\n: {\n    \nbarnesHut\n: {\n      \navoidOverlap\n: 0.11\n    },\n    \nminVelocity\n: 0.75\n  }\n}';", 
             "title": "Network Map"
+        }, 
+        {
+            "location": "/Extensions/Network-Map/#network-map", 
+            "text": "LibreNMS has the ability to show you a network map based on:   xDP Discovery  MAC addresses   By default, both are are included but you can enable / disable either one using the following config option:  $config['network_map_items'] = array('mac','xdp');  Either remove mac or xdp depending on which you want.\nXDP is based on FDP, CDP and LLDP support based on the device type.  A global map will be drawn from the information in the database, it is worth noting that this could lead to a large network map.\nNetwork maps for individual devices are available showing the relationship with other devices.\nAlso you can Build Device Groups and those Device Groups can be drawn with Network Map.", 
+            "title": "Network Map"
+        }, 
+        {
+            "location": "/Extensions/Network-Map/#network-map-configurator", 
+            "text": "This link will show you all the options and explain what they do.  Link \nYou may also access the dyanamic configuraiton interface  example here  from within LibreNMS by adding the following to config.php  $config['network_map_vis_options'] = '{\n   configure : {  enabled : true},\n}';", 
+            "title": "Network Map Configurator."
+        }, 
+        {
+            "location": "/Extensions/Network-Map/#note", 
+            "text": "You may want to disable the automatic page refresh while you're tweaking your configuration, as the refresh will reset the dynamic configuration UI to the values currently saved in config.php\nThis can be done by going clicking on the Settings Icon then Refresh Pause.", 
+            "title": "Note"
+        }, 
+        {
+            "location": "/Extensions/Network-Map/#configurator-output", 
+            "text": "Once you've achieved your desired map appearance, click the generate options button at the bottom to be given the necessary parameters to add to your config.php file.\nYou will need to paste the genrated config into config.php the format will need to look something like this. \nNote that the configuartor will output the config with  var options  you will need strip that out and at the end of the config you need to add in  }';  see the example below.   $config['network_map_vis_options'] = '{\n   nodes : {\n     color : {\n       background :  rgba(20,252,18,1) \n    },\n     font : {\n       face :  tahoma \n    },\n     physics : false\n  },\n   edges : {\n     smooth : {\n       forceDirection :  none \n    }\n  },\n   interaction : {\n     hover : true,\n     multiselect : true,\n     navigationButtons : true\n  },\n   manipulation : {\n     enabled : true\n  },\n   physics : {\n     barnesHut : {\n       avoidOverlap : 0.11\n    },\n     minVelocity : 0.75\n  }\n}';", 
+            "title": "Configurator Output"
         }, 
         {
             "location": "/Extensions/Syslog/", 
@@ -3242,18 +3262,18 @@
         }, 
         {
             "location": "/Extensions/Weathermap/", 
-            "text": "WeatherMap with LibreNMS\n\n\nIntergarting LibreNMS with Weathermap, allows you to build network maps to visulaize network traffic rates.\n\nLink\n to Wearthermap Offical Website\n\n\nInstalling WeatherMap\n\n\nStep 1.\n\n\nExtract to your LibreNMS plugins directory \nhtml/plugins\n so you should see something like \n/opt/librenms/html/plugins/Weathermap/\n\nThe best way to do this is via git. Go to your install directory and then \nhtml/plugins\n.\nEnter:\n    \ngit clone https://github.com/librenms-plugins/Weathermap.git\n\n\nStep 2.\n\n\nMake the configs directory writeable by your web server, either \nchown apache:apache configs/\n or \nchmod 777 configs\n.\nI'd highly advise you choose the first option, replace \napache:apache\n with your web servers user and group.\n\n\nStep 3.\n\n\nEnable the plugin from the LibreNMS Plugins -\n Plugin Admin menu.\n\n\nStep 4.\n\n\nCreate your maps, please note when you create a MAP, please click Map Style, ensure Overlib is selected for HTML Style and click submit.\n\n\nStep 5.\n\n\nAlso, ensure you set an output image filename and output HTML filename in Map Properties.\nI'd recommend you use the output folder as this is excluded from git updates (i.e enter output/mymap.png and output/mymap.html).\n\n\nStep 6.\n\n\nEnable the cron process by editing your current LibreNMS cron file (typically /etc/cron.d/librenms) and add the following:\nLibreNMS:\n    \n*/5 * * * * root /opt/librenms/html/plugins/Weathermap/map-poller.php \n /dev/null 2\n1\n\n\nStep 7.\n\n\nNow you should see Weathermap Overview -\n Plugins -\n Weathermap\n\n\nOptional: If your install is in another directory than standard, set \n$basehref\n within \nmap-poller.php\n.\n\n\nsource How To from \nLink", 
-            "title": "WeatherMap with LibreNMS"
+            "text": "Network-WeatherMap with LibreNMS\n\n\nIntergarting LibreNMS with Network-Weathermap, allows you to build network maps to visulaize network traffic flow rates.\n\nLink\n to Network-Wearthermap Offical Website\n\n\nInstalling Network-WeatherMap\n\n\nStep 1.\n\n\nExtract to your LibreNMS plugins directory \nhtml/plugins\n so you should see something like \n/opt/librenms/html/plugins/Weathermap/\n\nThe best way to do this is via git. Go to your install directory and then \nhtml/plugins\n.\nEnter:\n    \ngit clone https://github.com/librenms-plugins/Weathermap.git\n\n\nStep 2.\n\n\nInside the librenms/html/plugins directory, change the ownership of the Weathermap directory by typing \nchown -R librenms:librenms Weathermap/\n\nMake the configs directory writeable by your web server, either \nchown apache:apache configs/\n or \nchmod 777 configs\n.\nI'd highly advise you choose the first option, replace \napache:apache\n with your web servers user and group this will depend on what OS you are using and Web Server.\n\n\nStep 3.\n\n\nEnable the cron process by editing your current LibreNMS cron file (typically /etc/cron.d/librenms) and add the following:\nLibreNMS:  \n*/5 * * * * librenms /opt/librenms/html/plugins/Weathermap/map-poller.php \n /dev/null 2\n1\n\n\nStep 4.\n\n\nEnable the plugin from LibreNMS Web UI in OverView -\nPlugins -\n Plugin Admin menu.\n\n\nStep 5.\n\n\nNow you should see Weathermap Overview -\n Plugins -\n Weathermap\nCreate your maps, please note when you create a MAP, please click Map Style, ensure Overlib is selected for HTML Style and click submit.\nAlso, ensure you set an output image filename and output HTML filename in Map Properties.\nI'd recommend you use the output folder as this is excluded from git updates (i.e enter output/mymap.png and output/mymap.html).\n\n\nOptional: If your install is in another directory than standard, set \n$basehref\n within \nmap-poller.php\n.\n\n\nAutomatically generate weathermaps from a LibreNMS database \nLink", 
+            "title": "Network-WeatherMap with LibreNMS"
         }, 
         {
-            "location": "/Extensions/Weathermap/#weathermap-with-librenms", 
-            "text": "Intergarting LibreNMS with Weathermap, allows you to build network maps to visulaize network traffic rates. Link  to Wearthermap Offical Website", 
-            "title": "WeatherMap with LibreNMS"
+            "location": "/Extensions/Weathermap/#network-weathermap-with-librenms", 
+            "text": "Intergarting LibreNMS with Network-Weathermap, allows you to build network maps to visulaize network traffic flow rates. Link  to Network-Wearthermap Offical Website", 
+            "title": "Network-WeatherMap with LibreNMS"
         }, 
         {
-            "location": "/Extensions/Weathermap/#installing-weathermap", 
+            "location": "/Extensions/Weathermap/#installing-network-weathermap", 
             "text": "", 
-            "title": "Installing WeatherMap"
+            "title": "Installing Network-WeatherMap"
         }, 
         {
             "location": "/Extensions/Weathermap/#step-1", 
@@ -3262,33 +3282,23 @@
         }, 
         {
             "location": "/Extensions/Weathermap/#step-2", 
-            "text": "Make the configs directory writeable by your web server, either  chown apache:apache configs/  or  chmod 777 configs .\nI'd highly advise you choose the first option, replace  apache:apache  with your web servers user and group.", 
+            "text": "Inside the librenms/html/plugins directory, change the ownership of the Weathermap directory by typing  chown -R librenms:librenms Weathermap/ \nMake the configs directory writeable by your web server, either  chown apache:apache configs/  or  chmod 777 configs .\nI'd highly advise you choose the first option, replace  apache:apache  with your web servers user and group this will depend on what OS you are using and Web Server.", 
             "title": "Step 2."
         }, 
         {
             "location": "/Extensions/Weathermap/#step-3", 
-            "text": "Enable the plugin from the LibreNMS Plugins -  Plugin Admin menu.", 
+            "text": "Enable the cron process by editing your current LibreNMS cron file (typically /etc/cron.d/librenms) and add the following:\nLibreNMS:   */5 * * * * librenms /opt/librenms/html/plugins/Weathermap/map-poller.php   /dev/null 2 1", 
             "title": "Step 3."
         }, 
         {
             "location": "/Extensions/Weathermap/#step-4", 
-            "text": "Create your maps, please note when you create a MAP, please click Map Style, ensure Overlib is selected for HTML Style and click submit.", 
+            "text": "Enable the plugin from LibreNMS Web UI in OverView - Plugins -  Plugin Admin menu.", 
             "title": "Step 4."
         }, 
         {
             "location": "/Extensions/Weathermap/#step-5", 
-            "text": "Also, ensure you set an output image filename and output HTML filename in Map Properties.\nI'd recommend you use the output folder as this is excluded from git updates (i.e enter output/mymap.png and output/mymap.html).", 
+            "text": "Now you should see Weathermap Overview -  Plugins -  Weathermap\nCreate your maps, please note when you create a MAP, please click Map Style, ensure Overlib is selected for HTML Style and click submit.\nAlso, ensure you set an output image filename and output HTML filename in Map Properties.\nI'd recommend you use the output folder as this is excluded from git updates (i.e enter output/mymap.png and output/mymap.html).  Optional: If your install is in another directory than standard, set  $basehref  within  map-poller.php .  Automatically generate weathermaps from a LibreNMS database  Link", 
             "title": "Step 5."
-        }, 
-        {
-            "location": "/Extensions/Weathermap/#step-6", 
-            "text": "Enable the cron process by editing your current LibreNMS cron file (typically /etc/cron.d/librenms) and add the following:\nLibreNMS:\n     */5 * * * * root /opt/librenms/html/plugins/Weathermap/map-poller.php   /dev/null 2 1", 
-            "title": "Step 6."
-        }, 
-        {
-            "location": "/Extensions/Weathermap/#step-7", 
-            "text": "Now you should see Weathermap Overview -  Plugins -  Weathermap  Optional: If your install is in another directory than standard, set  $basehref  within  map-poller.php .  source How To from  Link", 
-            "title": "Step 7."
         }, 
         {
             "location": "/API/", 
