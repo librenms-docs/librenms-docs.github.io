@@ -191,13 +191,15 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 <pre><code>http://librenms.example.com/install.php
 </code></pre>
 <h3 id="final-steps">Final steps</h3>
-<p>Run validate.php as root in the librenms directory:</p>
+<p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>
+<h4 id="add-the-first-device">Add the first device</h4>
+<p>We now suggest that you add localhost as your first device from within the WebUI.</p>
+<h4 id="troubleshooting">Troubleshooting</h4>
+<p>If you ever have issues with your install, run validate.php as root in the librenms directory:</p>
 <pre><code>cd /opt/librenms
 ./validate.php
 </code></pre>
-<p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>
-<h4 id="add-first-device">Add first device</h4>
-<p>We now suggest that you add localhost as your first device from within the WebUI.</p>
+<p>There are various options for getting help listed on the LibreNMS web site: https://www.librenms.org/#support</p>
 <h3 id="what-next">What next?</h3>
 <p>Now that you've installed LibreNMS, we'd suggest that you have a read of a few other docs to get you going:</p>
 <ul>
@@ -208,7 +210,7 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 </ul>
 <h3 id="closing">Closing</h3>
 <p>We hope you enjoy using LibreNMS. If you do, it would be great if you would consider opting into the stats system we have, please see <a href="http://docs.librenms.org/General/Callback-Stats-and-Privacy/">this page</a> on what it is and how to enable it.</p>
-<p>If you would like to help make LibreNMS better there are <a href="http://docs.librenms.org/Support/FAQ/#what-can-i-do-to-help">many ways to help</a>. You can also <a href="https://t.libren.ms/donations">support our Collective</a>. </p>
+<p>If you would like to help make LibreNMS better there are <a href="http://docs.librenms.org/Support/FAQ/#what-can-i-do-to-help">many ways to help</a>. You can also <a href="https://t.libren.ms/donations">back LibreNMS on Open Collective</a>. </p>
 
   <br>
     
