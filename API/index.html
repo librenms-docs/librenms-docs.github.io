@@ -821,6 +821,12 @@ Example:</li>
 <li>cryptopass: SNMP Crypto Password</li>
 <li>cryptoalgo: SNMP Crypto algorithm (AES, DES)</li>
 </ul>
+<p>For ICMP only</p>
+<ul>
+<li>snmp_disable: Boolean, set to true for ICMP only.</li>
+<li>os: OS short name for the device (defaults to ping).</li>
+<li>hardware: Device hardware.</li>
+</ul>
 <p>Example:</p>
 <pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
 </code></pre>
