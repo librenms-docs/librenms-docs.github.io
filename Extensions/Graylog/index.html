@@ -82,12 +82,15 @@ for the device.</p>
 standalone appliance.</p>
 <p>Config is simple, here's an example:</p>
 <pre><code class="php">$config['graylog']['server']   = 'http://127.0.0.1';
+$config['graylog']['base_uri'] = '/somepath/';
 $config['graylog']['port']     = 12900;
 $config['graylog']['username'] = 'admin';
 $config['graylog']['password'] = 'admin';
 $config['graylog']['version']  = '2.1';
 </code></pre>
 
+<p>Note that For Graylog 2.2.3 version you need to manually add the following variable, otherwise you'll get a 404 reply:</p>
+<p><code>$config[‘graylog’][‘base_uri’] = ‘/search/universal/relative’;</code></p>
 <blockquote>
 <p>Since Graylog 2.1, the default API path is /api/</p>
 </blockquote>
