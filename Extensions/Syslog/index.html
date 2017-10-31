@@ -182,6 +182,13 @@ $ActionOMProgBinary /opt/librenms/syslog.php
 <pre><code class="ssh">$config['enable_syslog'] = 1;
 </code></pre>
 
+<h4 id="syslog-clean-up">Syslog Clean Up</h4>
+<p>Can be set inside of  <code>config.php</code></p>
+<pre><code class="php">$config['syslog_purge'] = 30;
+</code></pre>
+
+<p>The cleanup is run by daily.sh and any entries over X days old are automatically purged. Values are in days.
+See here for more Clean Up Options <a href="https://docs.librenms.org/#Support/Configuration/#cleanup-options">Link</a></p>
 <h3 id="client-configuration">Client configuration</h3>
 <p>Below are sample configurations for a variety of clients. You should understand the config before using it as you may want to make some slight changes.</p>
 <p>Replace librenms.ip with IP or hostname of your LibreNMS install.</p>
