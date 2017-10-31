@@ -49,6 +49,7 @@
               {title: "Active Directory LDAP filters", url: "#active-directory-ldap-filters" },
           ]},
           {title: "LDAP Authentication", url: "#ldap-authentication", children: [
+              {title: "LDAP bind user (optional)", url: "#ldap-bind-user-optional" },
               {title: "LDAP server redundancy", url: "#ldap-server-redundancy" },
           ]},
           {title: "Radius Authentication", url: "#radius-authentication", children: [
@@ -89,7 +90,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Authentication.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Authentication.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
@@ -207,7 +208,7 @@ $config['auth_ldap_port']   = 389;
 $config['auth_ldap_prefix'] = &quot;uid=&quot;;
 $config['auth_ldap_suffix'] = &quot;,ou=People,dc=example,dc=com&quot;;
 $config['auth_ldap_group']  = &quot;cn=groupname,ou=groups,dc=example,dc=com&quot;;
-$config['auth_ldap_groupbase'] = &quot;ou=group,dc=example,dc=com&quot;;
+$config['auth_ldap_groupbase'] = &quot;ou=groups,dc=example,dc=com&quot;;
 $config['auth_ldap_groups']['admin']['level'] = 10;
 $config['auth_ldap_groups']['pfy']['level'] = 7;
 $config['auth_ldap_groups']['support']['level'] = 1;
@@ -216,6 +217,13 @@ $config['auth_ldap_uid_attribute'] = 'uidnumber';
 </code></pre>
 
 <p>Typically auth_ldap_suffix, auth_ldap_group, auth_ldap_groupbase, auth_ldap_groups are what's required to be configured.</p>
+<h3 id="ldap-bind-user-optional">LDAP bind user (optional)</h3>
+<p>If your ldap server does not allow anonymous bind, it is highly suggested to create a bind user, otherwise "remember me", alerting users, and the API will not work.</p>
+<pre><code class="php">$config['auth_ldap_binduser'] = 'ldapbind'; // will use auth_ldap_prefix and auth_ldap_suffix
+#$config['auth_ldap_binddn'] = 'CN=John.Smith,CN=Users,DC=MyDomain,DC=com'; // overrides binduser
+$config['auth_ldap_bindpassword'] = 'password';
+</code></pre>
+
 <h3 id="ldap-server-redundancy">LDAP server redundancy</h3>
 <p>You can set two LDAP servers by editing the <code>$config['auth_ldap_server']</code> like this example:</p>
 <pre><code>$config['auth_ldap_server'] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
