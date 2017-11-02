@@ -105,7 +105,9 @@ Other options are available:</p>
 <ul>
 <li><code>sysObjectId</code> The preferred operator. Checks if the sysObjectID starts with one of the strings under this item</li>
 <li><code>sysDescr</code> Use this in addition to sysObjectId if required. Check that the sysDescr contains one of the strings under this item</li>
+<li><code>sysObjectId_regex</code> Please avoid use of this. Checks if the sysObjectId matches one of the regex statements under this item</li>
 <li><code>sysDescr_regex</code> Please avoid use of this. Checks if the sysDescr matches one of the regex statements under this item</li>
+<li><code>snmpget</code> Do not use this unless none of the other methods work. Fetch an oid and compare it against a value.</li>
 <li><code>_except</code> You can add this to any of the above to exclude that element. As an example:</li>
 </ul>
 <pre><code class="yaml">discovery:
