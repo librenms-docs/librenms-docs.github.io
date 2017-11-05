@@ -36,6 +36,7 @@
           {title: "Setting up syslog support", url: "#setting-up-syslog-support", children: [
               {title: "Syslog server installation", url: "#syslog-server-installation" },
               {title: "Client configuration", url: "#client-configuration" },
+              {title: "Windows", url: "#windows" },
               {title: "External hooks", url: "#external-hooks" },
           ]},
         ];
@@ -221,6 +222,14 @@ logging librenms.ip
 </code></pre>
 
 <p>If you have permitted udp and tcp 514 through any firewall then that should be all you need. Logs should start appearing and displayed within the LibreNMS web UI.</p>
+<h3 id="windows">Windows</h3>
+<p>By Default windows has no native way to send logs to a remote syslog server.</p>
+<p>Using this how to you can download Datagram-Syslog Agent to send logs to a remote syslog server (LibreNMS). </p>
+<h4 id="note">Note</h4>
+<p>keep in mind you can use any agent or program to send the logs. We are just using this Datagram-Syslog Agent for this example.</p>
+<p><a href="http://techgenix.com/configuring-syslog-agent-windows-server-2012/">Link to How to</a></p>
+<p>You will need to download and install "Datagram-Syslog Agent" for this how to
+<a href="http://download.cnet.com/Datagram-SyslogAgent/3001-2085_4-10370938.html">Link to Download</a></p>
 <h3 id="external-hooks">External hooks</h3>
 <p>Trigger external scripts based on specific syslog patterns being matched with syslog hooks. Add the following to your LibreNMS <code>config.php</code> to enable hooks:</p>
 <pre><code class="ssh">$config['enable_syslog_hooks'] = 1;
