@@ -40,6 +40,9 @@
               {title: "Step 3.", url: "#step-3" },
               {title: "Step 4.", url: "#step-4" },
               {title: "Step 5.", url: "#step-5" },
+              {title: "Adding your Network Weathermps to the Dashboards", url: "#adding-your-network-weathermps-to-the-dashboards" },
+              {title: "Step 1", url: "#step-1_1" },
+              {title: "Step 2", url: "#step-2_1" },
           ]},
         ];
 
@@ -103,6 +106,22 @@ I'd recommend you use the output folder as this is excluded from git updates (i.
 <p>Optional: If your install is in another directory than standard, set <code>$basehref</code> within <code>map-poller.php</code>.</p>
 <p>Automatically generate weathermaps from a LibreNMS database using WeatherMapper <a href="https://github.com/pblasquez/weathermapper">Link</a></p>
 <p><img alt="Example Network Weather Map" src="../../img/network-weather-map.PNG" /></p>
+<h3 id="adding-your-network-weathermps-to-the-dashboards">Adding your Network Weathermps to the Dashboards</h3>
+<p>Once you have created your Network Weather Map you can add it to a dashboard page by doing the following.</p>
+<h3 id="step-1_1">Step 1</h3>
+<p>When you create the Weathermap make sure to export as HTML and PNG you will need this for the out to the dashboard.</p>
+<p>In the Weathermap Plugin page, you will see the output maps. <code>Right click</code> on one of the maps and click on <code>copy image address</code>.</p>
+<p>Example URL: <code>http://yourlibrenms.org/plugins/Weathermap/output/yourmap.html</code></p>
+<h3 id="step-2_1">Step 2</h3>
+<p>Then go back to your Dashboard, create a new dashboard and give it a name. select the widget as <em>External Images</em>. </p>
+<p>Give the Widget a Title.</p>
+<p>The <em>Image URL</em> will need to be the address you copied but at the end remove the <code>.html</code> and replace it with <code>.png</code> </p>
+<p>Example  <em>Image URL</em> <code>http://yourlibrenms.org/plugins/Weathermap/output/yourmap.png</code></p>
+<p>The <em>Target URL</em> will be the URL you copied but with the <code>.html</code> at the end of the URL. </p>
+<p>Example <em>Target URL</em> <code>http://yourlibrenms.org/plugins/Weathermap/output/yourmap.html</code></p>
+<p>Then Click on Set</p>
+<p>You should now be able to see the Weathermap you have created in your list of dashboards. You could also add this to existing dashboards. </p>
+<p><img alt="Example Network Weathermap Dashboard" src="../../img/network-weathermap-dashboard.png" /></p>
 
   <br>
     
