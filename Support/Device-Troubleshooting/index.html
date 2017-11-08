@@ -34,6 +34,9 @@
         
         var pageToc = [
           {title: "Capture Debug Information", url: "#capture-debug-information", children: [
+              {title: "Discovery", url: "#discovery" },
+              {title: "Poller", url: "#poller" },
+              {title: "SNMP", url: "#snmp" },
               {title: "Alerts", url: "#alerts" },
           ]},
         ];
@@ -75,11 +78,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="capture-debug-information">Capture Debug Information</h1>
 <p>You can use this feature to run Debug on Discovery, Poller, SNMP, Alerts.
 This output information could be helpful for you in troubleshooting a device or when requesting help.</p>
-<p>This feautre can be found by going to the deivce that you are troubleshooting in the web ui, clicking on the settings icon menu on far right and selecting 
+<p>This feautre can be found by going to the deivce that you are troubleshooting in the webui, clicking on the settings icon menu on far right and selecting 
 Capture.
 <img alt="Capture-Debug-Icon" src="../../img/capture-debug-icon.png" /></p>
+<h3 id="discovery">Discovery</h3>
+<p><code>./discovery.php</code> will run and output debug infomation.</p>
+<h3 id="poller">Poller</h3>
+<p><code>./poller.php</code> will run and output debug information.</p>
+<h3 id="snmp">SNMP</h3>
+<p>SNMP will run SNMP Bulk Walk on the device and output the information.</p>
 <h3 id="alerts">Alerts</h3>
-<p>Debug Capture is handy when you are creating alerts and need to see if your alert rule matches.</p>
+<p>Alerts Capture is handy when you are creating alerts and need to see if your alert rule matches.</p>
 <p><img alt="device-troubleshooting" src="../../img/device-troubleshooting.png" /></p>
 
   <br>
