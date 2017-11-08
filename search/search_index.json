@@ -1627,8 +1627,13 @@
         }, 
         {
             "location": "/Support/Adding-a-Device/", 
-            "text": "You have two options for adding a new device into LibreNMS. You can add a device via the \ncli\n or by using the \n\nWebUI\n.\n\n\nCLI\n\n\nUsing the command line via ssh you can add a new device by changing to the directory of your LibreNMS install and typing (be sure to put the correct details).\n\n\n./addhost.php [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]\n\n\n\n\nAs an example, if your device is configured to use the community \nmy_company\n using snmp \nv2c\n then you would enter:\n\n\n./addhost.php my_company v2c\n\n\n\n\n\n\nPlease note that if the community contains special characters such as \n$\n then you will need to wrap it in \n'\n. I.e: \n'Pa$$w0rd'\n.\n\n\n\n\nWebUI\n\n\nUsing the web interface, go to Devices and click Add Device. Enter the details required for the device that you want to add and then click 'Add Host'.\nAs an example, if your device is configured to use the community \nmy_company\n using snmp \nv2c\n then you would enter:\n\n\n\n\nIf you would like to add devices automatically then you will probably want to read the \nAuto-discovery Setup\n guide.\n\n\nYou may also want to add devices programatically, if so, take a look at our \nAPI documentation", 
+            "text": "Adding Device\n\n\nYou have two options for adding a new device into LibreNMS. You can add a device via the \ncli\n or by using the \n\nWebUI\n.\n\n\nCLI\n\n\nUsing the command line via ssh you can add a new device by changing to the directory of your LibreNMS install and typing (be sure to put the correct details).\n\n\n./addhost.php [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]\n\n\n\n\nAs an example, if your device is configured to use the community \nmy_company\n using snmp \nv2c\n then you would enter:\n\n\n./addhost.php my_company v2c\n\n\n\n\n\n\nPlease note that if the community contains special characters such as \n$\n then you will need to wrap it in \n'\n. I.e: \n'Pa$$w0rd'\n.\n\n\n\n\nWebUI\n\n\nUsing the web interface, go to Devices and click Add Device. Enter the details required for the device that you want to add and then click 'Add Host'.\nAs an example, if your device is configured to use the community \nmy_company\n using snmp \nv2c\n then you would enter:\n\n\n\n\nPing Only Device\n\n\nYou can add ping only devices into LibreNMS through the WebUI. When adding the device switch the SNMP button to \"off\".\nDevice will be added into LibreNMS as Ping Only Device and will show ICMP Response Graph. \n\n\n\n\nHostname: IP address or DNS name.\n\n\nHardware: Optional you can type in whatever you like.\n\n\nOS: Optional this will add the Device's OS Icon.\n\n\n\n\n\n\nIf you would like to add devices automatically then you will probably want to read the \nAuto-discovery Setup\n guide.\n\n\nYou may also want to add devices programatically, if so, take a look at our \nAPI documentation", 
             "title": "Adding a device"
+        }, 
+        {
+            "location": "/Support/Adding-a-Device/#adding-device", 
+            "text": "You have two options for adding a new device into LibreNMS. You can add a device via the  cli  or by using the  WebUI .", 
+            "title": "Adding Device"
         }, 
         {
             "location": "/Support/Adding-a-Device/#cli", 
@@ -1637,8 +1642,13 @@
         }, 
         {
             "location": "/Support/Adding-a-Device/#webui", 
-            "text": "Using the web interface, go to Devices and click Add Device. Enter the details required for the device that you want to add and then click 'Add Host'.\nAs an example, if your device is configured to use the community  my_company  using snmp  v2c  then you would enter:   If you would like to add devices automatically then you will probably want to read the  Auto-discovery Setup  guide.  You may also want to add devices programatically, if so, take a look at our  API documentation", 
+            "text": "Using the web interface, go to Devices and click Add Device. Enter the details required for the device that you want to add and then click 'Add Host'.\nAs an example, if your device is configured to use the community  my_company  using snmp  v2c  then you would enter:", 
             "title": "WebUI"
+        }, 
+        {
+            "location": "/Support/Adding-a-Device/#ping-only-device", 
+            "text": "You can add ping only devices into LibreNMS through the WebUI. When adding the device switch the SNMP button to \"off\".\nDevice will be added into LibreNMS as Ping Only Device and will show ICMP Response Graph.    Hostname: IP address or DNS name.  Hardware: Optional you can type in whatever you like.  OS: Optional this will add the Device's OS Icon.    If you would like to add devices automatically then you will probably want to read the  Auto-discovery Setup  guide.  You may also want to add devices programatically, if so, take a look at our  API documentation", 
+            "title": "Ping Only Device"
         }, 
         {
             "location": "/Extensions/Device-Groups/", 
