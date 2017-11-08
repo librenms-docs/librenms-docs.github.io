@@ -58,6 +58,7 @@
           {title: "HTTP Authentication", url: "#http-authentication", children: [
               {title: "HTTP Authentication / AD Authorization", url: "#http-authentication-ad-authorization" },
               {title: "HTTP Authentication / LDAP Authorization", url: "#http-authentication-ldap-authorization" },
+              {title: "View/embedded graphs without being logged into LibreNMS", url: "#viewembedded-graphs-without-being-logged-into-librenms" },
           ]},
         ];
 
@@ -302,6 +303,11 @@ This option allows to control how long user information (user_exists, userid, us
 The default value is 300 seconds.
 To disabled this caching (highly discourage) set this option to 0.</p>
 <pre><code class="php">$config['auth_ldap_cache_ttl'] = 300;
+</code></pre>
+
+<h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
+<pre><code class="php">$config['allow_unauth_graphs'] = 1;
+$config['allow_unauth_graphs_cidr'] = 1;
 </code></pre>
 
   <br>
