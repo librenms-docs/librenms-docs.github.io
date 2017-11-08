@@ -41,6 +41,7 @@
           {title: "Options", url: "#options", children: [
               {title: "Examples", url: "#examples" },
               {title: "Procedure", url: "#procedure" },
+              {title: "Check to see if your alert rule matches", url: "#check-to-see-if-your-alert-rule-matches" },
           ]},
         ];
 
@@ -133,9 +134,12 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>High memory usage: <code>%macros.device_up = "1" &amp;&amp; %mempools.mempool_perc &gt;= "90" &amp;&amp; %mempools.mempool_descr = "Virtual@"</code></li>
 <li>High CPU usage(per core usage, not overall): <code>%macros.device_up = "1" &amp;&amp; %processors.processor_usage &gt;= "90"</code></li>
 <li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code></li>
+<li>Alert when mac address is located on your network <code>%ipv4_mac.mac_address = "2c233a756912"</code></li>
 </ul>
 <h2 id="procedure">Procedure</h2>
 <p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
+<h2 id="check-to-see-if-your-alert-rule-matches">Check to see if your alert rule matches</h2>
+<p>See <a href="Support/Device-Troubleshooting.md">Device Troubleshooting</a></p>
 
   <br>
     
