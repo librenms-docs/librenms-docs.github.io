@@ -180,11 +180,11 @@ $config['update']                            = 0;
 
 <p><code>/etc/cron.d/librenms</code>
 Runs discovery and polling for group 0, daily.sh to deal with notifications and DB cleanup and alerts.</p>
-<pre><code class="conf">33  */6 * * * librenms /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1
-*/5 *   * * * librenms /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
-*/5 *   * * * librenms /opt/librenms/poller-wrapper.py 24 &gt;&gt; /opt/librenms/logs/wrapper.log
-15  0   * * * librenms /opt/librenms/daily.sh &gt;&gt; /dev/null 2&gt;&amp;1
-*   *   * * * librenms /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
+<pre><code class="conf">33   */6  * * *   librenms    /opt/librenms/cronic /opt/librenms/discovery-wrapper.py 1
+*/5  *    * * *   librenms    /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
+*/5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
+15   0    * * *   librenms    /opt/librenms/daily.sh &gt;&gt; /dev/null 2&gt;&amp;1
+*    *    * * *   librenms    /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
 
 <p>Poller 2:
@@ -201,7 +201,7 @@ $config['update']                            = 0;
 
 <p><code>/etc/cron.d/librenms</code>
 Runs billing as well as polling for group 0.</p>
-<pre><code class="conf">*/5 * * * * librenms /opt/librenms/poller-wrapper.py 24 &gt;&gt; /opt/librenms/logs/wrapper.log
+<pre><code class="conf">*/5 * * * * librenms /opt/librenms/poller-wrapper.py 16 &gt;&gt; /opt/librenms/logs/wrapper.log
 */5 * * * * librenms /opt/librenms/poll-billing.php &gt;&gt; /dev/null 2&gt;&amp;1
 01  * * * * librenms /opt/librenms/billing-calculate.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
@@ -220,9 +220,9 @@ $config['update']                            = 0;
 
 <p><code>/etc/cron.d/librenms</code>
 Runs discovery and polling for groups 2 and 3.</p>
-<pre><code class="conf">33  */6 * * * librenms /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1
-*/5 *   * * * librenms /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
-*/5 *   * * * librenms /opt/librenms/poller-wrapper.py 16 &gt;&gt; /opt/librenms/logs/wrapper.log
+<pre><code class="conf">33   */6  * * *   librenms    /opt/librenms/cronic /opt/librenms/discovery-wrapper.py 1
+*/5  *    * * *   librenms    /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
+*/5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
 </code></pre>
 
   <br>
