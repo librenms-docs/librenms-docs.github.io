@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/Dashboards/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Dashboards - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Dashboards", url: "#dashboards", children: [
+              {title: "Widgets", url: "#widgets" },
+              {title: "Dashboard Permissions", url: "#dashboard-permissions" },
+              {title: "Setting a global default dashboard", url: "#setting-a-global-default-dashboard" },
+              {title: "Setting embeded webpage", url: "#setting-embeded-webpage" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+    
+
+
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Dashboards.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h1 id="dashboards">Dashboards</h1>
+<p>Create customised dashboards in LibreNMS per user. You can share dashboards with other users. You can also make a custom dashboard and
+default it for all users in LibreNMS.</p>
+<p>Example Dashboard
+<img alt="Example Dashboard" src="../../img/example-dashboard.png" /></p>
+<h3 id="widgets">Widgets</h3>
+<p>LibreNMS has a whole list of Widgets to select from. 
+<img alt="List Of Widgets" src="../../img/list-widgets.png" />
+- Alerts Widget: show all alert not notifications.
+- Availability Map: Shows all devices with colored tiles, green up, yellow for warning (device has been restarted in last 24 hours),red for
+down. You can also list all services and ignored/disabled devcies in this widget.
+- Componet Status: List all componets Ok state, Warning state, Critical state.
+- Device Summary horizontal: List device totals, up, down, ignored, disabled. Same for ports and services. 
+- Device Summary vertical: List device totals, up, down, ignored, disabled. Same for ports and services.
+- Eventlog: Shows all events with your devices and LibreNMS. 
+- External Image: can be used to show external images on your dashboard. 
+- Globe Map: Will display map of the globe.
+- Graph: Can be used to display graphs from devices. 
+- Graylog: Lists all Graylog's syslog entries.
+- Notes: use for html tags, embed links and external web pages.
+- Syslog: lists all syslog entries.
+- Top Devices: By Traffic, or  Uptime, or Response time, or Poller Duration, or Procssor load, or Memory Usage.
+- Top Interfaces: Lists top interfaces.
+- Worldmap: displays all your devices locations. From syslocation or from override sysLocation.</p>
+<h3 id="dashboard-permissions">Dashboard Permissions</h3>
+<ul>
+<li>Private: Sets the dashabord to only the user that created the dashboard can view and edit.</li>
+<li>Shared Read: Sets the dashboard to allow other users to view the dashboard, but cant make changes to the dashboard.</li>
+<li>Shared: Allows all users to view the dashboard and make changes.</li>
+</ul>
+<h3 id="setting-a-global-default-dashboard">Setting a global default dashboard</h3>
+<p>Step 1: Set the dashboard to either shared read or shared, depending on what you want the users access to change. 
+Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and set the global default dashboard.</p>
+<h3 id="setting-embeded-webpage">Setting embeded webpage</h3>
+<p>Using the Notes Widget.</p>
+<pre><code class="html">&lt;iframe src=&quot;http://url/&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;
+  &lt;p&gt;Your browser does not support iframes.&lt;/p&gt;
+&lt;/iframe&gt;
+</code></pre>
+
+<p>Note you may need to play with the width and height and also size your widget properly.
+Also some web pages may not support html embeded or iframe.
+<img alt="Example embed webpage" src="../../img/example-embed-website.png" /></p>
+
+  <br>
+    
+
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
