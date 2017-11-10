@@ -51,6 +51,7 @@
               {title: "Rules", url: "#rules" },
               {title: "Inventory", url: "#inventory" },
               {title: "Bills", url: "#bills" },
+              {title: "ARP", url: "#arp" },
               {title: "Services", url: "#services" },
               {title: "Logs", url: "#logs" },
           ]},
@@ -171,6 +172,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#bills">Bills</a><ul>
 <li><a href="#function-list_bills">Function: list_bills</a></li>
 <li><a href="#function-get_bill">Function: get_bill</a></li>
+</ul>
+</li>
+<li><a href="#arp">ARP</a><ul>
 <li><a href="#function-list_arp">Function: list_arp</a></li>
 </ul>
 </li>
@@ -1676,6 +1680,7 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custi
 }
 </code></pre>
 
+<h2 id="arp">ARP</h2>
 <h3 id="function-list_arp">Function: <code>list_arp</code></h3>
 <p>Retrieve a specific ARP entry or all ARP enties for a device</p>
 <p>Route: <code>/api/v0/resources/ip/arp/:ip</code></p>
