@@ -81,20 +81,20 @@ default it for all users in LibreNMS.</p>
 <h3 id="widgets">Widgets</h3>
 <h2 id="librenms-has-a-whole-list-of-widgets-to-select-from">LibreNMS has a whole list of Widgets to select from.</h2>
 <ul>
-<li>Alerts Widget: show all alert not notifications.</li>
-<li>Availability Map: Shows all devices with colored tiles, green up, yellow for warning (device has been restarted in last 24 hours),red   for down. You can also list all services and ignored/disabled devcies in this widget.</li>
+<li>Alerts Widget: Displays all alert notifications.</li>
+<li>Availability Map: Displays all devices with colored tiles, green up, yellow for warning (device has been restarted in last 24 hours),red   for down. You can also list all services and ignored/disabled devcies in this widget.</li>
 <li>Componet Status: List all componets Ok state, Warning state, Critical state.</li>
 <li>Device Summary horizontal: List device totals, up, down, ignored, disabled. Same for ports and services. </li>
 <li>Device Summary vertical: List device totals, up, down, ignored, disabled. Same for ports and services.</li>
-<li>Eventlog: Shows all events with your devices and LibreNMS. </li>
-<li>External Image: can be used to show external images on your dashboard. </li>
+<li>Eventlog: Displays all events with your devices and LibreNMS. </li>
+<li>External Image: can be used to show external images on your dashboard. Or images from inside LibreNMS.</li>
 <li>Globe Map: Will display map of the globe.</li>
 <li>Graph: Can be used to display graphs from devices. </li>
-<li>Graylog: Lists all Graylog's syslog entries.</li>
-<li>Notes: use for html tags, embed links and external web pages.</li>
-<li>Syslog: lists all syslog entries.</li>
+<li>Graylog: Displays all Graylog's syslog entries.</li>
+<li>Notes: use for html tags, embed links and external web pages. Or just notes in general.</li>
+<li>Syslog: Displays all syslog entries.</li>
 <li>Top Devices: By Traffic, or  Uptime, or Response time, or Poller Duration, or Procssor load, or Memory Usage.</li>
-<li>Top Interfaces: Lists top interfaces.</li>
+<li>Top Interfaces: Lists top interfaces by traffic utilization.</li>
 <li>Worldmap: displays all your devices locations. From syslocation or from override sysLocation.</li>
 </ul>
 <hr />
@@ -111,12 +111,13 @@ default it for all users in LibreNMS.</p>
 Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and set the global default dashboard.</p>
 <h3 id="setting-embeded-webpage">Setting embeded webpage</h3>
 <p>Using the Notes Widget.</p>
-<pre><code class="html">&lt;iframe src=&quot;http://url/&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;
+<pre><code class="html">&lt;iframe src=&quot;url/&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;
   &lt;p&gt;Your browser does not support iframes.&lt;/p&gt;
 &lt;/iframe&gt;
 </code></pre>
 
 <p>Note you may need to play with the width and height and also size your widget properly.
+<code>src="url"</code> needs to be URL to webpage your linking to.
 Also some web pages may not support html embeded or iframe.
 <img alt="Example embed webpage" src="../../img/example-embed-website.png" /></p>
 
