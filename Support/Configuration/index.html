@@ -37,6 +37,9 @@
           ]},
           {title: "Database config", url: "#database-config", children: [
           ]},
+          {title: "Core", url: "#core", children: [
+              {title: "PHP Settings", url: "#php-settings" },
+          ]},
           {title: "Programs", url: "#programs", children: [
               {title: "RRDTool", url: "#rrdtool" },
               {title: "fping", url: "#fping" },
@@ -174,6 +177,10 @@ $config['db_port']   = NULL;
 $config['db_socket'] = '/run/mysqld/mysqld.sock';
 </code></pre>
 
+<h3 id="core">Core</h3>
+<h4 id="php-settings">PHP Settings</h4>
+<p>You can change the memory limits for php within <code>config.php</code>. The value is in Megabytes and should just be an int value:</p>
+<p><code>$config['php_memory_limit'] = 128;</code></p>
 <h3 id="programs">Programs</h3>
 <p>A lot of these are self explanatory so no further information may be provided. Any extensions that have dedicated 
 documentation page will be linked to rather than having the config provided.</p>
