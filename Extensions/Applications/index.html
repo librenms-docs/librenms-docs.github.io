@@ -259,9 +259,12 @@ Further details: https://getchip.com/pages/chip</p>
 <p>A small shell script that reports current DHCP leases stats.</p>
 <h5 id="snmp-extend_3">SNMP Extend</h5>
 <ol>
-<li>
-<p>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</p>
-</li>
+<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp-status.sh -O /etc/snmp/dhcp-status.sh
+</code></pre>
+
+<ol>
 <li>
 <p>Make the script executable (chmod +x /etc/snmp/dhcp-status.sh)</p>
 </li>
