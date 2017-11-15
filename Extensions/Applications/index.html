@@ -733,12 +733,21 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
-<code>extend proxmox /usr/local/bin/proxmox</code>
-(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</p>
+<code>extend proxmox /usr/local/bin/proxmox</code></p>
 </li>
 <li>
-<p>Restart snmpd on your host</p>
+<p>Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo and modify the "extend" line</p>
 </li>
+</ol>
+<pre><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox 
+</code></pre>
+
+<p>after, edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
+<pre><code>snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
 </ol>
 <h3 id="raspberry-pi">Raspberry PI</h3>
 <p>SNMP extend script to get your PI data into your host.</p>
@@ -793,6 +802,16 @@ it should be. This will result in a usable config, but may miss some less common
 <p>5: Restart snmpd on your host</p>
 <p>If you have a large number of more than one or two disks on a system, you should consider adding this to cron. Also make sure the cache file is some place it can be written to.</p>
 <pre><code> */3 * * * * /etc/snmp/smart -u
+</code></pre>
+
+<ol>
+<li>If your snmp agent runs as user "snmp", edit your sudo users (usually <code>visudo</code>) and add at the bottom:</li>
+</ol>
+<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/sbin/smartctl
+</code></pre>
+
+<p>and modify your snmpd.conf file accordingly:</p>
+<pre><code>extend smart /usr/bin/sudo /etc/snmp/smart
 </code></pre>
 
 <h3 id="squid">Squid</h3>
