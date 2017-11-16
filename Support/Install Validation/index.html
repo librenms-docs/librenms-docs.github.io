@@ -34,6 +34,7 @@
         
         var pageToc = [
           {title: "Install validation", url: "#install-validation", children: [
+              {title: "Validate from the WebUI", url: "#validate-from-the-webui" },
           ]},
         ];
 
@@ -93,14 +94,14 @@ uncommon that mistakes get made. It's also impossible to validate user input in 
 </ul>
 <p>You can run validate.php as <code>root</code> by executing <code>./validate.php</code> within your install directory.</p>
 <p>The output will provide you either a clean bill of health or a list of things you need to fix:</p>
-<p>OK - This is a good thing, you can skip over these :)</p>
-<p>WARN - You probably want to check this out.</p>
-<p>FAIL - This is going to need your attention!</p>
-<p>### Validate from the WebUI</p>
+<p><strong>OK</strong> - This is a good thing, you can skip over these :)</p>
+<p><strong>WARN</strong> - You probably want to check this out.</p>
+<p><strong>FAIL</strong> - This is going to need your attention!</p>
+<h3 id="validate-from-the-webui">Validate from the WebUI</h3>
 <p>You can validate your LibreNMS install from the WebUI, using the nav bar and clicking on the little Gear Icon -&gt; Validate Config.
- <img alt="Validate Config Icon" src="../../img/validate-config-icon.png" /></p>
-<p>Then You should see the results of validate. 
- Below is just example of the results.</p>
+<img alt="Validate Config Icon" src="../../img/validate-config-icon.png" />
+Then You should see the results of validate. 
+Below is just example of the results.</p>
 <p><img alt="Validate results" src="../../img/validate-results.png" /></p>
 
   <br>
