@@ -733,21 +733,12 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:
-<code>extend proxmox /usr/local/bin/proxmox</code></p>
+<code>extend proxmox /usr/local/bin/proxmox</code>
+(Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo. <code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox</code>)</p>
 </li>
 <li>
-<p>Note: if your snmpd doesn't run as root, you might have to invoke the script using sudo and modify the "extend" line</p>
+<p>Restart snmpd on your host</p>
 </li>
-</ol>
-<pre><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox 
-</code></pre>
-
-<p>after, edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
-</code></pre>
-
-<ol>
-<li>Restart snmpd on your host</li>
 </ol>
 <h3 id="raspberry-pi">Raspberry PI</h3>
 <p>SNMP extend script to get your PI data into your host.</p>
