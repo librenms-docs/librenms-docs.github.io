@@ -259,12 +259,9 @@ Further details: https://getchip.com/pages/chip</p>
 <p>A small shell script that reports current DHCP leases stats.</p>
 <h5 id="snmp-extend_3">SNMP Extend</h5>
 <ol>
-<li>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</li>
-</ol>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp-status.sh -O /etc/snmp/dhcp-status.sh
-</code></pre>
-
-<ol>
+<li>
+<p>Copy the shell script to the desired host (the host must be added to LibreNMS devices)</p>
+</li>
 <li>
 <p>Make the script executable (chmod +x /etc/snmp/dhcp-status.sh)</p>
 </li>
@@ -793,16 +790,6 @@ it should be. This will result in a usable config, but may miss some less common
 <p>5: Restart snmpd on your host</p>
 <p>If you have a large number of more than one or two disks on a system, you should consider adding this to cron. Also make sure the cache file is some place it can be written to.</p>
 <pre><code> */3 * * * * /etc/snmp/smart -u
-</code></pre>
-
-<ol>
-<li>If your snmp agent runs as user "snmp", edit your sudo users (usually <code>visudo</code>) and add at the bottom:</li>
-</ol>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/sbin/smartctl
-</code></pre>
-
-<p>and modify your snmpd.conf file accordingly:</p>
-<pre><code>extend smart /usr/bin/sudo /etc/snmp/smart
 </code></pre>
 
 <h3 id="squid">Squid</h3>
