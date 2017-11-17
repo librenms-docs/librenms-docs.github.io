@@ -393,6 +393,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.librenms.org/Alerting/Rule-Mapping/</loc>
+     <lastmod>2017-11-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
