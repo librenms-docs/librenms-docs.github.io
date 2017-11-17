@@ -11,7 +11,7 @@
     <link rel="canonical" href="http://docs.librenms.org/API/">
     <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Home - LibreNMS Docs</title>
+    <title>Structure - LibreNMS Docs</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -91,111 +91,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       </div>
     
 
-    <div class="toc">
-<ul>
-<li><a href="#structure">Structure</a><ul>
-<li><a href="#versioning">Versioning</a></li>
-<li><a href="#tokens">Tokens</a></li>
-<li><a href="#endpoints">Endpoints</a></li>
-<li><a href="#input">Input</a></li>
-<li><a href="#output">Output</a></li>
-</ul>
-</li>
-<li><a href="#endpoints_1">Endpoints</a><ul>
-<li><a href="#devices">Devices</a><ul>
-<li><a href="#function-del_device">Function: del_device</a></li>
-<li><a href="#function-get_device">Function: get_device</a></li>
-<li><a href="#function-get_graphs">Function: get_graphs</a></li>
-<li><a href="#function-list_available_health_graphs">Function: list_available_health_graphs</a></li>
-<li><a href="#function-get_health_graph">Function: get_health_graph</a></li>
-<li><a href="#function-get_graph_generic_by_hostname">Function: get_graph_generic_by_hostname</a></li>
-<li><a href="#function-get_port_graphs">Function: get_port_graphs</a></li>
-<li><a href="#function-get_device_ip_addresses">Function: get_device_ip_addresses</a></li>
-<li><a href="#function-get_port_stack">Function: get_port_stack</a></li>
-<li><a href="#function-get_components">Function: get_components</a></li>
-<li><a href="#function-add_components">Function: add_components</a></li>
-<li><a href="#function-edit_components">Function: edit_components</a></li>
-<li><a href="#function-delete_components">Function: delete_components</a></li>
-<li><a href="#function-get_port_stats_by_port_hostname">Function: get_port_stats_by_port_hostname</a></li>
-<li><a href="#function-get_graph_by_port_hostname">Function: get_graph_by_port_hostname</a></li>
-<li><a href="#function-list_devices">Function: list_devices</a></li>
-<li><a href="#function-add_device">Function: add_device</a></li>
-<li><a href="#function-list_oxidized">Function: list_oxidized</a></li>
-<li><a href="#function-update_device_field">Function: update_device_field</a></li>
-<li><a href="#function-get_device_groups">Function get_device_groups</a></li>
-</ul>
-</li>
-<li><a href="#device-groups">Device Groups</a><ul>
-<li><a href="#function-get_devicegroups">Function get_devicegroups</a></li>
-</ul>
-</li>
-<li><a href="#ports">Ports</a><ul>
-<li><a href="#function-get_all_ports">Function get_all_ports</a></li>
-<li><a href="#function-get_port_info">Function get_port_info</a></li>
-<li><a href="#function-get_port_info_1">Function get_port_info</a></li>
-<li><a href="#function-get_devices_by_group">Function get_devices_by_group</a></li>
-</ul>
-</li>
-<li><a href="#port-groups">Port Groups</a><ul>
-<li><a href="#function-get_graph_by_portgroup">Function: get_graph_by_portgroup</a></li>
-<li><a href="#function-get_graph_by_portgroup_multiport_bits">Function: get_graph_by_portgroup_multiport_bits</a></li>
-</ul>
-</li>
-<li><a href="#routing">Routing</a><ul>
-<li><a href="#function-list_bgp">Function: list_bgp</a></li>
-<li><a href="#function-list_ipsec">Function: list_ipsec</a></li>
-</ul>
-</li>
-<li><a href="#switching">Switching</a><ul>
-<li><a href="#function-get_vlans">Function: get_vlans</a></li>
-</ul>
-</li>
-<li><a href="#alerts">Alerts</a><ul>
-<li><a href="#function-get_alert">Function: get_alert</a></li>
-<li><a href="#function-ack_alert">Function: ack_alert</a></li>
-<li><a href="#function-unmute_alert">Function: unmute_alert</a></li>
-<li><a href="#function-list_alerts">Function: list_alerts</a></li>
-</ul>
-</li>
-<li><a href="#rules">Rules</a><ul>
-<li><a href="#function-get_alert_rule">Function: get_alert_rule</a></li>
-<li><a href="#function-delete_rule">Function: delete_rule</a></li>
-<li><a href="#function-list_alert_rules">Function: list_alert_rules</a></li>
-<li><a href="#function-add_rule">Function: add_rule</a></li>
-<li><a href="#function-edit_rule">Function: edit_rule</a></li>
-</ul>
-</li>
-<li><a href="#inventory">Inventory</a><ul>
-<li><a href="#function-get_inventory">Function: get_inventory</a></li>
-</ul>
-</li>
-<li><a href="#bills">Bills</a><ul>
-<li><a href="#function-list_bills">Function: list_bills</a></li>
-<li><a href="#function-get_bill">Function: get_bill</a></li>
-</ul>
-</li>
-<li><a href="#arp">ARP</a><ul>
-<li><a href="#function-list_arp">Function: list_arp</a></li>
-</ul>
-</li>
-<li><a href="#services">Services</a><ul>
-<li><a href="#function-list_services">Function: list_services</a></li>
-<li><a href="#function-get_service_for_host">Function: get_service_for_host</a></li>
-</ul>
-</li>
-<li><a href="#logs">Logs</a><ul>
-<li><a href="#function-list_eventlog">Function: list_eventlog</a></li>
-<li><a href="#function-list_syslog">Function: list_syslog</a></li>
-<li><a href="#function-list_alertlog">Function: list_alertlog</a></li>
-<li><a href="#function-list_authlog">Function: list_authlog</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<p>Describes the API structure.</p>
-<h1 id="structure">Structure</h1>
+    <h1 id="structure">Structure</h1>
 <h2 id="versioning">Versioning</h2>
 <p>Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: https://blog.librenms.org/2014/09/restful-apis/</p>
 <p>We have currently settled on using versioning within the API end point itself <code>/api/v0</code>. As the API itself is new and still in active development we also decided that v0 would be the best starting point to indicate it's in development.</p>
