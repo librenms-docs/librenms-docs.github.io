@@ -123,10 +123,8 @@ edit device -&gt; snmp -&gt; Max OIDs.</p>
 <p>The default 16 threads that <code>poller-wrapper.py</code> runs as isn't necessarily the optimal number. A general rule of thumb is 
 2 threads per core but we suggest that you play around with lowering / increasing the number until you get the optimal value.</p>
 <p>This can be changed by going to the cron job for librenms. Usually in /etc/cron.d/librenms and changing the "16"</p>
-<pre><code>*/5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
-</code></pre>
-
-<p>KEEP in MIND that this doesn't always help, it depends on your system and CPU. So be careful. </p>
+<p><em>/5  *    * </em> *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16</p>
+<p>KEEP in MIND that this dosnt always help, it depnds on your system and CPU. So Be careful. </p>
 <h4 id="recursive-dns">Recursive DNS</h4>
 <p>If your install uses hostnames for devices and you have quite a lot then it's advisable to setup a local recursive dns instance on the 
 LibreNMS server. Something like pdns-recursor can be used and then configure <code>/etc/resolv.conf</code> to use 127.0.0.1 for queries.</p>
@@ -135,12 +133,38 @@ LibreNMS server. Something like pdns-recursor can be used and then configure <co
 or it's disabled then we still collect data. For the most part this is fine as the walks are quite quick. However for devices with a lot of ports and good % of those are 
 either deleted or disabled then this approach isn't optimal. So to counter this you can enable 'selected port polling' per device within the edit device -&gt; misc section or by
 globally enabling it (not recommended): <code>$config['polling']['selected_ports'] = true;</code>. You can also set it for a specific OS: <code>$config['os']['ios']['polling']['selected_ports'] = true;</code>. </p>
-<p>Running <code>./scripts/collect-port-polling.php</code> will poll your devices with both full and selective polling, display a table with the difference and optionally enable or disable selected ports polling for devices which would benefit from a change.
-Note that it doesn't continously re-evaluate this, it will only be updated when the script is run. There are a number of options:</p>
-<pre><code>-h &lt;device id&gt; | &lt;device hostname wildcard&gt;  Poll single device or wildcard hostname
--e &lt;percentage&gt;                              Enable/disable selected ports polling for devices which would benefit &lt;percentage&gt; from a change
-</code></pre>
-
+<p>If you would like to see if you should turn this on then run this query in MySQL: <code>select device_id, count(*) as total from ports where deleted=1 group by device_id order by total desc;</code>. You will see output like the following:</p>
+<table>
+<thead>
+<tr>
+<th align="right">device_id</th>
+<th align="right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">128</td>
+<td align="right">339</td>
+</tr>
+<tr>
+<td align="right">92</td>
+<td align="right">56</td>
+</tr>
+<tr>
+<td align="right">41</td>
+<td align="right">41</td>
+</tr>
+<tr>
+<td align="right">38</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">81</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>Here device id 128 and potentially 92 and 41 are likely candidates for this feature to be enabled on. Turn it on and then closely monitor the device for the next 15-30 minutes.</p>
 <h3 id="web-interface">Web interface</h3>
 <h4 id="http2">HTTP/2</h4>
 <p>If you are running https then you should enable http/2 support in whatever web server you use:</p>

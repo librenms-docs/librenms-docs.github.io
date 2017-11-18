@@ -186,7 +186,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>We do indeed, you can find access to the demo <a href="https://demo.librenms.org">here</a></p>
 <h4 id="why-do-i-get-blank-pages-sometimes-in-the-webui"><a name="faq6"> Why do I get blank pages sometimes in the WebUI?</a></h4>
 <p>The first thing to do is to add /debug=yes/ to the end of the URI (I.e /devices/debug=yes/).</p>
-<p>If the page you are trying to load has a substantial amount of data in it then it could be that the php memory limit needs to be increased in <a href="../Configuration/#core">config.php</a>.</p>
+<p>If the page you are trying to load has a substantial amount of data in it then it could be that the php memory limit needs to be increased in php.ini and then your web service reloaded.</p>
 <h4 id="why-do-i-not-see-any-graphs"><a name="faq10"> Why do I not see any graphs?</a></h4>
 <p>The easiest way to check if all is well is to run <code>./validate.php</code> as root from within your install directory. This should give you info on why things aren't working.</p>
 <p>One other reason could be a restricted snmpd.conf file or snmp view which limits the data sent back. If you use net-snmp then we suggest using 
