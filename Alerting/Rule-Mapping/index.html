@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Installation/Installing-LibreNMS/">
+    <link rel="canonical" href="http://docs.librenms.org/Alerting/Rule-Mapping/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Installing LibreNMS - LibreNMS Docs</title>
+    <title>Alert Rule Mapping - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,9 +33,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Installing LibreNMS", url: "#installing-librenms", children: [
-              {title: "Images", url: "#images" },
-              {title: "Manually", url: "#manually" },
+          {title: "Alert Rule Mapping", url: "#alert-rule-mapping", children: [
+              {title: "You have two options when mapping the alert rule.", url: "#you-have-two-options-when-mapping-the-alert-rule" },
           ]},
         ];
 
@@ -68,29 +67,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Installation/Installing-LibreNMS.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Alerting/Rule-Mapping.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <h1 id="installing-librenms">Installing LibreNMS</h1>
-<h2 id="images">Images</h2>
-<p>We have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:</p>
-<p><a href="http://docs.librenms.org/Installation/Ubuntu-image/">Ubuntu 16.04</a></p>
-<p><a href="http://docs.librenms.org/Installation/CentOS-image/">CentOS 7</a></p>
-<h2 id="manually">Manually</h2>
-<p>If you want to install manually then we have some documentation which should make it easy.</p>
-<p><strong>Please note the minimum supported PHP version is 5.6.4</strong></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/">Ubuntu 16.04 Apache</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 Nginx</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-CentOS-7-Apache/">RHEL / CentOS 7 Apache</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-CentOS-7-Nginx/">RHEL / CentOS 7 Nginx</a></p>
-<h3 id="old-install-docs">Old Install Docs</h3>
-<p>If the above are missing or incomplete then you can try our old docs below.</p>
-<p><a href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Apache/">Debian/Ubuntu</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-CentOS-6-Apache-Nginx/">RHEL/CentOS</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/">Debian/Ubuntu Lighttpd</a></p>
-<p><a href="http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Nginx/">Debian/Ubuntu Nginx</a></p>
+    <h1 id="alert-rule-mapping">Alert Rule Mapping</h1>
+<p>Alert Rule Mapping can be found in the WebUI. In the Nav bar click on Alerts then Rule Mapping.
+In LibreNMS you can create alert rules and map those alert rules to devices or you can create device groups and map alert rules to those groups.
+This could be useful for alerts rules that you don't want to be checked against devices that may not match with your alert rule or may give you false positive etc.</p>
+<p>Example: Alert Rule Mapping
+<img alt="Example Rule Mapping" src="../../img/example-alert-rule-mapping.png" /></p>
+<p>In this example we have an alert rule that checks HPE iLo Power Supply Failure. You probably don't want this alert rule being checked on none HPE iLo devices.  So in the picture below you can see the Alert rule is mapped to a Device group that was created just for HPE iLo devices.</p>
+<p>Example: HPE iLo Rule map
+<img alt="Example Rule Mapping" src="../../img/example-hpe-rule-map.png" /></p>
+<h3 id="you-have-two-options-when-mapping-the-alert-rule">You have two options when mapping the alert rule.</h3>
+<ul>
+<li>First option: you can map alert rule to one device.</li>
+<li>Second option: you create a device group and group all your devices together. <a href="../../Extensions/Device-Groups/">Link to Device Groups</a></li>
+</ul>
 
   <br>
     
