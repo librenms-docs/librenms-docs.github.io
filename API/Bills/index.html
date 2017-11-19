@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/API/Bills/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Bills - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "list_bills", url: "#list_bills", children: [
+          ]},
+          {title: "get_bill", url: "#get_bill", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/API/Bills.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h3 id="list_bills"><code>list_bills</code></h3>
+<p>Retrieve the list of bills currently in the system.</p>
+<p>Route: <code>/api/v0/bills</code></p>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;bills&quot;: [
+  {
+   &quot;bill_id&quot;: &quot;1&quot;,
+   &quot;bill_name&quot;: &quot;Router bills&quot;,
+   &quot;bill_type&quot;: &quot;cdr&quot;,
+   &quot;bill_cdr&quot;: &quot;10000000&quot;,
+   &quot;bill_day&quot;: &quot;1&quot;,
+   &quot;bill_quota&quot;: &quot;0&quot;,
+   &quot;rate_95th_in&quot;: &quot;0&quot;,
+   &quot;rate_95th_out&quot;: &quot;0&quot;,
+   &quot;rate_95th&quot;: &quot;0&quot;,
+   &quot;dir_95th&quot;: &quot;in&quot;,
+   &quot;total_data&quot;: &quot;0&quot;,
+   &quot;total_data_in&quot;: &quot;0&quot;,
+   &quot;total_data_out&quot;: &quot;0&quot;,
+   &quot;rate_average_in&quot;: &quot;0&quot;,
+   &quot;rate_average_out&quot;: &quot;0&quot;,
+   &quot;rate_average&quot;: &quot;0&quot;,
+   &quot;bill_last_calc&quot;: &quot;2015-07-02 17:01:26&quot;,
+   &quot;bill_custid&quot;: &quot;Router&quot;,
+   &quot;bill_ref&quot;: &quot;Router&quot;,
+   &quot;bill_notes&quot;: &quot;Bill me&quot;,
+   &quot;bill_autoadded&quot;: &quot;0&quot;,
+   &quot;ports_total&quot;: &quot;0&quot;,
+   &quot;allowed&quot;: &quot;10Mbps&quot;,
+   &quot;used&quot;: &quot;0bps&quot;,
+   &quot;percent&quot;: 0,
+   &quot;overuse&quot;: &quot;-&quot;,
+   &quot;ports&quot;: [
+       {
+           &quot;device_id&quot;: &quot;168&quot;,
+           &quot;port_id&quot;: &quot;35146&quot;,
+           &quot;ifName&quot;: &quot;eth0&quot;
+       }
+   ]
+  }
+ ]
+}
+</code></pre>
+
+<h3 id="get_bill"><code>get_bill</code></h3>
+<p>Retrieve a specific bill</p>
+<p>Route: <code>/api/v0/bills/:id</code>
+       <code>/api/v0/bills?ref=:ref</code>
+       <code>/api/v0/bills?custid=:custid</code></p>
+<ul>
+<li>id is the specific bill id</li>
+<li>ref is the billing reference</li>
+<li>custid is the customer reference</li>
+</ul>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?ref=:customerref
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custid=:custid
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;err-msg&quot;: &quot;&quot;,
+ &quot;count&quot;: 1,
+ &quot;bills&quot;: [
+  {
+   &quot;bill_id&quot;: &quot;1&quot;,
+   &quot;bill_name&quot;: &quot;Router bills&quot;,
+   &quot;bill_type&quot;: &quot;cdr&quot;,
+   &quot;bill_cdr&quot;: &quot;10000000&quot;,
+   &quot;bill_day&quot;: &quot;1&quot;,
+   &quot;bill_quota&quot;: &quot;0&quot;,
+   &quot;rate_95th_in&quot;: &quot;0&quot;,
+   &quot;rate_95th_out&quot;: &quot;0&quot;,
+   &quot;rate_95th&quot;: &quot;0&quot;,
+   &quot;dir_95th&quot;: &quot;in&quot;,
+   &quot;total_data&quot;: &quot;0&quot;,
+   &quot;total_data_in&quot;: &quot;0&quot;,
+   &quot;total_data_out&quot;: &quot;0&quot;,
+   &quot;rate_average_in&quot;: &quot;0&quot;,
+   &quot;rate_average_out&quot;: &quot;0&quot;,
+   &quot;rate_average&quot;: &quot;0&quot;,
+   &quot;bill_last_calc&quot;: &quot;2015-07-02 17:01:26&quot;,
+   &quot;bill_custid&quot;: &quot;Router&quot;,
+   &quot;bill_ref&quot;: &quot;Router&quot;,
+   &quot;bill_notes&quot;: &quot;Bill me&quot;,
+   &quot;bill_autoadded&quot;: &quot;0&quot;,
+   &quot;ports_total&quot;: &quot;0&quot;,
+   &quot;allowed&quot;: &quot;10Mbps&quot;,
+   &quot;used&quot;: &quot;0bps&quot;,
+   &quot;percent&quot;: 0,
+   &quot;overuse&quot;: &quot;-&quot;,
+   &quot;ports&quot;: [
+       {
+           &quot;device_id&quot;: &quot;168&quot;,
+           &quot;port_id&quot;: &quot;35146&quot;,
+           &quot;ifName&quot;: &quot;eth0&quot;
+       }
+   ]
+  }
+ ]
+}
+</code></pre>
+
+  <br>
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ARP/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ARP/" class="btn btn-xs btn-link">
+        ARP
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Inventory/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Inventory/" class="btn btn-xs btn-link">
+        Inventory
+      </a>
+    </div>
+    
+  </div>
+
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

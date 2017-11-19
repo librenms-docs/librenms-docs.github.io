@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Support/Support-New-OS/">
+    <link rel="canonical" href="http://docs.librenms.org/API/Switching/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Support New OS - LibreNMS Docs</title>
+    <title>Switching - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,6 +33,8 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "get_vlans", url: "#get_vlans", children: [
+          ]},
         ];
 
     </script>
@@ -59,20 +61,65 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <div class="container-fluid wm-page-content">
     
-
-
-    
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Support/Support-New-OS.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/API/Switching.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <p><meta http-equiv="refresh" content="0; url=/Developing/Support-New-OS/" /></p>
+    <h3 id="get_vlans"><code>get_vlans</code></h3>
+<p>Get a list of all VLANs for a given device.</p>
+<p>Route: <code>/api/v0/devices/:hostname/vlans</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/vlans
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;count&quot;: 0,
+    &quot;vlans&quot;: [
+    {
+   &quot;vlan_vlan&quot;: &quot;1&quot;,
+   &quot;vlan_domain&quot;: &quot;1&quot;,
+   &quot;vlan_name&quot;: &quot;default&quot;,
+   &quot;vlan_type&quot;: &quot;ethernet&quot;,
+   &quot;vlan_mtu&quot;: null
+    }
+  ]
+}
+</code></pre>
 
   <br>
     
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Inventory/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Inventory/" class="btn btn-xs btn-link">
+        Inventory
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Routing/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Routing/" class="btn btn-xs btn-link">
+        Routing
+      </a>
+    </div>
+    
+  </div>
 
 
     <br>

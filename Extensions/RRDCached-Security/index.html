@@ -62,9 +62,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <div class="container-fluid wm-page-content">
     
 
-
-    
-
     <h3 id="securing-with-nginx">Securing with nginx</h3>
 <p>According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>, under "SECURITY CONSIDERATIONS", rrdcached has no authentication or security except for running under a unix socket. To secure your rrdcached installation, you can proxy it using nginx to allow only specific IPs to connect.</p>
 <p>using the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.</p>
@@ -100,6 +97,28 @@ This will bind nginx to TCP 42217 (the default rrdcached port), allow the specif
 
   <br>
     
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../General/Credits/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../General/Credits/" class="btn btn-xs btn-link">
+        Credits
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Port-Description-Parser/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Port-Description-Parser/" class="btn btn-xs btn-link">
+        Parsing Port Descriptions
+      </a>
+    </div>
+    
+  </div>
 
 
     <br>

@@ -89,6 +89,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
     <a href="" class="wm-top-brand wm-top-link wm-vcenter">
       
+        <img class="wm-top-logo" src="./img/librenms.svg"/>
+      
       <div class="wm-top-title">
         LibreNMS Docs<br>
         
@@ -149,7 +151,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <li class="wm-toc-li-nested collapse">
     <ul class="wm-toctree">
         
-  <li class="wm-toc-li wm-toc-lev2 "><a href="Installation/Installing-LibreNMS/" class="wm-article-link wm-toc-text">Installing LibreNMS</a>
+  <li class="wm-toc-li wm-toc-lev2 "><a href="Installation/" class="wm-article-link wm-toc-text">Installing LibreNMS</a>
   </li>
 
         
@@ -361,8 +363,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </li>
 
         
-  <li class="wm-toc-li wm-toc-lev2 "><a href="Extensions/Metric-Storage/" class="wm-article-link wm-toc-text">Storing Metrics</a>
+  <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Storing Metrics</span>
   </li>
+  <li class="wm-toc-li-nested collapse">
+    <ul class="wm-toctree">
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Extensions/Metric-Storage/" class="wm-article-link wm-toc-text">Intro</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Extensions/metrics/InfluxDB/" class="wm-article-link wm-toc-text">InfluxDB</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Extensions/metrics/Graphite/" class="wm-article-link wm-toc-text">Graphite</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Extensions/metrics/OpenTSDB/" class="wm-article-link wm-toc-text">OpenTSDB</a>
+  </li>
+
+    </ul>
+  </li>
+  
 
         
   <li class="wm-toc-li wm-toc-lev2 "><a href="Extensions/Smokeping/" class="wm-article-link wm-toc-text">Smokeping</a>
@@ -382,7 +405,55 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <li class="wm-toc-li-nested collapse">
     <ul class="wm-toctree">
         
-  <li class="wm-toc-li wm-toc-lev2 "><a href="API/" class="wm-article-link wm-toc-text">Home</a>
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/" class="wm-article-link wm-toc-text">Using the API</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Devices/" class="wm-article-link wm-toc-text">Devices</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/DeviceGroups/" class="wm-article-link wm-toc-text">DeviceGroups</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Ports/" class="wm-article-link wm-toc-text">Ports</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/PortGroups/" class="wm-article-link wm-toc-text">PortGroups</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Alerts/" class="wm-article-link wm-toc-text">Alerts</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Routing/" class="wm-article-link wm-toc-text">Routing</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Switching/" class="wm-article-link wm-toc-text">Switching</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Inventory/" class="wm-article-link wm-toc-text">Inventory</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Bills/" class="wm-article-link wm-toc-text">Bills</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/ARP/" class="wm-article-link wm-toc-text">ARP</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Services/" class="wm-article-link wm-toc-text">Services</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="API/Logs/" class="wm-article-link wm-toc-text">Logs</a>
   </li>
 
     </ul>
@@ -394,6 +465,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </li>
   <li class="wm-toc-li-nested collapse">
     <ul class="wm-toctree">
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="Alerting/" class="wm-article-link wm-toc-text">Intro</a>
+  </li>
+
         
   <li class="wm-toc-li wm-toc-lev2 "><a href="Alerting/Rules/" class="wm-article-link wm-toc-text">Rules</a>
   </li>
@@ -431,6 +506,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </li>
   <li class="wm-toc-li-nested collapse">
     <ul class="wm-toctree">
+        
+  <li class="wm-toc-li wm-toc-lev2 "><a href="Support/" class="wm-article-link wm-toc-text">How to get help</a>
+  </li>
+
         
   <li class="wm-toc-li wm-toc-lev2 "><a href="Support/FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
   </li>
@@ -481,7 +560,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <li class="wm-toc-li-nested collapse">
     <ul class="wm-toctree">
         
-  <li class="wm-toc-li wm-toc-lev2 "><a href="General/Contributing/" class="wm-article-link wm-toc-text">Contributing</a>
+  <li class="wm-toc-li wm-toc-lev2 "><a href="Developing/" class="wm-article-link wm-toc-text">Contributing</a>
   </li>
 
         
@@ -517,15 +596,52 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </li>
 
         
-  <li class="wm-toc-li wm-toc-lev2 "><a href="Developing/Support-New-OS/" class="wm-article-link wm-toc-text">Adding support for a new OS</a>
+  <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Support for a new OS</span>
   </li>
+  <li class="wm-toc-li-nested collapse">
+    <ul class="wm-toctree">
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/Support-New-OS/" class="wm-article-link wm-toc-text">Intro</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Initial-Detection/" class="wm-article-link wm-toc-text">Initial Detection</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Mem-CPU-Information/" class="wm-article-link wm-toc-text">Mem CPU Information</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Test-Units/" class="wm-article-link wm-toc-text">Test Units</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Health-Information/" class="wm-article-link wm-toc-text">Health Information</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Wireless-Sensors/" class="wm-article-link wm-toc-text">Wireless Sensors</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Custom-Graphs/" class="wm-article-link wm-toc-text">Custom Graphs</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/os/Settings/" class="wm-article-link wm-toc-text">Settings</a>
+  </li>
+
+        
+  <li class="wm-toc-li wm-toc-lev3 "><a href="Developing/Sensor-State-Support/" class="wm-article-link wm-toc-text">Sensor State Support</a>
+  </li>
+
+    </ul>
+  </li>
+  
 
         
   <li class="wm-toc-li wm-toc-lev2 "><a href="Developing/Dynamic-Config/" class="wm-article-link wm-toc-text">Dynamic Config</a>
-  </li>
-
-        
-  <li class="wm-toc-li wm-toc-lev2 "><a href="Developing/Sensor-State-Support/" class="wm-article-link wm-toc-text">Sensor State Support</a>
   </li>
 
         
@@ -573,15 +689,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <div class="container-fluid wm-page-content">
     
 
-
-    
-
-    <div class="row">
+    <p><br />
+<br />
+<div class="row">
     <div class="col-md-4">
         <div class="well">
             <div class="home-header">
+              <a href="/Installation/">
                 <i class="fa fa-download fa-2x"></i>
                 <span> Installing</span>
+              </a>
             </div>
             <br />
             <a href="/Installation/Installation-Ubuntu-1604-Nginx/">Ubuntu 16.04 + Nginx</a><br />
@@ -594,7 +711,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <div class="well">
             <div class="home-header">
                 <i class="fa fa-plug fa-2x"></i>
-                <span> Extensions</span>
+                <span> Setup</span>
             </div>
             <br />
             <a href="/Extensions/Auto-Discovery/">Auto Discovery</a><br />
@@ -606,8 +723,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <div class="col-md-4">
         <div class="well">
             <div class="home-header">
+              <a href="/Alerting/">
                 <i class="fa fa-bell fa-2x"></i>
                 <span> Alerting</span>
+              </a>
             </div>
             <br />
             <a href="/Alerting/Rules/#rules">Rules</a><br />
@@ -617,51 +736,70 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-4">
         <div class="well">
             <div class="home-header">
+              <a href="/API/">
                 <i class="fa fa-connectdevelop fa-2x"></i>
                 <span> API</span>
+              </a>
             </div>
             <br />
-            <a href="/API/">API Docs</a><br>
-            <a href="/API/#api-structure">API Structure</a><br>
-            <a href="/API/#api-endpoints">API Endpoints</a><br>
-            <a href="/API/"><strong>More...</strong></a>
+            <a href="/API/">Using the API</a><br />
+            <a href="/API/#endpoint-categories">API Endpoints</a><br />
+            <br />
+            <br />
         </div>
     </div>
     <div class="col-md-4">
         <div class="well">
             <div class="home-header">
+              <a href="/Support/">
                 <i class="fa fa-ambulance fa-2x"></i>
                 <span> Support</span>
+              </a>
             </div>
             <br />
             <a href="/Support/FAQ/">FAQ</a><br />
             <a href="/Support/Install%20Validation/">Install validation</a><br />
             <a href="/Support/Performance/">Performance tweaks</a><br />
-            <strong>More...</strong>
+            <a href="/Support/"><strong>More...</strong></a>
         </div>
     </div>
     <div class="col-md-4">
         <div class="well">
             <div class="home-header">
+              <a href="/Developing/">
                 <i class="fa fa-code-fork fa-2x"></i>
                 <span> Developing</span>
+              </a>
             </div>
             <br />
             <a href="/Developing/Code-Guidelines/">Code Guidelines</a><br />
             <a href="/Developing/Validating-Code/">Validating Code</a><br />
             <a href="/Developing/Using-Git/">Using Git</a><br />
-            <strong>More...</strong>
+            <a href="/Developing/"><strong>More...</strong></a>
         </div>
     </div>
-</div>
+</div></p>
 
   <br>
     
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="General/Acknowledgement/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="General/Acknowledgement/" class="btn btn-xs btn-link">
+        Acknowledgements
+      </a>
+    </div>
+    
+  </div>
 
 
     <br>
@@ -675,5 +813,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </html>
 <!--
 MkDocs version : 0.17.2
-Build Date UTC : 2017-11-18 10:40:20
+Build Date UTC : 2017-11-19 01:27:25
 -->
