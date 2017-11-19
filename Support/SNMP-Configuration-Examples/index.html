@@ -92,7 +92,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     - <a href="#linux-snmpd">Linux (snmpd v2)</a>
     - <a href="#linux-snmpd-v3">Linux (snmpd v3)</a>
     - <a href="#windows-server-2008-r2">Windows Server 2008 R2</a>
-    - <a href="#windows-server-2012-r2-and-2016">Windows Server 2012 R2 and 2016</a></p>
+    - <a href="#windows-server-2012-r2-and-2016">Windows Server 2012 R2 and 2016</a>
+    - <a href="#Mac-OSX">Mac OSX</a></p>
 <h2 id="devices">Devices</h2>
 <h3 id="cisco">Cisco</h3>
 <h4 id="adaptive-security-appliance-asa">Adaptive Security Appliance (ASA)</h4>
@@ -316,6 +317,30 @@ syscontact Your Name &lt;your@email.address&gt;
 <li>In "Accept SNMP packets from these hosts" click "Add" and add your LibreNMS server IP address</li>
 <li>Validate change by clicking "Apply"</li>
 </ol>
+<h3 id="mac-osx">Mac OSX</h3>
+<p>Step 1: <code>sudo nano /etc/snmp/snmpd.conf</code></p>
+<pre><code class="bash">#Allow read-access with the following SNMP Community String:
+rocommunity public
+
+# all other settings are optional but recommended.
+
+# Location of the device
+syslocation data centre A
+
+# Human Contact for the device
+syscontact SysAdmin
+
+# System Name of the device
+sysName SystemName
+
+# the system OID for this device. This is optional but recommended,
+# to identify this as a MAC OS system.
+sysobjectid 1.3.6.1.4.1.8072.3.2.16
+</code></pre>
+
+<p>Step 2: </p>
+<pre><code class="bash">sudo launchctl load -w /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
+</code></pre>
 
   <br>
     
