@@ -225,7 +225,7 @@ systemctl enable snmpd
 systemctl restart snmpd
 </code></pre>
 <h3 id="cron-job">Cron job</h3>
-<pre><code>cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms`
+<pre><code>cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
 </code></pre>
 <h4 id="copy-logrotate-config">Copy logrotate config</h4>
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can become large and be rotated out.  To rotate out the old logs you can use the provided logrotate config file:</p>
