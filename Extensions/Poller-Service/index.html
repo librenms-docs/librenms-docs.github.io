@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/Poller-Service/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Poller Service (BETA) - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Poller Service", url: "#poller-service", children: [
+          ]},
+          {title: "WARNING: THIS IS HIGHLY EXPERIMENTAL AND MAY NOT WORK", url: "#warning-this-is-highly-experimental-and-may-not-work", children: [
+              {title: "Configuration", url: "#configuration" },
+              {title: "Distributed Polling", url: "#distributed-polling" },
+              {title: "Multi-Master MySQL considerations", url: "#multi-master-mysql-considerations" },
+              {title: "Single Connection", url: "#single-connection" },
+              {title: "Service Installation", url: "#service-installation" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Poller-Service.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h1 id="poller-service">Poller Service</h1>
+<h1 id="warning-this-is-highly-experimental-and-may-not-work">WARNING: THIS IS HIGHLY EXPERIMENTAL AND MAY NOT WORK</h1>
+<p>The Poller service is an alternative to polling and discovery cron jobs and provides support for distributed polling without memcache. It is multi-threaded and runs continuously discovering and polling devices with the oldest data attempting to honor the polling frequency configured in <code>config.php</code>. This service replaces all the required cron jobs except for <code>/opt/librenms/daily.sh</code> and <code>/opt/librenms/alerts.php</code>.</p>
+<p>Configure the maximum number of threads for the service in <code>$config['poller_service_workers']</code>. Configure the minimum desired polling frequency in <code>$config['poller_service_poll_frequency']</code> and the minimum desired discovery frequency in <code>$config['poller_service_discover_frequency']</code>. The service will not poll or discover devices which have data newer than this this configured age in seconds. Configure how frequently the service will attempt to poll devices which are down in <code>$config['poller_service_down_retry']</code>. If you have enough pollers that the worker threads run out of work, the service will query looking for devices every <code>$config['poller_service_retry_query']</code> seconds.</p>
+<p>The poller service is designed to gracefully degrade. If not all devices can be polled within the configured frequency, the service will continuously poll devices refreshing as frequently as possible using the configured number of threads.</p>
+<p>The service logs to syslog. A loglevel of INFO will print status updates every 5 minutes. Loglevel of DEBUG will print updates on every device as it is scanned.</p>
+<h2 id="configuration">Configuration</h2>
+<pre><code class="php">// Poller-Service settings
+$config['poller_service_loglevel']                       = &quot;INFO&quot;;
+$config['poller_service_workers']                        = 16;
+$config['poller_service_poll_frequency']                 = 300;
+$config['poller_service_discover_frequency']             = 21600;
+$config['poller_service_down_retry']                     = 60;
+$config['poller_service_retry_query']                    = 1;
+$config['poller_service_single_connection']              = false;
+</code></pre>
+
+<h2 id="distributed-polling">Distributed Polling</h2>
+<p>Distributed polling is possible, and uses the same configuration options as are described for traditional distributed polling, except that the memcached options are not necessary. The database must be accessible from the distributed pollers, and properly configured. Remote access to the RRD directory must also be configured as described in the Distributed Poller documentation. Memcache is not required. Concurrency is managed using mysql GET_LOCK to ensure that devices are only being polled by one device at at time. The poller service is compatible with poller groups.</p>
+<h2 id="multi-master-mysql-considerations">Multi-Master MySQL considerations</h2>
+<p>Because locks are not replicated in Multi-Master MySQL configurations, if you are using such a configuration, you will need to make sure that all pollers are using the same MySQL server.</p>
+<h2 id="single-connection">Single Connection</h2>
+<p>If you are running MariaDB 10.2 or newer, you can tell poller-service to use a single mysql connection for managing locks by setting <code>$config['poller_service_single_connection']</code> to <code>true</code>. <em>DO NOT</em> configure this for any version of MariaDB less than 10.2 or any version of MySQL.</p>
+<h2 id="service-installation">Service Installation</h2>
+<h3 id="upstart">Upstart</h3>
+<p>An upstart configuration file can be found in <code>scripts/librenms-poller-service.conf</code>. To install run <code>cp /opt/librenms/scripts/librenms-poller-service.conf /etc/init/librenms-poller-service.conf</code>. The service will start on boot and can be started manually by running <code>start librenms-poller-service</code>. If you receive an error that the service does not exist, run <code>initctl reload-configuration</code>. The service is configured to run as the user <code>librenms</code> and will fail if that user does not exist.</p>
+<h3 id="lsb">LSB</h3>
+<p>An LSB init script can be found in <code>scripts/librenms-poller-service.init</code>. To install run <code>cp /opt/librenms/scripts/librenms-poller-service.init /etc/init.d/librenms-poller-service &amp;&amp; update-rc.d librenms-poller-service defaults</code>.</p>
+<h3 id="systemd">systemd</h3>
+<p>A systemd unit file can be found in <code>scripts/librenms-poller-service.service</code>. To install run <code>cp /opt/librenms/scripts/librenms-poller-service.service /etc/systemd/system/librenms-poller-service.service &amp;&amp; systemctl enable --now librenms-poller-service.service</code>.</p>
+
+  <br>
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../RRDTune/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../RRDTune/" class="btn btn-xs btn-link">
+        RRDTune
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Varnish/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Varnish/" class="btn btn-xs btn-link">
+        Varnish Installation Guide #
+      </a>
+    </div>
+    
+  </div>
+
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

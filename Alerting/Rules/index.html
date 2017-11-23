@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="LibreNMS">
+    <link rel="canonical" href="http://docs.librenms.org/Alerting/Rules/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Rules - LibreNMS Docs</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../librenms.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Rules", url: "#rules", children: [
+              {title: "Video on how the alert rules work in LibreNMS", url: "#video-on-how-the-alert-rules-work-in-librenms" },
+              {title: "Video on how to use alert rule with wildcards", url: "#video-on-how-to-use-alert-rule-with-wildcards" },
+              {title: "Syntax", url: "#syntax" },
+          ]},
+          {title: "Options", url: "#options", children: [
+              {title: "Examples", url: "#examples" },
+              {title: "Procedure", url: "#procedure" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-79149977-2', 'docs.librenms.org');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+    
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Alerting/Rules.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
+
+    <h1 id="rules">Rules</h1>
+<p>Rules are defined using a logical language.
+The GUI provides a simple way of creating basic rules.
+Creating more complicated rules which may include maths calculations and MySQL queries can be 
+done using <a href="../Macros/">macros</a></p>
+<h4 id="video-on-how-the-alert-rules-work-in-librenms">Video on how the alert rules work in LibreNMS</h4>
+<p><a href="https://youtu.be/ryv0j8GEkhM">Alert Rules</a></p>
+<h4 id="video-on-how-to-use-alert-rule-with-wildcards">Video on how to use alert rule with wildcards</h4>
+<p><a href="https://youtu.be/eYYioFNcrAk">Alert Rules wildcard</a></p>
+<h2 id="syntax">Syntax</h2>
+<p>Rules must consist of at least 3 elements: An <strong>Entity</strong>, a <strong>Condition</strong> and a <strong>Value</strong>.
+Rules can contain braces and <strong>Glues</strong>.
+<strong>Entities</strong> are provided from Table and Field from the database. For Example: <code>%ports.ifOperStatus</code>.</p>
+<blockquote>
+<p>Please note that % is not required when adding alert rules via the WebUI. </p>
+</blockquote>
+<p><strong>Conditions</strong> can be any of:</p>
+<ul>
+<li>Equals <code>=</code></li>
+<li>Not Equals <code>!=</code></li>
+<li>Like <code>~</code></li>
+<li>Not Like <code>!~</code></li>
+<li>Greater <code>&gt;</code></li>
+<li>Greater or Equal <code>&gt;=</code></li>
+<li>Smaller <code>&lt;</code></li>
+<li>Smaller or Equal <code>&lt;=</code></li>
+</ul>
+<p><strong>Values</strong> can be an entity or any single-quoted data.
+<strong>Glues</strong> can be either <code>&amp;&amp;</code> for <code>AND</code>.  or <code>||</code> for <code>OR</code>. Note if you need to use <code>OR</code> <code>||</code> please use a macro. </p>
+<p><strong>Note</strong>: The difference between <code>Equals</code> and <code>Like</code> (and its negation) is that <code>Equals</code> does a strict comparison and <code>Like</code> allows the usage of MySQL RegExp.</p>
+<p>Arithmetics are allowed as well.</p>
+<h1 id="options">Options</h1>
+<p>Here are some of the other options available when adding an alerting rule:</p>
+<ul>
+<li>Rule name: The name associated with the rule.</li>
+<li>Severity: How "important" the rule is.</li>
+<li>Max alerts: The maximum number of alerts sent for the event.  <code>-1</code> means unlimited.</li>
+<li>Delay: The amount of time in seconds to wait after a rule is matched before sending an alert.</li>
+<li>Interval: The interval of time in seconds between alerts for an event until Max is reached.</li>
+<li>Mute alerts: Disable sending alerts for this rule.</li>
+<li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>Alert when:</p>
+<ul>
+<li>Device goes down: <code>%devices.status != '1'</code></li>
+<li>Any port changes: <code>%ports.ifOperStatus != 'up'</code></li>
+<li>Root-directory gets too full: <code>%storage.storage_descr = '/' &amp;&amp; %storage.storage_perc &gt;= '75'</code></li>
+<li>Any storage gets fuller than the 'warning': <code>%storage.storage_perc &gt;= %storage_perc_warn</code></li>
+<li>If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>%storage.storage_perc &gt; %storage.storage_perc_warn &amp;&amp; %devices.type = "server" &amp;&amp; %storage.storage_descr !~ "/boot"</code></li>
+<li>VMware LAG is not using "Source ip address hash" load balancing: <code>%devices.os = "vmware" &amp;&amp; %ports.ifType = "ieee8023adLag" &amp;&amp; %ports.ifDescr !~ "Link Aggregation @, load balancing algorithm: Source ip address hash"</code></li>
+<li>Syslog, authentication failure during the last 5m: <code>%syslog.timestamp &gt;= %macros.past_5m &amp;&amp; %syslog.msg ~ "@authentication failure@"</code></li>
+<li>High memory usage: <code>%macros.device_up = "1" &amp;&amp; %mempools.mempool_perc &gt;= "90" &amp;&amp; %mempools.mempool_descr = "Virtual@"</code></li>
+<li>High CPU usage(per core usage, not overall): <code>%macros.device_up = "1" &amp;&amp; %processors.processor_usage &gt;= "90"</code></li>
+<li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code></li>
+<li>Alert when mac address is located on your network <code>%ipv4_mac.mac_address = "2c233a756912"</code></li>
+</ul>
+<h3 id="alert-rules-collection">Alert Rules Collection</h3>
+<p>You can also select Alert Rule from the Alerts Collection. These Alert Rules are submitted by users in the community :)
+If would like to submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a>
+<img alt="Alert Rules Collection" src="../../img/alert-rules-collection.png" /></p>
+<h2 id="procedure">Procedure</h2>
+<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
+
+  <br>
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Templates/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Templates/" class="btn btn-xs btn-link">
+        Templates
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Intro
+      </a>
+    </div>
+    
+  </div>
+
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
