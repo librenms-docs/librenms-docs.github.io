@@ -39,8 +39,8 @@
               {title: "Syntax", url: "#syntax" },
           ]},
           {title: "Options", url: "#options", children: [
-              {title: "Examples", url: "#examples" },
               {title: "Procedure", url: "#procedure" },
+              {title: "Examples", url: "#examples" },
           ]},
         ];
 
@@ -89,9 +89,9 @@ done using <a href="../Macros/">macros</a></p>
 Rules can contain braces and <strong>Glues</strong>.
 <strong>Entities</strong> are provided from Table and Field from the database. For Example: <code>%ports.ifOperStatus</code>.</p>
 <blockquote>
-<p>Please note that % is not required when adding alert rules via the WebUI. </p>
+<p>Please note that % is not required when adding alert rules via the WebUI. 
+<strong>Conditions</strong> can be any of:</p>
 </blockquote>
-<p><strong>Conditions</strong> can be any of:</p>
 <ul>
 <li>Equals <code>=</code></li>
 <li>Not Equals <code>!=</code></li>
@@ -117,27 +117,25 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>Mute alerts: Disable sending alerts for this rule.</li>
 <li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
 </ul>
+<h2 id="procedure">Procedure</h2>
+<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
 <h2 id="examples">Examples</h2>
-<p>Alert when:</p>
-<ul>
-<li>Device goes down: <code>%devices.status != '1'</code></li>
-<li>Any port changes: <code>%ports.ifOperStatus != 'up'</code></li>
-<li>Root-directory gets too full: <code>%storage.storage_descr = '/' &amp;&amp; %storage.storage_perc &gt;= '75'</code></li>
-<li>Any storage gets fuller than the 'warning': <code>%storage.storage_perc &gt;= %storage_perc_warn</code></li>
-<li>If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>%storage.storage_perc &gt; %storage.storage_perc_warn &amp;&amp; %devices.type = "server" &amp;&amp; %storage.storage_descr !~ "/boot"</code></li>
-<li>VMware LAG is not using "Source ip address hash" load balancing: <code>%devices.os = "vmware" &amp;&amp; %ports.ifType = "ieee8023adLag" &amp;&amp; %ports.ifDescr !~ "Link Aggregation @, load balancing algorithm: Source ip address hash"</code></li>
-<li>Syslog, authentication failure during the last 5m: <code>%syslog.timestamp &gt;= %macros.past_5m &amp;&amp; %syslog.msg ~ "@authentication failure@"</code></li>
-<li>High memory usage: <code>%macros.device_up = "1" &amp;&amp; %mempools.mempool_perc &gt;= "90" &amp;&amp; %mempools.mempool_descr = "Virtual@"</code></li>
-<li>High CPU usage(per core usage, not overall): <code>%macros.device_up = "1" &amp;&amp; %processors.processor_usage &gt;= "90"</code></li>
-<li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code></li>
-<li>Alert when mac address is located on your network <code>%ipv4_mac.mac_address = "2c233a756912"</code></li>
-</ul>
+<p>Alert when:
+- Device goes down: <code>%devices.status != '1'</code>
+- Any port changes: <code>%ports.ifOperStatus != 'up'</code>
+- Root-directory gets too full: <code>%storage.storage_descr = '/' &amp;&amp; %storage.storage_perc &gt;= '75'</code>
+- Any storage gets fuller than the 'warning': <code>%storage.storage_perc &gt;= %storage_perc_warn</code>
+- If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>%storage.storage_perc &gt; %storage.storage_perc_warn &amp;&amp; %devices.type = "server" &amp;&amp; %storage.storage_descr !~ "/boot"</code>
+- VMware LAG is not using "Source ip address hash" load balancing: <code>%devices.os = "vmware" &amp;&amp; %ports.ifType = "ieee8023adLag" &amp;&amp; %ports.ifDescr !~ "Link Aggregation @, load balancing algorithm: Source ip address hash"</code>
+- Syslog, authentication failure during the last 5m: <code>%syslog.timestamp &gt;= %macros.past_5m &amp;&amp; %syslog.msg ~ "@authentication failure@"</code>
+- High memory usage: <code>%macros.device_up = "1" &amp;&amp; %mempools.mempool_perc &gt;= "90" &amp;&amp; %mempools.mempool_descr = "Virtual@"</code>
+- High CPU usage(per core usage, not overall): <code>%macros.device_up = "1" &amp;&amp; %processors.processor_usage &gt;= "90"</code>
+- High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code>
+- Alert when mac address is located on your network <code>%ipv4_mac.mac_address = "2c233a756912"</code></p>
 <h3 id="alert-rules-collection">Alert Rules Collection</h3>
 <p>You can also select Alert Rule from the Alerts Collection. These Alert Rules are submitted by users in the community :)
 If would like to submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a>
 <img alt="Alert Rules Collection" src="../../img/alert-rules-collection.png" /></p>
-<h2 id="procedure">Procedure</h2>
-<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
 
   <br>
     
