@@ -36,7 +36,7 @@
           {title: "Authentication modules", url: "#authentication-modules", children: [
               {title: "Available authentication modules", url: "#available-authentication-modules" },
               {title: "Enable authentication module", url: "#enable-authentication-module" },
-              {title: "User levels", url: "#user-levels" },
+              {title: "User levels and User account type", url: "#user-levels-and-user-account-type" },
               {title: "Note for SELinux users", url: "#note-for-selinux-users" },
               {title: "Testing authentication", url: "#testing-authentication" },
           ]},
@@ -119,21 +119,22 @@ Here we will provide configuration details for these modules.</p>
 <pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
 </code></pre>
 
-<h3 id="user-levels">User levels</h3>
+<h3 id="user-levels-and-user-account-type">User levels and User account type</h3>
 <ul>
 <li>
-<p>1: Normal User. You will need to assign device / port permissions for users at this level.</p>
+<p>1: <strong>Normal User</strong>: You will need to assign device / port permissions for users at this level.</p>
 </li>
 <li>
-<p>5: Global Read.</p>
+<p>5: <strong>Global Read</strong>: Read only Administrator. </p>
 </li>
 <li>
-<p>10: This is a global read/write admin account</p>
+<p>10: <strong>Administartor</strong>: This is a global read/write admin account.</p>
 </li>
 <li>
-<p>11: Demo Account. Provides full read/write with certain restrictions (i.e can't delete devices).</p>
+<p>11: <strong>Demo Account</strong>: Provides full read/write with certain restrictions (i.e can't delete devices).</p>
 </li>
 </ul>
+<p><strong>Note</strong> Oxidized configs can often contain sensitive data. Because of that only Administrator account type can see configs.</p>
 <h3 id="note-for-selinux-users">Note for SELinux users</h3>
 <p>When using SELinux on the LibreNMS server, you need to allow Apache (httpd) to connect LDAP/Active Directory server, this is disabled by default. You can use SELinux Booleans to allow network access to LDAP resources with this command:</p>
 <pre><code class="shell">setsebool -P httpd_can_connect_ldap=1
