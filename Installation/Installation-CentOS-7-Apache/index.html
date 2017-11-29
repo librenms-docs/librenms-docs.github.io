@@ -165,7 +165,7 @@ systemctl restart httpd
 <p>Install the policy tool for SELinux:</p>
 <pre><code>yum install policycoreutils-python
 </code></pre>
-<p>Configure the contexts needed by LibreNMS:</p>
+<h5 id="configure-the-contexts-needed-by-librenms">Configure the contexts needed by LibreNMS:</h5>
 <pre><code>semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
 restorecon -RFvv /opt/librenms/logs/
@@ -173,6 +173,26 @@ semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/rrd(/.*)?'
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/rrd(/.*)?'
 restorecon -RFvv /opt/librenms/rrd/
 setsebool -P httpd_can_sendmail=1
+</code></pre>
+<h5 id="allow-fping">Allow fping</h5>
+<p>Create the file http_fping.tt with the following contents:</p>
+<pre><code>module http_fping 1.0;
+
+require {
+type httpd_t;
+class capability net_raw;
+class rawip_socket { getopt create setopt write read };
+}
+
+#============= httpd_t ==============
+allow httpd_t self:capability net_raw;
+allow httpd_t self:rawip_socket { getopt create setopt write read };
+</code></pre>
+
+<p>Then run these commands</p>
+<pre><code>checkmodule -M -m -o http_fping.mod http_fping.tt
+semodule_package -o http_fping.pp -m http_fping.mod
+semodule -i http_fping.pp
 </code></pre>
 <h4 id="allow-access-through-firewall">Allow access through firewall</h4>
 <pre><code>firewall-cmd --zone public --add-service http
