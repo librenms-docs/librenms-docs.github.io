@@ -60,6 +60,12 @@
               {title: "HTTP Authentication / LDAP Authorization", url: "#http-authentication-ldap-authorization" },
               {title: "View/embedded graphs without being logged into LibreNMS", url: "#viewembedded-graphs-without-being-logged-into-librenms" },
           ]},
+          {title: "Single Sign-on", url: "#single-sign-on", children: [
+              {title: "Basic Configuration", url: "#basic-configuration" },
+              {title: "Security", url: "#security" },
+              {title: "Advanced Configuration Options", url: "#advanced-configuration-options" },
+              {title: "Complete Configuration", url: "#complete-configuration" },
+          ]},
         ];
 
     </script>
@@ -112,6 +118,9 @@ Here we will provide configuration details for these modules.</p>
 </li>
 <li>
 <p>HTTP Auth: <a href="#http-authentication">http-auth</a>, <a href="#http-authentication-ad-authorization">ad_authorization</a>, <a href="#http-authentication-ldap-authorization">ldap_authorization</a></p>
+</li>
+<li>
+<p>Single Sign-on: <a href="#single-sign-on">sso</a></p>
 </li>
 </ul>
 <h3 id="enable-authentication-module">Enable authentication module</h3>
@@ -306,6 +315,102 @@ To disabled this caching (highly discourage) set this option to 0.</p>
 <h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
 <pre><code class="php">$config['allow_unauth_graphs_cidr'] = array(127.0.0.1/32');
 $config['allow_unauth_graphs'] = true;
+</code></pre>
+
+<h1 id="single-sign-on">Single Sign-on</h1>
+<p>The single sign-on mechanism is used to integrate with third party authentication providers that are managed outside of LibreNMS - such as ADFS, Shibboleth, EZProxy, BeyondCorp, and others.
+A large number of these methods use <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a> - the module has been written assuming the use of SAML, and therefore these instructions contain some SAML terminology, but it should be possible to use any software that works in a similar way.</p>
+<p>In order to make use of the single sign-on module, you need to have an Identity Provider up and running, and know how to configure your Relying Party to pass attributes to LibreNMS via header injection or environment variables. Setting these up is outside of the scope of this documentation.</p>
+<p>As this module deals with authentication, it is extremely careful about validating the configuration - if it finds that certain values in the configuration are not set, it will reject access rather than try and guess.</p>
+<h2 id="basic-configuration">Basic Configuration</h2>
+<p>To get up and running, all you need to do is configure the following values:</p>
+<pre><code class="php">$config['auth_mechanism']        = &quot;sso&quot;;
+$config['sso']['mode']           = &quot;env&quot;;
+$config['sso']['group_strategy'] = &quot;static&quot;;
+$config['sso']['static_level']   = 10;
+</code></pre>
+
+<p>This, along with the defaults, sets up a basic Single Sign-on setup that:
+<em> Reads values from environment variables
+</em> Automatically creates users when they're first seen
+<em> Authomatically updates users with new values
+</em> Gives everyone privilege level 10</p>
+<p>This happens to mimic the behaviour of <a href="#http-auth">http-auth</a>, so if this is the kind of setup you want, you're probably better of just going and using that mechanism.</p>
+<h2 id="security">Security</h2>
+<p>If there is a proxy involved (e.g. EZProxy, Azure AD Application Proxy, NGINX, mod_proxy) it's <strong><em>essential</em></strong> that you have some means in place to prevent headers being injected between the proxy and the end user, and also prevent end users from contacting LibreNMS directly.</p>
+<p>This should also apply to user connections to the proxy itself - the proxy <strong><em>must not</em></strong> be allowed to blindly pass through HTTP headers. <strong><em>mod</em>security</strong>_ should be considered a minimum, with a full <a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a> being strongly recommended. This advice applies to the IDP too.</p>
+<p>The mechanism includes very basic protection, in the form of an IP whitelist with should contain the source addresses of your proxies:</p>
+<pre><code class="php">$config['sso']['trusted_proxies'] = ['127.0.0.1/8', '::1/128', '192.0.2.0', '2001:DB8::'];
+</code></pre>
+
+<p>This configuration item should contain an array with a list of IP addresses or CIDR prefixes that are allowed to connect to LibreNMS and supply environment variables or headers.</p>
+<h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
+<h3 id="user-attribute">User Attribute</h3>
+<p>If for some reason your relying party doesn't store the username in <strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
+<pre><code class="php">$config['sso']['user_attr'] = 'HTTP_UID';
+</code></pre>
+
+<p>Note that the user lookup is a little special - normally headers are prefixed with <strong><em>HTTP_</em></strong>, however this is not the case for remote user - it's a special case. If you're using something different you need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or not yourself.</p>
+<h3 id="automatic-user-createupdate">Automatic User Create/Update</h3>
+<p>These are enabled by default:</p>
+<pre><code class="php">$config['sso']['create_users'] = true;
+$config['sso']['update_users'] = true;
+</code></pre>
+
+<p>If these are not enabled, user logins will be (somewhat silently) rejected unless an administrator has created the account in advance. Note that in the case of SAML federations, unless release of the users true identity has been negotiated with the IDP, the username (probably ePTID) is not likely to be predicable.</p>
+<h3 id="personalisation">Personalisation</h3>
+<p>If the attributes are being populated, you can instruct the mechanism to add additional information to the user's database entry:</p>
+<pre><code class="php">$config['sso']['email_attr']    = &quot;mail&quot;;
+$config['sso']['realname_attr'] = &quot;displayName&quot;;
+$config['sso']['descr_attr']    = &quot;unscoped-affiliation
+</code></pre>
+
+<h3 id="group-strategies">Group Strategies</h3>
+<h4 id="static">Static</h4>
+<p>As used above, <strong><em>static</em></strong> gives every single user the same privilege level. If you're working with a small team, or don't need access control, this is probably suitable.</p>
+<h4 id="attribute">Attribute</h4>
+<pre><code class="php">$config['sso']['group_strategy'] = &quot;attribute&quot;;
+$config['sso']['level_attr']     = &quot;entitlement&quot;;
+</code></pre>
+
+<p>If your Relying Party is capable of calculating the necessary privilege level, you can configure the module to read the privilege number straight from an attribute. <strong><em>sso</em>level_attr</strong><em> should contain the name of the attribute that the Relying Party exposes to LibreNMS - as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanism should find the value.</p>
+<h3 id="group-map">Group Map</h3>
+<p>This is the most flexible (and complex) way of assigning privileges.</p>
+<pre><code class="php">$config['sso']['group_strategy']  = &quot;map&quot;;
+$config['sso']['group_attr']      = &quot;member&quot;;
+$config['sso']['group_level_map'] = ['librenms-admins' =&gt; 10, 'librenms-readers' =&gt; 1, 'librenms-billingcontacts' =&gt; 5];
+$config['sso']['group_delimiter'] = ';';
+</code></pre>
+
+<p>The mechanism expects to find a delimited list of groups within the attribute that <strong><em>sso</em>group_attr</strong>_ points to. This should be an associative array of group name keys, with  privilege levels as values.
+The mechanism will scan the list and find the <strong><em>highest</em></strong> privilege level that the user is entitled to, and assign that value to the user.</p>
+<p>This format may be specific to Shibboleth; other relying party software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_ may create pseudo arrays).</p>
+<p>There is an optional value for sites with large numbers of groups:</p>
+<pre><code class="php">$config['sso']['group_filter']  = &quot;/librenms-(.*)/i&quot;;
+</code></pre>
+
+<p>This filter causes the mechanism to only consider groups matching a regular expression.</p>
+<h3 id="logout-behaviour">Logout Behaviour</h3>
+<p>LibreNMS has no capability to log out a user authenticated via Single Sign-On - that responsability falls to the Relying Party.</p>
+<p>If your Relying Party has a magic URL that needs to be called to end a session, you can configure LibreNMS to direct the user to it:</p>
+<pre><code class="php">$config['post_logout_action'] = '/Shibboleth.sso/Logout';
+</code></pre>
+
+<p>This option functions independantly of the Single Sign-on mechanism.</p>
+<h2 id="complete-configuration">Complete Configuration</h2>
+<p>This configuration works on my deployment with a Shibboleth relying party, injecting environment variables, with the IDP supplying a list of groups.</p>
+<pre><code class="php">$config['auth_mechanism'] = 'sso';
+$config['auth_logout_handler'] = '/Shibboleth.sso/Logout';
+$config['sso']['mode'] = 'env';
+$config['sso']['create_users'] = true;
+$config['sso']['update_users'] = true;
+$config['sso']['realname_attr'] = 'displayName';
+$config['sso']['email_attr'] = 'mail';
+$config['sso']['group_strategy'] = 'map';
+$config['sso']['group_attr'] = 'member';
+$config['sso']['group_filter'] = '/(librenms-.*)/i';
+$config['sso']['group_delimiter'] = ';';
+$config['sso']['group_level_map'] = ['librenms-demo' =&gt; 11, 'librenms-globaladmin' =&gt; 10, 'librenms-globalread' =&gt; 5, 'librenms-lowpriv'=&gt; 1];
 </code></pre>
 
   <br>
