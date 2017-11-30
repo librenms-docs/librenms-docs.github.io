@@ -35,6 +35,8 @@
         var pageToc = [
           {title: "list_bgp", url: "#list_bgp", children: [
           ]},
+          {title: "get_bgp", url: "#get_bgp", children: [
+          ]},
           {title: "list_ipsec", url: "#list_ipsec", children: [
           ]},
         ];
@@ -91,6 +93,42 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
  &quot;bgp_sessions&quot;: [
 
  ]
+}
+</code></pre>
+
+<h3 id="get_bgp"><code>get_bgp</code></h3>
+<p>Retrieves a BGP session by ID</p>
+<p>Route: <code>/api/v0/bgp/:id</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp/4
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;bgp_session&quot;: [
+        {
+            &quot;bgpPeer_id&quot;: &quot;4&quot;,
+            &quot;device_id&quot;: &quot;2&quot;,
+            &quot;astext&quot;: &quot;&quot;,
+            &quot;bgpPeerIdentifier&quot;: &quot;1234:1b80:1:12::2&quot;,
+            &quot;bgpPeerRemoteAs&quot;: &quot;54321&quot;,
+            &quot;bgpPeerState&quot;: &quot;established&quot;,
+            &quot;bgpPeerAdminStatus&quot;: &quot;running&quot;,
+            &quot;bgpLocalAddr&quot;: &quot;1234:1b80:1:12::1&quot;,
+            &quot;bgpPeerRemoteAddr&quot;: &quot;0.0.0.0&quot;,
+            &quot;bgpPeerInUpdates&quot;: &quot;3&quot;,
+            &quot;bgpPeerOutUpdates&quot;: &quot;1&quot;,
+            &quot;bgpPeerInTotalMessages&quot;: &quot;0&quot;,
+            &quot;bgpPeerOutTotalMessages&quot;: &quot;0&quot;,
+            &quot;bgpPeerFsmEstablishedTime&quot;: &quot;0&quot;,
+            &quot;bgpPeerInUpdateElapsedTime&quot;: &quot;0&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        }
+    ],
+    &quot;count&quot;: 1
 }
 </code></pre>
 
