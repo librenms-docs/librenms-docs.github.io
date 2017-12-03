@@ -195,18 +195,31 @@ modules:
 <li><code>high_limit</code> (optional): This is the critical high threshold that <code>value</code> should be (used in alerting).</li>
 <li><code>descr</code> (required): The visible label for this sensor. It can be a key with in the table or a static string, optionally using <code>{{ index }}</code></li>
 <li><code>index</code> (optional): This is the index value we use to uniquely identify this sensor. <code>{{ $index }}</code> will be replaced by the <code>index</code> from the snmp walk.</li>
-<li><code>skip_values</code> (optional): This is an array of values we should skip over.</li>
+<li><code>skip_values</code> (optional): This is an array of values we should skip over (see note below).</li>
 <li><code>skip_value_lt</code> (optional): If sensor value is less than this, skip the discovery.</li>
 <li><code>skip_value_gt</code> (optional): If sensor value is greater than this, skip the discovery.</li>
+<li><code>entPhysicalIndex</code> (optional): If the sensor belongs to a physical entity then you can specify the index here.</li>
+<li><code>entPhysicalIndex_measured</code> (optional): If the sensor belongs to a physical entity then you can specify the entity type here.</li>
+<li><code>user_func</code> (optional): You can provide a function name for the sensors value to be processed through (i.e. Convert fahrenheit to celsius use <code>fahrenheit_to_celsius</code>)</li>
 </ul>
 <p>For <code>options:</code> you have the following available:</p>
 <ul>
 <li><code>divisor</code>: This is the divisor to use against the returned <code>value</code>.</li>
 <li><code>multiplier</code>: This is the multiplier to use against the returned <code>value</code>.</li>
-<li><code>skip_values</code>: This is an array of values we should skip over.</li>
+<li><code>skip_values</code>: This is an array of values we should skip over (see note below).</li>
 <li><code>skip_value_lt</code>: If sensor value is less than this, skip the discovery.</li>
 <li><code>skip_value_gt</code>: If sensor value is greater than this, skip the discovery.</li>
 </ul>
+<blockquote>
+<p><code>skip_values</code> can also compare items within the OID table against values. One example of this is:</p>
+</blockquote>
+<pre><code class="yaml">                    skip_values:
+                    -
+                      oid: sensUnit
+                      op: '!='
+                      value: 4
+</code></pre>
+
 <p>If you aren't able to use yaml to perform the sensor discovery, you will most likely need to use Advanced health discovery. </p>
 <h4 id="advanced-health-discovery">Advanced health discovery</h4>
 <p>If you can't use the yaml files as above, then you will need to create the discovery code in php.</p>
