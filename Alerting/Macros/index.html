@@ -38,7 +38,6 @@
               {title: "Port (Boolean)", url: "#port-boolean" },
               {title: "Time", url: "#time" },
               {title: "Sensors (Boolean)", url: "#sensors-boolean" },
-              {title: "State Sensors (Boolean)", url: "#state-sensors-boolean" },
               {title: "Misc (Boolean)", url: "#misc-boolean" },
           ]},
         ];
@@ -142,10 +141,6 @@ All macros that are not unary should return Boolean.</p>
 <p>Entity: <code>%macros.sensor_port_link</code></p>
 <p>Description: Only selects sensors that have a port linked to them, the port is up and the device is up.</p>
 <p>Source: <code>(%sensors.entity_link_type = 'port' &amp;&amp; %sensors.entity_link_index = %ports.ifIndex &amp;&amp; %macros.port_up &amp;&amp; %macros.device_up))</code></p>
-<h2 id="state-sensors-boolean">State Sensors (Boolean)</h2>
-<p>Entity: <code>%macros.state_sensor_ok</code>, <code>%macros.state_sensor_warning</code>, <code>%macros.state_sensor_critical</code>, <code>%macros.state_sensor_unknown</code></p>
-<p>Description: Select state sensors by their generic status ok (0), warning (1), critical (2), unknown (3)</p>
-<p>Source: <code>(%sensors.sensor_current = %state_translations.state_value &amp;&amp; %state_translations.state_generic_value = 2)</code></p>
 <h2 id="misc-boolean">Misc (Boolean)</h2>
 <h3 id="packet-loss">Packet Loss</h3>
 <p>Entity: <code>(%macros.packet_loss_5m)</code></p>
