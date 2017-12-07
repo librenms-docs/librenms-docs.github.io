@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Extensions/Globe-Frontpage/">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/World-Map/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Globe Frontpage Configuration - LibreNMS Docs</title>
+    <title>World Map Configuration - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,9 +33,10 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Globe Frontpage Configuration", url: "#globe-frontpage-configuration", children: [
-              {title: "World Map", url: "#world-map" },
-              {title: "Leaflet config", url: "#leaflet-config" },
+          {title: "World Map Configuration", url: "#world-map-configuration", children: [
+              {title: "World Map Widget", url: "#world-map-widget" },
+              {title: "World Map Widget Settings", url: "#world-map-widget-settings" },
+              {title: "Offline OpenStreet Map", url: "#offline-openstreet-map" },
               {title: "Jquery-Mapael config", url: "#jquery-mapael-config" },
           ]},
         ];
@@ -66,36 +67,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Globe-Frontpage.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/World-Map.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <h1 id="globe-frontpage-configuration">Globe Frontpage Configuration</h1>
-<p>LibreNMS comes with a configurable geochart based widget to visualize where your equipment is located geographically.</p>
-<h3 id="world-map">World Map</h3>
-<p>An new map is available, this requires you to have properly formatted addresses in sysLocation or sysLocation override. As part of the standard poller these addresses will be Geocoded by Google and stored in the database. To enable this please set the following config:</p>
-<pre><code class="php">$config['geoloc']['latlng'] = true;
-$config['geoloc']['engine'] = &quot;google&quot;;//Only one available at present
-</code></pre>
-
-<p>Location resolution happens as follows (when <code>$config['geoloc']['latlng'] == true;</code>):
+    <h1 id="world-map-configuration">World Map Configuration</h1>
+<p>LibreNMS comes with a configurable Geo Map based on World Map Widget to visualize where your equipment is located geographically.</p>
+<h3 id="world-map-widget">World Map Widget</h3>
+<p>World Map Widget, requires you to have properly formatted addresses in sysLocation or sysLocation override. As part of the standard poller these addresses will be Geocoded by Google and stored in the database. </p>
+<p>Location resolution happens as follows
  1. If <code>device['location']</code> contains <code>[lat, lng]</code> (note the square brackets), that is used
  1. If there is a location overide for the device in the WebUI and it contains <code>[lat, lng]</code> (note the square brackets), that is used.
- 1. Attempt to resolve lat, lng using <code>$config['geoloc']['engine']</code></p>
+ 1. Attempt to resolve lat, lng using <code>$config['geoloc']['engine']</code>
+ 1. Properly formatted addresses in sysLocation or sysLocation override, under device settings.</p>
 <p>We have two current mapping engines available:</p>
 <ul>
 <li>Leaflet (default)</li>
 <li>Jquery-Mapael</li>
 </ul>
-<h3 id="leaflet-config">Leaflet config</h3>
-<p>This is a simple engine to use yet is quite powerful, here you can see how to enable this engine and zoom to a default place.</p>
-<pre><code class="php">$config['map']['engine']                                = &quot;leaflet&quot;;
-$config['leaflet']['default_lat']                       = &quot;50.898482&quot;;
-$config['leaflet']['default_lng']                       = &quot;-3.401402&quot;;
-$config['leaflet']['default_zoom']                       = 8;
-</code></pre>
-
+<h3 id="world-map-widget-settings">World Map Widget Settings</h3>
+<p>Example Settings:</p>
+<p><img alt="Example World Map Settings" src="../../img/world-map-widget-settings.png" /></p>
+<h3 id="offline-openstreet-map">Offline OpenStreet Map</h3>
 <p>If you can't access OpenStreet map directly you can run a local <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a>. To specify a different url you can set:</p>
 <pre><code class="php">$config['leaflet']['tile_url'] = 'localhost.com';
 </code></pre>
@@ -111,7 +105,7 @@ $config['mapael']['default_lng'] = '-3.401402';
 $config['mapael']['default_zoom'] = 20;
 </code></pre>
 
-<p>A list of maps can be found in html/js/maps/ or html/js/mapael-maps/.</p>
+<p>A list of maps can be found in <code>html/js/maps/</code> or <code>html/js/mapael-maps/</code>.</p>
 
   <br>
     
