@@ -553,6 +553,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.librenms.org/Support/Device-Sensors/</loc>
+     <lastmod>2017-12-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
