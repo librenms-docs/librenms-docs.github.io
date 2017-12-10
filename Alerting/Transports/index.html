@@ -92,7 +92,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="transports">Transports</h1>
-<p>Transports are located within <code>includes/alerts/transports.*.php</code> and defined as well as configured via <del><code>$config['alert']['transports']['Example'] = 'Some Options'</code></del>.</p>
+<p>Transports are located within <code>LibreNMS/Alert/Transport/</code> and defined as well as configured via <del><code>$config['alert']['transports']['Example'] = 'Some Options'</code></del>.</p>
 <p>Contacts will be gathered automatically and passed to the configured transports.
 By default the Contacts will be only gathered when the alert triggers and will ignore future changes in contacts for the incident. If you want contacts to be re-gathered before each dispatch, please set <del><code>$config['alert']['fixed-contacts'] = false;</code></del> in your config.php.</p>
 <p>The contacts will always include the <code>SysContact</code> defined in the Device's SNMP configuration and also every LibreNMS-User that has at least <code>read</code>-permissions on the entity that is to be alerted.</p>
