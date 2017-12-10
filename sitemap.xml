@@ -232,12 +232,6 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Extensions/Memcached/</loc>
-     <lastmod>2017-12-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://docs.librenms.org/Extensions/Sub-Directory/</loc>
      <lastmod>2017-12-10</lastmod>
      <changefreq>daily</changefreq>
