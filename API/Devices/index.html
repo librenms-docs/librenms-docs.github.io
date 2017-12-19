@@ -75,6 +75,8 @@
           ]},
           {title: "update_device_field", url: "#update_device_field", children: [
           ]},
+          {title: "rename_device", url: "#rename_device", children: [
+          ]},
           {title: "get_device_groups", url: "#get_device_groups", children: [
           ]},
         ];
@@ -885,6 +887,27 @@ Example:</li>
     {
         &quot;status&quot;: &quot;ok&quot;,
         &quot;message&quot;: &quot;Device fields have been updated&quot;
+    }
+]
+</code></pre>
+
+<h3 id="rename_device"><code>rename_device</code></h3>
+<p>Rename device.</p>
+<p>Route: <code>/api/v0/devices/:hostname/rename/:new_hostname</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Examples:</p>
+<pre><code class="curl">curl -X PATCH  -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/rename/localhost2
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">[
+    {
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;message&quot;: &quot;Device has been renamed&quot;
     }
 ]
 </code></pre>
