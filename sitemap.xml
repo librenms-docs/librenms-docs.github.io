@@ -478,7 +478,7 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Hostdependencies/</loc>
+     <loc>http://docs.librenms.org/Alerting/Device-Dependencies/</loc>
      <lastmod>2017-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url>

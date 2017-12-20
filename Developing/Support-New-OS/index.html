@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Alerting/Rule-Mapping/">
+    <link rel="canonical" href="http://docs.librenms.org/Developing/Support-New-OS/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Alert Rule Mapping - LibreNMS Docs</title>
+    <title>Intro - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,9 +33,6 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Alert Rule Mapping", url: "#alert-rule-mapping", children: [
-              {title: "You have two options when mapping the alert rule.", url: "#you-have-two-options-when-mapping-the-alert-rule" },
-          ]},
         ];
 
     </script>
@@ -64,25 +61,31 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Alerting/Rule-Mapping.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Developing/Support-New-OS.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <h1 id="alert-rule-mapping">Alert Rule Mapping</h1>
-<p>Alert Rule Mapping can be found in the WebUI. In the Nav bar click on Alerts then Rule Mapping.
-In LibreNMS you can create alert rules and map those alert rules to devices or you can create device groups and map alert rules to those groups.
-This could be useful for alerts rules that you don't want to be checked against devices that may not match with your alert rule or may give you false positive etc.</p>
-<p>Example: Alert Rule Mapping
-<img alt="Example Rule Mapping" src="../../img/example-alert-rule-mapping.png" /></p>
-<p>In this example we have an alert rule that checks HPE iLo Power Supply Failure. You probably don't want this alert rule being checked on none HPE iLo devices.  So in the picture below you can see the Alert rule is mapped to a Device group that was created just for HPE iLo devices.</p>
-<p>Example: HPE iLo Rule map
-<img alt="Example Rule Mapping" src="../../img/example-hpe-rule-map.png" /></p>
-<h3 id="you-have-two-options-when-mapping-the-alert-rule">You have two options when mapping the alert rule.</h3>
+    <p>This document is broken down into the relevant sections depending on what support you are adding.
+During all of these examples we will be using the OS of <code>pulse</code> as the example OS we will add. </p>
+<blockquote>
 <ul>
-<li>First option: you can map alert rule to one device.</li>
-<li>Second option: you create a device group and group all your devices together. <a href="../../Extensions/Device-Groups/">Link to Device Groups</a></li>
+<li><a href="../os/Initial-Detection/">Adding the initial detection.</a></li>
+<li><a href="../os/Mem-CPU-Information/">Adding Memory and CPU information.</a></li>
+<li><a href="../os/Health-Information/">Adding Health / Sensor information.</a></li>
+<li><a href="../os/Wireless-Sensors/">Adding Wireless Sensor information.</a></li>
+<li><a href="../os/Custom-Graphs/">Adding custom graphs.</a></li>
+<li><a href="../os/Test-Units/">Adding Unit tests (required).</a></li>
+<li><a href="../os/Settings/">Optional Settings</a></li>
 </ul>
+</blockquote>
+<p>We currently have a script in pre-beta stages that can help speed up the process of deploying a new OS.
+It has support for add sensors in a basic form (except state sensors).</p>
+<p>In this example, we will add a new OS called test-os using the device ID 101 that has already been added.
+It will be of the type network and belongs to the vendor, Cisco:</p>
+<p><code>./scripts/new-os.php -h 101 -o test-os -t network -v cisco</code></p>
+<p>The process will then step you through the process with some more questions. Please be warned, this is 
+currently pre-beta and may cause some issues. Please let us know of any on <a href="https://t.libren.ms/discord">Discord</a>.</p>
 
   <br>
     
@@ -90,20 +93,20 @@ This could be useful for alerts rules that you don't want to be checked against 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Device-Dependencies/" class="btn btn-xs btn-default pull-right">
+      <a href="../os/Initial-Detection/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Device-Dependencies/" class="btn btn-xs btn-link">
-        Device Dependencies
+      <a href="../os/Initial-Detection/" class="btn btn-xs btn-link">
+        Initial Detection
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Testing/" class="btn btn-xs btn-default pull-left">
+      <a href="../../Extensions/MIB-based-polling/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Testing/" class="btn btn-xs btn-link">
-        Testing
+        Previous</a><a href="../../Extensions/MIB-based-polling/" class="btn btn-xs btn-link">
+        Mib Based Polling (ALPHA)
       </a>
     </div>
     
