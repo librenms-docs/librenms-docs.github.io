@@ -11,7 +11,7 @@
     <link rel="canonical" href="http://docs.librenms.org/Developing/os/Test-Units/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Test Units - LibreNMS Docs</title>
+    <title>Tests - LibreNMS Docs</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -33,6 +33,13 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Tests", url: "#tests", children: [
+              {title: "Capturing test data", url: "#capturing-test-data" },
+              {title: "Running tests", url: "#running-tests" },
+              {title: "Using snmpsim for testing", url: "#using-snmpsim-for-testing" },
+              {title: "Snmprec format", url: "#snmprec-format" },
+              {title: "New discovery/poller modules", url: "#new-discoverypoller-modules" },
+          ]},
         ];
 
     </script>
@@ -66,14 +73,35 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       </div>
     
 
-    <p>We have a testing unit for new OS', please ensure you add a test for any new OS' or updates to existing OS discovery.</p>
-<p>All that you need to do is create an snmprec file in tests/snmpsim with the proper name. If adding the first test for
-this os, simply use the os name <code>pulse.snmprec</code> for example.  If you need to add multiple test files, you can add an
-underscore after the os name followed by a description, typically a model name.  For example: <code>pulse_mag2600.snmprec</code>.
-You can copy <code>skel.snmprec</code> to your intended name and fill in the data to make things a little easier.</p>
-<p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing for OS discovery. For this to work you need
-to supply an snmprec file. This is pretty simple and using pulse as the example again this would look like:</p>
-<p><code>tests/snmpsim/pulse_mag2600.snmprec</code></p>
+    <h1 id="tests">Tests</h1>
+<p>Tests ensure LibreNMS works as expected, now and in the future.  New OS should provide as much test data as needed and
+added test data for existing OS is welcome.</p>
+<p>Saved snmp data can be found in <code>tests/snmpsim/*.snmprec</code> and saved database data can be found in <code>tests/data/*.json</code>.
+Please review this for any sensitive data <strong>before</strong> submitting.  When replacing data, make sure it is modified in a
+consistent manner.</p>
+<p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing. For OS discovery, we can mock snmpsim, but
+for other tests you will need it installed and functioning.  We run snmpsim during our integration tests, but not by
+default when running <code>./scripts/pre-commit.php</code>.</p>
+<h2 id="capturing-test-data">Capturing test data</h2>
+<p><code>./scripts/save-tests-data.php</code> is provided to make it easy to collect data for tests.  Running save-tests-data.php with
+the --hostname (-h) allows you to capture all data used to discover and poll a device already added to LibreNMS.  Make sure to
+re-run the script if you add additional support. Check the command-line help for more options.</p>
+<h3 id="os-variants">OS Variants</h3>
+<p>If test data already exists, but is for a different device/configuration then you should use the --variant (-v) option to
+specify a different variant of the os, this will be tested completely separate from other variants.  If there is only
+one variant, please do not specify one.</p>
+<h2 id="running-tests">Running tests</h2>
+<p>After you have saved your test data, you should run <code>./scripts/pre-commit.php -p -u</code> verify they pass.</p>
+<p>To run the full suite of tests enable db and snmpsim reliat tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
+<h2 id="using-snmpsim-for-testing">Using snmpsim for testing</h2>
+<p>You can run snmpsim to access test data by running <code>./scripts/save-tests-data.php --snmpsim</code></p>
+<p>You may then run snmp queries against it using the os (and variant) as the community and 127.1.6.1:1161 as the host.</p>
+<pre><code>snmpget -v 2c -c ios_c3560e 127.1.6.1:1161 sysDescr.0
+</code></pre>
+
+<h2 id="snmprec-format">Snmprec format</h2>
+<p>Snmprec files are simple files that store the snmp data. The data format is simple with three columns: numeric oid, type
+code, and data. Here is an example snippet.</p>
 <pre><code>1.3.6.1.2.1.1.1.0|4|Pulse Secure,LLC,MAG-2600,8.0R14 (build 41869)
 1.3.6.1.2.1.1.2.0|6|1.3.6.1.4.1.12532.254.1.1
 </code></pre>
@@ -85,33 +113,6 @@ sysDescr (<code>.1.3.6.1.2.1.1.1.0</code>, 4 = Octet String) and sysObjectID (<c
 <pre><code class="bash">snmptranslate -On -Td SNMPv2-MIB::sysDescr.0
 </code></pre>
 
-<p>Common OIDs used in discovery:</p>
-<table>
-<thead>
-<tr>
-<th>String OID</th>
-<th>Numeric OID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SNMPv2-MIB::sysDescr.0</td>
-<td>1.3.6.1.2.1.1.1.0</td>
-</tr>
-<tr>
-<td>SNMPv2-MIB::sysObjectID.0</td>
-<td>1.3.6.1.2.1.1.2.0</td>
-</tr>
-<tr>
-<td>ENTITY-MIB::entPhysicalDescr.1</td>
-<td>1.3.6.1.2.1.47.1.1.1.1.2.1</td>
-</tr>
-<tr>
-<td>ENTITY-MIB::entPhysicalMfgName.1</td>
-<td>1.3.6.1.2.1.47.1.1.1.1.12.1</td>
-</tr>
-</tbody>
-</table>
 <p>List of SNMP data types:</p>
 <table>
 <thead>
@@ -168,8 +169,8 @@ sysDescr (<code>.1.3.6.1.2.1.1.1.0</code>, 4 = Octet String) and sysObjectID (<c
 </tbody>
 </table>
 <p>Hex encoded strings (4x) should be used for any strings that contain line returns.</p>
-<p>You can run <code>./scripts/pre-commit.php -u</code> to run the unit tests to check your code.</p>
-<p>If you would like to run tests locally against a full snmpsim instance, run <code>./scripts/pre-commit.php -u --snmpsim</code>.</p>
+<h2 id="new-discoverypoller-modules">New discovery/poller modules</h2>
+<p>New discovery or poller modules should define database capture parameters in <code>/tests/module_tables.yaml</code>.</p>
 
   <br>
     
