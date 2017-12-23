@@ -92,8 +92,9 @@ default it for all users in LibreNMS.</p>
 <li>Graph: Can be used to display graphs from devices. </li>
 <li>Graylog: Displays all Graylog's syslog entries.</li>
 <li>Notes: use for html tags, embed links and external web pages. Or just notes in general.</li>
+<li>Server Stats: Will display gauges for CPU, Memory, Storage usage. Note the device type has to be listed as "Server".</li>
 <li>Syslog: Displays all syslog entries.</li>
-<li>Top Devices: By Traffic, or  Uptime, or Response time, or Poller Duration, or Procssor load, or Memory Usage.</li>
+<li>Top Devices: By Traffic, or  Uptime, or Response time, or Poller Duration, or Procssor load, or Memory Usage, or Storage Usage.</li>
 <li>Top Interfaces: Lists top interfaces by traffic utilization.</li>
 <li>Worldmap: displays all your devices locations. From syslocation or from override sysLocation.</li>
 </ul>
@@ -106,8 +107,8 @@ default it for all users in LibreNMS.</p>
 <li>Shared: Allows all users to view the dashboard and make changes.</li>
 </ul>
 <h3 id="setting-a-global-default-dashboard">Setting a global default dashboard</h3>
-<p>Step 1: Set the dashboard to either shared read or shared, depending on what you want the users access to change. 
-Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and set the global default dashboard.</p>
+<p>Step 1: Set the dashboard to either shared read or shared, depending on what you want the users access to change. </p>
+<p>Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and set the global default dashboard.</p>
 <h3 id="setting-embeded-webpage">Setting embeded webpage</h3>
 <p>Using the Notes Widget.</p>
 <pre><code class="html">&lt;iframe src=&quot;url/&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;
@@ -120,11 +121,15 @@ Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and se
 Also some web pages may not support html embeded or iframe.
 <img alt="Example embed webpage" src="../../img/example-embed-website.png" /></p>
 <h3 id="how-to-create-ports-graph">How to create ports graph</h3>
-<p>In the dashboard, you want to create an interface graph select the widget called "Graph" 
-* Graph: select "Port" "Bits"
-<img alt="port-bits-graph" src="../../img/port-bits-graph.png" /></p>
+<p>In the dashboard, you want to create an interface graph select the widget called</p>
 <ul>
-<li>Note: you can map the port by description or the alias or by port id. You will need to know this in order to map the port to the graph. </li>
+<li>
+<p>Graph:  then select "Port" "Bits"
+<img alt="port-bits-graph" src="../../img/port-bits-graph.png" /></p>
+</li>
+<li>
+<p>Note: you can map the port by description or the alias or by port id. You will need to know this in order to map the port to the graph. </p>
+</li>
 </ul>
 <p><img alt="port-bits-graph" src="../../img/port-bits-port.png" /></p>
 
