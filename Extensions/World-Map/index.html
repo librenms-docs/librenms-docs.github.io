@@ -76,11 +76,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>LibreNMS comes with a configurable Geo Map based on World Map Widget to visualize where your equipment is located geographically.</p>
 <h3 id="world-map-widget">World Map Widget</h3>
 <p>World Map Widget, requires you to have properly formatted addresses in sysLocation or sysLocation override. As part of the standard poller these addresses will be Geocoded by Google and stored in the database. </p>
-<p>Location resolution happens as follows
- 1. If <code>device['location']</code> contains <code>[lat, lng]</code> (note the square brackets), that is used
- 1. If there is a location overide for the device in the WebUI and it contains <code>[lat, lng]</code> (note the square brackets), that is used.
- 1. Attempt to resolve lat, lng using <code>$config['geoloc']['engine']</code>
- 1. Properly formatted addresses in sysLocation or sysLocation override, under device settings.</p>
+<p>Location resolution happens as follows</p>
+<ol>
+<li>If <code>device['location']</code> contains <code>[lat, lng]</code> (note the square brackets), that is used</li>
+<li>If there is a location overide for the device in the WebUI and it contains <code>[lat, lng]</code> (note the square brackets), that is used.</li>
+<li>Attempt to resolve lat, lng using <code>$config['geoloc']['engine']</code></li>
+<li>Properly formatted addresses in sysLocation or sysLocation override, under device settings.</li>
+</ol>
+<p>Example:</p>
+<p>[40.424521, -86.912755]</p>
+<p>or</p>
+<p>1100 Congress Ave, Austin, TX 78701</p>
 <p>We have two current mapping engines available:</p>
 <ul>
 <li>Leaflet (default)</li>
