@@ -85,16 +85,36 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?hostname=host.example.com
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?asn=1234
 </code></pre>
 
 <p>Output:</p>
 <pre><code class="json">{
  &quot;status&quot;: &quot;ok&quot;,
  &quot;err-msg&quot;: &quot;&quot;,
- &quot;count&quot;: 0,
  &quot;bgp_sessions&quot;: [
-
- ]
+        {
+            &quot;bgpPeer_id&quot;: &quot;4&quot;,
+            &quot;device_id&quot;: &quot;2&quot;,
+            &quot;astext&quot;: &quot;&quot;,
+            &quot;bgpPeerIdentifier&quot;: &quot;1234:1b80:1:12::2&quot;,
+            &quot;bgpPeerRemoteAs&quot;: &quot;54321&quot;,
+            &quot;bgpPeerState&quot;: &quot;established&quot;,
+            &quot;bgpPeerAdminStatus&quot;: &quot;running&quot;,
+            &quot;bgpLocalAddr&quot;: &quot;1234:1b80:1:12::1&quot;,
+            &quot;bgpPeerRemoteAddr&quot;: &quot;0.0.0.0&quot;,
+            &quot;bgpPeerInUpdates&quot;: &quot;3&quot;,
+            &quot;bgpPeerOutUpdates&quot;: &quot;1&quot;,
+            &quot;bgpPeerInTotalMessages&quot;: &quot;0&quot;,
+            &quot;bgpPeerOutTotalMessages&quot;: &quot;0&quot;,
+            &quot;bgpPeerFsmEstablishedTime&quot;: &quot;0&quot;,
+            &quot;bgpPeerInUpdateElapsedTime&quot;: &quot;0&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        },
+    ...
+    ],
+    &quot;count&quot;: 100
 }
 </code></pre>
 
@@ -176,6 +196,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ospf
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ospf?hostname=host.example.com
 </code></pre>
 
 <p>Output:</p>
@@ -198,7 +219,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
             &quot;ospfNbmaNbrPermanence&quot;: &quot;dynamic&quot;,
             &quot;ospfNbrHelloSuppressed&quot;: &quot;false&quot;,
             &quot;context_name&quot;: &quot;&quot;
- ]
+        }
+    ],
+    &quot;count&quot;: 1
 }
 </code></pre>
 
