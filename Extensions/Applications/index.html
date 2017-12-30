@@ -70,6 +70,7 @@
               {title: "UPS-nut", url: "#ups-nut" },
               {title: "UPS-apcups", url: "#ups-apcups" },
               {title: "SDFS info", url: "#sdfs-info" },
+              {title: "ZFS", url: "#zfs" },
           ]},
         ];
 
@@ -145,6 +146,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#unbound">Unbound</a> - Agent</li>
 <li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
 <li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
+<li><a href="#zfs">ZFS</a> - SNMP extend</li>
 </ol>
 <h3 id="apache">Apache</h3>
 <p>Either use SNMP extend or use the agent.</p>
@@ -992,6 +994,29 @@ remote-control:
 <p>On the device page in Librenms, edit your host and check the <code>SDFS info</code> under the Applications tab or wait for it to be auto-discovered.</p>
 </li>
 </ol>
+<h3 id="zfs">ZFS</h3>
+<h6 id="snmp-extend_32">SNMP Extend</h6>
+<ol>
+<li>Copy the perl script to the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-freebsd -O /etc/snmp/zfs-freebsd
+</code></pre>
+
+<ol>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/zfs-freebsd)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
+</ol>
+<pre><code>extend zfs /etc/snmp/zfs-freebsd
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+</ol>
+<p>At this time, only FreeBSD is support. Linux support is eventually planned.</p>
 
   <br>
     
