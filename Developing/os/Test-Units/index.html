@@ -39,6 +39,7 @@
               {title: "Using snmpsim for testing", url: "#using-snmpsim-for-testing" },
               {title: "Snmprec format", url: "#snmprec-format" },
               {title: "New discovery/poller modules", url: "#new-discoverypoller-modules" },
+              {title: "Example workflow", url: "#example-workflow" },
           ]},
         ];
 
@@ -86,6 +87,8 @@ default when running <code>./scripts/pre-commit.php</code>.</p>
 <p><code>./scripts/save-tests-data.php</code> is provided to make it easy to collect data for tests.  Running save-tests-data.php with
 the --hostname (-h) allows you to capture all data used to discover and poll a device already added to LibreNMS.  Make sure to
 re-run the script if you add additional support. Check the command-line help for more options.</p>
+<p>Generally, you will only need to capture data (-h) once.  After you have the data you need in the snmprec file, you can
+update the json using -o (and -v if using a variant) after that.</p>
 <h3 id="os-variants">OS Variants</h3>
 <p>If test data already exists, but is for a different device/configuration then you should use the --variant (-v) option to
 specify a different variant of the os, this will be tested completely separate from other variants.  If there is only
@@ -172,6 +175,29 @@ sysDescr (<code>.1.3.6.1.2.1.1.1.0</code>, 4 = Octet String) and sysObjectID (<c
 <p>Hex encoded strings (4x) should be used for any strings that contain line returns.</p>
 <h2 id="new-discoverypoller-modules">New discovery/poller modules</h2>
 <p>New discovery or poller modules should define database capture parameters in <code>/tests/module_tables.yaml</code>.</p>
+<h2 id="example-workflow">Example workflow</h2>
+<p>If the base os (<os>.snmprec) already contains test data for the module you are testing or that data conflicts with your new
+data, you must use a variant to store your test data (-v).</p>
+<h3 id="add-initial-detection">Add initial detection</h3>
+<ol>
+<li>Add device to LibreNMS. It is generic and device_id = 42</li>
+<li>Run <code>./scripts/save-test-data.php -h 42 -m os</code>, initial snmprec will be created</li>
+<li><a href="../Initial-Detection/">Add initial detection</a> for <code>example-os</code></li>
+<li>Run discovery to make sure it detects properly <code>./discovery.php -h 42</code></li>
+<li>Add any additional os items like version, hardware, features, or serial.</li>
+<li>If there is additional snmp data required, run <code>./scripts/save-test-data.php -h 42 -m os</code> otherwise, run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
+<li>Review data. If you modified the snmprec (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
+<li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
+<li>If the tests succeed submit a pull request</li>
+</ol>
+<h3 id="additional-module-support-or-test-data">Additional module support or test data</h3>
+<ol>
+<li>Add code to support module or support already exists.</li>
+<li><code>./scripts/save-test-data.php -h 42 -m &lt;module&gt;</code>, this will add more data to the snmprec file</li>
+<li>Review data. If you modified the snmprec (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m &lt;module&gt;</code></li>
+<li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
+<li>If the tests succeed submit a pull request</li>
+</ol>
 
   <br>
     
