@@ -74,8 +74,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="setting-up-services">Setting up Services</h1>
 <p>Services within LibreNMS provides the ability to use Nagios plugins to perform additional monitoring outside of SNMP.</p>
-<p>These services are tied into an existing device so you need at least one device that supports SNMP to be able to add it
-to LibreNMS - localhost is a good one.</p>
+<p><strong>These services are tied into an existing device so you need at least one device that supports SNMP to be able to add it
+to LibreNMS - localhost is a good one. This is needed in order for alerting to work properly.</strong> </p>
 <h2 id="setup">Setup</h2>
 <blockquote>
 <p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
