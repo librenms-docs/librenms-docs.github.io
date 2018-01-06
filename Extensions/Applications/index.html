@@ -61,6 +61,7 @@
               {title: "Postgres", url: "#postgres" },
               {title: "PowerDNS", url: "#powerdns" },
               {title: "PowerDNS Recursor", url: "#powerdns-recursor" },
+              {title: "PowerDNS-dnsdist", url: "#powerdns-dnsdist" },
               {title: "Proxmox", url: "#proxmox" },
               {title: "Raspberry PI", url: "#raspberry-pi" },
               {title: "SMART", url: "#smart" },
@@ -137,6 +138,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#postgres">Postgres</a> - SNMP extend</li>
 <li><a href="#powerdns">PowerDNS</a> - Agent</li>
 <li><a href="#powerdns-recursor">PowerDNS Recursor</a> - Direct, Agent</li>
+<li><a href="#powerdns-dnsdist">PowerDNS dnsdist</a> - SNMP extend</li>
 <li><a href="#proxmox">Proxmox</a> - SNMP extend</li>
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
 <li><a href="#sdfs-info">SDFS info</a> - SNMP extend</li>
@@ -761,6 +763,28 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <h5 id="agent_10">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
+<h3 id="powerdns-dnsdist">PowerDNS-dnsdist</h3>
+<h6 id="snmp-extend_26">SNMP Extend</h6>
+<ol>
+<li>Copy the BASH script to the desired host (the host must be added to LibreNMS devices)</li>
+</ol>
+<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist   
+</code></pre>
+
+<ol>
+<li>
+<p>Make the script executable (chmod +x /etc/snmp/powerdns-dnsdist)</p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
+</ol>
+<pre><code>extend powerdns-dnsdist /etc/snmp/powerdns-dnsdist
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host.</li>
+</ol>
 <h3 id="proxmox">Proxmox</h3>
 <ol>
 <li>
@@ -794,7 +818,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 </ol>
 <h3 id="raspberry-pi">Raspberry PI</h3>
 <p>SNMP extend script to get your PI data into your host.</p>
-<h5 id="snmp-extend_26">SNMP Extend</h5>
+<h5 id="snmp-extend_27">SNMP Extend</h5>
 <ol>
 <li>
 <p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/etc/snmp/</code> (or any other suitable location) on your PI host.</p>
@@ -819,7 +843,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <li>Restart snmpd on PI host</li>
 </ol>
 <h3 id="smart">SMART</h3>
-<h4 id="snmp-extend_27">SNMP Extend</h4>
+<h4 id="snmp-extend_28">SNMP Extend</h4>
 <p>1: Copy the Perl script, smart, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O /etc/snmp/smart)</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/smart)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -913,7 +937,7 @@ remote-control:
 <p>Restart your unbound after changing the configuration, verify it is working by running 'unbound-control stats'.</p>
 <h5 id="agent_12">Agent</h5>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<h5 id="snmp-extend_28">SNMP Extend</h5>
+<h5 id="snmp-extend_29">SNMP Extend</h5>
 <p>1: Copy the shell script, unbound, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound)</p>
 <p>2: Make the scripts executable (chmod +x /etc/snmp/unbound)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -923,7 +947,7 @@ remote-control:
 <p>4: Restart snmpd.</p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
-<h5 id="snmp-extend_29">SNMP Extend</h5>
+<h5 id="snmp-extend_30">SNMP Extend</h5>
 <ol>
 <li>
 <p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</p>
@@ -943,7 +967,7 @@ remote-control:
 </ol>
 <h3 id="ups-apcups">UPS-apcups</h3>
 <p>A small shell script that exports apcacess ups status.</p>
-<h5 id="snmp-extend_30">SNMP Extend</h5>
+<h5 id="snmp-extend_31">SNMP Extend</h5>
 <ol>
 <li>
 <p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</p>
@@ -968,7 +992,7 @@ remote-control:
 </ol>
 <h3 id="sdfs-info">SDFS info</h3>
 <p>A small shell script that exportfs SDFS volume info.</p>
-<h6 id="snmp-extend_31">SNMP Extend</h6>
+<h6 id="snmp-extend_32">SNMP Extend</h6>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
@@ -995,7 +1019,7 @@ remote-control:
 </li>
 </ol>
 <h3 id="zfs">ZFS</h3>
-<h6 id="snmp-extend_32">SNMP Extend</h6>
+<h6 id="snmp-extend_33">SNMP Extend</h6>
 <ol>
 <li>Copy the perl script to the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
