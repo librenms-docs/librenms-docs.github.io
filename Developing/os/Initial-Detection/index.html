@@ -35,6 +35,7 @@
         var pageToc = [
           {title: "Discovery", url: "#discovery", children: [
               {title: "Discovery Logic", url: "#discovery-logic" },
+              {title: "Discovery helpers", url: "#discovery-helpers" },
           ]},
           {title: "Poller", url: "#poller", children: [
           ]},
@@ -92,24 +93,24 @@ over:
     - { graph: device_processor, text: 'CPU Usage' }
     - { graph: device_mempool, text: 'Memory Usage' }
 discovery:
-    - sysObjectId:
+    - sysObjectID:
         - .1.3.6.1.4.1.12532.
 </code></pre>
 
 <p><code>over</code>: This is a list of the graphs which will be shown within the device header bar (mini graphs top right).</p>
-<p><code>discovery</code>: Here we are detecting this new OS using sysObjectId, this is the preferred method for detection. 
+<p><code>discovery</code>: Here we are detecting this new OS using sysObjectID, this is the preferred method for detection. 
 Other options are available:</p>
 <ul>
-<li><code>sysObjectId</code> The preferred operator. Checks if the sysObjectID starts with one of the strings under this item</li>
-<li><code>sysDescr</code> Use this in addition to sysObjectId if required. Check that the sysDescr contains one of the strings under this item</li>
-<li><code>sysObjectId_regex</code> Please avoid use of this. Checks if the sysObjectId matches one of the regex statements under this item</li>
+<li><code>sysObjectID</code> The preferred operator. Checks if the sysObjectID starts with one of the strings under this item</li>
+<li><code>sysDescr</code> Use this in addition to sysObjectID if required. Check that the sysDescr contains one of the strings under this item</li>
+<li><code>sysObjectID_regex</code> Please avoid use of this. Checks if the sysObjectID matches one of the regex statements under this item</li>
 <li><code>sysDescr_regex</code> Please avoid use of this. Checks if the sysDescr matches one of the regex statements under this item</li>
 <li><code>snmpget</code> Do not use this unless none of the other methods work. Fetch an oid and compare it against a value.</li>
 <li><code>_except</code> You can add this to any of the above to exclude that element. As an example:</li>
 </ul>
 <pre><code class="yaml">discovery:
     - 
-      sysObjectId:
+      sysObjectID:
           - .1.3.6.1.4.1.12532.
       sysDescr_except:
           - 'Not some pulse'
@@ -147,37 +148,41 @@ called cisco.</p>
 <h5 id="discovery-logic">Discovery Logic</h5>
 <p>YAML is converted to an array in PHP.  Consider the following YAML:</p>
 <pre><code class="yaml">discovery: 
-  - sysObjectId: foo
+  - sysObjectID: foo
   - 
     sysDescr: [ snafu, exodar ]
-    sysObjectId: bar
+    sysObjectID: bar
 
 </code></pre>
 
 <p>This is how the discovery array would look in PHP:</p>
 <pre><code class="php">[
      [
-       &quot;sysObjectId&quot; =&gt; &quot;foo&quot;,
+       &quot;sysObjectID&quot; =&gt; &quot;foo&quot;,
      ],
      [
        &quot;sysDescr&quot; =&gt; [
          &quot;snafu&quot;,
          &quot;exodar&quot;,
        ],
-       &quot;sysObjectId&quot; =&gt; &quot;bar&quot;,
+       &quot;sysObjectID&quot; =&gt; &quot;bar&quot;,
      ]
 ]
 </code></pre>
 
 <p>The logic for the discovery is as follows:
 1. One of the first level items must match
-2. ALL of the second level items must match (sysObjectId, sysDescr)
+2. ALL of the second level items must match (sysObjectID, sysDescr)
 3. One of the third level items (foo, [snafu,exodar], bar) must match</p>
 <p>So, considering the example:
- - <code>sysObjectId: foo, sysDescr: ANYTHING</code> matches
- - <code>sysObjectId: bar, sysDescr: ANYTHING</code> does not match
- - <code>sysObjectId: bar, sysDescr: exodar</code> matches 
- - <code>sysObjectId: bar, sysDescr: snafu</code> matches </p>
+ - <code>sysObjectID: foo, sysDescr: ANYTHING</code> matches
+ - <code>sysObjectID: bar, sysDescr: ANYTHING</code> does not match
+ - <code>sysObjectID: bar, sysDescr: exodar</code> matches 
+ - <code>sysObjectID: bar, sysDescr: snafu</code> matches </p>
+<h4 id="discovery-helpers">Discovery helpers</h4>
+<p>Within the discovery code base if you are using php then the following helpers are available:</p>
+<p><code>$device['sysObjectID]</code>: This will contain the full numerical sysObjectID for this device.
+<code>$device['sysDescr']</code>: This will contain the full sysDescr for this device.</p>
 <h3 id="poller">Poller</h3>
 <p>OS polling is done within <code>includes/polling/os/$os.inc.php</code> and is where we detect certain values.</p>
 <pre><code class="php">&lt;?php
