@@ -74,8 +74,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="setting-up-services">Setting up Services</h1>
 <p>Services within LibreNMS provides the ability to use Nagios plugins to perform additional monitoring outside of SNMP.</p>
-<p><strong>These services are tied into an existing device so you need at least one device that supports SNMP to be able to add it
-to LibreNMS - localhost is a good one. This is needed in order for alerting to work properly.</strong> </p>
+<p><strong>These services are tied into an existing device so you need at least one device to be able to add it
+to LibreNMS - localhost is a good one. This is needed in order for alerting to work properly.</strong></p>
 <h2 id="setup">Setup</h2>
 <blockquote>
 <p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
@@ -100,6 +100,7 @@ For example: </p>
 </code></pre>
 
 <p>Now you can add services via the main Services link in the navbar, or via the 'Add Service' link within the device, services page.</p>
+<p>Note that some services (procs, inodes, load and similar) will always poll the local LibreNMS server it's running on, regardless of which device you add it to.</p>
 <h2 id="performance-data">Performance data</h2>
 <p>By default, the check-services script will collect all performance data that the Nagios script returns and display each datasource on a separate graph.
 However for some modules it would be better if some of this information was consolidated on a single graph.
