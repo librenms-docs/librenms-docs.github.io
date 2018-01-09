@@ -80,9 +80,11 @@ added test data for existing OS is welcome.</p>
 <p>Saved snmp data can be found in <code>tests/snmpsim/*.snmprec</code> and saved database data can be found in <code>tests/data/*.json</code>.
 Please review this for any sensitive data <strong>before</strong> submitting.  When replacing data, make sure it is modified in a
 consistent manner.</p>
+<blockquote>
 <p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing. For OS discovery, we can mock snmpsim, but
 for other tests you will need it installed and functioning.  We run snmpsim during our integration tests, but not by
 default when running <code>./scripts/pre-commit.php</code>.</p>
+</blockquote>
 <h2 id="capturing-test-data">Capturing test data</h2>
 <p><code>./scripts/save-tests-data.php</code> is provided to make it easy to collect data for tests.  Running save-tests-data.php with
 the --hostname (-h) allows you to capture all data used to discover and poll a device already added to LibreNMS.  Make sure to
