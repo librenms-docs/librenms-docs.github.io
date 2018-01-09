@@ -97,8 +97,11 @@ specify a different variant of the os, this will be tested completely separate f
 one variant, please do not specify one.</p>
 <h2 id="running-tests">Running tests</h2>
 <p>After you have saved your test data, you should run <code>./scripts/pre-commit.php -p -u</code> verify they pass.</p>
-<p>If you would like to test the data for a specific OS, use <code>./scripts/pre-commit.php -p --os osname</code>.</p>
-<p>To run the full suite of tests enable db and snmpsim reliant tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
+<p>To run the full suite of tests enable database and snmpsim reliant tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
+<h4 id="specific-os">Specific OS</h4>
+<p><code>./scripts/pre-commit.php -p -o osname</code></p>
+<h4 id="specific-module">Specific Module</h4>
+<p><code>./scripts/pre-commit.php -p -m modulename</code></p>
 <h2 id="using-snmpsim-for-testing">Using snmpsim for testing</h2>
 <p>You can run snmpsim to access test data by running <code>./scripts/save-tests-data.php --snmpsim</code></p>
 <p>You may then run snmp queries against it using the os (and variant) as the community and 127.1.6.1:1161 as the host.</p>
