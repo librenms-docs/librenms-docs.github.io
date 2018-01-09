@@ -193,21 +193,26 @@ documentation page will be linked to rather than having the config provided.</p>
 <h4 id="fping">fping</h4>
 <pre><code class="php">$config['fping']            = &quot;/usr/bin/fping&quot;;
 $config['fping6']           = &quot;fping6&quot;;
-$config['fping_options']['retries'] = 3;
 $config['fping_options']['timeout'] = 500;
 $config['fping_options']['count'] = 3;
-$config['fping_options']['millisec'] = 200;
+$config['fping_options']['interval'] = 500;
 </code></pre>
 
 <p><code>fping</code> configuration options:</p>
 <ul>
-<li><code>retries</code> (<code>fping</code> parameter <code>-r</code>): Number of times an attempt at pinging a target will be made, not including the first try.</li>
-<li><code>timeout</code> (<code>fping</code> parameter <code>-t</code>): Amount of time that fping waits for a response to its first request (in milliseconds).</li>
+<li><code>timeout</code> (<code>fping</code> parameter <code>-t</code>): Amount of time that fping waits for a response to its first request (in milliseconds). <strong>See note below</strong></li>
 <li><code>count</code> (<code>fping</code> parameter <code>-c</code>): Number of request packets to send to each target.</li>
-<li><code>millisec</code> (<code>fping</code> parameter <code>-p</code>): Time in milliseconds that fping waits between successive packets to an individual target.</li>
+<li><code>interval</code> (<code>fping</code> parameter <code>-p</code>): Time in milliseconds that fping waits between successive packets to an individual target.</li>
 </ul>
+<blockquote>
+<p>NOTE: Setting a higher timeout value than the interval value can lead to slowing down poller. Example:</p>
+<p>timeout: 3000</p>
+<p>count: 3</p>
+<p>interval: 500</p>
+<p>In this example, interval will be overwritten by the timeout value of 3000 which is 3 seconds. As we send three icmp packets (count: 3), each one is delayed by 3 seconds which will result in fping taking &gt; 6 seconds to return results.</p>
+</blockquote>
 <p>You can disable the fping / icmp check that is done for a device to be determined to be up on a global or per device basis.
-<strong>We don't advice disabling the fping / icmp check unless you know the impact, at worst if you have a large number of devices down
+<strong>We don't advise disabling the fping / icmp check unless you know the impact, at worst if you have a large number of devices down
 then it's possible that the poller would no longer complete in 5 minutes due to waiting for snmp to timeout.</strong></p>
 <p>Globally disable fping / icmp check:</p>
 <pre><code class="php">$config['icmp_check'] = false;
