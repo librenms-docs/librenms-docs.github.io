@@ -39,6 +39,7 @@
               {title: "Working with groups", url: "#working-with-groups" },
               {title: "Miscellaneous", url: "#miscellaneous" },
               {title: "Trigger configuration backups", url: "#trigger-configuration-backups" },
+              {title: "Validate Oxidized config", url: "#validate-oxidized-config" },
           ]},
         ];
 
@@ -167,6 +168,11 @@ $config['oxidized']['ignore_os'] = array('linux');
 <p>Using the Oxidized REST API and <a href="../../Extensions/Syslog/#external-hooks">Syslog Hooks</a>, Oxidized can trigger configuration downloads whenever a configuration change event has been logged. An example script to do this is included in <code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new worker thread and perform the download immediately with the following configuration</p>
 <pre><code class="bash">next_adds_job: true
 </code></pre>
+
+<h3 id="validate-oxidized-config">Validate Oxidized config</h3>
+<p>You can perform basic validation of the Oxidized configuration by going to the Overview -&gt; Tools -&gt; Oxidized link and in the Oxidized config validation page, paste your 
+ yaml file into the input box and click 'Validate YAML'.</p>
+<p>We check for yaml syntax errors and also actual config values to ensure they are used in the correct location.</p>
 
   <br>
     
