@@ -86,7 +86,7 @@ for other tests you will need it installed and functioning.  We run snmpsim duri
 default when running <code>./scripts/pre-commit.php</code>.</p>
 </blockquote>
 <h2 id="capturing-test-data">Capturing test data</h2>
-<p><code>./scripts/save-tests-data.php</code> is provided to make it easy to collect data for tests.  Running save-tests-data.php with
+<p><code>./scripts/save-test-data.php</code> is provided to make it easy to collect data for tests.  Running save-test-data.php with
 the --hostname (-h) allows you to capture all data used to discover and poll a device already added to LibreNMS.  Make sure to
 re-run the script if you add additional support. Check the command-line help for more options.</p>
 <p>Generally, you will only need to capture data (-h) once.  After you have the data you need in the snmprec file, you can
@@ -103,7 +103,7 @@ one variant, please do not specify one.</p>
 <h4 id="specific-module">Specific Module</h4>
 <p><code>./scripts/pre-commit.php -p -m modulename</code></p>
 <h2 id="using-snmpsim-for-testing">Using snmpsim for testing</h2>
-<p>You can run snmpsim to access test data by running <code>./scripts/save-tests-data.php --snmpsim</code></p>
+<p>You can run snmpsim to access test data by running <code>./scripts/save-test-data.php --snmpsim</code></p>
 <p>You may then run snmp queries against it using the os (and variant) as the community and 127.1.6.1:1161 as the host.</p>
 <pre><code>snmpget -v 2c -c ios_c3560e 127.1.6.1:1161 sysDescr.0
 </code></pre>
