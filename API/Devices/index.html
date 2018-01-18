@@ -67,6 +67,8 @@
           ]},
           {title: "get_graph_by_port_hostname", url: "#get_graph_by_port_hostname", children: [
           ]},
+          {title: "list_locations", url: "#list_locations", children: [
+          ]},
           {title: "list_devices", url: "#list_devices", children: [
           ]},
           {title: "add_device", url: "#add_device", children: [
@@ -730,6 +732,32 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 
 <p>Output:</p>
 <p>Output is an image.</p>
+<h3 id="list_locations"><code>list_locations</code></h3>
+<p>Return a list of locations.</p>
+<p>Route: <code>/api/v0/resources/locations</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/locations
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;locations&quot;: [
+        {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;location&quot;: &quot;Example location, Example city, Example Country&quot;,
+            &quot;lat&quot;: &quot;-18.911436&quot;,
+            &quot;lng&quot;: &quot;47.517446&quot;,
+            &quot;timestamp&quot;: &quot;2017-04-01 02:40:05&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
 <h3 id="list_devices"><code>list_devices</code></h3>
 <p>Return a list of devices.</p>
 <p>Route: <code>/api/v0/devices</code></p>

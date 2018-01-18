@@ -37,9 +37,21 @@
           ]},
           {title: "get_bgp", url: "#get_bgp", children: [
           ]},
+          {title: "list_cbgp", url: "#list_cbgp", children: [
+          ]},
+          {title: "list_ip_addresses", url: "#list_ip_addresses", children: [
+          ]},
+          {title: "get_network_ip_addresses", url: "#get_network_ip_addresses", children: [
+          ]},
+          {title: "list_ip_networks", url: "#list_ip_networks", children: [
+          ]},
           {title: "list_ipsec", url: "#list_ipsec", children: [
           ]},
           {title: "list_ospf", url: "#list_ospf", children: [
+          ]},
+          {title: "list_vrf", url: "#list_vrf", children: [
+          ]},
+          {title: "get_vrf", url: "#get_vrf", children: [
           ]},
         ];
 
@@ -154,6 +166,133 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?asn=123
 }
 </code></pre>
 
+<h3 id="list_cbgp"><code>list_cbgp</code></h3>
+<p>List the current BGP sessions counters.</p>
+<p>Route: <code>/api/v0/routing/bgp/cbgp</code></p>
+<p>Input:</p>
+<ul>
+<li>hostname = Either the devices hostname or id</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/bgp/cbgp
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/bgp/cbgp?hostname=host.example.com
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;bgp_counters&quot;: [
+        {
+            &quot;device_id&quot;: &quot;9&quot;,
+            &quot;bgpPeerIdentifier&quot;: &quot;192.168.99.31&quot;,
+            &quot;afi&quot;: &quot;ipv4&quot;,
+            &quot;safi&quot;: &quot;multicast&quot;,
+            &quot;AcceptedPrefixes&quot;: &quot;2&quot;,
+            &quot;DeniedPrefixes&quot;: &quot;0&quot;,
+            &quot;PrefixAdminLimit&quot;: &quot;0&quot;,
+            &quot;PrefixThreshold&quot;: &quot;0&quot;,
+            &quot;PrefixClearThreshold&quot;: &quot;0&quot;,
+            &quot;AdvertisedPrefixes&quot;: &quot;11487&quot;,
+            &quot;SuppressedPrefixes&quot;: &quot;0&quot;,
+            &quot;WithdrawnPrefixes&quot;: &quot;10918&quot;,
+            &quot;AcceptedPrefixes_delta&quot;: &quot;-2&quot;,
+            &quot;AcceptedPrefixes_prev&quot;: &quot;2&quot;,
+            &quot;DeniedPrefixes_delta&quot;: &quot;0&quot;,
+            &quot;DeniedPrefixes_prev&quot;: &quot;0&quot;,
+            &quot;AdvertisedPrefixes_delta&quot;: &quot;-11487&quot;,
+            &quot;AdvertisedPrefixes_prev&quot;: &quot;11487&quot;,
+            &quot;SuppressedPrefixes_delta&quot;: &quot;0&quot;,
+            &quot;SuppressedPrefixes_prev&quot;: &quot;0&quot;,
+            &quot;WithdrawnPrefixes_delta&quot;: &quot;-10918&quot;,
+            &quot;WithdrawnPrefixes_prev&quot;: &quot;10918&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
+<h3 id="list_ip_addresses"><code>list_ip_addresses</code></h3>
+<p>List all IPv4 and IPv6 addresses.</p>
+<p>Route: <code>/api/v0/resources/ip/addresses</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/addresses
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;ip_addresses&quot;: [
+        {
+            &quot;ipv4_address_id&quot;: &quot;69&quot;,
+            &quot;ipv4_address&quot;: &quot;127.0.0.1&quot;,
+            &quot;ipv4_prefixlen&quot;: &quot;8&quot;,
+            &quot;ipv4_network_id&quot;: &quot;55&quot;,
+            &quot;port_id&quot;: &quot;135&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 55
+}
+</code></pre>
+
+<h3 id="get_network_ip_addresses"><code>get_network_ip_addresses</code></h3>
+<p>Get all IPv4 and IPv6 addresses for particular network.</p>
+<p>Route: <code>/api/v0/resources/ip/networks/:id/ip</code></p>
+<ul>
+<li>id must be integer</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/networks/55/ip
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;addresses&quot;: [
+        {
+            &quot;ipv4_address_id&quot;: &quot;69&quot;,
+            &quot;ipv4_address&quot;: &quot;127.0.0.1&quot;,
+            &quot;ipv4_prefixlen&quot;: &quot;8&quot;,
+            &quot;ipv4_network_id&quot;: &quot;55&quot;,
+            &quot;port_id&quot;: &quot;135&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        }
+    ],
+    &quot;count&quot;: 1
+}
+</code></pre>
+
+<h3 id="list_ip_networks"><code>list_ip_networks</code></h3>
+<p>List all IPv4 and IPv6 networks.</p>
+<p>Route: <code>/api/v0/resources/ip/networks</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/networks
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;ip_networks&quot;: [
+        {
+            &quot;ipv4_network_id&quot;: &quot;1&quot;,
+            &quot;ipv4_network&quot;: &quot;127.0.0.0/8&quot;,
+            &quot;context_name&quot;: &quot;&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
 <h3 id="list_ipsec"><code>list_ipsec</code></h3>
 <p>List the current IPSec tunnels which are active.</p>
 <p>Route: <code>/api/v0/routing/ipsec/data/:hostname</code></p>
@@ -219,6 +358,65 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ospf?hostna
             &quot;ospfNbmaNbrPermanence&quot;: &quot;dynamic&quot;,
             &quot;ospfNbrHelloSuppressed&quot;: &quot;false&quot;,
             &quot;context_name&quot;: &quot;&quot;
+        }
+    ],
+    &quot;count&quot;: 1
+}
+</code></pre>
+
+<h3 id="list_vrf"><code>list_vrf</code></h3>
+<p>List the current VRFs.</p>
+<p>Route: <code>/api/v0/routing/vrf</code></p>
+<p>Input:</p>
+<ul>
+<li>hostname = Either the devices hostname or id
+<strong>OR</strong></li>
+<li>vrfname = The VRF name you would like to filter by</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/vrf
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/vrf?hostname=host.example.com
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/vrf?vrfname=Mgmt-vrf
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;vrfs&quot;: [
+        {
+            &quot;vrf_id&quot;: &quot;2&quot;,
+            &quot;vrf_oid&quot;: &quot;8.77.103.109.116.45.118.114.102&quot;,
+            &quot;vrf_name&quot;: &quot;Mgmt-vrf&quot;,
+            &quot;mplsVpnVrfRouteDistinguisher&quot;: &quot;&quot;,
+            &quot;mplsVpnVrfDescription&quot;: &quot;&quot;,
+            &quot;device_id&quot;: &quot;8&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
+<h3 id="get_vrf"><code>get_vrf</code></h3>
+<p>Retrieves VRF by ID</p>
+<p>Route: <code>/api/v0/routing/vrf/:id</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/vrf/2
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;vrf&quot;: [
+        {
+            &quot;vrf_id&quot;: &quot;2&quot;,
+            &quot;vrf_oid&quot;: &quot;8.77.103.109.116.45.118.114.102&quot;,
+            &quot;vrf_name&quot;: &quot;Mgmt-vrf&quot;,
+            &quot;mplsVpnVrfRouteDistinguisher&quot;: &quot;&quot;,
+            &quot;mplsVpnVrfDescription&quot;: &quot;&quot;,
+            &quot;device_id&quot;: &quot;8&quot;
         }
     ],
     &quot;count&quot;: 1
