@@ -37,6 +37,8 @@
           ]},
           {title: "get_service_for_host", url: "#get_service_for_host", children: [
           ]},
+          {title: "add_service_for_host", url: "#add_service_for_host", children: [
+          ]},
         ];
 
     </script>
@@ -166,6 +168,31 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:h
             }
         ]
     ]
+}
+</code></pre>
+
+<h3 id="add_service_for_host"><code>add_service_for_host</code></h3>
+<p>Add a service for device</p>
+<p>Route: <code>/api/v0/services/:hostname</code></p>
+<ul>
+<li>id or hostname is the specific device</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>type: service type</li>
+<li>ip: ip of the service</li>
+<li>desc: description for the service</li>
+<li>param: parameters for the service</li>
+<li>ignore: ignore the service for checks</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X POST -d '{&quot;type&quot;:&quot;ping&quot;,&quot;ip&quot;: &quot;192.168.1.10&quot;,&quot;desc&quot;:&quot;test ping&quot;,&quot;param&quot;: &quot;-t 10 -c 5&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/192.168.1.10
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Service ping has been added to device 192.168.1.10 (#10)&quot;
 }
 </code></pre>
 
