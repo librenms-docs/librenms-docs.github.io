@@ -127,7 +127,7 @@ source s_net {
 # Destinations
 ########################
 destination d_librenms {
-        program(&quot;/opt/librenms/syslog.php&quot; template (&quot;$HOST||$FACILITY||$PRIORITY||$LEVEL||$TAG||$R_YEAR-$R_MONTH-$R_DAY $R_HOUR:$R_MIN:$R_SEC||$MSG||$PROGR$
+        program(&quot;/opt/librenms/syslog.php&quot; template (&quot;$HOST||$FACILITY||$PRIORITY||$LEVEL||$TAG||$R_YEAR-$R_MONTH-$R_DAY$R_HOUR:$R_MIN:$R_SEC||$MSG||$PROGRAM\n&quot;) template-escape(yes));
 };
 
 filter f_kernel     { facility(kern); };
