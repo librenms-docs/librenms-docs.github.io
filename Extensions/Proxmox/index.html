@@ -35,6 +35,7 @@
         var pageToc = [
           {title: "Proxmox graphing", url: "#proxmox-graphing", children: [
               {title: "Enabling Proxmox graphs", url: "#enabling-proxmox-graphs" },
+              {title: "Note, if you want to use use xinetd instead of systemd", url: "#note-if-you-want-to-use-use-xinetd-instead-of-systemd" },
           ]},
         ];
 
@@ -78,17 +79,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <pre><code class="php">$config['enable_proxmox'] = 1;
 </code></pre>
 
-<p>Then, install <a href="http://docs.librenms.org/Extensions/Applications/">librenms-agent</a> on the machines running Proxmox and enable the Proxmox-script using:</p>
+<p>Then, install git and <a href="http://docs.librenms.org/Extensions/Applications/">librenms-agent</a> on the machines running Proxmox and enable the Proxmox-script using:</p>
 <pre><code class="bash">cp /opt/librenms-agent/agent-local/proxmox /usr/lib/check_mk_agent/local/proxmox
 chmod +x /usr/lib/check_mk_agent/local/proxmox
 </code></pre>
 
-<p>Then, restart the xinetd service</p>
-<pre><code class="bash">/etc/init.d/xinetd restart
+<p>Then, enable and start the check_mk service using systemd</p>
+<pre><code class="bash">cp /opt/librenms-agent/check_mk@.service /opt/librenms-agent/check_mk.socket /etc/systemd/system
+systemctl daemon-reload
+systemctl enable check_mk.socket &amp;&amp; systemctl start check_mk.socket
 </code></pre>
 
 <p>Then in LibreNMS active the librenms-agent and proxmox application flag for the device you are monitoring.
 You should now see an application in LibreNMS, as well as a new menu-item in the topmenu, allowing you to choose which cluster you want to look at.</p>
+<h3 id="note-if-you-want-to-use-use-xinetd-instead-of-systemd">Note, if you want to use use xinetd instead of systemd</h3>
+<p>Its possible to use the librenms-agent started by xinetd instead of systemd. One use case is if you are forced to use a old Proxmox installation.
+After installing the librenms-agent (see above) please copy enable the xinetd config, then restart the xinetd service:</p>
+<pre><code class="bash">cp check_mk_xinetd /etc/xinetd.d/check_mk
+/etc/init.d/xinetd restart
+</code></pre>
 
   <br>
     
