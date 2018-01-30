@@ -245,7 +245,7 @@ here are those values:</p>
 
 <h4 id="why-does-a-device-show-as-a-warning"><a name="faq22"> Why does a device show as a warning?</a></h4>
 <p>This is indicating that the device has rebooted within the last 24 hours (by default). If you want to adjust this 
-threshold then you can do so by setting <code>$config['uptime_warning']</code> in config.php. The value must be in seconds.</p>
+threshold then you can do so by setting <code>$config['uptime_warning'] = '84600';</code> in <code>config.php</code>. The value must be in seconds.</p>
 <h4 id="why-do-i-not-see-all-interfaces-in-the-overall-traffic-graph-for-a-device"><a name="faq23"> Why do I not see all interfaces in the Overall traffic graph for a device?</a></h4>
 <p>By default numerous interface types and interface descriptions are excluded from this graph. The excluded defailts are:</p>
 <pre><code class="php">$config['device_traffic_iftype'][] = '/loopback/';
