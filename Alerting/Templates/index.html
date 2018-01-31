@@ -218,6 +218,23 @@ Limit: %value.sensor_limit
 {/if}
 </code></pre>
 
+<p>Memory Alert:</p>
+<pre><code class="text">%title
+
+Device Name: %hostname
+Severity: %severity 
+Uptime: %uptime_short
+{if %state == 0}Time elapsed: %elapsed{/if}
+Timestamp: %timestamp
+Location: %location
+Description: %description
+Notes: %notes
+
+Server: %hostname {foreach %faults}
+Memory Description: %value.mempool_descr 
+Percent Utilized: %value.mempool_perc{/foreach}
+</code></pre>
+
 <p>Conditional formatting example, will display a link to the host in email or just the hostname in any other transport:</p>
 <pre><code class="text">{if %transport == mail}&lt;a href=&quot;https://my.librenms.install/device/device=%hostname/&quot;&gt;%hostname&lt;/a&gt;
 {else}
