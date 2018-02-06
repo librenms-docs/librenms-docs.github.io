@@ -97,7 +97,7 @@ usermod -a -G librenms www-data
 </code></pre>
 <h4 id="install-librenms">Install LibreNMS</h4>
 <pre><code>cd /opt
-git clone https://github.com/librenms/librenms.git librenms
+composer create-project --no-dev --keep-vcs librenms/librenms librenms dev-master
 </code></pre>
 <h2 id="db-server">DB Server</h2>
 <h4 id="configure-mysql">Configure MySQL</h4>
