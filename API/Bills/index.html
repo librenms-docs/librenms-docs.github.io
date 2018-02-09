@@ -37,6 +37,8 @@
           ]},
           {title: "get_bill", url: "#get_bill", children: [
           ]},
+          {title: "get_bill_history", url: "#get_bill_history", children: [
+          ]},
         ];
 
     </script>
@@ -72,10 +74,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h3 id="list_bills"><code>list_bills</code></h3>
 <p>Retrieve the list of bills currently in the system.</p>
-<p>Route: <code>/api/v0/bills</code></p>
+<p>Route: <code>/api/v0/bills</code>
+       <code>/api/v0/bills?period=previous</code></p>
 <p>Input:</p>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?period=previous
 </code></pre>
 
 <p>Output:</p>
@@ -126,12 +130,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="get_bill"><code>get_bill</code></h3>
 <p>Retrieve a specific bill</p>
 <p>Route: <code>/api/v0/bills/:id</code>
+       <code>/api/v0/bills/:id?period=previous</code>
        <code>/api/v0/bills?ref=:ref</code>
-       <code>/api/v0/bills?custid=:custid</code></p>
+       <code>/api/v0/bills?ref=:ref&amp;period=previous</code>
+       <code>/api/v0/bills?custid=:custid</code>
+       <code>/api/v0/bills?custid=:custid&amp;period=previous</code></p>
 <ul>
 <li>id is the specific bill id</li>
 <li>ref is the billing reference</li>
 <li>custid is the customer reference</li>
+<li>period=previous indicates you would like the data for the last complete period rather than the current period</li>
 </ul>
 <p>Input:</p>
 <p>Example:</p>
@@ -182,6 +190,46 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills?custi
    ]
   }
  ]
+}
+</code></pre>
+
+<h3 id="get_bill_history"><code>get_bill_history</code></h3>
+<p>Retrieve the history of specific bill</p>
+<p>Route: <code>/api/v0/bills/:id/history</code></p>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1/history
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+ &quot;status&quot;: &quot;ok&quot;,
+ &quot;bill_history&quot;: [
+    {
+        &quot;bill_hist_id&quot;: &quot;1&quot;,
+        &quot;bill_id&quot;: &quot;1&quot;,
+        &quot;updated&quot;: &quot;2018-02-06 17:01:01&quot;,
+        &quot;bill_datefrom&quot;: &quot;2018-02-01 00:00:00&quot;,
+        &quot;bill_dateto&quot;: &quot;2018-02-28 23:59:59&quot;,
+        &quot;bill_type&quot;: &quot;CDR&quot;,
+        &quot;bill_allowed&quot;: &quot;100000000&quot;,
+        &quot;bill_used&quot;: &quot;229963765&quot;,
+        &quot;bill_overuse&quot;: &quot;129963765&quot;,
+        &quot;bill_percent&quot;: &quot;229.96&quot;,
+        &quot;rate_95th_in&quot;: &quot;229963765&quot;,
+        &quot;rate_95th_out&quot;: &quot;1891344&quot;,
+        &quot;rate_95th&quot;: &quot;229963765&quot;,
+        &quot;dir_95th&quot;: &quot;in&quot;,
+        &quot;rate_average&quot;: &quot;136527101&quot;,
+        &quot;rate_average_in&quot;: &quot;135123359&quot;,
+        &quot;rate_average_out&quot;: &quot;1403743&quot;,
+        &quot;traf_in&quot;: &quot;3235123452544&quot;,
+        &quot;traf_out&quot;: &quot;33608406566&quot;,
+        &quot;traf_total&quot;: &quot;3268731859110&quot;,
+        &quot;pdf&quot;: null
+    }
+ ],
+ &quot;count&quot;: 1,
 }
 </code></pre>
 
