@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Support/Cleanup-options/">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/Gateone/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Cleanup Options - LibreNMS Docs</title>
+    <title>GateOne integration - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,8 +33,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Cleanup Options", url: "#cleanup-options", children: [
-              {title: "Ports Purge", url: "#ports-purge" },
+          {title: "GateOne integration", url: "#gateone-integration", children: [
           ]},
         ];
 
@@ -64,29 +63,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Support/Cleanup-options.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Gateone.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <h1 id="cleanup-options">Cleanup Options</h1>
-<p>As the number of devices starts to grow in your LibreNMS install, so will things such as the RRD files, MySQL database containing eventlogs, Syslogs and performance data etc. Your LibreNMS install could become quite large so it becomes necessary to clean up those entries. With Cleanup Options, you can keep in crontrol. </p>
-<p>These options rely on <code>daily.sh</code> running from cron as per the installation instructions.</p>
-<p>Cleanup Options are set in <code>config.php</code></p>
-<pre><code class="php">$config['syslog_purge']                                   = 30;
-$config['eventlog_purge']                                 = 30;
-$config['authlog_purge']                                  = 30;
-$config['perf_times_purge']                               = 30;
-$config['device_perf_purge']                              = 7;
-$config['rrd_purge']                                      = 90;// Not set by default
+    <h1 id="gateone-integration">GateOne integration</h1>
+<p>We have simple integration for <a href="https://github.com/liftoff/GateOne">GateOne</a>, you will be redirected to your Gateone command line frontend to access your equipment. (Currently this only works with SSH)</p>
+<p>GateOne itself isn't included within LibreNMS, you will need to install this separately either on the same infrastructure as LibreNMS or as a totally 
+standalone appliance. The installation is beyond the scope of this document.</p>
+<p>Config is simple, include the following in your <code>config.php</code>:</p>
+<pre><code class="php">$config['gateone']['server'] = 'http://&lt;your_gateone_url/';
 </code></pre>
 
-<p>These options will ensure data within LibreNMS over X days old is automatically purged. You can alter these individually, values are in days.</p>
-<p><strong>NOTE</strong>: Please be aware that <code>$config['rrd_purge']</code> is NOT set by default. This option will remove any rrd files that have not been updated for the set amount of days automatically - only enable this if you are comfortable with that happening. (all active rrd files are updated every polling period)</p>
-<h3 id="ports-purge">Ports Purge</h3>
-<p>Over time as you add devices some interfaces will need to be purged as they are set to be ignored or bad interfaces or marked as deleted.</p>
-<p>This Process needs to be manually done in the Web UI by admin user. </p>
-<p>In the Web UI Under the Ports Tab in the Nav Bar, Click on "Deleted" then click on "Purge all deleted". This will purge all the ports.</p>
+<p><strong>Note:</strong> You <em>must</em> use the full url including the trailing <code>/</code>!</p>
+<p>We also support prefixing the currently logged in Librenms user to the SSH connection URL that is created, eg. <code>ssh://admin@localhost</code>\
+To enable this, put the following in your <code>config.php</code>:</p>
+<pre><code class="php">$config['gateone']['use_librenms_user'] = true;
+</code></pre>
 
   <br>
     
@@ -94,20 +88,20 @@ $config['rrd_purge']                                      = 90;// Not set by def
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../Extensions/Gateone/" class="btn btn-xs btn-default pull-right">
+      <a href="../Graylog/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../Extensions/Gateone/" class="btn btn-xs btn-link">
-        Gateone
+      <a href="../Graylog/" class="btn btn-xs btn-link">
+        Graylog
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../Extensions/SNMP-Trap-Handler/" class="btn btn-xs btn-default pull-left">
+      <a href="../../Support/Cleanup-options/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../Extensions/SNMP-Trap-Handler/" class="btn btn-xs btn-link">
-        SNMP trap handling
+        Previous</a><a href="../../Support/Cleanup-options/" class="btn btn-xs btn-link">
+        Cleanup Options
       </a>
     </div>
     

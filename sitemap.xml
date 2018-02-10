@@ -290,6 +290,12 @@
     
         
     <url>
+     <loc>http://docs.librenms.org/Extensions/Gateone/</loc>
+     <lastmod>2018-02-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.librenms.org/Extensions/Graylog/</loc>
      <lastmod>2018-02-10</lastmod>
      <changefreq>daily</changefreq>
