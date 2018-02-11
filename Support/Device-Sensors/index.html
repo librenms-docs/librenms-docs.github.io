@@ -80,7 +80,7 @@ This doc is to help users understand device sensors in general, if you need help
 High and Low values. List of these sensors can be found here <a href="../../Developing/os/Health-Information/">Link</a></p>
 <p><strong>Note</strong> Some values are defined by the manufactures and others are auto calculated when you add the device into librenms. Keep in mind every environment is different and may require user input.</p>
 <h3 id="wireless-sensors">Wireless Sensors</h3>
-<p>Some Wireless have  High and Low values of these sensors can be edited in Web UI by going to the device settings -&gt; Health. There you can set your own custom High and Low values. List of these sensors can be found here <a href="../../Developing/os/Wireless-Sensors/">Link</a></p>
+<p>Some Wireless have  High and Low values of these sensors can be edited in Web UI by going to the device settings -&gt; Wireless Sensors There you can set your own custom High and Low values. List of these sensors can be found here <a href="../../Developing/os/Wireless-Sensors/">Link</a></p>
 <p><strong>Note</strong> Some values are defined by the manufactures and others are auto calculated when you add the device into librenms. Keep in mind every environment is different and may require user input.</p>
 <h3 id="state-sensors">State Sensors</h3>
 <p>Return states of device entries sensors states. For example. </p>
@@ -99,6 +99,8 @@ the default alert rules, there are more device-specific alert rules in the alert
 <p><strong>Remember</strong> you can set these limits inside device settings in the Web UI.</p>
 <p><strong>State Sensor Critical:</strong> Will alert on any state that returns critical = 2</p>
 <p><strong>State Sensor Warning:</strong> Will alert on any state that returns warning = 1</p>
+<p><strong>Wireless Sensor Over Limit Alert Rule:</strong> Will Alert on sensors that listed in device settings under Wireless.</p>
+<p><strong>Wireless Sensor Under Limit Alert Rule:</strong> Will Alert on sensors that listed in device settings under Wireless.</p>
 
   <br>
     
