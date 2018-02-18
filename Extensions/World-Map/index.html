@@ -75,7 +75,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="world-map-configuration">World Map Configuration</h1>
 <p>LibreNMS comes with a configurable Geo Map based on World Map Widget to visualize where your equipment is located geographically.</p>
 <h3 id="world-map-widget">World Map Widget</h3>
-<p>World Map Widget, requires you to have properly formatted addresses in sysLocation or sysLocation override. As part of the standard poller these addresses will be Geocoded by Google and stored in the database. </p>
+<p>World Map Widget, requires you to have properly formatted addresses in sysLocation or sysLocation override. As part of the standard poller these addresses will be Geocoded by Google and stored in the database.</p>
 <p>Location resolution happens as follows</p>
 <ol>
 <li>If <code>device['location']</code> contains <code>[lat, lng]</code> (note the square brackets), that is used</li>
@@ -93,6 +93,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Jquery-Mapael</li>
 </ul>
 <h3 id="world-map-widget-settings">World Map Widget Settings</h3>
+<ul>
+<li><em>Initial Latitude / Longitude</em>: The map will be centered on those coordinates.</li>
+<li><em>Initial Zoom</em>: Initial zoom of the map. <a href="https://wiki.openstreetmap.org/wiki/Zoom_levels">More information about zoom levels</a>.</li>
+<li><em>Grouping radius</em>: Markers are grouped by area. This value define the maximum size of grouping areas.</li>
+<li><em>Show devices</em>: Show devices based on there status.</li>
+</ul>
 <p>Example Settings:</p>
 <p><img alt="Example World Map Settings" src="../../img/world-map-widget-settings.png" /></p>
 <h3 id="offline-openstreet-map">Offline OpenStreet Map</h3>
