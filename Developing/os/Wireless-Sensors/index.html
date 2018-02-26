@@ -109,16 +109,34 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <td>The distance of a radio link in Kilometers</td>
 </tr>
 <tr>
+<td>error-rate</td>
+<td>bps</td>
+<td>WirelessErrorRateDiscovery</td>
+<td>The rate of errored packets or bits, etc</td>
+</tr>
+<tr>
 <td>error-ratio</td>
 <td>%</td>
 <td>WirelessErrorRatioDiscovery</td>
 <td>The percent of errored packets or bits, etc</td>
 </tr>
 <tr>
+<td>errors</td>
+<td>count</td>
+<td>WirelessErrorsDiscovery</td>
+<td>The total bits of errored packets or bits, etc</td>
+</tr>
+<tr>
 <td>frequency</td>
 <td>MHz</td>
 <td>WirelessFrequencyDiscovery</td>
 <td>The frequency of the radio in MHz, channels can be converted</td>
+</tr>
+<tr>
+<td>mse</td>
+<td>dB</td>
+<td>WirelessMseDiscovery</td>
+<td>The Mean Square Error</td>
 </tr>
 <tr>
 <td>noise-floor</td>
@@ -152,13 +170,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 <tr>
 <td>snr</td>
-<td>dBm</td>
+<td>dB</td>
 <td>WirelessSnrDiscovery</td>
 <td>The Signal to Noise ratio, which is signal - noise floor</td>
 </tr>
 <tr>
 <td>ssr</td>
-<td>dBm</td>
+<td>dB</td>
 <td>WirelessSsrDiscovery</td>
 <td>The Signal strength ratio, the ratio(or difference) of Vertical rx power to Horizontal rx power</td>
 </tr>
@@ -198,9 +216,9 @@ class Airos extends OS implements WirelessClientsDiscovery
 <li>$device_id = Required. You can get this value with $this-&gt;getDeviceId()</li>
 <li>$oids = Required. This must be the numerical OID for where the data can be found, i.e .1.2.3.4.5.6.7.0.
   If this is an array of oids, you should probably specify an $aggregator.</li>
+<li>$subtype = Required. This should be the OS name, i.e airos.</li>
 <li>$index = Required. This must be unique for this sensor type, device and subtype.
   Typically it's the index from the table being walked or it could be the name of the OID if it's a single value.</li>
-<li>$subtype = Required. This should be the OS name, i.e airos.</li>
 <li>$description = Required. This is a descriptive value for the sensor.
   Shown to the user, if this is a per-ssid statistic, using <code>SSID: $ssid</code> here is appropriate</li>
 <li>$current = Defaults to null. Can be used to set the current value on discovery.
