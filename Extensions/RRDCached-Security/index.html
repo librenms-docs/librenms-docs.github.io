@@ -63,7 +63,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h3 id="securing-with-nginx">Securing with nginx</h3>
-<p>According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>, under "SECURITY CONSIDERATIONS", rrdcached has no authentication or security except for running under a unix socket. To secure your rrdcached installation, you can proxy it using nginx to allow only specific IPs to connect.</p>
+<p>According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>, under "SECURITY CONSIDERATIONS", rrdcached has no authentication or security except for running under a unix socket. If you choose to use a network socket instead of a unix socket, you will need to secure your rrdcached installation. To do so you can proxy rrdcached using nginx to allow only specific IPs to connect.</p>
 <p>using the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.</p>
 <p>(You can use <code>./conf.d</code> for your configuration as well)</p>
 <p><code>mkdir /etc/nginx/streams-{available,enabled}</code></p>
