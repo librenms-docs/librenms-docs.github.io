@@ -47,6 +47,10 @@
           ]},
           {title: "get_bill_history_graphdata", url: "#get_bill_history_graphdata", children: [
           ]},
+          {title: "delete_bill", url: "#delete_bill", children: [
+          ]},
+          {title: "create_edit_bill", url: "#create_edit_bill", children: [
+          ]},
         ];
 
     </script>
@@ -326,6 +330,48 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1/his
 </code></pre>
 
 <p>Output:</p>
+<h3 id="delete_bill"><code>delete_bill</code></h3>
+<p>Delete a specific bill and all dependent data</p>
+<p>Route: <code>/api/v0/bills/:id</code></p>
+<ul>
+<li>id is the specific bill id</li>
+</ul>
+<p>Input:</p>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills/1
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Bill has been removed&quot;
+}
+</code></pre>
+
+<h3 id="create_edit_bill"><code>create_edit_bill</code></h3>
+<p>Creates a new bill or updates an existing one</p>
+<p>Route: <code>/api/v0/bills</code></p>
+<p>Method: <code>POST</code></p>
+<ul>
+<li>If you send an existing bill_id the call replaces all values it receives.<br />
+  For example if you send 2 ports it will delete the existing ports and add the the 2 new ports.<br />
+  So to add ports you have to get the current ports first and add them to your update call.</li>
+</ul>
+<p>Input:</p>
+<p>Example (create):</p>
+<pre><code class="curl">curl -X POST -d '{&quot;ports&quot;:[ 1021 ],&quot;bill_name&quot;:&quot;NEWBILL&quot;,&quot;bill_day&quot;:&quot;1&quot;,&quot;bill_type&quot;:&quot;quota&quot;,&quot;bill_quota&quot;:&quot;2000000000000&quot;,&quot;bill_custid&quot;:&quot;1337&quot;,&quot;bill_ref&quot;:&quot;reference1&quot;,&quot;bill_notes&quot;:&quot;mynote&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
+</code></pre>
+
+<p>Example (set):</p>
+<pre><code class="curl">curl -X POST -d '{&quot;bill_id&quot;:&quot;32&quot;,&quot;ports&quot;:[ 1021 ],&quot;bill_name&quot;:&quot;NEWNAME&quot;,&quot;bill_quota&quot;:&quot;1000000000000&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bills
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;bill_id&quot;: 32
+}
+</code></pre>
 
   <br>
     
