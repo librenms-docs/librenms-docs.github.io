@@ -58,6 +58,7 @@
               {title: "Elasticsearch", url: "#elasticsearch" },
               {title: "JIRA", url: "#jira" },
               {title: "Gitlab", url: "#gitlab" },
+              {title: "Philips Hue", url: "#philips-hue" },
           ]},
         ];
 
@@ -436,6 +437,22 @@ $config['alert']['transports']['jira']['issuetype'][]  = 'Myissuetype';
 <pre><code class="php">$config['alert']['transports']['gitlab']['host'] = 'http://gitlab.host.tld';
 $config['alert']['transports']['gitlab']['project_id'] = '1';
 $config['alert']['transports']['gitlab']['key'] = 'AbCdEf12345';
+</code></pre>
+
+<h2 id="philips-hue">Philips Hue</h2>
+<p>Want to spice up your noc life? LibreNMS will flash all lights connected to your philips hue bridge whenever an alert is triggered. </p>
+<p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
+<ul>
+<li>Update the "URL:" field to <code>/api</code></li>
+<li>Paste this in the "Message Body" {"devicetype":"librenms"}</li>
+<li>Press the round button on your <code>philips Hue Bridge</code></li>
+<li>Click on <code>POST</code></li>
+<li>In the <code>Command Response</code> You should see output with your username. Copy this without the quotes</li>
+</ul>
+<p>More Info: <a href="https://www.developers.meethue.com/documentation/getting-started">Philips Hue Documentation</a></p>
+<pre><code class="php">$config['alert']['transports']['hue']['bridge'] = 'http://bridge.example.com';
+$config['alert']['transports']['hue']['user'] = 'af89jauaf98aj34r';
+$config['alert']['transports']['hue']['duration'] = 'lselect';
 </code></pre>
 
   <br>
