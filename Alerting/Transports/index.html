@@ -246,6 +246,13 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <p><strong>Note</strong>: Currently ACK notifications are not transported to PagerDuty, This is going to be fixed within the next major version (version by date of writing: 2015.05)</p>
 <h2 id="pushover">Pushover</h2>
 <p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p>If you want to change the <a href="https://pushover.net/api#sounds">notification sounds</a> then add it in config options as:</p>
+<pre><code class="php">sound_critical=falling
+</code></pre>
+
 <p>Enabling Pushover support is fairly easy, there are only two required parameters.</p>
 <p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
 <p>Now copy your API Token/Key from the newly created Application and setup the transport in your config.php like:</p>
