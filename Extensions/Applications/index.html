@@ -166,7 +166,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 <li>
 <p>Verify it is working by running /etc/snmp/apache-stats.py
-(In some cases urlgrabber needs to be installed, in Debian it can be achieved by: apt-get install python-urlgrabber)</p>
+In some cases urlgrabber and pycurl needs to be installed, in Debian this can be achieved by: apt-get install python-urlgrabber python-pycurl . Make sure to remove /tmp/apache-snmp afterwards.</p>
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
@@ -176,8 +176,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </code></pre>
 
 <ol>
-<li>Restart snmpd on your host</li>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
+<li>
+<p>Test by running</p>
+</li>
 </ol>
+<pre><code>snmpwalk &lt;various options depending on your setup&gt; localhost NET-SNMP-EXTEND-MIB::nsExtendOutput2Table
+</code></pre>
+
 <h5 id="agent">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>apache</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <ol>
