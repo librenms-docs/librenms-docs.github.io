@@ -36,6 +36,7 @@
           {title: "Templates", url: "#templates", children: [
               {title: "Syntax", url: "#syntax" },
               {title: "Examples", url: "#examples" },
+              {title: "Examples HTML", url: "#examples-html" },
               {title: "Included", url: "#included" },
           ]},
         ];
@@ -243,6 +244,51 @@ Percent Utilized: %value.mempool_perc{/foreach}
 </code></pre>
 
 <p>Note the use of double-quotes.  Single quotes (<code>'</code>) in templates will be escaped (replaced with <code>\'</code>) in the output and should therefore be avoided.</p>
+<h2 id="examples-html">Examples HTML</h2>
+<p>Note: To use HTML emails you must set HTML email to Yes in the WebUI under Global Settings &gt; Alerting Settings &gt; Email transport &gt; Use HTML emails</p>
+<p>Note: To include Graphs you must enable unauthorized graphs in config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
+<pre><code>$config['allow_unauth_graphs_cidr'] = array(127.0.0.1/32');  
+$config['allow_unauth_graphs'] = true;
+</code></pre>
+
+<p>Service Alert:
+```<div style="font-family:Helvetica;">
+<h2>{if %state == 1}<span style="color:red;">%severity{/if}
+{if %state == 2}<span style="color:goldenrod;">acknowledged{/if}</span>
+{if %state == 3}<span style="color:green;">recovering{/if}</span>
+{if %state == 0}<span style="color:green;">recovered{/if}</span>
+</h2>
+<b>Host:</b> %hostname<br>
+<b>Duration:</b> %elapsed<br>
+<br></p>
+<p>{if %faults}                                                                                     <br />
+{foreach %faults}<b>%value.service_desc - %value.service_type</b><br>                                       <br />
+%value.service_message<br>
+<br>                                                                                       <br />
+{/foreach}                                                                                                           <br />
+{/if}
+</div></p>
+<pre><code>
+Processor Alert with Graph:
+```%title &lt;br&gt;
+Severity: %severity  &lt;br&gt;
+{if %state == 0}Time elapsed: %elapsed{/if}
+Timestamp: %timestamp &lt;br&gt;
+Alert-ID: %id &lt;br&gt;
+Rule: {if %name}%name{else}%rule{/if} &lt;br&gt;
+{if %faults}Faults:
+{foreach %faults}
+#%key: %value.string &lt;br&gt;
+{/foreach}
+{if %faults}&lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
+{foreach %faults}&lt;img src=&quot;https://server/graph.php?device=%value.device_id&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h%22/%3E&lt;br&gt;
+https://server/graphs/id=%value.device_id/type=device_processor/&lt;br&gt;
+{/foreach}
+Template: CPU alert &lt;br&gt;
+{/if}
+{/if}
+</code></pre>
+
 <h2 id="included">Included</h2>
 <p>We include a few templates for you to use, these are specific to the type of alert rules you are creating. For example if you create a rule that would alert on BGP sessions then you can 
 assign the BGP template to this rule to provide more information.</p>
