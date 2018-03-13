@@ -251,26 +251,28 @@ Percent Utilized: %value.mempool_perc{/foreach}
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 
-<p>Service Alert:
-```<div style="font-family:Helvetica;">
-<h2>{if %state == 1}<span style="color:red;">%severity{/if}
-{if %state == 2}<span style="color:goldenrod;">acknowledged{/if}</span>
-{if %state == 3}<span style="color:green;">recovering{/if}</span>
-{if %state == 0}<span style="color:green;">recovered{/if}</span>
-</h2>
-<b>Host:</b> %hostname<br>
-<b>Duration:</b> %elapsed<br>
-<br></p>
-<p>{if %faults}                                                                                     <br />
-{foreach %faults}<b>%value.service_desc - %value.service_type</b><br>                                       <br />
-%value.service_message<br>
-<br>                                                                                       <br />
-{/foreach}                                                                                                           <br />
+<p>Service Alert:</p>
+<pre><code>&lt;div style=&quot;font-family:Helvetica;&quot;&gt;
+&lt;h2&gt;{if %state == 1}&lt;span style=&quot;color:red;&quot;&gt;%severity{/if}
+{if %state == 2}&lt;span style=&quot;color:goldenrod;&quot;&gt;acknowledged{/if}&lt;/span&gt;
+{if %state == 3}&lt;span style=&quot;color:green;&quot;&gt;recovering{/if}&lt;/span&gt;
+{if %state == 0}&lt;span style=&quot;color:green;&quot;&gt;recovered{/if}&lt;/span&gt;
+&lt;/h2&gt;
+&lt;b&gt;Host:&lt;/b&gt; %hostname&lt;br&gt;
+&lt;b&gt;Duration:&lt;/b&gt; %elapsed&lt;br&gt;
+&lt;br&gt;
+
+{if %faults}                                                                                       
+{foreach %faults}&lt;b&gt;%value.service_desc - %value.service_type&lt;/b&gt;&lt;br&gt;                                         
+%value.service_message&lt;br&gt;
+&lt;br&gt;                                                                                         
+{/foreach}                                                                                                             
 {/if}
-</div></p>
-<pre><code>
-Processor Alert with Graph:
-```%title &lt;br&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Processor Alert with Graph:</p>
+<pre><code>%title &lt;br&gt;
 Severity: %severity  &lt;br&gt;
 {if %state == 0}Time elapsed: %elapsed{/if}
 Timestamp: %timestamp &lt;br&gt;
