@@ -478,12 +478,6 @@
     </url>
         
     <url>
-     <loc>http://docs.librenms.org/Alerting/Rule-Mapping/</loc>
-     <lastmod>2018-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://docs.librenms.org/Alerting/Device-Dependencies/</loc>
      <lastmod>2018-03-14</lastmod>
      <changefreq>daily</changefreq>

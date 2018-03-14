@@ -76,10 +76,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="rules">Rules</h1>
-<p>Rules are defined using a logical language.
-The GUI provides a simple way of creating basic rules.
-Creating more complicated rules which may include maths calculations and MySQL queries can be 
-done using <a href="../Macros/">macros</a></p>
+<p>Rules are defined using a logical language.</p>
+<p>The GUI provides a simple way of creating rules.</p>
+<p>Creating more complicated rules which may include maths calculations and MySQL queries can be done using <a href="../Macros/">macros</a></p>
 <h4 id="video-on-how-the-alert-rules-work-in-librenms">Video on how the alert rules work in LibreNMS</h4>
 <p><a href="https://youtu.be/ryv0j8GEkhM">Alert Rules</a></p>
 <h4 id="video-on-how-to-use-alert-rule-with-wildcards">Video on how to use alert rule with wildcards</h4>
@@ -87,25 +86,33 @@ done using <a href="../Macros/">macros</a></p>
 <h2 id="syntax">Syntax</h2>
 <p>Rules must consist of at least 3 elements: An <strong>Entity</strong>, a <strong>Condition</strong> and a <strong>Value</strong>.
 Rules can contain braces and <strong>Glues</strong>.
-<strong>Entities</strong> are provided from Table and Field from the database. For Example: <code>%ports.ifOperStatus</code>.</p>
-<blockquote>
-<p>Please note that % is not required when adding alert rules via the WebUI. 
-<strong>Conditions</strong> can be any of:</p>
-</blockquote>
+<strong>Entities</strong> are provided from Table and Field from the database. For Example: <code>ports.ifOperStatus</code>.</p>
+<p><strong>Conditions</strong> can be any of:</p>
 <ul>
 <li>Equals <code>=</code></li>
 <li>Not Equals <code>!=</code></li>
-<li>Like <code>~</code></li>
-<li>Not Like <code>!~</code></li>
+<li>In <code>IN</code></li>
+<li>Not In <code>NOT IN</code></li>
+<li>Begins with <code>LIKE ('%...')</code></li>
+<li>Doesn't begin with <code>NOT LIKE ('%...')</code></li>
+<li>Contains <code>LIKE ('%...%')</code></li>
+<li>Doesn't Contain <code>NOT LIKE ('%...%')</code></li>
+<li>Ends with <code>LIKE ('...%')</code></li>
+<li>Doesn't end with <code>NOT LIKE ('...%')</code></li>
+<li>Between <code>BETWEEN</code></li>
+<li>Not Between <code>NOT BETWEEN</code></li>
+<li>Is Empty <code>= ''</code></li>
+<li>Is Not Empty <code>!= '''</code></li>
+<li>Is Null <code>IS NULL</code></li>
+<li>Is Not Null <code>IS NOT NULL</code></li>
 <li>Greater <code>&gt;</code></li>
 <li>Greater or Equal <code>&gt;=</code></li>
-<li>Smaller <code>&lt;</code></li>
-<li>Smaller or Equal <code>&lt;=</code></li>
+<li>Less <code>&lt;</code></li>
+<li>Less or Equal <code>&lt;=</code></li>
+<li>Regex <code>REGEXP</code></li>
 </ul>
-<p><strong>Values</strong> can be an entity or any single-quoted data.
-<strong>Glues</strong> can be <code>&amp;&amp;</code> for <code>AND</code>.</p>
-<p><strong>Note</strong> if you need to use <code>OR</code> <code>||</code> please use a <a href="../Macros/">macros</a></p>
-<p><strong>Note</strong>: The difference between <code>Equals</code> and <code>Like</code> (and its negation) is that <code>Equals</code> does a strict comparison and <code>Like</code> allows the usage of MySQL RegExp.</p>
+<p><strong>Values</strong> can be an entity or any data.</p>
+<p><strong>Note</strong>: Regex supports MySQL Regular expressions</p>
 <p>Arithmetics are allowed as well.</p>
 <h1 id="options">Options</h1>
 <p>Here are some of the other options available when adding an alerting rule:</p>
@@ -123,17 +130,17 @@ Rules can contain braces and <strong>Glues</strong>.
 <h2 id="examples">Examples</h2>
 <p>Alert when:</p>
 <ul>
-<li>Device goes down: <code>%devices.status != '1'</code></li>
-<li>Any port changes: <code>%ports.ifOperStatus != 'up'</code></li>
-<li>Root-directory gets too full: <code>%storage.storage_descr = '/' &amp;&amp; %storage.storage_perc &gt;= '75'</code></li>
-<li>Any storage gets fuller than the 'warning': <code>%storage.storage_perc &gt;= %storage_perc_warn</code></li>
-<li>If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>%storage.storage_perc &gt; %storage.storage_perc_warn &amp;&amp; %devices.type = "server" &amp;&amp; %storage.storage_descr !~ "/boot"</code></li>
-<li>VMware LAG is not using "Source ip address hash" load balancing: <code>%devices.os = "vmware" &amp;&amp; %ports.ifType = "ieee8023adLag" &amp;&amp; %ports.ifDescr !~ "Link Aggregation @, load balancing algorithm: Source ip address hash"</code></li>
-<li>Syslog, authentication failure during the last 5m: <code>%syslog.timestamp &gt;= %macros.past_5m &amp;&amp; %syslog.msg ~ "@authentication failure@"</code></li>
-<li>High memory usage: <code>%macros.device_up = "1" &amp;&amp; %mempools.mempool_perc &gt;= "90" &amp;&amp; %mempools.mempool_descr = "Virtual@"</code></li>
-<li>High CPU usage(per core usage, not overall): <code>%macros.device_up = "1" &amp;&amp; %processors.processor_usage &gt;= "90"</code></li>
-<li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>%macros.port_usage_perc &gt;= "80" &amp;&amp; %port.port_descr_type != "client" &amp;&amp; %ports.ifType != "softwareLoopback"</code></li>
-<li>Alert when mac address is located on your network <code>%ipv4_mac.mac_address = "2c233a756912"</code></li>
+<li>Device goes down: <code>devices.status = 1</code></li>
+<li>Any port changes: <code>ports.ifOperStatus != 'up'</code></li>
+<li>Root-directory gets too full: <code>storage.storage_descr = '/' AND storage.storage_perc &gt;= '75'</code></li>
+<li>Any storage gets fuller than the 'warning': <code>storage.storage_perc &gt;= storage_perc_warn</code></li>
+<li>If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>storage.storage_perc &gt; storage.storage_perc_warn AND devices.type = "server" AND storage.storage_descr != "/boot"</code></li>
+<li>VMware LAG is not using "Source ip address hash" load balancing: <code>devices.os = "vmware" AND ports.ifType = "ieee8023adLag" AND ports.ifDescr REGEXP "Link Aggregation .*, load balancing algorithm: Source ip address hash"</code></li>
+<li>Syslog, authentication failure during the last 5m: <code>syslog.timestamp &gt;= macros.past_5m AND syslog.msg REGEXP ".*authentication failure.*"</code></li>
+<li>High memory usage: <code>macros.device_up = 1 AND mempools.mempool_perc &gt;= 90 AND mempools.mempool_descr REGEXP "Virtual.*"</code></li>
+<li>High CPU usage(per core usage, not overall): <code>macros.device_up = 1 AND processors.processor_usage &gt;= 90</code></li>
+<li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>macros.port_usage_perc &gt;= 80 AND port.port_descr_type != "client" AND ports.ifType != "softwareLoopback"</code></li>
+<li>Alert when mac address is located on your network <code>ipv4_mac.mac_address = "2c233a756912"</code></li>
 </ul>
 <h3 id="alert-rules-collection">Alert Rules Collection</h3>
 <p>You can also select Alert Rule from the Alerts Collection. These Alert Rules are submitted by users in the community :)
