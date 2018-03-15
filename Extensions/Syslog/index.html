@@ -73,7 +73,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="setting-up-syslog-support">Setting up syslog support</h1>
-<p>This document will explain how to send syslog data to LibreNMS.</p>
+<p>This document will explain how to send syslog data to LibreNMS.
+Please also refer to the file Graylog.md for an alternate way of integrating syslog with LibreNMS.</p>
 <h3 id="syslog-server-installation">Syslog server installation</h3>
 <h4 id="syslog-ng">syslog-ng</h4>
 <p>For Debian / Ubuntu:</p>
@@ -211,7 +212,8 @@ $ActionOMProgBinary /opt/librenms/syslog.php
 <p>The cleanup is run by daily.sh and any entries over X days old are automatically purged. Values are in days.
 See here for more Clean Up Options <a href="https://docs.librenms.org/#Support/Configuration/#cleanup-options">Link</a></p>
 <h3 id="client-configuration">Client configuration</h3>
-<p>Below are sample configurations for a variety of clients. You should understand the config before using it as you may want to make some slight changes.</p>
+<p>Below are sample configurations for a variety of clients. You should understand the config before using it as you may want to make some slight changes.
+Further configuration hints may be found in the file Graylog.md.</p>
 <p>Replace librenms.ip with IP or hostname of your LibreNMS install.</p>
 <p>Replace any variables in <brackets> with the relevant information.</p>
 <h4 id="syslog">syslog</h4>
