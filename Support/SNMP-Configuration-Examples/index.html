@@ -88,6 +88,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         - <a href="#routeros-6x">RouterOS 6.x</a>
     - <a href="#palo-alto">Palo Alto</a>
         - <a href="#panos-6x7x">PANOS 6.x/7.x</a>
+    - <a href="#vmware">VMware</a>
+        - <a href="#esxesxi-5x6x">ESX/ESXi 5.x/6.x</a>
 - <a href="#operating-systems">Operating systems</a>
     - <a href="#linux-snmpd">Linux (snmpd v2)</a>
     - <a href="#linux-snmpd-v3">Linux (snmpd v3)</a>
@@ -193,10 +195,20 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 </ol>
 <h3 id="juniper">Juniper</h3>
 <h4 id="junos-os">Junos OS</h4>
+<p>for SNMPv1/v2c</p>
 <pre><code>set snmp description description
 set snmp location location
 set snmp contact contact
 set snmp community YOUR-COMMUNITY authorization read-only
+</code></pre>
+
+<p>for SNMPv3 (authPriv):</p>
+<pre><code>set snmp v3 usm local-engine user authpriv authentication-sha authentication-password YOUR_AUTH_SECRET
+set snmp v3 usm local-engine user authpriv privacy-aes128 privacy-password YOUR_PRIV_SECRET
+set snmp v3 vacm security-to-group security-model usm security-name authpriv group mysnmpv3
+set snmp v3 vacm access group mysnmpv3 default-context-prefix security-model any security-level authentication read-view mysnmpv3view
+set snmp v3 vacm access group lsgv3 default-context-prefix security-model any security-level privacy read-view mysnmpv3view
+set snmp view mysnmpv3view oid iso include
 </code></pre>
 
 <h3 id="mikrotik">Mikrotik</h3>
@@ -220,6 +232,27 @@ set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; loc
 <li>Click Apply</li>
 </ol>
 <p>Note that you need to allow SNMP on the needed interfaces. To do that you need to create a network "Interface Mgmt" profile for standard interface and allow SNMP under "Device &gt; Management &gt; Management Interface Settings" for out of band management interface.</p>
+<h3 id="vmware">VMware</h3>
+<h4 id="esxesxi-5x6x">ESX/ESXi 5.x/6.x</h4>
+<p>Log on to your ESX server by means of ssh. You may have to enable the ssh service in the GUI first.
+From the CLI, execute the following commands:</p>
+<pre><code>esxcli system snmp set --authentication SHA1
+esxcli system snmp set --privacy AES128
+esxcli system snmp hash --auth-hash YOUR_AUTH_SECRET --priv-hash YOUR_PRIV_SECRET --raw-secret
+</code></pre>
+
+<p>This command produces output like this</p>
+<pre><code>   Authhash: f3d8982fc28e8d1346c26eee49eb2c4a5950c934
+   Privhash: 0596ab30b315576a4e9f7d7bde65bf49b749e335
+</code></pre>
+
+<p>Now define a SNMPv3 user:</p>
+<pre><code>esxcli system snmp set --users authpriv/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
+esxcli system snmp set -L &quot;Yourcity, Yourcountry [60.4,5.3]&quot;
+esxcli system snmp set -C noc@your.org
+esxcli system snmp set --enable true
+</code></pre>
+
 <h2 id="operating-systems">Operating systems</h2>
 <h3 id="linux-snmpd-v2">Linux (snmpd v2)</h3>
 <p>Replace your snmpd.conf file by the example below and edit it with appropriate community in "RANDOMSTRINGGOESHERE".</p>
