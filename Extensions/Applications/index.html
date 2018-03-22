@@ -50,8 +50,9 @@
               {title: "Munin", url: "#munin" },
               {title: "MySQL", url: "#mysql" },
               {title: "NGINX", url: "#nginx" },
+              {title: "NFS Server", url: "#nfs-server" },
               {title: "NTP Client", url: "#ntp-client" },
-              {title: "NTP Server (NTPD)", url: "#ntp-server-ntpd" },
+              {title: "NTP Server aka NTPD", url: "#ntp-server-aka-ntpd" },
               {title: "Nvidia GPU", url: "#nvidia-gpu" },
               {title: "Open Grid Scheduler", url: "#open-grid-scheduler" },
               {title: "OS Updates", url: "#os-updates" },
@@ -125,10 +126,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#mysql">MySQL</a> - SNMP extend, Agent</li>
-<li><a href="#nginx">NGINX</a> - Agent</li>
-<li><a href="#nfs-server">NFS-server</a> - SNMP extend</li>
+<li><a href="#nginx">NGINX</a> - SNMP extend, Agent</li>
+<li><a href="#nfs-server">NFS Server</a> - SNMP extend</li>
 <li><a href="#ntp-client">NTP Client</a> - SNMP extend</li>
-<li><a href="#ntp-server">NTP Server</a> - SNMP extend</li>
+<li><a href="#ntp-server-aka-ntpd">NTP Server/NTPD</a> - SNMP extend</li>
 <li><a href="#nvidia-gpu">Nvidia GPU</a> - SNMP extend</li>
 <li><a href="#opengridscheduler">Open Grid Scheduler</a> - SNMP extend</li>
 <li><a href="#os-updates">OS Updates</a> - SNMP extend</li>
@@ -572,7 +573,7 @@ $mysql_port = 3306;
 </ol>
 <h5 id="agent_8">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<h5 id="nfs-server">NFS-server</h5>
+<h3 id="nfs-server">NFS Server</h3>
 <p>Export the NFS stats from as server.</p>
 <h5 id="snmp-extend_14">SNMP Extend</h5>
 <ol>
@@ -608,7 +609,7 @@ $mysql_port = 3306;
 <ol>
 <li>Restart snmpd on your host</li>
 </ol>
-<h3 id="ntp-server-ntpd">NTP Server (NTPD)</h3>
+<h3 id="ntp-server-aka-ntpd">NTP Server aka NTPD</h3>
 <p>A shell script that gets stats from ntp server (ntpd).</p>
 <h5 id="snmp-extend_16">SNMP Extend</h5>
 <ol>
