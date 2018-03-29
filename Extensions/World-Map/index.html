@@ -37,6 +37,7 @@
               {title: "World Map Widget", url: "#world-map-widget" },
               {title: "World Map Widget Settings", url: "#world-map-widget-settings" },
               {title: "Offline OpenStreet Map", url: "#offline-openstreet-map" },
+              {title: "Additional Leaflet config", url: "#additional-leaflet-config" },
               {title: "Jquery-Mapael config", url: "#jquery-mapael-config" },
           ]},
         ];
@@ -104,6 +105,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="offline-openstreet-map">Offline OpenStreet Map</h3>
 <p>If you can't access OpenStreet map directly you can run a local <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a>. To specify a different url you can set:</p>
 <pre><code class="php">$config['leaflet']['tile_url'] = 'localhost.com';
+</code></pre>
+
+<h3 id="additional-leaflet-config">Additional Leaflet config</h3>
+<pre><code class="php">$config['map']['engine']                                = &quot;leaflet&quot;;
+$config['leaflet']['default_lat']                       = &quot;51.981074&quot;;
+$config['leaflet']['default_lng']                       = &quot;5.350342&quot;;
+$config['leaflet']['default_zoom']                      = 8;    
+$config['leaflet']['group_radius']                      = 1;    // Device grouping radius in KM default 80KM
 </code></pre>
 
 <h3 id="jquery-mapael-config">Jquery-Mapael config</h3>
