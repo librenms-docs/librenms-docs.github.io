@@ -271,9 +271,10 @@ Make sure you have network option in /var/default/rrdcached</p>
 <pre><code class="bash">NETWORK_OPTIONS=&quot;-L&quot; 
 </code></pre>
 
-<pre><code class="php">$config['rrdcached'] = &quot;0:42217&quot;;
+<pre><code class="php">$config['rrdcached'] = &quot;IPADDRESS:42217&quot;;
 </code></pre>
 
+<p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on. </p>
 <h3 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h3>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
 In this example, we'll use the Repoforge repository.</p>
