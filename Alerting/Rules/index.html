@@ -131,7 +131,7 @@ Rules can contain braces and <strong>Glues</strong>.
 <h2 id="examples">Examples</h2>
 <p>Alert when:</p>
 <ul>
-<li>Device goes down: <code>devices.status = 1</code></li>
+<li>Device goes down: <code>devices.status != 1</code></li>
 <li>Any port changes: <code>ports.ifOperStatus != 'up'</code></li>
 <li>Root-directory gets too full: <code>storage.storage_descr = '/' AND storage.storage_perc &gt;= '75'</code></li>
 <li>Any storage gets fuller than the 'warning': <code>storage.storage_perc &gt;= storage_perc_warn</code></li>
