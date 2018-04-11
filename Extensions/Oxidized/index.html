@@ -160,8 +160,8 @@ $config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'gr
 <h3 id="miscellaneous">Miscellaneous</h3>
 <p>If you have devices which you do not wish to appear in Oxidized then you can edit those devices in Device -&gt; Edit -&gt; Misc and enable "Exclude from Oxidized?"</p>
 <p>It's also possible to exclude certain device types and OS' from being output via the API. This is currently only possible via config.php:</p>
-<pre><code class="php">$config['oxidized']['ignore_types'] = array('server');
-$config['oxidized']['ignore_os'] = array('linux');
+<pre><code class="php">$config['oxidized']['ignore_types'] = array('server','power');
+$config['oxidized']['ignore_os'] = array('linux','windows');
 </code></pre>
 
 <h3 id="trigger-configuration-backups">Trigger configuration backups</h3>
