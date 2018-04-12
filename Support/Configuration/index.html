@@ -427,7 +427,7 @@ $config['poller_modules']['bgp-peers'] = 0;
 <pre><code class="php">$config['snmp']['timeout'] = 1;            # timeout in seconds
 $config['snmp']['retries'] = 5;            # how many times to retry the query
 $config['snmp']['transports'] = array('udp', 'udp6', 'tcp', 'tcp6');
-$config['snmp']['version'] = &quot;v2c&quot;;         # Default version to use
+$config['snmp']['version'] = ['v2c', 'v3', 'v1'];         # Default versions to use
 $config['snmp']['port'] = 161;
 </code></pre>
 
