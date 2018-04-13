@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Extensions/metrics/Graphite/">
+    <link rel="canonical" href="http://docs.librenms.org/Extensions/metrics/Prometheus/">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Enabling support for Graphite. - LibreNMS Docs</title>
+    <title>Enabling support for Prometheus. - LibreNMS Docs</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -33,10 +33,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Enabling support for Graphite.", url: "#enabling-support-for-graphite", children: [
+          {title: "Enabling support for Prometheus.", url: "#enabling-support-for-prometheus", children: [
+              {title: "Requirements (Older versions may work but haven't been tested", url: "#requirements-older-versions-may-work-but-havent-been-tested" },
               {title: "What you don't get", url: "#what-you-dont-get" },
               {title: "Configuration", url: "#configuration" },
-              {title: "Graphite Configuration", url: "#graphite-configuration" },
+              {title: "Sample Prometheus Scrape Config (for scraping the Push Gateway)", url: "#sample-prometheus-scrape-config-for-scraping-the-push-gateway" },
           ]},
         ];
 
@@ -66,35 +67,46 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/metrics/Graphite.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/metrics/Prometheus.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
 
-    <h1 id="enabling-support-for-graphite">Enabling support for Graphite.</h1>
-<p>This module sends all metrics to a remote graphite service. You need something like Grafana for graphing.</p>
+    <h1 id="enabling-support-for-prometheus">Enabling support for Prometheus.</h1>
+<p>Please be aware Prometheus support is alpha at best, It hasn't been extensively tested and is still in development
+All it provides is the sending of data to a a Prometheus PushGateway. Please be careful when enabling this support 
+you use it at your own risk!</p>
+<h3 id="requirements-older-versions-may-work-but-havent-been-tested">Requirements (Older versions may work but haven't been tested</h3>
+<ul>
+<li>Prometheus &gt;= 2.0</li>
+<li>PushGateway &gt;= 0.4.0</li>
+<li>Grafana</li>
+<li>PHP-CURL</li>
+</ul>
+<p>The setup of the above is completely out of scope here and we aren't really able to provide any help with this side
+of things.</p>
 <h3 id="what-you-dont-get">What you don't get</h3>
 <ul>
 <li>Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.</li>
+<li>Support for Prometheus or Grafana, we would highly recommend that you have some level of experience with these.</li>
 </ul>
 <p>RRD will continue to function as normal so LibreNMS itself should continue to function as normal.</p>
 <h3 id="configuration">Configuration</h3>
-<pre><code class="php">$config['graphite']['enable'] = true;
-$config['graphite']['host'] = 'your.graphite.server';
-$config['graphite']['port'] = 2003; // this defaults to 2003 and is usually not needed
-$config['graphite']['prefix'] = 'your.metric.prefix';
+<pre><code class="php">$config['prometheus']['enable'] = true;
+$config['prometheus']['url'] = 'http://127.0.0.1:9091';
+$config['prometheus']['job'] = 'librenms'; # Optional
 </code></pre>
 
-<p>Your metric path can be prefixed if required, otherwise the metric path for Graphite will be in the form of
-<code>hostname.measurement.fieldname</code>, interfaces will be stored as <code>hostname.ports.ifName.fieldname</code>.</p>
-<p>The same data then stored within rrd will be sent to Graphite and recorded. You can then create graphs within Grafana
-to display the information you need.</p>
-<h3 id="graphite-configuration">Graphite Configuration</h3>
-<p>As LibreNMS updates its metrics every 5 minutes, the following addition to your storage-schemas.conf is suggested.</p>
-<pre><code>[network]
-pattern = your\.metric\.prefix\..*
-retentions = 5m:30d,15m:90d,1h:1y
+<h3 id="sample-prometheus-scrape-config-for-scraping-the-push-gateway">Sample Prometheus Scrape Config (for scraping the Push Gateway)</h3>
+<pre><code class="yml">- job_name: pushgateway
+  scrape_interval: 300s
+  honor_labels: true
+  static_configs:
+    - targets: ['127.0.0.1:9091']
 </code></pre>
+
+<p>The same data then stored within rrd will be sent to Prometheus and recorded. You can then create graphs within Grafana
+to display the information you need.</p>
 
   <br>
     
@@ -102,20 +114,20 @@ retentions = 5m:30d,15m:90d,1h:1y
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../InfluxDB/" class="btn btn-xs btn-default pull-right">
+      <a href="../../Smokeping/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../InfluxDB/" class="btn btn-xs btn-link">
-        InfluxDB
+      <a href="../../Smokeping/" class="btn btn-xs btn-link">
+        Smokeping
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../Metric-Storage/" class="btn btn-xs btn-default pull-left">
+      <a href="../OpenTSDB/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../Metric-Storage/" class="btn btn-xs btn-link">
-        Intro
+        Previous</a><a href="../OpenTSDB/" class="btn btn-xs btn-link">
+        Enabling support for OpenTSDB.
       </a>
     </div>
     

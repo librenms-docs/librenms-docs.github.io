@@ -3772,38 +3772,13 @@
         }, 
         {
             "location": "/Extensions/Metric-Storage/", 
-            "text": "Metric storage\n\n\nBy default we ship all metrics to RRD files, either directly or via \nRRDCached\n. On top of this \nyou can ship metrics to InfluxDB, Graphite and / or OpenTSDB. At present you can't use these backends to display \ngraphs within LibreNMS and will need to use something like \nGrafana\n.\n\n\nFor further information on configuring LibreNMS to ship data to one of the other backends then please see \nthe documentation below.\n\n\n\n\n\n\nInfluxDB\n\n\nGraphite\n\n\nOpenTSDB", 
+            "text": "Metric storage\n\n\nBy default we ship all metrics to RRD files, either directly or via \nRRDCached\n. On top of this \nyou can ship metrics to Graphite, InfluxDB, OpenTSDB or Prometheus. At present you can't use these \nbackends to display graphs within LibreNMS and will need to use something like \nGrafana\n.\n\n\nFor further information on configuring LibreNMS to ship data to one of the other backends then please see \nthe documentation below.\n\n\n\n\n\n\nGraphite\n\n\nInfluxDB\n\n\nOpenTSDB\n\n\nPrometheus", 
             "title": "Intro"
         }, 
         {
             "location": "/Extensions/Metric-Storage/#metric-storage", 
-            "text": "By default we ship all metrics to RRD files, either directly or via  RRDCached . On top of this \nyou can ship metrics to InfluxDB, Graphite and / or OpenTSDB. At present you can't use these backends to display \ngraphs within LibreNMS and will need to use something like  Grafana .  For further information on configuring LibreNMS to ship data to one of the other backends then please see \nthe documentation below.    InfluxDB  Graphite  OpenTSDB", 
+            "text": "By default we ship all metrics to RRD files, either directly or via  RRDCached . On top of this \nyou can ship metrics to Graphite, InfluxDB, OpenTSDB or Prometheus. At present you can't use these \nbackends to display graphs within LibreNMS and will need to use something like  Grafana .  For further information on configuring LibreNMS to ship data to one of the other backends then please see \nthe documentation below.    Graphite  InfluxDB  OpenTSDB  Prometheus", 
             "title": "Metric storage"
-        }, 
-        {
-            "location": "/Extensions/metrics/InfluxDB/", 
-            "text": "Enabling support for InfluxDB.\n\n\nBefore we get started it is important that you know and understand that InfluxDB support is currently alpha at best.\nAll it provides is the sending of data to a InfluxDB install. Due to the current changes that are constantly being\nmade to InfluxDB itself then we cannot guarantee that your data will be ok so enabling this support is at your own\nrisk!\n\n\nRequirements\n\n\n\n\nInfluxDB \n= 0.94\n\n\nGrafana\n\n\nPHP 5.5 for InfluxDB-PHP\n\n\n\n\nThe setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.\n\n\nWhat you don't get\n\n\n\n\nPretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.\n\n\nSupport for InfluxDB or Grafana, we would highly recommend that you have some level of experience with these.\n\n\n\n\nRRD will continue to function as normal so LibreNMS itself should continue to function as normal.\n\n\nConfiguration\n\n\n$config['influxdb']['enable'] = true;\n$config['influxdb']['transport'] = 'http'; # Default, other options: https, udp\n$config['influxdb']['host'] = '127.0.0.1';\n$config['influxdb']['port'] = '8086';\n$config['influxdb']['db'] = 'librenms';\n$config['influxdb']['username'] = 'admin';\n$config['influxdb']['password'] = 'admin';\n$config['influxdb']['timeout'] = 0; # Optional\n$config['influxdb']['verifySSL'] = false; # Optional\n\n\n\n\nNo credentials are needed if you don't use InfluxDB authentication.\n\n\nThe same data then stored within rrd will be sent to InfluxDB and recorded. You can then create graphs within Grafana\nto display the information you need.", 
-            "title": "Enabling support for InfluxDB."
-        }, 
-        {
-            "location": "/Extensions/metrics/InfluxDB/#enabling-support-for-influxdb", 
-            "text": "Before we get started it is important that you know and understand that InfluxDB support is currently alpha at best.\nAll it provides is the sending of data to a InfluxDB install. Due to the current changes that are constantly being\nmade to InfluxDB itself then we cannot guarantee that your data will be ok so enabling this support is at your own\nrisk!", 
-            "title": "Enabling support for InfluxDB."
-        }, 
-        {
-            "location": "/Extensions/metrics/InfluxDB/#requirements", 
-            "text": "InfluxDB  = 0.94  Grafana  PHP 5.5 for InfluxDB-PHP   The setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.", 
-            "title": "Requirements"
-        }, 
-        {
-            "location": "/Extensions/metrics/InfluxDB/#what-you-dont-get", 
-            "text": "Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.  Support for InfluxDB or Grafana, we would highly recommend that you have some level of experience with these.   RRD will continue to function as normal so LibreNMS itself should continue to function as normal.", 
-            "title": "What you don't get"
-        }, 
-        {
-            "location": "/Extensions/metrics/InfluxDB/#configuration", 
-            "text": "$config['influxdb']['enable'] = true;\n$config['influxdb']['transport'] = 'http'; # Default, other options: https, udp\n$config['influxdb']['host'] = '127.0.0.1';\n$config['influxdb']['port'] = '8086';\n$config['influxdb']['db'] = 'librenms';\n$config['influxdb']['username'] = 'admin';\n$config['influxdb']['password'] = 'admin';\n$config['influxdb']['timeout'] = 0; # Optional\n$config['influxdb']['verifySSL'] = false; # Optional  No credentials are needed if you don't use InfluxDB authentication.  The same data then stored within rrd will be sent to InfluxDB and recorded. You can then create graphs within Grafana\nto display the information you need.", 
-            "title": "Configuration"
         }, 
         {
             "location": "/Extensions/metrics/Graphite/", 
@@ -3831,6 +3806,31 @@
             "title": "Graphite Configuration"
         }, 
         {
+            "location": "/Extensions/metrics/InfluxDB/", 
+            "text": "Enabling support for InfluxDB.\n\n\nBefore we get started it is important that you know and understand that InfluxDB support is currently alpha at best.\nAll it provides is the sending of data to a InfluxDB install. Due to the current changes that are constantly being\nmade to InfluxDB itself then we cannot guarantee that your data will be ok so enabling this support is at your own\nrisk!\n\n\nRequirements\n\n\n\n\nInfluxDB \n= 0.94\n\n\nGrafana\n\n\nPHP 5.5 for InfluxDB-PHP\n\n\n\n\nThe setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.\n\n\nWhat you don't get\n\n\n\n\nPretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.\n\n\nSupport for InfluxDB or Grafana, we would highly recommend that you have some level of experience with these.\n\n\n\n\nRRD will continue to function as normal so LibreNMS itself should continue to function as normal.\n\n\nConfiguration\n\n\n$config['influxdb']['enable'] = true;\n$config['influxdb']['transport'] = 'http'; # Default, other options: https, udp\n$config['influxdb']['host'] = '127.0.0.1';\n$config['influxdb']['port'] = '8086';\n$config['influxdb']['db'] = 'librenms';\n$config['influxdb']['username'] = 'admin';\n$config['influxdb']['password'] = 'admin';\n$config['influxdb']['timeout'] = 0; # Optional\n$config['influxdb']['verifySSL'] = false; # Optional\n\n\n\n\nNo credentials are needed if you don't use InfluxDB authentication.\n\n\nThe same data then stored within rrd will be sent to InfluxDB and recorded. You can then create graphs within Grafana\nto display the information you need.", 
+            "title": "Enabling support for InfluxDB."
+        }, 
+        {
+            "location": "/Extensions/metrics/InfluxDB/#enabling-support-for-influxdb", 
+            "text": "Before we get started it is important that you know and understand that InfluxDB support is currently alpha at best.\nAll it provides is the sending of data to a InfluxDB install. Due to the current changes that are constantly being\nmade to InfluxDB itself then we cannot guarantee that your data will be ok so enabling this support is at your own\nrisk!", 
+            "title": "Enabling support for InfluxDB."
+        }, 
+        {
+            "location": "/Extensions/metrics/InfluxDB/#requirements", 
+            "text": "InfluxDB  = 0.94  Grafana  PHP 5.5 for InfluxDB-PHP   The setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/Extensions/metrics/InfluxDB/#what-you-dont-get", 
+            "text": "Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.  Support for InfluxDB or Grafana, we would highly recommend that you have some level of experience with these.   RRD will continue to function as normal so LibreNMS itself should continue to function as normal.", 
+            "title": "What you don't get"
+        }, 
+        {
+            "location": "/Extensions/metrics/InfluxDB/#configuration", 
+            "text": "$config['influxdb']['enable'] = true;\n$config['influxdb']['transport'] = 'http'; # Default, other options: https, udp\n$config['influxdb']['host'] = '127.0.0.1';\n$config['influxdb']['port'] = '8086';\n$config['influxdb']['db'] = 'librenms';\n$config['influxdb']['username'] = 'admin';\n$config['influxdb']['password'] = 'admin';\n$config['influxdb']['timeout'] = 0; # Optional\n$config['influxdb']['verifySSL'] = false; # Optional  No credentials are needed if you don't use InfluxDB authentication.  The same data then stored within rrd will be sent to InfluxDB and recorded. You can then create graphs within Grafana\nto display the information you need.", 
+            "title": "Configuration"
+        }, 
+        {
             "location": "/Extensions/metrics/OpenTSDB/", 
             "text": "Enabling support for OpenTSDB.\n\n\nThis module sends all metrics to OpenTSDB server. You need something like Grafana for graphing.\n\n\nRequirements\n\n\n\n\nOpenTSDB\n\n\nGrafana\n\n\n\n\nWhat you don't get\n\n\n\n\nPretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.\n\n\n\n\nRRD will continue to function normally so LibreNMS itself should continue to function normally.\n\n\nYou can add the following to \nconfig.php\n.\n\n\nConfiguration\n\n\n// OpenTSDB default configuration\n$config['opentsdb']['enable'] = true;\n$config['opentsdb']['host'] = '127.0.0.1';  // your OpenTSDB server\n$config['opentsdb']['port'] = 4242;\n\n\n\n\nThe same data than the one stored within rrd will be sent to OpenTSDB and recorded. You can then create graphs within Grafana to display the information you need.", 
             "title": "Enabling support for OpenTSDB."
@@ -3854,6 +3854,36 @@
             "location": "/Extensions/metrics/OpenTSDB/#configuration", 
             "text": "// OpenTSDB default configuration\n$config['opentsdb']['enable'] = true;\n$config['opentsdb']['host'] = '127.0.0.1';  // your OpenTSDB server\n$config['opentsdb']['port'] = 4242;  The same data than the one stored within rrd will be sent to OpenTSDB and recorded. You can then create graphs within Grafana to display the information you need.", 
             "title": "Configuration"
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/", 
+            "text": "Enabling support for Prometheus.\n\n\nPlease be aware Prometheus support is alpha at best, It hasn't been extensively tested and is still in development\nAll it provides is the sending of data to a a Prometheus PushGateway. Please be careful when enabling this support \nyou use it at your own risk!\n\n\nRequirements (Older versions may work but haven't been tested\n\n\n\n\nPrometheus \n= 2.0\n\n\nPushGateway \n= 0.4.0\n\n\nGrafana\n\n\nPHP-CURL\n\n\n\n\nThe setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.\n\n\nWhat you don't get\n\n\n\n\nPretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.\n\n\nSupport for Prometheus or Grafana, we would highly recommend that you have some level of experience with these.\n\n\n\n\nRRD will continue to function as normal so LibreNMS itself should continue to function as normal.\n\n\nConfiguration\n\n\n$config['prometheus']['enable'] = true;\n$config['prometheus']['url'] = 'http://127.0.0.1:9091';\n$config['prometheus']['job'] = 'librenms'; # Optional\n\n\n\n\nSample Prometheus Scrape Config (for scraping the Push Gateway)\n\n\n- job_name: pushgateway\n  scrape_interval: 300s\n  honor_labels: true\n  static_configs:\n    - targets: ['127.0.0.1:9091']\n\n\n\n\nThe same data then stored within rrd will be sent to Prometheus and recorded. You can then create graphs within Grafana\nto display the information you need.", 
+            "title": "Enabling support for Prometheus."
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/#enabling-support-for-prometheus", 
+            "text": "Please be aware Prometheus support is alpha at best, It hasn't been extensively tested and is still in development\nAll it provides is the sending of data to a a Prometheus PushGateway. Please be careful when enabling this support \nyou use it at your own risk!", 
+            "title": "Enabling support for Prometheus."
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/#requirements-older-versions-may-work-but-havent-been-tested", 
+            "text": "Prometheus  = 2.0  PushGateway  = 0.4.0  Grafana  PHP-CURL   The setup of the above is completely out of scope here and we aren't really able to provide any help with this side\nof things.", 
+            "title": "Requirements (Older versions may work but haven't been tested"
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/#what-you-dont-get", 
+            "text": "Pretty graphs, this is why at present you need Grafana. You need to build your own graphs within Grafana.  Support for Prometheus or Grafana, we would highly recommend that you have some level of experience with these.   RRD will continue to function as normal so LibreNMS itself should continue to function as normal.", 
+            "title": "What you don't get"
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/#configuration", 
+            "text": "$config['prometheus']['enable'] = true;\n$config['prometheus']['url'] = 'http://127.0.0.1:9091';\n$config['prometheus']['job'] = 'librenms'; # Optional", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/Extensions/metrics/Prometheus/#sample-prometheus-scrape-config-for-scraping-the-push-gateway", 
+            "text": "- job_name: pushgateway\n  scrape_interval: 300s\n  honor_labels: true\n  static_configs:\n    - targets: ['127.0.0.1:9091']  The same data then stored within rrd will be sent to Prometheus and recorded. You can then create graphs within Grafana\nto display the information you need.", 
+            "title": "Sample Prometheus Scrape Config (for scraping the Push Gateway)"
         }, 
         {
             "location": "/Extensions/Smokeping/", 

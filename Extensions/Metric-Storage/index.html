@@ -70,15 +70,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h3 id="metric-storage">Metric storage</h3>
 <p>By default we ship all metrics to RRD files, either directly or via <a href="../RRDCached/">RRDCached</a>. On top of this 
-you can ship metrics to InfluxDB, Graphite and / or OpenTSDB. At present you can't use these backends to display 
-graphs within LibreNMS and will need to use something like <a href="https://grafana.com/">Grafana</a>.</p>
+you can ship metrics to Graphite, InfluxDB, OpenTSDB or Prometheus. At present you can't use these 
+backends to display graphs within LibreNMS and will need to use something like <a href="https://grafana.com/">Grafana</a>.</p>
 <p>For further information on configuring LibreNMS to ship data to one of the other backends then please see 
 the documentation below.</p>
 <blockquote>
 <ul>
-<li><a href="../metrics/InfluxDB/">InfluxDB</a></li>
 <li><a href="../metrics/Graphite/">Graphite</a></li>
+<li><a href="../metrics/InfluxDB/">InfluxDB</a></li>
 <li><a href="../metrics/OpenTSDB/">OpenTSDB</a></li>
+<li><a href="../metrics/Prometheus/">Prometheus</a></li>
 </ul>
 </blockquote>
 
@@ -88,12 +89,12 @@ the documentation below.</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../metrics/InfluxDB/" class="btn btn-xs btn-default pull-right">
+      <a href="../metrics/Graphite/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../metrics/InfluxDB/" class="btn btn-xs btn-link">
-        InfluxDB
+      <a href="../metrics/Graphite/" class="btn btn-xs btn-link">
+        Graphite
       </a>
     </div>
     
