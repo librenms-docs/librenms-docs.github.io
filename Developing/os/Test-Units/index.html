@@ -188,12 +188,12 @@ data, you must use a variant to store your test data (-v).</p>
 <h3 id="add-initial-detection">Add initial detection</h3>
 <ol>
 <li>Add device to LibreNMS. It is generic and device_id = 42</li>
-<li>Run <code>./scripts/collect-snmp-data.php -h 42 -m os</code>, initial snmprec will be created</li>
+<li>Run <code>./scripts/collect-snmp-data.php -h 42</code>, initial snmprec will be created</li>
 <li><a href="../Initial-Detection/">Add initial detection</a> for <code>example-os</code></li>
 <li>Run discovery to make sure it detects properly <code>./discovery.php -h 42</code></li>
 <li>Add any additional os items like version, hardware, features, or serial.</li>
-<li>If there is additional snmp data required, run <code>./scripts/collect-snmp-data.php -h 42 -m os</code></li>
-<li>Run <code>./scripts/save-test-data.php -o example-os -m os</code> to update the dumped database data.</li>
+<li>If there is additional snmp data required, run <code>./scripts/collect-snmp-data.php -h 42</code></li>
+<li>Run <code>./scripts/save-test-data.php -o example-os</code> to update the dumped database data.</li>
 <li>Review data. If you modified the snmprec or code (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
 <li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
