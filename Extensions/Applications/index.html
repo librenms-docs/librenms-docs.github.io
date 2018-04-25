@@ -148,7 +148,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#smart">SMART</a> - SNMP extend</li>
 <li><a href="#squid">Squid</a> - SNMP proxy</li>
 <li><a href="#tinydns-aka-djbdns">TinyDNS/djbdns</a> - Agent</li>
-<li><a href="#unbound">Unbound</a> - Agent</li>
+<li><a href="#unbound">Unbound</a> - SNMP extend, Agent</li>
 <li><a href="#ups-nut">UPS-nut</a> - SNMP extend</li>
 <li><a href="#ups-apcups">UPS-apcups</a> - SNMP extend</li>
 <li><a href="#zfs">ZFS</a> - SNMP extend</li>
@@ -969,9 +969,7 @@ remote-control:
 </code></pre>
 
 <p>Restart your unbound after changing the configuration, verify it is working by running 'unbound-control stats'.</p>
-<h5 id="agent_12">Agent</h5>
-<p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<h5 id="snmp-extend_30">SNMP Extend</h5>
+<h5 id="option-1-snmp-extend-preferred-and-easiest-method">Option 1: SNMP Extend (Preferred and easiest method)</h5>
 <p>1: Copy the shell script, unbound, to the desired host (the host must be added to LibreNMS devices) (wget https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O /etc/snmp/unbound)</p>
 <p>2: Make the scripts executable (chmod +x /etc/snmp/unbound)</p>
 <p>3: Edit your snmpd.conf file and add:</p>
@@ -979,9 +977,11 @@ remote-control:
 </code></pre>
 
 <p>4: Restart snmpd.</p>
+<h5 id="option-2-agent">Option 2: Agent</h5>
+<p><a href="#agent-setup">Install the agent</a> on this device if it isn't already and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="ups-nut">UPS-nut</h3>
 <p>A small shell script that exports nut ups status.</p>
-<h5 id="snmp-extend_31">SNMP Extend</h5>
+<h5 id="snmp-extend_30">SNMP Extend</h5>
 <ol>
 <li>
 <p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups nut</a> to <code>/etc/snmp/</code> on your host.</p>
@@ -1001,7 +1001,7 @@ remote-control:
 </ol>
 <h3 id="ups-apcups">UPS-apcups</h3>
 <p>A small shell script that exports apcacess ups status.</p>
-<h5 id="snmp-extend_32">SNMP Extend</h5>
+<h5 id="snmp-extend_31">SNMP Extend</h5>
 <ol>
 <li>
 <p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups.sh">ups apcups</a> to <code>/etc/snmp/</code> on your host.</p>
@@ -1026,7 +1026,7 @@ remote-control:
 </ol>
 <h3 id="sdfs-info">SDFS info</h3>
 <p>A small shell script that exportfs SDFS volume info.</p>
-<h6 id="snmp-extend_33">SNMP Extend</h6>
+<h6 id="snmp-extend_32">SNMP Extend</h6>
 <ol>
 <li>Download the script onto the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
@@ -1053,7 +1053,7 @@ remote-control:
 </li>
 </ol>
 <h3 id="zfs">ZFS</h3>
-<h5 id="snmp-extend_34">SNMP Extend</h5>
+<h5 id="snmp-extend_33">SNMP Extend</h5>
 <p>The installation steps are:</p>
 <ol>
 <li>Copy the polling script to the desired host (the host must be added to LibreNMS devices)</li>
