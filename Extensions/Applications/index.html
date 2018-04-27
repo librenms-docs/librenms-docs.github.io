@@ -889,6 +889,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <pre><code>#This is a comment
 cache=/var/cache/smart
 smartctl=/usr/bin/env smartctl
+useSN=1
 ada0
 ada1
 </code></pre>
@@ -896,6 +897,8 @@ ada1
 <p>The variables are as below.</p>
 <pre><code>cache = The path to the cache file to use. Default: /var/cache/smart
 smartctl = The path to use for smartctl. Default: /usr/bin/env smartctl
+useSN = If set to 1, it will use the disks SN for reporting instead of the device name.
+        1 is the default. 0 will use the device name.
 </code></pre>
 
 <p>If you want to guess at the configuration, call it with -g and it will print out what it thinks
@@ -915,6 +918,8 @@ it should be. This will result in a usable config, but may miss some less common
 <pre><code>extend smart /usr/bin/sudo /etc/snmp/smart
 </code></pre>
 
+<p>If you set useSN to 1, it is worth noting that you will loose history(not able to access it from the web interface) for that device each time you change it. You will also need to run camcontrol or the like on said server to figure out what device actually corresponds with that serial number.</p>
+<p>Also if the system you are using uses non-static device naming based on bus information, it may be worthwhile just using the SN as the device ID is going to be irrelevant in that case.</p>
 <h3 id="squid">Squid</h3>
 <h4 id="snmp-proxy">SNMP Proxy</h4>
 <p>1: Enable SNMP for Squid like below, if you have not already, and restart it.</p>
