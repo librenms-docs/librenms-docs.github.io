@@ -35,7 +35,7 @@
         var pageToc = [
           {title: "Install Required Packages", url: "#install-required-packages", children: [
               {title: "Add librenms user", url: "#add-librenms-user" },
-              {title: "Install LibreNMS", url: "#install-librenms" },
+              {title: "Download LibreNMS", url: "#download-librenms" },
           ]},
           {title: "DB Server", url: "#db-server", children: [
               {title: "Configure MySQL", url: "#configure-mysql" },
@@ -93,13 +93,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
-yum install composer cronie fping git ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nginx nmap php72w php72w-cli php72w-common php72w-curl php72w-fpm php72w-gd php72w-mysqlnd php72w-process php72w-snmp php72w-xml php72w-zip python-memcached rrdtool
+yum install composer cronie fping git ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nginx nmap php72w php72w-cli php72w-common php72w-curl php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-process php72w-snmp php72w-xml php72w-zip python-memcached rrdtool
 </code></pre>
 <h4 id="add-librenms-user">Add librenms user</h4>
 <pre><code>useradd librenms -d /opt/librenms -M -r
 usermod -a -G librenms nginx
 </code></pre>
-<h4 id="install-librenms">Install LibreNMS</h4>
+<h4 id="download-librenms">Download LibreNMS</h4>
 <pre><code>cd /opt
 composer create-project --no-dev --keep-vcs librenms/librenms librenms dev-master
 </code></pre>
@@ -204,6 +204,12 @@ restorecon -RFvv /opt/librenms/logs/
 semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/rrd(/.*)?'
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/rrd(/.*)?'
 restorecon -RFvv /opt/librenms/rrd/
+semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/storage(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/storage(/.*)?'
+restorecon -RFvv /opt/librenms/storage/
+semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/bootstrap/cache(/.*)?'
+semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/bootstrap/cache(/.*)?'
+restorecon -RFvv /opt/librenms/bootstrap/cache/
 setsebool -P httpd_can_sendmail=1
 setsebool -P httpd_execmem 1
 </code></pre>
@@ -253,8 +259,8 @@ systemctl restart snmpd
 </code></pre>
 <h3 id="set-permissions">Set permissions</h3>
 <pre><code>chown -R librenms:librenms /opt/librenms
-setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs
-setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
+setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
+setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 </code></pre>
 <h2 id="web-installer">Web installer</h2>
 <p>Now head to the web installer and follow the on-screen instructions.</p>
