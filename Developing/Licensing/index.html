@@ -144,15 +144,14 @@ project.</p>
 <li>
 <p>To add a php dependency, please use composer</p>
 <ul>
-<li>Add the dependency <code>composer require --update-no-dev slim/slim</code></li>
 <li>
-<p>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/ composer.json; git commit</code></p>
+<p>Add the dependency <code>composer require slim/slim</code></p>
 </li>
 <li>
 <p>Updating php dependencies</p>
 <ul>
-<li>Update dependencies <code>composer update --no-dev</code></li>
-<li>Add the files and commit <code>composer commit</code> or <code>git add -f vendor/; git commit</code></li>
+<li>Update dependencies <code>FORCE=1 php56 ./scripts/composer_wrapper.php update</code></li>
+<li>Commit the updated composer.lock file</li>
 </ul>
 </li>
 </ul>
