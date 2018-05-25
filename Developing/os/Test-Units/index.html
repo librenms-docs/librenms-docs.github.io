@@ -98,6 +98,7 @@ just use save-test-data.php to update the database dump (json) after that.</p>
 specify a different variant of the os, this will be tested completely separate from other variants.  If there is only
 one variant, please do not specify one.</p>
 <h2 id="running-tests">Running tests</h2>
+<p><strong>Note:</strong> To run tests, ensure you have executed <code>./scripts/composer_wrapper.php install</code> from your LibreNMS root directory. This will read composer.json and install any dependencies required. </p>
 <p>After you have saved your test data, you should run <code>./scripts/pre-commit.php -p -u</code> verify they pass.</p>
 <p>To run the full suite of tests enable database and snmpsim reliant tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
 <h4 id="specific-os">Specific OS</h4>

@@ -166,7 +166,7 @@ OPTS=&quot;$OPTS -w 1800 -z 900&quot;
 <p>Poller 1:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
+<pre><code class="php">$config['distributed_poller_name']           = php_uname('n');
 $config['distributed_poller_group']          = '0';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
 $config['distributed_poller_memcached_port'] = 11211;
@@ -187,7 +187,7 @@ Runs discovery and polling for group 0, daily.sh to deal with notifications and 
 <p>Poller 2:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
+<pre><code class="php">$config['distributed_poller_name']           = php_uname('n');
 $config['distributed_poller_group']          = '0';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
 $config['distributed_poller_memcached_port'] = 11211;
@@ -206,7 +206,7 @@ Runs billing as well as polling for group 0.</p>
 <p>Poller 3:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<pre><code class="php">$config['distributed_poller_name']           = file_get_contents('/etc/hostname');
+<pre><code class="php">$config['distributed_poller_name']           = php_uname('n');
 $config['distributed_poller_group']          = '2,3';
 $config['distributed_poller_memcached_host'] = &quot;example.com&quot;;
 $config['distributed_poller_memcached_port'] = 11211;

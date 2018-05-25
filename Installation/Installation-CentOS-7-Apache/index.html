@@ -181,7 +181,7 @@ restorecon -RFvv /opt/librenms/bootstrap/cache/
 setsebool -P httpd_can_sendmail=1
 </code></pre>
 <h5 id="allow-fping">Allow fping</h5>
-<p>Create the file http_fping.tt with the following contents:</p>
+<p>Create the file http_fping.tt with the following contents. You can create this file anywhere, as it is a throw-away file. The last step in this install procedure will install the module in the proper location.</p>
 <pre><code>module http_fping 1.0;
 
 require {
@@ -207,6 +207,7 @@ firewall-cmd --zone public --add-service https
 firewall-cmd --permanent --zone public --add-service https
 </code></pre>
 <h4 id="configure-snmpd">Configure snmpd</h4>
+<p>Copy the example snmpd.conf from the LibreNMS install.</p>
 <pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 
 vi /etc/snmp/snmpd.conf
@@ -232,6 +233,9 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstra
 <h2 id="web-installer">Web installer</h2>
 <p>Now head to the web installer and follow the on-screen instructions.</p>
 <pre><code>http://librenms.example.com/install.php
+</code></pre>
+<p>The web installer might prompt you to create a <code>config.php</code> file in your librenms install location manually, copying the content displayed on-screen to the file. If you have to do this, please remember to set the permissions on config.php after you copied the on-screen contents to the file. Run:</p>
+<pre><code>chown librenms:librenms /opt/librenms/config.php
 </code></pre>
 <h3 id="final-steps">Final steps</h3>
 <p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>

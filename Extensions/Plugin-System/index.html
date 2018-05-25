@@ -34,6 +34,7 @@
         
         var pageToc = [
           {title: "Developing for the Plugin System", url: "#developing-for-the-plugin-system", children: [
+              {title: "Generic structure", url: "#generic-structure" },
               {title: "System Hooks", url: "#system-hooks" },
           ]},
         ];
@@ -73,8 +74,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <blockquote>
 <p>This will most likely be deprecated in favour of adding the possible extensions to the core code base.</p>
 </blockquote>
-<p>This documentation will hopefully give you a basis for how to write a plugin for LibreNMS.</p>
-<p>A test plugin is available on GitHub: https://github.com/laf/Test</p>
+<p>This documentation will hopefully give you a basis for how to write a plugin for LibreNMS.
+A test plugin is included in LibreNMS distribution.</p>
+<h3 id="generic-structure">Generic structure</h3>
 <p>Plugins need to be installed into html/plugins</p>
 <p>The structure of a plugin is follows:</p>
 <pre><code>html/plugins
@@ -107,16 +109,38 @@ class Test {
 </code></pre>
 
 <h3 id="system-hooks">System Hooks</h3>
-<p>System hooks are called as functions within your plugin class, so for example to create a menu entry within the Plugin dropdown you would do:</p>
-<pre><code>  public function menu() {
-    echo('&lt;li&gt;&lt;a href=&quot;plugin/p='.get_class().'&quot;&gt;'.get_class().'&lt;/a&gt;&lt;/li&gt;');
-  }
+<p>System hooks are called as functions within your plugin class. 
+The following system hooks are currently available:</p>
+<ul>
+<li>menu()</li>
+<li>This is called to build the plugin menu system and you can use this to link to your plugin (you don't have to).</li>
+</ul>
+<pre><code>    public static function menu() {
+        echo('&lt;li&gt;&lt;a href=&quot;plugin/p='.get_class().'&quot;&gt;'.get_class().'&lt;/a&gt;&lt;/li&gt;');
+    }
 </code></pre>
 
-<p>This would then add the name and a link to your plugin.</p>
-<p>The following system hooks are currently available:</p>
-<p>menu()
-* This is called to build the plugin menu system and you can use this to link to your plugin (you don't have to).</p>
+<ul>
+<li>device_overview_container($device)</li>
+<li>This is called in the Device Overview page. You receive the $device as a parameter, can do your work here and display your results in a frame. </li>
+</ul>
+<pre><code>    public function device_overview_container($device) {
+        echo('&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;'.get_class().' Plugin &lt;/strong&gt; &lt;/div&gt;');
+        echo('  Example plugin in &quot;Device - Overview&quot; tab &lt;br&gt;');
+        echo('&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;');
+    }
+</code></pre>
+
+<ul>
+<li>port_container($device, $port)</li>
+<li>This is called in the Port page, in the "Plugins" menu_option that will appear when your plugin gets enabled. In this function, you can do your work and display your results in a frame. </li>
+</ul>
+<pre><code>    public function port_container($device, $port) {
+        echo('&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;'.get_class().' plugin in &quot;Port&quot; tab&lt;/strong&gt; &lt;/div&gt;');
+        echo ('Example display in Port tab&lt;/br&gt;');
+        echo('&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;');
+    }
+</code></pre>
 
   <br>
     

@@ -87,14 +87,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Placeholders are special variables that if used within the template will be replaced with the relevant data, I.e:</p>
 <p><code>The device %hostname has been up for %uptime seconds</code> would result in the following <code>The device localhost has been up for 30344 seconds</code>.</p>
 <ul>
+<li>Device ID: <code>%device_id</code></li>
 <li>Hostname of the Device: <code>%hostname</code></li>
 <li>sysName of the Device: <code>%sysName</code></li>
+<li>sysDescr of the Device: <code>%sysDescr</code></li>
+<li>hardware of the Device: <code>%hardware</code></li>
+<li>Software version of the Device: <code>%version</code> </li>
 <li>location of the Device: <code>%location</code></li>
 <li>uptime of the Device (in seconds): <code>%uptime</code></li>
 <li>short uptime of the Device (28d 22h 30m 7s): <code>%uptime_short</code></li>
 <li>long uptime of the Device (28 days, 22h 30m 7s): <code>%uptime_long</code></li>
 <li>description (purpose db field) of the Device: <code>%description</code></li>
 <li>notes of the Device: <code>%notes</code></li>
+<li>notes of the alert: <code>%alert_notes</code></li>
+<li>ping timestamp (if icmp enabled): <code>%ping_timestamp</code></li>
+<li>ping loss (if icmp enabled): <code>%ping_loss</code></li>
+<li>ping min (if icmp enabled): <code>%ping_min</code></li>
+<li>ping max (if icmp enabled): <code>%ping_max</code></li>
+<li>ping avg (if icmp enabled): <code>%ping_avg</code></li>
 <li>Title for the Alert: <code>%title</code></li>
 <li>Time Elapsed, Only available on recovery (<code>%state == 0</code>): <code>%elapsed</code></li>
 <li>Alert-ID: <code>%id</code></li>
@@ -105,8 +115,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Rule: <code>%rule</code></li>
 <li>Rule-Name: <code>%name</code></li>
 <li>Timestamp: <code>%timestamp</code></li>
-<li>Transport name: <code>%transport</code></li>
-<li>Contacts, must be iterated in a foreach, <code>%key</code> holds email and <code>%value</code> holds name: <code>%contacts</code></li>
+<li>
+<p>Transport name: <code>%transport</code></p>
+</li>
+<li>
+<p>Contacts, must be iterated in a foreach, <code>%key</code> holds email and <code>%value</code> holds name: <code>%contacts</code></p>
+</li>
 </ul>
 <p>Placeholders can be used within the subjects for templates as well although %faults is most likely going to be worthless.</p>
 <blockquote>

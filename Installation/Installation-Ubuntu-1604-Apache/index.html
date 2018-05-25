@@ -89,7 +89,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </blockquote>
 <p><strong>Please note the minimum supported PHP version is 5.6.4</strong></p>
 <h2 id="install-required-packages">Install Required Packages</h2>
-<pre><code>apt install apache2 composer fping git graphviz imagemagick libapache2-mod-php7.0 mariadb-client mariadb-server mtr-tiny nmap php7.0-cli php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-snmp php7.0-xml php7.0-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
+<pre><code>apt install acl apache2 composer fping git graphviz imagemagick libapache2-mod-php7.0 mariadb-client mariadb-server mtr-tiny nmap php7.0-cli php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-snmp php7.0-xml php7.0-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
 </code></pre>
 <h4 id="add-librenms-user">Add librenms user</h4>
 <pre><code>useradd librenms -d /opt/librenms -M -r
@@ -187,6 +187,9 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstra
 <h2 id="web-installer">Web installer</h2>
 <p>Now head to the web installer and follow the on-screen instructions.</p>
 <pre><code>http://librenms.example.com/install.php
+</code></pre>
+<p>The web installer might prompt you to create a <code>config.php</code> file in your librenms install location manually, copying the content displayed on-screen to the file. If you have to do this, please remember to set the permissions on config.php after you copied the on-screen contents to the file. Run:</p>
+<pre><code>chown librenms:librenms /opt/librenms/config.php
 </code></pre>
 <h3 id="final-steps">Final steps</h3>
 <p>That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.</p>

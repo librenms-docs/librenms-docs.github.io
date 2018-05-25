@@ -35,6 +35,8 @@
         var pageToc = [
           {title: "Introduction", url: "#introduction", children: [
               {title: "SNMP Extend", url: "#snmp-extend" },
+              {title: "Enable the application discovery module", url: "#enable-the-application-discovery-module" },
+              {title: "Enable the application(s) to be discovered", url: "#enable-the-applications-to-be-discovered" },
               {title: "Agent", url: "#agent" },
               {title: "Apache", url: "#apache" },
               {title: "BIND9 aka named", url: "#bind9-aka-named" },
@@ -113,9 +115,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h2 id="introduction">Introduction</h2>
 <p>You can use Application support to graph performance statistics of many applications.</p>
 <p>Different applications support a variety of ways to collect data: 1) by direct connection to the application, 2) snmpd extend, or 3) <a href="../Agent-Setup/">the agent</a>. The monitoring of applications could be added before or after the hosts have been added to LibreNMS.</p>
-<h5 id="snmp-extend">SNMP Extend</h5>
+<p>If multiple methods of collection are listed you only need to enable one.</p>
+<h3 id="snmp-extend">SNMP Extend</h3>
 <p>When using the snmp extend method, the application discovery module will pick up which applications you have set up for monitoring automatically, even if the device is already in LibreNMS. The application discovery module is enabled by default for most *nix operating systems, but in some cases you will need to manually enable the application discovery module. </p>
-<h6 id="enable-the-application-discovery-module">Enable the application discovery module</h6>
+<h3 id="enable-the-application-discovery-module">Enable the application discovery module</h3>
 <ol>
 <li>Edit the device for which you want to add this support</li>
 <li>Click on the <em>Modules</em> tab and enable the <code>applications</code> module.</li>
@@ -124,14 +127,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="Enable-application-module" src="../../img/Enable_application_module.png" /></p>
 <p>After you have enabled the application module, it would be wise to then also enable which applications you want to monitor, in the rare case where LibreNMS does not automatically detect it.</p>
 <p><strong>Note</strong>: Only do this if an application was not auto-discovered by LibreNMS during discovery and polling.</p>
-<h6 id="enable-the-applications-to-be-discovered">Enable the application(s) to be discovered</h6>
+<h3 id="enable-the-applications-to-be-discovered">Enable the application(s) to be discovered</h3>
 <ol>
 <li>Go to the device you have just enabled the application module for.</li>
 <li>Click on the <em>Applications</em> tab and select the applications you want to monitor.</li>
 <li>This will also be automatically saved, and you should get a green confirmation pop-up message.</li>
 </ol>
 <p><img alt="Enable-applications" src="../../img/Enable_applications.png" /></p>
-<h5 id="agent">Agent</h5>
+<h3 id="agent">Agent</h3>
 <p>The unix-agent does not have a discovery module, only a poller module. That poller module is always disabled by default. It needs to be manually enabled if using the agent. Some applications will be automatically enabled by the unix-agent poller module. It is better to ensure that your application is enabled for monitoring. You can check by following the steps under the <code>SNMP Extend</code> heading.</p>
 <ol>
 <li><a href="#apache">Apache</a> - SNMP extend, Agent</li>
@@ -579,7 +582,7 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 </code></pre>
 
 <h3 id="mysql">MySQL</h3>
-<h5 id="agent_7">Agent</h5>
+<h4 id="agent_7">Agent</h4>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so please verify those are installed.</p>
 <p>CentOS (May vary based on PHP version)</p>
@@ -598,21 +601,25 @@ $mysql_host = 'localhost';
 $mysql_port = 3306;
 </code></pre>
 
+<p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h4 id="snmp-extend_14">SNMP extend</h4>
 <p>1: Copy the mysql script to the desired host. <code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/mysql</code></p>
-<p>3: Make sure you set hostname, user, and pass are properly set in <code>/etc/snmp/mysql.cnf</code></p>
+<p>3: Unlike most other scripts, the MySQL script requires a configuration file <code>mysql.cnf</code> in <code>/etc/snmp/</code> with following content:</p>
+<pre><code class="php">&lt;?php
+$mysql_user = 'root';
+$mysql_pass = 'toor';
+$mysql_host = 'localhost';
+$mysql_port = 3306;
+</code></pre>
+
 <p>4: Edit your snmpd.conf file and add:</p>
 <pre><code>extend mysql /etc/snmp/mysql
 </code></pre>
 
-<p>4: Restart snmpd.</p>
-<p>5: Install the PHP CLI language and your MySQL module of choice for PHP.</p>
+<p>5: Restart snmpd.</p>
+<p>6: Install the PHP CLI language and your MySQL module of choice for PHP.</p>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
-<h4 id="agent_8">Agent</h4>
-<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
-<p>Make sure you set hostname, user, and pass are properly set in <code>/usr/lib/check_mk_agent/local/mysql.cnf</code></p>
-<p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h3 id="nginx">NGINX</h3>
 <p>NGINX is a free, open-source, high-performance HTTP server: https://www.nginx.org/</p>
 <p>It's required to have the following directive in your nginx configuration responsible for the localhost server:</p>
@@ -646,7 +653,7 @@ $mysql_port = 3306;
 <li>Restart snmpd on your host</li>
 </ol>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
-<h5 id="agent_9">Agent</h5>
+<h5 id="agent_8">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="nfs-server">NFS Server</h3>
 <p>Export the NFS stats from as server.</p>
@@ -835,7 +842,7 @@ Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is u
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
 <h4 id="snmp-extend_26">SNMP Extend</h4>
-<h5 id="agent_10">Agent</h5>
+<h5 id="agent_9">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="powerdns-recursor">PowerDNS Recursor</h3>
 <p>A recursive DNS server: https://www.powerdns.com/recursor.html</p>
@@ -855,7 +862,7 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
-<h5 id="agent_11">Agent</h5>
+<h5 id="agent_10">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns-recursor</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
 <h3 id="powerdns-dnsdist">PowerDNS-dnsdist</h3>
@@ -1001,7 +1008,7 @@ snmp_access deny all
 <p>http://wiki.squid-cache.org/Features/Snmp
 http://www.net-snmp.org/wiki/index.php/Snmpd_proxy</p>
 <h3 id="tinydns-aka-djbdns">TinyDNS aka  djbdns</h3>
-<h5 id="agent_12">Agent</h5>
+<h5 id="agent_11">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p><em>Note</em>: We assume that you use DJB's <a href="http://cr.yp.to/daemontools.html">Daemontools</a> to start/stop tinydns.
 And that your tinydns instance is located in <code>/service/dns</code>, adjust this path if necessary.</p>

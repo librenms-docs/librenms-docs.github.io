@@ -36,7 +36,7 @@
           {title: "Oxidized intro", url: "#oxidized-intro", children: [
               {title: "Detailed integration information", url: "#detailed-integration-information" },
               {title: "Feeding Oxidized", url: "#feeding-oxidized" },
-              {title: "Working with groups", url: "#working-with-groups" },
+              {title: "Creating overrides", url: "#creating-overrides" },
               {title: "Miscellaneous", url: "#miscellaneous" },
               {title: "Trigger configuration backups", url: "#trigger-configuration-backups" },
               {title: "Validate Oxidized config", url: "#validate-oxidized-config" },
@@ -85,6 +85,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>First you will need to <a href="https://github.com/ytti/oxidized#installation">install Oxidized following their documentation</a>.</p>
 <p>Then you can procede to the LibreNMS Web UI and go to Oxidized Settings in the External Settings section of Global Settings. Enable it and enter the url to your oxidized instance.</p>
 <p>To have devices automatically added, you will need to configure oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding Oxidized</a></p>
+<p>LibreNMS will automatically map the OS to the Oxidized model name if they don't match. this means you shouldn't need to use the model_map config option within Oxidized.</p>
 <h3 id="detailed-integration-information">Detailed integration information</h3>
 <hr />
 <p>This is a straight forward use of Oxidized, it relies on you having a working Oxidized setup which is already taking config snapshots for your devices.
@@ -134,16 +135,30 @@ To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized In
 
 </code></pre>
 
-<h3 id="working-with-groups">Working with groups</h3>
-<p>To return a group to Oxidized you can do this by matching a regex for either <code>hostname</code>, <code>sysname</code>, <code>os</code> or <code>location</code>. The order is <code>hostname</code> is matched first, if nothing is found then <code>sysname</code> is tried, then <code>os</code>, and finally <code>location</code> is attempted.
-The first match found will be used. To match on the device hostnames or sysnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
-<pre><code class="php">$config['oxidized']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
-$config['oxidized']['group']['sysname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
-$config['oxidized']['group']['location'][] = array('regex' =&gt; '/london/', 'group' =&gt; 'london-switches');
+<h3 id="creating-overrides">Creating overrides</h3>
+<p>To return an override to Oxidized you can do this by providing the override key, followed by matching a lookup for a host (or hosts), and finally by defining the overriding value itself. LibreNMS does not check for the validity of these attributes but will deliver them to Oxidized as defined.</p>
+<p>Matching of hosts can be done using <code>hostname</code>, <code>sysname</code>, <code>os</code> or <code>location</code> and including either a 'match' key and value, or a 'regex' key and value. The order is <code>hostname</code> is matched first, if nothing is found then <code>sysname</code> is tried, then <code>os</code>, and finally <code>location</code> is attempted.</p>
+<p>To match on the device hostnames or sysnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
+<pre><code class="php">$config['oxidized']['maps']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
+$config['oxidized']['maps']['group']['sysname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
+$config['oxidized']['maps']['group']['location'][] = array('regex' =&gt; '/london/', 'group' =&gt; 'london-switches');
 </code></pre>
 
 <p>To match on a device os of edgeos then please use the following:</p>
-<pre><code class="php">$config['oxidized']['group']['os'][] = array('match' =&gt; 'edgeos', 'group' =&gt; 'wireless');
+<pre><code class="php">$config['oxidized']['maps']['group']['os'][] = array('match' =&gt; 'edgeos', 'group' =&gt; 'wireless');
+</code></pre>
+
+<p>To override the IP Oxidized uses to poll the device, you can add the following within config.php:</p>
+<pre><code class="php">$config['oxidized']['maps']['ip']['sysname'][] = array('regex' =&gt; '/^my.node/', 'ip' =&gt; '192.168.1.10');
+$config['oxidized']['maps']['ip']['sysname'][] = array('match' =&gt; 'my-other.node', 'ip' =&gt; '192.168.1.20');
+</code></pre>
+
+<p>This allows extending the configuration further by providing a completely flexible model for custom flags and settings, for example, below shows the ability to add an ssh_proxy host within Oxidized simply by adding the below to your configuration:</p>
+<pre><code class="php">$config['oxidized']['maps']['ssh_proxy']['sysname'][] = array('regex' =&gt; '/^my.node/', 'ssh_proxy' =&gt; 'my-ssh-gateway.node');
+</code></pre>
+
+<p>Or of course, any custom value that could be needed or wanted can be applied, for example, setting a "myAttribute" to "Super cool value" for any configured and enabled "routeros" device.</p>
+<pre><code class="php">$config['oxidized']['maps']['myAttribute']['os'][] = array('match' =&gt; 'routeros', 'myAttribute' =&gt; 'Super cool value');
 </code></pre>
 
 <p>Verify the return of groups by querying the API:</p>
