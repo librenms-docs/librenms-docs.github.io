@@ -3811,6 +3811,26 @@
             "title": "Validate Oxidized config"
         }, 
         {
+            "location": "/Extensions/Rancid/", 
+            "text": "Rancid integration\n\n\nLibrenms can generate a list of hosts that can be monitored by RANCID.\nWe assume you have currently a running Rancid, and you just need to create and update the file 'router.db'\n\n\nIncluded Rancid script\n\n\nTo generate the config file (maybe even add a cron to schedule this). We've assumed a few locations for Rancid, the config file you want to call it and where LibreNMS is:\n\n\ncd /opt/librenms/scripts/\nphp ./gen_rancid.php \n /the/path/where/is/rancid/core/router.db\n\n\n\n\nSample cron:\n\n\n15   0    * * * root cd /opt/librenms/scripts \n php ./gen_rancid.php \n /the/path/where/is/rancid/core/router.db\n\n\n\n\nNow configure LibreNMS (make sure you point dir to your rancid data directory):\n\n\n$config['rancid_configs']['core'] = '/the/path/where/is/rancid/core';\n$config['rancid_ignorecomments'] = 0;\n\n\n\n\nAfter that, you should see some \"config\" tab on routers that have a rancid update.\n\n\nUbuntu Rancid Install\n\n\nThe options shown below also contains the default values.\n\n\n\n\nNOTE - This is Only for Ubuntu 16.04 at this time, and may not work on other distros!\n\n\n\n\nsudo apt-get install rancid subversion\n\n\nEdit Rancid config file to use subversion instead of default cvs, and adds a group:\n\nsudo vi /etc/rancid/rancid.conf\n\n\nLIST_OF_GROUPS=\"librenms\"\n\n\nNow change these two lines:\n\n\nCVSROOT=$BASEDIR/CVS; export CVSROOT\nRCSSYS=cvs; export RCSSYS\n\n\n\n\nto:\n\n\nCVSROOT=$BASEDIR/SVN; export CVSROOT\nRCSSYS=svn; export RCSSYS\n\n\n\n\n\n\nNOTE - This only creates 1 group! You can of course make more when you get the hang of it, this is just a basic 'Need it to work\" deal.\n\n\n\n\nsudo su -c /var/lib/rancid/bin/rancid-cvs -s /bin/bash -l rancid\n\n\n\n\nNOTE - do NOT change cvs to svn here! Leave command as is!\n\n\n\n\nGet a list of devices from Librenms you can pull configs from:\n\n\ncd /opt/librenms/scripts\nsudo ./gen_rancid.php\n\n\n\n\nCopy the output. Replace all \":\" with \";\" example:\n\n\nalphcr1:cisco:up will change to:\nalphcr1;cisco;up\n\n\n\n\ncopy and past results into the below file: \n\nsudo vi /var/lib/rancid/librenms/router.db\n\n\n\n\nNOTE - This ONLY applies to newer RANCID versions and Linux distros. Older versions will need to retain the : and not the ;\n\n\n\n\nCreate/edit rancids login file:\n\n\nsudo vi /var/lib/rancid/.cloginrc\n\n\nAdd following at minimum:\n\n\nadd user * \nyour username here\n\nadd password * \nyour password here\n\nadd method * ssh\nadd noenable * {1}                         ******This disables the enable when using radius etc *******\n\n\n\n\nGrant permissions for rancid:\n\n\nsudo chown rancid /var/lib/rancid/.cloginrc\nsudo chmod 600 /var/lib/rancid/.cloginrc\n\n\n\n\nTest config:\n\nsudo /usr/lib/rancid/bin/clogin -f /var/lib/rancid/.cloginrc \ndevice hostname\n\n\n\n\nNOTE: IF you run into a 'diffie-hellmen' kind of error, then it is because your Linux distro is using newer encyryprtion methods etc. \nThis is basically just letting you know that the device you tested on is running an outdated encryption type. I recommend updating downstream device if able. \nIf not, the following should fix:\n\n\n\n\nsudo vi /etc/ssh/ssh_config\n\n\nAdd:\n\n\nKexAlgorithms diffie-hellman-group1-sha1\n\n\nRe-try logging into your device again\n\n\nUpon success, run rancid:\n\n\nsudo su -c /var/lib/rancid/bin/rancid-run -s /bin/bash -l rancid\n\n\nEnsure your configs pulled:\n\n\n```sudo su - rancid\ncd librenms/configs/\nls\n\n\n\nMake sure your config files are there :-)\n\n\n\n\n\nsudo usermod -a -G rancid www-data\ncd /opt/librenms/\n\n\n\nAdd Rancid into LibreNMS config.php:\n```php\n### Rancid\n$config['rancid_configs'][]             = '/var/lib/rancid/librenms/configs/';\n$config['rancid_ignorecomments']        = 0;\n\n\n\n\nNow restart apache\n\nsudo /etc/init.d/apache2 restart", 
+            "title": "Rancid integration"
+        }, 
+        {
+            "location": "/Extensions/Rancid/#rancid-integration", 
+            "text": "Librenms can generate a list of hosts that can be monitored by RANCID.\nWe assume you have currently a running Rancid, and you just need to create and update the file 'router.db'", 
+            "title": "Rancid integration"
+        }, 
+        {
+            "location": "/Extensions/Rancid/#included-rancid-script", 
+            "text": "To generate the config file (maybe even add a cron to schedule this). We've assumed a few locations for Rancid, the config file you want to call it and where LibreNMS is:  cd /opt/librenms/scripts/\nphp ./gen_rancid.php   /the/path/where/is/rancid/core/router.db  Sample cron:  15   0    * * * root cd /opt/librenms/scripts   php ./gen_rancid.php   /the/path/where/is/rancid/core/router.db  Now configure LibreNMS (make sure you point dir to your rancid data directory):  $config['rancid_configs']['core'] = '/the/path/where/is/rancid/core';\n$config['rancid_ignorecomments'] = 0;  After that, you should see some \"config\" tab on routers that have a rancid update.", 
+            "title": "Included Rancid script"
+        }, 
+        {
+            "location": "/Extensions/Rancid/#ubuntu-rancid-install", 
+            "text": "The options shown below also contains the default values.   NOTE - This is Only for Ubuntu 16.04 at this time, and may not work on other distros!   sudo apt-get install rancid subversion  Edit Rancid config file to use subversion instead of default cvs, and adds a group: sudo vi /etc/rancid/rancid.conf  LIST_OF_GROUPS=\"librenms\"  Now change these two lines:  CVSROOT=$BASEDIR/CVS; export CVSROOT\nRCSSYS=cvs; export RCSSYS  to:  CVSROOT=$BASEDIR/SVN; export CVSROOT\nRCSSYS=svn; export RCSSYS   NOTE - This only creates 1 group! You can of course make more when you get the hang of it, this is just a basic 'Need it to work\" deal.   sudo su -c /var/lib/rancid/bin/rancid-cvs -s /bin/bash -l rancid   NOTE - do NOT change cvs to svn here! Leave command as is!   Get a list of devices from Librenms you can pull configs from:  cd /opt/librenms/scripts\nsudo ./gen_rancid.php  Copy the output. Replace all \":\" with \";\" example:  alphcr1:cisco:up will change to:\nalphcr1;cisco;up  copy and past results into the below file:  sudo vi /var/lib/rancid/librenms/router.db   NOTE - This ONLY applies to newer RANCID versions and Linux distros. Older versions will need to retain the : and not the ;   Create/edit rancids login file:  sudo vi /var/lib/rancid/.cloginrc  Add following at minimum:  add user *  your username here \nadd password *  your password here \nadd method * ssh\nadd noenable * {1}                         ******This disables the enable when using radius etc *******  Grant permissions for rancid:  sudo chown rancid /var/lib/rancid/.cloginrc\nsudo chmod 600 /var/lib/rancid/.cloginrc  Test config: sudo /usr/lib/rancid/bin/clogin -f /var/lib/rancid/.cloginrc  device hostname   NOTE: IF you run into a 'diffie-hellmen' kind of error, then it is because your Linux distro is using newer encyryprtion methods etc. \nThis is basically just letting you know that the device you tested on is running an outdated encryption type. I recommend updating downstream device if able. \nIf not, the following should fix:   sudo vi /etc/ssh/ssh_config  Add:  KexAlgorithms diffie-hellman-group1-sha1  Re-try logging into your device again  Upon success, run rancid:  sudo su -c /var/lib/rancid/bin/rancid-run -s /bin/bash -l rancid  Ensure your configs pulled:  ```sudo su - rancid\ncd librenms/configs/\nls  \nMake sure your config files are there :-)  sudo usermod -a -G rancid www-data\ncd /opt/librenms/  \nAdd Rancid into LibreNMS config.php:\n```php\n### Rancid\n$config['rancid_configs'][]             = '/var/lib/rancid/librenms/configs/';\n$config['rancid_ignorecomments']        = 0;  Now restart apache sudo /etc/init.d/apache2 restart", 
+            "title": "Ubuntu Rancid Install"
+        }, 
+        {
             "location": "/Extensions/PeeringDB/", 
             "text": "PeeringDB Support\n\n\nLibreNMS has integration with PeeringDB to match up your BGP sessions with the peering exchanges you are connected to.\n\n\nTo enable the integration please do so within the WebUI -\n Global Settings -\n External Settings -\n PeeringDB Integration.\n\n\nData will be collated the next time daily.sh is run or you can manually force this by running \nphp daily.php -f peeringdb\n,\nthe initial collection is delayed for a random amount of time to avoid overloading the PeeringDB API.\n\n\nOnce enabled you will have an additional menu item under Routing -\n PeeringDB", 
             "title": "PeeringDB Support"
@@ -4489,6 +4509,16 @@
             "location": "/API/Services/#add_service_for_host", 
             "text": "Add a service for device  Route:  /api/v0/services/:hostname   id or hostname is the specific device   Input:   type: service type  ip: ip of the service  desc: description for the service  param: parameters for the service  ignore: ignore the service for checks   Example:  curl -X POST -d '{ type : ping , ip :  192.168.1.10 , desc : test ping , param :  -t 10 -c 5 }' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/192.168.1.10  Output:  {\n     status :  ok ,\n     message :  Service ping has been added to device 192.168.1.10 (#10) \n}", 
             "title": "add_service_for_host"
+        }, 
+        {
+            "location": "/API/System/", 
+            "text": "system\n\n\nDisplay Librenms instance information.\n\n\nRoute: \n/api/v0/system\n\n\nInput:\n\n\n-\n\n\nExample:\n\n\ncurl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/system\n\n\n\n\nOutput:\n\n\n{\n    \nstatus\n: \nok\n,\n    \nsystem\n: [\n        {\n            \nlocal_ver\n: \n1.37-234-g19103ee\n,\n            \nlocal_sha\n: \n19103ee36f68f009272c15be22e5a7e10a8b0b85\n,\n            \nlocal_date\n: \n1526480966\n,\n            \nlocal_branch\n: \nmaster\n,\n            \ndb_schema\n: 249,\n            \nphp_ver\n: \n7.2.2\n,\n            \nmysql_ver\n: \n5.5.56-MariaDB\n,\n            \nrrdtool_ver\n: \n1.4.8\n,\n            \nnetsnmp_ver\n: \nNET-SNMP 5.7.2\n\n        }\n    ],\n    \ncount\n: 1\n}", 
+            "title": "System"
+        }, 
+        {
+            "location": "/API/System/#system", 
+            "text": "Display Librenms instance information.  Route:  /api/v0/system  Input:  -  Example:  curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/system  Output:  {\n     status :  ok ,\n     system : [\n        {\n             local_ver :  1.37-234-g19103ee ,\n             local_sha :  19103ee36f68f009272c15be22e5a7e10a8b0b85 ,\n             local_date :  1526480966 ,\n             local_branch :  master ,\n             db_schema : 249,\n             php_ver :  7.2.2 ,\n             mysql_ver :  5.5.56-MariaDB ,\n             rrdtool_ver :  1.4.8 ,\n             netsnmp_ver :  NET-SNMP 5.7.2 \n        }\n    ],\n     count : 1\n}", 
+            "title": "system"
         }, 
         {
             "location": "/API/Logs/", 
@@ -6546,6 +6576,26 @@
             "title": "Parsing Port Descriptions"
         }, 
         {
+            "location": "/Extensions/InfluxDB/", 
+            "text": "", 
+            "title": "InfluxDB"
+        }, 
+        {
+            "location": "/Extensions/Graphite/", 
+            "text": "", 
+            "title": "Graphite"
+        }, 
+        {
+            "location": "/Extensions/OpenTSDB/", 
+            "text": "", 
+            "title": "OpenTSDB"
+        }, 
+        {
+            "location": "/Extensions/Prometheus/", 
+            "text": "", 
+            "title": "Prometheus"
+        }, 
+        {
             "location": "/Extensions/RRDCached-Security/", 
             "text": "Securing with nginx\n\n\nAccording to the \nman page\n, under \"SECURITY CONSIDERATIONS\", rrdcached has no authentication or security except for running under a unix socket. If you choose to use a network socket instead of a unix socket, you will need to secure your rrdcached installation. To do so you can proxy rrdcached using nginx to allow only specific IPs to connect.\n\n\nusing the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.\n\n\n(You can use \n./conf.d\n for your configuration as well)\n\n\nmkdir /etc/nginx/streams-{available,enabled}\n\n\nadd the following to your nginx.conf file:\n\n\n#/etc/nginx/nginx.conf\n...\nstream {\n    include /etc/nginx/streams-enabled/*;\n}\n\n\n\n\nadd this to \n/etc/nginx/streams-available/rrd\n\n\nserver {\n    listen 42217;\n\n    error_log  /var/log/nginx/rrd.stream.error.log;\n\n    allow $LibreNMS_IP;\n    deny all;\n\n    proxy_pass unix:/var/run/rrdcached/rrdcached.sock;\n}\n\n\n\n\nreplace \n$LibreNMS_IP\n with the ip of the server that will be using rrdcached. You can specify more than one \nallow\n statement.\nThis will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.\n\n\nnext, we'll symlink the config to streams-enabled:\n\nln -s /etc/nginx/streams-{available,enabled}/rrd\n\n\nand reload nginx\n\nservice nginx reload", 
             "title": "RRDCached Security"
@@ -6554,6 +6604,11 @@
             "location": "/Extensions/RRDCached-Security/#securing-with-nginx", 
             "text": "According to the  man page , under \"SECURITY CONSIDERATIONS\", rrdcached has no authentication or security except for running under a unix socket. If you choose to use a network socket instead of a unix socket, you will need to secure your rrdcached installation. To do so you can proxy rrdcached using nginx to allow only specific IPs to connect.  using the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.  (You can use  ./conf.d  for your configuration as well)  mkdir /etc/nginx/streams-{available,enabled}  add the following to your nginx.conf file:  #/etc/nginx/nginx.conf\n...\nstream {\n    include /etc/nginx/streams-enabled/*;\n}  add this to  /etc/nginx/streams-available/rrd  server {\n    listen 42217;\n\n    error_log  /var/log/nginx/rrd.stream.error.log;\n\n    allow $LibreNMS_IP;\n    deny all;\n\n    proxy_pass unix:/var/run/rrdcached/rrdcached.sock;\n}  replace  $LibreNMS_IP  with the ip of the server that will be using rrdcached. You can specify more than one  allow  statement.\nThis will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.  next, we'll symlink the config to streams-enabled: ln -s /etc/nginx/streams-{available,enabled}/rrd  and reload nginx service nginx reload", 
             "title": "Securing with nginx"
+        }, 
+        {
+            "location": "/General/Contributing/", 
+            "text": "", 
+            "title": "Contributing"
         }, 
         {
             "location": "/General/Credits/", 
@@ -6889,6 +6944,11 @@
             "location": "/Installation/Installation-(RHEL-CentOS)/", 
             "text": "", 
             "title": "Installation (RHEL CentOS)"
+        }, 
+        {
+            "location": "/Support/Support-New-OS/", 
+            "text": "", 
+            "title": "Support New OS"
         }
     ]
 }
