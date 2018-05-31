@@ -34,7 +34,9 @@
         
         var pageToc = [
           {title: "Optional OS Settings", url: "#optional-os-settings", children: [
+              {title: "User override in config.php", url: "#user-override-in-configphp" },
               {title: "Ignoring Interfaces", url: "#ignoring-interfaces" },
+              {title: "Controlling interface labels", url: "#controlling-interface-labels" },
               {title: "Disable snmpbulkwalk", url: "#disable-snmpbulkwalk" },
               {title: "Poller and Discovery Modules", url: "#poller-and-discovery-modules" },
               {title: "Storage Settings", url: "#storage-settings" },
@@ -75,6 +77,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="optional-os-settings">Optional OS Settings</h1>
 <p>This page documents settings that can be set in the os yaml files or in config.php.
 All settings listed here are optional. If they are not set, the global default will be used.</p>
+<h3 id="user-override-in-configphp">User override in config.php</h3>
 <p>Users can override these settings in their config.php.</p>
 <p>For example, to set an alternate icon for ios:</p>
 <pre><code class="php">$config['os']['ios']['icon'] = 'fuzzybunny';
@@ -99,6 +102,16 @@ bad_iftype: # ifType (substring)
 good_if: # ignore all other bad_if settings ifDescr (substring, case insensitive)
     - virtual
 
+</code></pre>
+
+<h3 id="controlling-interface-labels">Controlling interface labels</h3>
+<p>By default we use ifDescr to label ports/interfaces.
+Setting either <code>ifname</code> or <code>ifalias</code> will override that.  Only set one of these.  ifAlias is user supplied.
+<code>ifindex</code> will append the ifindex to the port label.</p>
+<pre><code class="yaml">ifname: true
+ifalias: true
+
+ifindex: true
 </code></pre>
 
 <h3 id="disable-snmpbulkwalk">Disable snmpbulkwalk</h3>
