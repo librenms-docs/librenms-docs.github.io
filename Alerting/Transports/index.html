@@ -41,6 +41,7 @@
               {title: "Slack", url: "#slack" },
               {title: "Rocket.chat", url: "#rocketchat" },
               {title: "HipChat", url: "#hipchat" },
+              {title: "OpsGenie", url: "#opsgenie" },
               {title: "PagerDuty", url: "#pagerduty" },
               {title: "Pushover", url: "#pushover" },
               {title: "Boxcar", url: "#boxcar" },
@@ -231,6 +232,14 @@ recommended that you specify the <code>text</code> message format to prevent une
 results, such as HipChat attempting to interpret angled brackets (<code>&lt;</code> and
 <code>&gt;</code>).</p>
 </blockquote>
+<h2 id="opsgenie">OpsGenie</h2>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Using OpsGenie LibreNMS integration, LibreNMS forwards alerts to OpsGenie with detailed information. OpsGenie acts as a dispatcher for LibreNMS alerts, determines the right people to notify based on on-call schedules– notifies via email, text messages (SMS), phone calls and iOS &amp; Android push notifications, and escalates alerts until the alert is acknowledged or closed.</p>
+<p>Create a <a href="https://docs.opsgenie.com/docs/librenms-integration">LibreNMS Integration</a> from the integrations page once you signup. Then, copy the API key from OpsGenie to LibreNMS.</p>
+<p>If you want to automatically ack and close alerts, leverage Marid integration. More detail with screenshots is available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGenie LibreNMS Integration page</a>.</p>
 <h2 id="pagerduty">PagerDuty</h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
