@@ -34,32 +34,33 @@
         
         var pageToc = [
           {title: "Transports", url: "#transports", children: [
-              {title: "E-Mail", url: "#e-mail" },
               {title: "API", url: "#api" },
-              {title: "Nagios Compatible", url: "#nagios-compatible" },
-              {title: "IRC", url: "#irc" },
-              {title: "Slack", url: "#slack" },
-              {title: "Rocket.chat", url: "#rocketchat" },
-              {title: "HipChat", url: "#hipchat" },
-              {title: "OpsGenie", url: "#opsgenie" },
-              {title: "PagerDuty", url: "#pagerduty" },
-              {title: "Pushover", url: "#pushover" },
               {title: "Boxcar", url: "#boxcar" },
-              {title: "Telegram", url: "#telegram" },
-              {title: "Pushbullet", url: "#pushbullet" },
-              {title: "Clickatell", url: "#clickatell" },
-              {title: "PlaySMS", url: "#playsms" },
-              {title: "VictorOps", url: "#victorops" },
               {title: "Canopsis", url: "#canopsis" },
-              {title: "osTicket", url: "#osticket" },
-              {title: "Microsoft Teams", url: "#microsoft-teams" },
               {title: "Cisco Spark", url: "#cisco-spark" },
+              {title: "Clickatell", url: "#clickatell" },
+              {title: "Discord", url: "#discord" },
+              {title: "Elasticsearch", url: "#elasticsearch" },
+              {title: "E-Mail", url: "#e-mail" },
+              {title: "Gitlab", url: "#gitlab" },
+              {title: "HipChat", url: "#hipchat" },
+              {title: "IRC", url: "#irc" },
+              {title: "JIRA", url: "#jira" },
+              {title: "Microsoft Teams", url: "#microsoft-teams" },
+              {title: "Nagios Compatible", url: "#nagios-compatible" },
+              {title: "OpsGenie", url: "#opsgenie" },
+              {title: "osTicket", url: "#osticket" },
+              {title: "PagerDuty", url: "#pagerduty" },
+              {title: "Philips Hue", url: "#philips-hue" },
+              {title: "PlaySMS", url: "#playsms" },
+              {title: "Pushbullet", url: "#pushbullet" },
+              {title: "Pushover", url: "#pushover" },
+              {title: "Rocket.chat", url: "#rocketchat" },
+              {title: "Slack", url: "#slack" },
               {title: "SMSEagle", url: "#smseagle" },
               {title: "Syslog", url: "#syslog" },
-              {title: "Elasticsearch", url: "#elasticsearch" },
-              {title: "JIRA", url: "#jira" },
-              {title: "Gitlab", url: "#gitlab" },
-              {title: "Philips Hue", url: "#philips-hue" },
+              {title: "Telegram", url: "#telegram" },
+              {title: "VictorOps", url: "#victorops" },
           ]},
         ];
 
@@ -109,6 +110,90 @@ By default the Contacts will be only gathered when the alert triggers and will i
 $config['alert']['admins']  = true; //Include Administrators into alert-contacts
 </code></pre>
 
+<h2 id="api">API</h2>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p>API transports definitions are a bit more complex than the E-Mail configuration.
+The basis for configuration is <del><code>$config['alert']['transports']['api'][METHOD]</code></del> where <code>METHOD</code> can be <code>get</code>,<code>post</code> or <code>put</code>.
+This basis has to contain an array with URLs of each API to call.
+The URL can have the same placeholders as defined in the <a href="../Templates#syntax">Template-Syntax</a>.
+If the <code>METHOD</code> is <code>get</code>, all placeholders will be URL-Encoded.
+The API transport uses cURL to call the APIs, therefore you might need to install <code>php5-curl</code> or similar in order to make it work.
+<strong>Note</strong>: it is highly recommended to define own <a href="../Templates">Templates</a> when you want to use the API transport. The default template might exceed URL-length for GET requests and therefore cause all sorts of errors.</p>
+<p>Example:</p>
+<pre><code class="php">$config['alert']['transports']['api']['get'][] = &quot;https://api.thirdparti.es/issue?apikey=abcdefg&amp;subject=%title&quot;;
+</code></pre>
+
+<h2 id="boxcar">Boxcar</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Enabling Boxcar support is super easy.
+Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport in your config.php like:</p>
+<pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
+                                                    &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
+                                                    );
+</code></pre>
+
+<p>To modify the Critical alert sound, add the 'sound_critical' parameter, example:</p>
+<pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
+                                                    &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
+                                                    &quot;sound_critical&quot; =&gt; 'detonator-charge',
+                                                    );
+</code></pre>
+
+<h2 id="canopsis">Canopsis</h2>
+<p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis which are then converted to canopsis events. To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; Canopsis Transport.</p>
+<p>You will need to fill this paramaters :</p>
+<pre><code class="php">$config['alert']['transports']['canopsis']['host'] = 'www.xxx.yyy.zzz';
+$config['alert']['transports']['canopsis']['port'] = '5672';
+$config['alert']['transports']['canopsis']['user'] = 'admin';
+$config['alert']['transports']['canopsis']['passwd'] = 'my_password';
+$config['alert']['transports']['canopsis']['vhost'] = 'canopsis';
+</code></pre>
+
+<p>For more information about canopsis and its events, take a look here :
+ http://www.canopsis.org/
+ http://www.canopsis.org/wp-content/themes/canopsis/doc/sakura/user-guide/event-spec.html</p>
+<h2 id="cisco-spark">Cisco Spark</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make this possible you need to have a RoomID and a token. </p>
+<p>For more information about Cisco Spark RoomID and token, take a look here :
+ https://developer.ciscospark.com/getting-started.html
+ https://developer.ciscospark.com/resource-rooms.html</p>
+<p>To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; Cisco Spark transport.</p>
+<p>This can also be done manually in config.php :</p>
+<pre><code class="php">$config['alert']['transports']['ciscospark']['token'] = '1234567890QWERTYUIOP';
+$config['alert']['transports']['ciscospark']['roomid'] = '1234567890QWERTYUIOP';
+</code></pre>
+
+<h2 id="clickatell">Clickatell</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.
+Please consult Clickatell's documentation regarding number formatting.
+Here an example using 3 numbers, any amount of numbers is supported:</p>
+<pre><code class="php">$config['alert']['transports']['clickatell']['token'] = 'MYFANCYACCESSTOKEN';
+$config['alert']['transports']['clickatell']['to'][]  = '+1234567890';
+$config['alert']['transports']['clickatell']['to'][]  = '+1234567891';
+$config['alert']['transports']['clickatell']['to'][]  = '+1234567892';
+</code></pre>
+
+<h2 id="discord">Discord</h2>
+<p>The Discord transport will POST the alert message to your Discord Incoming WebHook (https://discordapp.com/developers/docs/resources/webhook). Simple html tags are stripped from the message. The only required value is for url, without this no call to Discord will be made. Below is an example webhook url: </p>
+<pre><code>https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe
+</code></pre>
+
+<h2 id="elasticsearch">Elasticsearch</h2>
+<p>You can have LibreNMS emit alerts to an elasticsearch database. Each fault will be sent as a separate document.
+The index pattern uses strftime() formatting.
+The proxy setting uses the proxy set in config.php if true and does not if false; this allows you to use local servers.</p>
+<pre><code class="php">$config['alert']['transports']['elasticsearch']['es_host']   = '127.0.0.1';
+$config['alert']['transports']['elasticsearch']['es_port']  = 9200;
+$config['alert']['transports']['elasticsearch']['es_index']  = 'librenms-%Y.%m.%d';
+$config['alert']['transports']['elasticsearch']['es_proxy'] = false;
+</code></pre>
+
 <h2 id="e-mail">E-Mail</h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
@@ -139,56 +224,11 @@ $config['alert']['default_only']           = false;                //Only issue 
 $config['alert']['default_mail']           = '';                   //Default email
 </code></pre>
 
-<h2 id="api">API</h2>
-<blockquote>
-<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
-</blockquote>
-<p>API transports definitions are a bit more complex than the E-Mail configuration.
-The basis for configuration is <del><code>$config['alert']['transports']['api'][METHOD]</code></del> where <code>METHOD</code> can be <code>get</code>,<code>post</code> or <code>put</code>.
-This basis has to contain an array with URLs of each API to call.
-The URL can have the same placeholders as defined in the <a href="../Templates#syntax">Template-Syntax</a>.
-If the <code>METHOD</code> is <code>get</code>, all placeholders will be URL-Encoded.
-The API transport uses cURL to call the APIs, therefore you might need to install <code>php5-curl</code> or similar in order to make it work.
-<strong>Note</strong>: it is highly recommended to define own <a href="../Templates">Templates</a> when you want to use the API transport. The default template might exceed URL-length for GET requests and therefore cause all sorts of errors.</p>
-<p>Example:</p>
-<pre><code class="php">$config['alert']['transports']['api']['get'][] = &quot;https://api.thirdparti.es/issue?apikey=abcdefg&amp;subject=%title&quot;;
-</code></pre>
-
-<h2 id="nagios-compatible">Nagios Compatible</h2>
-<blockquote>
-<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
-</blockquote>
-<p>The nagios transport will feed a FIFO at the defined location with the same format that nagios would.
-This allows you to use other Alerting-Systems to work with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.</p>
-<pre><code class="php">$config['alert']['transports']['nagios'] = &quot;/path/to/my.fifo&quot;; //Flapjack expects it to be at '/var/cache/nagios3/event_stream.fifo'
-</code></pre>
-
-<h2 id="irc">IRC</h2>
-<blockquote>
-<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
-</blockquote>
-<p>The IRC transports only works together with the LibreNMS IRC-Bot.
-Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/librenms/librenms/blob/master/doc/Extensions/IRC-Bot.md">here</a>.</p>
-<pre><code class="php">$config['alert']['transports']['irc'] = true;
-</code></pre>
-
-<h2 id="slack">Slack</h2>
-<blockquote>
-<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
-</blockquote>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the <a href="https://api.slack.com/docs/message-attachments">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Slack will be made. Below is an example of how to send alerts to two channels with different customised options: </p>
-<pre><code class="php">$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '#Alerting');
-
-$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
-</code></pre>
-
-<h2 id="rocketchat">Rocket.chat</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>The Rocket.chat transport will POST the alert message to your Rocket.chat Incoming WebHook using the <a href="https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Rocket.chat will be made. Below is an example of how to send alerts to two channels with different customised options:</p>
-<pre><code class="php">$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '#Alerting');
-
-$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
+<h2 id="gitlab">Gitlab</h2>
+<p>LibreNMS will create issues for warning and critical level alerts however only title and description are set.  Uses Personal access tokens to authenticate with Gitlab and will store the token in cleartext.</p>
+<pre><code class="php">$config['alert']['transports']['gitlab']['host'] = 'http://gitlab.host.tld';
+$config['alert']['transports']['gitlab']['project_id'] = '1';
+$config['alert']['transports']['gitlab']['key'] = 'AbCdEf12345';
 </code></pre>
 
 <h2 id="hipchat">HipChat</h2>
@@ -232,6 +272,42 @@ recommended that you specify the <code>text</code> message format to prevent une
 results, such as HipChat attempting to interpret angled brackets (<code>&lt;</code> and
 <code>&gt;</code>).</p>
 </blockquote>
+<h2 id="irc">IRC</h2>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p>The IRC transports only works together with the LibreNMS IRC-Bot.
+Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/librenms/librenms/blob/master/doc/Extensions/IRC-Bot.md">here</a>.</p>
+<pre><code class="php">$config['alert']['transports']['irc'] = true;
+</code></pre>
+
+<h2 id="jira">JIRA</h2>
+<p>You can have LibreNMS create issues on a Jira instance for critical and warning alerts. The Jira transport only sets summary and description fiels. Therefore your Jira project must not have any other mandatory field for the provided issuetype. The config fields that need to set are Jira URL, Jira username, Jira password, Project key, and issue type. 
+Currently http authentication is used to access Jira and Jira username and password will be stored as cleartext in the LibreNMS database.</p>
+<pre><code class="php">$config['alert']['transports']['jira']['url']   = 'https://myjira.mysite.com';
+$config['alert']['transports']['jira']['username']  = 'myjirauser';
+$config['alert']['transports']['jira']['password'] = 'myjirapass';
+$config['alert']['transports']['jira']['prjkey'][]  = 'JIRAPROJECTKEY';
+$config['alert']['transports']['jira']['issuetype'][]  = 'Myissuetype';
+</code></pre>
+
+<h2 id="microsoft-teams">Microsoft Teams</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector API which are then posted to a specific channel. To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; Microsoft Teams Transport.</p>
+<p>This can also be done manually in config.php :</p>
+<pre><code class="php">$config['alert']['transports']['msteams']['url'] = 'https://outlook.office365.com/webhook/123456789';
+</code></pre>
+
+<h2 id="nagios-compatible">Nagios Compatible</h2>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p>The nagios transport will feed a FIFO at the defined location with the same format that nagios would.
+This allows you to use other Alerting-Systems to work with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.</p>
+<pre><code class="php">$config['alert']['transports']['nagios'] = &quot;/path/to/my.fifo&quot;; //Flapjack expects it to be at '/var/cache/nagios3/event_stream.fifo'
+</code></pre>
+
 <h2 id="opsgenie">OpsGenie</h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
@@ -240,6 +316,15 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <p>Using OpsGenie LibreNMS integration, LibreNMS forwards alerts to OpsGenie with detailed information. OpsGenie acts as a dispatcher for LibreNMS alerts, determines the right people to notify based on on-call schedules– notifies via email, text messages (SMS), phone calls and iOS &amp; Android push notifications, and escalates alerts until the alert is acknowledged or closed.</p>
 <p>Create a <a href="https://docs.opsgenie.com/docs/librenms-integration">LibreNMS Integration</a> from the integrations page once you signup. Then, copy the API key from OpsGenie to LibreNMS.</p>
 <p>If you want to automatically ack and close alerts, leverage Marid integration. More detail with screenshots is available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGenie LibreNMS Integration page</a>.</p>
+<h2 id="osticket">osTicket</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>osTicket, open source ticket system. LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets. To configure the transport, go to:</p>
+<p>Global Settings -&gt; Alerting Settings -&gt; osTicket Transport.</p>
+<p>This can also be done manually in config.php :</p>
+<pre><code class="php">$config['alert']['transports']['osticket']['url'] = 'http://osticket.example.com/api/http.php/tickets.json';
+$config['alert']['transports']['osticket']['token'] = '123456789';
+</code></pre>
+
 <h2 id="pagerduty">PagerDuty</h2>
 <blockquote>
 <p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
@@ -253,6 +338,42 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 
 <p>That's it!</p>
 <p><strong>Note</strong>: Currently ACK notifications are not transported to PagerDuty, This is going to be fixed within the next major version (version by date of writing: 2015.05)</p>
+<h2 id="philips-hue">Philips Hue</h2>
+<p>Want to spice up your noc life? LibreNMS will flash all lights connected to your philips hue bridge whenever an alert is triggered. </p>
+<p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
+<ul>
+<li>Update the "URL:" field to <code>/api</code></li>
+<li>Paste this in the "Message Body" {"devicetype":"librenms"}</li>
+<li>Press the round button on your <code>philips Hue Bridge</code></li>
+<li>Click on <code>POST</code></li>
+<li>In the <code>Command Response</code> You should see output with your username. Copy this without the quotes</li>
+</ul>
+<p>More Info: <a href="https://www.developers.meethue.com/documentation/getting-started">Philips Hue Documentation</a></p>
+<pre><code class="php">$config['alert']['transports']['hue']['bridge'] = 'http://bridge.example.com';
+$config['alert']['transports']['hue']['user'] = 'af89jauaf98aj34r';
+$config['alert']['transports']['hue']['duration'] = 'lselect';
+</code></pre>
+
+<h2 id="playsms">PlaySMS</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP-API using a Username and WebService-Token.
+Please consult PlaySMS's documentation regarding number formatting.
+Here an example using 3 numbers, any amount of numbers is supported:</p>
+<pre><code class="php">$config['alert']['transports']['playsms']['url']   = 'https://localhost/index.php?app=ws';
+$config['alert']['transports']['playsms']['user']  = 'user1';
+$config['alert']['transports']['playsms']['token'] = 'MYFANCYACCESSTOKEN';
+$config['alert']['transports']['playsms']['from']  = '+1234567892'; //Optional
+$config['alert']['transports']['playsms']['to'][]  = '+1234567890';
+$config['alert']['transports']['playsms']['to'][]  = '+1234567891';
+</code></pre>
+
+<h2 id="pushbullet">Pushbullet</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>Enabling Pushbullet is a piece of cake.
+Get your Access Token from your Pushbullet's settings page and set it in your config like:</p>
+<pre><code class="php">$config['alert']['transports']['pushbullet'] = 'MYFANCYACCESSTOKEN';
+</code></pre>
+
 <h2 id="pushover">Pushover</h2>
 <p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <blockquote>
@@ -279,20 +400,45 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
                                                     );
 </code></pre>
 
-<h2 id="boxcar">Boxcar</h2>
+<h2 id="rocketchat">Rocket.chat</h2>
 <p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Enabling Boxcar support is super easy.
-Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport in your config.php like:</p>
-<pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
-                                                    &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
-                                                    );
+<p>The Rocket.chat transport will POST the alert message to your Rocket.chat Incoming WebHook using the <a href="https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Rocket.chat will be made. Below is an example of how to send alerts to two channels with different customised options:</p>
+<pre><code class="php">$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '#Alerting');
+
+$config['alert']['transports']['rocket'][] = array('url' =&gt; &quot;https://rocket.url/api/v1/chat.postMessage&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
 </code></pre>
 
-<p>To modify the Critical alert sound, add the 'sound_critical' parameter, example:</p>
-<pre><code class="php">$config['alert']['transports']['boxcar'][] = array(
-                                                    &quot;access_token&quot; =&gt; 'ACCESSTOKENGOESHERE',
-                                                    &quot;sound_critical&quot; =&gt; 'detonator-charge',
-                                                    );
+<h2 id="slack">Slack</h2>
+<blockquote>
+<p>You can configure these options within the WebUI now, please avoid setting these options within config.php</p>
+</blockquote>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the <a href="https://api.slack.com/docs/message-attachments">attachments</a> option, you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags are stripped from the message. All options are optional, the only required value is for url, without this then no call to Slack will be made. Below is an example of how to send alerts to two channels with different customised options: </p>
+<pre><code class="php">$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '#Alerting');
+
+$config['alert']['transports']['slack'][] = array('url' =&gt; &quot;https://hooks.slack.com/services/A12B34CDE/F56GH78JK/L901LmNopqrSTUVw2w3XYZAB4C&quot;, 'channel' =&gt; '@john', 'username' =&gt; 'LibreNMS', 'icon_emoji' =&gt; ':ghost:');
+</code></pre>
+
+<h2 id="smseagle">SMSEagle</h2>
+<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
+<p>SMSEagle is a hardware SMS Gateway that can be used via their HTTP-API using a Username and password
+Please consult their documentation at <a href="http://www.smseagle.eu">www.smseagle.eu</a>
+Destination numbers are one per line, with no spaces. They can be in either local or international dialling format.</p>
+<pre><code class="php">$config['alert']['transports']['smseagle']['url']   = 'ip.add.re.ss';
+$config['alert']['transports']['smseagle']['user']  = 'smseagle_user';
+$config['alert']['transports']['smseagle']['token'] = 'smseagle_user_password';
+$config['alert']['transports']['smseagle']['to'][]  = '+3534567890';
+$config['alert']['transports']['smseagle']['to'][]  = '0834567891';
+</code></pre>
+
+<h2 id="syslog">Syslog</h2>
+<p>You can have LibreNMS emit alerts as syslogs complying with RFC 3164.
+More information on RFC 3164 can be found here: https://tools.ietf.org/html/rfc3164
+Example output: <code>&lt;26&gt; Mar 22 00:59:03 librenms.host.net librenms[233]: [Critical] network.device.net: Port Down - port_id =&gt; 98939; ifDescr =&gt; xe-1/1/0;</code>
+Each fault will be sent as a separate syslog.</p>
+<pre><code class="php">$config['alert']['transports']['syslog']['syslog_host']   = '127.0.0.1';
+$config['alert']['transports']['syslog']['syslog_port']  = 514;
+$config['alert']['transports']['syslog']['syslog_facility'] = 3;
 </code></pre>
 
 <h2 id="telegram">Telegram</h2>
@@ -322,37 +468,6 @@ Copy your access token from the Boxcar app or from the Boxcar.io website and set
 Click on 'Add Telegram config' and put your chat id and token into the relevant box.</p>
 </li>
 </ol>
-<h2 id="pushbullet">Pushbullet</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Enabling Pushbullet is a piece of cake.
-Get your Access Token from your Pushbullet's settings page and set it in your config like:</p>
-<pre><code class="php">$config['alert']['transports']['pushbullet'] = 'MYFANCYACCESSTOKEN';
-</code></pre>
-
-<h2 id="clickatell">Clickatell</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.
-Please consult Clickatell's documentation regarding number formatting.
-Here an example using 3 numbers, any amount of numbers is supported:</p>
-<pre><code class="php">$config['alert']['transports']['clickatell']['token'] = 'MYFANCYACCESSTOKEN';
-$config['alert']['transports']['clickatell']['to'][]  = '+1234567890';
-$config['alert']['transports']['clickatell']['to'][]  = '+1234567891';
-$config['alert']['transports']['clickatell']['to'][]  = '+1234567892';
-</code></pre>
-
-<h2 id="playsms">PlaySMS</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP-API using a Username and WebService-Token.
-Please consult PlaySMS's documentation regarding number formatting.
-Here an example using 3 numbers, any amount of numbers is supported:</p>
-<pre><code class="php">$config['alert']['transports']['playsms']['url']   = 'https://localhost/index.php?app=ws';
-$config['alert']['transports']['playsms']['user']  = 'user1';
-$config['alert']['transports']['playsms']['token'] = 'MYFANCYACCESSTOKEN';
-$config['alert']['transports']['playsms']['from']  = '+1234567892'; //Optional
-$config['alert']['transports']['playsms']['to'][]  = '+1234567890';
-$config['alert']['transports']['playsms']['to'][]  = '+1234567891';
-</code></pre>
-
 <h2 id="victorops">VictorOps</h2>
 <p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
 <p>VictorOps provide a webHook url to make integration extremely simple. To get the URL required login to your VictorOps account and go to:</p>
@@ -360,115 +475,6 @@ $config['alert']['transports']['playsms']['to'][]  = '+1234567891';
 <p>The URL provided will have $routing_key at the end, you need to change this to something that is unique to the system sending the alerts such as librenms. I.e:</p>
 <p><code>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</code></p>
 <pre><code class="php">$config['alert']['transports']['victorops']['url'] = 'https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms';
-</code></pre>
-
-<h2 id="canopsis">Canopsis</h2>
-<p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis which are then converted to canopsis events. To configure the transport, go to:</p>
-<p>Global Settings -&gt; Alerting Settings -&gt; Canopsis Transport.</p>
-<p>You will need to fill this paramaters :</p>
-<pre><code class="php">$config['alert']['transports']['canopsis']['host'] = 'www.xxx.yyy.zzz';
-$config['alert']['transports']['canopsis']['port'] = '5672';
-$config['alert']['transports']['canopsis']['user'] = 'admin';
-$config['alert']['transports']['canopsis']['passwd'] = 'my_password';
-$config['alert']['transports']['canopsis']['vhost'] = 'canopsis';
-</code></pre>
-
-<p>For more information about canopsis and its events, take a look here :
- http://www.canopsis.org/
- http://www.canopsis.org/wp-content/themes/canopsis/doc/sakura/user-guide/event-spec.html</p>
-<h2 id="osticket">osTicket</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>osTicket, open source ticket system. LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets. To configure the transport, go to:</p>
-<p>Global Settings -&gt; Alerting Settings -&gt; osTicket Transport.</p>
-<p>This can also be done manually in config.php :</p>
-<pre><code class="php">$config['alert']['transports']['osticket']['url'] = 'http://osticket.example.com/api/http.php/tickets.json';
-$config['alert']['transports']['osticket']['token'] = '123456789';
-</code></pre>
-
-<h2 id="microsoft-teams">Microsoft Teams</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector API which are then posted to a specific channel. To configure the transport, go to:</p>
-<p>Global Settings -&gt; Alerting Settings -&gt; Microsoft Teams Transport.</p>
-<p>This can also be done manually in config.php :</p>
-<pre><code class="php">$config['alert']['transports']['msteams']['url'] = 'https://outlook.office365.com/webhook/123456789';
-</code></pre>
-
-<h2 id="cisco-spark">Cisco Spark</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make this possible you need to have a RoomID and a token. </p>
-<p>For more information about Cisco Spark RoomID and token, take a look here :
- https://developer.ciscospark.com/getting-started.html
- https://developer.ciscospark.com/resource-rooms.html</p>
-<p>To configure the transport, go to:</p>
-<p>Global Settings -&gt; Alerting Settings -&gt; Cisco Spark transport.</p>
-<p>This can also be done manually in config.php :</p>
-<pre><code class="php">$config['alert']['transports']['ciscospark']['token'] = '1234567890QWERTYUIOP';
-$config['alert']['transports']['ciscospark']['roomid'] = '1234567890QWERTYUIOP';
-</code></pre>
-
-<h2 id="smseagle">SMSEagle</h2>
-<p><a href="../../Support/Configuration/#proxy-support">Using a proxy?</a></p>
-<p>SMSEagle is a hardware SMS Gateway that can be used via their HTTP-API using a Username and password
-Please consult their documentation at <a href="http://www.smseagle.eu">www.smseagle.eu</a>
-Destination numbers are one per line, with no spaces. They can be in either local or international dialling format.</p>
-<pre><code class="php">$config['alert']['transports']['smseagle']['url']   = 'ip.add.re.ss';
-$config['alert']['transports']['smseagle']['user']  = 'smseagle_user';
-$config['alert']['transports']['smseagle']['token'] = 'smseagle_user_password';
-$config['alert']['transports']['smseagle']['to'][]  = '+3534567890';
-$config['alert']['transports']['smseagle']['to'][]  = '0834567891';
-</code></pre>
-
-<h2 id="syslog">Syslog</h2>
-<p>You can have LibreNMS emit alerts as syslogs complying with RFC 3164.
-More information on RFC 3164 can be found here: https://tools.ietf.org/html/rfc3164
-Example output: <code>&lt;26&gt; Mar 22 00:59:03 librenms.host.net librenms[233]: [Critical] network.device.net: Port Down - port_id =&gt; 98939; ifDescr =&gt; xe-1/1/0;</code>
-Each fault will be sent as a separate syslog.</p>
-<pre><code class="php">$config['alert']['transports']['syslog']['syslog_host']   = '127.0.0.1';
-$config['alert']['transports']['syslog']['syslog_port']  = 514;
-$config['alert']['transports']['syslog']['syslog_facility'] = 3;
-</code></pre>
-
-<h2 id="elasticsearch">Elasticsearch</h2>
-<p>You can have LibreNMS emit alerts to an elasticsearch database. Each fault will be sent as a separate document.
-The index pattern uses strftime() formatting.
-The proxy setting uses the proxy set in config.php if true and does not if false; this allows you to use local servers.</p>
-<pre><code class="php">$config['alert']['transports']['elasticsearch']['es_host']   = '127.0.0.1';
-$config['alert']['transports']['elasticsearch']['es_port']  = 9200;
-$config['alert']['transports']['elasticsearch']['es_index']  = 'librenms-%Y.%m.%d';
-$config['alert']['transports']['elasticsearch']['es_proxy'] = false;
-</code></pre>
-
-<h2 id="jira">JIRA</h2>
-<p>You can have LibreNMS create issues on a Jira instance for critical and warning alerts. The Jira transport only sets summary and description fiels. Therefore your Jira project must not have any other mandatory field for the provided issuetype. The config fields that need to set are Jira URL, Jira username, Jira password, Project key, and issue type. 
-Currently http authentication is used to access Jira and Jira username and password will be stored as cleartext in the LibreNMS database.</p>
-<pre><code class="php">$config['alert']['transports']['jira']['url']   = 'https://myjira.mysite.com';
-$config['alert']['transports']['jira']['username']  = 'myjirauser';
-$config['alert']['transports']['jira']['password'] = 'myjirapass';
-$config['alert']['transports']['jira']['prjkey'][]  = 'JIRAPROJECTKEY';
-$config['alert']['transports']['jira']['issuetype'][]  = 'Myissuetype';
-</code></pre>
-
-<h2 id="gitlab">Gitlab</h2>
-<p>LibreNMS will create issues for warning and critical level alerts however only title and description are set.  Uses Personal access tokens to authenticate with Gitlab and will store the token in cleartext.</p>
-<pre><code class="php">$config['alert']['transports']['gitlab']['host'] = 'http://gitlab.host.tld';
-$config['alert']['transports']['gitlab']['project_id'] = '1';
-$config['alert']['transports']['gitlab']['key'] = 'AbCdEf12345';
-</code></pre>
-
-<h2 id="philips-hue">Philips Hue</h2>
-<p>Want to spice up your noc life? LibreNMS will flash all lights connected to your philips hue bridge whenever an alert is triggered. </p>
-<p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
-<ul>
-<li>Update the "URL:" field to <code>/api</code></li>
-<li>Paste this in the "Message Body" {"devicetype":"librenms"}</li>
-<li>Press the round button on your <code>philips Hue Bridge</code></li>
-<li>Click on <code>POST</code></li>
-<li>In the <code>Command Response</code> You should see output with your username. Copy this without the quotes</li>
-</ul>
-<p>More Info: <a href="https://www.developers.meethue.com/documentation/getting-started">Philips Hue Documentation</a></p>
-<pre><code class="php">$config['alert']['transports']['hue']['bridge'] = 'http://bridge.example.com';
-$config['alert']['transports']['hue']['user'] = 'af89jauaf98aj34r';
-$config['alert']['transports']['hue']['duration'] = 'lselect';
 </code></pre>
 
   <br>
