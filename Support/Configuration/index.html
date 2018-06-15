@@ -419,8 +419,8 @@ If host is added by hostname this check is not performed.  If the setting is tru
 
 <h3 id="global-poller-and-discovery-modules">Global poller and discovery modules</h3>
 <p>Generally, it is a better to set these <a href="../../Developing/os/Settings/#poller-and-discovery-modules">per OS</a> or device.</p>
-<pre><code class="php">$config['discovery_modules]['arp-table'] = 1;
-$config['poller_modules']['bgp-peers'] = 0;
+<pre><code class="php">$config['discovery_modules]['arp-table'] = true;
+$config['poller_modules']['bgp-peers'] = false;
 </code></pre>
 
 <h3 id="snmp-settings">SNMP Settings</h3>

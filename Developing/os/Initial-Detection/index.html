@@ -134,15 +134,15 @@ called cisco.</p>
 
 <p><code>poller_modules</code>: This is a list of poller modules to either enable (1) or disable (0). Check <code>includes/defaults.inc.php</code> to see which modules are enabled/disabled by default.</p>
 <pre><code class="yaml">poller_modules:
-    cisco-ace-serverfarms: 0
-    cisco-ace-loadbalancer: 0
+    cisco-ace-serverfarms: false
+    cisco-ace-loadbalancer: false
 </code></pre>
 
 <p><code>discovery_modules</code>: This is the list of discovery modules to either enable (1) or disable (0). Check <code>includes/defaults.inc.php</code> to see which modules are enabled/disabled by default.</p>
 <pre><code class="yaml">discovery_modules:
-     cisco-cef: 1
-     cisco-sla: 1
-     cisco-mac-accounting: 0
+     cisco-cef: true
+     cisco-sla: true
+     cisco-mac-accounting: false
 </code></pre>
 
 <h5 id="discovery-logic">Discovery Logic</h5>

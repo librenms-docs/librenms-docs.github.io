@@ -95,7 +95,7 @@ MySQL crashes or your server does but it provides an amazing difference in IO us
 <h3 id="polling-modules">Polling modules</h3>
 <p>Disable polling (and discovery) modules that you do not need. You can do this globally in <code>config.php</code> like:</p>
 <p>Disable OSPF polling</p>
-<pre><code class="php">$config['poller_modules']['ospf'] = 0;
+<pre><code class="php">$config['poller_modules']['ospf'] = false;
 </code></pre>
 
 <p>You can disable modules globally then re-enable the module per device or the opposite way. For a list of modules please see

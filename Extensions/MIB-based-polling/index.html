@@ -105,7 +105,7 @@ release, you MUST perform a data conversion of the MIB-based polling files
 using the script <code>contrib/convert-mib-graphs.sh</code>.  Failure to do so will
 result in your data collection silently stopping.</p>
 <p>MIB-based polling is disabled by default; you must set
-    <code>$config['poller_modules']['mib'] = 1;</code>
+    <code>$config['poller_modules']['mib'] = true;</code>
 in <code>config.php</code> to enable it.</p>
 <h2 id="preparation">Preparation</h2>
 <p>MIB-based polling results in the creation of a separate RRD file for each
@@ -227,7 +227,7 @@ graph.</p>
 </ol>
 <h2 id="configuration">Configuration</h2>
 <h3 id="main-configuration">Main Configuration</h3>
-<p>In <code>/opt/librenms/config.php</code> add <code>$config['poller_modules']['mib'] = 1;</code> to enable MIB polling globally.
+<p>In <code>/opt/librenms/config.php</code> add <code>$config['poller_modules']['mib'] = true;</code> to enable MIB polling globally.
 Alternatively you can enable MIB polling per device by enabling it within the modules section for the specific device.</p>
 <h3 id="discovery_1">Discovery</h3>
 <p>You need to add your desired MIBs to <code>/opt/librenms/mibs</code> folder. 
