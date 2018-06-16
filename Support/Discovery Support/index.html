@@ -105,7 +105,6 @@ new will poll only those devices that have recently been added or have been sele
 <p><code>-m</code> This enables you to specify the module you want to run for discovery.</p>
 <h4 id="discovery-wrapper">Discovery wrapper</h4>
 <p>We have a <code>discovery-wrapper.py</code> script which is based on <code>poller-wrapper.py</code> by <a href="https://github.com/job">Job Snijders</a>. This script is currently the default.</p>
-<p>If you need to debug the output of discovery-wrapper.py then you can add <code>-d</code> to the end of the command - it is NOT recommended to do this in cron.</p>
 <p>If you want to switch back to discovery.php then you can replace:</p>
 <p><code>33  */6   * * *   librenms    /opt/librenms/discovery-wrapper.py 1 &gt;&gt; /dev/null 2&gt;&amp;1</code></p>
 <p>With:</p>

@@ -81,7 +81,6 @@ to LibreNMS - localhost is a good one. This is needed in order for alerting to w
 <p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
 <code>services-wrapper.py</code> in cron instead of <code>check-services.php</code> across all polling nodes.</p>
 </blockquote>
-<p>If you need to debug the output of services-wrapper.py then you can add <code>-d</code> to the end of the command - it is NOT recommended to do this in cron.</p>
 <p>Firstly, install Nagios plugins however you would like, this could be via yum, apt-get or direct from source.</p>
 <p>Next, you need to enable the services within config.php with the following:</p>
 <pre><code class="php">$config['show_services']           = 1;
@@ -96,8 +95,8 @@ For example: </p>
 <pre><code>chmod +x /usr/lib/nagios/plugins/*
 </code></pre>
 
-<p>Finally, you now need to add services-wrapper.py to the current cron file (/etc/cron.d/librenms typically) like:</p>
-<pre><code class="bash">*/5 * * * * librenms /opt/librenms/services-wrapper.py 1
+<p>Finally, you now need to add check-services.php to the current cron file (/etc/cron.d/librenms typically) like:</p>
+<pre><code class="bash">*/5 * * * * librenms /opt/librenms/check-services.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
 
 <p>Now you can add services via the main Services link in the navbar, or via the 'Add Service' link within the device, services page.</p>
