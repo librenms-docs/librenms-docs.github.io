@@ -35,6 +35,7 @@
         var pageToc = [
           {title: "poller.php", url: "#pollerphp", children: [
               {title: "Command options", url: "#command-options" },
+              {title: "Poller Wrapper", url: "#poller-wrapper" },
               {title: "Poller config", url: "#poller-config" },
               {title: "OS based Poller config", url: "#os-based-poller-config" },
               {title: "Poller modules", url: "#poller-modules" },
@@ -102,6 +103,9 @@ even. all will run poller against all devices.</p>
 <p><code>-d</code> Enables debugging output (verbose output but with most sensitive data masked) so that you can see what is happening during a poller run. This includes things like rrd updates, SQL queries and response from snmp.</p>
 <p><code>-v</code> Enables verbose debugging output with all data in tact.</p>
 <p><code>-m</code> This enables you to specify the module you want to run for poller.</p>
+<h4 id="poller-wrapper">Poller Wrapper</h4>
+<p>We have a <code>poller-wrapper.py</code> script by <a href="https://github.com/job">Job Snijders</a>. This script is currently the default.</p>
+<p>If you need to debug the output of poller-wrapper.py then you can add <code>-d</code> to the end of the command - it is NOT recommended to do this in cron.</p>
 <h4 id="poller-config">Poller config</h4>
 <p>These are the default poller config items. You can globally disable a module by setting it to 0. If you just want to
 disable it for one device then you can do this within the WebUI -&gt; Settings -&gt; Modules.</p>
