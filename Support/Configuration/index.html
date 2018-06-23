@@ -376,6 +376,10 @@ $config['graphs']['mini']['widescreen'] = array(
 </code></pre>
 
 <p>When using IP addresses as a hostname you can instead represent the devices on the WebUI by its SNMP sysName resulting in an easier to read overview of your network. This would apply on networks where you don't have DNS records for most of your devices.</p>
+<pre><code class="php">$config['force_hostname_to_sysname'] = false;
+</code></pre>
+
+<p>When using a dynamic DNS hostname or one that does not resolve, this option would allow you to make use of the SNMP sysName instead as the preferred reference to the device.</p>
 <pre><code class="php">$config['device_traffic_iftype'][] = '/loopback/';
 </code></pre>
 
