@@ -77,16 +77,34 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Enter a title, we usually use <code>August 2016 Release</code></p>
 <p>Enter a placeholder for the body, we will edit this later.</p>
 <h3 id="create-changelog">Create changelog</h3>
-<p>We utilise <a href="https://github.com/fojuth/readmegen">Readmegen</a> to automatically populate the Changelog.</p>
-<p>Install <code>readmegen</code> using <code>composer</code>:</p>
-<pre><code class="bash">./scripts/composer_wrapper.php install
+<p>For this, we assume you are using the master branch to create the release against.</p>
+<p>We now generate the changelog using the GitHub API itself so it shouldn't matter what state your local branch is in so
+long as it has the code to generate the changelog itself.</p>
+<p>Using the GitHub API means we can use the labels associated with merged pull requests to categorise the changelog. We 
+also then record who made the pull request to thank them in the changelog itself.</p>
+<p>You will be asked for a GitHub personal access token. You can generate this <a href="https://github.com/settings/tokens">here</a>.
+No permissions should be needed so just give it a name and click <code>Generate Token</code>. You can then export the token as an 
+environment variable <code>GH_TOKEN</code> or place it in your <code>.env</code> file.</p>
+<p>The basic command to run is by using <code>artisan</code>. Here you pass <code>new tag</code> (1.41) and <code>previous tag</code> (1.40). For further 
+help run <code>php artisan release:tag --help</code>. This will generate a changelog up to the latest master branch, if you want 
+it to be done against something else then pass the latest pull request number with <code>--pr $PR_NUMBER</code>. </p>
+<pre><code class="bash">php artisan release:tag 1.41 1.40
 </code></pre>
 
-<p>You can now create the update change log by running (201608 was our last release):</p>
-<pre><code class="bash">./vendor/bin/readmegen --from 201608 --release 201609
-</code></pre>
-
-<p>Now commit and push the change that has been made to <code>doc\General\Changelog.md</code></p>
+<ul>
+<li>Now commit and push the change that has been made to <code>doc/General/Changelog.md</code>.</li>
+<li>Once the pull request has been merged in for the Changelog, you can create a new release on 
+  <a href="https://github.com/librenms/librenms/releases/new">GitHub</a>.</li>
+<li>Create two threads on the community site:<ul>
+<li>A changelog thread <a href="https://community.librenms.org/t/v1-40-release-changelog-may-2018/4228/1">example</a></li>
+<li>An info thread <a href="https://community.librenms.org/t/v1-40-may-2018-info/4229/">example</a></li>
+</ul>
+</li>
+<li><a href="https://twitter.com/librenms">Tweet it</a></li>
+<li><a href="https://www.facebook.com/LibreNMS/">Facebook it</a></li>
+<li><a href="https://plus.google.com/u/1/b/110467424837711353117/">Google Plus it</a></li>
+<li><a href="https://www.linkedin.com/company/librenms/">LinkedIn it</a></li>
+</ul>
 
   <br>
     
