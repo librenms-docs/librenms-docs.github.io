@@ -11,7 +11,7 @@
     <link rel="canonical" href="http://docs.librenms.org/Extensions/Smokeping/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Smokeping - LibreNMS Docs</title>
+    <title>Smokeping integration - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -72,9 +72,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <div class="container-fluid wm-page-content">
     
+      <div class="source-links">
+      
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Extensions/Smokeping.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+      
+      </div>
+    
 
-    <p>+source: Extensions/Smokeping.md</p>
-<h1 id="smokeping-integration">Smokeping integration</h1>
+    <h1 id="smokeping-integration">Smokeping integration</h1>
 <p><a href="https://oss.oetiker.ch/smokeping/">SmokePing</a> is a tool which lets us keep track of network latency, and visualise this through RRD graphs. </p>
 <p>LibreNMS has support for both new and pre-existing SmokePing installations. </p>
 <p>For new installations, we can use the included <code>scripts/gen_smokeping.php</code> script to generate a Smokeping config file.</p>
@@ -182,7 +187,7 @@ smokeping.conf
         }
 </code></pre>
 
-<p>After saving the config file, verify your Nginx config file syntax is OK with <code>sudo nginx -t</code>, then restart Nginx with <code>sudo systemctl nginx restart</code></p>
+<p>After saving the config file, verify your Nginx config file syntax is OK with <code>sudo nginx -t</code>, then restart Nginx with <code>sudo systemctl restart nginx</code></p>
 <p>You should be able to load the Smokeping web interface at <code>http://yourhost/smokeping</code></p>
 <h3 id="start-smokeping">Start SmokePing</h3>
 <p>Use the below commands to start and verify smokeping is running. </p>
