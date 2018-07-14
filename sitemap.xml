@@ -601,6 +601,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Alerting/Old_Templates/</loc>
+     <lastmod>2018-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/API/API-Docs/</loc>
      <lastmod>2018-07-14</lastmod>
      <changefreq>daily</changefreq>

@@ -73,191 +73,192 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="templates">Templates</h1>
+<blockquote>
+<p>This page is for installs running version 1.41 or later. You can find the older docs <a href="../Old_Templates/">here</a></p>
+</blockquote>
 <p>Templates can be assigned to a single or a group of rules and can contain any kind of text. There is also a default template which is used for any rule that isn't associated with a template. This template can be found under <code>Alert Templates</code> page and can be edited. It also has an option revert it back to its default content. </p>
-<p>The template-parser understands <code>if</code> and <code>foreach</code> controls and replaces certain placeholders with information gathered about the alert.</p>
+<p>The templating engine in use is Laravel Blade. We will cover some of the basics here, however the official Laravel docs will have more information <a href="https://laravel.com/docs/5.4/blade">here</a> </p>
 <h2 id="syntax">Syntax</h2>
 <p>Controls:</p>
 <ul>
 <li>if-else (Else can be omitted):
-<code>{if %placeholder == value}Some Text{else}Other Text{/if}</code></li>
+<code>@if ($alert-&gt;placeholder  == 'value') Some Text @else Other Text @endif</code></li>
 <li>foreach-loop:
-<code>{foreach %faults}Key: %key&lt;br/&gt;Value: %value{/foreach}</code></li>
+<code>@foreach ($alert-&gt;faults as $key =&gt; $value) Key: $key&lt;br/&gt;Value: $value @endforeach</code></li>
 </ul>
 <p>Placeholders:</p>
 <p>Placeholders are special variables that if used within the template will be replaced with the relevant data, I.e:</p>
-<p><code>The device %hostname has been up for %uptime seconds</code> would result in the following <code>The device localhost has been up for 30344 seconds</code>.</p>
-<ul>
-<li>Device ID: <code>%device_id</code></li>
-<li>Hostname of the Device: <code>%hostname</code></li>
-<li>sysName of the Device: <code>%sysName</code></li>
-<li>sysDescr of the Device: <code>%sysDescr</code></li>
-<li>hardware of the Device: <code>%hardware</code></li>
-<li>Software version of the Device: <code>%version</code> </li>
-<li>location of the Device: <code>%location</code></li>
-<li>uptime of the Device (in seconds): <code>%uptime</code></li>
-<li>short uptime of the Device (28d 22h 30m 7s): <code>%uptime_short</code></li>
-<li>long uptime of the Device (28 days, 22h 30m 7s): <code>%uptime_long</code></li>
-<li>description (purpose db field) of the Device: <code>%description</code></li>
-<li>notes of the Device: <code>%notes</code></li>
-<li>notes of the alert: <code>%alert_notes</code></li>
-<li>ping timestamp (if icmp enabled): <code>%ping_timestamp</code></li>
-<li>ping loss (if icmp enabled): <code>%ping_loss</code></li>
-<li>ping min (if icmp enabled): <code>%ping_min</code></li>
-<li>ping max (if icmp enabled): <code>%ping_max</code></li>
-<li>ping avg (if icmp enabled): <code>%ping_avg</code></li>
-<li>Title for the Alert: <code>%title</code></li>
-<li>Time Elapsed, Only available on recovery (<code>%state == 0</code>): <code>%elapsed</code></li>
-<li>Alert-ID: <code>%id</code></li>
-<li>Unique-ID: <code>%uid</code></li>
-<li>Faults, Only available on alert (<code>%state != 0</code>), must be iterated in a foreach (<code>{foreach %faults}</code>). Holds all available information about the Fault, accessible in the format <code>%value.Column</code>, for example: <code>%value.ifDescr</code>. Special field <code>%value.string</code> has most Identification-information (IDs, Names, Descrs) as single string, this is the equivalent of the default used.</li>
-<li>State: <code>%state</code></li>
-<li>Severity: <code>%severity</code></li>
-<li>Rule: <code>%rule</code></li>
-<li>Rule-Name: <code>%name</code></li>
-<li>Timestamp: <code>%timestamp</code></li>
-<li>
-<p>Transport name: <code>%transport</code></p>
-</li>
-<li>
-<p>Contacts, must be iterated in a foreach, <code>%key</code> holds email and <code>%value</code> holds name: <code>%contacts</code></p>
-</li>
-</ul>
-<p>Placeholders can be used within the subjects for templates as well although %faults is most likely going to be worthless.</p>
+<p><code>The device {{ $alert-&gt;hostname }} has been up for {{ $alert-&gt;uptime }} seconds</code> would result in the following <code>The device localhost has been up for 30344 seconds</code>.</p>
 <blockquote>
-<p>NOTE: Placeholder names which are contained within another need to be ordered correctly. As an example:</p>
+<p>When using placeholders to echo data, you need to wrap the placeholder in <code>{{ }}</code>. I.e <code>{{ $alert-&gt;hostname }}</code>.</p>
 </blockquote>
-<pre><code class="text">Limit: %value.sensor_limit / %value.sensor_limit_low
-</code></pre>
-
-<p>Should be done as:</p>
-<pre><code class="text">Limit: %value.sensor_limit_low / %value.sensor_limit
-</code></pre>
-
+<ul>
+<li>Device ID: <code>$alert-&gt;device_id</code></li>
+<li>Hostname of the Device: <code>$alert-&gt;hostname</code></li>
+<li>sysName of the Device: <code>$alert-&gt;sysName</code></li>
+<li>sysDescr of the Device: <code>$alert-&gt;sysDescr</code></li>
+<li>sysContact of the Device: <code>$alert-&gt;sysContact</code></li>
+<li>OS of the Device: <code>$alert-&gt;os</code></li>
+<li>Type of Device: <code>$alert-&gt;type</code></li>
+<li>IP of the Device: <code>$alert-&gt;ip</code></li>
+<li>hardware of the Device: <code>$alert-&gt;hardware</code></li>
+<li>Software version of the Device: <code>$alert-&gt;version</code> </li>
+<li>location of the Device: <code>$alert-&gt;location</code></li>
+<li>uptime of the Device (in seconds): <code>$alert-&gt;uptime</code></li>
+<li>short uptime of the Device (28d 22h 30m 7s): <code>$alert-&gt;uptime_short</code></li>
+<li>long uptime of the Device (28 days, 22h 30m 7s): <code>$alert-&gt;uptime_long</code></li>
+<li>description (purpose db field) of the Device: <code>$alert-&gt;description</code></li>
+<li>notes of the Device: <code>$alert-&gt;notes</code></li>
+<li>notes of the alert: <code>$alert-&gt;alert_notes</code></li>
+<li>ping timestamp (if icmp enabled): <code>$alert-&gt;ping_timestamp</code></li>
+<li>ping loss (if icmp enabled): <code>$alert-&gt;ping_loss</code></li>
+<li>ping min (if icmp enabled): <code>$alert-&gt;ping_min</code></li>
+<li>ping max (if icmp enabled): <code>$alert-&gt;ping_max</code></li>
+<li>ping avg (if icmp enabled): <code>$alert-&gt;ping_avg</code></li>
+<li>Title for the Alert: <code>$alert-&gt;title</code></li>
+<li>Time Elapsed, Only available on recovery (<code>$alert-&gt;state == 0</code>): <code>$alert-&gt;elapsed</code></li>
+<li>Rule Builder (the actual rule) (use <code>{!! $alert-&gt;builder !!}</code>): <code>$alert-&gt;builder</code></li>
+<li>Alert-ID: <code>$alert-&gt;id</code></li>
+<li>Unique-ID: <code>$alert-&gt;uid</code></li>
+<li>Faults, Only available on alert (<code>$alert-&gt;state != 0</code>), must be iterated in a foreach (<code>@foreach ($alert-&gt;faults as $key =&gt; $value) @endforeach</code>). Holds all available information about the Fault, accessible in the format <code>$value['Column']</code>, for example: <code>$value['ifDescr']</code>. Special field <code>$value['string']</code> has most Identification-information (IDs, Names, Descrs) as single string, this is the equivalent of the default used.</li>
+<li>State: <code>$alert-&gt;state</code></li>
+<li>Severity: <code>$alert-&gt;severity</code></li>
+<li>Rule: <code>$alert-&gt;rule</code></li>
+<li>Rule-Name: <code>$alert-&gt;name</code></li>
+<li>Timestamp: <code>$alert-&gt;timestamp</code></li>
+<li>Transport name: <code>$alert-&gt;transport</code></li>
+<li>Contacts, must be iterated in a foreach, <code>$key</code> holds email and <code>$value</code> holds name: <code>$alert-&gt;contacts</code></li>
+</ul>
+<p>Placeholders can be used within the subjects for templates as well although $faults is most likely going to be worthless.</p>
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining your own templates for your rules to include more specific information.</p>
 <h2 id="examples">Examples</h2>
 <p>Default Template:</p>
-<pre><code class="text">%title
-Severity: %severity
-{if %state == 0}Time elapsed: %elapsed{/if}
-Timestamp: %timestamp
-Unique-ID: %uid
-Rule: {if %name}%name{else}%rule{/if}
-{if %faults}Faults:
-{foreach %faults}  #%key: %value.string{/foreach}{/if}
-Alert sent to: {foreach %contacts}%value &lt;%key&gt; {/foreach}
+<pre><code class="text">{{ $alert-&gt;title }}
+Severity: {{ $alert-&gt;severity }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }}
+Unique-ID: {{ $alert-&gt;uid }}
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
+@if ($alert-&gt;faults) Faults:
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+  #{{ $key }}: {{ $value['string'] }}
+@endforeach
+@endif
+Alert sent to:
+@foreach ($alert-&gt;contacts as $key =&gt; $value)
+  {{ $value }} &lt;{{ $key }}&gt;
+@endforeach
 </code></pre>
 
 <p>Ports Utilization Template:</p>
-<pre><code class="text">%title
-Device Name: %hostname
-Severity: %severity
-{if %state == 0}Time elapsed: %elapsed{/if}
-Timestamp: %timestamp
-Rule: {if %name}%name{else}%rule{/if}
-{foreach %faults}
-Physical Interface: %value.ifDescr
-Interface Description: %value.ifAlias
-Interface Speed: {calc (%value.ifSpeed/1000000000)} Gbs
-Inbound Utilization: {calc ((%value.ifInOctets_rate*8)/%value.ifSpeed)*100}%
-Outbound Utilization: {calc ((%value.ifOutOctets_rate*8)/%value.ifSpeed)*100}%
-{/foreach}
+<pre><code class="text">{{ $alert-&gt;title }}
+Device Name: {{ $alert-&gt;hostname }}
+Severity: {{ $alert-&gt;severity }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }}
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+Physical Interface: $value['ifDescr']
+Interface Description: $value['ifAlias']
+Interface Speed: @php echo ($value['ifSpeed']/1000000000); @endphp Gbs
+Inbound Utilization: @php echo (($value['ifInOctets_rate']*8)/$value['ifSpeed'])*100; @endphp%
+Outbound Utilization: @php echo (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100; @endphp%
+@endforeach
 </code></pre>
 
 <p>Storage:</p>
-<pre><code class="text">
-%title
+<pre><code class="text">{{ $alert-&gt;title }}
 
-Device Name: %hostname
-Severity: %severity 
-Uptime: %uptime_short
-{if %state == 0}Time elapsed: %elapsed{/if}
-Timestamp: %timestamp
-Location: %location
-Description: %description
-Features: %features
-Purpose: %purpose
-Notes: %notes
+Device Name: {{ $alert-&gt;hostname }}
+Severity: {{ $alert-&gt;severity }} 
+Uptime: {{ $alert-&gt;uptime_short }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }}
+Location: {{ $alert-&gt;location }}
+Description: {{ $alert-&gt;description }}
+Features: {{ $alert-&gt;features }}
+Purpose: {{ $alert-&gt;purpose }}
+Notes: {{ $alert-&gt;notes }}
 
-Server: %sysName {foreach %faults}Mount Point: %value.storage_descr Percent Utilized: %value.storage_perc{/foreach}
+Server: {{ $alert-&gt;sysName }} @foreach ($alert-&gt;faults as $key =&gt; $value)Mount Point: $value['storage_descr'] Percent Utilized: $value['storage_perc']@endforeach
 </code></pre>
 
 <p>Temperature Sensors:</p>
-<pre><code class="text">
-%title
+<pre><code class="text">{{ $alert-&gt;title }}
 
-Device Name: %hostname
-Severity: %severity 
-Timestamp: %timestamp
-Uptime: %uptime_short
-{if %state == 0}Time elapsed: %elapsed{/if}
-Location: %location
-Description: %description
-Features: %features
-Purpose: %purpose
-Notes: %notes
+Device Name: {{ $alert-&gt;hostname }}
+Severity: {{ $alert-&gt;severity }} 
+Timestamp: {{ $alert-&gt;timestamp }}
+Uptime: {{ $alert-&gt;uptime_short }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Location: {{ $alert-&gt;location }}
+Description: {{ $alert-&gt;description }}
+Features: {{ $alert-&gt;features }}
+Purpose: {{ $alert-&gt;purpose }}
+Notes: {{ $alert-&gt;notes }}
 
-Rule: {if %name}%name{else}%rule{/if}
-{if %faults}Faults:
-{foreach %faults}
-#%key: Temperature: %value.sensor_current°C
-** {calc(%value.sensor_current-%value.sensor_limit)}°C over limit
-Previous Measurement: %value.sensor_prev°C
-High Temperature Limit: %value.sensor_limit°C
-{/foreach}
-{/if}
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
+@if ($alert-&gt;faults) Faults:
+@foreach ($faults as $key =&gt; $value)
+#{{ $key }}: Temperature: $value['sensor_current']°C
+** @php echo ($value['sensor_current']-$value['sensor_limit']); @endphp°C over limit
+Previous Measurement: $value['sensor_prev']°C
+High Temperature Limit: $value['sensor_limit']°C
+@endforeach
+@endif
 </code></pre>
 
 <p>Value Sensors:</p>
-<pre><code class="text">
-%title
+<pre><code class="text">{{ $alert-&gt;title }}
 
-Device Name: %hostname
-Severity: %severity 
-Timestamp: %timestamp
-Uptime: %uptime_short
-{if %state == 0}Time elapsed: %elapsed{/if}
-Location: %location
-Description: %description
-Features: %features
-Purpose: %purpose
-Notes: %notes
+Device Name: {{ $alert-&gt;hostname }}
+Severity: {{ $alert-&gt;severity }} 
+Timestamp: {{ $alert-&gt;timestamp }}
+Uptime: {{ $alert-&gt;uptime_short }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Location: {{ $alert-&gt;location }}
+Description: {{ $alert-&gt;description }}
+Features: {{ $alert-&gt;features }}
+Purpose: {{ $alert-&gt;purpose }}
+Notes: {{ $alert-&gt;notes }}
 
-Rule: {if %name}%name{else}%rule{/if}
-{if %faults}Faults:
-{foreach %faults}
-#%key: Sensor%value.sensor_current
-** {calc(%value.sensor_current-%value.sensor_limit)}over limit
-Previous Measurement: %value.sensor_prev
-Limit: %value.sensor_limit
-{/foreach}
-{/if}
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
+@if ($alert-&gt;faults) Faults:
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+#{{ $key }}: Sensor {{ $value['sensor_current'] }}
+** @php echo ($value['sensor_current']-$value['sensor_limit']); @endphp over limit
+Previous Measurement: {{ $value['sensor_prev'] }}
+Limit: {{ $value['sensor_limit'] }}
+@endforeach 
+@endif
 </code></pre>
 
 <p>Memory Alert:</p>
-<pre><code class="text">%title
+<pre><code class="text">{{ $alert-&gt;title }}
 
-Device Name: %hostname
-Severity: %severity 
-Uptime: %uptime_short
-{if %state == 0}Time elapsed: %elapsed{/if}
-Timestamp: %timestamp
-Location: %location
-Description: %description
-Notes: %notes
+Device Name: {{ $alert-&gt;hostname }}
+Severity: {{ $alert-&gt;severity }} 
+Uptime: {{ $alert-&gt;uptime_short }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }}
+Location: {{ $alert-&gt;location }}
+Description: {{ $alert-&gt;description }}
+Notes: {{ $alert-&gt;notes }}
 
-Server: %hostname {foreach %faults}
-Memory Description: %value.mempool_descr 
-Percent Utilized: %value.mempool_perc{/foreach}
+Server: {{ $alert-&gt;hostname }}
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+Memory Description: {{ $value['mempool_descr'] }} 
+Percent Utilized: {{ $value['mempool_perc'] }}
+@endforeach 
 </code></pre>
 
 <p>Conditional formatting example, will display a link to the host in email or just the hostname in any other transport:</p>
-<pre><code class="text">{if %transport == mail}&lt;a href=&quot;https://my.librenms.install/device/device=%hostname/&quot;&gt;%hostname&lt;/a&gt;
-{else}
-%hostname
-{/if}
+<pre><code class="text">@if ($alert-&gt;transport == mail)&lt;a href=&quot;https://my.librenms.install/device/device={{ $alert-&gt;hostname }}/&quot;&gt;{{ $alert-&gt;hostname }}&lt;/a&gt;
+@else
+{{ $alert-&gt;hostname }}
+@endif
 </code></pre>
 
-<p>Note the use of double-quotes.  Single quotes (<code>'</code>) in templates will be escaped (replaced with <code>\'</code>) in the output and should therefore be avoided.</p>
 <h2 id="examples-html">Examples HTML</h2>
 <p>Note: To use HTML emails you must set HTML email to Yes in the WebUI under Global Settings &gt; Alerting Settings &gt; Email transport &gt; Use HTML emails</p>
 <p>Note: To include Graphs you must enable unauthorized graphs in config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
@@ -267,42 +268,42 @@ $config['allow_unauth_graphs'] = true;
 
 <p>Service Alert:</p>
 <pre><code>&lt;div style=&quot;font-family:Helvetica;&quot;&gt;
-&lt;h2&gt;{if %state == 1}&lt;span style=&quot;color:red;&quot;&gt;%severity{/if}
-{if %state == 2}&lt;span style=&quot;color:goldenrod;&quot;&gt;acknowledged{/if}&lt;/span&gt;
-{if %state == 3}&lt;span style=&quot;color:green;&quot;&gt;recovering{/if}&lt;/span&gt;
-{if %state == 0}&lt;span style=&quot;color:green;&quot;&gt;recovered{/if}&lt;/span&gt;
+&lt;h2&gt;@if ($alert-&gt;state == 1) &lt;span style=&quot;color:red;&quot;&gt;{{ $alert-&gt;severity }} @endif
+@if ($alert-&gt;state == 2) &lt;span style=&quot;color:goldenrod;&quot;&gt;acknowledged @endif&lt;/span&gt;
+@if ($alert-&gt;state == 3) &lt;span style=&quot;color:green;&quot;&gt;recovering @endif&lt;/span&gt;
+@if ($alert-&gt;state == 0) &lt;span style=&quot;color:green;&quot;&gt;recovered @endif&lt;/span&gt;
 &lt;/h2&gt;
-&lt;b&gt;Host:&lt;/b&gt; %hostname&lt;br&gt;
-&lt;b&gt;Duration:&lt;/b&gt; %elapsed&lt;br&gt;
+&lt;b&gt;Host:&lt;/b&gt; {{ $alert-&gt;hostname }}&lt;br&gt;
+&lt;b&gt;Duration:&lt;/b&gt; {{ $alert-&gt;elapsed }}&lt;br&gt;
 &lt;br&gt;
 
-{if %faults}                                                                                       
-{foreach %faults}&lt;b&gt;%value.service_desc - %value.service_type&lt;/b&gt;&lt;br&gt;                                         
-%value.service_message&lt;br&gt;
+@if ($alert-&gt;faults)                                                                                        
+@foreach ($alert-&gt;faults as $key =&gt; $value)&lt;b&gt;$value['service_desc'] - $value['service_type']&lt;/b&gt;&lt;br&gt;                                         
+$value['service_message']&lt;br&gt;
 &lt;br&gt;                                                                                         
-{/foreach}                                                                                                             
-{/if}
+@endforeach                                                                                                              
+@endif
 &lt;/div&gt;
 </code></pre>
 
 <p>Processor Alert with Graph:</p>
-<pre><code>%title &lt;br&gt;
-Severity: %severity  &lt;br&gt;
-{if %state == 0}Time elapsed: %elapsed{/if}
-Timestamp: %timestamp &lt;br&gt;
-Alert-ID: %id &lt;br&gt;
-Rule: {if %name}%name{else}%rule{/if} &lt;br&gt;
-{if %faults}Faults:
-{foreach %faults}
-#%key: %value.string &lt;br&gt;
-{/foreach}
-{if %faults}&lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
-{foreach %faults}&lt;img src=&quot;https://server/graph.php?device=%value.device_id&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h%22/%3E&lt;br&gt;
-https://server/graphs/id=%value.device_id/type=device_processor/&lt;br&gt;
-{/foreach}
+<pre><code>{{ $alert-&gt;title }} &lt;br&gt;
+Severity: {{ $alert-&gt;severity }}  &lt;br&gt;
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }} &lt;br&gt;
+Alert-ID: {{ $alert-&gt;id }} &lt;br&gt;
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif &lt;br&gt;
+@if ($alert-&gt;faults) Faults:
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+#{{ $key }}: {{ $value['string'] }}&lt;br&gt;
+@endforeach 
+@if ($alert-&gt;faults) &lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
+@foreach ($alert-&gt;faults as $key =&gt; $value)&lt;img src=&quot;https://server/graph.php?device={{ $value['device_id'] }}&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h&gt;&lt;br&gt;
+https://server/graphs/id={{ $value['device_id'] }}/type=device_processor/&lt;br&gt;
+@endforeach 
 Template: CPU alert &lt;br&gt;
-{/if}
-{/if}
+@endif
+@endif
 </code></pre>
 
 <h2 id="included">Included</h2>
