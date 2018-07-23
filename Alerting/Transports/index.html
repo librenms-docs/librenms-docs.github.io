@@ -118,29 +118,77 @@ If you want contacts to be re-gathered before each dispatch, please set 'Updates
 <p>If the <code>Api Method</code> is <code>get</code>, all placeholders will be URL-Encoded.</p>
 <p>The API transport uses cURL to call the APIs, therefore you might need to install <code>php curl</code> to make it work.</p>
 <p><strong>Note</strong>: it is highly recommended to define your own <a href="../Templates">Templates</a> when you want to use the API transport. The default template might exceed URL-length for GET requests and therefore cause all sorts of errors.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-API Method | get
-API URL    | http://my.example.com/api</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Method</td>
+<td>get</td>
+</tr>
+<tr>
+<td>API URL</td>
+<td>http://my.example.com/api</td>
+</tr>
+</tbody>
+</table>
 <h2 id="boxcar">Boxcar</h2>
 <p>Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport.</p>
 <p><a href="http://developer.boxcar.io/api/publisher/">Boxcar Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Access Token | i23f23mr23rwerw</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access Token</td>
+<td>i23f23mr23rwerw</td>
+</tr>
+</tbody>
+</table>
 <h2 id="canopsis">Canopsis</h2>
 <p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis which are then converted to canopsis events. </p>
 <p><a href="http://www.canopsis.org/wp-content/themes/canopsis/doc/sakura/user-guide/event-spec.html">Canopsis Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Hostname | www.xxx.yyy.zzz
-Port Number | 5672
-User | admin
-Password | my_password
-Vhost | canopsis</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hostname</td>
+<td>www.xxx.yyy.zzz</td>
+</tr>
+<tr>
+<td>Port Number</td>
+<td>5672</td>
+</tr>
+<tr>
+<td>User</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>my_password</td>
+</tr>
+<tr>
+<td>Vhost</td>
+<td>canopsis</td>
+</tr>
+</tbody>
+</table>
 <h2 id="cisco-spark">Cisco Spark</h2>
 <p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make this possible you need to have a RoomID and a token. </p>
 <p>For more information about Cisco Spark RoomID and token, take a look here :</p>
@@ -148,49 +196,125 @@ Vhost | canopsis</p>
 <li><a href="https://developer.ciscospark.com/getting-started.html">Getting started</a></li>
 <li><a href="https://developer.ciscospark.com/resource-rooms.html">Rooms</a></li>
 </ul>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-API Token | ASd23r23edewda
-RoomID | 34243243251</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Token</td>
+<td>ASd23r23edewda</td>
+</tr>
+<tr>
+<td>RoomID</td>
+<td>34243243251</td>
+</tr>
+</tbody>
+</table>
 <h2 id="clickatell">Clickatell</h2>
 <p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.</p>
 <p><a href="https://www.clickatell.com/developers/api-documentation/rest-api-request-parameters/">Clickatell Docs</a></p>
 <p>Here an example using 3 numbers, any amount of numbers is supported:</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Token | dsaWd3rewdwea
-Mobile Numbers | +1234567890,+1234567891,+1234567892</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token</td>
+<td>dsaWd3rewdwea</td>
+</tr>
+<tr>
+<td>Mobile Numbers</td>
+<td>+1234567890,+1234567891,+1234567892</td>
+</tr>
+</tbody>
+</table>
 <h2 id="discord">Discord</h2>
 <p>The Discord transport will POST the alert message to your Discord Incoming WebHook. Simple html tags are stripped from 
 the message. </p>
 <p>The only required value is for url, without this no call to Discord will be made. The Options field supports the
 JSON/Form Params listed in the Discord Docs below.</p>
 <p><a href="https://discordapp.com/developers/docs/resources/webhook#execute-webhook">Discord Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Discord URL | https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe
-Options | username=myname</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discord URL</td>
+<td>https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>username=myname</td>
+</tr>
+</tbody>
+</table>
 <h2 id="elasticsearch">Elasticsearch</h2>
 <p>You can have LibreNMS send alerts to an elasticsearch database. Each fault will be sent as a separate document.</p>
 <p>The index pattern uses strftime() formatting.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Host | 127.0.0.1
-Port | 9200
-Index Patter | librenms-%Y.%m.%d</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>9200</td>
+</tr>
+<tr>
+<td>Index Patter</td>
+<td>librenms-%Y.%m.%d</td>
+</tr>
+</tbody>
+</table>
 <h2 id="gitlab">Gitlab</h2>
 <p>LibreNMS will create issues for warning and critical level alerts however only title and description are set. 
 Uses Personal access tokens to authenticate with Gitlab and will store the token in cleartext.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Host | http://gitlab.host.tld
-Project ID | 1
-Personal Access Token | AbCdEf12345</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>http://gitlab.host.tld</td>
+</tr>
+<tr>
+<td>Project ID</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Personal Access Token</td>
+<td>AbCdEf12345</td>
+</tr>
+</tbody>
+</table>
 <h2 id="hipchat">HipChat</h2>
 <p>See the HipChat API Documentation for <a href="https://www.hipchat.com/docs/api/method/rooms/message">rooms/message</a>
 for details on acceptable values.</p>
@@ -198,15 +322,41 @@ for details on acceptable values.</p>
 <p>You may notice that the link points at the "deprecated" v1 API.  This is
 because the v2 API is still in beta.</p>
 </blockquote>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-API URL | https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj
-Room ID | 7654321
-From Name | LibreNMS
-Options | color = red
- | notify = 1
- | message_format = text</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API URL</td>
+<td>https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj</td>
+</tr>
+<tr>
+<td>Room ID</td>
+<td>7654321</td>
+</tr>
+<tr>
+<td>From Name</td>
+<td>LibreNMS</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>color = red</td>
+</tr>
+<tr>
+<td></td>
+<td>notify = 1</td>
+</tr>
+<tr>
+<td></td>
+<td>message_format = text</td>
+</tr>
+</tbody>
+</table>
 <p>At present the following options are supported: <code>color</code>, <code>notify</code> and <code>message_format</code>. </p>
 <blockquote>
 <p>Note: The default message format for HipChat messages is HTML.  It is
@@ -217,10 +367,21 @@ results, such as HipChat attempting to interpret angled brackets (<code>&lt;</co
 <h2 id="irc">IRC</h2>
 <p>The IRC transports only works together with the LibreNMS IRC-Bot.
 Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/librenms/librenms/blob/master/doc/Extensions/IRC-Bot.md">here</a>.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-IRC | enabled</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IRC</td>
+<td>enabled</td>
+</tr>
+</tbody>
+</table>
 <h2 id="jira">JIRA</h2>
 <p>You can have LibreNMS create issues on a Jira instance for critical and warning alerts. The Jira transport only sets 
 summary and description fields. Therefore your Jira project must not have any other mandatory field for the provided 
@@ -228,37 +389,93 @@ issuetype. The config fields that need to set are Jira URL, Jira username, Jira 
 Currently http authentication is used to access Jira and Jira username and password will be stored as cleartext in the 
 LibreNMS database.</p>
 <p><a href="https://confluence.atlassian.com/adminjiracloud/issue-types-844500742.html">Jira Issue Types</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-URL | https://myjira.mysite.com
-Project Key | JIRAPROJECTKEY
-Issue Type | Myissuetype
-Jira Username | myjirauser
-Jira Password | myjirapass</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td>https://myjira.mysite.com</td>
+</tr>
+<tr>
+<td>Project Key</td>
+<td>JIRAPROJECTKEY</td>
+</tr>
+<tr>
+<td>Issue Type</td>
+<td>Myissuetype</td>
+</tr>
+<tr>
+<td>Jira Username</td>
+<td>myjirauser</td>
+</tr>
+<tr>
+<td>Jira Password</td>
+<td>myjirapass</td>
+</tr>
+</tbody>
+</table>
 <h2 id="mail">Mail</h2>
 <p>For all but the default contact, we support setting multiple email addresses separated by a comma. So you can 
 set the devices sysContact, override the sysContact or have your users emails set like:</p>
 <p><code>email@domain.com, alerting@domain.com</code></p>
 <p>The E-Mail transports uses the same email-configuration like the rest of LibreNMS.
 As a small reminder, here is it's configuration directives including defaults:</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Email | me@example.com</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email</td>
+<td>me@example.com</td>
+</tr>
+</tbody>
+</table>
 <h2 id="microsoft-teams">Microsoft Teams</h2>
 <p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector API which are then posted to a specific channel. </p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-WebHook URL | https://outlook.office365.com/webhook/123456789</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebHook URL</td>
+<td>https://outlook.office365.com/webhook/123456789</td>
+</tr>
+</tbody>
+</table>
 <h2 id="nagios-compatible">Nagios Compatible</h2>
 <p>The nagios transport will feed a FIFO at the defined location with the same format that nagios would.
 This allows you to use other alerting systems with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Nagios FIFO | /path/to/my.fifo</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nagios FIFO</td>
+<td>/path/to/my.fifo</td>
+</tr>
+</tbody>
+</table>
 <h2 id="opsgenie">OpsGenie</h2>
 <p>Using OpsGenie LibreNMS integration, LibreNMS forwards alerts to OpsGenie with detailed information.
 OpsGenie acts as a dispatcher for LibreNMS alerts, determines the right people to notify based on on-call 
@@ -268,17 +485,42 @@ Then escalates alerts until the alert is acknowledged or closed.</p>
 once you signup. Then copy the API key from OpsGenie to LibreNMS.</p>
 <p>If you want to automatically ack and close alerts, leverage Marid integration. More detail with screenshots is 
 available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGenie LibreNMS Integration page</a>.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-WebHook URL | https://url/path/to/webhook</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebHook URL</td>
+<td>https://url/path/to/webhook</td>
+</tr>
+</tbody>
+</table>
 <h2 id="osticket">osTicket</h2>
 <p>LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets. </p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-API URL | http://osticket.example.com/api/http.php/tickets.json
-API Token | 123456789</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API URL</td>
+<td>http://osticket.example.com/api/http.php/tickets.json</td>
+</tr>
+<tr>
+<td>API Token</td>
+<td>123456789</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pagerduty">PagerDuty</h2>
 <p>PagerDuty setup is currently done by a two way integration. Start this process from Settings -&gt; Alerting Settings from within LibreNMS.</p>
 <p><a href="https://www.pagerduty.com/docs/guides/librenms-integration-guide/">PagerDuty Docs</a></p>
@@ -293,31 +535,82 @@ API Token | 123456789</p>
 <li>In the <code>Command Response</code> You should see output with your username. Copy this without the quotes</li>
 </ul>
 <p>More Info: <a href="https://www.developers.meethue.com/documentation/getting-started">Philips Hue Documentation</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Host | http://your-bridge-ip
-Hue User | username
-Duration | 1 Second</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>http://your-bridge-ip</td>
+</tr>
+<tr>
+<td>Hue User</td>
+<td>username</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>1 Second</td>
+</tr>
+</tbody>
+</table>
 <h2 id="playsms">PlaySMS</h2>
 <p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP API using a Username and WebService Token.
 Please consult PlaySMS's documentation regarding number formatting.</p>
 <p><a href="https://github.com/antonraharja/playSMS/blob/master/documents/development/WEBSERVICES.md">PlaySMS Docs</a></p>
 <p>Here an example using 3 numbers, any amount of numbers is supported:</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-PlaySMS | https://localhost/index.php?app=ws
-User | user1
-Token | MYFANCYACCESSTOKEN
-From | My Name
-Mobiles | +1234567892,+1234567890,+1234567891</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PlaySMS</td>
+<td>https://localhost/index.php?app=ws</td>
+</tr>
+<tr>
+<td>User</td>
+<td>user1</td>
+</tr>
+<tr>
+<td>Token</td>
+<td>MYFANCYACCESSTOKEN</td>
+</tr>
+<tr>
+<td>From</td>
+<td>My Name</td>
+</tr>
+<tr>
+<td>Mobiles</td>
+<td>+1234567892,+1234567890,+1234567891</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pushbullet">Pushbullet</h2>
 <p>Get your Access Token from your Pushbullet's settings page and set it in your transport:</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Access Token | MYFANCYACCESSTOKEN</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access Token</td>
+<td>MYFANCYACCESSTOKEN</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pushover">Pushover</h2>
 <p>If you want to change the <a href="https://pushover.net/api#sounds">notification sounds</a> then add it in Pushover Options:</p>
 <p><code>sound_critical=falling</code></p>
@@ -325,25 +618,65 @@ Access Token | MYFANCYACCESSTOKEN</p>
 <p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
 <p>Now copy your API Key and obtain your User Key from the newly created Application and setup the transport.</p>
 <p><a href="https://pushover.net/api">Pushover Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Api Key | APPLICATIONAPIKEYGOESHERE
-User Key | USERKEYGOESHERE
-Pushover Options | sound_critical=falling</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Api Key</td>
+<td>APPLICATIONAPIKEYGOESHERE</td>
+</tr>
+<tr>
+<td>User Key</td>
+<td>USERKEYGOESHERE</td>
+</tr>
+<tr>
+<td>Pushover Options</td>
+<td>sound_critical=falling</td>
+</tr>
+</tbody>
+</table>
 <h2 id="rocketchat">Rocket.chat</h2>
 <p>The Rocket.chat transport will POST the alert message to your Rocket.chat Incoming WebHook using the
 attachments option. Simple html tags are stripped from the message. All options are optional, the only
 required value is for url, without this then no call to Rocket.chat will be made.</p>
 <p><a href="https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage">Rocket.chat Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Webhook URL | https://rocket.url/api/v1/chat.postMessage
-Rocket.chat Options | channel=#Alerting
- | username=myname
- | icon_url=http://someurl/image.gif
- | icon_emoji=:smirk:</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Webhook URL</td>
+<td>https://rocket.url/api/v1/chat.postMessage</td>
+</tr>
+<tr>
+<td>Rocket.chat Options</td>
+<td>channel=#Alerting</td>
+</tr>
+<tr>
+<td></td>
+<td>username=myname</td>
+</tr>
+<tr>
+<td></td>
+<td>icon_url=http://someurl/image.gif</td>
+</tr>
+<tr>
+<td></td>
+<td>icon_emoji=:smirk:</td>
+</tr>
+</tbody>
+</table>
 <h2 id="slack">Slack</h2>
 <p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the attachments option,
 you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags 
@@ -352,34 +685,88 @@ then no call to Slack will be made.</p>
 <p>We currently support the following attachment options:</p>
 <p><code>author_name</code></p>
 <p><a href="https://api.slack.com/docs/message-attachments">Slack docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Webhook URL | https://slack.com/url/somehook
-Slack Options | author_name=Me</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Webhook URL</td>
+<td>https://slack.com/url/somehook</td>
+</tr>
+<tr>
+<td>Slack Options</td>
+<td>author_name=Me</td>
+</tr>
+</tbody>
+</table>
 <h2 id="smseagle">SMSEagle</h2>
 <p>SMSEagle is a hardware SMS Gateway that can be used via their HTTP API using a Username and password.</p>
 <p>Destination numbers are one per line, with no spaces. They can be in either local or international dialling format.</p>
 <p><a href="http://www.smseagle.eu">SMSEagle Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-SMSEagle URL | ip.add.re.ss
-User | smseagle_user
-Password | smseagle_user_password
-Mobiles | +3534567890
- | 0834567891</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMSEagle URL</td>
+<td>ip.add.re.ss</td>
+</tr>
+<tr>
+<td>User</td>
+<td>smseagle_user</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>smseagle_user_password</td>
+</tr>
+<tr>
+<td>Mobiles</td>
+<td>+3534567890</td>
+</tr>
+<tr>
+<td></td>
+<td>0834567891</td>
+</tr>
+</tbody>
+</table>
 <h2 id="syslog">Syslog</h2>
 <p>You can have LibreNMS emit alerts as syslogs complying with RFC 3164.</p>
 <p>More information on RFC 3164 can be found here: https://tools.ietf.org/html/rfc3164</p>
 <p>Example output: <code>&lt;26&gt; Mar 22 00:59:03 librenms.host.net librenms[233]: [Critical] network.device.net: Port Down - port_id =&gt; 98939; ifDescr =&gt; xe-1/1/0;</code></p>
 <p>Each fault will be sent as a separate syslog.</p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Host | 127.0.0.1
-Port | 514
-Facility | 3</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>514</td>
+</tr>
+<tr>
+<td>Facility</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 <h2 id="telegram">Telegram</h2>
 <blockquote>
 <p>Thank you to <a href="https://github.com/snis">snis</a> for these instructions.</p>
@@ -408,11 +795,25 @@ Click on 'Add Telegram config' and put your chat id and token into the relevant 
 </li>
 </ol>
 <p><a href="https://core.telegram.org/api">Telegram Docs</a></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Chat ID | 34243432
-Token | 3ed32wwf235234</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat ID</td>
+<td>34243432</td>
+</tr>
+<tr>
+<td>Token</td>
+<td>3ed32wwf235234</td>
+</tr>
+</tbody>
+</table>
 <h2 id="victorops">VictorOps</h2>
 <p>VictorOps provide a webHook url to make integration extremely simple. To get the URL required login to your VictorOps 
 account and go to:</p>
@@ -420,10 +821,21 @@ account and go to:</p>
 <p>The URL provided will have $routing_key at the end, you need to change this to something that is unique to the system 
 sending the alerts such as librenms. I.e:</p>
 <p><code>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</code></p>
-<p><strong>Example:</strong>
-Config | Example
------- | -------
-Post URL | https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Post URL</td>
+<td>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</td>
+</tr>
+</tbody>
+</table>
 
   <br>
     
