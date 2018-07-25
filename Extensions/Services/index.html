@@ -38,6 +38,7 @@
               {title: "Performance data", url: "#performance-data" },
               {title: "Alerting", url: "#alerting" },
               {title: "Debug", url: "#debug" },
+              {title: "Service checks polling logic", url: "#service-checks-polling-logic" },
           ]},
         ];
 
@@ -144,6 +145,12 @@ RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
 <p>then you can run the following command to help troubleshoot services. </p>
 <pre><code>./check-services.php -d
 </code></pre>
+
+<h2 id="service-checks-polling-logic">Service checks polling logic</h2>
+<p>Service check is skipped when the associated device is not pingable, and an appropriate entry is populated in the event log. 
+Service check is polled if it's <code>IP address</code> parameter is not equal to associated device's IP address, even when the associated device is not pingable.</p>
+<p>To override the default logic and always poll service checks, you can disable ICMP testing for any device by switching <code>Disable ICMP Test</code> setting (Edit -&gt; Misc) to ON.</p>
+<p>Service checks will never be polled on disabled devices.</p>
 
   <br>
     
