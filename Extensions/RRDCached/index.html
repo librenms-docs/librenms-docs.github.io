@@ -254,6 +254,12 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 </code></pre>
 
 <ol>
+<li>Fix permissions</li>
+</ol>
+<pre><code class="bash">chown librenms:librenms /mnt/librenms/rrd/journal/
+</code></pre>
+
+<ol>
 <li>Restart the rrdcached service</li>
 </ol>
 <pre><code class="bash">    systemctl restart rrdcached.service
