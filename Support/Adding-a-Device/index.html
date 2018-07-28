@@ -76,11 +76,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <code>WebUI</code>.</p>
 <h3 id="cli">CLI</h3>
 <p>Using the command line via ssh you can add a new device by changing to the directory of your LibreNMS install and typing (be sure to put the correct details).</p>
-<pre><code class="bash">./addhost.php [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]
+<pre><code class="bash">./addhost.php yourhostname [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]
 </code></pre>
 
-<p>As an example, if your device is configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you would enter:</p>
-<pre><code class="bash">./addhost.php my_company v2c
+<p>As an example, if your device with the name <code>mydevice.example.com</code> is configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you would enter:</p>
+<pre><code class="bash">./addhost.php mydevice.example.com my_company v2c
 </code></pre>
 
 <blockquote>
