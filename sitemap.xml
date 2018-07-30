@@ -146,6 +146,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Extensions/Fast-Ping-Check/</loc>
+     <lastmod>2018-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/Support/Configuration/</loc>
      <lastmod>2018-07-30</lastmod>
      <changefreq>daily</changefreq>
