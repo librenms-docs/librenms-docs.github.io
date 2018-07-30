@@ -277,10 +277,10 @@ $config['allow_unauth_graphs'] = true;
 &lt;b&gt;Duration:&lt;/b&gt; {{ $alert-&gt;elapsed }}&lt;br&gt;
 &lt;br&gt;
 
-@if ($alert-&gt;faults)                                                                                        
-@foreach ($alert-&gt;faults as $key =&gt; $value)&lt;b&gt;$value['service_desc'] - $value['service_type']&lt;/b&gt;&lt;br&gt;                                         
-$value['service_message']&lt;br&gt;
-&lt;br&gt;                                                                                         
+@if ($alert-&gt;faults)
+@foreach ($alert-&gt;faults as $key =&gt; $value) &lt;b&gt;{{ $value['service_desc'] }} - {{ $value['service_type'] }}&lt;/b&gt;&lt;br&gt;
+{{ $value['service_message'] }}&lt;br&gt;
+&lt;br&gt;
 @endforeach                                                                                                              
 @endif
 &lt;/div&gt;
