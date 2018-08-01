@@ -35,6 +35,7 @@
         var pageToc = [
           {title: "Templates", url: "#templates", children: [
               {title: "Syntax", url: "#syntax" },
+              {title: "Base Templates", url: "#base-templates" },
               {title: "Examples", url: "#examples" },
               {title: "Examples HTML", url: "#examples-html" },
               {title: "Included", url: "#included" },
@@ -131,6 +132,39 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p>Placeholders can be used within the subjects for templates as well although $faults is most likely going to be worthless.</p>
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining your own templates for your rules to include more specific information.</p>
+<h2 id="base-templates">Base Templates</h2>
+<p>If you'd like to reuse a common template for your alerts follow below</p>
+<p>create a file in
+<code>resources/views/alerts/template.blade.php</code>
+As an example, add the following:</p>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;LibreNMS Alert&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;
+            From the template master
+        &lt;/div&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            @yield('content')
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>The important part being the <code>@yield('content')</code></p>
+<p>You can use plain text or html as per Alert templates and this will form the basis of your common template.</p>
+<p>In your alert template just use</p>
+<pre><code>@extends('alerts.template');
+
+@section('content')
+  {{ $alert-&gt;title }}
+  Severity: {{ $alert-&gt;severity }}
+  ...
+@endsection
+</code></pre>
+
+<p>More info: https://laravel.com/docs/5.4/blade#extending-a-layout</p>
 <h2 id="examples">Examples</h2>
 <p>Default Template:</p>
 <pre><code class="text">{{ $alert-&gt;title }}
