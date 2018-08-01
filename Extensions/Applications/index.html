@@ -569,9 +569,12 @@ radclient -x localhost:18121 status adminsecret
 <h3 id="memcached">Memcached</h3>
 <h5 id="snmp-extend_14">SNMP Extend</h5>
 <ol>
-<li>
-<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/etc/snmp/</code> on your remote server.</p>
-</li>
+<li>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached script</a> to <code>/etc/snmp/</code> on your remote server.</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/memcached -O /etc/snmp/memcached
+</code></pre>
+
+<ol>
 <li>
 <p>Make the script executable: <code>chmod +x /etc/snmp/memcached</code></p>
 </li>
