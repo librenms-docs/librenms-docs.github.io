@@ -134,17 +134,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>The Default Template is a 'one-size-fit-all'. We highly recommend defining your own templates for your rules to include more specific information.</p>
 <h2 id="base-templates">Base Templates</h2>
 <p>If you'd like to reuse a common template for your alerts follow below</p>
-<p>create a file in
-<code>resources/views/alerts/template.blade.php</code>
-As an example, add the following:</p>
+<p>A default file is located in
+<code>resources/views/alerts/templates/default.blade.php</code>
+Displays the following:</p>
 <pre><code>&lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;LibreNMS Alert&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div&gt;
-            From the template master
-        &lt;/div&gt;
         &lt;div class=&quot;container&quot;&gt;
             @yield('content')
         &lt;/div&gt;
@@ -153,9 +150,9 @@ As an example, add the following:</p>
 </code></pre>
 
 <p>The important part being the <code>@yield('content')</code></p>
-<p>You can use plain text or html as per Alert templates and this will form the basis of your common template.</p>
+<p>You can use plain text or html as per Alert templates and this will form the basis of your common template, feel free to make as many templates in the directory as needed.</p>
 <p>In your alert template just use</p>
-<pre><code>@extends('alerts.template');
+<pre><code>@extends('alerts.templates.default');
 
 @section('content')
   {{ $alert-&gt;title }}
