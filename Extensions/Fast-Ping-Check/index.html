@@ -36,6 +36,7 @@
           {title: "Fast up/down checking", url: "#fast-updown-checking", children: [
               {title: "Setting the ping check to 1 minute", url: "#setting-the-ping-check-to-1-minute" },
               {title: "Device dependencies", url: "#device-dependencies" },
+              {title: "Settings", url: "#settings" },
           ]},
         ];
 
@@ -117,85 +118,26 @@ We add two entries, but add a delay before one.</p>
     ./scripts/rrdstep.php -h all</code></p>
 </li>
 <li>
-<p>Update cron (removing any other ping.php or alert.php entries)
-    ```</p>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>librenms    /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>librenms    sleep 30 &amp;&amp; /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>librenms    sleep 15 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>librenms    sleep 45 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
-```</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>Update cron (removing any other ping.php or alert.php entries)</p>
 </li>
 </ol>
+<pre><code>*    *    * * *   librenms    /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1
+*    *    * * *   librenms    sleep 30 &amp;&amp; /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1
+*    *    * * *   librenms    sleep 15 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
+*    *    * * *   librenms    sleep 45 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
 <h3 id="device-dependencies">Device dependencies</h3>
 <p>The ping.php script respects device dependencies, but the main poller does not (for technical reasons).
 However, using this script does not disable the icmp check in the poller and a child may be reported as
 down before the parent.</p>
+<h3 id="settings">Settings</h3>
+<p>ping.php uses much the same settings as the poller fping with one exception: retries is used instead of count.
+ping.php does not measure loss and avg response time, only up/down, so once a device responds it stops pinging it.</p>
+<pre><code>$config['fping_options']['retries'] = 2;
+$config['fping_options']['timeout'] = 500;
+$config['fping_options']['interval'] = 500;
+</code></pre>
 
   <br>
     
