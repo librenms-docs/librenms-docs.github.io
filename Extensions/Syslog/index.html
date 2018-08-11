@@ -243,6 +243,17 @@ logging librenms.ip
 <pre><code class="config">logging server librenms.ip 5 use-vrf default facility local6
 </code></pre>
 
+<h4 id="juniper-junos">Juniper Junos</h4>
+<pre><code class="config">set system syslog host librenms.ip authorization any
+set system syslog host librenms.ip daemon any
+set system syslog host librenms.ip kernel any
+set system syslog host librenms.ip user any
+set system syslog host librenms.ip change-log any
+set system syslog host librenms.ip source-address &lt;management ip&gt;
+set system syslog host librenms.ip exclude-hostname
+set system syslog time-format
+</code></pre>
+
 <p>If you have permitted udp and tcp 514 through any firewall then that should be all you need. Logs should start appearing and displayed within the LibreNMS web UI.</p>
 <h3 id="windows">Windows</h3>
 <p>By Default windows has no native way to send logs to a remote syslog server.</p>
@@ -272,6 +283,10 @@ logging librenms.ip
 
 <h4 id="cisco-iosxr">Cisco IOSXR</h4>
 <pre><code class="ssh">$config['os']['iosxr']['syslog_hook'][] = Array('regex' =&gt; '/%GBL-CONFIG-6-DB_COMMIT/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
+
+<h4 id="juniper-junos_1">Juniper Junos</h4>
+<pre><code class="ssh">$config['os']['junos']['syslog_hook'][] = Array('regex' =&gt; '/%UI_COMMIT:/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
 </code></pre>
 
   <br>
