@@ -3862,18 +3862,23 @@
         }, 
         {
             "location": "/Extensions/SNMP-Trap-Handler/", 
-            "text": "SNMP trap handling\n\n\nCurrently, librenms only supports linkUp/linkDown (port up/down), bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and authenticationFailure SNMP traps.\n\n\nTraps are handled via snmptrapd.\n\n\nConfigure snmptrapd\n\n\nInstall snmptrapd via your package manager.\n\n\nModify startup options to include \n-M /opt/librenms/mibs -m ALL\n\n\nIn \n/etc/snmp/snmptrapd.conf\n, add something like the following:\n\n\ntraphandle default /opt/librenms/snmptrap.php\n\n\n\n\nAlong with any necessary configuration to receive the traps from your devices (community, etc.)", 
+            "text": "SNMP trap handling\n\n\nCurrently, librenms only supports linkUp/linkDown (port up/down), bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and authenticationFailure SNMP traps.\nTo add more see \nAdding new SNMP Trap handlers\n\n\nTraps are handled via snmptrapd.\n\n\nConfigure snmptrapd\n\n\nInstall snmptrapd via your package manager.\n\n\nModify startup options to include \n-M /opt/librenms/mibs -m ALL\n\n\nIn \n/etc/snmp/snmptrapd.conf\n, add something like the following:\n\n\ntraphandle default /opt/librenms/snmptrap.php\n\n\n\n\nAlong with any necessary configuration to receive the traps from your devices (community, etc.)\n\n\nEvent logging\n\n\nYou can configure generic event logging for snmp traps.  This will log an event of the type trap for received traps.\nThese events can be utilized for alerting.\n\n\nIn config.php\n\n\n$config['snmptraps']['eventlog'] = 'unhandled';\n\n\n\n\nValid options are:\n - \nunhandled\n only unhandled traps will be logged\n - \nall\n log all traps\n - \nnone\n no traps will create a generic event log (handled traps may still log events)", 
             "title": "SNMP trap handling"
         }, 
         {
             "location": "/Extensions/SNMP-Trap-Handler/#snmp-trap-handling", 
-            "text": "Currently, librenms only supports linkUp/linkDown (port up/down), bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and authenticationFailure SNMP traps.  Traps are handled via snmptrapd.", 
+            "text": "Currently, librenms only supports linkUp/linkDown (port up/down), bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and authenticationFailure SNMP traps.\nTo add more see  Adding new SNMP Trap handlers  Traps are handled via snmptrapd.", 
             "title": "SNMP trap handling"
         }, 
         {
             "location": "/Extensions/SNMP-Trap-Handler/#configure-snmptrapd", 
             "text": "Install snmptrapd via your package manager.  Modify startup options to include  -M /opt/librenms/mibs -m ALL  In  /etc/snmp/snmptrapd.conf , add something like the following:  traphandle default /opt/librenms/snmptrap.php  Along with any necessary configuration to receive the traps from your devices (community, etc.)", 
             "title": "Configure snmptrapd"
+        }, 
+        {
+            "location": "/Extensions/SNMP-Trap-Handler/#event-logging", 
+            "text": "You can configure generic event logging for snmp traps.  This will log an event of the type trap for received traps.\nThese events can be utilized for alerting.  In config.php  $config['snmptraps']['eventlog'] = 'unhandled';  Valid options are:\n -  unhandled  only unhandled traps will be logged\n -  all  log all traps\n -  none  no traps will create a generic event log (handled traps may still log events)", 
+            "title": "Event logging"
         }, 
         {
             "location": "/Support/Cleanup-options/", 
@@ -6719,6 +6724,36 @@
             "location": "/Developing/Sensor-State-Support/#advanced-example", 
             "text": "For advanced state discovery:  This example will be based on a Cisco power supply sensor and is all it takes to have sensor state support for Cisco power supplys in Cisco switches.\nThe file should be located in /includes/discovery/sensors/state/cisco.inc.php.  ?php\n\n$oids = snmpwalk_group($device, 'ciscoEnvMonSupplyStatusTable', 'CISCO-ENVMON-MIB');\n\nif (!empty($oids)) {\n    //Create State Index\n    $state_name = 'ciscoEnvMonSupplyState';\n    $states = array(\n         array('value' =  1, 'generic' =  0, 'graph' =  0, 'descr' =  'normal'),\n         array('value' =  2, 'generic' =  1, 'graph' =  0, 'descr' =  'warning'),\n         array('value' =  3, 'generic' =  2, 'graph' =  0, 'descr' =  'critical'),\n         array('value' =  4, 'generic' =  3, 'graph' =  0, 'descr' =  'shutdown'),\n         array('value' =  5, 'generic' =  3, 'graph' =  0, 'descr' =  'notPresent'),\n         array('value' =  6, 'generic' =  2, 'graph' =  0, 'descr' =  'notFunctioning'),\n     );\n    create_state_index($state_name, $states);\n\n    $num_oid = '.1.3.6.1.4.1.9.9.13.1.5.1.3.';\n    foreach ($oids as $index =  $entry) {\n        //Discover Sensors\n        discover_sensor($valid['sensor'], 'state', $device, $num_oid.$index, $index, $state_name, $entry['ciscoEnvMonSupplyStatusDescr'], '1', '1', null, null, null, null, $entry['ciscoEnvMonSupplyState'], 'snmp', $index);\n\n        //Create Sensor To State Index\n        create_sensor_to_state_index($device, $state_name, $index);\n    }\n}", 
             "title": "Advanced Example"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/", 
+            "text": "Creating snmp trap handlers\n\n\nCreate a new class in LibreNMS\\Snmptrap\\Handlers that implements the\nLibreNMS\\Interfaces\\SnmptrapHandler interface. \n\n\nRegister the mapping in the config/snmptraps.php file. Make sure to use the full trap oid.\n\n\n'IF-MIB::linkUp' =\n \\LibreNMS\\Snmptrap\\Handlers\\LinkUp::class\n\n\n\n\nThe handle function inside your new class will receive a LibreNMS/Snmptrap/Trap\nobject containing the parsed trap.  It is common to update the database and create\nevent log entries within the handle function.\n\n\nGetting information from the Trap\n\n\nSource information\n\n\n$trap-\ngetDevice();   // gets Device model for the device associated with this trap\n$trap-\ngetHostname(); // gets hostname sent with the trap\n$trap-\ngetIp();       // gets source IP of this trap\n$trap-\ngetTrapOid();  // returns the string you registered your class with\n\n\n\n\nRetrieving data from the Trap\n\n\n$trap-\ngetOidData('IF-MIB::ifDescr.114');\n\n\n\n\ngetOidData() requires the full name including any additional index.\nYou can use these functions to search the oid keys.\n\n\n$trap-\nfindOid('ifDescr');  // returns the first oid key that contains the string\n$trap-\nfindOids('ifDescr'); // returns all oid keys containing the string\n\n\n\n\nAdvanced\n\n\nIf the above isn't adequate, you can get the entire trap text\n\n\n$trap-\ngetRaw();", 
+            "title": "Creating snmp trap handlers"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/#creating-snmp-trap-handlers", 
+            "text": "Create a new class in LibreNMS\\Snmptrap\\Handlers that implements the\nLibreNMS\\Interfaces\\SnmptrapHandler interface.   Register the mapping in the config/snmptraps.php file. Make sure to use the full trap oid.  'IF-MIB::linkUp' =  \\LibreNMS\\Snmptrap\\Handlers\\LinkUp::class  The handle function inside your new class will receive a LibreNMS/Snmptrap/Trap\nobject containing the parsed trap.  It is common to update the database and create\nevent log entries within the handle function.", 
+            "title": "Creating snmp trap handlers"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/#getting-information-from-the-trap", 
+            "text": "", 
+            "title": "Getting information from the Trap"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/#source-information", 
+            "text": "$trap- getDevice();   // gets Device model for the device associated with this trap\n$trap- getHostname(); // gets hostname sent with the trap\n$trap- getIp();       // gets source IP of this trap\n$trap- getTrapOid();  // returns the string you registered your class with", 
+            "title": "Source information"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/#retrieving-data-from-the-trap", 
+            "text": "$trap- getOidData('IF-MIB::ifDescr.114');  getOidData() requires the full name including any additional index.\nYou can use these functions to search the oid keys.  $trap- findOid('ifDescr');  // returns the first oid key that contains the string\n$trap- findOids('ifDescr'); // returns all oid keys containing the string", 
+            "title": "Retrieving data from the Trap"
+        }, 
+        {
+            "location": "/Developing/SNMP-Traps/#advanced", 
+            "text": "If the above isn't adequate, you can get the entire trap text  $trap- getRaw();", 
+            "title": "Advanced"
         }, 
         {
             "location": "/Developing/Dynamic-Config/", 
