@@ -956,7 +956,8 @@ The web-server must be enabled, see the Recursor docs: https://doc.powerdns.com/
 <h5 id="snmp-extend_30">SNMP Extend</h5>
 <ol>
 <li>
-<p>Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/raspberry.sh">raspberry script</a> to <code>/etc/snmp/</code> (or any other suitable location) on your PI host.</p>
+<p>Download the script onto the desired host.
+<code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/raspberry.sh -O /etc/snmp/raspberry.sh</code></p>
 </li>
 <li>
 <p>Make the script executable: <code>chmod +x /etc/snmp/raspberry.sh</code></p>
