@@ -90,6 +90,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         - <a href="#panos-6x7x">PANOS 6.x/7.x</a>
     - <a href="#vmware">VMware</a>
         - <a href="#esxesxi-5x6x">ESX/ESXi 5.x/6.x</a>
+        - <a href="#vcenter-6x">VCenter 6.x</a>
 - <a href="#operating-systems">Operating systems</a>
     - <a href="#linux-snmpd">Linux (snmpd v2)</a>
     - <a href="#linux-snmpd-v3">Linux (snmpd v3)</a>
@@ -266,6 +267,28 @@ esxcli system snmp hash --auth-hash YOUR_AUTH_SECRET --priv-hash YOUR_PRIV_SECRE
 esxcli system snmp set -L &quot;Yourcity, Yourcountry [60.4,5.3]&quot;
 esxcli system snmp set -C noc@your.org
 esxcli system snmp set --enable true
+</code></pre>
+
+<blockquote>
+<p>Note: In case of snmp timouts, disable the firewall with <code>esxcli network firewall set --enabled false</code><br />
+If snmp timeouts still occur with firewall disabled, migrate VMs if needed and reboot ESXi host.</p>
+</blockquote>
+<h4 id="vcenter-6x">VCenter 6.x</h4>
+<p>Log on to your ESX server by means of ssh. You may have to enable the ssh service in the GUI first.
+From the CLI, execute the following commands:</p>
+<pre><code>snmp.set --authentication SHA1
+snmp.set --privacy AES128
+snmp.hash --auth_hash YOUR_AUTH_SECRET --priv_hash YOUR_PRIV_SECRET --raw_secret true
+</code></pre>
+
+<p>This command produces output like this</p>
+<pre><code>   Privhash: 0596ab30b315576a4e9f7d7bde65bf49b749e335
+   Authhash: f3d8982fc28e8d1346c26eee49eb2c4a5950c934
+</code></pre>
+
+<p>Now define a SNMPv3 user:</p>
+<pre><code>snmp.set --users authpriv/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
+snmp.enable
 </code></pre>
 
 <h2 id="operating-systems">Operating systems</h2>
