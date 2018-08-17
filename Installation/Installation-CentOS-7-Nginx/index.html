@@ -120,12 +120,8 @@ exit
 
 <pre><code>vi /etc/my.cnf
 </code></pre>
-<blockquote>
-<p>NOTE: Whilst we are working on ensuring LibreNMS is compatible with MySQL strict mode, for now, please disable this after mysql is installed.</p>
-</blockquote>
 <p>Within the <code>[mysqld]</code> section please add:</p>
 <pre><code class="bash">innodb_file_per_table=1
-sql-mode=&quot;&quot;
 lower_case_table_names=0
 </code></pre>
 
