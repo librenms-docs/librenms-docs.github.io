@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Installing\n\n              \n\n            \n\n            \n\n            \nUbuntu 16.04 + Nginx\n\n            \nCentOS 7 + Nginx\n\n            \nMigrating from Observium\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n                \n\n                \n Setup\n\n            \n\n            \n\n            \nAuto Discovery\n\n            \nOxidized\n\n            \nRRDCached\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Alerting\n\n              \n\n            \n\n            \n\n            \nRules\n\n            \nTemplates\n\n            \nTransports\n\n            \nMore...\n\n        \n\n    \n\n\n\n\n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n API\n\n              \n\n            \n\n            \n\n            \nUsing the API\n\n            \nAPI Endpoints\n\n            \n\n            \n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Support\n\n              \n\n            \n\n            \n\n            \nFAQ\n\n            \nInstall validation\n\n            \nPerformance tweaks\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Developing\n\n              \n\n            \n\n            \n\n            \nCode Guidelines\n\n            \nValidating Code\n\n            \nUsing Git\n\n            \nMore...", 
+            "text": "Installing\n\n              \n\n            \n\n            \n\n            \nUbuntu 18.04 + Nginx\n\n            \nCentOS 7 + Nginx\n\n            \nMigrating from Observium\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n                \n\n                \n Setup\n\n            \n\n            \n\n            \nAuto Discovery\n\n            \nOxidized\n\n            \nRRDCached\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Alerting\n\n              \n\n            \n\n            \n\n            \nRules\n\n            \nTemplates\n\n            \nTransports\n\n            \nMore...\n\n        \n\n    \n\n\n\n\n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n API\n\n              \n\n            \n\n            \n\n            \nUsing the API\n\n            \nAPI Endpoints\n\n            \n\n            \n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Support\n\n              \n\n            \n\n            \n\n            \nFAQ\n\n            \nInstall validation\n\n            \nPerformance tweaks\n\n            \nMore...\n\n        \n\n    \n\n    \n\n        \n\n            \n\n              \n\n                \n\n                \n Developing\n\n              \n\n            \n\n            \n\n            \nCode Guidelines\n\n            \nValidating Code\n\n            \nUsing Git\n\n            \nMore...", 
             "title": "Home"
         }, 
         {
@@ -1522,7 +1522,7 @@
         }, 
         {
             "location": "/Installation/", 
-            "text": "Installing LibreNMS\n\n\nImages\n\n\nWe have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nManually\n\n\nIf you want to install manually then we have some documentation which should make it easy.\n\n\nPlease note the minimum supported PHP version is 5.6.4\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
+            "text": "Installing LibreNMS\n\n\nImages\n\n\nWe have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nManually\n\n\nIf you want to install manually then we have some documentation which should make it easy.\n\n\nPlease note the minimum supported PHP version is 5.6.4\n\n\nUbuntu 18.04 Apache\n\n\nUbuntu 18.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
             "title": "Installing LibreNMS"
         }, 
         {
@@ -1537,12 +1537,12 @@
         }, 
         {
             "location": "/Installation/#manually", 
-            "text": "If you want to install manually then we have some documentation which should make it easy.  Please note the minimum supported PHP version is 5.6.4  Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
+            "text": "If you want to install manually then we have some documentation which should make it easy.  Please note the minimum supported PHP version is 5.6.4  Ubuntu 18.04 Apache  Ubuntu 18.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
             "title": "Manually"
         }, 
         {
             "location": "/Installation/#old-install-docs", 
-            "text": "If the above are missing or incomplete then you can try our old docs below.  Debian/Ubuntu  RHEL/CentOS  Debian/Ubuntu Lighttpd  Debian/Ubuntu Nginx", 
+            "text": "If the above are missing or incomplete then you can try our old docs below.  Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  Debian/Ubuntu  RHEL/CentOS  Debian/Ubuntu Lighttpd  Debian/Ubuntu Nginx", 
             "title": "Old Install Docs"
         }, 
         {
