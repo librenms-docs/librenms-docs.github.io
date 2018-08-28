@@ -46,12 +46,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1804-Nginx/</loc>
      <lastmod>2018-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/</loc>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1804-Apache/</loc>
      <lastmod>2018-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -692,6 +692,16 @@
     </url>
     <url>
      <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1404-Lighttpd/</loc>
+     <lastmod>2018-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/</loc>
+     <lastmod>2018-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Apache/</loc>
      <lastmod>2018-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>

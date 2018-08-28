@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-Ubuntu-1604-Nginx/">
+    <link rel="canonical" href="http://docs.librenms.org/Installation/Installation-Ubuntu-1804-Nginx/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Ubuntu 16.04 (Nginx) - LibreNMS Docs</title>
+    <title>Ubuntu 18.04 (Nginx) - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -78,7 +78,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
       <div class="source-links">
       
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Installation/Installation-Ubuntu-1604-Nginx.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
+          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/Installation/Installation-Ubuntu-1804-Nginx.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
       
       </div>
     
@@ -88,7 +88,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </blockquote>
 <p><strong>Please note the minimum supported PHP version is 5.6.4</strong></p>
 <h2 id="install-required-packages">Install Required Packages</h2>
-<pre><code>apt install acl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.0-cli php7.0-curl php7.0-fpm php7.0-gd php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-snmp php7.0-xml php7.0-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
+<pre><code>apt update
+apt install curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
 </code></pre>
 <h4 id="add-librenms-user">Add librenms user</h4>
 <pre><code>useradd librenms -d /opt/librenms -M -r
@@ -113,7 +114,7 @@ FLUSH PRIVILEGES;
 exit
 </code></pre>
 
-<pre><code>vim /etc/mysql/mariadb.conf.d/50-server.cnf
+<pre><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre>
 <p>Within the <code>[mysqld]</code> section please add:</p>
 <pre><code class="bash">innodb_file_per_table=1
@@ -125,14 +126,13 @@ lower_case_table_names=0
 <h2 id="web-server">Web Server</h2>
 <h3 id="configure-and-start-php-fpm">Configure and Start PHP-FPM</h3>
 <p>Ensure date.timezone is set in php.ini to your preferred time zone.  See http://php.net/manual/en/timezones.php for a list of supported timezones.  Valid examples are: "America/New_York", "Australia/Brisbane", "Etc/UTC".</p>
-<pre><code>vim /etc/php/7.0/fpm/php.ini
-vim /etc/php/7.0/cli/php.ini
+<pre><code>vi /etc/php/7.2/fpm/php.ini
+vi /etc/php/7.2/cli/php.ini
 
-phpenmod mcrypt
-systemctl restart php7.0-fpm
+systemctl restart php7.2-fpm
 </code></pre>
 <h4 id="configure-nginx">Configure NGINX</h4>
-<pre><code>vim /etc/nginx/conf.d/librenms.conf
+<pre><code>vi /etc/nginx/conf.d/librenms.conf
 </code></pre>
 <p>Add the following config, edit <code>server_name</code> as required:</p>
 <pre><code class="nginx">server {
@@ -153,7 +153,7 @@ systemctl restart php7.0-fpm
  location ~ \.php {
   include fastcgi.conf;
   fastcgi_split_path_info ^(.+\.php)(/.+)$;
-  fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+  fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
  }
  location ~ /\.ht {
   deny all;
@@ -166,7 +166,7 @@ systemctl restart nginx
 </code></pre>
 <h4 id="configure-snmpd">Configure snmpd</h4>
 <pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
-vim /etc/snmp/snmpd.conf
+vi /etc/snmp/snmpd.conf
 </code></pre>
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
 <pre><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
@@ -220,20 +220,20 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstra
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Installation-Ubuntu-1604-Apache/" class="btn btn-xs btn-default pull-right">
+      <a href="../Installation-Ubuntu-1804-Apache/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Installation-Ubuntu-1604-Apache/" class="btn btn-xs btn-link">
-        Ubuntu 16.04 (Apache)
+      <a href="../Installation-Ubuntu-1804-Apache/" class="btn btn-xs btn-link">
+        Ubuntu 18.04 (Apache)
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Installation-Ubuntu-1404-Lighttpd/" class="btn btn-xs btn-default pull-left">
+      <a href="../CentOS-image/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Installation-Ubuntu-1404-Lighttpd/" class="btn btn-xs btn-link">
-        Installation Ubuntu 1404 Lighttpd
+        Previous</a><a href="../CentOS-image/" class="btn btn-xs btn-link">
+        CentOS VM Image
       </a>
     </div>
     
