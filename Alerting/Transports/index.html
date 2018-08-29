@@ -524,8 +524,28 @@ available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGe
 </tbody>
 </table>
 <h2 id="pagerduty">PagerDuty</h2>
-<p>PagerDuty setup is currently done by a two way integration. Start this process from Settings -&gt; Alerting Settings from within LibreNMS.</p>
-<p><a href="https://www.pagerduty.com/docs/guides/librenms-integration-guide/">PagerDuty Docs</a></p>
+<p>LibreNMS can make use of PagerDuty, this is done by utilizing an API key and Integraton Key.</p>
+<p>API Keys can be found under 'API Access' in the PagerDuty portal.</p>
+<p>Integration Keys can be found under 'Integration' for the particular Service you have created in the PagerDuty portal.</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Key</td>
+<td>randomsample</td>
+</tr>
+<tr>
+<td>Integration Key</td>
+<td>somerandomstring</td>
+</tr>
+</tbody>
+</table>
 <h2 id="philips-hue">Philips Hue</h2>
 <p>Want to spice up your noc life? LibreNMS will flash all lights connected to your philips hue bridge whenever an alert is triggered. </p>
 <p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
