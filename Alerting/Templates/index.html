@@ -294,7 +294,7 @@ Percent Utilized: {{ $value['mempool_perc'] }}
 <h2 id="examples-html">Examples HTML</h2>
 <p>Note: To use HTML emails you must set HTML email to Yes in the WebUI under Global Settings &gt; Alerting Settings &gt; Email transport &gt; Use HTML emails</p>
 <p>Note: To include Graphs you must enable unauthorized graphs in config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
-<pre><code>$config['allow_unauth_graphs_cidr'] = array(127.0.0.1/32');  
+<pre><code>$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');  
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 

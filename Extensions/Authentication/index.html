@@ -321,7 +321,7 @@ To disabled this caching (highly discourage) set this option to 0.</p>
 </code></pre>
 
 <h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
-<pre><code class="php">$config['allow_unauth_graphs_cidr'] = array(127.0.0.1/32');
+<pre><code class="php">$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 
