@@ -94,7 +94,7 @@ $config['rancid_ignorecomments'] = 0;
 <p>NOTE - This is Only for Ubuntu 16.04 at this time, and may not work on other distros!</p>
 </blockquote>
 <p><code>sudo apt-get install rancid subversion</code></p>
-<p>Edit Rancid config file to use subversion instead of default cvs, and adds a group:
+<p>Edit Rancid config file to use subversion or git instead of default cvs, and adds a group:
 <code>sudo vi /etc/rancid/rancid.conf</code></p>
 <p><code>LIST_OF_GROUPS="librenms"</code></p>
 <p>Now change these two lines:</p>
@@ -172,6 +172,7 @@ Add Rancid into LibreNMS config.php:
 ```php
 ### Rancid
 $config['rancid_configs'][]             = '/var/lib/rancid/librenms/configs/';
+$config['rancid_repo_type']             = 'svn';  //'svn' or 'git'
 $config['rancid_ignorecomments']        = 0;
 </code></pre>
 
