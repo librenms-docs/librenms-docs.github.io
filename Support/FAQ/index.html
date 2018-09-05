@@ -77,6 +77,8 @@
           ]},
           {title: " How do I change the Device Type?", url: "#how-do-i-change-the-device-type", children: [
           ]},
+          {title: "Where do I update my database credentials?", url: "#where-do-i-update-my-database-credentials", children: [
+          ]},
         ];
 
     </script>
@@ -144,6 +146,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#faq31">Why does modifying 'Default Alert Template' fail?</a></li>
 <li><a href="#faq32">Why would alert un-mute itself</a></li>
 <li><a href="#faq33">How do I change the Device Type?</a></li>
+<li><a href="#faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -381,9 +384,26 @@ git checkout issue-1337
 <h3 id="why-would-alert-un-mute-itself"><a name="faq32"> Why would alert un-mute itself?</a></h3>
 <p>If alert un-mutes itself then it most likely means that the alert cleared and is then triggered again.
 Please review eventlog as it will tell you in there.</p>
-<h3 id="how-do-i-change-the-device-type"><a name ="faq33"> How do I change the Device Type?</a></h3>
+<h3 id="how-do-i-change-the-device-type"><a name="faq33"> How do I change the Device Type?</a></h3>
 <p>You can change the Device Type by going to the device you would like to change, then click on the Gear Icon -&gt; Edit.
 If you would like to define custom types, we suggest using <a href="../../Extensions/Device-Groups/">Device Groups</a>. They will be listed in the menu similarly to device types.</p>
+<h3 id="where-do-i-update-my-database-credentials"><a name="faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></h3>
+<p>If you've changed your database credentials then you will need to update LibreNMS with those new details.
+Please edit both <code>config.php</code> and <code>.env</code></p>
+<p>config.php:</p>
+<pre><code class="php">$config['db_host'] = '';
+$config['db_user'] = '';
+$config['db_pass'] = '';
+$config['db_name'] = '';
+</code></pre>
+
+<p>.env:</p>
+<pre><code class="bash">DB_HOST=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+DB_PORT=
+</code></pre>
 
   <br>
     
