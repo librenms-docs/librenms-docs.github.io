@@ -89,7 +89,7 @@ composer install --no-dev
 ./validate.php
 </code></pre>
 
-<p>Not using daily.sh means that you will also lose a lot of automatic database clean up, you will need to do this manually.</p>
+<p>You should continue to run daily.sh.  This does database cleanup and other processes in addition to updating. You can disable the daily.sh update process as described below.</p>
 <h2 id="disabling-automatic-updates">Disabling automatic updates</h2>
 <p>LibreNMS by default performs updates on a daily basis. This can be disabled by setting:</p>
 <p><code>$config['update'] = 0;</code></p>

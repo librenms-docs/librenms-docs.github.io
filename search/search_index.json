@@ -2187,7 +2187,7 @@
         }, 
         {
             "location": "/General/Updating/", 
-            "text": "By default, LibreNMS is set to automatically update. If you have disabled this feature then you can \nperform a manual update.\n\n\nManual update\n\n\nIf you would like to perform a manual update then you can do this by running the following command \nas the \nlibrenms\n user:\n\n\n./daily.sh\n\n\nThis will update both the core LibreNMS files but also update the database\nstructure if updates are available.\n\n\nAdvanced users\n\n\nIf you absolutely must update manually without using \n./daily.sh\n then you can do so by running the following commands:\n\n\ncd /opt/librenms\ngit pull\ncomposer install --no-dev\n./build-base.php\n./validate.php\n\n\n\n\nNot using daily.sh means that you will also lose a lot of automatic database clean up, you will need to do this manually.\n\n\nDisabling automatic updates\n\n\nLibreNMS by default performs updates on a daily basis. This can be disabled by setting:\n\n\n$config['update'] = 0;", 
+            "text": "By default, LibreNMS is set to automatically update. If you have disabled this feature then you can \nperform a manual update.\n\n\nManual update\n\n\nIf you would like to perform a manual update then you can do this by running the following command \nas the \nlibrenms\n user:\n\n\n./daily.sh\n\n\nThis will update both the core LibreNMS files but also update the database\nstructure if updates are available.\n\n\nAdvanced users\n\n\nIf you absolutely must update manually without using \n./daily.sh\n then you can do so by running the following commands:\n\n\ncd /opt/librenms\ngit pull\ncomposer install --no-dev\n./build-base.php\n./validate.php\n\n\n\n\nYou should continue to run daily.sh.  This does database cleanup and other processes in addition to updating. You can disable the daily.sh update process as described below.\n\n\nDisabling automatic updates\n\n\nLibreNMS by default performs updates on a daily basis. This can be disabled by setting:\n\n\n$config['update'] = 0;", 
             "title": "Updating an install"
         }, 
         {
@@ -2197,7 +2197,7 @@
         }, 
         {
             "location": "/General/Updating/#advanced-users", 
-            "text": "If you absolutely must update manually without using  ./daily.sh  then you can do so by running the following commands:  cd /opt/librenms\ngit pull\ncomposer install --no-dev\n./build-base.php\n./validate.php  Not using daily.sh means that you will also lose a lot of automatic database clean up, you will need to do this manually.", 
+            "text": "If you absolutely must update manually without using  ./daily.sh  then you can do so by running the following commands:  cd /opt/librenms\ngit pull\ncomposer install --no-dev\n./build-base.php\n./validate.php  You should continue to run daily.sh.  This does database cleanup and other processes in addition to updating. You can disable the daily.sh update process as described below.", 
             "title": "Advanced users"
         }, 
         {
