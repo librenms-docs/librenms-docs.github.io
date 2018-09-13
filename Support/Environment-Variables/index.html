@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="LibreNMS">
-    <link rel="canonical" href="http://docs.librenms.org/General/Security/">
+    <link rel="canonical" href="http://docs.librenms.org/Support/Environment-Variables/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Security information - LibreNMS Docs</title>
+    <title>Environment Variables - LibreNMS Docs</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,11 +33,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "General", url: "#general", children: [
-          ]},
-          {title: "Securing your install", url: "#securing-your-install", children: [
-          ]},
-          {title: "Reporting vulnerabilities", url: "#reporting-vulnerabilities", children: [
+          {title: "Environment Variables", url: "#environment-variables", children: [
+              {title: "Database", url: "#database" },
+              {title: "Trusted Reverse Proxies", url: "#trusted-reverse-proxies" },
+              {title: "User / Group", url: "#user-group" },
+              {title: "Debug", url: "#debug" },
           ]},
         ];
 
@@ -65,34 +65,41 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <div class="container-fluid wm-page-content">
     
-      <div class="source-links">
-      
-          <span class="label label-primary"><a href="https://github.com/librenms/librenms//edit/master/doc/General/Security.md" target="_blank" style="color:#ffffff"><i class="fa fa-pencil"></i> Edit on GitHub</a></span>
-      
-      </div>
-    
 
-    <h3 id="general">General</h3>
-<p>Like any good software we take security seriously. However, bugs do make it into the software 
-along with the history of the code base we inherited. It's how we deal with identified vulnerabilities 
-that should show that we take things seriously. </p>
-<h3 id="securing-your-install">Securing your install</h3>
-<p>As with any system of this nature, we highly recommend that you restrict access to the install via 
-a firewall or VPN.</p>
-<p>It is also highly recommended that the Web interface is protected with an SSL certificate such as ones 
-provided by <a href="http://www.letsencrypt.org">LetsEncrypt</a>.</p>
-<p>When using HTTPS, it is recommended that you use secure, encrypted cookies to prevent session
-hijacking attacks. Set <code>$config['secure_cookies'] = true;</code> in <code>config.php</code> to enable these.</p>
-<p>Please ensure you keep your install <a href="../Updating/">up to date</a>.</p>
-<h3 id="reporting-vulnerabilities">Reporting vulnerabilities</h3>
-<p>Like anyone, we appreciate the work people put in to find flaws in software and welcome anyone 
-to do so with LibreNMS, this will lead to better quality and more secure software for everyone.</p>
-<p>If you think you've found a vulnerability and want to discuss it with some of the core team then 
-you can email us at <a href="mailto:team@librenms.org">team@librenms.org</a> and we will endeavour to get back to 
-as quick as we can, this is usually within 24 hours.</p>
-<p>We are happy to attribute credit to the findings but we ask that we're given a chance to patch 
-any vulnerability before public disclosure so that our users can update as soon as a fix is 
-available.</p>
+    <h1 id="environment-variables">Environment Variables</h1>
+<p>LibreNMS allows certain settings to be set via the environment or through the .env file.</p>
+<h2 id="database">Database</h2>
+<p>Set the variables to connect to the database.  The default values are shown below.</p>
+<pre><code class="dotenv">DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=librenms
+DB_USERNAME=librenms
+DB_PASSWORD=
+DB_SOCKET=
+
+</code></pre>
+
+<h2 id="trusted-reverse-proxies">Trusted Reverse Proxies</h2>
+<p>A comma separated list of trusted reverse proxy IPs or CIDR.
+For legacy reasons the default is <code>'*'</code>, which means any proxy is allowed.
+<code>'**'</code> means trust any proxy up the chain.</p>
+<pre><code class="dotenv">APP_TRUSTED_PROXIES=192.168.1.0/24,192.167.8.20
+</code></pre>
+
+<h2 id="user-group">User / Group</h2>
+<p>The user and group that LibreNMS should operate as.
+Group will default to the same as the user if unset.</p>
+<pre><code class="dotenv">LIBRENMS_USER=librenms
+LIBRENMS_GROUP=librenms
+</code></pre>
+
+<h2 id="debug">Debug</h2>
+<p>Increases the amount of information shown when an error occurs.</p>
+<blockquote>
+<p>WARNING: This may leak information, do not leave enabled.</p>
+</blockquote>
+<pre><code class="dotenv">APP_DEBUG=true
+</code></pre>
 
   <br>
     
@@ -100,20 +107,20 @@ available.</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../Support/CLI-Tools/" class="btn btn-xs btn-default pull-right">
+      <a href="../Configuration/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../Support/CLI-Tools/" class="btn btn-xs btn-link">
-        CLI Scripts
+      <a href="../Configuration/" class="btn btn-xs btn-link">
+        Configuration docs
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../Extensions/Plugin-System/" class="btn btn-xs btn-default pull-left">
+      <a href="../../Extensions/Fast-Ping-Check/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../Extensions/Plugin-System/" class="btn btn-xs btn-link">
-        Developing for the Plugin System
+        Previous</a><a href="../../Extensions/Fast-Ping-Check/" class="btn btn-xs btn-link">
+        Fast Ping Checking
       </a>
     </div>
     

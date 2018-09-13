@@ -151,6 +151,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Support/Environment-Variables/</loc>
+     <lastmod>2018-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/Support/Configuration/</loc>
      <lastmod>2018-09-13</lastmod>
      <changefreq>daily</changefreq>

@@ -79,6 +79,8 @@
           ]},
           {title: "Where do I update my database credentials?", url: "#where-do-i-update-my-database-credentials", children: [
           ]},
+          {title: "My reverse proxy is not working", url: "#my-reverse-proxy-is-not-working", children: [
+          ]},
         ];
 
     </script>
@@ -147,6 +149,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#faq32">Why would alert un-mute itself</a></li>
 <li><a href="#faq33">How do I change the Device Type?</a></li>
 <li><a href="#faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></li>
+<li><a href="#my-reverse-proxy-is-not-working">My reverse proxy is not working</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -397,13 +400,18 @@ $config['db_pass'] = '';
 $config['db_name'] = '';
 </code></pre>
 
-<p>.env:</p>
+<p><a href="../Environment-Variables/#database">.env</a>:</p>
 <pre><code class="bash">DB_HOST=
 DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 DB_PORT=
 </code></pre>
+
+<h3 id="my-reverse-proxy-is-not-working">My reverse proxy is not working</h3>
+<p>Make sure your proxy is passing the proper variables.
+At a minimum: X-Forwarded-For and X-Forwarded-Proto (X-Forwarded-Port if needed)</p>
+<p>You also need to <a href="../Environment-Variables/#trusted-reverse-proxies">Set the proxy or proxies as trusted</a></p>
 
   <br>
     
