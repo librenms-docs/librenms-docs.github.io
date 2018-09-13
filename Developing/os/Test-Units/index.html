@@ -83,14 +83,14 @@ consistent manner.</p>
 <blockquote>
 <p>We utilise <a href="http://snmpsim.sourceforge.net/">snmpsim</a> to do unit testing. For OS discovery, we can mock snmpsim, but
 for other tests you will need it installed and functioning.  We run snmpsim during our integration tests, but not by
-default when running <code>./scripts/pre-commit.php</code>.</p>
+default when running <code>./scripts/pre-commit.php</code>.  You can install snmpsim with the command <code>pip3 install snmpsim</code>.</p>
 </blockquote>
 <h2 id="capturing-test-data">Capturing test data</h2>
 <p><code>./scripts/collect-snmp-data.php</code> is provided to make it easy to collect data for tests.  Running collect-snmp-data.php
  with the --hostname (-h) allows you to capture all data used to discover and poll a device already added to LibreNMS.
  Make sure to re-run the script if you add additional support. Check the command-line help for more options.</p>
 <p>After you have collected snmp data, run <code>./scripts/save-test-data.php</code> with the --os (-o) option to dump the post discovery
-and post poll database entries to json files.</p>
+and post poll database entries to json files. This step requires snmpsim, if you are having issues, the maintainers may help you generate it from the snmprec you created in the previous step.</p>
 <p>Generally, you will only need to capture data once.  After you have the data you need in the snmprec file, you can
 just use save-test-data.php to update the database dump (json) after that.</p>
 <h3 id="os-variants">OS Variants</h3>
