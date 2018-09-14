@@ -43,6 +43,7 @@
           {title: "Web Server", url: "#web-server", children: [
               {title: "Configure PHP", url: "#configure-php" },
               {title: "Configure Apache", url: "#configure-apache" },
+              {title: "Configure snmpd", url: "#configure-snmpd" },
               {title: "Cron job", url: "#cron-job" },
               {title: "Set permissions", url: "#set-permissions" },
           ]},
@@ -159,7 +160,7 @@ a2enmod mpm_prefork
 a2enmod rewrite
 systemctl restart apache2
 </code></pre>
-<h4 id="configure-snmpd">Configure snmpd</h4>
+<h3 id="configure-snmpd">Configure snmpd</h3>
 <pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 vi /etc/snmp/snmpd.conf
 </code></pre>

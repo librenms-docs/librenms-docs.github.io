@@ -42,6 +42,7 @@
           ]},
           {title: "Web Server", url: "#web-server", children: [
               {title: "Configure and Start PHP-FPM", url: "#configure-and-start-php-fpm" },
+              {title: "Configure snmpd", url: "#configure-snmpd" },
               {title: "Cron job", url: "#cron-job" },
               {title: "Set permissions", url: "#set-permissions" },
           ]},
@@ -164,7 +165,7 @@ systemctl restart php7.2-fpm
 <pre><code>rm /etc/nginx/sites-enabled/default
 systemctl restart nginx
 </code></pre>
-<h4 id="configure-snmpd">Configure snmpd</h4>
+<h3 id="configure-snmpd">Configure snmpd</h3>
 <pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 vi /etc/snmp/snmpd.conf
 </code></pre>

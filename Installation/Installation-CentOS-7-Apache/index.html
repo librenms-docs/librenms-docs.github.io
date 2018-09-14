@@ -43,6 +43,7 @@
           {title: "Web Server", url: "#web-server", children: [
               {title: "Configure PHP", url: "#configure-php" },
               {title: "Configure Apache", url: "#configure-apache" },
+              {title: "Configure snmpd", url: "#configure-snmpd" },
               {title: "Cron job", url: "#cron-job" },
               {title: "Set permissions", url: "#set-permissions" },
           ]},
@@ -202,7 +203,7 @@ firewall-cmd --permanent --zone public --add-service http
 firewall-cmd --zone public --add-service https
 firewall-cmd --permanent --zone public --add-service https
 </code></pre>
-<h4 id="configure-snmpd">Configure snmpd</h4>
+<h3 id="configure-snmpd">Configure snmpd</h3>
 <p>Copy the example snmpd.conf from the LibreNMS install.</p>
 <pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 
