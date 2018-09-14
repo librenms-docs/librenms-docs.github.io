@@ -827,9 +827,13 @@ If you have apticron, cron-apt or apt-listchanges installed and configured, chan
 <pre><code>extend phpfpmsp /etc/snmp/phpfpm-sp
 </code></pre>
 
-<p>5: Edit /etc/snmp/phpfpm-sp to include the status URL for the PHP-FPM pool you are monitoring.</p>
 <ol>
-<li>Restart snmpd on your host</li>
+<li>
+<p>Edit /etc/snmp/phpfpm-sp to include the status URL for the PHP-FPM pool you are monitoring.</p>
+</li>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
 </ol>
 <p>It is worth noting that this only monitors a single pool. If you want to monitor multiple pools, this won't do it.</p>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
