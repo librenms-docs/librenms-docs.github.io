@@ -173,7 +173,7 @@ Unique-ID: {{ $alert-&gt;uid }}
 Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
 @if ($alert-&gt;faults) Faults:
 @foreach ($alert-&gt;faults as $key =&gt; $value)
-  #{{ $key }}: {{ $value['string'] }}
+  {{ $key }}: {{ $value['string'] }}
 @endforeach
 @endif
 Alert sent to:
@@ -190,11 +190,11 @@ Severity: {{ $alert-&gt;severity }}
 Timestamp: {{ $alert-&gt;timestamp }}
 Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
 @foreach ($alert-&gt;faults as $key =&gt; $value)
-Physical Interface: $value['ifDescr']
-Interface Description: $value['ifAlias']
-Interface Speed: @php echo ($value['ifSpeed']/1000000000); @endphp Gbs
-Inbound Utilization: @php echo (($value['ifInOctets_rate']*8)/$value['ifSpeed'])*100; @endphp%
-Outbound Utilization: @php echo (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100; @endphp%
+Physical Interface: {{ $value['ifDescr'] }}
+Interface Description: {{ $value['ifAlias'] }}
+Interface Speed: {{ ($value['ifSpeed']/1000000000) }} Gbs
+Inbound Utilization: {{ (($value['ifInOctets_rate']*8)/$value['ifSpeed'])*100 }}
+Outbound Utilization: {{ (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100 }}
 @endforeach
 </code></pre>
 
@@ -327,7 +327,7 @@ Alert-ID: {{ $alert-&gt;id }} &lt;br&gt;
 Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif &lt;br&gt;
 @if ($alert-&gt;faults) Faults:
 @foreach ($alert-&gt;faults as $key =&gt; $value)
-#{{ $key }}: {{ $value['string'] }}&lt;br&gt;
+{{ $key }}: {{ $value['string'] }}&lt;br&gt;
 @endforeach 
 @if ($alert-&gt;faults) &lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
 @foreach ($alert-&gt;faults as $key =&gt; $value)&lt;img src=&quot;https://server/graph.php?device={{ $value['device_id'] }}&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h&gt;&lt;br&gt;
