@@ -381,6 +381,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Alerting/Introduction/</loc>
+     <lastmod>2018-09-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/Alerting/Rules/</loc>
      <lastmod>2018-09-19</lastmod>
      <changefreq>daily</changefreq>

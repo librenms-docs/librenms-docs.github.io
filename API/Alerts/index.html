@@ -117,6 +117,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Route: <code>/api/v0/alerts/:id</code></p>
 <ul>
 <li>id is the alert id, you can obtain a list of alert ids from <a href="#function-list_alerts"><code>list_alerts</code></a>.</li>
+<li>note is the note to add to the alert</li>
+<li>until_clear is a boolean and if set to false, the alert will re-alert if it worsens/betters.</li>
 </ul>
 <p>Input:</p>
 <p>-</p>
