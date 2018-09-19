@@ -147,7 +147,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Output:</p>
 <pre><code class="json">{
  &quot;status&quot;: &quot;ok&quot;,
- &quot;message&quot;: &quot;&quot;,
  &quot;message&quot;: &quot;Alert has been unmuted&quot;
 }
 </code></pre>
@@ -275,8 +274,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>-</p>
 <p>Input (JSON):</p>
 <ul>
-<li>device_id: This is either the device id or -1 for a global rule</li>
-<li>rule: The rule which should be in the format %entity $condition $value (i.e %devices.status != 0 for devices marked as down).</li>
+<li>devices: This is either an array of device ids or -1 for a global rule</li>
+<li>builder: The rule which should be in the format entity.condition value (i.e devices.status != 0 for devices marked as down). It must be json encoded in the format rules are currently stored.</li>
 <li>severity: The severity level the alert will be raised against, Ok, Warning, Critical.</li>
 <li>disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled</li>
 <li>count: This is how many polling runs before an alert will trigger and the frequency.</li>
@@ -286,7 +285,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X POST -d '{&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+<pre><code class="curl">curl -X POST -d '{&quot;device_id&quot;:[1,2,3], &quot;name&quot;: &quot;testrule&quot;, builder&quot;:&quot;{\&quot;condition\&quot;:\&quot;AND\&quot;,\&quot;rules\&quot;:[{\&quot;id\&quot;:\&quot;devices.hostname\&quot;,\&quot;field\&quot;:\&quot;devices.hostname\&quot;,\&quot;type\&quot;:\&quot;string\&quot;,\&quot;input\&quot;:\&quot;text\&quot;,\&quot;operator\&quot;:\&quot;equal\&quot;,\&quot;value\&quot;:\&quot;localhost\&quot;}],\&quot;valid\&quot;:true}&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
 </code></pre>
 
 <p>Output:</p>
@@ -304,8 +303,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Input (JSON):</p>
 <ul>
 <li>rule_id: You must specify the rule_id to edit an existing rule, if this is absent then a new rule will be created.</li>
-<li>device_id: This is either the device id or -1 for a global rule</li>
-<li>rule: The rule which should be in the format %entity $condition $value (i.e %devices.status != 0 for devices marked as down).</li>
+<li>devices: This is either an array of device ids or -1 for a global rule</li>
+<li>builder: The rule which should be in the format entity.condition value (i.e devices.status != 0 for devices marked as down). It must be json encoded in the format rules are currently stored.</li>
 <li>severity: The severity level the alert will be raised against, Ok, Warning, Critical.</li>
 <li>disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled</li>
 <li>count: This is how many polling runs before an alert will trigger and the frequency.</li>
@@ -315,7 +314,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;rule&quot;:&quot;%devices.os != \&quot;Cisco\&quot;&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+<pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;name&quot;: &quot;testrule&quot;, &quot;builder&quot;:&quot;{\&quot;condition\&quot;:\&quot;AND\&quot;,\&quot;rules\&quot;:[{\&quot;id\&quot;:\&quot;devices.hostname\&quot;,\&quot;field\&quot;:\&quot;devices.hostname\&quot;,\&quot;type\&quot;:\&quot;string\&quot;,\&quot;input\&quot;:\&quot;text\&quot;,\&quot;operator\&quot;:\&quot;equal\&quot;,\&quot;value\&quot;:\&quot;localhost\&quot;}],\&quot;valid\&quot;:true}&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
 </code></pre>
 
 <p>Output:</p>

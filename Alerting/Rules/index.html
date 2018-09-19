@@ -39,6 +39,8 @@
               {title: "Syntax", url: "#syntax" },
           ]},
           {title: "Options", url: "#options", children: [
+          ]},
+          {title: "Advanced", url: "#advanced", children: [
               {title: "Procedure", url: "#procedure" },
               {title: "Examples", url: "#examples" },
           ]},
@@ -126,6 +128,17 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
 <li>Recovery alerts: This will disable the recovery notification from being sent if turned off.</li>
 </ul>
+<h1 id="advanced">Advanced</h1>
+<p>On the Advanced tab, you can specify some additional options for the alert rule:</p>
+<ul>
+<li>Override SQL: Enable this if you using a custom query</li>
+<li>Query: The query to be used for the alert.</li>
+</ul>
+<blockquote>
+<p>An example of this would be an average rule for all CPUs over 10%:
+SELECT *,AVG(processors.processor_usage) as cpu_avg FROM devices,processors WHERE (devices.device_id = ? AND devices.device_id = processors.device_id) AND (devices.status = 1 &amp;&amp; (devices.disabled = 0 &amp;&amp; devices.ignore = 0)) = 1 HAVING AVG(processors.processor_usage)  &gt; 10
+cpu_avg would then contain the average CPU usage value.</p>
+</blockquote>
 <h2 id="procedure">Procedure</h2>
 <p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
 <h2 id="examples">Examples</h2>
