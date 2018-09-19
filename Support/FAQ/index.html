@@ -81,6 +81,8 @@
           ]},
           {title: "My reverse proxy is not working", url: "#my-reverse-proxy-is-not-working", children: [
           ]},
+          {title: "My alerts aren't being delivered on time", url: "#my-alerts-arent-being-delivered-on-time", children: [
+          ]},
         ];
 
     </script>
@@ -150,6 +152,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><a href="#faq33">How do I change the Device Type?</a></li>
 <li><a href="#faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></li>
 <li><a href="#my-reverse-proxy-is-not-working">My reverse proxy is not working</a></li>
+<li><a href="#my-alerts-aren't-being-delivered-on-time">My alerts aren't being delivered on time</a></li>
 </ul>
 <h3 id="developing">Developing</h3>
 <ul>
@@ -408,10 +411,12 @@ DB_PASSWORD=
 DB_PORT=
 </code></pre>
 
-<h3 id="my-reverse-proxy-is-not-working">My reverse proxy is not working</h3>
+<h3 id="my-reverse-proxy-is-not-working"><a name='my-reverse-proxy-is-not-working'>My reverse proxy is not working</a></h3>
 <p>Make sure your proxy is passing the proper variables.
 At a minimum: X-Forwarded-For and X-Forwarded-Proto (X-Forwarded-Port if needed)</p>
 <p>You also need to <a href="../Environment-Variables/#trusted-reverse-proxies">Set the proxy or proxies as trusted</a></p>
+<h3 id="my-alerts-arent-being-delivered-on-time"><a name='my-alerts-aren't-being-delivered-on-time'>My alerts aren't being delivered on time</a></h3>
+<p>If you're running MySQL/MariaDB on a separate machine or container make sure the timezone is set properly on both the LibreNMS <strong>and</strong>  MySQL/MariaDB instance. Alerts will be delivered according to MySQL/MariaDB's time, so a mismatch between the two can cause alerts to be delivered late if LibreNMS is on a timezone later than MySQL/MariaDB.</p>
 
   <br>
     
