@@ -39,8 +39,6 @@
           ]},
           {title: "get_port_ip_info", url: "#get_port_ip_info", children: [
           ]},
-          {title: "get_devices_by_group", url: "#get_devices_by_group", children: [
-          ]},
         ];
 
     </script>
@@ -231,41 +229,6 @@ Strongly recommend that you use the <code>columns</code> parameter to avoid pull
     }
   ]
 }
-</code></pre>
-
-<h3 id="get_devices_by_group"><code>get_devices_by_group</code></h3>
-<p>List all devices matching the group provided.</p>
-<p>Route: <code>/api/v0/devicegroups/:name</code></p>
-<ul>
-<li>name Is the name of the device group which can be obtained using <a href="#function-get_devicegroups"><code>get_devicegroups</code></a>. Please ensure that the name is urlencoded if it needs to be (i.e Linux Servers would need to be urlencoded.</li>
-</ul>
-<p>Input (JSON):</p>
-<ul>
-<li>full: set to any value to return all data for the devices in a given group</li>
-</ul>
-<p>Examples:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devicegroups/LinuxServers
-</code></pre>
-
-<p>Output:</p>
-<pre><code class="json">[
-     {
-         &quot;status&quot;: &quot;ok&quot;,
-         &quot;message&quot;: &quot;Found 3 in group LinuxServers&quot;,
-         &quot;count&quot;: 3,
-         &quot;devices&quot;: [
-            {
-                &quot;device_id&quot;: &quot;15&quot;
-            },
-            {
-                &quot;device_id&quot;: &quot;18&quot;
-            },
-            {
-                &quot;device_id&quot;: &quot;20&quot;
-            }
-         ]
-     }
-]
 </code></pre>
 
   <br>
