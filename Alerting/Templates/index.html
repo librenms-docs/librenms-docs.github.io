@@ -122,7 +122,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Rule Builder (the actual rule) (use <code>{!! $alert-&gt;builder !!}</code>): <code>$alert-&gt;builder</code></li>
 <li>Alert-ID: <code>$alert-&gt;id</code></li>
 <li>Unique-ID: <code>$alert-&gt;uid</code></li>
-<li>Faults, Only available on alert (<code>$alert-&gt;state != 0</code>), must be iterated in a foreach (<code>@foreach ($alert-&gt;faults as $key =&gt; $value) @endforeach</code>). Holds all available information about the Fault, accessible in the format <code>$value['Column']</code>, for example: <code>$value['ifDescr']</code>. Special field <code>$value['string']</code> has most Identification-information (IDs, Names, Descrs) as single string, this is the equivalent of the default used.</li>
+<li>Faults, Only available on alert (<code>$alert-&gt;state != 0</code>), must be iterated in a foreach (<code>@foreach ($alert-&gt;faults as $key =&gt; $value) @endforeach</code>). Holds all available information about the Fault, accessible in the format <code>$value['Column']</code>, for example: <code>$value['ifDescr']</code>. Special field <code>$value['string']</code> has most Identification-information (IDs, Names, Descrs) as single string, this is the equivalent of the default used and must be encased in <code>{{ }}</code></li>
 <li>State: <code>$alert-&gt;state</code></li>
 <li>Severity: <code>$alert-&gt;severity</code></li>
 <li>Rule: <code>$alert-&gt;rule</code></li>
@@ -212,7 +212,11 @@ Features: {{ $alert-&gt;features }}
 Purpose: {{ $alert-&gt;purpose }}
 Notes: {{ $alert-&gt;notes }}
 
-Server: {{ $alert-&gt;sysName }} @foreach ($alert-&gt;faults as $key =&gt; $value)Mount Point: $value['storage_descr'] Percent Utilized: $value['storage_perc']@endforeach
+Server: {{ $alert-&gt;sysName }} 
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+Mount Point: {{ $value['storage_descr'] }}
+Percent Utilized: {{ $value['storage_perc'] }}
+@endforeach
 </code></pre>
 
 <p>Temperature Sensors:</p>
@@ -232,10 +236,10 @@ Notes: {{ $alert-&gt;notes }}
 Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
 @if ($alert-&gt;faults) Faults:
 @foreach ($faults as $key =&gt; $value)
-#{{ $key }}: Temperature: $value['sensor_current']°C
+#{{ $key }}: Temperature: {{ $value['sensor_current'] }} °C
 ** @php echo ($value['sensor_current']-$value['sensor_limit']); @endphp°C over limit
-Previous Measurement: $value['sensor_prev']°C
-High Temperature Limit: $value['sensor_limit']°C
+Previous Measurement: {{ $value['sensor_prev'] }} °C
+High Temperature Limit: {{ $value['sensor_limit'] }} °C
 @endforeach
 @endif
 </code></pre>
