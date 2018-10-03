@@ -1622,7 +1622,7 @@
         }, 
         {
             "location": "/Installation/", 
-            "text": "Installing LibreNMS\n\n\nImages\n\n\nWe have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:\n\n\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\n\n\nManually\n\n\nIf you want to install manually then we have some documentation which should make it easy.\n\n\nPlease note the minimum supported PHP version is 5.6.4\n\n\n\n\nUbuntu 18.04 Apache\n\n\nUbuntu 18.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx\n\n\n\n\nThird-party\n\n\nThird-party installation supports have been created by the community.\n\n\nDocker images\n\n\n\n\ncrazymax/librenms\n based on Alpine Linux by \nCrazyMax\n\n\njarischaefer/docker-librenms\n based on Ubuntu by \nJari Sch\u00e4fer", 
+            "text": "Installing LibreNMS\n\n\nImages\n\n\nWe have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:\n\n\nUbuntu 16.04\n\n\nCentOS 7\n\n\nManually\n\n\nIf you want to install manually then we have some documentation which should make it easy.\n\n\nPlease note the minimum supported PHP version is 5.6.4\n\n\nUbuntu 18.04 Apache\n\n\nUbuntu 18.04 Nginx\n\n\nRHEL / CentOS 7 Apache\n\n\nRHEL / CentOS 7 Nginx\n\n\nOld Install Docs\n\n\nIf the above are missing or incomplete then you can try our old docs below.\n\n\nUbuntu 16.04 Apache\n\n\nUbuntu 16.04 Nginx\n\n\nDebian/Ubuntu\n\n\nRHEL/CentOS\n\n\nDebian/Ubuntu Lighttpd\n\n\nDebian/Ubuntu Nginx", 
             "title": "Installing LibreNMS"
         }, 
         {
@@ -1632,28 +1632,18 @@
         }, 
         {
             "location": "/Installation/#images", 
-            "text": "We have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:   Ubuntu 16.04  CentOS 7", 
+            "text": "We have some pre-built VirtualBox images you can use to get started. Please note that these images are pre-built for VirtualBox, hence they might not work with other hypervisors without converting them:  Ubuntu 16.04  CentOS 7", 
             "title": "Images"
         }, 
         {
             "location": "/Installation/#manually", 
-            "text": "If you want to install manually then we have some documentation which should make it easy.  Please note the minimum supported PHP version is 5.6.4   Ubuntu 18.04 Apache  Ubuntu 18.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
+            "text": "If you want to install manually then we have some documentation which should make it easy.  Please note the minimum supported PHP version is 5.6.4  Ubuntu 18.04 Apache  Ubuntu 18.04 Nginx  RHEL / CentOS 7 Apache  RHEL / CentOS 7 Nginx", 
             "title": "Manually"
         }, 
         {
             "location": "/Installation/#old-install-docs", 
-            "text": "If the above are missing or incomplete then you can try our old docs below.   Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  Debian/Ubuntu  RHEL/CentOS  Debian/Ubuntu Lighttpd  Debian/Ubuntu Nginx", 
+            "text": "If the above are missing or incomplete then you can try our old docs below.  Ubuntu 16.04 Apache  Ubuntu 16.04 Nginx  Debian/Ubuntu  RHEL/CentOS  Debian/Ubuntu Lighttpd  Debian/Ubuntu Nginx", 
             "title": "Old Install Docs"
-        }, 
-        {
-            "location": "/Installation/#third-party", 
-            "text": "Third-party installation supports have been created by the community.", 
-            "title": "Third-party"
-        }, 
-        {
-            "location": "/Installation/#docker-images", 
-            "text": "crazymax/librenms  based on Alpine Linux by  CrazyMax  jarischaefer/docker-librenms  based on Ubuntu by  Jari Sch\u00e4fer", 
-            "title": "Docker images"
         }, 
         {
             "location": "/Installation/Ubuntu-image/", 
