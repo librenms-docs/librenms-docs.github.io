@@ -670,18 +670,18 @@ $mysql_port = 3306;
 <ol>
 <li>Download the script onto the desired host.</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx-stats -O /etc/snmp/nginx-stats
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx -O /etc/snmp/nginx
 </code></pre>
 
 <ol>
 <li>
-<p>Run <code>chmod +x /etc/snmp/nginx-stats</code></p>
+<p>Run <code>chmod +x /etc/snmp/nginx</code></p>
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 </li>
 </ol>
-<pre><code>extend nginx /etc/snmp/nginx-stats
+<pre><code>extend nginx /etc/snmp/nginx
 </code></pre>
 
 <ol>
@@ -709,18 +709,18 @@ $mysql_port = 3306;
 <ol>
 <li>Download the script onto the desired host.</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client.sh -O /etc/snmp/ntp-client.sh
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client -O /etc/snmp/ntp-client
 </code></pre>
 
 <ol>
 <li>
-<p>Run <code>chmod +x /etc/snmp/ntp-client.sh</code></p>
+<p>Run <code>chmod +x /etc/snmp/ntp-client</code></p>
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 </li>
 </ol>
-<pre><code>extend ntp-client /etc/snmp/ntp-client.sh
+<pre><code>extend ntp-client /etc/snmp/ntp-client
 </code></pre>
 
 <ol>
@@ -794,18 +794,18 @@ $mysql_port = 3306;
 <ol>
 <li>Download the script onto the desired host.</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/os-updates.sh -O /etc/snmp/os-updates.sh
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate -O /etc/snmp/osupdate
 </code></pre>
 
 <ol>
 <li>
-<p>Run <code>chmod +x /etc/snmp/os-updates.sh</code></p>
+<p>Run <code>chmod +x /etc/snmp/osupdate</code></p>
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 </li>
 </ol>
-<pre><code>extend osupdate /etc/snmp/os-updates.sh
+<pre><code>extend osupdate /etc/snmp/osupdate
 </code></pre>
 
 <ol>
@@ -818,21 +818,21 @@ If you have apticron, cron-apt or apt-listchanges installed and configured, chan
 <h4 id="snmp-extend_23">SNMP Extend</h4>
 <ol>
 <li>
-<p>Copy the shell script, phpfpm-sp, to the desired host. <code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpm-sp -O /etc/snmp/phpfpm-sp</code></p>
+<p>Copy the shell script, phpfpmsp, to the desired host. <code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpmsp -O /etc/snmp/phpfpmsp</code></p>
 </li>
 <li>
-<p>Run <code>chmod +x /etc/snmp/phpfpm-sp</code></p>
+<p>Run <code>chmod +x /etc/snmp/phpfpmsp</code></p>
 </li>
 <li>
 <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 </li>
 </ol>
-<pre><code>extend phpfpmsp /etc/snmp/phpfpm-sp
+<pre><code>extend phpfpmsp /etc/snmp/phpfpmsp
 </code></pre>
 
 <ol>
 <li>
-<p>Edit /etc/snmp/phpfpm-sp to include the status URL for the PHP-FPM pool you are monitoring.</p>
+<p>Edit /etc/snmp/phpfpmsp to include the status URL for the PHP-FPM pool you are monitoring.</p>
 </li>
 <li>
 <p>Restart snmpd on your host</p>
