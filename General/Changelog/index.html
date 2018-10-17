@@ -34,26 +34,15 @@
         
         var pageToc = [
           {title: "1.44", url: "#144", children: [
-              {title: "Webui", url: "#webui" },
-              {title: "Bug", url: "#bug" },
-              {title: "Documentation", url: "#documentation" },
-              {title: "Device", url: "#device" },
               {title: "Alerting", url: "#alerting" },
+              {title: "Bug", url: "#bug" },
+              {title: "Device", url: "#device" },
+              {title: "Webui", url: "#webui" },
+              {title: "Documentation", url: "#documentation" },
               {title: "Feature", url: "#feature" },
               {title: "Api", url: "#api" },
               {title: "Security", url: "#security" },
-          ]},
-          {title: "1.43", url: "#143", children: [
-              {title: "Bug", url: "#bug_1" },
-              {title: "Webui", url: "#webui_1" },
-              {title: "Alerting", url: "#alerting_1" },
-              {title: "Documentation", url: "#documentation_1" },
-              {title: "Api", url: "#api_1" },
-              {title: "Feature", url: "#feature_1" },
-              {title: "Device", url: "#device_1" },
-              {title: "Enhancement", url: "#enhancement" },
-              {title: "Security", url: "#security_1" },
-              {title: "Breaking Changes", url: "#breaking-changes" },
+              {title: "1.43", url: "#143" },
           ]},
           {title: "1.42", url: "#142", children: [
               {title: "Device", url: "#device_2" },
@@ -333,141 +322,160 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h2 id="144">1.44</h2>
-<p><em>(2018-10-02)</em></p>
-<p>A big thank you to the following 27 contributors this last month:</p>
+<p><em>(2018-10-17)</em></p>
+<p>A big thank you to the following 31 contributors this last month:</p>
 <ul>
-<li>murrant (53)</li>
-<li>TheGreatDoc (13)</li>
-<li>laf (11)</li>
-<li>PipoCanaja (7)</li>
-<li>Rosiak (3)</li>
-<li>jozefrebjak (2)</li>
+<li>murrant (63)</li>
+<li>TheGreatDoc (16)</li>
+<li>laf (14)</li>
+<li>PipoCanaja (8)</li>
+<li>Rosiak (4)</li>
 <li>SaaldjorMike (2)</li>
 <li>therealshibe (2)</li>
-<li>dlangille (2)</li>
-<li>Cormoran96 (2)</li>
 <li>mattie47 (2)</li>
-<li>pmusolino-rms (1)</li>
+<li>jozefrebjak (2)</li>
+<li>Cormoran96 (2)</li>
+<li>sjtarik (2)</li>
+<li>dlangille (2)</li>
+<li>cchance27 (1)</li>
+<li>crazy-max (1)</li>
+<li>CFUJoshWeepie (1)</li>
 <li>trs80 (1)</li>
+<li>DR3EVR8u8c (1)</li>
 <li>Atroskelis (1)</li>
-<li>crcro (1)</li>
-<li>FTBZ (1)</li>
+<li>Leapo (1)</li>
 <li>vowywowy (1)</li>
+<li>FTBZ (1)</li>
+<li>jarischaefer (1)</li>
+<li>pmusolino-rms (1)</li>
+<li>crcro (1)</li>
 <li>vitalisator (1)</li>
-<li>sjtarik (1)</li>
 <li>dupondje (1)</li>
-<li>cppmonkey (1)</li>
 <li>Nesousx (1)</li>
 <li>lug-gh (1)</li>
-<li>Leapo (1)</li>
 <li>backslash7 (1)</li>
-<li>jarischaefer (1)</li>
+<li>cppmonkey (1)</li>
 <li>ciscoqid (1)</li>
+</ul>
+<h4 id="alerting">Alerting</h4>
+<ul>
+<li>Use correct ID for incident resolution in PagerDuty (<a href="https://github.com/librenms/librenms/pull/9321">#9321</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed bug of alerting by ping.php (<a href="https://github.com/librenms/librenms/pull/9311">#9311</a>) - <a href="https://github.com/DR3EVR8u8c">DR3EVR8u8c</a></li>
+<li>Added ability to set a custom SQL query for alert rules. (<a href="https://github.com/librenms/librenms/pull/9094">#9094</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Added support for allowing alerts to un-ack (<a href="https://github.com/librenms/librenms/pull/9136">#9136</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed PagerDuty alert to show rule name + device as summary (<a href="https://github.com/librenms/librenms/pull/9213">#9213</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Modified timestamp sent to nagios-receiver in order to fix an issue w… (<a href="https://github.com/librenms/librenms/pull/9140">#9140</a>) - <a href="https://github.com/Nesousx">Nesousx</a></li>
+<li>Enable and catch exceptions for PHPMailer to gather error messages. (<a href="https://github.com/librenms/librenms/pull/9132">#9132</a>) - <a href="https://github.com/ciscoqid">ciscoqid</a></li>
+<li>Additional debug output when sending/testing email (<a href="https://github.com/librenms/librenms/pull/9120">#9120</a>) - <a href="https://github.com/murrant">murrant</a></li>
+</ul>
+<h4 id="bug">Bug</h4>
+<ul>
+<li>Use correct ID for incident resolution (<a href="https://github.com/librenms/librenms/pull/9321">#9321</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed bug of alerting by ping.php (<a href="https://github.com/librenms/librenms/pull/9311">#9311</a>) - <a href="https://github.com/DR3EVR8u8c">DR3EVR8u8c</a></li>
+<li>Bind user before fetching (<a href="https://github.com/librenms/librenms/pull/9312">#9312</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Check if array exists for new alert rules and create if not (<a href="https://github.com/librenms/librenms/pull/9303">#9303</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed devices state filter when state = 0 (<a href="https://github.com/librenms/librenms/pull/9277">#9277</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed eventlog when the device has been deleted. (<a href="https://github.com/librenms/librenms/pull/9276">#9276</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Config class collides with Config in model namespace (<a href="https://github.com/librenms/librenms/pull/9249">#9249</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Syslog fixes (<a href="https://github.com/librenms/librenms/pull/9246">#9246</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Disable used rules in template map for select them (<a href="https://github.com/librenms/librenms/pull/9212">#9212</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Fixed edit dashboard permissions + moved to toastr (<a href="https://github.com/librenms/librenms/pull/9236">#9236</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Fixed remember me (<a href="https://github.com/librenms/librenms/pull/9233">#9233</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed PagerDuty alert to show rule name + device as summary (<a href="https://github.com/librenms/librenms/pull/9213">#9213</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed install.php redirect (<a href="https://github.com/librenms/librenms/pull/9224">#9224</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Allow trusted proxy via APP_TRUSTED_PROXIES (<a href="https://github.com/librenms/librenms/pull/9196">#9196</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Remove api rate limits (<a href="https://github.com/librenms/librenms/pull/9211">#9211</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed API auth issues (<a href="https://github.com/librenms/librenms/pull/9185">#9185</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Init and refresh the php session each page load (<a href="https://github.com/librenms/librenms/pull/9186">#9186</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Use UTC if date.timezone is not set (<a href="https://github.com/librenms/librenms/pull/9181">#9181</a>) - <a href="https://github.com/jarischaefer">jarischaefer</a></li>
+<li>Fixed devices unpolled check (<a href="https://github.com/librenms/librenms/pull/9199">#9199</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed anonymous bind (<a href="https://github.com/librenms/librenms/pull/9195">#9195</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed auth user level not updated (<a href="https://github.com/librenms/librenms/pull/9190">#9190</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed error in logout (<a href="https://github.com/librenms/librenms/pull/9189">#9189</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed up ldap-authorizer, create non-existent users (<a href="https://github.com/librenms/librenms/pull/9192">#9192</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Ignore dns errors when fetching astext (<a href="https://github.com/librenms/librenms/pull/9180">#9180</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed edit processors/storage/memory search query (<a href="https://github.com/librenms/librenms/pull/9172">#9172</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Fixed remove alert rule from template (<a href="https://github.com/librenms/librenms/pull/9173">#9173</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Fixed latency over 1s causes db update to fail (<a href="https://github.com/librenms/librenms/pull/9157">#9157</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed PeeringDB module (<a href="https://github.com/librenms/librenms/pull/9158">#9158</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Modified timestamp sent to nagios-receiver in order to fix an issue w… (<a href="https://github.com/librenms/librenms/pull/9140">#9140</a>) - <a href="https://github.com/Nesousx">Nesousx</a></li>
+<li>Fixed edgeswitch temperatures (<a href="https://github.com/librenms/librenms/pull/9130">#9130</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed Total Chassis Power sensor_index for SmartAX MA5603T/MA5683T (<a href="https://github.com/librenms/librenms/pull/9115">#9115</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Don't update ospf stats if there are none. (<a href="https://github.com/librenms/librenms/pull/9133">#9133</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed web installer to allow users to change db creds if we can't connect (<a href="https://github.com/librenms/librenms/pull/9126">#9126</a>) - <a href="https://github.com/laf">laf</a></li>
+<li>Fixed varchar comparision when using numeric and text sensor_index (<a href="https://github.com/librenms/librenms/pull/9114">#9114</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+</ul>
+<h4 id="device">Device</h4>
+<ul>
+<li>Support for Glass Way EYDFA WDM Optical Amplifier (<a href="https://github.com/librenms/librenms/pull/9125">#9125</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
+<li>Added support for PBI Digital Decoder (<a href="https://github.com/librenms/librenms/pull/9223">#9223</a>) - <a href="https://github.com/jozefrebjak">jozefrebjak</a></li>
+<li>Added support for Teleste Luminato (<a href="https://github.com/librenms/librenms/pull/9061">#9061</a>) - <a href="https://github.com/jozefrebjak">jozefrebjak</a></li>
+<li>Fixing Sentry 3 and 4 Temperature Sensors (<a href="https://github.com/librenms/librenms/pull/9177">#9177</a>) - <a href="https://github.com/sjtarik">sjtarik</a></li>
+<li>Added specific support for APC Automatic Transfer Switch (<a href="https://github.com/librenms/librenms/pull/9221">#9221</a>) - <a href="https://github.com/FTBZ">FTBZ</a></li>
+<li>Added Allied Telesis oxidized syslog hook support (<a href="https://github.com/librenms/librenms/pull/9219">#9219</a>) - <a href="https://github.com/mattie47">mattie47</a></li>
+<li>Collect VRP Entity details in the Huawei MIB (<a href="https://github.com/librenms/librenms/pull/8888">#8888</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
+<li>Initial support for CXR-Networks Terminal Server (<a href="https://github.com/librenms/librenms/pull/9169">#9169</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
+<li>Fixed ES3510MA os info (<a href="https://github.com/librenms/librenms/pull/9150">#9150</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Edgeswitch fans (<a href="https://github.com/librenms/librenms/pull/9162">#9162</a>) - <a href="https://github.com/crcro">crcro</a></li>
+<li>Added HPE iLO Version Polling (<a href="https://github.com/librenms/librenms/pull/9146">#9146</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
+<li>Added OpenBSD Carp State Sensor (<a href="https://github.com/librenms/librenms/pull/9143">#9143</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
+<li>Added Comware Power Usage (<a href="https://github.com/librenms/librenms/pull/9016">#9016</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
+<li>Added support for EdgeCore ES3510MA (<a href="https://github.com/librenms/librenms/pull/9081">#9081</a>) - <a href="https://github.com/backslash7">backslash7</a></li>
+<li>Fixed Total Chassis Power sensor_index for SmartAX MA5603T/MA5683T (<a href="https://github.com/librenms/librenms/pull/9115">#9115</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 </ul>
 <h4 id="webui">Webui</h4>
 <ul>
+<li>Don't force root url (<a href="https://github.com/librenms/librenms/pull/9308">#9308</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Allow zoom to be decimal and switch zoomSnap to 0.1 (<a href="https://github.com/librenms/librenms/pull/9259">#9259</a>) - <a href="https://github.com/cchance27">cchance27</a></li>
+<li>Don't call to legacy auth to get dashboards. (<a href="https://github.com/librenms/librenms/pull/9297">#9297</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Check if array exists for new alert rules and create if not (<a href="https://github.com/librenms/librenms/pull/9303">#9303</a>) - <a href="https://github.com/laf">laf</a></li>
 <li>Force root url if set by user (<a href="https://github.com/librenms/librenms/pull/9266">#9266</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed devices state filter when state = 0 (<a href="https://github.com/librenms/librenms/pull/9277">#9277</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Keeps the dashboard sessions from expiring. (<a href="https://github.com/librenms/librenms/pull/9263">#9263</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Allow login with GET variables (<a href="https://github.com/librenms/librenms/pull/9268">#9268</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix eventlog when the device has been deleted. (<a href="https://github.com/librenms/librenms/pull/9276">#9276</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed eventlog when the device has been deleted. (<a href="https://github.com/librenms/librenms/pull/9276">#9276</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Eventlog WebUI/backend update (<a href="https://github.com/librenms/librenms/pull/9252">#9252</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Syslog fixes (<a href="https://github.com/librenms/librenms/pull/9246">#9246</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Disable used rules in template map for select them (<a href="https://github.com/librenms/librenms/pull/9212">#9212</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 <li>Update syslog display and backend (<a href="https://github.com/librenms/librenms/pull/9228">#9228</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Fixed edit dashboard permissions + moved to toastr (<a href="https://github.com/librenms/librenms/pull/9236">#9236</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 <li>Add support for allowing alerts to un-ack (<a href="https://github.com/librenms/librenms/pull/9136">#9136</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fix remember me (<a href="https://github.com/librenms/librenms/pull/9233">#9233</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix install.php redirect (<a href="https://github.com/librenms/librenms/pull/9224">#9224</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed remember me (<a href="https://github.com/librenms/librenms/pull/9233">#9233</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed install.php redirect (<a href="https://github.com/librenms/librenms/pull/9224">#9224</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Use of generate_url in Oxidized page (<a href="https://github.com/librenms/librenms/pull/9200">#9200</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
 <li>Allow trusted proxy via APP_TRUSTED_PROXIES (<a href="https://github.com/librenms/librenms/pull/9196">#9196</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Show sensors warnings values + moved to json and toastr (<a href="https://github.com/librenms/librenms/pull/9210">#9210</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 <li>Don't output non-fatal errors from legacy web pages. (<a href="https://github.com/librenms/librenms/pull/9208">#9208</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Init and refresh the php session each page load (<a href="https://github.com/librenms/librenms/pull/9186">#9186</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix devices unpolled check (<a href="https://github.com/librenms/librenms/pull/9199">#9199</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix anonymous bind (<a href="https://github.com/librenms/librenms/pull/9195">#9195</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix auth user level not updated (<a href="https://github.com/librenms/librenms/pull/9190">#9190</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix error in logout (<a href="https://github.com/librenms/librenms/pull/9189">#9189</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix up ldap-authorizer, create non-existent users (<a href="https://github.com/librenms/librenms/pull/9192">#9192</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed devices unpolled check (<a href="https://github.com/librenms/librenms/pull/9199">#9199</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed anonymous bind (<a href="https://github.com/librenms/librenms/pull/9195">#9195</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed auth user level not updated (<a href="https://github.com/librenms/librenms/pull/9190">#9190</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed error in logout (<a href="https://github.com/librenms/librenms/pull/9189">#9189</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed up ldap-authorizer, create non-existent users (<a href="https://github.com/librenms/librenms/pull/9192">#9192</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Use Laravel authentication (<a href="https://github.com/librenms/librenms/pull/8702">#8702</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix extra large login images (<a href="https://github.com/librenms/librenms/pull/9183">#9183</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed extra large login images (<a href="https://github.com/librenms/librenms/pull/9183">#9183</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>WebGUI Oxidized - Add author+message + refresh button (<a href="https://github.com/librenms/librenms/pull/9163">#9163</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
 <li>Added BGP Peer Descriptions (<a href="https://github.com/librenms/librenms/pull/9165">#9165</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 <li>Oxidized Device List: Link to config and refreshDevice Btn (<a href="https://github.com/librenms/librenms/pull/9129">#9129</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
 <li>Fixed PeeringDB module (<a href="https://github.com/librenms/librenms/pull/9158">#9158</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Add support for Rancid GIT (<a href="https://github.com/librenms/librenms/pull/9036">#9036</a>) - <a href="https://github.com/dupondje">dupondje</a></li>
+<li>Added support for Rancid GIT (<a href="https://github.com/librenms/librenms/pull/9036">#9036</a>) - <a href="https://github.com/dupondje">dupondje</a></li>
 <li>Fixed web installer to allow users to change db creds if we can't connect (<a href="https://github.com/librenms/librenms/pull/9126">#9126</a>) - <a href="https://github.com/laf">laf</a></li>
-</ul>
-<h4 id="bug">Bug</h4>
-<ul>
-<li>Fix eventlog when the device has been deleted. (<a href="https://github.com/librenms/librenms/pull/9276">#9276</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Config class collides with Config in model namespace (<a href="https://github.com/librenms/librenms/pull/9249">#9249</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Syslog fixes (<a href="https://github.com/librenms/librenms/pull/9246">#9246</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Disable used rules in template map for select them (<a href="https://github.com/librenms/librenms/pull/9212">#9212</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Fixed edit dashboard permissions + moved to toastr (<a href="https://github.com/librenms/librenms/pull/9236">#9236</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Fix remember me (<a href="https://github.com/librenms/librenms/pull/9233">#9233</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fixed PagerDuty alert to show rule name + device as summary (<a href="https://github.com/librenms/librenms/pull/9213">#9213</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fix install.php redirect (<a href="https://github.com/librenms/librenms/pull/9224">#9224</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Allow trusted proxy via APP_TRUSTED_PROXIES (<a href="https://github.com/librenms/librenms/pull/9196">#9196</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Remove api rate limits (<a href="https://github.com/librenms/librenms/pull/9211">#9211</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fix API auth issues (<a href="https://github.com/librenms/librenms/pull/9185">#9185</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Init and refresh the php session each page load (<a href="https://github.com/librenms/librenms/pull/9186">#9186</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Use UTC if date.timezone is not set (<a href="https://github.com/librenms/librenms/pull/9181">#9181</a>) - <a href="https://github.com/jarischaefer">jarischaefer</a></li>
-<li>Fix devices unpolled check (<a href="https://github.com/librenms/librenms/pull/9199">#9199</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix anonymous bind (<a href="https://github.com/librenms/librenms/pull/9195">#9195</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix auth user level not updated (<a href="https://github.com/librenms/librenms/pull/9190">#9190</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix error in logout (<a href="https://github.com/librenms/librenms/pull/9189">#9189</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fix up ldap-authorizer, create non-existent users (<a href="https://github.com/librenms/librenms/pull/9192">#9192</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Ignore dns errors when fetching astext (<a href="https://github.com/librenms/librenms/pull/9180">#9180</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fixed edit processors/storage/memory search query (<a href="https://github.com/librenms/librenms/pull/9172">#9172</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Fixed remove alert rule from template (<a href="https://github.com/librenms/librenms/pull/9173">#9173</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Fix latency over 1s causes db update to fail (<a href="https://github.com/librenms/librenms/pull/9157">#9157</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fixed PeeringDB module (<a href="https://github.com/librenms/librenms/pull/9158">#9158</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Modified timestamp sent to nagios-receiver in order to fix an issue w… (<a href="https://github.com/librenms/librenms/pull/9140">#9140</a>) - <a href="https://github.com/Nesousx">Nesousx</a></li>
-<li>Fix edgeswitch temperatures (<a href="https://github.com/librenms/librenms/pull/9130">#9130</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fixed Total Chassis Power sensor_index for SmartAX MA5603T/MA5683T (<a href="https://github.com/librenms/librenms/pull/9115">#9115</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-<li>Don't update ospf stats if there are none. (<a href="https://github.com/librenms/librenms/pull/9133">#9133</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Fixed web installer to allow users to change db creds if we can't connect (<a href="https://github.com/librenms/librenms/pull/9126">#9126</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fixed varchar comparision when using numeric and text sensor_index (<a href="https://github.com/librenms/librenms/pull/9114">#9114</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 </ul>
 <h4 id="documentation">Documentation</h4>
 <ul>
+<li>Doc about third-party installation supports created by the community (<a href="https://github.com/librenms/librenms/pull/9274">#9274</a>) - <a href="https://github.com/crazy-max">crazy-max</a></li>
+<li>Update Applications.MD (<a href="https://github.com/librenms/librenms/pull/9280">#9280</a>) - <a href="https://github.com/CFUJoshWeepie">CFUJoshWeepie</a></li>
+<li>Added .env for subdirectory doc (<a href="https://github.com/librenms/librenms/pull/9285">#9285</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Missing {{ }} around $value in some examples (<a href="https://github.com/librenms/librenms/pull/9272">#9272</a>) - <a href="https://github.com/Atroskelis">Atroskelis</a></li>
 <li>Altered EXIM Download instruction (<a href="https://github.com/librenms/librenms/pull/9241">#9241</a>) - <a href="https://github.com/cppmonkey">cppmonkey</a></li>
-<li>[ubuntu 18 - nginx install docs edit] Add universe repo (<a href="https://github.com/librenms/librenms/pull/9238">#9238</a>) - <a href="https://github.com/therealshibe">therealshibe</a></li>
-<li>[ubuntu 18 - apache install docs edit]Add universe repo (<a href="https://github.com/librenms/librenms/pull/9237">#9237</a>) - <a href="https://github.com/therealshibe">therealshibe</a></li>
+<li>Add universe repo for Ubuntu 18 install docs (<a href="https://github.com/librenms/librenms/pull/9238">#9238</a>) - <a href="https://github.com/therealshibe">therealshibe</a></li>
 <li>Fixed FAQ link and added delayed alerts FAQ (<a href="https://github.com/librenms/librenms/pull/9239">#9239</a>) - <a href="https://github.com/vowywowy">vowywowy</a></li>
-<li>Add Alliedware Plus syslog config docs (<a href="https://github.com/librenms/librenms/pull/9220">#9220</a>) - <a href="https://github.com/mattie47">mattie47</a></li>
+<li>Added Alliedware Plus syslog config docs (<a href="https://github.com/librenms/librenms/pull/9220">#9220</a>) - <a href="https://github.com/mattie47">mattie47</a></li>
 <li>Fixed format for snmpd configuration step (<a href="https://github.com/librenms/librenms/pull/9203">#9203</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
 <li>Updated example for new alerting engine (<a href="https://github.com/librenms/librenms/pull/9193">#9193</a>) - <a href="https://github.com/pmusolino-rms">pmusolino-rms</a></li>
-<li>Add note to cron file advising not to disable daily.sh (<a href="https://github.com/librenms/librenms/pull/9164">#9164</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Added note to cron file advising not to disable daily.sh (<a href="https://github.com/librenms/librenms/pull/9164">#9164</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Added FAQ on where to update database credentials if they change (<a href="https://github.com/librenms/librenms/pull/9127">#9127</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Add info for using macros as values (<a href="https://github.com/librenms/librenms/pull/9156">#9156</a>) - <a href="https://github.com/vitalisator">vitalisator</a></li>
-</ul>
-<h4 id="device">Device</h4>
-<ul>
-<li>Added support for PBI Digital Decoder (<a href="https://github.com/librenms/librenms/pull/9223">#9223</a>) - <a href="https://github.com/jozefrebjak">jozefrebjak</a></li>
-<li>Added support for Teleste Luminato (<a href="https://github.com/librenms/librenms/pull/9061">#9061</a>) - <a href="https://github.com/jozefrebjak">jozefrebjak</a></li>
-<li>Fixing Sentry 3 and 4 Temperature Sensors (<a href="https://github.com/librenms/librenms/pull/9177">#9177</a>) - <a href="https://github.com/sjtarik">sjtarik</a></li>
-<li>Add specific support for APC Automatic Transfer Switch (<a href="https://github.com/librenms/librenms/pull/9221">#9221</a>) - <a href="https://github.com/FTBZ">FTBZ</a></li>
-<li>Add Allied Telesis oxidized syslog hook support (<a href="https://github.com/librenms/librenms/pull/9219">#9219</a>) - <a href="https://github.com/mattie47">mattie47</a></li>
-<li>Collect VRP Entity details in the Huawei MIB (<a href="https://github.com/librenms/librenms/pull/8888">#8888</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
-<li>Initial support for CXR-Networks Terminal Server (<a href="https://github.com/librenms/librenms/pull/9169">#9169</a>) - <a href="https://github.com/PipoCanaja">PipoCanaja</a></li>
-<li>Fix ES3510MA os info (<a href="https://github.com/librenms/librenms/pull/9150">#9150</a>) - <a href="https://github.com/murrant">murrant</a></li>
-<li>Edgeswitch fans (<a href="https://github.com/librenms/librenms/pull/9162">#9162</a>) - <a href="https://github.com/crcro">crcro</a></li>
-<li>Add HPE iLO Version Polling (<a href="https://github.com/librenms/librenms/pull/9146">#9146</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
-<li>Add OpenBSD Carp State Sensor (<a href="https://github.com/librenms/librenms/pull/9143">#9143</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
-<li>Add Comware Power Usage (<a href="https://github.com/librenms/librenms/pull/9016">#9016</a>) - <a href="https://github.com/Rosiak">Rosiak</a></li>
-<li>Added support for EdgeCore ES3510MA (<a href="https://github.com/librenms/librenms/pull/9081">#9081</a>) - <a href="https://github.com/backslash7">backslash7</a></li>
-<li>Fixed Total Chassis Power sensor_index for SmartAX MA5603T/MA5683T (<a href="https://github.com/librenms/librenms/pull/9115">#9115</a>) - <a href="https://github.com/TheGreatDoc">TheGreatDoc</a></li>
-</ul>
-<h4 id="alerting">Alerting</h4>
-<ul>
-<li>Added ability to set a custom SQL query for alert rules. (<a href="https://github.com/librenms/librenms/pull/9094">#9094</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Add support for allowing alerts to un-ack (<a href="https://github.com/librenms/librenms/pull/9136">#9136</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fixed PagerDuty alert to show rule name + device as summary (<a href="https://github.com/librenms/librenms/pull/9213">#9213</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Modified timestamp sent to nagios-receiver in order to fix an issue w… (<a href="https://github.com/librenms/librenms/pull/9140">#9140</a>) - <a href="https://github.com/Nesousx">Nesousx</a></li>
-<li>Enable and catch exceptions for PHPMailer to gather error messages. (<a href="https://github.com/librenms/librenms/pull/9132">#9132</a>) - <a href="https://github.com/ciscoqid">ciscoqid</a></li>
-<li>Additional debug output when sending/testing email (<a href="https://github.com/librenms/librenms/pull/9120">#9120</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Added info for using macros as values (<a href="https://github.com/librenms/librenms/pull/9156">#9156</a>) - <a href="https://github.com/vitalisator">vitalisator</a></li>
 </ul>
 <h4 id="feature">Feature</h4>
 <ul>
@@ -476,14 +484,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h4 id="api">Api</h4>
 <ul>
 <li>Remove api rate limits (<a href="https://github.com/librenms/librenms/pull/9211">#9211</a>) - <a href="https://github.com/laf">laf</a></li>
-<li>Fix API auth issues (<a href="https://github.com/librenms/librenms/pull/9185">#9185</a>) - <a href="https://github.com/murrant">murrant</a></li>
+<li>Fixed API auth issues (<a href="https://github.com/librenms/librenms/pull/9185">#9185</a>) - <a href="https://github.com/murrant">murrant</a></li>
 <li>Use Laravel authentication (<a href="https://github.com/librenms/librenms/pull/8702">#8702</a>) - <a href="https://github.com/murrant">murrant</a></li>
 </ul>
 <h4 id="security">Security</h4>
 <ul>
 <li>Sanitize data in dashboard add/edit/delete (<a href="https://github.com/librenms/librenms/pull/9171">#9171</a>) - <a href="https://github.com/murrant">murrant</a></li>
 </ul>
-<h2 id="143">1.43</h2>
+<h3 id="143">1.43</h3>
 <p><em>(2018-08-30)</em></p>
 <p>A big thank you to the following 29 contributors this last month:</p>
 <ul>
