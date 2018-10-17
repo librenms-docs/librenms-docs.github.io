@@ -38,6 +38,7 @@
               {title: "World Map Widget Settings", url: "#world-map-widget-settings" },
               {title: "Offline OpenStreet Map", url: "#offline-openstreet-map" },
               {title: "Additional Leaflet config", url: "#additional-leaflet-config" },
+              {title: "Geocode engine config", url: "#geocode-engine-config" },
               {title: "Jquery-Mapael config", url: "#jquery-mapael-config" },
           ]},
         ];
@@ -113,6 +114,11 @@ $config['leaflet']['default_lat']                       = &quot;51.981074&quot;;
 $config['leaflet']['default_lng']                       = &quot;5.350342&quot;;
 $config['leaflet']['default_zoom']                      = 8;    
 $config['leaflet']['group_radius']                      = 1;    // Device grouping radius in KM default 80KM
+</code></pre>
+
+<h3 id="geocode-engine-config">Geocode engine config</h3>
+<pre><code class="php">$config['geoloc']['engine'] = &quot;google&quot;;// Valid options are google or mapquest
+$config['geoloc']['api_key'] = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
 </code></pre>
 
 <h3 id="jquery-mapael-config">Jquery-Mapael config</h3>
