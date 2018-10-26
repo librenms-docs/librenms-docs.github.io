@@ -93,7 +93,8 @@ which will make suggestions on things you can change specific to your setup.</p>
 <p>You can also set this to 2. This will have the possibility that you could lose up to 1 second on mysql data in the event
 MySQL crashes or your server does but it provides an amazing difference in IO use.</p>
 <h3 id="polling-modules">Polling modules</h3>
-<p>Review the graph of poller module time take under device &gt; graphs &gt; poller to see what modules are consuming poller time.</p>
+<p>Review the graph of poller module time take under gear &gt; pollers &gt; performance to see what modules are consuming poller time.
+This data is shown per device under device &gt; graphs &gt; poller.</p>
 <p>Disable polling (and discovery) modules that you do not need. You can do this globally in <code>config.php</code> like:</p>
 <p>Disable OSPF polling</p>
 <pre><code class="php">$config['poller_modules']['ospf'] = false;
