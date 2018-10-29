@@ -1,0 +1,2645 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="LibreNMS user and developer documentation">
+      
+      
+        <link rel="canonical" href="http://docs.librenms.org/General/Changelogs/2014/">
+      
+      
+        <meta name="author" content="LibreNMS">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+    
+    
+      
+        <title>2014 - LibreNMS Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../librenms.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#dec-2014" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo">
+          
+            <img src="../../../img/librenms.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                LibreNMS Docs
+              </span>
+              <span class="md-header-nav__topic">
+                2014
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+      
+        <img src="../../../img/librenms.svg" width="48" height="48">
+      
+    </a>
+    LibreNMS Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      1. General
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        1. General
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Acknowledgement/" title="Acknowledgements" class="md-nav__link">
+      Acknowledgements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Changelog/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CODE_OF_CONDUCT/" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Features/" title="Features" class="md-nav__link">
+      Features
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Welcome-to-Observium-users/" title="Welcome to Observium users" class="md-nav__link">
+      Welcome to Observium users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      2. Installing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        2. Installing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/" title="Installing LibreNMS" class="md-nav__link">
+      Installing LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Ubuntu-image/" title="Ubuntu VM Image" class="md-nav__link">
+      Ubuntu VM Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/CentOS-image/" title="CentOS VM Image" class="md-nav__link">
+      CentOS VM Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
+      Ubuntu 18.04 (Nginx)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
+      Ubuntu 18.04 (Apache)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
+      CentOS 7 (Nginx)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
+      CentOS 7 (Apache)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Migrating-from-Observium/" title="Migrating from Observium" class="md-nav__link">
+      Migrating from Observium
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      3. Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        3. Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Releases/" title="Choosing a release" class="md-nav__link">
+      Choosing a release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Adding-a-Device/" title="Adding a device" class="md-nav__link">
+      Adding a device
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Device-Groups/" title="Grouping Devices" class="md-nav__link">
+      Grouping Devices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Callback-Stats-and-Privacy/" title="Submitting stats" class="md-nav__link">
+      Submitting stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Updating/" title="Updating an install" class="md-nav__link">
+      Updating an install
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      4. Basic Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        4. Basic Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Applications/" title="Applications" class="md-nav__link">
+      Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Agent-Setup/" title="Check_MK Setup" class="md-nav__link">
+      Check_MK Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Billing-Module/" title="Billing Module" class="md-nav__link">
+      Billing Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Dell-OpenManage/" title="Dell OpenManage Support" class="md-nav__link">
+      Dell OpenManage Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/World-Map/" title="World Map Configuration" class="md-nav__link">
+      World Map Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Interface-Description-Parsing/" title="Interface Description Parsing" class="md-nav__link">
+      Interface Description Parsing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Network-Map/" title="Network Map" class="md-nav__link">
+      Network Map
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Syslog/" title="Setting up syslog support" class="md-nav__link">
+      Setting up syslog support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Dashboards/" title="Dashboards" class="md-nav__link">
+      Dashboards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      5. Advanced Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        5. Advanced Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
+      1 Minute Polling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Fast-Ping-Check/" title="Fast Ping Checking" class="md-nav__link">
+      Fast Ping Checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Environment-Variables/" title="Environment Variables" class="md-nav__link">
+      Environment Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Configuration/" title="Configuration docs" class="md-nav__link">
+      Configuration docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Authentication/" title="Authentication Options" class="md-nav__link">
+      Authentication Options
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Two-Factor-Auth/" title="Two-Factor Auth" class="md-nav__link">
+      Two-Factor Auth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Auto-Discovery/" title="Auto-discovery Setup" class="md-nav__link">
+      Auto-discovery Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Distributed-Poller/" title="Scaling LibreNMS" class="md-nav__link">
+      Scaling LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/RRDCached/" title="Setting up RRDCached" class="md-nav__link">
+      Setting up RRDCached
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Sub-Directory/" title="Sub-directory Support" class="md-nav__link">
+      Sub-directory Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Varnish/" title="Varnish Installation Guide #" class="md-nav__link">
+      Varnish Installation Guide #
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Poller-Service/" title="Poller Service (BETA)" class="md-nav__link">
+      Poller Service (BETA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/RRDTune/" title="RRDTune?" class="md-nav__link">
+      RRDTune?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/IRC-Bot/" title="IRC Bot" class="md-nav__link">
+      IRC Bot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/IRC-Bot-Extensions/" title="Quick Guide" class="md-nav__link">
+      Quick Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/SNMP-Proxy/" title="SNMP Proxy" class="md-nav__link">
+      SNMP Proxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/SNMP-Trap-Handler/" title="SNMP trap handling" class="md-nav__link">
+      SNMP trap handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Cleanup-options/" title="Cleanup Options" class="md-nav__link">
+      Cleanup Options
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      6. 3rd Party Integration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        6. 3rd Party Integration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Gateone/" title="GateOne integration" class="md-nav__link">
+      GateOne integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Graylog/" title="Graylog integration" class="md-nav__link">
+      Graylog integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Services/" title="Nagios Plugins" class="md-nav__link">
+      Nagios Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/NFSen/" title="NFSen" class="md-nav__link">
+      NFSen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Oxidized/" title="Oxidized intro" class="md-nav__link">
+      Oxidized intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Rancid/" title="Rancid integration" class="md-nav__link">
+      Rancid integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/PeeringDB/" title="PeeringDB Support" class="md-nav__link">
+      PeeringDB Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Proxmox/" title="Proxmox graphing" class="md-nav__link">
+      Proxmox graphing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+    
+    <label class="md-nav__link" for="nav-7-9">
+      Storing Metrics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-9">
+        Storing Metrics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Metric-Storage/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
+      Enabling support for Graphite.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
+      Enabling support for InfluxDB.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
+      Enabling support for OpenTSDB.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
+      Enabling support for Prometheus.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Smokeping/" title="Smokeping integration" class="md-nav__link">
+      Smokeping integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Weathermap/" title="Network-WeatherMap with LibreNMS" class="md-nav__link">
+      Network-WeatherMap with LibreNMS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      7. API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        7. API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/" title="Using the API" class="md-nav__link">
+      Using the API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Devices/" title="Devices" class="md-nav__link">
+      Devices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/DeviceGroups/" title="DeviceGroups" class="md-nav__link">
+      DeviceGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Ports/" title="Ports" class="md-nav__link">
+      Ports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/PortGroups/" title="PortGroups" class="md-nav__link">
+      PortGroups
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Alerts/" title="Alerts" class="md-nav__link">
+      Alerts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Routing/" title="Routing" class="md-nav__link">
+      Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Switching/" title="Switching" class="md-nav__link">
+      Switching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Inventory/" title="Inventory" class="md-nav__link">
+      Inventory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Bills/" title="Bills" class="md-nav__link">
+      Bills
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/ARP/" title="ARP" class="md-nav__link">
+      ARP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Services/" title="Services" class="md-nav__link">
+      Services
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/System/" title="System" class="md-nav__link">
+      System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../API/Logs/" title="Logs" class="md-nav__link">
+      Logs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      8. Alerting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        8. Alerting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Rules/" title="Rules" class="md-nav__link">
+      Rules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Transports/" title="Transports" class="md-nav__link">
+      Transports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
+      Creating a new Transport.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Entities/" title="Entities" class="md-nav__link">
+      Entities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Macros/" title="Macros" class="md-nav__link">
+      Macros
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Testing/" title="Testing" class="md-nav__link">
+      Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Alerting/Device-Dependencies/" title="Device Dependencies" class="md-nav__link">
+      Device Dependencies
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      9. Getting help
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        9. Getting help
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/" title="How to get help" class="md-nav__link">
+      How to get help
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/FAQ/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Install Validation/" title="Install validation" class="md-nav__link">
+      Install validation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Performance/" title="Performance optimisations" class="md-nav__link">
+      Performance optimisations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Discovery Support/" title="Discovery Support" class="md-nav__link">
+      Discovery Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Poller Support/" title="Poller Support" class="md-nav__link">
+      Poller Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
+      Example Hardware Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Remote-Monitoring-VPN/" title="Remote monitoring using tinc VPN" class="md-nav__link">
+      Remote monitoring using tinc VPN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/SNMP-Configuration-Examples/" title="SNMP configuration examples" class="md-nav__link">
+      SNMP configuration examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/SSL-Configuration/" title="Ubuntu 16.04" class="md-nav__link">
+      Ubuntu 16.04
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Device-Troubleshooting/" title="Capture Debug Information" class="md-nav__link">
+      Capture Debug Information
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Device-Sensors/" title="Device Sensors" class="md-nav__link">
+      Device Sensors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      10. Contributing + Developing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        10. Contributing + Developing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Using-Git/" title="Using Git" class="md-nav__link">
+      Using Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Code-Guidelines/" title="Coding guidelines" class="md-nav__link">
+      Coding guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Style-Guidelines/" title="Style guidelines" class="md-nav__link">
+      Style guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Validating-Code/" title="Validating Code" class="md-nav__link">
+      Validating Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Code-Structure/" title="Code structure." class="md-nav__link">
+      Code structure.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Creating-Documentation/" title="Creating Documentation" class="md-nav__link">
+      Creating Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Licensing/" title="Licensing" class="md-nav__link">
+      Licensing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Component/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/MIB-based-polling/" title="Mib Based Polling (ALPHA)" class="md-nav__link">
+      Mib Based Polling (ALPHA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-11" type="checkbox" id="nav-11-11">
+    
+    <label class="md-nav__link" for="nav-11-11">
+      Support for a new OS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-11">
+        Support for a new OS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Support-New-OS/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Initial-Detection/" title="Initial Detection" class="md-nav__link">
+      Initial Detection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Mem-CPU-Information/" title="Mem CPU Information" class="md-nav__link">
+      Mem CPU Information
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Test-Units/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Health-Information/" title="Health Information" class="md-nav__link">
+      Health Information
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Wireless-Sensors/" title="Wireless Sensors" class="md-nav__link">
+      Wireless Sensors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Custom-Graphs/" title="Custom Graphs" class="md-nav__link">
+      Custom Graphs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/os/Settings/" title="Optional OS Settings" class="md-nav__link">
+      Optional OS Settings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Sensor-State-Support/" title="Sensor State Support" class="md-nav__link">
+      Sensor State Support
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/SNMP-Traps/" title="Creating snmp trap handlers" class="md-nav__link">
+      Creating snmp trap handlers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Dynamic-Config/" title="Adding new config options to WebUI" class="md-nav__link">
+      Adding new config options to WebUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Merging-Pull-Requests/" title="Merging Pull Requests" class="md-nav__link">
+      Merging Pull Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Developing/Creating-Release/" title="Creating a release" class="md-nav__link">
+      Creating a release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Extensions/Plugin-System/" title="Developing for the Plugin System" class="md-nav__link">
+      Developing for the Plugin System
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      11. Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        11. Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Security/" title="Security information" class="md-nav__link">
+      Security information
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/CLI-Tools/" title="CLI Scripts" class="md-nav__link">
+      CLI Scripts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+    
+    <label class="md-nav__link" for="nav-12-3">
+      Device Notes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-3">
+        Device Notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Device-Notes/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Support/Device-Notes/Carel-pCOweb-Devices/" title="Carel pCOweb" class="md-nav__link">
+      Carel pCOweb
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dec-2014" title="Dec 2014" class="md-nav__link">
+    Dec 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nov-2014" title="Nov 2014" class="md-nav__link">
+    Nov 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_1" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oct-2014" title="Oct 2014" class="md-nav__link">
+    Oct 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_2" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_2" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sep-2014" title="Sep 2014" class="md-nav__link">
+    Sep 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_3" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_3" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aug-2014" title="Aug 2014" class="md-nav__link">
+    Aug 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_4" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_4" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jul-2014" title="Jul 2014" class="md-nav__link">
+    Jul 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_5" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_5" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jun-2014" title="Jun 2014" class="md-nav__link">
+    Jun 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_6" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_6" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mar-2014" title="Mar 2014" class="md-nav__link">
+    Mar 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_7" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_7" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feb-2014" title="Feb 2014" class="md-nav__link">
+    Feb 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_8" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_8" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jan-2014" title="Jan 2014" class="md-nav__link">
+    Jan 2014
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_9" title="Bug fixes" class="md-nav__link">
+    Bug fixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements_9" title="Improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/General/Changelogs/2014.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>2014</h1>
+                
+                <h3 id="dec-2014">Dec 2014</h3>
+<h4 id="bug-fixes">Bug fixes</h4>
+<ul>
+<li>Fixed Global Search box bootstrap (<a href="https://github.com/librenms/librenms/pull/357">PR357</a>)</li>
+<li>Fixed display issues when calculating CDR in billing system (<a href="https://github.com/librenms/librenms/pull/359">PR359</a>)</li>
+<li>Fixed API route order to resolve get_port_graphs working (<a href="https://github.com/librenms/librenms/pull/364">PR364</a>)</li>
+</ul>
+<h4 id="improvements">Improvements</h4>
+<ul>
+<li>Added new API route to retrieve list of graphs for a device (<a href="https://github.com/librenms/librenms/pull/355">PR355</a>)</li>
+<li>Added new API route to retrieve list of port for a device (<a href="https://github.com/librenms/librenms/pull/356">PR356</a>)</li>
+<li>Added new API route to retrieve billing info (<a href="https://github.com/librenms/librenms/pull/360">PR360</a>)</li>
+<li>Added alerting system (<a href="https://github.com/librenms/librenms/pull/370">PR370</a>, <a href="https://github.com/librenms/librenms/pull/369">PR369</a>, <a href="https://github.com/librenms/librenms/pull/367">PR367</a>)</li>
+<li>Added dbSchema version to about page (<a href="https://github.com/librenms/librenms/pull/377">PR377</a>)</li>
+<li>Added git log link to about page (<a href="https://github.com/librenms/librenms/pull/378">PR378</a>)</li>
+<li>Added Two factor authentication (<a href="https://github.com/librenms/librenms/pull/383">PR383</a>)</li>
+</ul>
+<h3 id="nov-2014">Nov 2014</h3>
+<h4 id="bug-fixes_1">Bug fixes</h4>
+<ul>
+<li>Updated Alcatel-Lucent OmniSwitch detection (<a href="https://github.com/librenms/librenms/pull/340">PR340</a>)</li>
+<li>Added fix for DLink port detection (<a href="https://github.com/librenms/librenms/pull/347">PR347</a>)</li>
+<li>Fixed BGP session count (<a href="https://github.com/librenms/librenms/pull/334">PR334</a>)</li>
+<li>Fixed errors with BGP polling and storing data in RRD (<a href="https://github.com/librenms/librenms/pull/346">PR346</a>)</li>
+</ul>
+<h4 id="improvements_1">Improvements</h4>
+<ul>
+<li>Added option to clean old perf_times table entries (<a href="https://github.com/librenms/librenms/pull/343">PR343</a>)</li>
+<li>Added nginx+php-fpm instructions (<a href="https://github.com/librenms/librenms/pull/345">PR345</a>)</li>
+<li>Added BGP route to API (<a href="https://github.com/librenms/librenms/pull/335">PR335</a>)</li>
+<li>Updated check_mk to new version + removed Observium branding (<a href="https://github.com/librenms/librenms/pull/311">PR311</a>)</li>
+<li>Updated Edit SNMP settings page for device to only show relevant SNMP options (<a href="https://github.com/librenms/librenms/pull/317">PR317</a>)</li>
+<li>Eventlog page now uses paged results (<a href="https://github.com/librenms/librenms/pull/336">PR336</a>)</li>
+<li>Added new API route to show peering, transit and core graphs (<a href="https://github.com/librenms/librenms/pull/349">PR349</a>)</li>
+<li>Added VyOS and EdgeOS detection (<a href="https://github.com/librenms/librenms/pull/351">PR351</a> / <a href="https://github.com/librenms/librenms/pull/352">PR352</a>)</li>
+<li>Documentation style and markdown updates (<a href="https://github.com/librenms/librenms/pull/353">PR353</a>)</li>
+</ul>
+<h3 id="oct-2014">Oct 2014</h3>
+<h4 id="bug-fixes_2">Bug fixes</h4>
+<ul>
+<li>Fixed displaying device image in device list (<a href="https://github.com/librenms/librenms/pull/296">PR296</a>)</li>
+<li>Fixed placement of popups (<a href="https://github.com/librenms/librenms/pull/297">PR297</a>)</li>
+<li>Updated authToken response code in API to 401 (<a href="https://github.com/librenms/librenms/pull/310">PR310</a>)</li>
+<li>Removed trailing / from v0 part of API url (<a href="https://github.com/librenms/librenms/pull/312">PR312</a>)</li>
+<li>Added correct response code for API call get_vlans (<a href="https://github.com/librenms/librenms/pull/313">PR313</a>)</li>
+<li>Updated yearly graphs to fix year variable being passed (<a href="https://github.com/librenms/librenms/pull/316">PR316</a>)</li>
+<li>Updated transport list to be generated from $config (<a href="https://github.com/librenms/librenms/pull/318">PR318</a>)</li>
+<li>Moved addhost button on add host page as it was hidden (<a href="https://github.com/librenms/librenms/pull/319">PR319</a>)</li>
+<li>Added stripslashes to hrdevice page (<a href="https://github.com/librenms/librenms/pull/321">PR321</a>)</li>
+<li>Fixed web installer issue due to variable name change (<a href="https://github.com/librenms/librenms/pull/325">PR325</a>)</li>
+<li>Updated disabled field in api tokens (<a href="https://github.com/librenms/librenms/pull/327">PR327</a>)</li>
+<li>Fixed daily.sh not running from outside install directory (cron) (<a href="https://github.com/librenms/librenms/pull/328">PR328</a>)</li>
+<li>Removed --no-edit from daily.php git pull (<a href="https://github.com/librenms/librenms/pull/309">PR309</a>)</li>
+</ul>
+<h4 id="improvements_2">Improvements</h4>
+<ul>
+<li>Added ability to create api tokens (<a href="https://github.com/librenms/librenms/pull/294">PR294</a>)</li>
+<li>Added icmp and poller graphs for devices (<a href="https://github.com/librenms/librenms/pull/295">PR295</a>)</li>
+<li>Added urldecode/urlencode support for interface names in API (<a href="https://github.com/librenms/librenms/pull/298">PR298</a>)</li>
+<li>Added new library to support on screen notifications (<a href="https://github.com/librenms/librenms/pull/300">PR300</a>)</li>
+<li>Added authlog purge function and improved efficiency in clearing syslog table (<a href="https://github.com/librenms/librenms/pull/301">PR301</a>)</li>
+<li>Updated addhost page to show relevant snmp options (<a href="https://github.com/librenms/librenms/pull/303">PR303</a>)</li>
+<li>Added limit $config for front page boxes (<a href="https://github.com/librenms/librenms/pull/305">PR305</a>)</li>
+<li>Updated http-auth adding user to check if user already exists (<a href="https://github.com/librenms/librenms/pull/307">PR307</a>)</li>
+<li>Added names to all API routes (<a href="https://github.com/librenms/librenms/pull/314">PR314</a>)</li>
+<li>Added route to call list of API endpoints (<a href="https://github.com/librenms/librenms/pull/315">PR315</a>)</li>
+<li>Added options to $config to specify fping retry and timeout (<a href="https://github.com/librenms/librenms/pull/323">PR323</a>)</li>
+<li>Added icmp / snmp to device down alerts for debugging (<a href="https://github.com/librenms/librenms/pull/324">PR324</a>)</li>
+<li>Added function to page results for large result pages (<a href="https://github.com/librenms/librenms/pull/333">PR333</a>)</li>
+</ul>
+<h3 id="sep-2014">Sep 2014</h3>
+<h4 id="bug-fixes_3">Bug fixes</h4>
+<ul>
+<li>Updated vtpversion check to fix vlan discovery issues (<a href="https://github.com/librenms/librenms/pull/289">PR289</a>)</li>
+<li>Fixed mac address change false positives (<a href="https://github.com/librenms/librenms/pull/292">PR292</a>)</li>
+</ul>
+<h4 id="improvements_3">Improvements</h4>
+<ul>
+<li>Hide snmp passwords on edit snmp form (<a href="https://github.com/librenms/librenms/pull/290">PR290</a>)</li>
+<li>Updates to API (<a href="https://github.com/librenms/librenms/pull/291">PR291</a>)</li>
+</ul>
+<h3 id="aug-2014">Aug 2014</h3>
+<h4 id="bug-fixes_4">Bug fixes</h4>
+<ul>
+<li>Disk % not showing in health view (<a href="https://github.com/librenms/librenms/pull/284">PR284</a>)</li>
+<li>Fixed layout issue for ports list (<a href="https://github.com/librenms/librenms/pull/286">PR286</a>)</li>
+<li>Removed session regeneration (<a href="https://github.com/librenms/librenms/pull/287">PR287</a>)</li>
+<li>Updated edit button on edit user screen (<a href="https://github.com/librenms/librenms/pull/288">PR288</a>)</li>
+</ul>
+<h4 id="improvements_4">Improvements</h4>
+<ul>
+<li>Added email field for add user form (<a href="https://github.com/librenms/librenms/pull/278">PR278</a>)</li>
+<li>V0 of API release (<a href="https://github.com/librenms/librenms/pull/282">PR282</a>)</li>
+</ul>
+<h3 id="jul-2014">Jul 2014</h3>
+<h4 id="bug-fixes_5">Bug fixes</h4>
+<ul>
+<li>Fixed RRD creation using MAX twice (<a href="https://github.com/librenms/librenms/pull/266">PR266</a>)</li>
+<li>Fixed variables leaking in poller run (<a href="https://github.com/librenms/librenms/pull/267">PR267</a>)</li>
+<li>Fixed links to health graphs (<a href="https://github.com/librenms/librenms/pull/271">PR271</a>)</li>
+<li>Fixed install docs to remove duplicate snmpd on install (<a href="https://github.com/librenms/librenms/pull/276">PR276</a>)</li>
+</ul>
+<h4 id="improvements_5">Improvements</h4>
+<ul>
+<li>Added support for Cisco ASA connection graphs (<a href="https://github.com/librenms/librenms/pull/268">PR268</a>)</li>
+<li>Updated delete device page (<a href="https://github.com/librenms/librenms/pull/270">PR270</a>)</li>
+</ul>
+<h3 id="jun-2014">Jun 2014</h3>
+<h4 id="bug-fixes_6">Bug fixes</h4>
+<ul>
+<li>Fixed a couple of DB queries (<a href="https://github.com/librenms/librenms/pull/222">PR222</a>)</li>
+<li>Fixes to make interface more mobile friendly (<a href="https://github.com/librenms/librenms/pull/227">PR227</a>)</li>
+<li>Fixed link to device on overview apps page (<a href="https://github.com/librenms/librenms/pull/228">PR228</a>)</li>
+<li>Fixed missing backticks on SQL queries (<a href="https://github.com/librenms/librenms/pull/253">PR253</a> / <a href="https://github.com/librenms/librenms/pull/254">PR254</a>)</li>
+<li>Fixed user permissions page (<a href="https://github.com/librenms/librenms/pull/265">PR265</a>)</li>
+</ul>
+<h4 id="improvements_6">Improvements</h4>
+<ul>
+<li>Updated index page (<a href="https://github.com/librenms/librenms/pull/224">PR224</a>)</li>
+<li>Updated global search visually (<a href="https://github.com/librenms/librenms/pull/223">PR223</a>)</li>
+<li>Added contributors agreement (<a href="https://github.com/librenms/librenms/pull/225">PR225</a>)</li>
+<li>Added ability to update health values (<a href="https://github.com/librenms/librenms/pull/226">PR226</a>)</li>
+<li>Tidied up search box on devices list page (<a href="https://github.com/librenms/librenms/pull/229">PR229</a>)</li>
+<li>Updated port search box and port table list (<a href="https://github.com/librenms/librenms/pull/230">PR230</a>)</li>
+<li>Removed some unused javascript libraries (<a href="https://github.com/librenms/librenms/pull/231">PR231</a>)</li>
+<li>Updated year and column for vertical status summary (<a href="https://github.com/librenms/librenms/pull/232">PR232</a>)</li>
+<li>Tidied up the delete user page (<a href="https://github.com/librenms/librenms/pull/235">PR235</a>)</li>
+<li>Added snmp port to $config (<a href="https://github.com/librenms/librenms/pull/237">PR237</a>)</li>
+<li>Added documentation for lighttpd (<a href="https://github.com/librenms/librenms/pull/238">PR238</a>)</li>
+<li>Updated all device edit pages (<a href="https://github.com/librenms/librenms/pull/239">PR239</a>)</li>
+<li>Added IPv6 only host support (<a href="https://github.com/librenms/librenms/pull/241">PR241</a>)</li>
+<li>Added public status page (<a href="https://github.com/librenms/librenms/pull/246">PR246</a>)</li>
+<li>Added validate_device_id function (<a href="https://github.com/librenms/librenms/pull/257">PR257</a>)</li>
+<li>Added auto detect of install location (<a href="https://github.com/librenms/librenms/pull/259">PR259</a>)</li>
+</ul>
+<h3 id="mar-2014">Mar 2014</h3>
+<h4 id="bug-fixes_7">Bug fixes</h4>
+<ul>
+<li>Removed link to pdf in billing history (<a href="https://github.com/librenms/librenms/pull/146">PR146</a>)</li>
+<li>librenms logs now saved in correct location (<a href="https://github.com/librenms/librenms/pull/163">PR163</a>)</li>
+<li>Updated pfsense detection (<a href="https://github.com/librenms/librenms/pull/182">PR182</a>)</li>
+<li>Fixed health page mini cpu (<a href="https://github.com/librenms/librenms/pull/195">PR195</a>)</li>
+<li>Updated install docs to include php5-json (<a href="https://github.com/librenms/librenms/pull/196">PR196</a>)</li>
+<li>Fixed Dlink interface names (<a href="https://github.com/librenms/librenms/pull/200">PR200</a> / <a href="https://github.com/librenms/librenms/pull/203">PR203</a>)</li>
+<li>Stop shortening IP in shorthost function (<a href="https://github.com/librenms/librenms/pull/210">PR210</a>)</li>
+<li>Fixed status box overlapping (<a href="https://github.com/librenms/librenms/pull/211">PR211</a>)</li>
+<li>Fixed top port overlay issue (<a href="https://github.com/librenms/librenms/pull/212">PR212</a>)</li>
+<li>Updated docs and daily.sh to update DB schemas (<a href="https://github.com/librenms/librenms/pull/215">PR215</a>)</li>
+<li>Updated hardware detection for RouterOS (<a href="https://github.com/librenms/librenms/pull/217">PR217</a>)</li>
+<li>Restore _GET variables for logging in (<a href="https://github.com/librenms/librenms/pull/218">PR218</a>)</li>
+</ul>
+<h4 id="improvements_7">Improvements</h4>
+<ul>
+<li>Updated inventory page to use bootstrap (<a href="https://github.com/librenms/librenms/pull/141">PR141</a>)</li>
+<li>Updated mac / arp pages to use bootstrap (<a href="https://github.com/librenms/librenms/pull/147">PR147</a>)</li>
+<li>Updated devices page to use bootstrap (<a href="https://github.com/librenms/librenms/pull/149">PR149</a>)</li>
+<li>Updated delete host page to use bootstrap (<a href="https://github.com/librenms/librenms/pull/151">PR151</a>)</li>
+<li>Updated print_error function to use bootstrap (<a href="https://github.com/librenms/librenms/pull/153">PR153</a>)</li>
+<li>Updated install docs for Apache 2.3 &gt; (<a href="https://github.com/librenms/librenms/pull/161">PR161</a>)</li>
+<li>Upgraded PHPMailer (<a href="https://github.com/librenms/librenms/pull/169">PR169</a>)</li>
+<li>Added send_mail function using PHPMailer (<a href="https://github.com/librenms/librenms/pull/170">PR170</a>)</li>
+<li>Added new and awesome IRC Bot (<a href="https://github.com/librenms/librenms/pull/171">PR171</a>)</li>
+<li>Added Gentoo detection and logo (<a href="https://github.com/librenms/librenms/pull/174">PR174</a> / <a href="https://github.com/librenms/librenms/pull/179">PR179</a>)</li>
+<li>Added Engenius detection (<a href="https://github.com/librenms/librenms/pull/186">PR186</a>)</li>
+<li>Updated edit user to enable editing (<a href="https://github.com/librenms/librenms/pull/187">PR187</a>)</li>
+<li>Added EAP600 engenius support (<a href="https://github.com/librenms/librenms/pull/188">PR188</a>)</li>
+<li>Added Plugin system (<a href="https://github.com/librenms/librenms/pull/189">PR189</a>)</li>
+<li>MySQL calls updated to use dbFacile (<a href="https://github.com/librenms/librenms/pull/190">PR190</a>)</li>
+<li>Added support for Dlink devices (<a href="https://github.com/librenms/librenms/pull/193">PR193</a>)</li>
+<li>Added Windows 2012 polling support (<a href="https://github.com/librenms/librenms/pull/201">PR201</a>)</li>
+<li>Added purge options for syslog / eventlog (<a href="https://github.com/librenms/librenms/pull/204">PR204</a>)</li>
+<li>Added BGP to global search box (<a href="https://github.com/librenms/librenms/pull/205">PR205</a>)</li>
+</ul>
+<h3 id="feb-2014">Feb 2014</h3>
+<h4 id="bug-fixes_8">Bug fixes</h4>
+<ul>
+<li>Set poller-wrapper.py to be executable (<a href="https://github.com/librenms/librenms/pull/89">PR89</a>)</li>
+<li>Fix device/port down boxes (<a href="https://github.com/librenms/librenms/pull/99">PR99</a>)</li>
+<li>Ports set to be ignored honoured for threshold alerts (<a href="https://github.com/librenms/librenms/pull/104">PR104</a>)</li>
+<li>Added PasswordHash.php to adduser.php (<a href="https://github.com/librenms/librenms/pull/119">PR119</a>)</li>
+<li>build-base.php update to run DB updates (<a href="https://github.com/librenms/librenms/pull/128">PR128</a>)</li>
+</ul>
+<h4 id="improvements_8">Improvements</h4>
+<ul>
+<li>Added web based installer (<a href="https://github.com/librenms/librenms/pull/75">PR75</a>)</li>
+<li>Updated login page design (<a href="https://github.com/librenms/librenms/pull/78">PR78</a>)</li>
+<li>Ability to enable / disable topX boxes (<a href="https://github.com/librenms/librenms/pull/100">PR100</a>)</li>
+<li>Added PHPPass support for MySQL auth logins (<a href="https://github.com/librenms/librenms/pull/101">PR101</a>)</li>
+<li>Updated to Bootstrap 3.1 (<a href="https://github.com/librenms/librenms/pull/106">PR106</a>)</li>
+<li>index.php tidied up (<a href="https://github.com/librenms/librenms/pull/107">PR107</a>)</li>
+<li>Updated device overview page design (<a href="https://github.com/librenms/librenms/pull/113">PR113</a>)</li>
+<li>Updated print_optionbar* to use bootstrap (<a href="https://github.com/librenms/librenms/pull/115">PR115</a>)</li>
+<li>Updated device/port/services box to use bootstrap (<a href="https://github.com/librenms/librenms/pull/117">PR117</a>)</li>
+<li>Updated eventlog / syslog to use bootstrap (<a href="https://github.com/librenms/librenms/pull/132">PR132</a> / <a href="https://github.com/librenms/librenms/pull/134">PR134</a>)</li>
+</ul>
+<h3 id="jan-2014">Jan 2014</h3>
+<h4 id="bug-fixes_9">Bug fixes</h4>
+<ul>
+<li>Moved location redirect for logout (<a href="https://github.com/librenms/librenms/pull/55">PR55</a>)</li>
+<li>Remove debug statements from process_syslog (<a href="https://github.com/librenms/librenms/pull/57">PR57</a>)</li>
+<li>Stop print-syslog.inc.php from shortening hostnames (<a href="https://github.com/librenms/librenms/pull/62">PR62</a>)</li>
+<li>Moved some variables from defaults.inc.php to definitions.inc.php (<a href="https://github.com/librenms/librenms/pull/66">PR66</a>)</li>
+<li>Fixed title being set correctly (<a href="https://github.com/librenms/librenms/pull/73">PR73</a>)</li>
+<li>Added documentation to enable billing module (<a href="https://github.com/librenms/librenms/pull/74">PR74</a>)</li>
+</ul>
+<h4 id="improvements_9">Improvements</h4>
+<ul>
+<li>Deleting devices now asks for confirmation (<a href="https://github.com/librenms/librenms/pull/53">PR53</a>)</li>
+<li>Added ARP discovered device name and IP to eventlog (<a href="https://github.com/librenms/librenms/pull/54">PR54</a>)</li>
+<li>Initial updated design release (<a href="https://github.com/librenms/librenms/pull/59">PR59</a>)</li>
+<li>Added ifAlias script (<a href="https://github.com/librenms/librenms/pull/70">PR70</a>)</li>
+<li>Added console ui (<a href="https://github.com/librenms/librenms/pull/72">PR72</a>)</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.5e60981f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
