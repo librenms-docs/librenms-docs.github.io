@@ -840,6 +840,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#allied-telesis-alliedware-plus_1" title="Allied Telesis Alliedware Plus" class="md-nav__link">
+    Allied Telesis Alliedware Plus
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2469,6 +2476,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#allied-telesis-alliedware-plus_1" title="Allied Telesis Alliedware Plus" class="md-nav__link">
+    Allied Telesis Alliedware Plus
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2726,14 +2740,12 @@ log host source &lt;eth0&gt;
 </code></pre>
 
 <h4 id="juniper-screenos">Juniper ScreenOS</h4>
-<p>```ssh
-$config['os']['screenos']['syslog_hook'][] = Array('regex' =&gt; '/System configuration saved/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');</p>
-<pre><code>
-#### Allied Telesis Alliedware Plus
-**Note:** At least software version 5.4.8-2.1 is required. ```log host x.x.x.x level notices program imi``` may also be required depending on configuration. This is to ensure the syslog hook log message gets sent to the syslog server. 
+<pre><code class="ssh">$config['os']['screenos']['syslog_hook'][] = Array('regex' =&gt; '/System configuration saved/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
 
-```ssh
-$config['os']['awplus']['syslog_hook'][] = Array('regex' =&gt; '/IMI.+.Startup-config saved on/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+<h4 id="allied-telesis-alliedware-plus_1">Allied Telesis Alliedware Plus</h4>
+<p><strong>Note:</strong> At least software version 5.4.8-2.1 is required. <code>log host x.x.x.x level notices program imi</code> may also be required depending on configuration. This is to ensure the syslog hook log message gets sent to the syslog server. </p>
+<pre><code class="ssh">$config['os']['awplus']['syslog_hook'][] = Array('regex' =&gt; '/IMI.+.Startup-config saved on/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
 </code></pre>
                 
                   
