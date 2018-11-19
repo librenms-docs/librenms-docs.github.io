@@ -1273,6 +1273,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_links" title="list_links" class="md-nav__link">
+    list_links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_links" title="get_links" class="md-nav__link">
+    get_links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_link" title="get_link" class="md-nav__link">
+    get_link
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2143,6 +2164,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_links" title="list_links" class="md-nav__link">
+    list_links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_links" title="get_links" class="md-nav__link">
+    get_links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_link" title="get_link" class="md-nav__link">
+    get_link
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2223,6 +2265,104 @@
    &quot;vlan_mtu&quot;: null
     }
   ]
+}
+</code></pre>
+
+<h3 id="list_links"><code>list_links</code></h3>
+<p>Get a list of all Links.</p>
+<p>Route: <code>/api/v0/resources/links</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/links
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;id&quot;: 10,
+            &quot;local_port_id&quot;: 100,
+            &quot;local_device_id&quot;: 1,
+            &quot;remote_port_id&quot;: 200,
+            &quot;active&quot;: 1,
+            &quot;protocol&quot;: &quot;lldp&quot;,
+            &quot;remote_hostname&quot;: &quot;host2.example.com&quot;,
+            &quot;remote_device_id&quot;: 2,
+            &quot;remote_port&quot;: &quot;xe-0/0/1&quot;,
+            &quot;remote_platform&quot;: null,
+            &quot;remote_version&quot;: &quot;Example Router v.1.0&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
+<h3 id="get_links"><code>get_links</code></h3>
+<p>Get a list of Links per giver device.</p>
+<p>Route: <code>/api/v0/devices/:hostname/links</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/links
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;id&quot;: 10,
+            &quot;local_port_id&quot;: 100,
+            &quot;local_device_id&quot;: 1,
+            &quot;remote_port_id&quot;: 200,
+            &quot;active&quot;: 1,
+            &quot;protocol&quot;: &quot;lldp&quot;,
+            &quot;remote_hostname&quot;: &quot;host2.example.com&quot;,
+            &quot;remote_device_id&quot;: 2,
+            &quot;remote_port&quot;: &quot;xe-0/0/1&quot;,
+            &quot;remote_platform&quot;: null,
+            &quot;remote_version&quot;: &quot;Example Router v.1.0&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 10
+}
+</code></pre>
+
+<h3 id="get_link"><code>get_link</code></h3>
+<p>Retrieves Link by ID</p>
+<p>Route: <code>/api/v0/resources/links/:id</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/link/10
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;id&quot;: 10,
+            &quot;local_port_id&quot;: 100,
+            &quot;local_device_id&quot;: 1,
+            &quot;remote_port_id&quot;: 200,
+            &quot;active&quot;: 1,
+            &quot;protocol&quot;: &quot;lldp&quot;,
+            &quot;remote_hostname&quot;: &quot;host2.example.com&quot;,
+            &quot;remote_device_id&quot;: 2,
+            &quot;remote_port&quot;: &quot;xe-0/0/1&quot;,
+            &quot;remote_platform&quot;: null,
+            &quot;remote_version&quot;: &quot;Example Router v.1.0&quot;
+        }
+    ],
+    &quot;count&quot;: 1
 }
 </code></pre>
                 
