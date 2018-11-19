@@ -1426,12 +1426,100 @@
     Examples
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-template" title="Default Template:" class="md-nav__link">
+    Default Template:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports-utilization-template" title="Ports Utilization Template:" class="md-nav__link">
+    Ports Utilization Template:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" title="Storage:" class="md-nav__link">
+    Storage:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temperature-sensors" title="Temperature Sensors:" class="md-nav__link">
+    Temperature Sensors:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-sensors" title="Value Sensors:" class="md-nav__link">
+    Value Sensors:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-alert" title="Memory Alert:" class="md-nav__link">
+    Memory Alert:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" title="Advanced options" class="md-nav__link">
+    Advanced options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-formatting" title="Conditional formatting" class="md-nav__link">
+    Conditional formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traceroute-debugs" title="Traceroute debugs" class="md-nav__link">
+    Traceroute debugs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#examples-html" title="Examples HTML" class="md-nav__link">
     Examples HTML
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processor-alert-with-graph" title="Processor Alert with Graph:" class="md-nav__link">
+    Processor Alert with Graph:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2175,12 +2263,100 @@
     Examples
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-template" title="Default Template:" class="md-nav__link">
+    Default Template:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports-utilization-template" title="Ports Utilization Template:" class="md-nav__link">
+    Ports Utilization Template:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" title="Storage:" class="md-nav__link">
+    Storage:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temperature-sensors" title="Temperature Sensors:" class="md-nav__link">
+    Temperature Sensors:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-sensors" title="Value Sensors:" class="md-nav__link">
+    Value Sensors:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-alert" title="Memory Alert:" class="md-nav__link">
+    Memory Alert:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-options" title="Advanced options" class="md-nav__link">
+    Advanced options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-formatting" title="Conditional formatting" class="md-nav__link">
+    Conditional formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traceroute-debugs" title="Traceroute debugs" class="md-nav__link">
+    Traceroute debugs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#examples-html" title="Examples HTML" class="md-nav__link">
     Examples HTML
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processor-alert-with-graph" title="Processor Alert with Graph:" class="md-nav__link">
+    Processor Alert with Graph:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2260,6 +2436,9 @@
 <li>ping min (if icmp enabled): <code>$alert-&gt;ping_min</code></li>
 <li>ping max (if icmp enabled): <code>$alert-&gt;ping_max</code></li>
 <li>ping avg (if icmp enabled): <code>$alert-&gt;ping_avg</code></li>
+<li>debug (array) If <code>$config['debug']['run_trace] = true;</code> is set then this will contain:</li>
+<li>traceroute (if enabled you will receive traceroute output): <code>$alert-&gt;debug['traceroute']</code></li>
+<li>output (if the traceroute fails this will contain why): <code>$alert-&gt;debug['output']</code></li>
 <li>Title for the Alert: <code>$alert-&gt;title</code></li>
 <li>Time Elapsed, Only available on recovery (<code>$alert-&gt;state == 0</code>): <code>$alert-&gt;elapsed</code></li>
 <li>Rule Builder (the actual rule) (use <code>{!! $alert-&gt;builder !!}</code>): <code>$alert-&gt;builder</code></li>
@@ -2308,7 +2487,7 @@ Displays the following:</p>
 
 <p>More info: https://laravel.com/docs/5.4/blade#extending-a-layout</p>
 <h2 id="examples">Examples</h2>
-<p>Default Template:</p>
+<h4 id="default-template">Default Template:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 Severity: {{ $alert-&gt;severity }}
 @if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
@@ -2326,7 +2505,7 @@ Alert sent to:
 @endforeach
 </code></pre>
 
-<p>Ports Utilization Template:</p>
+<h4 id="ports-utilization-template">Ports Utilization Template:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 Device Name: {{ $alert-&gt;hostname }}
 Severity: {{ $alert-&gt;severity }}
@@ -2342,7 +2521,7 @@ Outbound Utilization: {{ (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100 
 @endforeach
 </code></pre>
 
-<p>Storage:</p>
+<h4 id="storage">Storage:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 
 Device Name: {{ $alert-&gt;hostname }}
@@ -2363,7 +2542,7 @@ Percent Utilized: {{ $value['storage_perc'] }}
 @endforeach
 </code></pre>
 
-<p>Temperature Sensors:</p>
+<h4 id="temperature-sensors">Temperature Sensors:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 
 Device Name: {{ $alert-&gt;hostname }}
@@ -2388,7 +2567,7 @@ High Temperature Limit: {{ $value['sensor_limit'] }} °C
 @endif
 </code></pre>
 
-<p>Value Sensors:</p>
+<h4 id="value-sensors">Value Sensors:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 
 Device Name: {{ $alert-&gt;hostname }}
@@ -2413,7 +2592,7 @@ Limit: {{ $value['sensor_limit'] }}
 @endif
 </code></pre>
 
-<p>Memory Alert:</p>
+<h4 id="memory-alert">Memory Alert:</h4>
 <pre><code class="text">{{ $alert-&gt;title }}
 
 Device Name: {{ $alert-&gt;hostname }}
@@ -2432,10 +2611,20 @@ Percent Utilized: {{ $value['mempool_perc'] }}
 @endforeach 
 </code></pre>
 
+<h3 id="advanced-options">Advanced options</h3>
+<h4 id="conditional-formatting">Conditional formatting</h4>
 <p>Conditional formatting example, will display a link to the host in email or just the hostname in any other transport:</p>
 <pre><code class="text">@if ($alert-&gt;transport == mail)&lt;a href=&quot;https://my.librenms.install/device/device={{ $alert-&gt;hostname }}/&quot;&gt;{{ $alert-&gt;hostname }}&lt;/a&gt;
 @else
 {{ $alert-&gt;hostname }}
+@endif
+</code></pre>
+
+<h4 id="traceroute-debugs">Traceroute debugs</h4>
+<pre><code class="text">@if ($alert-&gt;status == 0)
+    @if ($alert-&gt;status == icmp)
+        {{ $alert-&gt;debug['traceroute'] }}
+    @endif
 @endif
 </code></pre>
 
@@ -2466,7 +2655,7 @@ $config['allow_unauth_graphs'] = true;
 &lt;/div&gt;
 </code></pre>
 
-<p>Processor Alert with Graph:</p>
+<h4 id="processor-alert-with-graph">Processor Alert with Graph:</h4>
 <pre><code>{{ $alert-&gt;title }} &lt;br&gt;
 Severity: {{ $alert-&gt;severity }}  &lt;br&gt;
 @if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
