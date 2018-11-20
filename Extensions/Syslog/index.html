@@ -841,6 +841,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configuration-options" title="Configuration Options" class="md-nav__link">
+    Configuration Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching-syslogs-to-hosts-with-different-names" title="Matching syslogs to hosts with different names" class="md-nav__link">
+    Matching syslogs to hosts with different names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2477,6 +2497,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#configuration-options" title="Configuration Options" class="md-nav__link">
+    Configuration Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching-syslogs-to-hosts-with-different-names" title="Matching syslogs to hosts with different names" class="md-nav__link">
+    Matching syslogs to hosts with different names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2735,6 +2775,17 @@ log host source &lt;eth0&gt;
 <h4 id="allied-telesis-alliedware-plus_1">Allied Telesis Alliedware Plus</h4>
 <p><strong>Note:</strong> At least software version 5.4.8-2.1 is required. <code>log host x.x.x.x level notices program imi</code> may also be required depending on configuration. This is to ensure the syslog hook log message gets sent to the syslog server. </p>
 <pre><code class="ssh">$config['os']['awplus']['syslog_hook'][] = Array('regex' =&gt; '/IMI.+.Startup-config saved on/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+</code></pre>
+
+<h3 id="configuration-options">Configuration Options</h3>
+<h4 id="matching-syslogs-to-hosts-with-different-names">Matching syslogs to hosts with different names</h4>
+<p>In some cases, you may get logs that aren't being associated with the device in LibreNMS. For example, in LibreNMS the device is known as "ne-core-01", and that's how DNS resolves. However, the received syslogs are for "loopback.core-nw". </p>
+<p>To fix this issue, you can configure LibreNMS to translate the incoming syslog hostname into another hostname, so that the logs get associated with the correct device.</p>
+<p>Example:</p>
+<pre><code class="ssh">$config['syslog_xlate'] = array(
+        'loopback0.core7k1.noc.net' =&gt; 'n7k1-core7k1',
+        'loopback0.core7k2.noc.net' =&gt; 'n7k2-core7k2'
+);
 </code></pre>
                 
                   
