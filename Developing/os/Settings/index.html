@@ -1930,16 +1930,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disable-snmpbulkwalk" title="Disable snmpbulkwalk" class="md-nav__link">
-    Disable snmpbulkwalk
+  <a href="#poller-and-discovery-modules" title="Poller and Discovery Modules" class="md-nav__link">
+    Poller and Discovery Modules
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#poller-and-discovery-modules" title="Poller and Discovery Modules" class="md-nav__link">
-    Poller and Discovery Modules
+  <a href="#snmp-settings" title="SNMP Settings" class="md-nav__link">
+    SNMP Settings
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-snmpbulkwalk" title="Disable snmpbulkwalk" class="md-nav__link">
+    Disable snmpbulkwalk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-the-oids-per-snmpget" title="Limit the oids per snmpget" class="md-nav__link">
+    Limit the oids per snmpget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2187,16 +2207,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disable-snmpbulkwalk" title="Disable snmpbulkwalk" class="md-nav__link">
-    Disable snmpbulkwalk
+  <a href="#poller-and-discovery-modules" title="Poller and Discovery Modules" class="md-nav__link">
+    Poller and Discovery Modules
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#poller-and-discovery-modules" title="Poller and Discovery Modules" class="md-nav__link">
-    Poller and Discovery Modules
+  <a href="#snmp-settings" title="SNMP Settings" class="md-nav__link">
+    SNMP Settings
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-snmpbulkwalk" title="Disable snmpbulkwalk" class="md-nav__link">
+    Disable snmpbulkwalk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-the-oids-per-snmpget" title="Limit the oids per snmpget" class="md-nav__link">
+    Limit the oids per snmpget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2272,12 +2312,6 @@ ifalias: true
 ifindex: true
 </code></pre>
 
-<h3 id="disable-snmpbulkwalk">Disable snmpbulkwalk</h3>
-<p>Some devices have buggy snmp implementations and don't respond well to the more efficient snmpbulkwalk.
-To disable snmpbulkwalk and only use snmpwalk for an os set the following.</p>
-<pre><code class="yaml">nobulk: true
-</code></pre>
-
 <h3 id="poller-and-discovery-modules">Poller and Discovery Modules</h3>
 <p>The various discovery and poller modules can be enabled or disabled per OS.  The defaults are usually reasonable, so likely you won't want to change more than a few.
 These modules can be enabled or disabled per-device in the webui and per os or globally in config.php.
@@ -2288,9 +2322,20 @@ discovery_modules:
     arp-table: false
 </code></pre>
 
+<h3 id="snmp-settings">SNMP Settings</h3>
+<h4 id="disable-snmpbulkwalk">Disable snmpbulkwalk</h4>
+<p>Some devices have buggy snmp implementations and don't respond well to the more efficient snmpbulkwalk.
+To disable snmpbulkwalk and only use snmpwalk for an os set the following.</p>
+<pre><code class="yaml">nobulk: true
+</code></pre>
+
+<h4 id="limit-the-oids-per-snmpget">Limit the oids per snmpget</h4>
+<pre><code class="yaml">snmp_max_oid: 8
+</code></pre>
+
 <h3 id="storage-settings">Storage Settings</h3>
 <p>See also: <a href="../../../Support/Configuration/#storage-configuration">Global Storage Config</a></p>
-<pre><code class="yaml">ignore_mount array: # exact match
+<pre><code class="yaml">ignore_mount_array: # exact match
     - /var/run
 ignore_mount_string: # substring
     - run
