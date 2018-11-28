@@ -976,6 +976,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-installed-plugins" title="Pre installed plugins" class="md-nav__link">
+    Pre installed plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" title="Setup" class="md-nav__link">
     Setup
   </a>
@@ -2157,6 +2164,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-installed-plugins" title="Pre installed plugins" class="md-nav__link">
+    Pre installed plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" title="Setup" class="md-nav__link">
     Setup
   </a>
@@ -2216,10 +2230,27 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Services.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="setting-up-services">Setting up Services</h1>
+                <div class="toc">
+<ul>
+<li><a href="#setting-up-services">Setting up services</a><ul>
+<li><a href="#pre-installed-plugins">Pre installed plugins</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#performance-data">Performance data</a></li>
+<li><a href="#alerting">Alerting</a></li>
+<li><a href="#debug">Debug</a></li>
+<li><a href="#service-checks-polling-logic">Service checks polling logic</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="setting-up-services">Setting up services</h1>
 <p>Services within LibreNMS provides the ability to use Nagios plugins to perform additional monitoring outside of SNMP.</p>
 <p><strong>These services are tied into an existing device so you need at least one device to be able to add it
 to LibreNMS - localhost is a good one. This is needed in order for alerting to work properly.</strong></p>
+<h2 id="pre-installed-plugins">Pre installed plugins</h2>
+<p>Note: Plugins will only load if they are prefixed with "check_" and they have that prefix stripped out when displaying in the "Add Serice" GUI "Type" dropdown list.</p>
+<p>Plugins come from two main places <a href="https://github.com/bzed/pkg-nagios-plugins-contrib">pkg-nagios-plugins-contrib</a> and <a href="https://www.monitoring-plugins.org">monitoring-plugins</a>. This is where you can find the documentation for most, if not all of the plugins.</p>
+<p>The plugins are bundled with the pre build VM images via the packge <code>monitoring-plugins</code> in Ubuntu and <code>nagios-plugins-all</code> in CentOS.</p>
 <h2 id="setup">Setup</h2>
 <blockquote>
 <p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
