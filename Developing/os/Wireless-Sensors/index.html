@@ -2195,6 +2195,12 @@
 <td>The Signal to Noise ratio, which is signal - noise floor</td>
 </tr>
 <tr>
+<td>xpi</td>
+<td>dBm</td>
+<td>WirelessXpiDiscovery</td>
+<td>The Cross Polar Interference values</td>
+</tr>
+<tr>
 <td>ssr</td>
 <td>dB</td>
 <td>WirelessSsrDiscovery</td>
@@ -2255,7 +2261,7 @@ class Airos extends OS implements WirelessClientsDiscovery
 <li>$entPhysicalIndex = Defaults to null. Sets the entPhysicalIndex to be used to look up further hardware if available.</li>
 <li>$entPhysicalIndexMeasured = Defaults to null. Sets the type of entPhysicalIndex used, i.e ports.</li>
 </ul>
-<p>Polling is done automatically based on the discovered data.  If for some reason you need to override polling, you can implement 
+<p>Polling is done automatically based on the discovered data.  If for some reason you need to override polling, you can implement
 the required polling interface in <code>LibreNMS/Interfaces/Polling/Sensors</code>.  Using the polling interfaces should be avoided if possible.</p>
 <p>Graphing is performed automatically for wireless sensors, no custom graphing is required or supported.</p>
                 
