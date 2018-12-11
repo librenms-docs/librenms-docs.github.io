@@ -1594,6 +1594,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#port-has-xdp-neighbour-boolean" title="Port has xDP neighbour (Boolean)" class="md-nav__link">
+    Port has xDP neighbour (Boolean)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-has-xdp-neighbour-already-known-in-librenms-boolean" title="Port has xDP neighbour already known in LibreNMS (Boolean)" class="md-nav__link">
+    Port has xDP neighbour already known in LibreNMS (Boolean)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#device-component-down-junos" title="Device component down [JunOS]" class="md-nav__link">
     Device component down [JunOS]
   </a>
@@ -2424,6 +2438,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#port-has-xdp-neighbour-boolean" title="Port has xDP neighbour (Boolean)" class="md-nav__link">
+    Port has xDP neighbour (Boolean)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-has-xdp-neighbour-already-known-in-librenms-boolean" title="Port has xDP neighbour already known in LibreNMS (Boolean)" class="md-nav__link">
+    Port has xDP neighbour already known in LibreNMS (Boolean)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#device-component-down-junos" title="Device component down [JunOS]" class="md-nav__link">
     Device component down [JunOS]
   </a>
@@ -2561,6 +2589,14 @@
 <p>Entity: <code>ports.ifOperStatus != ports.ifOperStatus_prev AND ports.ifOperStatus_prev = "up" AND ports.ifAdminStatus = "up"</code></p>
 <p>Description: Ports that were previously up and have now gone down.</p>
 <p>Example: <code>macros.port_now_down = 1</code></p>
+<h3 id="port-has-xdp-neighbour-boolean">Port has xDP neighbour (Boolean)</h3>
+<p>Entity: <code>%macros.port AND %links.local_port_id = %ports.port_id</code></p>
+<p>Description: Ports that have an xDP (lldp, cdp, etc) neighbour.</p>
+<p>Example: <code>macros.port_has_xdp_neighbours = 1</code></p>
+<h3 id="port-has-xdp-neighbour-already-known-in-librenms-boolean">Port has xDP neighbour already known in LibreNMS (Boolean)</h3>
+<p>Entity: <code>%macros.port_has_neighbours AND (%links.remote_port_id IS NOT NULL)</code></p>
+<p>Description: Ports that have an xDP (lldp, cdp, etc) neighbour that is already known in libreNMS.</p>
+<p>Example: <code>macros.port_has_xdp_neighbours_device = 1</code></p>
 <h3 id="device-component-down-junos">Device component down [JunOS]</h3>
 <p>Entity: <code>sensors.sensor_class = "state" AND sensors.sensor_current != "6" AND sensors.sensor_type = "jnxFruState" AND sensors.sensor_current != "2"</code></p>
 <p>Description: Device component is down such as Fan, PSU, etc for JunOS devices.</p>
