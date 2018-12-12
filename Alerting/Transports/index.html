@@ -3116,8 +3116,12 @@ Please consult PlaySMS's documentation regarding number formatting.</p>
 </tbody>
 </table>
 <h2 id="pushover">Pushover</h2>
-<p>If you want to change the <a href="https://pushover.net/api#sounds">notification sounds</a> then add it in Pushover Options:</p>
-<p><code>sound_critical=falling</code></p>
+<p>If you want to change the default <a href="https://pushover.net/api#sounds">notification sound</a> for all notifications then you can add the following in Pushover Options:</p>
+<p><code>sound=falling</code></p>
+<p>You also have the possibility to change sound per severity:
+<code>sound_critical=falling</code>
+<code>sound_warning=siren</code>
+<code>sound_ok=magic</code></p>
 <p>Enabling Pushover support is fairly easy, there are only two required parameters.</p>
 <p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
 <p>Now copy your API Key and obtain your User Key from the newly created Application and setup the transport.</p>
@@ -3142,6 +3146,14 @@ Please consult PlaySMS's documentation regarding number formatting.</p>
 <tr>
 <td>Pushover Options</td>
 <td>sound_critical=falling</td>
+</tr>
+<tr>
+<td></td>
+<td>sound_warning=siren</td>
+</tr>
+<tr>
+<td></td>
+<td>sound_ok=magic</td>
 </tr>
 </tbody>
 </table>
