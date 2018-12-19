@@ -2250,7 +2250,7 @@ to LibreNMS - localhost is a good one. This is needed in order for alerting to w
 <h2 id="pre-installed-plugins">Pre installed plugins</h2>
 <p>Note: Plugins will only load if they are prefixed with "check_" and they have that prefix stripped out when displaying in the "Add Serice" GUI "Type" dropdown list.</p>
 <p>Plugins come from two main places <a href="https://github.com/bzed/pkg-nagios-plugins-contrib">pkg-nagios-plugins-contrib</a> and <a href="https://www.monitoring-plugins.org">monitoring-plugins</a>. This is where you can find the documentation for most, if not all of the plugins.</p>
-<p>The plugins are bundled with the pre build VM images via the packge <code>monitoring-plugins</code> in Ubuntu and <code>nagios-plugins-all</code> in CentOS.</p>
+<p>The plugins are bundled with the pre build VM images via the package <code>monitoring-plugins</code> in Ubuntu and <code>nagios-plugins-all</code> in CentOS.</p>
 <h2 id="setup">Setup</h2>
 <blockquote>
 <p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
@@ -2278,8 +2278,8 @@ For example: </p>
 <p>Now you can add services via the main Services link in the navbar, or via the 'Add Service' link within the device, services page.</p>
 <p>Note that some services (procs, inodes, load and similar) will always poll the local LibreNMS server it's running on, regardless of which device you add it to.</p>
 <h2 id="performance-data">Performance data</h2>
-<p>By default, the check-services script will collect all performance data that the Nagios script returns and display each datasource on a separate graph.
-However for some modules it would be better if some of this information was consolidated on a single graph.
+<p>By default, the check-services script will collect all performance data that the Nagios script returns and display each datasource on a separate graph. LibreNMS expects scripts to return using Nagios convention for the response message structure: <a href="https://nagios-plugins.org/doc/guidelines.html#AEN200">AEN200</a></p>
+<p>However for some modules it would be better if some of this information was consolidated on a single graph.
 An example is the ICMP check. This check returns: Round Trip Average (rta), Round Trip Min (rtmin) and Round Trip Max (rtmax).
 These have been combined onto a single graph.</p>
 <p>If you find a check script that would benefit from having some datasources graphed together, please log an issue on GitHub with the debug information from the script, and let us know which DS's should go together. Example below:</p>
