@@ -1446,13 +1446,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#webui" title="WebUI" class="md-nav__link">
-    WebUI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#documentation" title="Documentation" class="md-nav__link">
     Documentation
   </a>
@@ -2164,13 +2157,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#webui" title="WebUI" class="md-nav__link">
-    WebUI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#documentation" title="Documentation" class="md-nav__link">
     Documentation
   </a>
@@ -2215,11 +2201,6 @@ of the transport config to get it ready for use.</p>
 <p><code>configTemplate()</code> - This is used to define the form that will accept the transport config in the webui and then what 
 data should be validated and how. Validation is done using <a href="https://laravel.com/docs/5.4/validation">Laravel validation</a></p>
 <p>The following function is <strong>not</strong> required for new Transports and is for legacy reasons only. <code>deliverAlertOld()</code>.</p>
-<h3 id="webui">WebUI</h3>
-<p>At present you will also need to add the new transport to the select part of the form in
-<code>html/includes/modal/edit_alert_transport.inc.php</code>. I.e:</p>
-<p><code>&lt;option value="discord-form"&gt;Discord&lt;/option&gt;</code></p>
-<p>Please ensure you add the new entry in the correct location sorted alphabetically.</p>
 <h3 id="documentation">Documentation</h3>
 <p>Please don't forget to update the <a href="../Transports/">Transport</a> file to include details of your new transport.</p>
 <p>A table should be provided to indicate the form values that we ask for and examples. I.e:</p>
