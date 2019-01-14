@@ -1751,6 +1751,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#app" title="app/" class="md-nav__link">
+    app/
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#librenms" title="LibreNMS/" class="md-nav__link">
     LibreNMS/
   </a>
@@ -1870,13 +1877,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lib" title="lib/" class="md-nav__link">
-    lib/
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#logs" title="logs/" class="md-nav__link">
     logs/
   </a>
@@ -1898,8 +1898,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-schema" title="sql-schema/" class="md-nav__link">
-    sql-schema/
+  <a href="#databasemigrations" title="database/migrations" class="md-nav__link">
+    database/migrations
   </a>
   
 </li>
@@ -2290,6 +2290,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#app" title="app/" class="md-nav__link">
+    app/
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#librenms" title="LibreNMS/" class="md-nav__link">
     LibreNMS/
   </a>
@@ -2409,13 +2416,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lib" title="lib/" class="md-nav__link">
-    lib/
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#logs" title="logs/" class="md-nav__link">
     logs/
   </a>
@@ -2437,8 +2437,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-schema" title="sql-schema/" class="md-nav__link">
-    sql-schema/
+  <a href="#databasemigrations" title="database/migrations" class="md-nav__link">
+    database/migrations
   </a>
   
 </li>
@@ -2469,19 +2469,22 @@
                 
                 
                 <h1 id="code-structure">Code structure.</h1>
-<p>This document will try and provide a good overview of how the code is structured within LibreNMS. We will go through the main directories and provide information on how and when they are used.</p>
+<p>This document will try and provide a good overview of how the code is structured within LibreNMS. We will go through the main directories and provide information on how and when they are used.
+LibreNMS now uses <a href="https://laravel.com/docs/">Laravel</a> for much of it's frontend (webui) and database code. Much of the Laravel documentation applies: https://laravel.com/docs/structure</p>
 <h3 id="doc">doc/</h3>
 <p>This is the location of all the documentation for LibreNMS, this is in GitHub markdown format and can be viewed <a href="http://docs.librenms.org/">online</a></p>
+<h3 id="app">app/</h3>
+<p>Most Laravel and Eloquent classes should be under this directory.</p>
 <h3 id="librenms">LibreNMS/</h3>
-<p>Any classes should be under this directory, with a directory structure that matches the namespace.  One class per file. See <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> for details.</p>
+<p>Classes that don't belong to the Laravel application belong in this directory, with a directory structure that matches the namespace.  One class per file. See <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> for details.</p>
 <h3 id="html">html/</h3>
-<p>All web accessible files are located here.</p>
+<p>All legacy web accessible files are located here. New pages should follow the Laravel conventions.</p>
 <h3 id="htmlapi_v0php">html/api_v0.php</h3>
 <p>This is the API routing file which directs users to the correct API function based on the API endpoint call.</p>
 <h3 id="htmlindexphp">html/index.php</h3>
 <p>This is the main file which all links within LibreNMS are parsed through. It loads the majority of the relevant includes needed for the control panel to function. CSS and JS files are also loaded here.</p>
 <h3 id="htmlcss">html/css</h3>
-<p>All used css files are located here. Apart from legacy files, anything in here is now a symlink.</p>
+<p>All used css files are located here.</p>
 <h3 id="htmlcsscustom">html/css/custom</h3>
 <p>This is a folder you can put custom css files into that won't interfere with auto updates</p>
 <h3 id="htmlforms">html/forms</h3>
@@ -2499,23 +2502,21 @@
 <h3 id="htmlincludestable">html/includes/table/</h3>
 <p>This folder contains all of the ajax calls when generating the table of data. Most have been converted over so if you are planning to add a new table of data then you will do so here for all of the back end data calls.</p>
 <h3 id="htmljs">html/js/</h3>
-<p>All used JS files are located here. Apart from legacy files, anything in here is now a symlink.</p>
+<p>All used JS files are located here.</p>
 <h3 id="htmlpages">html/pages</h3>
 <p>This folder contains the URL structure when browsing the Web UI. So for example /devices/ is actually a call to html/pages/devices.inc.php, /device/tab=ports/ is html/pages/device/ports.inc.php.</p>
 <h3 id="includes">includes/</h3>
-<p>This folder is quite big and contains all the files to make the cli and polling / discovery to work.</p>
+<p>This folder is quite big and contains all the files to make the cli and polling / discovery to work.  This code is not currently accessible from Laravel code (intentionally).</p>
 <h3 id="includesdiscovery-includespolling">includes/discovery/, includes/polling/</h3>
 <p>All the discovery and polling code. The format is usually quite similar between discovery and polling. Both are made up of modules and the files within the relevant directories will match that module. So for instance if you want to update the os detection for a device, you would look in includes/discovery/os/ for a file named after the operating system such as linux: includes/discovery/linux.inc.php. Within here you would update or add support for newer OS'. This is the same for polling as well.</p>
-<h3 id="lib">lib/</h3>
-<p>This is for all of the libraries used by LibreNMS. If you are including a 3rd party module, you would add the files in here either via git subtree if it's hosted on GitHub or just by copying the folder. Please ensure you maintain any copyright notices. You will then need to either reference the files in this folder directly from where you need them or alternatively as is the case with css and js libraries then symlink the needed files.</p>
 <h3 id="logs">logs/</h3>
-<p>Usually contains your web servers logs but can also contain poller logs and other items,</p>
+<p>Contains the main librenms.log file by default, but can also contain your web server's logs, poller logs, and other items.</p>
 <h3 id="mibs">mibs/</h3>
-<p>Here is where all of the mibs are located, traditionally this has meant having all mibs in one directory but for certain vendors this has changed and these are now located in sub folders.</p>
+<p>Here is where all of the mibs are located.  Generally standard mibs should be in the root directory and specific vendor mibs should be in their own subdirectory.</p>
 <h3 id="rrd">rrd/</h3>
 <p>Simple enough, this is where all of the rrd files are created. They are stored in folders based on the device hostname.</p>
-<h3 id="sql-schema">sql-schema/</h3>
-<p>In here are all of the SQL schema files. These are used to setup a new instance of LibreNMS automatically when build-base.php is called or when an update is done and includes/sql-schema/update.php is called.</p>
+<h3 id="databasemigrations">database/migrations</h3>
+<p>Contains all the database migrations.  See Laravel docs for additional info: https://laravel.com/docs/migrations</p>
                 
                   
                     <h2 id="__source">Source</h2>

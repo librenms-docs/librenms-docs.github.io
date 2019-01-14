@@ -2967,8 +2967,8 @@ git checkout issue-1337
 <h3 id="what-is-the-demo-user-for"><a name="faq30"> What is the Demo User for?</a></h3>
 <p>Demo users allow full access except adding/editing users and deleting devices and can't change passwords.</p>
 <h3 id="why-does-modifying-default-alert-template-fail"><a name="faq31"> Why does modifying 'Default Alert Template' fail?</a></h3>
-<p>This template's entry could be missing in the database. Please run:</p>
-<pre><code class="bash">mysql -u librenms -p &lt; sql-schema/202.sql
+<p>This template's entry could be missing in the database. Please run this from the LibreNMS directory:</p>
+<pre><code class="bash">php artisan db:seed --class=DefaultAlertTemplateSeeder
 </code></pre>
 
 <h3 id="why-would-alert-un-mute-itself"><a name="faq32"> Why would alert un-mute itself?</a></h3>
