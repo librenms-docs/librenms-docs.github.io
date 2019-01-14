@@ -1580,6 +1580,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-librenms-use-mibs" title="How does LibreNMS use MIBs?" class="md-nav__link">
+    How does LibreNMS use MIBs?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#why-do-i-get-blank-pages-sometimes-in-the-webui" title=" Why do I get blank pages sometimes in the WebUI?" class="md-nav__link">
      Why do I get blank pages sometimes in the WebUI?
@@ -2451,6 +2464,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-librenms-use-mibs" title="How does LibreNMS use MIBs?" class="md-nav__link">
+    How does LibreNMS use MIBs?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#why-do-i-get-blank-pages-sometimes-in-the-webui" title=" Why do I get blank pages sometimes in the WebUI?" class="md-nav__link">
      Why do I get blank pages sometimes in the WebUI?
@@ -2710,6 +2736,7 @@
 </ul>
 <h3 id="support">Support</h3>
 <ul>
+<li><a href="#how-does-librenms-use-mibs">How does LibreNMS use MIBs?</a></li>
 <li><a href="#faq6">Why do I get blank pages sometimes in the WebUI?</a></li>
 <li><a href="#faq10">Why do I not see any graphs?</a></li>
 <li><a href="#faq7">How do I debug pages not loading correctly?</a></li>
@@ -2774,6 +2801,8 @@
 <p>However we will always aim to help wherever possible so if you are running a distro that isn't one of the above then give it a try anyway and if you need help then jump on the <a href="https://t.libren.ms/discord">discord server</a>.</p>
 <h4 id="do-you-have-a-demo-available"><a name="faq5"> Do you have a demo available?</a></h4>
 <p>We do indeed, you can find access to the demo <a href="https://demo.librenms.org">here</a></p>
+<h3 id="how-does-librenms-use-mibs"><a name='how-does-librenms-use-mibs'>How does LibreNMS use MIBs?</a></h3>
+<p>LibreNMS does not parse MIBs to discover sensors for devices.  LibreNMS uses static discovery definitions written in YAML or PHP.  Therefore, updating a MIB alone will not improve OS support, the definitions must be updated.  LibreNMS only uses MIBs to make OIDs easier to read.</p>
 <h4 id="why-do-i-get-blank-pages-sometimes-in-the-webui"><a name="faq6"> Why do I get blank pages sometimes in the WebUI?</a></h4>
 <p>The first thing to do is to add /debug=yes/ to the end of the URI (I.e /devices/debug=yes/).</p>
 <p>If the page you are trying to load has a substantial amount of data in it then it could be that the php memory limit needs to be increased in <a href="../Configuration/#core">config.php</a>.</p>
