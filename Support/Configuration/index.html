@@ -3114,18 +3114,23 @@ $config['poller_modules']['bgp-peers'] = false;
 </code></pre>
 
 <h3 id="snmp-settings">SNMP Settings</h3>
-<pre><code class="php">$config['snmp']['timeout'] = 1;            # timeout in seconds
-$config['snmp']['retries'] = 5;            # how many times to retry the query
-$config['snmp']['transports'] = array('udp', 'udp6', 'tcp', 'tcp6');
-$config['snmp']['version'] = ['v2c', 'v3', 'v1'];         # Default versions to use
-$config['snmp']['port'] = 161;
+<p>Default SNMP options including retry and timeout settings and also default version and port.</p>
+<pre><code class="php">$config['snmp']['timeout'] = 1;                         # timeout in seconds
+$config['snmp']['retries'] = 5;                         # how many times to retry the query
+$config['snmp']['transports'] = array('udp', 'udp6', 'tcp', 'tcp6');    # Transports to use
+$config['snmp']['version'] = ['v2c', 'v3', 'v1'];               # Default versions to use
+$config['snmp']['port'] = 161;                      # Default port
+$config['snmp']['exec_timeout'] = 1200;                 # execution time limit in seconds
 </code></pre>
 
-<p>Default SNMP options including retry and timeout settings and also default version and port.</p>
+<blockquote>
+<p>NOTE: <code>timeout</code> is the time to wait for an answer and <code>exec_timeout</code> is the max time to run a query. </p>
+</blockquote>
+<p>The default v1/v2c snmp community to use, you can expand this array with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <pre><code class="php">$config['snmp']['community'][0] = &quot;public&quot;;
 </code></pre>
 
-<p>The default v1/v2c snmp community to use, you can expand this array with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
+<p>The default v3 snmp details to use, you can expand this array with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <pre><code class="php">$config['snmp']['v3'][0]['authlevel'] = &quot;noAuthNoPriv&quot;;  # noAuthNoPriv | authNoPriv | authPriv
 $config['snmp']['v3'][0]['authname'] = &quot;root&quot;;           # User Name (required even for noAuthNoPriv)
 $config['snmp']['v3'][0]['authpass'] = &quot;&quot;;               # Auth Passphrase
@@ -3134,7 +3139,6 @@ $config['snmp']['v3'][0]['cryptopass'] = &quot;&quot;;             # Privacy (En
 $config['snmp']['v3'][0]['cryptoalgo'] = &quot;AES&quot;;          # AES | DES
 </code></pre>
 
-<p>The default v3 snmp details to use, you can expand this array with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <h3 id="auto-discovery-settings">Auto discovery settings</h3>
 <p><a href="../../Extensions/Auto-Discovery/">Auto-Discovery</a></p>
 <h3 id="email-configuration">Email configuration</h3>
