@@ -2765,7 +2765,7 @@ log host source &lt;eth0&gt;
 </code></pre>
 
 <h4 id="juniper-junos_1">Juniper Junos</h4>
-<pre><code class="ssh">$config['os']['junos']['syslog_hook'][] = Array('regex' =&gt; '/%UI_COMMIT:/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
+<pre><code class="ssh">$config['os']['junos']['syslog_hook'][] = Array('regex' =&gt; '/UI_COMMIT:/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
 </code></pre>
 
 <h4 id="juniper-screenos">Juniper ScreenOS</h4>
