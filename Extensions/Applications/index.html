@@ -4949,6 +4949,14 @@ Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is u
 <h3 id="powerdns">PowerDNS</h3>
 <p>An authoritative DNS server: https://www.powerdns.com/auth.html</p>
 <h4 id="snmp-extend_29">SNMP Extend</h4>
+<p>1: Copy the shell script, powerdns.py, to the desired host. <code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns.py -O /etc/snmp/powerdns.py</code></p>
+<p>2: Run <code>chmod +x /etc/snmp/powerdns.py</code></p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend powerdns /etc/snmp/powerdns.py
+</code></pre>
+
+<p>4: Restart snmpd on your host</p>
+<p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
 <h5 id="agent_9">Agent</h5>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already and copy the <code>powerdns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h3 id="powerdns-recursor">PowerDNS Recursor</h3>
