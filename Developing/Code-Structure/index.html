@@ -2517,6 +2517,9 @@ LibreNMS now uses <a href="https://laravel.com/docs/">Laravel</a> for much of it
 <p>Simple enough, this is where all of the rrd files are created. They are stored in folders based on the device hostname.</p>
 <h3 id="databasemigrations">database/migrations</h3>
 <p>Contains all the database migrations.  See Laravel docs for additional info: https://laravel.com/docs/migrations</p>
+<p>In general to create a new table you should run:</p>
+<pre><code class="bash">php artisan make:model ModelName -m -c -r
+</code></pre>
                 
                   
                     <h2 id="__source">Source</h2>
