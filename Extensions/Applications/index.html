@@ -4948,7 +4948,7 @@ Please note that each time /etc/snmp/postfixdetailed is ran, the cache file is u
 </code></pre>
 
 <p>4: Restart snmpd on your host</p>
-<p>5: Install the Nagios check check_postgres.pl on your system.</p>
+<p>5: Install the Nagios check check_postgres.pl on your system: https://github.com/bucardo/check_postgres</p>
 <p>6: Verify the path to check_postgres.pl in /etc/snmp/postgres is correct.</p>
 <p>7: If you wish it to ignore the database postgres for totalling up the stats, set ignorePG to 1(the default) in /etc/snmp/postgres. If you are using netdata or the like, you may wish to set this or otherwise that total will be very skewed on systems with light or moderate usage.</p>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
