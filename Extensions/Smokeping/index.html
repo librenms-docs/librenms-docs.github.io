@@ -2363,6 +2363,7 @@
 <h2 id="new-smokeping-installation">New Smokeping installation</h2>
 <h3 id="install-and-integrate-smokeping-debianubuntu">Install and integrate Smokeping - Debian/Ubuntu</h3>
 <p>This guide assumes you have already <a href="http://docs.librenms.org/Installation/Installing-LibreNMS/">installed librenms</a>, and is working with either <strong>Apache</strong> or <strong>nginx</strong>.</p>
+<p>Note: You may need to install <code>fcgiwrap</code> as well (at least with <code>nginx</code>).</p>
 <h3 id="install-smokeping">Install Smokeping</h3>
 <pre><code class="bash">sudo apt update &amp;&amp; sudo apt install smokeping
 </code></pre>
@@ -2385,7 +2386,7 @@ cgiurl   = http://yourlibrenms/cgi-bin/smokeping.cgi
 <h3 id="generate-librenms-list-of-smokeping-nodes">Generate LibreNMS list of Smokeping Nodes</h3>
 <p>LibreNMS comes equipped with a script which exports our list of nodes from LibreNMS into a configuration file in the format required by Smokeping. </p>
 <p>To generate the config file once: </p>
-<pre><code class="bash">php /opt/librenms/scripts/gen_smokeping.php &gt; /opt/smokeping/etc/librenms.conf
+<pre><code class="bash">(echo &quot;+ LibreNMS&quot;; php -f /opt/librenms/scripts/gen_smokeping.php) | sudo tee /etc/smokeping/config.d/librenms.conf
 </code></pre>
 
 <p><strong>However</strong>, it is more desirable to set up a cron job which regenerates our list of nodes and adds these into Smokeping. You can add the following to the end of your librenms cron job, e.g. <code>nano /etc/cron.d/librenms</code> </p>
@@ -2403,7 +2404,7 @@ cgiurl   = http://yourlibrenms/cgi-bin/smokeping.cgi
 title = Network Latency Grapher
 </code></pre>
 
-<p>Which can cause Smokeping to not start. <code>echo "+ LibreNMS"</code> appends this in our smokeping config file. We could remove the above from the gen_smokeping script, however this may cause issues with LibreNMS failing to update with <code>daily.sh</code> due config files being modified. </p>
+<p>Which can cause Smokeping to not start. <code>echo "+ LibreNMS"</code> prepends this in our smokeping config file. We could remove the above from the gen_smokeping script, however this may cause issues with LibreNMS failing to update with <code>daily.sh</code> due config files being modified. </p>
 <h2 id="configure-librenms">Configure LibreNMS</h2>
 <p>Edit <code>/opt/librenms/config.php</code> and add the following:</p>
 <p><strong>Note:</strong> Make sure you point dir to the correct Smokeping data directory:</p>
