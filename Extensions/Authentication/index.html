@@ -2386,16 +2386,24 @@ $config['auth_ldap_bindpassword'] = 'password';
 <p>An example config setup for use with Jumpcloud LDAP as a service is:</p>
 <pre><code class="php">$config['auth_mechanism'] = &quot;ldap&quot;;
 $config['auth_ldap_version'] = 3;
-$config['auth_ldap_server'] = &quot;ldap.jumpcloud.com&quot;;
-$config['auth_ldap_port'] = 389;
+$config['auth_ldap_server'] = &quot;ldap.jumpcloud.com&quot;; #Set to ldaps://ldap.jumpcloud.com to enable LDAPS
+$config['auth_ldap_port'] = 389; #Set to 636 if using LDAPS
 $config['auth_ldap_prefix'] = &quot;uid=&quot;;
 $config['auth_ldap_suffix'] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupbase'] = &quot;cn=librenms,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupmemberattr'] = &quot;memberUid&quot;;
-$config['auth_ldap_groups']['librenms']['level'] = 10;
+$config['auth_ldap_groupbase'] = &quot;ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
+$config['auth_ldap_groupmemberattr'] = &quot;member&quot;;
+$config['auth_ldap_groups'] = ['{group}' =&gt; ['level' =&gt; 10],];
+$config['auth_ldap_userdn'] = true;
 </code></pre>
 
-<p>Replace {id} with the unique ID provided by Jumpcloud.</p>
+<p>Replace {id} with the unique ID provided by Jumpcloud.  Replace {group} with the unique group name created in Jumpcloud.  This field is case sensitive.</p>
+<p>Note: If you have multiple user groups to define individual access levels replace the <code>$config['auth_ldap_groups']</code> line with the following:</p>
+<pre><code class="php">$config['auth_ldap_groups'] = [
+    '{admin_group}' =&gt; ['level' =&gt; 10],
+    '{global_readonly_group}' =&gt; ['level' =&gt; 5],
+];
+</code></pre>
+
 <h1 id="radius-authentication">Radius Authentication</h1>
 <p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
 <pre><code class="php">$config['radius']['hostname']   = 'localhost';
