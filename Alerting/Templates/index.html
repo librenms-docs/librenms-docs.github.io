@@ -2496,7 +2496,7 @@ Displays the following:</p>
 <p>The important part being the <code>@yield('content')</code></p>
 <p>You can use plain text or html as per Alert templates and this will form the basis of your common template, feel free to make as many templates in the directory as needed.</p>
 <p>In your alert template just use</p>
-<pre><code>@extends('alerts.templates.default');
+<pre><code>@extends('alerts.templates.default')
 
 @section('content')
   {{ $alert-&gt;title }}
