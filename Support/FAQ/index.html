@@ -2923,13 +2923,16 @@ $config['device_traffic_iftype'][] = '/ppp/';
 <p>If you are moving from one CPU architecture to another then you will need to dump the rrd files and re-create them. If you are in   <br />
 this scenario then you can use <a href="https://vlan50.com/2015/04/17/migrating-from-observium-to-librenms/">Dan Brown's migration scripts</a>.    </p>
 <p>If you are just moving to another server with the same CPU architecture then the following steps should be all that's needed:   </p>
-<pre><code>- Install LibreNMS as per our normal documentation, you don't need to run through the web installer or building the sql schema.   
-- Stop cron by commenting out all lines in `/etc/cron.d/librenms`
-- Dump the MySQL database `librenms` and import this into your new server.
-- Copy the `rrd/` folder to the new server.
-- Copy the `config.php` file to the new server.
-- Renable cron by uncommenting all lines in `/etc/cron.d/librenms`
-</code></pre>
+<ul>
+<li>Install LibreNMS as per our normal documentation; you don't need to run through the web installer or building the sql schema.   </li>
+<li>Stop cron by commenting out all lines in <code>/etc/cron.d/librenms</code></li>
+<li>Dump the MySQL database <code>librenms</code> from your old server (<code>mysqldump librenms -u root -p &gt; librenms.sql</code>)...</li>
+<li>and import it into your new server (<code>mysql -u root -p &lt; librenms.sql</code>).</li>
+<li>Copy the <code>rrd/</code> folder to the new server.</li>
+<li>Copy the <code>config.php</code> file to the new server.</li>
+<li>Ensure ownership of the copied files and folders (substitute your user if necessary) - <code>chown -R librenms:librenms rrd/; chown librenms:librenms config.php</code></li>
+<li>Re-enable cron by uncommenting all lines in <code>/etc/cron.d/librenms</code></li>
+</ul>
 <h4 id="why-is-my-edgerouter-device-not-detected"><a name="faq25"> Why is my EdgeRouter device not detected?</a></h4>
 <p>If you have <code>service snmp description</code> set in your config then this will be why, please remove this. For some reason Ubnt have decided setting this 
  value should override the sysDescr value returned which breaks our detection.</p>
