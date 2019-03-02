@@ -2651,7 +2651,7 @@ Centos 7)</p>
 <p>Alertmanager is an alert handling software, initially developed for alert processing sent by Prometheus. </p>
 <p>It has built-in functionality for deduplicating, grouping and routing alerts based on configurable criteria. </p>
 <p>LibreNMS uses alert grouping by alert rule, which can produce an array of alerts of similar content for an array of hosts, whereas Alertmanager can group them by alert meta, ideally producing one single notice in case an issue occurs. </p>
-<p>The one and only possible parameter to be passed is <code>source</code> - this is required to distinguish LibreNMS alerts from alerts coming from different sources. </p>
+<p>It is possible to configure as much label values as required in Alertmanager Options section. Every label and it's value should be entered as a new line.</p>
 <p><a href="https://prometheus.io/docs/alerting/alertmanager/">Alertmanager Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2669,6 +2669,10 @@ Centos 7)</p>
 <tr>
 <td>Alertmanager Options:</td>
 <td>source=librenms</td>
+</tr>
+<tr>
+<td></td>
+<td>customlabel=value</td>
 </tr>
 </tbody>
 </table>
