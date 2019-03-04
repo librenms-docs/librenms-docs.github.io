@@ -2824,7 +2824,7 @@
 <h3 id="how-does-librenms-use-mibs"><a name='how-does-librenms-use-mibs'>How does LibreNMS use MIBs?</a></h3>
 <p>LibreNMS does not parse MIBs to discover sensors for devices.  LibreNMS uses static discovery definitions written in YAML or PHP.  Therefore, updating a MIB alone will not improve OS support, the definitions must be updated.  LibreNMS only uses MIBs to make OIDs easier to read.</p>
 <h4 id="why-do-i-get-blank-pages-sometimes-in-the-webui"><a name="faq6"> Why do I get blank pages sometimes in the WebUI?</a></h4>
-<p>The first thing to do is to add /debug=yes/ to the end of the URI (I.e /devices/debug=yes/).</p>
+<p>You can enable debug information by setting <code>APP_DEBUG=true</code> in your .env. (Do not leave this enabled, it could leak private data)</p>
 <p>If the page you are trying to load has a substantial amount of data in it then it could be that the php memory limit needs to be increased in <a href="../Configuration/#core">config.php</a>.</p>
 <h4 id="why-do-i-not-see-any-graphs"><a name="faq10"> Why do I not see any graphs?</a></h4>
 <p>The easiest way to check if all is well is to run <code>./validate.php</code> as root from within your install directory. This should give you info on why things aren't working.</p>
@@ -2832,8 +2832,9 @@
 the <a href="https://raw.githubusercontent.com/librenms/librenms/master/snmpd.conf.example">included snmpd.conf</a> file.</p>
 <h4 id="how-do-i-debug-pages-not-loading-correctly"><a name="faq7"> How do I debug pages not loading correctly?</a></h4>
 <p>A debug system is in place which enables you to see the output from php errors, warnings and notices along with the MySQL queries that have been run for that page.</p>
-<p>To enable the debug option, add /debug=yes/ to the end of any URI (I.e /devices/debug=yes/) or ?debug=yes if you are debugging a graph directly.</p>
-<p>You will then have a two options in the footer of the website - Show SQL Debug and Show PHP Debug. These will both popup that pages debug window for you to view. If the page itself has generated a fatal error then this will be displayed directly on the page.</p>
+<p>You can enable debug information by setting <code>APP_DEBUG=true</code> in your .env. (Do not leave this enabled, it could leak private data)
+To see additional information, run <code>./scripts/composer_wrapper.php install</code>, to install additional debug tools.
+This will add a debug bar at the bottom of every page that will show you detailed debug information.</p>
 <h4 id="how-do-i-debug-the-discovery-process"><a name="faq11"> How do I debug the discovery process?</a></h4>
 <p>Please see the <a href="http://docs.librenms.org/Support/Discovery Support/">Discovery Support</a> document for further details.</p>
 <h4 id="how-do-i-debug-the-poller-process"><a name="faq12"> How do I debug the poller process?</a></h4>
