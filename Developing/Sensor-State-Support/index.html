@@ -2390,14 +2390,14 @@ $oids = snmpwalk_group($device, 'ciscoEnvMonSupplyStatusTable', 'CISCO-ENVMON-MI
 if (!empty($oids)) {
     //Create State Index
     $state_name = 'ciscoEnvMonSupplyState';
-    $states = array(
-         array('value' =&gt; 1, 'generic' =&gt; 0, 'graph' =&gt; 0, 'descr' =&gt; 'normal'),
-         array('value' =&gt; 2, 'generic' =&gt; 1, 'graph' =&gt; 0, 'descr' =&gt; 'warning'),
-         array('value' =&gt; 3, 'generic' =&gt; 2, 'graph' =&gt; 0, 'descr' =&gt; 'critical'),
-         array('value' =&gt; 4, 'generic' =&gt; 3, 'graph' =&gt; 0, 'descr' =&gt; 'shutdown'),
-         array('value' =&gt; 5, 'generic' =&gt; 3, 'graph' =&gt; 0, 'descr' =&gt; 'notPresent'),
-         array('value' =&gt; 6, 'generic' =&gt; 2, 'graph' =&gt; 0, 'descr' =&gt; 'notFunctioning'),
-     );
+    $states = [
+        ['value' =&gt; 1, 'generic' =&gt; 0, 'graph' =&gt; 0, 'descr' =&gt; 'normal'],
+        ['value' =&gt; 2, 'generic' =&gt; 1, 'graph' =&gt; 0, 'descr' =&gt; 'warning'],
+        ['value' =&gt; 3, 'generic' =&gt; 2, 'graph' =&gt; 0, 'descr' =&gt; 'critical'],
+        ['value' =&gt; 4, 'generic' =&gt; 3, 'graph' =&gt; 0, 'descr' =&gt; 'shutdown'],
+        ['value' =&gt; 5, 'generic' =&gt; 3, 'graph' =&gt; 0, 'descr' =&gt; 'notPresent'],
+        ['value' =&gt; 6, 'generic' =&gt; 2, 'graph' =&gt; 0, 'descr' =&gt; 'notFunctioning'],
+    ];
     create_state_index($state_name, $states);
 
     $num_oid = '.1.3.6.1.4.1.9.9.13.1.5.1.3.';
