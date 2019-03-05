@@ -993,6 +993,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debianubuntu" title="Debian/Ubuntu" class="md-nav__link">
+    Debian/Ubuntu
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debian-9-stretch" title="Debian 9 (stretch)" class="md-nav__link">
+    Debian 9 (stretch)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2406,6 +2426,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debianubuntu" title="Debian/Ubuntu" class="md-nav__link">
+    Debian/Ubuntu
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debian-9-stretch" title="Debian 9 (stretch)" class="md-nav__link">
+    Debian 9 (stretch)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2538,6 +2578,14 @@ distributed_poller_group                       = 0;     # Which group to poll
 </code></pre>
 
 <p>If you want to use another version of python 3, change <code>rh-python36</code> in the unit file and the commands above to match the name of the replacement scl.</p>
+<h3 id="debianubuntu">Debian/Ubuntu</h3>
+<h4 id="debian-9-stretch">Debian 9 (stretch)</h4>
+<p>install python3 and python-mysqldb. python-dotenv is not yes available, but the testing package is working fine, you can grab it on https://packages.debian.org/fr/buster/all/python3-dotenv/download (the package may be updated and have a new version number).</p>
+<pre><code>apt install python3 python-mysqldb
+cd /tmp
+wget http://ftp.fr.debian.org/debian/pool/main/p/python-dotenv/python3-dotenv_0.9.1-1_all.deb
+dpkg -i python3-dotenv_0.9.1-1_all.deb
+</code></pre>
                 
                   
                     <h2 id="__source">Source</h2>
