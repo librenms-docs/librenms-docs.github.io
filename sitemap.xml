@@ -486,6 +486,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Developing/Getting-Started/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/Developing/Using-Git/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
