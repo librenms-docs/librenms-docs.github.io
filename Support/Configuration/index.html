@@ -1013,6 +1013,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-sensors-limit-values" title="Entity sensors limit values" class="md-nav__link">
+    Entity sensors limit values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#storage-configuration" title="Storage configuration" class="md-nav__link">
     Storage configuration
   </a>
@@ -2736,6 +2743,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-sensors-limit-values" title="Entity sensors limit values" class="md-nav__link">
+    Entity sensors limit values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#storage-configuration" title="Storage configuration" class="md-nav__link">
     Storage configuration
   </a>
@@ -3309,6 +3323,14 @@ This allows you to ignore those based on the descr field in the database. You ca
 os basis.</p>
 <pre><code class="php">$config['bad_entity_sensor_regex'][] = '/Physical id [0-9]+/';
 $config['os']['cisco']['bad_entity_sensor_regex'] = '/Physical id [0-9]+/';
+</code></pre>
+
+<h3 id="entity-sensors-limit-values">Entity sensors limit values</h3>
+<p>Vendors may give some limit values (or thresholds) for the discovered sensors. By default, when no such value is given,
+both high and low limit values are guessed, based on the value measured during the initial discovery.</p>
+<p>When it is preferred to have no high and/or low limit values at all if these are not provided by the vendor, the guess
+method can be disabled:</p>
+<pre><code class="php">$config['sensors']['guess_limits'] = false;
 </code></pre>
 
 <h3 id="storage-configuration">Storage configuration</h3>
