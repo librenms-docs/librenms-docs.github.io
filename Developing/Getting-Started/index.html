@@ -1731,6 +1731,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
+    Automated testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polling-debug-output" title="Polling debug output" class="md-nav__link">
+    Polling debug output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspecting-variables" title="Inspecting variables" class="md-nav__link">
     Inspecting variables
   </a>
@@ -2218,6 +2232,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
+    Automated testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polling-debug-output" title="Polling debug output" class="md-nav__link">
+    Polling debug output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspecting-variables" title="Inspecting variables" class="md-nav__link">
     Inspecting variables
   </a>
@@ -2289,24 +2317,24 @@ for you.  Taking a little time to set up somewhere to work on code changes can r
 <ol>
 <li>Follow the <a href="../Using-Git/">documentation on using git</a></li>
 <li>Install development dependencies <code>./composer_wrapper.php install</code></li>
-<li>Set variables in .env, including database settings.  Which could be a local or remote MySQL server including your production DB.
- ```dotenv
-APP_ENV=local
-APP_DEBUG=true
-...</li>
+<li>Set variables in .env, including database settings.  Which could be a local or remote MySQL server including your production DB.</li>
 </ol>
-<pre><code> 4. Start a development webserver `./lnms serve`
- 5. Access the Web UI at http://localhost:8000
+<pre><code class="dotenv">APP_ENV=local
+APP_DEBUG=true
+...
+</code></pre>
 
-### Automated testing
-LibreNMS uses continuous integration to test code changes to help reduce bugs.  This also helps guarantee the changes you 
+<ol>
+<li>Start a development webserver <code>./lnms serve</code></li>
+<li>Access the Web UI at http://localhost:8000</li>
+</ol>
+<h3 id="automated-testing">Automated testing</h3>
+<p>LibreNMS uses continuous integration to test code changes to help reduce bugs.  This also helps guarantee the changes you 
 contribute won't be broken in the future.
-You can find out more in our [Validating Code Documentation](Validating-Code.md)
-
-### Polling debug output
-You can see detailed info by running your polling code in debug mode. If you are looking at a specific 
-```bash
-./discovery.php -d -h HOSTNAME
+You can find out more in our <a href="../Validating-Code/">Validating Code Documentation</a></p>
+<h3 id="polling-debug-output">Polling debug output</h3>
+<p>You can see detailed info by running your polling code in debug mode. If you are looking at a specific </p>
+<pre><code class="bash">./discovery.php -d -h HOSTNAME
 ./poller.php -d -h HOSTNAME
 </code></pre>
 
