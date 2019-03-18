@@ -1538,6 +1538,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ms-teams-formatted-default-template" title="MS Teams formatted default template:" class="md-nav__link">
+    MS Teams formatted default template:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2387,6 +2394,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ms-teams-formatted-default-template" title="MS Teams formatted default template:" class="md-nav__link">
+    MS Teams formatted default template:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2699,12 +2713,25 @@ Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @e
 {{ $key }}: {{ $value['string'] }}&lt;br&gt;
 @endforeach 
 @if ($alert-&gt;faults) &lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
-@foreach ($alert-&gt;faults as $key =&gt; $value)&lt;img src=&quot;https://server/graph.php?device={{ $value['device_id'] }}&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h&gt;&lt;br&gt;
+@foreach ($alert-&gt;faults as $key =&gt; $value)&lt;img src=&quot;https://server/graph.php?device={{ $value['device_id'] }}&amp;type=device_processor&amp;width=459&amp;height=213&amp;lazy_w=552&amp;from=end-72h&quot;&gt;&lt;br&gt;
 https://server/graphs/id={{ $value['device_id'] }}/type=device_processor/&lt;br&gt;
 @endforeach 
 Template: CPU alert &lt;br&gt;
 @endif
 @endif
+</code></pre>
+
+<h4 id="ms-teams-formatted-default-template">MS Teams formatted default template:</h4>
+<pre><code>&lt;a href=&quot;https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/&quot;&gt;{{ $alert-&gt;title }}&lt;/a&gt;
+&lt;pre&gt;&lt;strong&gt;Device name:&lt;/strong&gt; {{ $alert-&gt;sysName }}
+&lt;strong&gt;Severity:&lt;/strong&gt; {{ $alert-&gt;severity }}
+@if ($alert-&gt;state == 0)&lt;strong&gt;Time elapsed:&lt;/strong&gt;{{ $alert-&gt;elapsed }}
+@endif&lt;strong&gt;Timestamp:&lt;/strong&gt; {{ $alert-&gt;timestamp }}
+&lt;strong&gt;Unique-ID:&lt;/strong&gt; {{ $alert-&gt;uid }}
+&lt;strong&gt;Rule:&lt;/strong&gt;@if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif&lt;/pre&gt;
+&lt;pre style=&quot;white-space:normal;&quot;&gt;@if ($alert-&gt;faults) &lt;strong&gt;Faults:&lt;/strong&gt;
+ @foreach ($alert-&gt;faults as $key =&gt; $value)  #{{ $key }}: {{ $value['string'] }}
+ @endforeach &lt;/pre&gt;  @endif
 </code></pre>
 
 <h2 id="included">Included</h2>
