@@ -1334,6 +1334,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list_sensors" title="list_sensors" class="md-nav__link">
+    list_sensors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list_devices" title="list_devices" class="md-nav__link">
     list_devices
   </a>
@@ -2442,6 +2449,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list_sensors" title="list_sensors" class="md-nav__link">
+    list_sensors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list_devices" title="list_devices" class="md-nav__link">
     list_devices
   </a>
@@ -3148,6 +3162,51 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
             &quot;lat&quot;: &quot;-18.911436&quot;,
             &quot;lng&quot;: &quot;47.517446&quot;,
             &quot;timestamp&quot;: &quot;2017-04-01 02:40:05&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
+}
+</code></pre>
+
+<h3 id="list_sensors"><code>list_sensors</code></h3>
+<p>Get a list of all Sensors.</p>
+<p>Route: <code>/api/v0/resources/sensors</code></p>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/sensors
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;sensors&quot;: [
+        {
+            &quot;sensor_id&quot;: 218810,
+            &quot;sensor_deleted&quot;: 0,
+            &quot;sensor_class&quot;: &quot;dbm&quot;,
+            &quot;device_id&quot;: 136,
+            &quot;poller_type&quot;: &quot;snmp&quot;,
+            &quot;sensor_oid&quot;: &quot;.1.3.6.1.4.1.2636.3.60.1.1.1.1.7.919&quot;,
+            &quot;sensor_index&quot;: &quot;tx-919&quot;,
+            &quot;sensor_type&quot;: &quot;junos&quot;,
+            &quot;sensor_descr&quot;: &quot;xe-2/1/4 Tx Power&quot;,
+            &quot;group&quot;: null,
+            &quot;sensor_divisor&quot;: 100,
+            &quot;sensor_multiplier&quot;: 1,
+            &quot;sensor_current&quot;: -1.81,
+            &quot;sensor_limit&quot;: 2,
+            &quot;sensor_limit_warn&quot;: 0.5,
+            &quot;sensor_limit_low&quot;: -9.7,
+            &quot;sensor_limit_low_warn&quot;: -8.21,
+            &quot;sensor_alert&quot;: 1,
+            &quot;sensor_custom&quot;: &quot;No&quot;,
+            &quot;entPhysicalIndex&quot;: &quot;919&quot;,
+            &quot;entPhysicalIndex_measured&quot;: &quot;ports&quot;,
+            &quot;lastupdate&quot;: &quot;2019-02-18 02:47:09&quot;,
+            &quot;sensor_prev&quot;: -1.77,
+            &quot;user_func&quot;: null
         },
         ...
     ],
