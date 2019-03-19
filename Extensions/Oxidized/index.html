@@ -2369,6 +2369,7 @@ $config['oxidized']['maps']['group']['location'][] = array('regex' =&gt; '/londo
 <pre><code class="php">$config['oxidized']['maps']['group']['os'][] = array('match' =&gt; 'edgeos', 'group' =&gt; 'wireless');
 </code></pre>
 
+<p>Matching on OS requires system name of the OS. For example, 'match' =&gt; 'RouterOS' will not work, while 'match' =&gt; 'routeros' will.</p>
 <p>To override the IP Oxidized uses to poll the device, you can add the following within config.php:</p>
 <pre><code class="php">$config['oxidized']['maps']['ip']['sysname'][] = array('regex' =&gt; '/^my.node/', 'ip' =&gt; '192.168.1.10');
 $config['oxidized']['maps']['ip']['sysname'][] = array('match' =&gt; 'my-other.node', 'ip' =&gt; '192.168.1.20');
