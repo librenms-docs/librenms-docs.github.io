@@ -2282,13 +2282,11 @@ You can find one in the <a href="../../Alerting/Rules/#Alert Rules Collection">A
 <ol>
 <li>
 <p>Change the ping_rrd_step setting in config.php
-    <code>php
-    $config['ping_rrd_step'] = 60;</code></p>
+    <code>$config['ping_rrd_step'] = 60;</code></p>
 </li>
 <li>
 <p>Update the rrd files to change the step (step is hardcoded at file creation in rrd files)
-    <code>bash
-    ./scripts/rrdstep.php -h all</code></p>
+    <code>./scripts/rrdstep.php -h all</code></p>
 </li>
 <li>
 <p>Add the following line to /etc/cron.d/librenms to allow 1 minute ping checks</p>
@@ -2306,13 +2304,11 @@ We add two entries, but add a delay before one.</p>
 <ol>
 <li>
 <p>Set ping_rrd_step
-    <code>php
-   $config['ping_rrd_step'] = 30;</code></p>
+    <code>$config['ping_rrd_step'] = 30;</code></p>
 </li>
 <li>
 <p>Update the rrd files
-    <code>bash
-    ./scripts/rrdstep.php -h all</code></p>
+    <code>./scripts/rrdstep.php -h all</code></p>
 </li>
 <li>
 <p>Update cron (removing any other ping.php or alert.php entries)</p>
