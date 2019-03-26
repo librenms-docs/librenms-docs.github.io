@@ -2352,12 +2352,12 @@ To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized In
 <h3 id="creating-overrides">Creating overrides</h3>
 <p>To return an override to Oxidized you can do this by providing the override key, followed by matching a lookup for a host (or hosts), and finally by defining the overriding value itself. LibreNMS does not check for the validity of these attributes but will deliver them to Oxidized as defined.</p>
 <p>Matching of hosts can be done using <code>hostname</code>, <code>sysname</code>, <code>os</code>, <code>location</code>, <code>sysDescr</code> or <code>hardware</code> and including either a 'match' key and value, or a 'regex' key and value. The order of matching is:
-<em> <code>hostname</code> 
-</em> <code>sysname</code>
-<em> <code>sysDescr</code>
-</em> <code>hardware</code>
-<em> <code>os</code>
-</em> <code>location</code>
+* <code>hostname</code> 
+* <code>sysname</code>
+* <code>sysDescr</code>
+* <code>hardware</code>
+* <code>os</code>
+* <code>location</code>
 * <code>ip</code></p>
 <p>To match on the device hostnames or sysnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
 <pre><code class="php">$config['oxidized']['maps']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');

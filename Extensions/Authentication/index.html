@@ -2495,10 +2495,10 @@ $config['sso']['static_level']   = 10;
 </code></pre>
 
 <p>This, along with the defaults, sets up a basic Single Sign-on setup that:
-<em> Reads values from environment variables
-</em> Automatically creates users when they're first seen
-<em> Authomatically updates users with new values
-</em> Gives everyone privilege level 10</p>
+* Reads values from environment variables
+* Automatically creates users when they're first seen
+* Authomatically updates users with new values
+* Gives everyone privilege level 10</p>
 <p>This happens to mimic the behaviour of <a href="#http-auth">http-auth</a>, so if this is the kind of setup you want, you're probably better of just going and using that mechanism.</p>
 <h2 id="security">Security</h2>
 <p>If there is a proxy involved (e.g. EZProxy, Azure AD Application Proxy, NGINX, mod_proxy) it's <strong><em>essential</em></strong> that you have some means in place to prevent headers being injected between the proxy and the end user, and also prevent end users from contacting LibreNMS directly.</p>
