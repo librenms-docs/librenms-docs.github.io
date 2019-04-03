@@ -2434,7 +2434,7 @@ title = Network Latency Grapher
 <h2 id="configure-librenms">Configure LibreNMS</h2>
 <p>Edit <code>/opt/librenms/config.php</code> and add the following:</p>
 <p><strong>Note:</strong> Make sure you point dir to the correct Smokeping data directory:</p>
-<pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 Location
+<pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 and newer Location
 #$config['smokeping']['dir'] = '/opt/smokeping/data';
 $config['smokeping']['pings'] = 20;     // should be equal to &quot;pings&quot; in your smokeping config
 $config['smokeping']['integration'] = true;
@@ -2455,7 +2455,7 @@ smokeping.conf
 <p>After creating the symlink, restart Apache with <code>sudo systemctl apache2 restart</code></p>
 <p>You should be able to load the Smokeping web interface at <code>http://yourhost/cgi-bin/smokeping.cgi</code></p>
 <h3 id="nginx-configuration">Nginx Configuration</h3>
-<p>This section assumes you have configured LibreNMS with Nginx as specified in <a href="https://docs.librenms.org/#Installation/Installation-Ubuntu-1604-Nginx/#web-server">Configure Nginx</a>.</p>
+<p>This section assumes you have configured LibreNMS with Nginx as specified in <a href="https://docs.librenms.org/Installation/Installation-Ubuntu-1804-Nginx/">Configure Nginx</a>.</p>
 <p>Add the following configuration to your <code>/etc/nginx/conf.d/librenms</code> config file. </p>
 <p>The following will configure Nginx to respond to <code>http://yourlibrenms/smokeping</code>:</p>
 <pre><code>#Browsing to `http://librenms.xxx/smokeping/` should bring up the smokeping web interface
@@ -2497,7 +2497,7 @@ smokeping.conf
 <p>Use the below commands to start and verify smokeping is running. </p>
 <p><strong>Ubuntu 14.04:</strong>  <code>sudo service smokeping start</code></p>
 <p>Verify: <code>sudo service smokeping status</code></p>
-<p><strong>Ubuntu 16.04:</strong>  <code>sudo systemctl start smokeping</code></p>
+<p><strong>Ubuntu 16.04 and newer:</strong>  <code>sudo systemctl start smokeping</code></p>
 <p>Verify: <code>sudo systemctl status smokeping</code></p>
 <h2 id="verify-in-librenms">Verify in LibreNMS</h2>
 <p>Within LibreNMS, you should now have a new device sub-tab called Ping.</p>
@@ -2506,7 +2506,7 @@ smokeping.conf
 <p>The following section covers the requirements for an existing SmokePing installation. The primary difference is this section does not cover using the LibreNMS Smokeping config script, and assumes an existing Smokeping server is set up and working correctly. </p>
 <p>In terms of configuration, simply add the location of where smokeping data such as RRD files are stored. If this is on a separate server, ensure there is a mount point reachable, along with the server's hostname. </p>
 <p><strong>Note:</strong> The location should be the RRD root folder, NOT the sub-directory such as network. </p>
-<pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 Location
+<pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 and newer Location
 #$config['smokeping']['dir'] = '/opt/smokeping/data';
 $config['smokeping']['pings'] = 20;     // should be equal to &quot;pings&quot; in your smokeping config
 $config['smokeping']['integration'] = true;
@@ -2523,7 +2523,7 @@ $config['smokeping']['integration'] = true;
 </code></pre>
 
 <h3 id="smokeping-and-rrdcached">Smokeping and RRDCached</h3>
-<p>If you are using the standard smokeping data dir (/opt/smokeping/data) then you may need to alter the rrdcached config slightly.</p>
+<p>If you are using the standard smokeping data dir (<code>/etc/smokeping/data</code>) then you may need to alter the rrdcached config slightly.</p>
 <p>In the standard configuration the -B argument may have been used to restrict rrdcached to read only from a single base dir.</p>
 <p>If this is true, when you try an open one of the smokeping graphs from within LibreNMS you will see something like this error at the end of the rrdcached command:</p>
 <pre><code class="bash">ERROR: rrdcached: /var/lib/smokeping/&lt;device name&gt;.rrd: Permission denied
