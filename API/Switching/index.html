@@ -1314,6 +1314,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_fdb" title="list_fdb" class="md-nav__link">
+    list_fdb
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2217,6 +2224,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_fdb" title="list_fdb" class="md-nav__link">
+    list_fdb
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2395,6 +2409,38 @@
         }
     ],
     &quot;count&quot;: 1
+}
+</code></pre>
+
+<h3 id="list_fdb"><code>list_fdb</code></h3>
+<p>Get a list of all ports FDB.</p>
+<p>Route: <code>/api/v0/resources/fdb/:mac</code></p>
+<ul>
+<li>mac is the specific MAC address you would like to query</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/fdb
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/fdb/1aaa2bbb3ccc
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;ports_fdb&quot;: [
+        {
+            &quot;ports_fdb_id&quot;: 10,
+            &quot;port_id&quot;: 10000,
+            &quot;mac_address&quot;: &quot;1aaa2bbb3ccc&quot;,
+            &quot;vlan_id&quot;: 20000,
+            &quot;device_id&quot;: 1,
+            &quot;created_at&quot;: &quot;2019-01-1 01:01:01&quot;,
+            &quot;updated_at&quot;: &quot;2019-01-1 01:01:01&quot;
+        },
+        ...
+    ],
+    &quot;count&quot;: 100
 }
 </code></pre>
                 

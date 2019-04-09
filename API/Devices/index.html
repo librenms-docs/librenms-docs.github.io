@@ -1271,6 +1271,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_device_fdb" title="get_device_fdb" class="md-nav__link">
+    get_device_fdb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_device_ip_addresses" title="get_device_ip_addresses" class="md-nav__link">
     get_device_ip_addresses
   </a>
@@ -2386,6 +2393,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_device_fdb" title="get_device_fdb" class="md-nav__link">
+    get_device_fdb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_device_ip_addresses" title="get_device_ip_addresses" class="md-nav__link">
     get_device_ip_addresses
   </a>
@@ -2902,6 +2916,31 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
             &quot;ifName&quot;: &quot;eth1&quot;
         }
     ]
+}
+</code></pre>
+
+<h3 id="get_device_fdb"><code>get_device_fdb</code></h3>
+<p>Get a list of FDB entries associated with a device.</p>
+<p>Route: <code>/api/v0/devices/:hostname/fdb</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/fdb
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;ports_fdb&quot;: {
+        &quot;ports_fdb_id&quot;: 10,
+        &quot;port_id&quot;: 10000,
+        &quot;mac_address&quot;: &quot;1aaa2bbb3ccc&quot;,
+        &quot;vlan_id&quot;: 20000,
+        &quot;device_id&quot;: 1,
+        &quot;created_at&quot;: &quot;2019-01-1 01:01:01&quot;,
+        &quot;updated_at&quot;: &quot;2019-01-1 01:01:01&quot;
+    }
 }
 </code></pre>
 
