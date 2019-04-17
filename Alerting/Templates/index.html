@@ -1532,6 +1532,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#service-alert" title="Service Alert:" class="md-nav__link">
+    Service Alert:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#processor-alert-with-graph" title="Processor Alert with Graph:" class="md-nav__link">
     Processor Alert with Graph:
   </a>
@@ -2388,6 +2395,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#service-alert" title="Service Alert:" class="md-nav__link">
+    Service Alert:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#processor-alert-with-graph" title="Processor Alert with Graph:" class="md-nav__link">
     Processor Alert with Graph:
   </a>
@@ -2681,7 +2695,7 @@ Percent Utilized: {{ $value['mempool_perc'] }}
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 
-<p>Service Alert:</p>
+<h4 id="service-alert">Service Alert:</h4>
 <pre><code>&lt;div style=&quot;font-family:Helvetica;&quot;&gt;
 &lt;h2&gt;@if ($alert-&gt;state == 1) &lt;span style=&quot;color:red;&quot;&gt;{{ $alert-&gt;severity }} @endif
 @if ($alert-&gt;state == 2) &lt;span style=&quot;color:goldenrod;&quot;&gt;acknowledged @endif&lt;/span&gt;
