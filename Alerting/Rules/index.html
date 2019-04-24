@@ -1436,6 +1436,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced" title="Advanced" class="md-nav__link">
+    Advanced
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" title="Procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alert-rules-collection" title="Alert Rules Collection" class="md-nav__link">
+    Alert Rules Collection
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2195,6 +2230,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced" title="Advanced" class="md-nav__link">
+    Advanced
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" title="Procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alert-rules-collection" title="Alert Rules Collection" class="md-nav__link">
+    Alert Rules Collection
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2259,7 +2329,7 @@ Rules can contain braces and <strong>Glues</strong>.
 <p><strong>Values</strong> can be an entity or any data. If using macros as value you must include the macro name into backticks. i.e. `macros.past_60m`</p>
 <p><strong>Note</strong>: Regex supports MySQL Regular expressions.</p>
 <p>Arithmetics are allowed as well.</p>
-<h1 id="options">Options</h1>
+<h2 id="options">Options</h2>
 <p>Here are some of the other options available when adding an alerting rule:</p>
 <ul>
 <li>Rule name: The name associated with the rule.</li>
@@ -2271,7 +2341,7 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
 <li>Recovery alerts: This will disable the recovery notification from being sent if turned off.</li>
 </ul>
-<h1 id="advanced">Advanced</h1>
+<h2 id="advanced">Advanced</h2>
 <p>On the Advanced tab, you can specify some additional options for the alert rule:</p>
 <ul>
 <li>Override SQL: Enable this if you using a custom query</li>
@@ -2308,10 +2378,10 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>macros.port_usage_perc &gt;= 80 AND port.port_descr_type != "client" AND ports.ifType != "softwareLoopback"</code></li>
 <li>Alert when mac address is located on your network <code>ipv4_mac.mac_address = "2c233a756912"</code></li>
 </ul>
-<h3 id="alert-rules-collection">Alert Rules Collection</h3>
+<h2 id="alert-rules-collection">Alert Rules Collection</h2>
 <p>You can also select Alert Rule from the Alerts Collection. These Alert Rules are submitted by users in the community :)
-If would like to submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a>
-<img alt="Alert Rules Collection" src="/img/alert-rules-collection.png" /></p>
+If would like to submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a></p>
+<p><img alt="Alert Rules Collection" src="/img/alert-rules-collection.png" /></p>
                 
                   
                     <h2 id="__source">Source</h2>
