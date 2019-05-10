@@ -221,6 +221,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://docs.librenms.org/Extensions/Customizing-the-Web-UI/</loc>
+     <lastmod>2019-05-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://docs.librenms.org/Support/Cleanup-options/</loc>
      <lastmod>2019-05-10</lastmod>
      <changefreq>daily</changefreq>

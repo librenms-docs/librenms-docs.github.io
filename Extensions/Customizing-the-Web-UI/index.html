@@ -13,7 +13,7 @@
         <meta name="description" content="LibreNMS user and developer documentation">
       
       
-        <link rel="canonical" href="http://docs.librenms.org/Extensions/Graylog/">
+        <link rel="canonical" href="http://docs.librenms.org/Extensions/Customizing-the-Web-UI/">
       
       
         <meta name="author" content="LibreNMS">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Graylog integration - LibreNMS Docs</title>
+        <title>Customizing the Web UI - LibreNMS Docs</title>
       
     
     
@@ -129,7 +129,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#graylog-integration" tabindex="1" class="md-skip">
+      <a href="#customizing-the-web-ui" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -154,7 +154,7 @@
               LibreNMS Docs
             </span>
             <span class="md-header-nav__topic">
-              Graylog integration
+              Customizing the Web UI
             </span>
           
         </div>
@@ -682,10 +682,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
@@ -905,11 +907,55 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Customizing-the-Web-UI/" title="Customizing the Web UI" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Customizing the Web UI
+      </label>
+    
+    <a href="./" title="Customizing the Web UI" class="md-nav__link md-nav__link--active">
       Customizing the Web UI
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-menu-entry" title="Custom menu entry" class="md-nav__link">
+    Custom menu entry
+  </a>
+  
+</li>
+      
+      
+        <li class="md-nav__item">
+          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
+            Source
+          </a>
+        </li>
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -934,12 +980,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
@@ -967,82 +1011,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Graylog integration
-      </label>
-    
-    <a href="./" title="Graylog integration" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Graylog/" title="Graylog integration" class="md-nav__link">
       Graylog integration
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" title="Suppressing/enabling the domain part of a hostname for specific platforms" class="md-nav__link">
-    Suppressing/enabling the domain part of a hostname for specific platforms
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ios-cisco" title="IOS (Cisco)" class="md-nav__link">
-    IOS (Cisco)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#junos-juniper-networks" title="JunOS (Juniper Networks)" class="md-nav__link">
-    JunOS (Juniper Networks)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#panos-palo-alto-networks" title="PanOS (Palo Alto Networks)" class="md-nav__link">
-    PanOS (Palo Alto Networks)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -2200,36 +2173,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" title="Suppressing/enabling the domain part of a hostname for specific platforms" class="md-nav__link">
-    Suppressing/enabling the domain part of a hostname for specific platforms
+  <a href="#custom-menu-entry" title="Custom menu entry" class="md-nav__link">
+    Custom menu entry
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ios-cisco" title="IOS (Cisco)" class="md-nav__link">
-    IOS (Cisco)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#junos-juniper-networks" title="JunOS (Juniper Networks)" class="md-nav__link">
-    JunOS (Juniper Networks)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#panos-palo-alto-networks" title="PanOS (Palo Alto Networks)" class="md-nav__link">
-    PanOS (Palo Alto Networks)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2255,60 +2201,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Graylog.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Customizing-the-Web-UI.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="graylog-integration">Graylog integration</h1>
-<p>We have simple integration for Graylog, you will be able to view any logs from within LibreNMS that have been parsed by the syslog input from within
-Graylog itself. This includes logs from devices which aren't in LibreNMS still, you can also see logs for a specific device under the logs section
-for the device.</p>
-<p>Currently, LibreNMS does not associate shortnames from Graylog with full FQDNS. If you have your devices in LibreNMS using full FQDNs, such as hostname.example.com, be aware that rsyslogd, by default, sends the shortname only. To fix this, add</p>
-<p><code>$PreserveFQDN on</code></p>
-<p>to your rsyslog config to send the full FQDN so device logs will be associated correctly in LibreNMS. Also see near the bottom of this document for tips on how to enable/suppress the domain part of hostnames in syslog-messages for some platforms.</p>
-<p>Graylog itself isn't included within LibreNMS, you will need to install this separately either on the same infrastructure as LibreNMS or as a totally
-standalone appliance.</p>
-<p>Config is simple, here's an example based on Graylog 2.4:</p>
-<pre><code class="php">$config['graylog']['server']   = 'http://127.0.0.1';
-$config['graylog']['port']     = 9000;
-$config['graylog']['username'] = 'admin';
-$config['graylog']['password'] = 'admin';
-$config['graylog']['version']  = '2.4';
-</code></pre>
-
-<p>Graylog messages are stored using GMT timezone. You can display graylog messages in LibreNMS webui using your desired timezone by setting following option in config.php:</p>
-<pre><code class="php">$config['graylog']['timezone'] = 'Europe/Bucharest';
-</code></pre>
-
-<blockquote>
-<p>Timezone must be PHP supported timezones, available at: <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a></p>
-</blockquote>
-<p>If you are running a version earlier than Graylog then please set <code>$config['graylog']['version']</code> to the version 
-number of your Graylog install. Earlier versions than 2.1 use the default port <code>12900</code> </p>
-<p>If you have altered the default uri for your Graylog setup then you can override the default of <code>/api/</code> using 
-<code>$config['graylog']['base_uri'] = '/somepath/';</code></p>
-<p>If you choose to use another user besides the admin user, please note that currently you must give the user "admin" permissions from within Graylog, "read" permissions alone are not sufficient.</p>
-<p>If you have enabled TLS for the Graylog API and you are using a self-signed certificate, please make sure that the certificate is trusted by your LibreNMS host, otherwise the connection will fail.
-Additionally, the certificate's Common Name (CN) has to match the FQDN or IP address specified in <code>$config['graylog']['server']</code>.</p>
-<h2 id="suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms">Suppressing/enabling the domain part of a hostname for specific platforms</h2>
-<p>You should see if what you get in syslog/Graylog matches up with your configured hosts first. If you need to modify the syslog messages from specific platforms, this may be of assistance:</p>
-<h3 id="ios-cisco">IOS (Cisco)</h3>
-<pre><code>router(config)# logging origin-id hostname
-</code></pre>
-
-<p>or</p>
-<pre><code>router(config)# logging origin-id string
-</code></pre>
-
-<h3 id="junos-juniper-networks">JunOS (Juniper Networks)</h3>
-<pre><code>set system syslog host yourlogserver.corp log-prefix YOUR_PREFERRED_STRING
-</code></pre>
-
-<h3 id="panos-palo-alto-networks">PanOS (Palo Alto Networks)</h3>
-<pre><code>set deviceconfig setting management hostname-type-in-syslog hostname
-</code></pre>
-
-<p>or</p>
-<pre><code>set deviceconfig setting management hostname-type-in-syslog FQDN
+                <h1 id="customizing-the-web-ui">Customizing the Web UI</h1>
+<h2 id="custom-menu-entry">Custom menu entry</h2>
+<p>Create the file <code>resources/views/menu/custom.blade.php</code></p>
+<p>Example contents:</p>
+<pre><code class="blade">&lt;li class=&quot;dropdown&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-hover=&quot;dropdown&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;fa fa-star fa-fw fa-lg fa-nav-icons hidden-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;hidden-sm&quot;&gt;Custom Menu&lt;/span&gt;&lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        @admin
+            &lt;li&gt;&lt;a href=&quot;plugins/Weathermap/output/history/index.html&quot;&gt;&lt;i class=&quot;fa fa-film fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Weathermap Animation&lt;/a&gt;&lt;/li&gt;
+            &lt;li role=&quot;presentation&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-database fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-smile-o fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-anchor fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-plug fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-code-fork fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-truck fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 63&lt;/a&gt;&lt;/li&gt;
+        @else
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;You need admin rights to see this&lt;/a&gt;&lt;/li&gt;
+        @endadmin
+    &lt;/ul&gt;
+&lt;/li&gt;
 </code></pre>
                 
                   
@@ -2319,8 +2236,8 @@ Additionally, the certificate's Common Name (CN) has to match the FQDN or IP add
                     
                     
                     
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Graylog.md" title="Extensions/Graylog.md" class="md-source-file">
-                      Extensions/Graylog.md
+                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Customizing-the-Web-UI.md" title="Extensions/Customizing-the-Web-UI.md" class="md-source-file">
+                      Extensions/Customizing-the-Web-UI.md
                     </a>
                   
                 
@@ -2341,7 +2258,7 @@ Additionally, the certificate's Common Name (CN) has to match the FQDN or IP add
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Gateone/" title="GateOne integration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../SNMP-Trap-Handler/" title="SNMP trap handling" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2350,19 +2267,19 @@ Additionally, the certificate's Common Name (CN) has to match the FQDN or IP add
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                GateOne integration
+                SNMP trap handling
               </span>
             </div>
           </a>
         
         
-          <a href="../Services/" title="Nagios Plugins" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Support/Cleanup-options/" title="Cleanup Options" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Nagios Plugins
+                Cleanup Options
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
