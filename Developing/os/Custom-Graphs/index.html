@@ -98,7 +98,7 @@ require 'includes/graphs/generic_simplex.inc.php';
 
 $rrd_filename = rrd_name($device['hostname'], 'pulse_users');
 
-require 'includes/graphs/common.inc.php';
+require 'includes/html/graphs/common.inc.php';
 
 $ds = 'users';
 
@@ -111,7 +111,7 @@ $graph_max = 1;
 
 $unit_text = 'Users';
 
-require 'includes/graphs/generic_simplex.inc.php';
+require 'includes/html/graphs/generic_simplex.inc.php';
 </code></pre>
 
 <p>That should be it, after data has started to be collected graphs should appear in the WebUI.</p><h2 id="__source">Source</h2><a href="https://github.com/librenms/librenms/blob/master/doc//Developing/os/Custom-Graphs.md" title="Developing/os/Custom-Graphs.md" class="md-source-file">Developing/os/Custom-Graphs.md </a></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../Wireless-Sensors/" title="Wireless Sensors" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Wireless Sensors</span></div></a><a href="../Settings/" title="Optional OS Settings" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Optional OS Settings</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script></body></html>
