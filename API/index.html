@@ -1497,8 +1497,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2256,10 +2256,17 @@
                   <h1>Using the API</h1>
                 
                 <h2 id="versioning">Versioning</h2>
-<p>Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: <a href="https://blog.librenms.org/2014/09/restful-apis/">https://blog.librenms.org/2014/09/restful-apis/</a></p>
-<p>We have currently settled on using versioning within the API end point itself <code>/api/v0</code>. As the API itself is new and still in active development we also decided that v0 would be the best starting point to indicate it's in development.</p>
+<p>Versioning an API is a minefield which saw us looking at numerous
+options on how to do this. Paul wrote an excellent blog post which
+touches on this: <a href="https://blog.librenms.org/2014/09/restful-apis/">https://blog.librenms.org/2014/09/restful-apis/</a></p>
+<p>We have currently settled on using versioning within the API end point
+itself <code>/api/v0</code>. As the API itself is new and still in active
+development we also decided that v0 would be the best starting point
+to indicate it's in development.</p>
 <h2 id="tokens">Tokens</h2>
-<p>To access any of the token end points you will be required to authenticate using a token. Tokens can be created directly from within the LibreNMS web interface by going to <code>/api-access/</code>.</p>
+<p>To access any of the token end points you will be required to
+authenticate using a token. Tokens can be created directly from within
+the LibreNMS web interface by going to <code>/api-access/</code>.</p>
 <ul>
 <li>Click on 'Create API access token'.</li>
 <li>Select the user you would like to generate the token for.</li>
@@ -2267,7 +2274,9 @@
 <li>Click Create API Token.</li>
 </ul>
 <h2 id="endpoints">Endpoints</h2>
-<p>Whilst this documentation will describe and show examples of the end points, we've designed the API so you should be able to traverse through it without knowing any of the available API routes.</p>
+<p>Whilst this documentation will describe and show examples of the end
+points, we've designed the API so you should be able to traverse
+through it without knowing any of the available API routes.</p>
 <p>You can do this by first calling <code>/api/v0</code>:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0
 </code></pre>
@@ -2281,11 +2290,16 @@
 </code></pre>
 
 <h2 id="input">Input</h2>
-<p>Input to the API is done in three different ways, sometimes a combination two or three of these.</p>
+<p>Input to the API is done in three different ways, sometimes a
+combination two or three of these.</p>
 <ul>
-<li>Passing parameters via the api route. For example when obtaining a devices details you will pass the hostname of the device in the route: <code>/api/v0/devices/:hostname</code>.</li>
-<li>Passing parameters via the query string. For example you can list all devices on your install but limit the output to devices that are currently down: <code>/api/v0/devices?type=down</code></li>
-<li>Passing data in via JSON, this will mainly be used when adding or updating information via the API, for instance adding a new device:</li>
+<li>Passing parameters via the api route. For example when obtaining a
+  devices details you will pass the hostname of the device in the route: <code>/api/v0/devices/:hostname</code>.</li>
+<li>Passing parameters via the query string. For example you can list
+  all devices on your install but limit the output to devices that are
+  currently down: <code>/api/v0/devices?type=down</code></li>
+<li>Passing data in via JSON, this will mainly be used when adding or
+  updating information via the API, for instance adding a new device:</li>
 </ul>
 <pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
 </code></pre>
@@ -2293,7 +2307,8 @@
 <h2 id="output">Output</h2>
 <p>Output from the API currently is via two output types:</p>
 <ul>
-<li>JSON Most API responses will output json. As show in the example for calling the API endpoint.</li>
+<li>JSON Most API responses will output json. As show in the example for
+  calling the API endpoint.</li>
 <li>PNG This is for when the request is for an image such as a graph for a switch port.</li>
 </ul>
 <h2 id="endpoint-categories">Endpoint Categories</h2>

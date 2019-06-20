@@ -1525,8 +1525,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2316,8 +2316,10 @@
 <p>Route: <code>/api/v0/bgp</code></p>
 <p>Input:</p>
 <ul>
-<li>hostname = Either the devices hostname or id.
-<strong>OR</strong></li>
+<li>hostname = Either the devices hostname or id.</li>
+</ul>
+<p><strong>OR</strong></p>
+<ul>
 <li>asn = The ASN you would like to filter by</li>
 </ul>
 <p>Example:</p>
@@ -2463,6 +2465,7 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/routing/bgp
     ],
     &quot;count&quot;: 55
 }
+
 </code></pre>
 
 <h3 id="get_network_ip_addresses"><code>get_network_ip_addresses</code></h3>
@@ -2594,8 +2597,10 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ospf?hostna
 <p>Route: <code>/api/v0/routing/vrf</code></p>
 <p>Input:</p>
 <ul>
-<li>hostname = Either the devices hostname or id
-<strong>OR</strong></li>
+<li>hostname = Either the devices hostname or id</li>
+</ul>
+<p><strong>OR</strong></p>
+<ul>
 <li>vrfname = The VRF name you would like to filter by</li>
 </ul>
 <p>Example:</p>

@@ -1437,15 +1437,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-a-proxy" title="Using a Proxy?" class="md-nav__link">
-    Using a Proxy?
+  <a href="#using-a-proxy" title="Using a Proxy" class="md-nav__link">
+    Using a Proxy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-a-amqp-based-transport" title="Using a AMQP based Transport?" class="md-nav__link">
-    Using a AMQP based Transport?
+  <a href="#using-a-amqp-based-transport" title="Using a AMQP based Transport" class="md-nav__link">
+    Using a AMQP based Transport
   </a>
   
 </li>
@@ -1690,8 +1690,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2382,15 +2382,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-a-proxy" title="Using a Proxy?" class="md-nav__link">
-    Using a Proxy?
+  <a href="#using-a-proxy" title="Using a Proxy" class="md-nav__link">
+    Using a Proxy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-a-amqp-based-transport" title="Using a AMQP based Transport?" class="md-nav__link">
-    Using a AMQP based Transport?
+  <a href="#using-a-amqp-based-transport" title="Using a AMQP based Transport" class="md-nav__link">
+    Using a AMQP based Transport
   </a>
   
 </li>
@@ -2638,29 +2638,42 @@
                 
                 
                 <h1 id="transports">Transports</h1>
-<p>Transports are located within <code>LibreNMS/Alert/Transport/</code> and can be configured within the WebUI under Alerts -&gt; Alert Transports.</p>
+<p>Transports are located within <code>LibreNMS/Alert/Transport/</code> and can be
+configured within the WebUI under Alerts -&gt; Alert Transports.</p>
 <p>Contacts will be gathered automatically and passed to the configured transports.
-By default the Contacts will be only gathered when the alert triggers and will ignore future changes in contacts for the incident.
-If you want contacts to be re-gathered before each dispatch, please set 'Updates to contact email addresses not honored' to Off in the WebUI.</p>
-<p>The contacts will always include the <code>SysContact</code> defined in the Device's SNMP configuration and also every LibreNMS user that has at least <code>read</code>-permissions on the entity that is to be alerted.</p>
+By default the Contacts will be only gathered when the alert triggers
+and will ignore future changes in contacts for the incident.
+If you want contacts to be re-gathered before each dispatch, please
+set 'Updates to contact email addresses not honored' to Off in the WebUI.</p>
+<p>The contacts will always include the <code>SysContact</code> defined in the
+Device's SNMP configuration and also every LibreNMS user that has at
+least <code>read</code>-permissions on the entity that is to be alerted.</p>
 <p>At the moment LibreNMS only supports Port or Device permissions.</p>
 <p>You can exclude the <code>SysContact</code> by toggling 'Issue alerts to sysContact'.</p>
-<p>To include users that have <code>Global-Read</code>, <code>Administrator</code> or <code>Normal-User</code> permissions it is required to toggle the options:</p>
+<p>To include users that have <code>Global-Read</code>, <code>Administrator</code> or
+<code>Normal-User</code> permissions it is required to toggle the options:</p>
 <ul>
 <li>Issue alerts to admins.</li>
 <li>Issue alerts to read only users</li>
 <li>Issue alerts to normal users.</li>
 </ul>
-<h2 id="using-a-proxy">Using a Proxy?</h2>
+<h2 id="using-a-proxy">Using a Proxy</h2>
 <p><a href="../../Support/Configuration/#proxy-support">Proxy Configuration</a></p>
-<h2 id="using-a-amqp-based-transport">Using a AMQP based Transport?</h2>
+<h2 id="using-a-amqp-based-transport">Using a AMQP based Transport</h2>
 <p>You need to install an additional php module : <code>bcmath</code> (eg <code>php72w-bcmath</code> for
 Centos 7)</p>
 <h2 id="alertmanager">Alertmanager</h2>
-<p>Alertmanager is an alert handling software, initially developed for alert processing sent by Prometheus. </p>
-<p>It has built-in functionality for deduplicating, grouping and routing alerts based on configurable criteria. </p>
-<p>LibreNMS uses alert grouping by alert rule, which can produce an array of alerts of similar content for an array of hosts, whereas Alertmanager can group them by alert meta, ideally producing one single notice in case an issue occurs. </p>
-<p>It is possible to configure as much label values as required in Alertmanager Options section. Every label and it's value should be entered as a new line.</p>
+<p>Alertmanager is an alert handling software, initially developed for
+alert processing sent by Prometheus.</p>
+<p>It has built-in functionality for deduplicating, grouping and routing
+alerts based on configurable criteria.</p>
+<p>LibreNMS uses alert grouping by alert rule, which can produce an array
+of alerts of similar content for an array of hosts, whereas
+Alertmanager can group them by alert meta, ideally producing one
+single notice in case an issue occurs.</p>
+<p>It is possible to configure as much label values as required in
+Alertmanager Options section. Every label and it's value should be
+entered as a new line.</p>
 <p><a href="https://prometheus.io/docs/alerting/alertmanager/">Alertmanager Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2689,8 +2702,12 @@ Centos 7)</p>
 <p>API transports definitions are a bit more complex than the E-Mail configuration.</p>
 <p>The URL can have the same placeholders as defined in the <a href="../Templates/#syntax">Template-Syntax</a>.</p>
 <p>If the <code>Api Method</code> is <code>get</code>, all placeholders will be URL-Encoded.</p>
-<p>The API transport uses cURL to call the APIs, therefore you might need to install <code>php curl</code> to make it work.</p>
-<p><strong>Note</strong>: it is highly recommended to define your own <a href="../Templates/">Templates</a> when you want to use the API transport. The default template might exceed URL-length for GET requests and therefore cause all sorts of errors.</p>
+<p>The API transport uses cURL to call the APIs, therefore you might need
+to install <code>php curl</code> to make it work.</p>
+<p><strong>Note</strong>: it is highly recommended to define your own
+<a href="../Templates/">Templates</a> when you want to use the API transport. The
+default template might exceed URL-length for GET requests and
+therefore cause all sorts of errors.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -2711,7 +2728,8 @@ Centos 7)</p>
 </tbody>
 </table>
 <h2 id="boxcar">Boxcar</h2>
-<p>Copy your access token from the Boxcar app or from the Boxcar.io website and setup the transport.</p>
+<p>Copy your access token from the Boxcar app or from the Boxcar.io
+website and setup the transport.</p>
 <p><a href="http://developer.boxcar.io/api/publisher/">Boxcar Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2729,7 +2747,8 @@ Centos 7)</p>
 </tbody>
 </table>
 <h2 id="canopsis">Canopsis</h2>
-<p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis which are then converted to canopsis events. </p>
+<p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis
+which are then converted to canopsis events.</p>
 <p><a href="https://doc.canopsis.net/guide-developpement/struct-event/">Canopsis Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2763,7 +2782,8 @@ Centos 7)</p>
 </tbody>
 </table>
 <h2 id="cisco-spark">Cisco Spark</h2>
-<p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make this possible you need to have a RoomID and a token. </p>
+<p>Cisco Spark. LibreNMS can send alerts to a Cisco Spark room. To make
+this possible you need to have a RoomID and a token.</p>
 <p>For more information about Cisco Spark RoomID and token, take a look here :</p>
 <ul>
 <li><a href="https://developer.ciscospark.com/getting-started.html">Getting started</a></li>
@@ -2789,7 +2809,8 @@ Centos 7)</p>
 </tbody>
 </table>
 <h2 id="clickatell">Clickatell</h2>
-<p>Clickatell provides a REST-API requiring an Authorization-Token and at least one Cellphone number.</p>
+<p>Clickatell provides a REST-API requiring an Authorization-Token and at
+least one Cellphone number.</p>
 <p><a href="https://www.clickatell.com/developers/api-documentation/rest-api-request-parameters/">Clickatell Docs</a></p>
 <p>Here an example using 3 numbers, any amount of numbers is supported:</p>
 <p><strong>Example:</strong></p>
@@ -2812,10 +2833,11 @@ Centos 7)</p>
 </tbody>
 </table>
 <h2 id="discord">Discord</h2>
-<p>The Discord transport will POST the alert message to your Discord Incoming WebHook. Simple html tags are stripped from 
-the message. </p>
-<p>The only required value is for url, without this no call to Discord will be made. The Options field supports the
-JSON/Form Params listed in the Discord Docs below.</p>
+<p>The Discord transport will POST the alert message to your Discord
+Incoming WebHook. Simple html tags are stripped from  the message.</p>
+<p>The only required value is for url, without this no call to Discord
+will be made. The Options field supports the JSON/Form Params listed
+in the Discord Docs below.</p>
 <p><a href="https://discordapp.com/developers/docs/resources/webhook#execute-webhook">Discord Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2837,7 +2859,8 @@ JSON/Form Params listed in the Discord Docs below.</p>
 </tbody>
 </table>
 <h2 id="elasticsearch">Elasticsearch</h2>
-<p>You can have LibreNMS send alerts to an elasticsearch database. Each fault will be sent as a separate document.</p>
+<p>You can have LibreNMS send alerts to an elasticsearch database. Each
+fault will be sent as a separate document.</p>
 <p>The index pattern uses strftime() formatting.</p>
 <p><strong>Example:</strong></p>
 <table>
@@ -2863,8 +2886,9 @@ JSON/Form Params listed in the Discord Docs below.</p>
 </tbody>
 </table>
 <h2 id="gitlab">Gitlab</h2>
-<p>LibreNMS will create issues for warning and critical level alerts however only title and description are set. 
-Uses Personal access tokens to authenticate with Gitlab and will store the token in cleartext.</p>
+<p>LibreNMS will create issues for warning and critical level alerts
+however only title and description are set. Uses Personal access
+tokens to authenticate with Gitlab and will store the token in cleartext.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -2930,7 +2954,7 @@ because the v2 API is still in beta.</p>
 </tr>
 </tbody>
 </table>
-<p>At present the following options are supported: <code>color</code>, <code>notify</code> and <code>message_format</code>. </p>
+<p>At present the following options are supported: <code>color</code>, <code>notify</code> and <code>message_format</code>.</p>
 <blockquote>
 <p>Note: The default message format for HipChat messages is HTML.  It is
 recommended that you specify the <code>text</code> message format to prevent unexpected
@@ -2956,10 +2980,13 @@ Configuration of the LibreNMS IRC-Bot is described <a href="https://github.com/l
 </tbody>
 </table>
 <h2 id="jira">JIRA</h2>
-<p>You can have LibreNMS create issues on a Jira instance for critical and warning alerts. The Jira transport only sets 
-summary and description fields. Therefore your Jira project must not have any other mandatory field for the provided 
-issuetype. The config fields that need to set are Jira URL, Jira username, Jira password, Project key, and issue type. 
-Currently http authentication is used to access Jira and Jira username and password will be stored as cleartext in the 
+<p>You can have LibreNMS create issues on a Jira instance for critical
+and warning alerts. The Jira transport only sets  summary and
+description fields. Therefore your Jira project must not have any
+other mandatory field for the provided issuetype. The config fields
+that need to set are Jira URL, Jira username, Jira password, Project
+key, and issue type.  Currently http authentication is used to access
+Jira and Jira username and password will be stored as cleartext in the
 LibreNMS database.</p>
 <p><a href="https://confluence.atlassian.com/adminjiracloud/issue-types-844500742.html">Jira Issue Types</a></p>
 <p><strong>Example:</strong></p>
@@ -2994,8 +3021,9 @@ LibreNMS database.</p>
 </tbody>
 </table>
 <h2 id="mail">Mail</h2>
-<p>For all but the default contact, we support setting multiple email addresses separated by a comma. So you can 
-set the devices sysContact, override the sysContact or have your users emails set like:</p>
+<p>For all but the default contact, we support setting multiple email
+addresses separated by a comma. So you can set the devices sysContact,
+override the sysContact or have your users emails set like:</p>
 <p><code>email@domain.com, alerting@domain.com</code></p>
 <p>The E-Mail transports uses the same email-configuration like the rest of LibreNMS.
 As a small reminder, here is it's configuration directives including defaults:</p>
@@ -3015,7 +3043,8 @@ As a small reminder, here is it's configuration directives including defaults:</
 </tbody>
 </table>
 <h2 id="microsoft-teams">Microsoft Teams</h2>
-<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector API which are then posted to a specific channel. </p>
+<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector
+API which are then posted to a specific channel.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3032,8 +3061,9 @@ As a small reminder, here is it's configuration directives including defaults:</
 </tbody>
 </table>
 <h2 id="nagios-compatible">Nagios Compatible</h2>
-<p>The nagios transport will feed a FIFO at the defined location with the same format that nagios would.
-This allows you to use other alerting systems with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.</p>
+<p>The nagios transport will feed a FIFO at the defined location with the
+same format that nagios would. This allows you to use other alerting
+systems with LibreNMS, for example <a href="http://flapjack.io">Flapjack</a>.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3050,14 +3080,18 @@ This allows you to use other alerting systems with LibreNMS, for example <a href
 </tbody>
 </table>
 <h2 id="opsgenie">OpsGenie</h2>
-<p>Using OpsGenie LibreNMS integration, LibreNMS forwards alerts to OpsGenie with detailed information.
-OpsGenie acts as a dispatcher for LibreNMS alerts, determines the right people to notify based on on-call 
-schedules and notifies via email, text messages (SMS), phone calls and iOS &amp; Android push notifications.
-Then escalates alerts until the alert is acknowledged or closed.</p>
-<p>Create a <a href="https://docs.opsgenie.com/docs/librenms-integration">LibreNMS Integration</a> from the integrations page 
-once you signup. Then copy the API key from OpsGenie to LibreNMS.</p>
-<p>If you want to automatically ack and close alerts, leverage Marid integration. More detail with screenshots is 
-available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGenie LibreNMS Integration page</a>.</p>
+<p>Using OpsGenie LibreNMS integration, LibreNMS forwards alerts to
+OpsGenie with detailed information. OpsGenie acts as a dispatcher for
+LibreNMS alerts, determines the right people to notify based on
+on-call schedules and notifies via email, text messages (SMS), phone
+calls and iOS &amp; Android push notifications. Then escalates alerts
+until the alert is acknowledged or closed.</p>
+<p>Create a <a href="https://docs.opsgenie.com/docs/librenms-integration">LibreNMS
+Integration</a> from
+the integrations page  once you signup. Then copy the API key from OpsGenie to LibreNMS.</p>
+<p>If you want to automatically ack and close alerts, leverage Marid
+integration. More detail with screenshots is available in
+<a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGenie LibreNMS Integration page</a>.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3074,7 +3108,7 @@ available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGe
 </tbody>
 </table>
 <h2 id="osticket">osTicket</h2>
-<p>LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets. </p>
+<p>LibreNMS can send alerts to osTicket API which are then converted to osTicket tickets.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3095,9 +3129,11 @@ available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGe
 </tbody>
 </table>
 <h2 id="pagerduty">PagerDuty</h2>
-<p>LibreNMS can make use of PagerDuty, this is done by utilizing an API key and Integraton Key.</p>
+<p>LibreNMS can make use of PagerDuty, this is done by utilizing an API
+key and Integraton Key.</p>
 <p>API Keys can be found under 'API Access' in the PagerDuty portal.</p>
-<p>Integration Keys can be found under 'Integration' for the particular Service you have created in the PagerDuty portal.</p>
+<p>Integration Keys can be found under 'Integration' for the particular
+Service you have created in the PagerDuty portal.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3118,14 +3154,16 @@ available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGe
 </tbody>
 </table>
 <h2 id="philips-hue">Philips Hue</h2>
-<p>Want to spice up your noc life? LibreNMS will flash all lights connected to your philips hue bridge whenever an alert is triggered. </p>
+<p>Want to spice up your noc life? LibreNMS will flash all lights
+connected to your philips hue bridge whenever an alert is triggered.</p>
 <p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
 <ul>
 <li>Update the "URL:" field to <code>/api</code></li>
 <li>Paste this in the "Message Body" {"devicetype":"librenms"}</li>
 <li>Press the round button on your <code>philips Hue Bridge</code></li>
 <li>Click on <code>POST</code></li>
-<li>In the <code>Command Response</code> You should see output with your username. Copy this without the quotes</li>
+<li>In the <code>Command Response</code> You should see output with your
+  username. Copy this without the quotes</li>
 </ul>
 <p>More Info: <a href="https://www.developers.meethue.com/documentation/getting-started">Philips Hue Documentation</a></p>
 <p><strong>Example:</strong></p>
@@ -3152,8 +3190,9 @@ available in <a href="https://docs.opsgenie.com/docs/librenms-integration">OpsGe
 </tbody>
 </table>
 <h2 id="playsms">PlaySMS</h2>
-<p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP API using a Username and WebService Token.
-Please consult PlaySMS's documentation regarding number formatting.</p>
+<p>PlaySMS is an open source SMS-Gateway that can be used via their HTTP
+API using a Username and WebService Token. Please consult PlaySMS's
+documentation regarding number formatting.</p>
 <p><a href="https://github.com/antonraharja/playSMS/blob/master/documents/development/WEBSERVICES.md">PlaySMS Docs</a></p>
 <p>Here an example using 3 numbers, any amount of numbers is supported:</p>
 <p><strong>Example:</strong></p>
@@ -3205,15 +3244,19 @@ Please consult PlaySMS's documentation regarding number formatting.</p>
 </tbody>
 </table>
 <h2 id="pushover">Pushover</h2>
-<p>If you want to change the default <a href="https://pushover.net/api#sounds">notification sound</a> for all notifications then you can add the following in Pushover Options:</p>
+<p>If you want to change the default <a href="https://pushover.net/api#sounds">notification
+sound</a> for all notifications then you
+can add the following in Pushover Options:</p>
 <p><code>sound=falling</code></p>
 <p>You also have the possibility to change sound per severity:
 <code>sound_critical=falling</code>
 <code>sound_warning=siren</code>
 <code>sound_ok=magic</code></p>
 <p>Enabling Pushover support is fairly easy, there are only two required parameters.</p>
-<p>Firstly you need to create a new Application (called LibreNMS, for example) in your account on the Pushover website (https://pushover.net/apps)</p>
-<p>Now copy your API Key and obtain your User Key from the newly created Application and setup the transport.</p>
+<p>Firstly you need to create a new Application (called LibreNMS, for
+example) in your account on the Pushover website (<a href="https://pushover.net/apps">https://pushover.net/apps</a>).</p>
+<p>Now copy your API Key and obtain your User Key from the newly created
+Application and setup the transport.</p>
 <p><a href="https://pushover.net/api">Pushover Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -3247,8 +3290,9 @@ Please consult PlaySMS's documentation regarding number formatting.</p>
 </tbody>
 </table>
 <h2 id="rocketchat">Rocket.chat</h2>
-<p>The Rocket.chat transport will POST the alert message to your Rocket.chat Incoming WebHook using the
-attachments option. Simple html tags are stripped from the message. All options are optional, the only
+<p>The Rocket.chat transport will POST the alert message to your
+Rocket.chat Incoming WebHook using the attachments option. Simple html
+tags are stripped from the message. All options are optional, the only
 required value is for url, without this then no call to Rocket.chat will be made.</p>
 <p><a href="https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage">Rocket.chat Docs</a></p>
 <p><strong>Example:</strong></p>
@@ -3283,10 +3327,11 @@ required value is for url, without this then no call to Rocket.chat will be made
 </tbody>
 </table>
 <h2 id="slack">Slack</h2>
-<p>The Slack transport will POST the alert message to your Slack Incoming WebHook using the attachments option,
-you are able to specify multiple webhooks along with the relevant options to go with it. Simple html tags 
-are stripped from the message. All options are optional, the only required value is for url, without this 
-then no call to Slack will be made.</p>
+<p>The Slack transport will POST the alert message to your Slack Incoming
+WebHook using the attachments option, you are able to specify multiple
+webhooks along with the relevant options to go with it. Simple html
+tags are stripped from the message. All options are optional, the
+only required value is for url, without this  then no call to Slack will be made.</p>
 <p>We currently support the following attachment options:</p>
 <p><code>author_name</code></p>
 <p><a href="https://api.slack.com/docs/message-attachments">Slack docs</a></p>
@@ -3310,8 +3355,10 @@ then no call to Slack will be made.</p>
 </tbody>
 </table>
 <h2 id="smseagle">SMSEagle</h2>
-<p>SMSEagle is a hardware SMS Gateway that can be used via their HTTP API using a Username and password.</p>
-<p>Destination numbers are one per line, with no spaces. They can be in either local or international dialling format.</p>
+<p>SMSEagle is a hardware SMS Gateway that can be used via their HTTP API
+using a Username and password.</p>
+<p>Destination numbers are one per line, with no spaces. They can be in
+either local or international dialling format.</p>
 <p><a href="http://www.smseagle.eu">SMSEagle Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -3346,8 +3393,10 @@ then no call to Slack will be made.</p>
 </table>
 <h2 id="syslog">Syslog</h2>
 <p>You can have LibreNMS emit alerts as syslogs complying with RFC 3164.</p>
-<p>More information on RFC 3164 can be found here: https://tools.ietf.org/html/rfc3164</p>
-<p>Example output: <code>&lt;26&gt; Mar 22 00:59:03 librenms.host.net librenms[233]: [Critical] network.device.net: Port Down - port_id =&gt; 98939; ifDescr =&gt; xe-1/1/0;</code></p>
+<p>More information on RFC 3164 can be found here:
+<a href="https://tools.ietf.org/html/rfc3164">https://tools.ietf.org/html/rfc3164</a></p>
+<p>Example output: <code>&lt;26&gt; Mar 22 00:59:03 librenms.host.net librenms[233]:
+[Critical] network.device.net: Port Down - port_id =&gt; 98939; ifDescr =&gt; xe-1/1/0;</code></p>
 <p>Each fault will be sent as a separate syslog.</p>
 <p><strong>Example:</strong></p>
 <table>
@@ -3378,28 +3427,43 @@ then no call to Slack will be made.</p>
 </blockquote>
 <ol>
 <li>
-<p>First you must create a telegram account and add BotFather to you list. To do this click on the following url: https://telegram.me/botfather</p>
+<p>First you must create a telegram account and add BotFather to you
+   list. To do this click on the following url:
+   <a href="https://telegram.me/botfather">https://telegram.me/botfather</a></p>
 </li>
 <li>
-<p>Generate a new bot with the command "/newbot" BotFather is then asking for a username and a normal name. After that your bot is created and you get a HTTP token. (for more options for your bot type "/help")</p>
+<p>Generate a new bot with the command "/newbot" BotFather is then
+   asking for a username and a normal name. After that your bot is
+   created and you get a HTTP token. (for more options for your bot
+   type "/help")</p>
 </li>
 <li>
-<p>Add your bot to telegram with the following url: <code>http://telegram.me/&lt;botname&gt;</code> to use app or <code>https://web.telegram.org/&lt;botname&gt;</code> to use in web, and send some text to the bot.</p>
+<p>Add your bot to telegram with the following url:
+   <code>http://telegram.me/&lt;botname&gt;</code> to use app or
+   <code>https://web.telegram.org/&lt;botname&gt;</code> to use in web, and send some
+   text to the bot.</p>
 </li>
 <li>
-<p>The BotFather should have responded with a token, copy your token code and go to the following page in chrome: <code>https://api.telegram.org/bot&lt;tokencode&gt;/getUpdates</code>
-(this could take a while so continue to refresh until you see something similar to below)</p>
+<p>The BotFather should have responded with a token, copy your token
+   code and go to the following page in chrome:
+   <code>https://api.telegram.org/bot&lt;tokencode&gt;/getUpdates</code> (this could
+   take a while so continue to refresh until you see something similar
+   to below)</p>
 </li>
 <li>
-<p>You see a json code with the message you sent to the bot. Copy the Chat id. In this example that is “-9787468” within this example:
-   <code>"message":{"message_id":7,"from":"id":656556,"first_name":"Joo","last_name":"Doo","username":"JohnDoo"},"chat":{"id":-9787468,"title":"Telegram Group"},"date":1435216924,"text":"Hi"}}]}</code>.</p>
+<p>You see a json code with the message you sent to the bot. Copy the
+   Chat id. In this example that is “-9787468” within this example:
+   <code>"message":{"message_id":7,"from":"id":656556,"first_name":"Joo","last_name":"Doo","username":"JohnDoo"},"chat":{"id":-9787468,"title":"Telegram
+   Group"},"date":1435216924,"text":"Hi"}}]}</code>.</p>
 </li>
 <li>
-<p>Now create a new "Telegram transport" in LibreNMS (Global Settings -&gt; Alerting Settings -&gt; Telegram transport).
-Click on 'Add Telegram config' and put your chat id and token into the relevant box.</p>
+<p>Now create a new "Telegram transport" in LibreNMS (Global Settings
+   -&gt; Alerting Settings -&gt; Telegram transport). Click on 'Add Telegram
+   config' and put your chat id and token into the relevant box.</p>
 </li>
 <li>
-<p>If want to use a group to receive alerts, you need to pick the Chat ID of the group chat, and not of the Bot itself.</p>
+<p>If want to use a group to receive alerts, you need to pick the Chat
+   ID of the group chat, and not of the Bot itself.</p>
 </li>
 </ol>
 <p><a href="https://core.telegram.org/api">Telegram Docs</a></p>
@@ -3427,7 +3491,10 @@ Click on 'Add Telegram config' and put your chat id and token into the relevant 
 </tbody>
 </table>
 <h2 id="twilio-sms">Twilio SMS</h2>
-<p>Twilio will send your alert via SMS.  From your Twilio account you will need your account SID, account token and your Twilio SMS phone number that you would like to send the alerts from.  Twilio's APIs are located at: https://www.twilio.com/docs/api?filter-product=sms</p>
+<p>Twilio will send your alert via SMS.  From your Twilio account you
+will need your account SID, account token and your Twilio SMS phone
+number that you would like to send the alerts from.  Twilio's APIs are
+located at: <a href="https://www.twilio.com/docs/api?filter-product=sms">https://www.twilio.com/docs/api?filter-product=sms</a></p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3452,11 +3519,12 @@ Click on 'Add Telegram config' and put your chat id and token into the relevant 
 </tbody>
 </table>
 <h2 id="victorops">VictorOps</h2>
-<p>VictorOps provide a webHook url to make integration extremely simple. To get the URL required login to your VictorOps 
-account and go to:</p>
+<p>VictorOps provide a webHook url to make integration extremely
+simple. To get the URL required login to your VictorOps  account and go to:</p>
 <p>Settings -&gt; Integrations -&gt; REST Endpoint -&gt; Enable Integration.</p>
-<p>The URL provided will have $routing_key at the end, you need to change this to something that is unique to the system 
-sending the alerts such as librenms. I.e:</p>
+<p>The URL provided will have $routing_key at the end, you need to change
+this to something that is unique to the system  sending the alerts
+such as librenms. I.e:</p>
 <p><code>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</code></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -3474,14 +3542,21 @@ sending the alerts such as librenms. I.e:</p>
 </tbody>
 </table>
 <h2 id="kayako-classic">Kayako Classic</h2>
-<p>LibreNMS can send alerts to Kayako Classic API which are then converted to tickets. 
-To use this module, you need REST API feature enabled in Kayako Classic and configured email account at LibreNMS. To enable this, do this:</p>
+<p>LibreNMS can send alerts to Kayako Classic API which are then
+converted to tickets. To use this module, you need REST API feature
+enabled in Kayako Classic and configured email account at LibreNMS. To
+enable this, do this:</p>
 <p>AdminCP -&gt; REST API -&gt; Settings -&gt; Enable API (Yes)</p>
-<p>Also you need to know the department id to provide tickets to appropriate department and a user email to provide, which is used as ticket author. 
-To get department id: navigate to appropriate department name at the departments list page in Admin CP and watch the number at the end of url. 
-Example: http://servicedesk.example.com/admin/Base/Department/Edit/17. Department ID is 17</p>
-<p>As a requirement, you have to know API Url, API Key and API Secret to connect to servicedesk</p>
-<p>[Kayako REST API Docs] (https://classic.kayako.com/article/1502-kayako-rest-api)</p>
+<p>Also you need to know the department id to provide tickets to
+appropriate department and a user email to provide, which is used as
+ticket author.  To get department id: navigate to appropriate
+department name at the departments list page in Admin CP and watch the
+number at the end of url. Example:
+http://servicedesk.example.com/admin/Base/Department/Edit/17. Department
+ID is 17</p>
+<p>As a requirement, you have to know API Url, API Key and API Secret to
+connect to servicedesk</p>
+<p><a href="https://classic.kayako.com/article/1502-kayako-rest-api">Kayako REST API Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3586,13 +3661,13 @@ Example: http://servicedesk.example.com/admin/Base/Department/Edit/17. Departmen
           </a>
         
         
-          <a href="../Creating-Transport/" title="Creating a new Transport." class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Creating-Transport/" title="Creating a new Transport" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Creating a new Transport.
+                Creating a new Transport
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2244,8 +2244,11 @@
                 
                 
                 <h1 id="creating-snmp-trap-handlers">Creating snmp trap handlers</h1>
-<p>You must have a working snmptrapd installation. See <a href="../../Extensions/SNMP-Trap-Handler/">SNMP TRAP HANDLER</a> </p>
-<p>Make sure the MIB is loaded from the trap you are adding. Edit <code>/etc/systemd/system/snmptrapd.service.d/mibs.conf</code> to add it then restart snmptrapd.</p>
+<p>You must have a working snmptrapd. See
+<a href="../../Extensions/SNMP-Trap-Handler/">SNMP TRAP HANDLER</a></p>
+<p>Make sure the MIB is loaded from the trap you are adding. Edit
+<code>/etc/systemd/system/snmptrapd.service.d/mibs.conf</code> to add it then
+restart snmptrapd.</p>
 <p><code>MIBDIRS</code> option is not recursive, so you need to specify each directory individually.</p>
 <p>Create a new class in <code>LibreNMS\Snmptrap\Handlers</code> that implements the
 <code>LibreNMS\Interfaces\SnmptrapHandler</code> interface. For example:</p>
@@ -2302,10 +2305,11 @@ class ColdBoot implements SnmptrapHandler
 2 cyan
 3 blue
 4 yellow
-5 red 
+5 red
 </code></pre>
 
-<p>Register the mapping in the <code>config/snmptraps.php</code> file. Make sure to use the full trap OID and correct class.</p>
+<p>Register the mapping in the <code>config/snmptraps.php</code> file. Make sure to
+use the full trap OID and correct class.</p>
 <pre><code class="php">'SNMPv2-MIB::coldStart' =&gt; \LibreNMS\Snmptrap\Handlers\ColdBoot::class,
 </code></pre>
 

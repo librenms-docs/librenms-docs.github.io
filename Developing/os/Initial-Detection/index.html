@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2337,10 +2337,13 @@
                 
                   <h1>Initial Detection</h1>
                 
-                <p>This document will provide the information you should need to add basic detection for a new OS.</p>
+                <p>This document will provide the information you should need to add
+basic detection for a new OS.</p>
 <h3 id="discovery">Discovery</h3>
-<p>Discovery is now all done by yaml files, you do not and should not create a php file for discovery.</p>
-<p>Create the new OS file which should be called <code>includes/definitions/pulse.yaml</code>. Here is a working example:</p>
+<p>Discovery is now all done by yaml files, you do not and should not
+create a php file for discovery.</p>
+<p>Create the new OS file which should be called
+<code>includes/definitions/pulse.yaml</code>. Here is a working example:</p>
 <pre><code class="yaml">os: pulse
 text: 'Pulse Secure'
 type: firewall
@@ -2354,16 +2357,23 @@ discovery:
         - .1.3.6.1.4.1.12532.
 </code></pre>
 
-<p><code>over</code>: This is a list of the graphs which will be shown within the device header bar (mini graphs top right).</p>
-<p><code>discovery</code>: Here we are detecting this new OS using sysObjectID, this is the preferred method for detection. 
-Other options are available:</p>
+<p><code>over</code>: This is a list of the graphs which will be shown within the
+device header bar (mini graphs top right).</p>
+<p><code>discovery</code>: Here we are detecting this new OS using sysObjectID, this
+is the preferred method for detection.  Other options are available:</p>
 <ul>
-<li><code>sysObjectID</code> The preferred operator. Checks if the sysObjectID starts with one of the strings under this item</li>
-<li><code>sysDescr</code> Use this in addition to sysObjectID if required. Check that the sysDescr contains one of the strings under this item</li>
-<li><code>sysObjectID_regex</code> Please avoid use of this. Checks if the sysObjectID matches one of the regex statements under this item</li>
-<li><code>sysDescr_regex</code> Please avoid use of this. Checks if the sysDescr matches one of the regex statements under this item</li>
-<li><code>snmpget</code> Do not use this unless none of the other methods work. Fetch an oid and compare it against a value.</li>
-<li><code>_except</code> You can add this to any of the above to exclude that element. As an example:</li>
+<li><code>sysObjectID</code> The preferred operator. Checks if the sysObjectID
+  starts with one of the strings under this item</li>
+<li><code>sysDescr</code> Use this in addition to sysObjectID if required. Check
+  that the sysDescr contains one of the strings under this item</li>
+<li><code>sysObjectID_regex</code> Please avoid use of this. Checks if the
+  sysObjectID matches one of the regex statements under this item</li>
+<li><code>sysDescr_regex</code> Please avoid use of this. Checks if the sysDescr
+  matches one of the regex statements under this item</li>
+<li><code>snmpget</code> Do not use this unless none of the other methods
+  work. Fetch an oid and compare it against a value.</li>
+<li><code>_except</code> You can add this to any of the above to exclude that
+  element. As an example:</li>
 </ul>
 <pre><code class="yaml">discovery:
     - 
@@ -2373,29 +2383,34 @@ Other options are available:</p>
           - 'Not some pulse'
 </code></pre>
 
-<p><code>group</code>: You can group certain OS' together by using group, for instance ios, nx-os, iosxr are all within a group 
-called cisco.</p>
-<p><code>bad_ifXEntry</code>: This is a list of models for which to tell LibreNMS that the device doesn't support ifXEntry and to 
- ignore it:</p>
+<p><code>group</code>: You can group certain OS' together by using group, for
+instance ios, nx-os, iosxr are all within a group called cisco.</p>
+<p><code>bad_ifXEntry</code>: This is a list of models for which to tell LibreNMS
+that the device doesn't support ifXEntry and to ignore it:</p>
 <pre><code class="yaml"> bad_ifXEntry:
      - cisco1941
      - cisco886Va
      - cisco2811
 </code></pre>
 
-<p><code>mib_dir</code>: You can use this to specify the additional directories to look in for MIBs:</p>
+<p><code>mib_dir</code>: You can use this to specify the additional directories to
+look in for MIBs:</p>
 <pre><code class="yaml">mib_dir:
     - juniper
     - cisco
 </code></pre>
 
-<p><code>poller_modules</code>: This is a list of poller modules to either enable (1) or disable (0). Check <code>includes/defaults.inc.php</code> to see which modules are enabled/disabled by default.</p>
+<p><code>poller_modules</code>: This is a list of poller modules to either enable
+(1) or disable (0). Check <code>includes/defaults.inc.php</code> to see which
+modules are enabled/disabled by default.</p>
 <pre><code class="yaml">poller_modules:
     cisco-ace-serverfarms: false
     cisco-ace-loadbalancer: false
 </code></pre>
 
-<p><code>discovery_modules</code>: This is the list of discovery modules to either enable (1) or disable (0). Check <code>includes/defaults.inc.php</code> to see which modules are enabled/disabled by default.</p>
+<p><code>discovery_modules</code>: This is the list of discovery modules to either
+enable (1) or disable (0). Check <code>includes/defaults.inc.php</code> to see
+which modules are enabled/disabled by default.</p>
 <pre><code class="yaml">discovery_modules:
      cisco-cef: true
      cisco-sla: true
@@ -2431,15 +2446,20 @@ called cisco.</p>
 1. One of the first level items must match
 2. ALL of the second level items must match (sysObjectID, sysDescr)
 3. One of the third level items (foo, [snafu,exodar], bar) must match</p>
-<p>So, considering the example:
- - <code>sysObjectID: foo, sysDescr: ANYTHING</code> matches
- - <code>sysObjectID: bar, sysDescr: ANYTHING</code> does not match
- - <code>sysObjectID: bar, sysDescr: exodar</code> matches 
- - <code>sysObjectID: bar, sysDescr: snafu</code> matches </p>
+<p>So, considering the example:</p>
+<ul>
+<li><code>sysObjectID: foo, sysDescr: ANYTHING</code> matches</li>
+<li><code>sysObjectID: bar, sysDescr: ANYTHING</code> does not match</li>
+<li><code>sysObjectID: bar, sysDescr: exodar</code> matches </li>
+<li><code>sysObjectID: bar, sysDescr: snafu</code> matches </li>
+</ul>
 <h4 id="discovery-helpers">Discovery helpers</h4>
 <p>Within the discovery code base if you are using php then the following helpers are available:</p>
-<p><code>$device['sysObjectID]</code>: This will contain the full numerical sysObjectID for this device.
-<code>$device['sysDescr']</code>: This will contain the full sysDescr for this device.</p>
+<ul>
+<li><code>$device['sysObjectID]</code>: This will contain the full numerical
+  sysObjectID for this device.</li>
+<li><code>$device['sysDescr']</code>: This will contain the full sysDescr for this device.</li>
+</ul>
 <h3 id="poller">Poller</h3>
 <p>OS polling is done within <code>includes/polling/os/$os.inc.php</code> and is where we detect certain values.</p>
 <pre><code class="php">&lt;?php
@@ -2460,11 +2480,13 @@ recommended that you add mibs to a vendor specific directory. For instance HP mi
 <h3 id="icon-and-logo">Icon and Logo</h3>
 <p>It is highly recommended to use SVG images where possible, these scale and provide a nice visual image for users 
 with HiDPI screens. If you can't find SVG images then please use png.</p>
-<p>Create an SVG image of the icon and logo.  Legacy PNG bitmaps are also supported but look bad on HiDPI.
-- A vector image should not contain padding.<br />
-- The file should not be larger than 20 Kb. Simplify paths to reduce large files.
-- Use plain SVG without gzip compression.
-- The SVG root element must not contain length and width attributes, only viewBox.</p>
+<p>Create an SVG image of the icon and logo.  Legacy PNG bitmaps are also supported but look bad on HiDPI.</p>
+<ul>
+<li>A vector image should not contain padding.</li>
+<li>The file should not be larger than 20 Kb. Simplify paths to reduce large files.</li>
+<li>Use plain SVG without gzip compression.</li>
+<li>The SVG root element must not contain length and width attributes, only viewBox.</li>
+</ul>
 <h5 id="icon">Icon</h5>
 <ul>
 <li>Save the icon SVG to <code>html/images/os/$os.svg</code>.</li>
@@ -2489,7 +2511,8 @@ with HiDPI screens. If you can't find SVG images then please use png.</p>
 <li>Use <code>File -&gt; Save As -&gt; Plain SVG</code> to save the final image.</li>
 </ul>
 <p>By optimizing the SVG you can shrink the file size in some cases to less than 20 %.
-<a href="https://github.com/svg/svgo">SVG Optimizer</a> does a great job. There is also an <a href="https://jakearchibald.github.io/svgomg/">online version</a>.</p>
+<a href="https://github.com/svg/svgo">SVG Optimizer</a> does a great job. There
+is also an <a href="https://jakearchibald.github.io/svgomg/">online version</a>.</p>
 <h4 id="the-final-check">The final check</h4>
 <p>Discovery</p>
 <pre><code class="bash">./discovery.php -d -h HOSTNAME
@@ -2500,7 +2523,10 @@ with HiDPI screens. If you can't find SVG images then please use png.</p>
 </code></pre>
 
 <p>At this step we should see all the values retrieved in LibreNMS.</p>
-<p>Note: If you have made a number of changes to either the OS's Discovery files, it's possible earlier edits have been cached. As such, if you do not get expected behaviour when completing the final check above, try removing the cache file first:</p>
+<p>Note: If you have made a number of changes to either the OS's
+Discovery files, it's possible earlier edits have been cached. As
+such, if you do not get expected behaviour when completing the final
+check above, try removing the cache file first:</p>
 <pre><code class="bash">rm -f cache/os_defs.cache
 </code></pre>
                 

@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2204,31 +2204,45 @@
                 
                 
                 <h1 id="creating-documentation">Creating Documentation</h1>
-<p>One of the goals of the LibreNMS project is to enable users to get all of the help they need from our documentation.</p>
-<p>The documentation is generated with <a href="https://www.mkdocs.org/">mkdocs</a>. If you want to build a local copy, install <code>mkdocs</code> and <code>mkdocs-material</code>, then run <code>make docs</code>. This produces the HTML in <code>docs/out</code> directory.</p>
-<p>Alternatively you can start a webserver at http://localhost:8000 for live preview by executing <code>mkdocs serve</code></p>
+<p>One of the goals of the LibreNMS project is to enable users to get all
+of the help they need from our documentation.</p>
+<p>The documentation is generated with
+<a href="https://www.mkdocs.org/">mkdocs</a>. If you want to build a local copy,
+install <code>mkdocs</code> and <code>mkdocs-material</code>, then run <code>make docs</code>. This
+produces the HTML in <code>docs/out</code> directory.</p>
+<p>Alternatively you can start a webserver at <a href="http://localhost:8000">http://localhost:8000</a> for
+live preview by executing <code>mkdocs serve</code></p>
 <h3 id="writing-docs">Writing docs</h3>
-<p>When you are adding a new feature or extension, we need to have full documentation to go along with it. It's quite 
-simple to do this:</p>
+<p>When you are adding a new feature or extension, we need to have full
+documentation to go along with it. It's quite simple to do this:</p>
 <ul>
-<li>Find the relevant directory to store your new document in, General, Support and Extensions are the most likely choices.</li>
-<li>Think of a descriptive name that's not too long, it should match what they may be looking for or describes the feature.</li>
-<li>Add the new document into the <code>nav</code> section of <code>mkdocs.yml</code> if it needs to appear in the table of contents</li>
-<li>Ensure the first line contains: <code>source: path/to/file.md</code> - don't include the initial <code>doc/</code>.</li>
-<li>In the body of the document, be descriptive but keep things simple. Some tips:<ul>
-<li>If the document could cover different distros like CentOS and Ubuntu please try and include the information for them all.
-  If that's not possible then at least put a placeholder in asking for contributions.</li>
-<li>Ensure you use the correct formating for <code>commands</code> and <code>code blocks</code> by wrapping one liners in backticks or blocks in ```.</li>
-<li>Put content into sub-headings where possible to organise the content.</li>
+<li>Find the relevant directory to store your new document in, General,
+  Support and Extensions are the most likely choices.</li>
+<li>Think of a descriptive name that's not too long, it should match
+  what they may be looking for or describes the feature.</li>
+<li>Add the new document into the <code>nav</code> section of <code>mkdocs.yml</code> if it
+  needs to appear in the table of contents</li>
+<li>Ensure the first line contains: <code>source: path/to/file.md</code> - don't
+  include the initial <code>doc/</code>.</li>
+<li>In the body of the document, be descriptive but keep things simple. Some tips:</li>
+<li>If the document could cover different distros like CentOS and
+    Ubuntu please try and include the information for them all. If
+    that's not possible then at least put a placeholder in asking for contributions.</li>
+<li>Ensure you use the correct formating for <code>commands</code> and <code>code
+    blocks</code> by wrapping one liners in backticks or blocks in ```.</li>
+<li>Put content into sub-headings where possible to organise the
+    content.</li>
+<li>If you rename a file, please add a redirect in for the old file by
+  using <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code>
+  within the old file name.</li>
 </ul>
-</li>
-<li>If you rename a file, please add a redirect in for the old file by using <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code> within the old file name.</li>
-</ul>
-<p>Please ensure you add the document to the relevant section within <code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
-Forgetting this step will result in your document never seeing the light of day :)</p>
+<p>Please ensure you add the document to the relevant section within
+<code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
+Forgetting this step will result in your document never seeing the
+light of day :)</p>
 <h3 id="formatting-docs">Formatting docs</h3>
-<p>Our docs are based on Markdown using mkdocs which adheres to markdown specs and nothing more, because of that we also import a 
-couple of extra libraries:</p>
+<p>Our docs are based on Markdown using mkdocs which adheres to markdown
+specs and nothing more, because of that we also import a couple of extra libraries:</p>
 <ul>
 <li>pymdownx.tasklist</li>
 <li>pymdownx.tilde</li>
@@ -2236,11 +2250,13 @@ couple of extra libraries:</p>
 <p>This means you can use:</p>
 <ul class="task-list">
 <li><code>~~strikethrough~~</code> to perform <del>strikethrough</del></li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> <code>- [X] List items</code> </li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <code>- [X] List items</code></li>
 <li>Url's can be made <code>[like this](http://www.librenms.org)</code> <a href="http://www.librenms.org">like this</a></li>
 <li>Code can be placed in `` for single line or ``` for multiline.</li>
-<li><code>#</code> Can be used for main headings which translates to a <code>&lt;h1&gt;</code> tag, increasing the <code>#</code>'s will increase the hX tags.</li>
-<li><code>###</code> Can be used for sub-headings which will appear in the TOC to the left.</li>
+<li><code>#</code> Can be used for main headings which translates to a <code>&lt;h1&gt;</code> tag,
+  increasing the <code>#</code>'s will increase the hX tags.</li>
+<li><code>###</code> Can be used for sub-headings which will appear in the TOC to
+  the left.</li>
 </ul>
 <p><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown CheatSheet Link</a></p>
                 

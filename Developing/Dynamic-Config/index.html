@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2204,8 +2204,9 @@
                 
                 
                 <h1 id="adding-new-config-options-to-webui">Adding new config options to WebUI</h1>
-<p>Adding support for users to update a new config option via the WebUI is now a lot easier for general options. This
-document shows you how to add a new config option and even section to the WebUI.</p>
+<p>Adding support for users to update a new config option via the WebUI
+is now a lot easier for general options. This document shows you how
+to add a new config option and even section to the WebUI.</p>
 <h4 id="update-db">Update DB</h4>
 <p>Firstly you will need to add the config option to the database. Here's an example:</p>
 <pre><code class="sql">insert into config (config_name,config_value,config_default,config_descr,config_group,config_group_order,config_sub_group,config_sub_group_order,config_hidden,config_disabled) values ('alert.tolerance_window','','','Tolerance window in seconds','alerting',0,'general',0,'0','0');
@@ -2213,8 +2214,10 @@ document shows you how to add a new config option and even section to the WebUI.
 
 <p>This will determine the default config option for <code>$config['alert']['tolerance_window']</code>.</p>
 <h4 id="update-webui">Update WebUI</h4>
-<p>If the sub-section you want to add the new config option already exists then update the relevant file within
-<code>html/pages/settings/</code> otherwise you will need to create the new sub-section page. Here's an example of this:</p>
+<p>If the sub-section you want to add the new config option already
+exists then update the relevant file within <code>html/pages/settings/</code>
+otherwise you will need to create the new sub-section page. Here's an
+example of this:</p>
 <p><a href="https://github.com/librenms/librenms/commit/c5998f9ee27acdac0c0f7d3092fc830c51ff684c">Commit example</a></p>
 <pre><code class="php">&lt;?php
 

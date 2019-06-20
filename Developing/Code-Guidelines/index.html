@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2272,21 +2272,32 @@
                 
                 
                 <h1 id="coding-guidelines">Coding guidelines</h1>
-<p>This document is here to help code standards for contributions towards LibreNMS. The original code base that we forked from had a lack of standards and as such the code base has a variety of different styles. Whilst we don't want to restrict how people write code, these guidelines should mean we have a good standard going forward that makes reading the code easier. All modern day ide's should be able to assist in these guidelines without breaking your usual workflow.</p>
+<p>This document is here to help code standards for contributions towards
+LibreNMS. The original code base that we forked from had a lack of
+standards and as such the code base has a variety of different
+styles. Whilst we don't want to restrict how people write code, these
+guidelines should mean we have a good standard going forward that
+makes reading the code easier. All modern day ide's should be able to
+assist in these guidelines without breaking your usual workflow.</p>
 <h2 id="php-fig-psr-2-coding-style">PHP-FIG PSR-2 Coding Style</h2>
 <p>All new code should follow the <a href="http://www.php-fig.org/psr/psr-2/">PHP-FIG PSR-2 standard</a>.
-Below are a few key items from that specification, please make sure to follow the full spec.</p>
+Below are a few key items from that specification, please make sure to
+follow the full spec.</p>
 <h3 id="indentation"><a href="http://www.php-fig.org/psr/psr-2/#2-4-indenting">Indentation</a></h3>
-<p>Please use four (4) spaces to indent code rather than a tab. Ensure you increase indentation for nested code blocks.</p>
+<p>Please use four (4) spaces to indent code rather than a tab. Ensure
+you increase indentation for nested code blocks.</p>
 <pre><code class="php">if ($foo == 5) {
     if ($foo == 5) {
         if ($foo == 5) {
 </code></pre>
 
 <h3 id="line-length"><a href="http://www.php-fig.org/psr/psr-2/#1-overview">Line length</a></h3>
-<p>Try to keep the length of a line under 80 characters. If you must exceed 80 characters, please keep it under 120 characters.  This makes reading the code easier and also enables compatibility for all screen sizes.</p>
+<p>Try to keep the length of a line under 80 characters. If you must
+exceed 80 characters, please keep it under 120 characters.  This makes
+reading the code easier and also enables compatibility for all screen sizes.</p>
 <h3 id="control-structures"><a href="http://www.php-fig.org/psr/psr-2/#5-control-structures">Control structures</a></h3>
-<p>A space must be used both before and after the parenthesis and also surrounding the condition operator.</p>
+<p>A space must be used both before and after the parenthesis and also
+surrounding the condition operator.</p>
 <pre><code class="php">if ($foo == 5) {
 </code></pre>
 
@@ -2307,7 +2318,8 @@ Below are a few key items from that specification, please make sure to follow th
 </code></pre>
 
 <h3 id="including-files">Including files</h3>
-<p>Using parenthesis around file includes isn't required, instead just place the file in between ''</p>
+<p>Using parenthesis around file includes isn't required, instead just
+place the file in between ''</p>
 <pre><code class="php">require_once 'includes/snmp.inc.php';
 </code></pre>
 
@@ -2316,7 +2328,10 @@ Below are a few key items from that specification, please make sure to follow th
 <pre><code class="php">&lt;?php
 </code></pre>
 
-<p>The <code>?&gt;</code> <a href="http://www.php-fig.org/psr/psr-2/#2-2-files">must be excluded</a> from all files that only include PHP (no html). For instance anything in includes/ or html/includes don't need the tag along with config.php.</p>
+<p>The <code>?&gt;</code> <a href="http://www.php-fig.org/psr/psr-2/#2-2-files">must be
+excluded</a> from all files
+that only include PHP (no html). For instance anything in includes/ or
+html/includes don't need the tag along with config.php.</p>
                 
                   
                     <h2 id="__source">Source</h2>

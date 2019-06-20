@@ -1515,8 +1515,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2290,7 +2290,8 @@
                 <h1 id="rules">Rules</h1>
 <p>Rules are defined using a logical language.</p>
 <p>The GUI provides a simple way of creating rules.</p>
-<p>Creating more complicated rules which may include maths calculations and MySQL queries can be done using <a href="../Macros/">macros</a></p>
+<p>Creating more complicated rules which may include maths calculations
+and MySQL queries can be done using <a href="../Macros/">macros</a></p>
 <h4 id="video-on-how-the-alert-rules-work-in-librenms">Video on how the alert rules work in LibreNMS</h4>
 <p><a href="https://youtu.be/ryv0j8GEkhM">Alert Rules</a></p>
 <h4 id="video-on-how-to-use-alert-rule-with-wildcards">Video on how to use alert rule with wildcards</h4>
@@ -2323,7 +2324,8 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>Less or Equal <code>&lt;=</code></li>
 <li>Regex <code>REGEXP</code></li>
 </ul>
-<p><strong>Values</strong> can be an entity or any data. If using macros as value you must include the macro name into backticks. i.e. `macros.past_60m`</p>
+<p><strong>Values</strong> can be an entity or any data. If using macros as value you
+must include the macro name into backticks. i.e. `macros.past_60m`</p>
 <p><strong>Note</strong>: Regex supports MySQL Regular expressions.</p>
 <p>Arithmetics are allowed as well.</p>
 <h2 id="options">Options</h2>
@@ -2332,11 +2334,16 @@ Rules can contain braces and <strong>Glues</strong>.
 <li>Rule name: The name associated with the rule.</li>
 <li>Severity: How "important" the rule is.</li>
 <li>Max alerts: The maximum number of alerts sent for the event.  <code>-1</code> means unlimited.</li>
-<li>Delay: The amount of time in seconds to wait after a rule is matched before sending an alert out transport.</li>
-<li>Interval: The interval of time in seconds between alerts for an event until Max alert is reached.</li>
-<li>Mute alerts: Disables sending alert rule through alert transport. But will still show the alert in the Web UI.</li>
-<li>Invert match: Invert the matching rule (ie. alert on items that <em>don't</em> match the rule).</li>
-<li>Recovery alerts: This will disable the recovery notification from being sent if turned off.</li>
+<li>Delay: The amount of time in seconds to wait after a rule is matched
+  before sending an alert out transport.</li>
+<li>Interval: The interval of time in seconds between alerts for an
+  event until Max alert is reached.</li>
+<li>Mute alerts: Disables sending alert rule through alert
+  transport. But will still show the alert in the Web UI.</li>
+<li>Invert match: Invert the matching rule (ie. alert on items that
+  _don't match the rule).</li>
+<li>Recovery alerts: This will disable the recovery notification from
+  being sent if turned off.</li>
 </ul>
 <h2 id="advanced">Advanced</h2>
 <p>On the Advanced tab, you can specify some additional options for the alert rule:</p>
@@ -2353,31 +2360,50 @@ Rules can contain braces and <strong>Glues</strong>.
 </code></pre>
 
 <blockquote>
-<p>The 10 would then contain the average CPU usage value, you can change this value to be whatever you like.</p>
+<p>The 10 would then contain the average CPU usage value, you can
+change this value to be whatever you like.</p>
 </blockquote>
 <ul>
-<li>You will to need copy and paste this into the Alert Rule under Advanced then paste into Query box and switch the Override SQL.</li>
+<li>You will to need copy and paste this into the Alert Rule under
+  Advanced then paste into Query box and switch the Override SQL.</li>
 </ul>
 <h2 id="procedure">Procedure</h2>
-<p>You can associate a rule to a procedure by giving the URL of the procedure when creating the rule. Only links like "http://" are supported, otherwise an error will be returned. Once configured, procedure can be opened from the Alert widget through the "Open" button, which can be shown/hidden from the widget configuration box.</p>
+<p>You can associate a rule to a procedure by giving the URL of the
+procedure when creating the rule. Only links like "http://" are
+supported, otherwise an error will be returned. Once configured,
+procedure can be opened from the Alert widget through the "Open"
+button, which can be shown/hidden from the widget configuration box.</p>
 <h2 id="examples">Examples</h2>
 <p>Alert when:</p>
 <ul>
 <li>Device goes down: <code>devices.status != 1</code></li>
 <li>Any port changes: <code>ports.ifOperStatus != 'up'</code></li>
-<li>Root-directory gets too full: <code>storage.storage_descr = '/' AND storage.storage_perc &gt;= '75'</code></li>
+<li>Root-directory gets too full: <code>storage.storage_descr = '/' AND
+  storage.storage_perc &gt;= '75'</code></li>
 <li>Any storage gets fuller than the 'warning': <code>storage.storage_perc &gt;= storage_perc_warn</code></li>
-<li>If device is a server and the used storage is above the warning level, but ignore /boot partitions: <code>storage.storage_perc &gt; storage.storage_perc_warn AND devices.type = "server" AND storage.storage_descr != "/boot"</code></li>
-<li>VMware LAG is not using "Source ip address hash" load balancing: <code>devices.os = "vmware" AND ports.ifType = "ieee8023adLag" AND ports.ifDescr REGEXP "Link Aggregation .*, load balancing algorithm: Source ip address hash"</code></li>
-<li>Syslog, authentication failure during the last 5m: <code>syslog.timestamp &gt;= macros.past_5m AND syslog.msg REGEXP ".*authentication failure.*"</code></li>
-<li>High memory usage: <code>macros.device_up = 1 AND mempools.mempool_perc &gt;= 90 AND mempools.mempool_descr REGEXP "Virtual.*"</code></li>
-<li>High CPU usage(per core usage, not overall): <code>macros.device_up = 1 AND processors.processor_usage &gt;= 90</code></li>
-<li>High port usage, where description is not client &amp; ifType is not softwareLoopback: <code>macros.port_usage_perc &gt;= 80 AND port.port_descr_type != "client" AND ports.ifType != "softwareLoopback"</code></li>
+<li>If device is a server and the used storage is above the warning
+  level, but ignore /boot partitions: <code>storage.storage_perc &gt;
+  storage.storage_perc_warn AND devices.type = "server" AND
+  storage.storage_descr != "/boot"</code></li>
+<li>VMware LAG is not using "Source ip address hash" load balancing:
+  <code>devices.os = "vmware" AND ports.ifType = "ieee8023adLag" AND
+  ports.ifDescr REGEXP "Link Aggregation .*, load balancing algorithm:
+  Source ip address hash"</code></li>
+<li>Syslog, authentication failure during the last 5m:
+  <code>syslog.timestamp &gt;= macros.past_5m AND syslog.msg REGEXP ".*authentication failure.*"</code></li>
+<li>High memory usage: <code>macros.device_up = 1 AND mempools.mempool_perc &gt;=
+ 90 AND mempools.mempool_descr REGEXP "Virtual.*"</code></li>
+<li>High CPU usage(per core usage, not overall): <code>macros.device_up
+  = 1 AND processors.processor_usage &gt;= 90</code></li>
+<li>High port usage, where description is not client &amp; ifType is not
+  softwareLoopback: <code>macros.port_usage_perc &gt;= 80 AND
+  port.port_descr_type != "client" AND ports.ifType != "softwareLoopback"</code></li>
 <li>Alert when mac address is located on your network <code>ipv4_mac.mac_address = "2c233a756912"</code></li>
 </ul>
 <h2 id="alert-rules-collection">Alert Rules Collection</h2>
-<p>You can also select Alert Rule from the Alerts Collection. These Alert Rules are submitted by users in the community :)
-If would like to submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a></p>
+<p>You can also select Alert Rule from the Alerts Collection. These Alert
+Rules are submitted by users in the community :) If would like to
+submit your alert rules to the collection, please submit them here <a href="https://github.com/librenms/librenms/blob/master/misc/alert_rules.json">Alert Rules Collection</a></p>
 <p><img alt="Alert Rules Collection" src="/img/alert-rules-collection.png" /></p>
                 
                   

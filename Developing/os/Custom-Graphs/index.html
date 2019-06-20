@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2201,19 +2201,25 @@
                 
                   <h1>Custom Graphs</h1>
                 
-                <p>First we define our graphs in <code>includes/definitions.inc.php</code> to share our work and contribute in the development of LibreNMS. :-) (or place in <code>config.php</code> if you don't plan to contribute)</p>
+                <p>First we define our graphs in <code>includes/definitions.inc.php</code> to share
+our work and contribute in the development of LibreNMS. :-) (or place
+in <code>config.php</code> if you don't plan to contribute)</p>
 <pre><code class="php">// Pulse Secure Graphs
 $config['graph_types']['device']['pulse_sessions'] = ['section' =&gt; 'firewall', 'order' =&gt; 0, 'descr' =&gt; 'Active Sessions'];
 $config['graph_types']['device']['pulse_users'] = ['section' =&gt; 'firewall', 'order' =&gt; 0, 'descr' =&gt; 'Active Users'];
 </code></pre>
 
 <h4 id="polling-os">Polling OS</h4>
-<p>OS polling is not necessarily where custom polling should be done, please speak to one of the core devs in <a href="https://t.libren.ms/discord">Discord</a> for guidance.</p>
+<p>OS polling is not necessarily where custom polling should be done,
+please speak to one of the core devs in
+<a href="https://t.libren.ms/discord">Discord</a> for guidance.</p>
 <p>Let's update our example file to add additional polling:</p>
 <pre><code class="bash">includes/polling/os/pulse.inc.php
 </code></pre>
 
-<p>We declare two specific graphs for users and sessions numbers. Theses two graphs will be displayed on the firewall section of the graphs tab as it was written in the definition include file.</p>
+<p>We declare two specific graphs for users and sessions numbers. Theses
+two graphs will be displayed on the firewall section of the graphs tab
+as it was written in the definition include file.</p>
 <pre><code class="php">&lt;?php
 
 use LibreNMS\RRD\RrdDefinition;
@@ -2248,7 +2254,8 @@ if (is_numeric($sessions)) {
 </code></pre>
 
 <h4 id="displaying">Displaying</h4>
-<p>The specific graphs are not displayed automatically so we need to write the following PHP code:</p>
+<p>The specific graphs are not displayed automatically so we need to
+write the following PHP code:</p>
 <p><strong>Pulse Sessions</strong></p>
 <pre><code class="bash">includes/html/graphs/device/pulse_sessions.inc.php
 </code></pre>
@@ -2298,7 +2305,8 @@ $unit_text = 'Users';
 require 'includes/html/graphs/generic_simplex.inc.php';
 </code></pre>
 
-<p>That should be it, after data has started to be collected graphs should appear in the WebUI.</p>
+<p>That should be it, after data has started to be collected graphs
+should appear in the WebUI.</p>
                 
                   
                     <h2 id="__source">Source</h2>

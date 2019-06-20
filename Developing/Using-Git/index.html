@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2255,22 +2255,26 @@
                 
                   <h1>Using Git</h1>
                 
-                <p>Git can have a bit of a steep learning curve, stick with it as it is worth learning the <a href="http://gitready.com">basics</a><a href="http://git-scm.com/book">2</a> at least.</p>
-<p>If you want to help develop LibreNMS and haven't really used Git before then this quick primer will help you get started.</p>
+                <p>Git can have a bit of a steep learning curve, stick with it as it is
+worth learning the <a href="http://gitready.com">basics</a><a href="http://git-scm.com/book">2</a> at least.</p>
+<p>If you want to help develop LibreNMS and haven't really used Git
+before then this quick primer will help you get started.</p>
 <p>Some assumptions:</p>
 <ul>
 <li>Work is being done on a Linux box.</li>
 <li>LibreNMS is to be installed in /opt/librenms</li>
 <li>You have git installed.</li>
 <li>You have a <a href="https://github.com/">GitHub Account</a>.</li>
-<li>You are using ssh to connect to GitHub (If not, replace git@github.com:/yourusername/librenms.git with
-https://github.com/yourusername/librenms.git.</li>
+<li>You are using ssh to connect to GitHub (If not, replace
+  git@github.com:/yourusername/librenms.git with <a href="https://github.com/yourusername/librenms.git">https://github.com/yourusername/librenms.git</a>.</li>
 </ul>
 <p><strong> Replace yourusername with your GitHub username. </strong></p>
 <h4 id="fork-librenms-repo">Fork LibreNMS repo</h4>
-<p>You do this directly within <a href="https://github.com/librenms/librenms/fork">GitHub</a>, click the 'Fork' button near the top right.</p>
-<p>If you are associated with multiple organisations within GitHub then you might need to select which account you want to
-push the fork to.</p>
+<p>You do this directly within
+<a href="https://github.com/librenms/librenms/fork">GitHub</a>, click the 'Fork'
+button near the top right.</p>
+<p>If you are associated with multiple organisations within GitHub then
+you might need to select which account you want to push the fork to.</p>
 <h4 id="prepare-your-git-environment">Prepare your git environment</h4>
 <p>These are the defaults that are recommended.</p>
 <pre><code class="bash">git config branch.autosetupmerge true
@@ -2279,14 +2283,15 @@ git config --global user.email johndoe@example.com
 </code></pre>
 
 <h4 id="clone-the-repo">Clone the repo</h4>
-<p>Ok so now that you have forked the repo, you now need to clone it to your local install where you can then make the
-changes you need and submit them back.</p>
+<p>Ok so now that you have forked the repo, you now need to clone it to
+your local install where you can then make the changes you need and submit them back.</p>
 <pre><code class="bash">cd /opt/
 git clone git@github.com:/yourusername/librenms.git
 </code></pre>
 
 <h4 id="add-upstream-repo">Add Upstream repo</h4>
-<p>To be able to pull in changes from the master LibreNMS repo you need to have it setup on your system.</p>
+<p>To be able to pull in changes from the master LibreNMS repo you need
+to have it setup on your system.</p>
 <pre><code class="bash">git remote add upstream https://github.com/librenms/librenms.git
 </code></pre>
 
@@ -2296,27 +2301,35 @@ git clone git@github.com:/yourusername/librenms.git
 <li>upstream: This is the main LibreNMS repository and you can only pull changes.</li>
 </ul>
 <h4 id="workflow-guide">Workflow guide</h4>
-<p>As you become more familiar you may find a better workflow that fits your needs, until then this should be a safe
-workflow for you to follow.</p>
-<p>Before you start work on a new branch / feature. Make sure you are up to date.</p>
+<p>As you become more familiar you may find a better workflow that fits
+your needs, until then this should be a safe workflow for you to follow.</p>
+<p>Before you start work on a new branch / feature. Make sure you are up
+to date.</p>
 <pre><code class="bash">cd /opt/librenms
 git checkout master
 git pull upstream master
 git push origin master
 </code></pre>
 
-<p>At this stage it's worth pointing out that we have some standard checks that are performed when you submit a 
-pull request, you can run these checks <a href="../Validating-Code/">yourself</a> to be sure no issues are present in your 
-pull request.</p>
-<p>Now, create a new branch to do you work on. It's important that you do this as you are then able to work on more than
-one feature at a time and submit them as pull requests individually. If you did all your work in the master branch then
-it gets a bit messy!</p>
-<p>You need to give your branch a name. If an issue is open (or closed on GitHub) then you can use that, in this example if the issue number is 123 then we will use issue-123. If a post exists on the community forum then you can use the post id like community-123. You're also welcome to use any arbitrary name for your branch but try and make it relevant to what the branch is.</p>
+<p>At this stage it's worth pointing out that we have some standard
+checks that are performed when you submit a pull request, you can run
+these checks <a href="../Validating-Code/">yourself</a> to be sure no issues are
+present in your  pull request.</p>
+<p>Now, create a new branch to do you work on. It's important that you do
+this as you are then able to work on more than one feature at a time
+and submit them as pull requests individually. If you did all your
+work in the master branch then it gets a bit messy!</p>
+<p>You need to give your branch a name. If an issue is open (or closed on
+GitHub) then you can use that, in this example if the issue number is
+123 then we will use issue-123. If a post exists on the community
+forum then you can use the post id like community-123. You're also
+welcome to use any arbitrary name for your branch but try and make it
+relevant to what the branch is.</p>
 <pre><code class="bash">git checkout -b issue-123
 </code></pre>
 
-<p>Now, code away. Make the changes you need, test, change and test again :) When you are ready to submit the updates as a
-pull request then commit away.</p>
+<p>Now, code away. Make the changes you need, test, change and test again
+:) When you are ready to submit the updates as a pull request then commit away.</p>
 <pre><code class="bash">git add path/to/new/files/or/folders
 git commit -a -m 'Added feature to do X, Y and Z'
 git push origin issue-123
@@ -2327,14 +2340,19 @@ git push origin issue-123
 git push origin issue-123
 </code></pre>
 
-<p>If after do this you get some merge conflicts then you need to resolve these before carrying on.</p>
-<p>Please try to squash all commits into one, this isn't essential as we can do this when we merge but it would 
-be helpful to do this before you submit your pull request.</p>
-<p>Now you will be ready to submit a pull request from within GitHub. To do this, go to your GitHub page for the LibreNMS
-repo. Now select the branch you have just been working on (issue-123) from the drop down to the left and then click
-'Pull Request'. Fill in the details to describe the work you have done and click 'Create pull request'.</p>
+<p>If after do this you get some merge conflicts then you need to resolve
+these before carrying on.</p>
+<p>Please try to squash all commits into one, this isn't essential as we
+can do this when we merge but it would be helpful to do this before
+you submit your pull request.</p>
+<p>Now you will be ready to submit a pull request from within GitHub. To
+do this, go to your GitHub page for the LibreNMS repo. Now select the
+branch you have just been working on (issue-123) from the drop down to
+the left and then click 'Pull Request'. Fill in the details to
+describe the work you have done and click 'Create pull request'.</p>
 <p>Thanks for your first pull request :)</p>
-<p>Ok, that should get you started on the contributing path. If you have any other questions then stop by our <a href="https://t.libren.ms/discord">Discord Server</a></p>
+<p>Ok, that should get you started on the contributing path. If you have
+any other questions then stop by our <a href="https://t.libren.ms/discord">Discord Server</a></p>
 <h3 id="hints-and-tips">Hints and tips</h3>
 <p>Undo last commit</p>
 <p><code>git reset --soft 'HEAD^'</code></p>
@@ -2343,8 +2361,9 @@ repo. Now select the branch you have just been working on (issue-123) from the d
 <p>Restore deleted file</p>
 <p><code>git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"</code></p>
 <p>Merge last two commits</p>
-<p><code>git rebase --interactive HEAD~2</code>
-In the text file that opens, change the last commit to squash from pick then save an exit.</p>
+<p><code>git rebase --interactive HEAD~2</code></p>
+<p>In the text file that opens, change the last commit to squash from
+pick then save an exit.</p>
 <p>For more tips take a look at <a href="http://ohshitgit.com/">Oh shit, git!</a></p>
                 
                   

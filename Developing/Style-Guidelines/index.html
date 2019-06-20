@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2246,28 +2246,35 @@
                 
                 
                 <h1 id="style-guidelines">Style guidelines</h1>
-<p>This document is here to help style standards for contributions towards LibreNMS. These aren't strict rules but it is in
-the users interest that a consistent well thought out Web UI is available.</p>
+<p>This document is here to help style standards for contributions
+towards LibreNMS. These aren't strict rules but it is in the users
+interest that a consistent well thought out Web UI is available.</p>
 <h3 id="responsiveness">Responsiveness</h3>
-<p>The Web UI is designed to be mobile friendly and for the most part is and works well. It's worth spending sometime to
-read through the <a href="http://getbootstrap.com/css/#grid">Bootstrap website</a> to learn more about how to keep things responsive.</p>
+<p>The Web UI is designed to be mobile friendly and for the most part is
+and works well. It's worth spending sometime to read through the
+<a href="http://getbootstrap.com/css/#grid">Bootstrap website</a> to learn more
+about how to keep things responsive.</p>
 <h3 id="navigation-bar">Navigation bar</h3>
 <ul>
 <li>
-<p>Always pick the best location for new links to go, think about where users would expect the link to be located and name
-it so that it's obvious what it does.</p>
+<p>Always pick the best location for new links to go, think about where
+  users would expect the link to be located and name it so that it's
+  obvious what it does.</p>
 </li>
 <li>
-<p>Ensure sub sections within the Navigation are separated correctly using <code>&lt;li role="presentation" class="divider"&gt;&lt;/li&gt;</code>.</p>
+<p>Ensure sub sections within the Navigation are separated correctly
+  using <code>&lt;li role="presentation" class="divider"&gt;&lt;/li&gt;</code>.</p>
 </li>
 <li>
-<p>Only use <a href="http://fontawesome.io/icons/">Font Awesome icons</a> within the Navigation. It speeds up page load times quite
-considerably.</p>
+<p>Only use <a href="http://fontawesome.io/icons/">Font Awesome icons</a> within
+the Navigation. It speeds up page load times quite considerably.</p>
 </li>
 </ul>
 <h3 id="buttons">Buttons</h3>
-<p>Try to keep buttons colored to reflect the action they will take. Buttons are set using Bootstrap classes. The size of
-the buttons will depend on the area of the website being used but btn-sm is probably the most common.</p>
+<p>Try to keep buttons colored to reflect the action they will
+take. Buttons are set using Bootstrap classes. The size of the buttons
+will depend on the area of the website being used but btn-sm is
+probably the most common.</p>
 <ul>
 <li>
 <p>Delete / Remove buttons: btn btn-danger</p>
@@ -2280,17 +2287,23 @@ the buttons will depend on the area of the website being used but btn-sm is prob
 </li>
 </ul>
 <h3 id="tables">Tables</h3>
-<p>Unless the table being used will only ever display a handful of items - yeah that's what we all said, then you need to
-write your table using <a href="http://www.jquery-bootgrid.com/">JQuery Bootgrid</a>. This shouldn't take that much more code to
-do this but provides so much flexibility along with stopping the need for retrieving all the data from SQL in the first
-place.</p>
-<p>As an example pull request, see <a href="https://github.com/librenms/librenms/pull/706/files">PR 706</a> to get an idea of what
-it's like to convert an existing pure html table to Bootgrid.</p>
+<p>Unless the table being used will only ever display a handful of
+items - yeah that's what we all said, then you need to write your
+table using <a href="http://www.jquery-bootgrid.com/">JQuery Bootgrid</a>. This
+shouldn't take that much more code to do this but provides so much
+flexibility along with stopping the need for retrieving all the data
+from SQL in the first place.</p>
+<p>As an example pull request, see <a href="https://github.com/librenms/librenms/pull/706/files">PR
+706</a> to get an
+idea of what it's like to convert an existing pure html table to Bootgrid.</p>
 <h3 id="datetime-format">Datetime format</h3>
-<p>When displaying datetimes, please ensure you use the format YYYY-MM-DD mm:hh:ss where possible, you shouldn't change the
-order of this as it will be confusing to users. Cutting it short to just display YYYY-MM-DD mm:hh is fine :).</p>
-<p>To keep things consistent we have the following variables which should be used rather than to format dates yourself.
-This has the added benefit that users can customise the format:</p>
+<p>When displaying datetimes, please ensure you use the format YYYY-MM-DD
+mm:hh:ss where possible, you shouldn't change the order of this as it
+will be confusing to users. Cutting it short to just display
+YYYY-MM-DD mm:hh is fine :).</p>
+<p>To keep things consistent we have the following variables which should
+be used rather than to format dates yourself. This has the added
+benefit that users can customise the format:</p>
 <pre><code class="php"># Date format for PHP date()s
 $config['dateformat']['long']                             = &quot;r&quot;; # RFC2822 style
 $config['dateformat']['compact']                          = &quot;Y-m-d H:i:s&quot;;

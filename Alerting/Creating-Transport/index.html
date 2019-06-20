@@ -42,7 +42,7 @@
     
     
       
-        <title>Creating a new Transport. - LibreNMS Docs</title>
+        <title>Creating a new Transport - LibreNMS Docs</title>
       
     
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Creating a new Transport.
+                Creating a new Transport
               
             </span>
           
@@ -1431,11 +1431,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Creating a new Transport.
+        Creating a new Transport
       </label>
     
-    <a href="./" title="Creating a new Transport." class="md-nav__link md-nav__link--active">
-      Creating a new Transport.
+    <a href="./" title="Creating a new Transport" class="md-nav__link md-nav__link--active">
+      Creating a new Transport
     </a>
     
       
@@ -1456,8 +1456,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transport-structure" title="Transport structure." class="md-nav__link">
-    Transport structure.
+  <a href="#transport-structure" title="Transport structure" class="md-nav__link">
+    Transport structure
   </a>
   
 </li>
@@ -2179,8 +2179,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transport-structure" title="Transport structure." class="md-nav__link">
-    Transport structure.
+  <a href="#transport-structure" title="Transport structure" class="md-nav__link">
+    Transport structure
   </a>
   
 </li>
@@ -2217,22 +2217,29 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Alerting/Creating-Transport.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="creating-a-new-transport">Creating a new Transport.</h1>
+                <h1 id="creating-a-new-transport">Creating a new Transport</h1>
 <h3 id="file-location">File location</h3>
-<p>All transports are located in <code>LibreNMS\Alert\Transport</code> and the files are named after the Transport name. I.e 
-<code>Discord.php</code> for Discord.</p>
-<h3 id="transport-structure">Transport structure.</h3>
+<p>All transports are located in <code>LibreNMS\Alert\Transport</code> and the files
+are named after the Transport name. I.e <code>Discord.php</code> for Discord.</p>
+<h3 id="transport-structure">Transport structure</h3>
 <p>The following functions are required for a new transport to pass the unit tests:</p>
-<p><code>deliverAlert()</code> - This is function called within alerts to invoke the transport. Here you should do any post processing 
-of the transport config to get it ready for use.</p>
-<p><code>contact$Transport()</code> - This is named after the transport so for Discord it would be <code>contactDiscord()</code>. This is what 
- actually interacts with the 3rd party API, invokes the mail command or whatever you want your alert to do.</p>
-<p><code>configTemplate()</code> - This is used to define the form that will accept the transport config in the webui and then what 
-data should be validated and how. Validation is done using <a href="https://laravel.com/docs/5.7/validation">Laravel validation</a></p>
-<p>The following function is <strong>not</strong> required for new Transports and is for legacy reasons only. <code>deliverAlertOld()</code>.</p>
+<p><code>deliverAlert()</code> - This is function called within alerts to invoke the
+transport. Here you should do any post processing of the transport
+config to get it ready for use.</p>
+<p><code>contact$Transport()</code> - This is named after the transport so for
+Discord it would be <code>contactDiscord()</code>. This is what actually
+interacts with the 3rd party API, invokes the mail command or whatever
+you want your alert to do.</p>
+<p><code>configTemplate()</code> - This is used to define the form that will accept
+the transport config in the webui and then what data should be
+validated and how. Validation is done using <a href="https://laravel.com/docs/5.7/validation">Laravel validation</a></p>
+<p>The following function is <strong>not</strong> required for new Transports and is
+for legacy reasons only. <code>deliverAlertOld()</code>.</p>
 <h3 id="documentation">Documentation</h3>
-<p>Please don't forget to update the <a href="../Transports/">Transport</a> file to include details of your new transport.</p>
-<p>A table should be provided to indicate the form values that we ask for and examples. I.e:</p>
+<p>Please don't forget to update the <a href="../Transports/">Transport</a> file to
+include details of your new transport.</p>
+<p>A table should be provided to indicate the form values that we ask for
+and examples. I.e:</p>
 <pre><code>**Example:**
 Config | Example
 ------ | -------

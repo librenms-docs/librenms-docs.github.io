@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2241,9 +2241,11 @@
                 
                   <h1>Mem CPU Information</h1>
                 
-                <p>This document will guide you through adding detection for Memory / Processor for your new device.</p>
+                <p>This document will guide you through adding detection for Memory /
+Processor for your new device.</p>
 <h4 id="memory">Memory</h4>
-<p>Detection for memory is done via two php scripts, one for discovery and the other for polling:</p>
+<p>Detection for memory is done via two php scripts, one for discovery
+and the other for polling:</p>
 <p><code>includes/discovery/mempools/pulse.inc.php</code></p>
 <pre><code class="php">&lt;?php
 
@@ -2274,7 +2276,8 @@ if (is_numeric($perc)) {
 </code></pre>
 
 <h4 id="processor">Processor</h4>
-<p>Detection for processors is done via a yaml file unless custom processing of data is required.</p>
+<p>Detection for processors is done via a yaml file unless custom
+processing of data is required.</p>
 <h5 id="yaml">YAML</h5>
 <p><code>includes/definitions/discovery/pulse.yaml</code></p>
 <pre><code class="yaml">mib: PULSESECURE-PSG-MIB
@@ -2363,8 +2366,8 @@ modules:
 </tbody>
 </table>
 <h5 id="custom-discovery-and-polling">Custom Discovery and Polling</h5>
-<p>If you need to implement custom discovery or polling you can implement the ProcessorDiscovery interface and
-the ProcessorPolling interface in the OS class.</p>
+<p>If you need to implement custom discovery or polling you can implement
+the ProcessorDiscovery interface and the ProcessorPolling interface in the OS class.</p>
 <p>OS Class files reside under <code>LibreNMS\OS</code></p>
 <pre><code class="php">&lt;?php
 namespace LibreNMS\OS;

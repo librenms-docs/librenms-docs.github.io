@@ -1637,8 +1637,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2817,8 +2817,9 @@
 </code></pre>
 
 <h3 id="get_health_graph"><code>get_health_graph</code></h3>
-<p>Get a particular health class graph for a device, if you provide a sensor_id as well then a single sensor graph
-will be provided. If no sensor_id value is provided then you will be sent a stacked sensor graph.</p>
+<p>Get a particular health class graph for a device, if you provide a
+sensor_id as well then a single sensor graph will be provided. If no
+sensor_id value is provided then you will be sent a stacked sensor graph.</p>
 <p>Route: <code>/api/v0/devices/:hostname/graphs/health/:type(/:sensor_id)</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
@@ -2840,13 +2841,15 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <p>Output:</p>
 <p>Output is the graph of the particular health type sensor provided.</p>
 <h3 id="get_wireless_graph"><code>get_wireless_graph</code></h3>
-<p>Get a particular wireless class graph for a device, if you provide a sensor_id as well then a single sensor graph
-will be provided. If no sensor_id value is provided then you will be sent a stacked wireless graph.</p>
+<p>Get a particular wireless class graph for a device, if you provide a
+sensor_id as well then a single sensor graph will be provided. If no
+sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <p>Route: <code>/api/v0/devices/:hostname/graphs/wireless/:type(/:sensor_id)</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
 <li>type is the name of the wireless graph as returned by <a href="#function-list_available_wireless_graphs"><code>list_available_wireless_graphs</code></a></li>
-<li>sensor_id (optional) restricts the graph to return a particular wireless sensor graph.</li>
+<li>sensor_id (optional) restricts the graph to return a particular
+  wireless sensor graph.</li>
 </ul>
 <p>Input:</p>
 <p>-</p>
@@ -2867,12 +2870,18 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <p>Route: <code>/api/v0/devices/:hostname/:type</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
-<li>type is the type of graph you want, use [<code>get_graphs</code>](#function-get_graphs to see the graphs available. Defaults to device_uptime.</li>
+<li>type is the type of graph you want, use
+  [<code>get_graphs</code>](#function-get_graphs to see the graphs
+  available. Defaults to device uptime.</li>
 </ul>
 <p>Input:</p>
 <ul>
-<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
-<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>from: This is the date you would like the graph to start - See
+  <a href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html</a>
+  for more information.</li>
+<li>to: This is the date you would like the graph to end - See
+  <a href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html</a>
+  for more information.</li>
 <li>width: The graph width, defaults to 1075.</li>
 <li>height: The graph height, defaults to 300.</li>
 <li>output: Set how the graph should be outputted (base64, display), defaults to display.</li>
@@ -2969,14 +2978,16 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 </code></pre>
 
 <h3 id="get_port_stack"><code>get_port_stack</code></h3>
-<p>Get a list of port mappings for a device.  This is useful for showing physical ports that are in a virtual port-channel.</p>
+<p>Get a list of port mappings for a device.  This is useful for showing
+physical ports that are in a virtual port-channel.</p>
 <p>Route: <code>/api/v0/devices/:hostname/port_stack</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
 </ul>
 <p>Input:</p>
 <ul>
-<li>valid_mappings: Filter the result by only showing valid mappings ("0" values not shown).</li>
+<li>valid_mappings: Filter the result by only showing valid mappings
+  ("0" values not shown).</li>
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/port_stack?valid_mappings
@@ -3110,7 +3121,8 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 }
 </code></pre>
 
-<p>Just take the JSON array from add_components or edit_components, edit as you wish and submit it back to edit_components.</p>
+<p>Just take the JSON array from add_components or edit_components, edit
+as you wish and submit it back to edit components.</p>
 <h3 id="delete_components"><code>delete_components</code></h3>
 <p>Delete an existing component on a particular device.</p>
 <p>Route: <code>/api/v0/devices/:hostname/components/:component</code></p>
@@ -3134,7 +3146,10 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <p>Route: <code>/api/v0/devices/:hostname/ports/:ifname</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
-<li>ifname can be any of the interface names for the device which can be obtained using <a href="#function-get_port_graphs"><code>get_port_graphs</code></a>. Please ensure that the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need to be urlencoded.</li>
+<li>ifname can be any of the interface names for the device which can be
+  obtained using
+  <a href="#function-get_port_graphs"><code>get_port_graphs</code></a>. Please ensure that
+  the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need to be urlencoded.</li>
 </ul>
 <p>Input:</p>
 <ul>
@@ -3162,16 +3177,27 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <p>Route: <code>/api/v0/devices/:hostname/ports/:ifname/:type</code></p>
 <ul>
 <li>hostname can be either the device hostname or id</li>
-<li>ifname can be any of the interface names for the device which can be obtained using <a href="#function-get_port_graphs"><code>get_port_graphs</code></a>. Please ensure that the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need to be urlencoded.</li>
-<li>type is the port type you want the graph for, you can request a list of ports for a device with <a href="#function-get_port_graphs"><code>get_port_graphs</code></a>.</li>
+<li>ifname can be any of the interface names for the device which can be
+  obtained using
+  <a href="#function-get_port_graphs"><code>get_port_graphs</code></a>. Please ensure that
+  the ifname is urlencoded if it needs to be (i.e Gi0/1/0 would need
+  to be urlencoded.</li>
+<li>type is the port type you want the graph for, you can request a list
+  of ports for a device with <a href="#function-get_port graphs"><code>get_port_graphs</code></a>.</li>
 </ul>
 <p>Input:</p>
 <ul>
-<li>from: This is the date you would like the graph to start - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
-<li>to: This is the date you would like the graph to end - See http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html for more information.</li>
+<li>from: This is the date you would like the graph to start - See
+  <a href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html</a>
+  for more information.</li>
+<li>to: This is the date you would like the graph to end - See
+  <a href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph.en.html</a>
+  for more information.</li>
 <li>width: The graph width, defaults to 1075.</li>
 <li>height: The graph height, defaults to 300.</li>
-<li>ifDescr: If this is set to true then we will use ifDescr to lookup the port instead of ifName. Pass the ifDescr value you want to search as you would ifName.</li>
+<li>ifDescr: If this is set to true then we will use ifDescr to lookup
+  the port instead of ifName. Pass the ifDescr value you want to
+  search as you would ifName.</li>
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
@@ -3255,8 +3281,9 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <p>Route: <code>/api/v0/devices</code></p>
 <p>Input:</p>
 <ul>
-<li>order: How to order the output, default is by hostname. Can be prepended by DESC or ASC to change the order.</li>
-<li>type: can be one of the following to filter or search by:<ul>
+<li>order: How to order the output, default is by hostname. Can be
+  prepended by DESC or ASC to change the order.</li>
+<li>type: can be one of the following to filter or search by:</li>
 <li>all: All devices</li>
 <li>active: Only not ignored and not disabled devices</li>
 <li>ignored: Only ignored devices</li>
@@ -3268,11 +3295,9 @@ will be provided. If no sensor_id value is provided then you will be sent a stac
 <li>ipv4: search by IPv4 address</li>
 <li>ipv6: search by IPv6 address (compressed or uncompressed)</li>
 <li>location: search by location</li>
+<li>query: If searching by, then this will be used as the input.</li>
 </ul>
-</li>
-<li>query: If searching by, then this will be used as the input.
-Example:</li>
-</ul>
+<p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
 </code></pre>
 
@@ -3321,8 +3346,10 @@ Example:</li>
 <li>port: SNMP port (defaults to port defined in config).</li>
 <li>transport: SNMP protocol (defaults to transport defined in config).</li>
 <li>version: SNMP version to use, v1, v2c or v3. Defaults to v2c.</li>
-<li>poller_group: This is the poller_group id used for distributed poller setup. Defaults to 0.</li>
-<li>force_add: Force the device to be added regardless of it being able to respond to snmp or icmp.</li>
+<li>poller_group: This is the poller_group id used for distributed
+  poller setup. Defaults to 0.</li>
+<li>force_add: Force the device to be added regardless of it being able
+  to respond to snmp or icmp.</li>
 </ul>
 <p>For SNMP v1 or v2c</p>
 <ul>
@@ -3355,9 +3382,11 @@ Example:</li>
 </code></pre>
 
 <h3 id="list_oxidized"><code>list_oxidized</code></h3>
-<p>List devices for use with Oxidized. If you have group support enabled then a group will also be returned based on your config.</p>
+<p>List devices for use with Oxidized. If you have group support enabled
+then a group will also be returned based on your config.</p>
 <blockquote>
-<p>LibreNMS will automatically map the OS to the Oxidized model name if they don't match.</p>
+<p>LibreNMS will automatically map the OS to the Oxidized model name if
+they don't match.</p>
 </blockquote>
 <p>Route: <code>/api/v0/oxidized(/:hostname)</code></p>
 <p>Input (JSON):</p>

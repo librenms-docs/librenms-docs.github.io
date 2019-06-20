@@ -1462,8 +1462,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2189,12 +2189,14 @@
 <p>Retrieve a specific ARP entry or all ARP enties for a device</p>
 <p>Route: <code>/api/v0/resources/ip/arp/:ip</code></p>
 <ul>
-<li>ip is the specific IP you would like to query, if this is all then you need to pass ?device=<em>hostname</em> (or device id)</li>
+<li>ip is the specific IP you would like to query, if this is all then
+  you need to pass ?device=<em>hostname</em> (or device id)</li>
 <li>This may also be a cidr network, for example 192.168.1.0/24</li>
 </ul>
 <p>Input:</p>
 <ul>
-<li>device if you specify all for the IP then you need to populate this with the hostname or id of the device.</li>
+<li>device if you specify all for the IP then you need to populate this
+  with the hostname or id of the device.</li>
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/ip/arp/1.1.1.1

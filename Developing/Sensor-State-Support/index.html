@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2303,23 +2303,29 @@
                 
                 <h1 id="sensor-state-support">Sensor State Support</h1>
 <h3 id="introduction">Introduction</h3>
-<p>In this section we are briefly going to walk through, what it takes to write sensor state support.
-We will also briefly get around the concepts of the current sensor state monitoring.</p>
+<p>In this section we are briefly going to walk through, what it takes to
+write sensor state support. We will also briefly get around the
+concepts of the current sensor state monitoring.</p>
 <h3 id="logic">Logic</h3>
-<p>For sensor state monitoring, we have 4 DB tables we need to concentrate about.
-- sensors
-- state_indexes
-- state_translations
-- sensors_to_state_indexes</p>
+<p>For sensor state monitoring, we have 4 DB tables we need to concentrate about.</p>
+<ul>
+<li>sensors</li>
+<li>state_indexes</li>
+<li>state_translations</li>
+<li>sensors_to_state_indexes</li>
+</ul>
 <p>We will just briefly tie a comment to each one of them.</p>
 <h4 id="sensors">Sensors</h4>
-<p><em>Each time a sensor needs to be polled, the system needs to know which sensor is it that it need to poll, at what oid is this sensor located and what class the sensor is etc.
-This information is fetched from the sensors table.</em></p>
+<p><em>Each time a sensor needs to be polled, the system needs to know which
+sensor is it that it need to poll, at what oid is this sensor located
+and what class the sensor is etc. This information is fetched from the sensors table.</em></p>
 <h4 id="state_indexes">state_indexes</h4>
 <p><em>Is where we keep track of which state sensors we monitor.</em></p>
 <h4 id="state_translations">state_translations</h4>
-<p><em>Is where we map the possible returned state sensor values to a generic LibreNMS value, in order to make displaying and alerting more generic.
-We also map these values to the actual state sensor(state_index) where these values are actually returned from.</em></p>
+<p><em>Is where we map the possible returned state sensor values to a
+generic LibreNMS value, in order to make displaying and alerting more
+generic. We also map these values to the actual state
+sensor(state_index) where these values are actually returned from.</em></p>
 <p><em>The LibreNMS generic states are derived from Nagios:</em></p>
 <pre><code>0 = OK
 1 = Warning
@@ -2390,8 +2396,9 @@ modules:
 
 <h3 id="advanced-example">Advanced Example</h3>
 <p>For advanced state discovery:</p>
-<p>This example will be based on a Cisco power supply sensor and is all it takes to have sensor state support for Cisco power supplys in Cisco switches.
-The file should be located in /includes/discovery/sensors/state/cisco.inc.php.</p>
+<p>This example will be based on a Cisco power supply sensor and is all
+it takes to have sensor state support for Cisco power supplys in Cisco
+switches. The file should be located in /includes/discovery/sensors/state/cisco.inc.php.</p>
 <pre><code class="php">&lt;?php
 
 $oids = snmpwalk_group($device, 'ciscoEnvMonSupplyStatusTable', 'CISCO-ENVMON-MIB');

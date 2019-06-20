@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2302,19 +2302,31 @@
                 
                 
                 <h1 id="get-ready-to-contribute-to-librenms">Get ready to contribute to LibreNMS</h1>
-<p>This document is intended to help you get your local environment set up to contribute code to the LibreNMS project.</p>
+<p>This document is intended to help you get your local environment set
+up to contribute code to the LibreNMS project.</p>
 <h2 id="setting-up-a-development-environment">Setting up a development environment</h2>
-<p>When starting to develop, it may be tempting to just make changes on your production server, but that will make things harder
-for you.  Taking a little time to set up somewhere to work on code changes can really help.</p>
-<p>Possible options:
- * A Linux computer, VM, or container
- * Another directory on your LibreNMS server
- * Windows Subsystem for Linux</p>
+<p>When starting to develop, it may be tempting to just make changes on
+your production server, but that will make things harder for you.
+Taking a little time to set up somewhere to work on code changes can
+really help.</p>
+<p>Possible options:</p>
+<ul>
+<li>A Linux computer, VM, or container</li>
+<li>Another directory on your LibreNMS server</li>
+<li>Windows Subsystem for Linux</li>
+</ul>
 <h3 id="set-up-your-development-git-clone">Set up your development git clone</h3>
 <ol>
-<li>Follow the <a href="../Using-Git/">documentation on using git</a></li>
-<li>Install development dependencies <code>./scripts/composer_wrapper.php install</code></li>
-<li>Set variables in .env, including database settings.  Which could be a local or remote MySQL server including your production DB.</li>
+<li>
+<p>Follow the <a href="../Using-Git/">documentation on using git</a></p>
+</li>
+<li>
+<p>Install development dependencies <code>./scripts/composer_wrapper.php install</code></p>
+</li>
+<li>
+<p>Set variables in .env, including database settings.  Which could be
+   a local or remote MySQL server including your production DB.</p>
+</li>
 </ol>
 <pre><code class="dotenv">APP_ENV=local
 APP_DEBUG=true
@@ -2322,37 +2334,48 @@ APP_DEBUG=true
 </code></pre>
 
 <ol>
-<li>Start a development webserver <code>./lnms serve</code></li>
-<li>Access the Web UI at http://localhost:8000</li>
+<li>
+<p>Start a development webserver <code>./lnms serve</code></p>
+</li>
+<li>
+<p>Access the Web UI at http://localhost:8000</p>
+</li>
 </ol>
 <h3 id="automated-testing">Automated testing</h3>
-<p>LibreNMS uses continuous integration to test code changes to help reduce bugs.  This also helps guarantee the changes you 
-contribute won't be broken in the future.
-You can find out more in our <a href="../Validating-Code/">Validating Code Documentation</a></p>
+<p>LibreNMS uses continuous integration to test code changes to help
+reduce bugs.  This also helps guarantee the changes you  contribute
+won't be broken in the future. You can find out more in our <a href="../Validating-Code/">Validating Code Documentation</a></p>
 <h3 id="polling-debug-output">Polling debug output</h3>
-<p>You can see detailed info by running your polling code in debug mode. If you are looking at a specific </p>
+<p>You can see detailed info by running your polling code in debug
+mode. If you are looking at a specific</p>
 <pre><code class="bash">./discovery.php -d -h HOSTNAME
 ./poller.php -d -h HOSTNAME
 </code></pre>
 
 <h3 id="inspecting-variables">Inspecting variables</h3>
-<p>Sometimes you want to find out what a variable contains (such as the data return from an snmpwalk).
-You can dump one or more variables and halt execution with the dd() function.</p>
+<p>Sometimes you want to find out what a variable contains (such as the
+data return from an snmpwalk). You can dump one or more variables and
+halt execution with the dd() function.</p>
 <pre><code class="php">dd($variable1, $variable2);
 </code></pre>
 
 <h3 id="inspecting-web-pages">Inspecting web pages</h3>
-<p>Installing the development dependencies and setting APP_DEBUG enables the <a href="https://github.com/barryvdh/laravel-debugbar">Laravel Debugbar</a>
-This will allow you to inspect page generation and errors right in your web browser.</p>
+<p>Installing the development dependencies and setting APP_DEBUG enables
+the <a href="https://github.com/barryvdh/laravel-debugbar">Laravel Debugbar</a>
+This will allow you to inspect page generation and errors right in
+your web browser.</p>
 <h3 id="better-code-completion-in-ides-and-editors">Better code completion in IDEs and editors</h3>
-<p>You can generate some files to improve code completion. 
-(These file are not updated automatically, so you may need to re-run these command periodically)</p>
+<p>You can generate some files to improve code completion. (These file
+are not updated automatically, so you may need to re-run these command
+periodically)</p>
 <pre><code class="bash">./lnms ide-helper:generate
 ./lnms ide-helper:models -N
 </code></pre>
 
 <h3 id="emulating-devices">Emulating devices</h3>
-<p>You can capture and emulate devices using <a href="https://github.com/etingof/snmpsim">Snmpsim</a>.  LibreNMS has a set of scripts to make it easier to work with snmprec files.
+<p>You can capture and emulate devices using
+<a href="https://github.com/etingof/snmpsim">Snmpsim</a>.  LibreNMS has a set of
+scripts to make it easier to work with snmprec files.
 <a href="https://github.com/librenms/librenms-snmpsim">LibreNMS Snmpsim helpers</a></p>
 <h3 id="laravel-documentation">Laravel documentation</h3>
 <p>You can find a lot of how LibreNMS works by following the <a href="https://laravel.com/docs/">Laravel Documentation</a></p>

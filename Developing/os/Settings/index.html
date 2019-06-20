@@ -1420,8 +1420,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport." class="md-nav__link">
-      Creating a new Transport.
+    <a href="../../../Alerting/Creating-Transport/" title="Creating a new Transport" class="md-nav__link">
+      Creating a new Transport
     </a>
   </li>
 
@@ -2302,8 +2302,9 @@
                 
                 
                 <h1 id="optional-os-settings">Optional OS Settings</h1>
-<p>This page documents settings that can be set in the os yaml files or in config.php.
-All settings listed here are optional. If they are not set, the global default will be used.</p>
+<p>This page documents settings that can be set in the os yaml files or
+in config.php. All settings listed here are optional. If they are not
+set, the global default will be used.</p>
 <h3 id="user-override-in-configphp">User override in config.php</h3>
 <p>Users can override these settings in their config.php.</p>
 <p>For example, to set an alternate icon for ios:</p>
@@ -2313,7 +2314,8 @@ All settings listed here are optional. If they are not set, the global default w
 <h3 id="ignoring-interfaces">Ignoring Interfaces</h3>
 <p>See also: <a href="../../../Support/Configuration/#interfaces-to-be-ignored">Global Ignoring Interfaces Config</a></p>
 <blockquote>
-<p>These settings are merged with the global settings, so you can only undo global ones with good_if</p>
+<p>These settings are merged with the global settings, so you can only
+undo global ones with good_if</p>
 </blockquote>
 <pre><code class="yaml">empty_ifdescr: false # allow empty ifDescr
 bad_if: # ifDescr (substring, case insensitive)
@@ -2333,8 +2335,9 @@ good_if: # ignore all other bad_if settings ifDescr (substring, case insensitive
 
 <h3 id="controlling-interface-labels">Controlling interface labels</h3>
 <p>By default we use ifDescr to label ports/interfaces.
-Setting either <code>ifname</code> or <code>ifalias</code> will override that.  Only set one of these.  ifAlias is user supplied.
-<code>ifindex</code> will append the ifindex to the port label.</p>
+Setting either <code>ifname</code> or <code>ifalias</code> will override that.  Only set one
+of these.  ifAlias is user supplied. <code>ifindex</code> will append the ifindex
+to the port label.</p>
 <pre><code class="yaml">ifname: true
 ifalias: true
 
@@ -2342,9 +2345,12 @@ ifindex: true
 </code></pre>
 
 <h3 id="poller-and-discovery-modules">Poller and Discovery Modules</h3>
-<p>The various discovery and poller modules can be enabled or disabled per OS.  The defaults are usually reasonable, so likely you won't want to change more than a few.
-These modules can be enabled or disabled per-device in the webui and per os or globally in config.php.
-Usually, a poller module will not work if it's corresponding discovery module is not enabled.</p>
+<p>The various discovery and poller modules can be enabled or disabled
+per OS.  The defaults are usually reasonable, so likely you won't want
+to change more than a few. These modules can be enabled or disabled
+per-device in the webui and per os or globally in config.php. Usually,
+a poller module will not work if it's corresponding discovery module
+is not enabled.</p>
 <pre><code class="yaml">poller_modules:
     bgp-peers: true
 discovery_modules:
@@ -2353,8 +2359,9 @@ discovery_modules:
 
 <h3 id="snmp-settings">SNMP Settings</h3>
 <h4 id="disable-snmpbulkwalk">Disable snmpbulkwalk</h4>
-<p>Some devices have buggy snmp implementations and don't respond well to the more efficient snmpbulkwalk.
-To disable snmpbulkwalk and only use snmpwalk for an os set the following.</p>
+<p>Some devices have buggy snmp implementations and don't respond well to
+the more efficient snmpbulkwalk. To disable snmpbulkwalk and only use
+snmpwalk for an os set the following.</p>
 <pre><code class="yaml">nobulk: true
 </code></pre>
 
