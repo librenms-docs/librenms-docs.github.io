@@ -1918,6 +1918,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#adding-a-new-sensor-class" title="Adding a new sensor class" class="md-nav__link">
+    Adding a new sensor class
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2184,6 +2191,13 @@
         <li class="md-nav__item">
   <a href="#advanced-health-discovery" title="Advanced health discovery" class="md-nav__link">
     Advanced health discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-sensor-class" title="Adding a new sensor class" class="md-nav__link">
+    Adding a new sensor class
   </a>
   
 </li>
@@ -2489,6 +2503,28 @@ perform additional  snmp queries within polling this should be avoided
 where possible. The value for the OID is already available as <code>$sensor_value</code>.</p>
 <p>Graphing is performed automatically for sensors, no custom graphing is
 required or supported.</p>
+<h4 id="adding-a-new-sensor-class">Adding a new sensor class</h4>
+<p>You will need to add code for your new sensor class in the following existing files:</p>
+<ul>
+<li><code>app/Models/Sensor.php</code>: add a free icon from <a href="https://fontawesome.com/icons?d=gallery&amp;m=free">Font Awesome</a> in the $icons array.</li>
+<li><code>doc/Developing/os/Health-Information.md</code>: documentation for every sensor class is mandatory.</li>
+<li><code>includes/discovery/sensors.inc.php</code>: add the sensor class to the $run_sensors array.</li>
+<li><code>includes/discovery/functions.inc.php</code>: optional - if sensible low_limit and high_limit values are guessable when a SNMP-retrievable threshold is not available, add a case for the sensor class to the sensor_limit() and/or sensor_low_limit() functions.</li>
+<li><code>LibreNMS/Util/ObjectCache.php</code>: optional - choose menu grouping for the sensor class.</li>
+<li><code>includes/html/pages/device/health.inc.php</code>: add a dbFetchCell(), $datas[], and $type_text[] entry for the sensor class.</li>
+<li><code>includes/html/pages/device/overview.inc.php</code>: add <code>require 'overview/sensors/$class.inc.php'</code> in the desired order for the device overview page.</li>
+<li><code>includes/html/pages/health.inc.php</code>: add a $type_text[] entry for the sensor class.</li>
+<li><code>resources/lang/en/sensors.php</code>: add human-readable names and units for the sensor class in English, feel free to do so for other languages as well.</li>
+</ul>
+<p>Create and populate new files for the sensor class in the following places:</p>
+<ul>
+<li><code>includes/discovery/sensors/$class/</code>: create the folder where advanced php-based discovery files are stored. Not used for yaml discovery.</li>
+<li><code>includes/html/graphs/device/$class.inc.php</code>: define unit names used in RRDtool graphs.</li>
+<li><code>includes/html/graphs/sensor/$class.inc.php</code>: define various <a href="https://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html">parameters</a> for RRDtool graphs.</li>
+<li><code>includes/html/pages/device/health/$class.inc.php</code></li>
+<li><code>includes/html/pages/device/overview/sensors/$class.inc.php</code></li>
+<li><code>includes/html/pages/health/$class.inc.php</code></li>
+</ul>
                 
                   
                     <h2 id="__source">Source</h2>
