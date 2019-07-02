@@ -1198,6 +1198,19 @@
     SNMP Extend
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-18" title="Ubuntu 18" class="md-nav__link">
+    Ubuntu 18
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3752,6 +3765,19 @@
     SNMP Extend
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-18" title="Ubuntu 18" class="md-nav__link">
+    Ubuntu 18
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -4915,12 +4941,15 @@ If you have apticron, cron-apt or apt-listchanges installed and configured, chan
 <h3 id="portactivity">Portactivity</h3>
 <h4 id="snmp-extend_26">SNMP Extend</h4>
 <ol>
-<li>
-<p>Install the Perl module Parse::Netstat.</p>
-</li>
-<li>
-<p>Copy the Perl script to the desired host (the host must be added to LibreNMS devices)</p>
-</li>
+<li>Install the Perl module Parse::Netstat and optionally JSON when you want to use -P flag.</li>
+</ol>
+<h5 id="ubuntu-18">Ubuntu 18</h5>
+<pre><code>apt install libparse-netstat-perl
+apt install libjson-perl
+</code></pre>
+
+<ol>
+<li>Copy the Perl script to the desired host (the host must be added to LibreNMS devices)</li>
 </ol>
 <pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/portactivity -O /etc/snmp/portactivity
 </code></pre>
