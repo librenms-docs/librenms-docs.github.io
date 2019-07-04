@@ -2690,25 +2690,21 @@ entered as a new line.</p>
 </tr>
 <tr>
 <td>Alertmanager Options:</td>
-<td>source=librenms</td>
-</tr>
-<tr>
-<td></td>
-<td>customlabel=value</td>
+<td>source=librenms <br/> customlabel=value</td>
 </tr>
 </tbody>
 </table>
 <h2 id="api">API</h2>
-<p>API transports definitions are a bit more complex than the E-Mail configuration.</p>
-<p>The URL can have the same placeholders as defined in the <a href="../Templates/#syntax">Template-Syntax</a>.</p>
-<p>If the <code>Api Method</code> is <code>get</code>, all placeholders will be URL-Encoded.</p>
-<p>The API transport uses cURL to call the APIs, therefore you might need
-to install <code>php curl</code> to make it work.</p>
+<p>API transports definitions are a bit more complex than the E-Mail configuration. It
+allows to reach any service provider using POST or GET URLs (Like SMS provider, etc).</p>
+<p>The API-Option field can have the same placeholders as defined in the
+<a href="../Templates/#syntax">Template-Syntax</a>.</p>
 <p><strong>Note</strong>: it is highly recommended to define your own
-<a href="../Templates/">Templates</a> when you want to use the API transport. The
-default template might exceed URL-length for GET requests and
-therefore cause all sorts of errors.</p>
+<a href="../Templates/">Templates</a> when you want to use the API transport.
+You have to be carefull with length (for HTTP GET requests) and
+should adapt to the Service Provider limits.</p>
 <p><strong>Example:</strong></p>
+<p>The exemple below will use the API named sms-api of my.example.com and send the title of the alert to the provided number using the provided service key. Refer to your service documentation to configure it properly.</p>
 <table>
 <thead>
 <tr>
@@ -2723,7 +2719,19 @@ therefore cause all sorts of errors.</p>
 </tr>
 <tr>
 <td>API URL</td>
-<td>http://my.example.com/api</td>
+<td>http://my.example.com/sms-api</td>
+</tr>
+<tr>
+<td>API Options</td>
+<td>rcpt=0123456789 <br/> key=0987654321abcdef <br/> msg=(LNMS) {{ $title }}</td>
+</tr>
+<tr>
+<td>API Username</td>
+<td>myUsername</td>
+</tr>
+<tr>
+<td>API Password</td>
+<td>myPassword</td>
 </tr>
 </tbody>
 </table>
@@ -2942,15 +2950,7 @@ because the v2 API is still in beta.</p>
 </tr>
 <tr>
 <td>Options</td>
-<td>color = red</td>
-</tr>
-<tr>
-<td></td>
-<td>notify = 1</td>
-</tr>
-<tr>
-<td></td>
-<td>message_format = text</td>
+<td>color = red <br/> notify = 1 <br/> message_format = text</td>
 </tr>
 </tbody>
 </table>
@@ -3277,15 +3277,7 @@ Application and setup the transport.</p>
 </tr>
 <tr>
 <td>Pushover Options</td>
-<td>sound_critical=falling</td>
-</tr>
-<tr>
-<td></td>
-<td>sound_warning=siren</td>
-</tr>
-<tr>
-<td></td>
-<td>sound_ok=magic</td>
+<td>sound_critical=falling <br/> sound_warning=siren <br/> sound_ok=magic</td>
 </tr>
 </tbody>
 </table>
@@ -3310,19 +3302,7 @@ required value is for url, without this then no call to Rocket.chat will be made
 </tr>
 <tr>
 <td>Rocket.chat Options</td>
-<td>channel=#Alerting</td>
-</tr>
-<tr>
-<td></td>
-<td>username=myname</td>
-</tr>
-<tr>
-<td></td>
-<td>icon_url=http://someurl/image.gif</td>
-</tr>
-<tr>
-<td></td>
-<td>icon_emoji=:smirk:</td>
+<td>channel=#Alerting <br/> username=myname <br/> icon_url=http://someurl/image.gif <br/> icon_emoji=:smirk:</td>
 </tr>
 </tbody>
 </table>
@@ -3383,11 +3363,7 @@ either local or international dialling format.</p>
 </tr>
 <tr>
 <td>Mobiles</td>
-<td>+3534567890</td>
-</tr>
-<tr>
-<td></td>
-<td>0834567891</td>
+<td>+3534567890 <br/> 0834567891</td>
 </tr>
 </tbody>
 </table>
