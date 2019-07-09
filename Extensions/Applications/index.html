@@ -2335,6 +2335,7 @@ by following the steps under the <code>SNMP Extend</code> heading.</p>
 <li><a href="#freeswitch">Freeswitch</a> - SNMP extend, Agent</li>
 <li><a href="#gpsd">GPSD</a> - SNMP extend, Agent</li>
 <li><a href="#mailscanner">Mailscanner</a> - SNMP extend</li>
+<li><a href="#mdadm">Mdadm</a> - SNMP extend</li>
 <li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#mysql">MySQL</a> - SNMP extend, Agent</li>
@@ -2743,8 +2744,34 @@ and copy the <code>gpsd</code> script to <code>/usr/lib/check_mk_agent/local/</c
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
-<h1 id="memcached">Memcached</h1>
+<h1 id="mdadm">Mdadm</h1>
+<p>This shell script checks mdadm health and array data</p>
 <h2 id="snmp-extend_15">SNMP Extend</h2>
+<ol>
+<li>Download the script onto the desired host.</li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
+</code></pre>
+
+<ol>
+<li>
+<p>Run <code>chmod +x /etc/snmp/mdadm</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+</li>
+</ol>
+<pre><code>extend mdadm /etc/snmp/mdadm
+</code></pre>
+
+<ol>
+<li>Restart snmpd on your host</li>
+</ol>
+<p>The application should be auto-discovered as described at the
+top of the page. If it is not, please follow the steps set out
+under <code>SNMP Extend</code> heading top of page.</p>
+<h1 id="memcached">Memcached</h1>
+<h2 id="snmp-extend_16">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached
    script</a>
    to <code>/etc/snmp/</code> on your remote server.</p>
@@ -2813,7 +2840,7 @@ $mysql_port = 3306;
 </code></pre>
 
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
-<h2 id="snmp-extend_16">SNMP extend</h2>
+<h2 id="snmp-extend_17">SNMP extend</h2>
 <p>1: Copy the mysql script to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/mysql</code></p>
@@ -2849,7 +2876,7 @@ configuration responsible for the localhost server:</p>
 }
 </code></pre>
 
-<h2 id="snmp-extend_17">SNMP Extend</h2>
+<h2 id="snmp-extend_18">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx -O /etc/snmp/nginx
 </code></pre>
@@ -2868,7 +2895,7 @@ Extend</code> heading top of page.</p>
 and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h1 id="nfs-server">NFS Server</h1>
 <p>Export the NFS stats from as server.</p>
-<h2 id="snmp-extend_18">SNMP Extend</h2>
+<h2 id="snmp-extend_19">SNMP Extend</h2>
 <p>1: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add :</p>
 <pre><code>extend nfs-server /bin/cat /proc/net/rpc/nfsd
 </code></pre>
@@ -2877,7 +2904,7 @@ and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</
 <p>2: reload snmpd service to activate the configuration</p>
 <h1 id="ntp-client">NTP Client</h1>
 <p>A shell script that gets stats from ntp client.</p>
-<h2 id="snmp-extend_19">SNMP Extend</h2>
+<h2 id="snmp-extend_20">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client -O /etc/snmp/ntp-client
 </code></pre>
@@ -2893,7 +2920,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="ntp-server-aka-ntpd">NTP Server aka NTPD</h1>
 <p>A shell script that gets stats from ntp server (ntpd).</p>
-<h2 id="snmp-extend_20">SNMP Extend</h2>
+<h2 id="snmp-extend_21">SNMP Extend</h2>
 <ol>
 <li>Download the script onto the desired host.</li>
 </ol>
@@ -2910,7 +2937,7 @@ Extend</code> heading top of page.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="nvidia-gpu">Nvidia GPU</h1>
-<h2 id="snmp-extend_21">SNMP Extend</h2>
+<h2 id="snmp-extend_22">SNMP Extend</h2>
 <p>1: Copy the shell script, nvidia, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/nvidia -O
 /etc/snmp/nvidia</code></p>
@@ -2928,7 +2955,7 @@ sees them as being.</p>
 nvidia-smi man file under the section covering dmon.</p>
 <h1 id="open-grid-scheduler">Open Grid Scheduler</h1>
 <p>Shell script to track the OGS/GE jobs running on clusters.</p>
-<h2 id="snmp-extend_22">SNMP Extend</h2>
+<h2 id="snmp-extend_23">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/rocks.sh -O /etc/snmp/rocks.sh
 </code></pre>
@@ -2949,7 +2976,7 @@ managers.</p>
 <p>For pacman users automatically refreshing the database, it is
 recommended you use an alternative database location
 <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
-<h2 id="snmp-extend_23">SNMP Extend</h2>
+<h2 id="snmp-extend_24">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate -O /etc/snmp/osupdate
 </code></pre>
@@ -2970,7 +2997,7 @@ chances are that packages are already updated periodically .</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="php-fpm">PHP-FPM</h1>
-<h2 id="snmp-extend_24">SNMP Extend</h2>
+<h2 id="snmp-extend_25">SNMP Extend</h2>
 <p>1: Copy the shell script, phpfpmsp, to the desired host. <code>wget
    https://github.com/librenms/librenms-agent/raw/master/snmp/phpfpmsp
    -O /etc/snmp/phpfpmsp</code></p>
@@ -2988,7 +3015,7 @@ to monitor multiple pools, this won't do it.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="pi-hole">Pi-hole</h1>
-<h2 id="snmp-extend_25">SNMP Extend</h2>
+<h2 id="snmp-extend_26">SNMP Extend</h2>
 <p>1: Copy the shell script, pi-hole, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/pi-hole -O
 /etc/snmp/pi-hole</code></p>
@@ -3004,7 +3031,7 @@ server and change the API_AUTH_KEY entry inside the snmp script.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="portactivity">Portactivity</h1>
-<h2 id="snmp-extend_26">SNMP Extend</h2>
+<h2 id="snmp-extend_27">SNMP Extend</h2>
 <p>Ubuntu is shown below.</p>
 <pre><code>apt install libparse-netstat-perl
 apt install libjson-perl
@@ -3029,7 +3056,7 @@ use the -P flag.</p>
 <p>5: Restart snmpd on your host.</p>
 <p>Please note that for only TCP[46] services are supported.</p>
 <h1 id="postfix">Postfix</h1>
-<h2 id="snmp-extend_27">SNMP Extend</h2>
+<h2 id="snmp-extend_28">SNMP Extend</h2>
 <p>1: Copy the shell script, postfix-queues, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/postfix-queues
 -O /etc/snmp/postfix-queues</code></p>
@@ -3063,7 +3090,7 @@ installed manually as it is not officially supported. CentOs 6 rpms
 seem to work without issues.</p>
 </blockquote>
 <h1 id="postgres">Postgres</h1>
-<h2 id="snmp-extend_28">SNMP Extend</h2>
+<h2 id="snmp-extend_29">SNMP Extend</h2>
 <p>1: Copy the shell script, postgres, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/postgres -O
 /etc/snmp/postgres</code></p>
@@ -3086,7 +3113,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="powerdns">PowerDNS</h1>
 <p>An authoritative DNS server: <a href="https://www.powerdns.com/auth.html">https://www.powerdns.com/auth.html</a></p>
-<h2 id="snmp-extend_29">SNMP Extend</h2>
+<h2 id="snmp-extend_30">SNMP Extend</h2>
 <p>1: Copy the shell script, powerdns.py, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns.py
 -O /etc/snmp/powerdns.py</code></p>
@@ -3115,7 +3142,7 @@ defined in the Recursor config</p>
 port to connect to PowerDNS Recursor on.  The default is 8082</p>
 <p><code>$config['apps']['powerdns-recursor']['https']</code> true or false,
 defaults to use http.</p>
-<h2 id="snmp-extend_30">SNMP Extend</h2>
+<h2 id="snmp-extend_31">SNMP Extend</h2>
 <p>1: Copy the shell script, powerdns-recursor, to the desired
 host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor
@@ -3135,7 +3162,7 @@ and copy the <code>powerdns-recursor</code> script to
 <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>This script uses <code>rec_control get-all</code> to collect stats.</p>
 <h1 id="powerdns-dnsdist">PowerDNS-dnsdist</h1>
-<h2 id="snmp-extend_31">SNMP Extend</h2>
+<h2 id="snmp-extend_32">SNMP Extend</h2>
 <p>1: Copy the BASH script to the desired host.</p>
 <pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist
 </code></pre>
@@ -3171,7 +3198,7 @@ Extend</code> heading top of page.</p>
 <p>6: Restart snmpd on your host</p>
 <h1 id="raspberry-pi">Raspberry PI</h1>
 <p>SNMP extend script to get your PI data into your host.</p>
-<h2 id="snmp-extend_32">SNMP Extend</h2>
+<h2 id="snmp-extend_33">SNMP Extend</h2>
 <p>1: Download the script onto the desired host. <code>wget
    https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/raspberry.sh
    -O /etc/snmp/raspberry.sh</code></p>
@@ -3189,7 +3216,7 @@ Extend</code> heading top of page.</p>
 the user snmpd is using with <code>ps aux | grep snmpd</code></p>
 <p>5: Restart snmpd on PI host</p>
 <h1 id="smart">SMART</h1>
-<h2 id="snmp-extend_33">SNMP Extend</h2>
+<h2 id="snmp-extend_34">SNMP Extend</h2>
 <p>1: Copy the Perl script, smart, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O
 /etc/snmp/smart</code></p>
@@ -3329,7 +3356,7 @@ Extend</code> heading top of page.</p>
 and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h1 id="ups-nut">UPS-nut</h1>
 <p>A small shell script that exports nut ups status.</p>
-<h2 id="snmp-extend_34">SNMP Extend</h2>
+<h2 id="snmp-extend_35">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups
    nut</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3344,7 +3371,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="ups-apcups">UPS-apcups</h1>
 <p>A small shell script that exports apcacess ups status.</p>
-<h2 id="snmp-extend_35">SNMP Extend</h2>
+<h2 id="snmp-extend_36">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups">ups
    apcups</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3364,7 +3391,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="sdfs-info">SDFS info</h1>
 <p>A small shell script that exportfs SDFS volume info.</p>
-<h2 id="snmp-extend_36">SNMP Extend</h2>
+<h2 id="snmp-extend_37">SNMP Extend</h2>
 <p>1: Download the script onto the desired host (the host must be added
    to LibreNMS devices)</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
@@ -3380,7 +3407,7 @@ Extend</code> heading top of page.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="zfs">ZFS</h1>
-<h2 id="snmp-extend_37">SNMP Extend</h2>
+<h2 id="snmp-extend_38">SNMP Extend</h2>
 <p><code>zfs-linux</code> requires python3 &gt;=python3.5.</p>
 <p>The installation steps are:</p>
 <ol>
