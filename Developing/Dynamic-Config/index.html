@@ -2235,7 +2235,7 @@ $mail_conf = array(
 echo '
 &lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot;&gt;
     &lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot; action=&quot;&quot; method=&quot;post&quot;&gt;
-';
+    ' . csrf_field();
 
 echo generate_dynamic_config_panel('Email transport',$config_groups,$mail_conf,'mail');
 
