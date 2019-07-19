@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -1067,8 +1067,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1079,8 +1079,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1091,8 +1091,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1103,8 +1103,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1518,8 +1518,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1554,8 +1554,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1566,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1578,8 +1578,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -2244,16 +2244,25 @@
                 
                 
                 <h1 id="ubuntu-1604">Ubuntu 16.04</h1>
-<h3 id="enabling-https-nginx">Enabling HTTPS - Nginx</h3>
-<p>This example is specifically for Ubuntu 16.04 with Nginx and uses an SSL certificate from Let's Encrypt.
-Please follow <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04">this</a> excellent tutorial on setting up nginx with an SSL cert from LetsEncrypt.</p>
-<h4 id="step-1">Step 1</h4>
-<p>Follow the LetsEncrypt tutorial until you get to <em>Step 2: Obtain and SSL Certificate.</em> 
-In this section you need to change some config in the Nginx configuration. The tutorial directs you to edit <code>/etc/nginx/sites-available/default</code> however in the standard LibreNMS install, the file you need to edit is actually <code>/etc/nginx/conf.d/librenms.conf</code>.</p>
-<h4 id="step-2">Step 2</h4>
-<p>When you get to <em>Step 3: Configure TLS/SSL on Web Server (Nginx)</em> there are some differences again. 
-Follow the instructions regarding the "snippet" configuration, the main differences come when you get to <em>Adjust the Nginx Configuration to Use SSL</em>.
-Here you are again directed to edit <code>/etc/nginx/sites-available/default</code>, so we need to go to <code>/etc/nginx/conf.d/librenms.conf</code>.</p>
+<h2 id="enabling-https-nginx">Enabling HTTPS - Nginx</h2>
+<p>This example is specifically for Ubuntu 16.04 with Nginx and uses an
+SSL certificate from Let's Encrypt. Please follow
+<a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04">this</a>
+excellent tutorial on setting up nginx with an SSL cert from LetsEncrypt.</p>
+<h3 id="step-1">Step 1</h3>
+<p>Follow the LetsEncrypt tutorial until you get to <em>Step 2: Obtain and
+SSL Certificate.</em> In this section you need to change some config in
+the Nginx configuration. The tutorial directs you to edit
+<code>/etc/nginx/sites-available/default</code> however in the standard LibreNMS
+install, the file you need to edit is actually
+<code>/etc/nginx/conf.d/librenms.conf</code>.</p>
+<h3 id="step-2">Step 2</h3>
+<p>When you get to <em>Step 3: Configure TLS/SSL on Web Server (Nginx)</em>
+there are some differences again. Follow the instructions regarding
+the "snippet" configuration, the main differences come when you get to
+<em>Adjust the Nginx Configuration to Use SSL</em>. Here you are again
+directed to edit <code>/etc/nginx/sites-available/default</code>, so we need to
+go to <code>/etc/nginx/conf.d/librenms.conf</code>.</p>
 <p><code>sudo vi /etc/nginx/sites-available/default</code></p>
 <p>The top section of this file will look like this:</p>
 <pre><code>server {
@@ -2287,20 +2296,23 @@ server {
  error_log   /opt/librenms/logs/error_log;
 </code></pre>
 
-<p>This config will redirect HTTP traffic to HTTPS and use the SSL config that you have just set up.</p>
+<p>This config will redirect HTTP traffic to HTTPS and use the SSL config
+that you have just set up.</p>
 <p>Check for syntax errors
 <code>sudo nginx -t</code></p>
 <p>Then restart Nginx
 <code>sudo systemctl restart nginx</code></p>
-<h4 id="step-3">Step 3</h4>
+<h3 id="step-3">Step 3</h3>
 <p>Follow the rest of the tutorial, especially if you have the server's firewall enabled.</p>
 <h1 id="centos">CentOS</h1>
-<h4 id="enabling-https-apache">Enabling HTTPS - Apache</h4>
-<p>This example is specifically for CentOS 7 with Apache
-Please follow <a href="https://wiki.centos.org/HowTos/Https">this</a> How To from CentOS wiki on setting up Apache with a SSL cert.</p>
-<h4 id="step-1_1">Step 1</h4>
-<p>Follow the How to until you get to step 3. This is going to be little different with LibreNMS. 
-You will need to make changes in here <code>sudo vi /etc/httpd/conf.d/librenms.conf</code></p>
+<h2 id="enabling-https-apache">Enabling HTTPS - Apache</h2>
+<p>This example is specifically for CentOS 7 with Apache</p>
+<p>Please follow <a href="https://wiki.centos.org/HowTos/Https">this</a> How To from
+CentOS wiki on setting up Apache with a SSL cert.</p>
+<h3 id="step-1_1">Step 1</h3>
+<p>Follow the How to until you get to step 3. This is going to be little
+different with LibreNMS. You will need to make changes in here <code>sudo
+vi /etc/httpd/conf.d/librenms.conf</code></p>
 <p>Your VirtualHost for 443 will need to look something like this for LibreNMS
 (obviously changing librenms.example.com to your actual domain name)</p>
 <pre><code>&lt;VirtualHost *:443&gt;
@@ -2321,9 +2333,9 @@ You will need to make changes in here <code>sudo vi /etc/httpd/conf.d/librenms.c
 
 </code></pre>
 
-<h4 id="step-2_1">Step 2</h4>
+<h3 id="step-2_1">Step 2</h3>
 <p>Then restart Apache <code>sudo systemctl restart httpd</code></p>
-<h4 id="step-3_1">Step 3</h4>
+<h3 id="step-3_1">Step 3</h3>
 <p>Follow the rest of the How To, especially if you have the server's firewall enabled.</p>
                 
                   

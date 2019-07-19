@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -1067,8 +1067,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1079,8 +1079,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1091,8 +1091,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1103,8 +1103,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1516,8 +1516,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1552,8 +1552,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1564,8 +1564,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1576,8 +1576,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -2206,20 +2206,42 @@
                 
                 
                 <h1 id="carel-pcoweb-devices">Carel pCOweb Devices</h1>
-<p>The pCOWeb card is used to interface the pCO system to networks that use the HVAC protocols based on the Ethernet physical standard such the SNMP. The problem with this card is that the implementation is based on the final manufacturer of the HVAC (Heating, Ventilation and Air Conditioning) and not based on a standard given by Carel. So each pCOweb card has a different configuration that needs a different MIB depending on the manufacturer implementation.</p>
-<p>The main problem is that LibreNMS will discover this card as pCOweb and not as your real manufacturer like it should. A solution was found to bypass this issue, but it's LibreNMS independent and you need to first configure your pCOWeb through the admin interface.</p>
+<p>The pCOWeb card is used to interface the pCO system to networks that
+use the HVAC protocols based on the Ethernet physical standard such
+the SNMP. The problem with this card is that the implementation is
+based on the final manufacturer of the HVAC (Heating, Ventilation and
+Air Conditioning) and not based on a standard given by Carel. So each
+pCOweb card has a different configuration that needs a different MIB
+depending on the manufacturer implementation.</p>
+<p>The main problem is that LibreNMS will discover this card as pCOweb
+and not as your real manufacturer like it should. A solution was found
+to bypass this issue, but it's LibreNMS independent and you need to
+first configure your pCOWeb through the admin interface.</p>
 <h2 id="configuring-the-pcoweb-card-snmp-for-librenms">Configuring the pCOweb card SNMP for LibreNMS</h2>
-<p>First you need to configure your SNMP card using the admin interface. An SNMP tab in the configuration menu leaves you the choice to choose a System OID. This is a little tricky but based on this information we defined a "standard" for all implementation of Carel products with LibreNMS.</p>
+<p>First you need to configure your SNMP card using the admin
+interface. An SNMP tab in the configuration menu leaves you the choice
+to choose a System OID. This is a little tricky but based on this
+information we defined a "standard" for all implementation of Carel
+products with LibreNMS.</p>
 <p><img alt="pCOweb" src="/img/carelpcowebsystemoid.png" /></p>
-<p>The base Carel OID is 1.3.6.1.4.1.9839. To this OID we will add the final manufacturer Enterprise OID. You can find all enterprise OID <a href="https://www.iana.org/assignments/enterprise-numbers/enterprise-numbers">following this link</a>. This will allow us to create a specific support for this device.</p>
-<p>Example for the Rittal IT Chiller that uses a pCOweb card:
-1. Base Carel OID : <strong>1.3.6.1.4.1.9839</strong>
-2. Rittal (the manufacturer) base enterprise OID : <strong>2606</strong>
-3. Adding value to identify this device in LibreNMS : <strong>1</strong>
-4. Complete System OID for a Rittal Chiller using a Carel pCOweb card: <strong>1.3.6.1.4.1.9839.2606.1</strong></p>
-<p>After constructing the correct System OID for your SNMP card, you can start the LibreNMS <a href="Developing/Support-New-OS/">new OS implementation</a> and use this new OID as sysObjectID for the YAML definition file.</p>
+<p>The base Carel OID is 1.3.6.1.4.1.9839. To this OID we will add the
+final manufacturer Enterprise OID. You can find all enterprise OID
+<a href="https://www.iana.org/assignments/enterprise-numbers/enterprise-numbers">following this
+link</a>. This
+will allow us to create a specific support for this device.</p>
+<p>Example for the Rittal IT Chiller that uses a pCOweb card:</p>
+<ol>
+<li>Base Carel OID : <strong>1.3.6.1.4.1.9839</strong></li>
+<li>Rittal (the manufacturer) base enterprise OID : <strong>2606</strong></li>
+<li>Adding value to identify this device in LibreNMS : <strong>1</strong></li>
+<li>Complete System OID for a Rittal Chiller using a Carel pCOweb card: <strong>1.3.6.1.4.1.9839.2606.1</strong></li>
+</ol>
+<p>After constructing the correct System OID for your SNMP card, you can
+start the LibreNMS <a href="Developing/Support-New-OS/">new OS implementation</a>
+and use this new OID as sysObjectID for the YAML definition file.</p>
 <h2 id="pcoweb-card-already-supported">pCOweb card already supported</h2>
-<p>LibreNMS is ready for the devices listed in this table. You only need to configure your pCOweb card with the accorded System OID:</p>
+<p>LibreNMS is ready for the devices listed in this table. You only need
+to configure your pCOweb card with the accorded System OID:</p>
 <table>
 <thead>
 <tr>

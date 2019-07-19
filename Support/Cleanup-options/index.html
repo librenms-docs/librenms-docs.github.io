@@ -690,8 +690,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -914,44 +914,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Cleanup Options
-      </label>
-    
     <a href="./" title="Cleanup Options" class="md-nav__link md-nav__link--active">
       Cleanup Options
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ports-purge" title="Ports Purge" class="md-nav__link">
-    Ports Purge
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1113,8 +1078,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1125,8 +1090,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1137,8 +1102,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1149,8 +1114,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1562,8 +1527,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1598,8 +1563,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1610,8 +1575,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1622,8 +1587,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -2154,28 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ports-purge" title="Ports Purge" class="md-nav__link">
-    Ports Purge
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2190,24 +2133,37 @@
                 
                 
                 <h1 id="cleanup-options">Cleanup Options</h1>
-<p>As the number of devices starts to grow in your LibreNMS install, so will things such as the RRD files, MySQL database containing eventlogs, Syslogs and performance data etc. Your LibreNMS install could become quite large so it becomes necessary to clean up those entries. With Cleanup Options, you can keep in crontrol. </p>
+<p>As the number of devices starts to grow in your LibreNMS install, so
+will things such as the RRD files, MySQL database containing
+eventlogs, Syslogs and performance data etc. Your LibreNMS install
+could become quite large so it becomes necessary to clean up those
+entries. With Cleanup Options, you can keep in crontrol.</p>
 <p>These options rely on <code>daily.sh</code> running from cron as per the installation instructions.</p>
 <p>Cleanup Options are set in <code>config.php</code></p>
-<pre><code class="php">$config['syslog_purge']                                   = 30;
-$config['eventlog_purge']                                 = 30;
-$config['authlog_purge']                                  = 30;
-$config['perf_times_purge']                               = 30;
-$config['device_perf_purge']                              = 7;
-$config['rrd_purge']                                      = 90;// Not set by default
-$config['ports_purge']                                    = true;// Set to false by default
+<pre><code class="php">$config['syslog_purge']                              = 30;
+$config['eventlog_purge']                            = 30;
+$config['authlog_purge']                             = 30;
+$config['perf_times_purge']                          = 30;
+$config['device_perf_purge']                         = 7;
+$config['rrd_purge']                                 = 90;// Not set by default
+$config['ports_purge']                               = true;// Set to false by default
 </code></pre>
 
-<p>These options will ensure data within LibreNMS over X days old is automatically purged. You can alter these individually, values are in days.</p>
-<p><strong>NOTE</strong>: Please be aware that <code>$config['rrd_purge']</code> is NOT set by default. This option will remove any rrd files that have not been updated for the set amount of days automatically - only enable this if you are comfortable with that happening. (all active rrd files are updated every polling period)</p>
-<h3 id="ports-purge">Ports Purge</h3>
-<p>Over time as you add devices some interfaces will need to be purged as they are set to be ignored or bad interfaces or marked as deleted.</p>
-<p>You can purge all deleted ports from the WebUI (see below) or by setting <code>$config['ports_purge'] = true;</code> in <code>config.php</code> </p>
-<p>In the Web UI Under the Ports Tab in the Nav Bar, Click on "Deleted" then click on "Purge all deleted". This will purge all the ports.</p>
+<p>These options will ensure data within LibreNMS over X days old is
+automatically purged. You can alter these individually, values are in
+days.</p>
+<p><strong>NOTE</strong>: Please be aware that <code>$config['rrd_purge']</code> is NOT set
+by default. This option will remove any rrd files that have not been
+updated for the set amount of days automatically - only enable this if
+you are comfortable with that happening. (all active rrd files are
+updated every polling period)</p>
+<h1 id="ports-purge">Ports Purge</h1>
+<p>Over time as you add devices some interfaces will need to be purged as
+they are set to be ignored or bad interfaces or marked as deleted.</p>
+<p>You can purge all deleted ports from the WebUI (see below) or by
+setting <code>$config['ports_purge'] = true;</code> in <code>config.php</code></p>
+<p>In the Web UI Under the Ports Tab in the Nav Bar, Click on "Deleted"
+then click on "Purge all deleted". This will purge all the ports.</p>
                 
                   
                     <h2 id="__source">Source</h2>

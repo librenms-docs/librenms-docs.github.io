@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -1067,8 +1067,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1079,8 +1079,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1091,8 +1091,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1103,8 +1103,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1518,8 +1518,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1554,8 +1554,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1566,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1578,8 +1578,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -1833,8 +1833,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restart-the-snmpd-service" title="Restart the snmpd service:" class="md-nav__link">
-    Restart the snmpd service:
+  <a href="#restart-the-snmpd-service" title="Restart the snmpd service" class="md-nav__link">
+    Restart the snmpd service
   </a>
   
     <nav class="md-nav">
@@ -2624,8 +2624,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restart-the-snmpd-service" title="Restart the snmpd service:" class="md-nav__link">
-    Restart the snmpd service:
+  <a href="#restart-the-snmpd-service" title="Restart the snmpd service" class="md-nav__link">
+    Restart the snmpd service
   </a>
   
     <nav class="md-nav">
@@ -2714,32 +2714,46 @@
                 
                 
                 <h1 id="snmp-configuration-examples">SNMP configuration examples</h1>
-<p>Table of Content:
-- <a href="#devices">Devices</a>
-    - <a href="#cisco">Cisco</a>
-        - <a href="#adaptive-security-appliance-asa">Adaptive Security Appliance (ASA)</a>
-        - <a href="#ios--ios-xe">IOS / IOS XE</a>
-        - <a href="#nx-os">NX-OS</a>
-        - <a href="#wireless-lan-controller-wlc">Wireless LAN Controller (WLC)</a>
-    - <a href="#hpe3par">HPE 3PAR</a>
-        - <a href="#inform-os-32x">Inform OS 3.2.x</a>
-    - <a href="#infoblox">Infoblox</a>
-        - <a href="#nios-7x">NIOS 7.x+</a>
-    - <a href="#juniper">Juniper</a>
-        - <a href="#junos-os">Junos OS</a>
-    - <a href="#mikrotik">Mikrotik</a>
-        - <a href="#routeros-6x">RouterOS 6.x</a>
-    - <a href="#palo-alto">Palo Alto</a>
-        - <a href="#panos-6x7x">PANOS 6.x/7.x</a>
-    - <a href="#vmware">VMware</a>
-        - <a href="#esxesxi-5x6x">ESX/ESXi 5.x/6.x</a>
-        - <a href="#vcenter-6x">VCenter 6.x</a>
-- <a href="#operating-systems">Operating systems</a>
-    - <a href="#linux-snmpd">Linux (snmpd v2)</a>
-    - <a href="#linux-snmpd-v3">Linux (snmpd v3)</a>
-    - <a href="#windows-server-2008-r2">Windows Server 2008 R2</a>
-    - <a href="#windows-server-2012-r2-and-2016">Windows Server 2012 R2 and 2016</a>
-    - <a href="#Mac-OSX">Mac OSX</a></p>
+<p>Table of Content:</p>
+<ul>
+<li><a href="#devices">Devices</a></li>
+<li><a href="#cisco">Cisco</a><ul>
+<li><a href="#adaptive-security-appliance-asa">Adaptive Security Appliance (ASA)</a></li>
+<li><a href="#ios--ios-xe">IOS / IOS XE</a></li>
+<li><a href="#nx-os">NX-OS</a></li>
+<li><a href="#wireless-lan-controller-wlc">Wireless LAN Controller (WLC)</a></li>
+</ul>
+</li>
+<li><a href="#hpe3par">HPE 3PAR</a></li>
+<li><a href="#inform-os-32x">Inform OS 3.2.x</a></li>
+<li><a href="#infoblox">Infoblox</a><ul>
+<li><a href="#nios-7x">NIOS 7.x+</a></li>
+</ul>
+</li>
+<li><a href="#juniper">Juniper</a><ul>
+<li><a href="#junos-os">Junos OS</a></li>
+</ul>
+</li>
+<li><a href="#mikrotik">Mikrotik</a><ul>
+<li><a href="#routeros-6x">RouterOS 6.x</a></li>
+</ul>
+</li>
+<li><a href="#palo-alto">Palo Alto</a><ul>
+<li><a href="#panos-6x7x">PANOS 6.x/7.x</a></li>
+</ul>
+</li>
+<li><a href="#vmware">VMware</a><ul>
+<li><a href="#esxesxi-5x6x">ESX/ESXi 5.x/6.x</a></li>
+<li><a href="#vcenter-6x">VCenter 6.x</a></li>
+</ul>
+</li>
+<li><a href="#operating-systems">Operating systems</a></li>
+<li><a href="#linux-snmpd">Linux (snmpd v2)</a></li>
+<li><a href="#linux-snmpd-v3">Linux (snmpd v3)</a></li>
+<li><a href="#windows-server-2008-r2">Windows Server 2008 R2</a></li>
+<li><a href="#windows-server-2012-r2-and-2016">Windows Server 2012 R2 and 2016</a></li>
+<li><a href="#Mac-OSX">Mac OSX</a></li>
+</ul>
 <h2 id="devices">Devices</h2>
 <h3 id="cisco">Cisco</h3>
 <h4 id="adaptive-security-appliance-asa">Adaptive Security Appliance (ASA)</h4>
@@ -2751,7 +2765,7 @@
 <li>Add in the "SNMP Host Access List" section your LibreNMS server IP address</li>
 <li>Click Apply and Save</li>
 </ol>
-<p>CLI </p>
+<p>CLI</p>
 <pre><code># SNMPv2c
 
 snmp-server community &lt;YOUR-COMMUNITY&gt;
@@ -2871,12 +2885,18 @@ set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; loc
 <li>Access the web admin page and log in</li>
 <li>Go to Device tab &gt; Setup</li>
 <li>Go to the sub-tab "Operations"</li>
-<li>Click "SNMP Setup"   </li>
+<li>Click "SNMP Setup"</li>
 <li>Enter your SNMP community and then click "OK"</li>
 <li>Click Apply</li>
 </ol>
-<p>Note that you need to allow SNMP on the needed interfaces. To do that you need to create a network "Interface Mgmt" profile for standard interface and allow SNMP under "Device &gt; Management &gt; Management Interface Settings" for out of band management interface.</p>
-<p>One may also configure SNMP from the command line, which is useful when you need to configure more than one firewall for SNMP monitoring. Log into the firewall(s) via ssh, and perform these commands for basic SNMPv3 configuration:</p>
+<p>Note that you need to allow SNMP on the needed interfaces. To do that
+you need to create a network "Interface Mgmt" profile for standard
+interface and allow SNMP under "Device &gt; Management &gt; Management
+Interface Settings" for out of band management interface.</p>
+<p>One may also configure SNMP from the command line, which is useful
+when you need to configure more than one firewall for SNMP
+monitoring. Log into the firewall(s) via ssh, and perform these
+commands for basic SNMPv3 configuration:</p>
 <pre><code>username@devicename&gt; configure
 username@devicename# set deviceconfig system service disable-snmp no
 username@devicename# set deviceconfig system snmp-setting access-setting version v3 views pa view iso oid 1.3.6.1
@@ -2893,7 +2913,8 @@ username@devicename# exit
 
 <h3 id="vmware">VMware</h3>
 <h4 id="esxesxi-5x6x">ESX/ESXi 5.x/6.x</h4>
-<p>Log on to your ESX server by means of ssh. You may have to enable the ssh service in the GUI first.
+<p>Log on to your ESX server by means of ssh. You may have to enable the
+ssh service in the GUI first.
 From the CLI, execute the following commands:</p>
 <pre><code>esxcli system snmp set --authentication SHA1
 esxcli system snmp set --privacy AES128
@@ -2913,12 +2934,14 @@ esxcli system snmp set --enable true
 </code></pre>
 
 <blockquote>
-<p>Note: In case of snmp timouts, disable the firewall with <code>esxcli network firewall set --enabled false</code><br />
-If snmp timeouts still occur with firewall disabled, migrate VMs if needed and reboot ESXi host.</p>
+<p>Note: In case of snmp timouts, disable the firewall with <code>esxcli
+network firewall set --enabled false</code> If snmp timeouts still occur
+with firewall disabled, migrate VMs if needed and reboot ESXi host.</p>
 </blockquote>
 <h4 id="vcenter-6x">VCenter 6.x</h4>
-<p>Log on to your ESX server by means of ssh. You may have to enable the ssh service in the GUI first.
-From the CLI, execute the following commands:</p>
+<p>Log on to your ESX server by means of ssh. You may have to enable the
+ssh service in the GUI first. From the CLI, execute the following
+commands:</p>
 <pre><code>snmp.set --authentication SHA1
 snmp.set --privacy AES128
 snmp.hash --auth_hash YOUR_AUTH_SECRET --priv_hash YOUR_PRIV_SECRET --raw_secret true
@@ -2936,7 +2959,8 @@ snmp.enable
 
 <h2 id="operating-systems">Operating systems</h2>
 <h3 id="linux-snmpd-v2">Linux (snmpd v2)</h3>
-<p>Replace your snmpd.conf file by the example below and edit it with appropriate community in "RANDOMSTRINGGOESHERE".</p>
+<p>Replace your snmpd.conf file by the example below and edit it with
+appropriate community in "RANDOMSTRINGGOESHERE".</p>
 <pre><code>vi /etc/snmp/snmpd.conf
 </code></pre>
 
@@ -2959,7 +2983,11 @@ extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
 #extend .1.3.6.1.4.1.2021.7890.4 serial '/bin/cat /sys/devices/virtual/dmi/id/product_serial'
 </code></pre>
 
-<p><strong>NOTE</strong>: On some systems the snmpd is running as its own user, which means it can't read <code>/sys/devices/virtual/dmi/id/product_serial</code> which is mode 0400. One solution is to include <code>@reboot chmod 444 /sys/devices/virtual/dmi/id/product_serial</code> in the crontab for root or equivalent. </p>
+<p><strong>NOTE</strong>: On some systems the snmpd is running as its own user, which
+means it can't read <code>/sys/devices/virtual/dmi/id/product_serial</code> which
+is mode 0400. One solution is to include <code>@reboot chmod 444
+/sys/devices/virtual/dmi/id/product_serial</code> in the crontab for root or
+equivalent.</p>
 <p>The LibreNMS server include a copy of this example here:</p>
 <pre><code>/opt/librenms/snmpd.conf.example
 </code></pre>
@@ -2971,16 +2999,21 @@ chmod +x /usr/bin/distro
 
 <h3 id="linux-snmpd-v3">Linux (snmpd v3)</h3>
 <p>Go to /etc/snmp/snmpd.conf</p>
-<p>Open the file in vi or nano /etc/snmp/snmpd.conf and add the following line to create SNMPV3 User (replace username and passwords with your own):</p>
+<p>Open the file in vi or nano /etc/snmp/snmpd.conf and add the following
+line to create SNMPV3 User (replace username and passwords with your
+own):</p>
 <pre><code>createUser authPrivUser MD5 &quot;authPassword&quot; DES &quot;privPassword&quot;
 </code></pre>
 
-<p>Make sure the agent listens to all interfaces by adding the following line inside snmpd.conf:</p>
+<p>Make sure the agent listens to all interfaces by adding the following
+line inside snmpd.conf:</p>
 <pre><code>agentAddress udp:161,udp6:[::1]:161
 </code></pre>
 
-<p>This line simply means listen to connections across all interfaces IPv4 and IPv6 respectively</p>
-<p>Uncomment and change the following line to give read access to the username created above (rouser is what LibreNMS uses) :</p>
+<p>This line simply means listen to connections across all interfaces
+IPv4 and IPv6 respectively</p>
+<p>Uncomment and change the following line to give read access to the
+username created above (rouser is what LibreNMS uses) :</p>
 <pre><code>#rouser authPrivUser priv
 </code></pre>
 
@@ -2990,7 +3023,7 @@ syscontact Your Name &lt;your@email.address&gt;
 </code></pre>
 
 <p>Save and exit the file</p>
-<h4 id="restart-the-snmpd-service">Restart the snmpd service:</h4>
+<h4 id="restart-the-snmpd-service">Restart the snmpd service</h4>
 <h5 id="centos-6-red-hat-6">CentOS 6 / Red hat 6</h5>
 <pre><code>service snmpd restart
 </code></pre>
@@ -3013,7 +3046,8 @@ syscontact Your Name &lt;your@email.address&gt;
 <li>Edit "SNMP Service" properties</li>
 <li>Go to the security tab</li>
 <li>In "Accepted community name" click "Add" to add your community string and permission</li>
-<li>In "Accept SNMP packets from these hosts" click "Add" and add your LibreNMS server IP address</li>
+<li>In "Accept SNMP packets from these hosts" click "Add" and add your
+   LibreNMS server IP address</li>
 <li>Validate change by clicking "Apply"</li>
 </ol>
 <h3 id="windows-server-2012-r2-and-2016">Windows Server 2012 R2 and 2016</h3>
@@ -3027,7 +3061,8 @@ syscontact Your Name &lt;your@email.address&gt;
 <li>Edit "SNMP Service" properties</li>
 <li>Go to the security tab</li>
 <li>In "Accepted community name" click "Add" to add your community string and permission</li>
-<li>In "Accept SNMP packets from these hosts" click "Add" and add your LibreNMS server IP address</li>
+<li>In "Accept SNMP packets from these hosts" click "Add" and add your
+   LibreNMS server IP address</li>
 <li>Validate change by clicking "Apply"</li>
 </ol>
 <h3 id="mac-osx">Mac OSX</h3>
@@ -3051,7 +3086,7 @@ sysName SystemName
 sysobjectid 1.3.6.1.4.1.8072.3.2.16
 </code></pre>
 
-<p>Step 2: </p>
+<p>Step 2:</p>
 <pre><code class="bash">sudo launchctl load -w /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
 </code></pre>
                 

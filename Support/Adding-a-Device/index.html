@@ -524,12 +524,18 @@
     WebUI
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ping-only-device" title="Ping Only Device" class="md-nav__link">
     Ping Only Device
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -748,8 +754,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -1127,8 +1133,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1139,8 +1145,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1151,8 +1157,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1163,8 +1169,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1576,8 +1582,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1612,8 +1618,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1624,8 +1630,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1636,8 +1642,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -2183,12 +2189,18 @@
     WebUI
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ping-only-device" title="Ping Only Device" class="md-nav__link">
     Ping Only Device
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2218,28 +2230,36 @@
                 
                 
                 <h1 id="adding-device">Adding Device</h1>
-<p>You have two options for adding a new device into LibreNMS. You can add a device via the <code>cli</code> or by using the 
-<code>WebUI</code>.</p>
-<h3 id="cli">CLI</h3>
-<p>Using the command line via ssh you can add a new device by changing to the directory of your LibreNMS install and typing (be sure to put the correct details).</p>
+<p>You have two options for adding a new device into LibreNMS. You can
+add a device via the <code>cli</code> or by using the <code>WebUI</code>.</p>
+<h2 id="cli">CLI</h2>
+<p>Using the command line via ssh you can add a new device by changing to
+the directory of your LibreNMS install and typing (be sure to put the
+correct details).</p>
 <pre><code class="bash">./addhost.php yourhostname [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]
 </code></pre>
 
-<p>As an example, if your device with the name <code>mydevice.example.com</code> is configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you would enter:</p>
+<p>As an example, if your device with the name <code>mydevice.example.com</code> is
+configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you
+would enter:</p>
 <pre><code class="bash">./addhost.php mydevice.example.com my_company v2c
 </code></pre>
 
 <blockquote>
-<p>Please note that if the community contains special characters such as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'Pa$$w0rd'</code>.</p>
+<p>Please note that if the community contains special characters such
+as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'Pa$$w0rd'</code>.</p>
 </blockquote>
-<h3 id="webui">WebUI</h3>
-<p>Using the web interface, go to Devices and click Add Device. Enter the details required for the device that you want to add and then click 'Add Host'.
-As an example, if your device is configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you would enter:
-SNMP Port defaults to 161</p>
+<h2 id="webui">WebUI</h2>
+<p>Using the web interface, go to Devices and click Add Device. Enter the
+details required for the device that you want to add and then click
+'Add Host'. As an example, if your device is configured to use the
+community <code>my_company</code> using snmp <code>v2c</code> then you would enter: SNMP
+Port defaults to 161</p>
 <p><img alt="Add device" src="/img/webui_add_device.png" /></p>
 <h3 id="ping-only-device">Ping Only Device</h3>
-<p>You can add ping only devices into LibreNMS through the WebUI. When adding the device switch the SNMP button to "off".
-Device will be added into LibreNMS as Ping Only Device and will show ICMP Response Graph. </p>
+<p>You can add ping only devices into LibreNMS through the WebUI. When
+adding the device switch the SNMP button to "off". Device will be
+added into LibreNMS as Ping Only Device and will show ICMP Response Graph.</p>
 <ul>
 <li>Hostname: IP address or DNS name.</li>
 <li>Hardware: Optional you can type in whatever you like.</li>
@@ -2247,8 +2267,11 @@ Device will be added into LibreNMS as Ping Only Device and will show ICMP Respon
 </ul>
 <p><a href="https://youtu.be/cjuByubg-uk">How to add ping only devices</a></p>
 <p><img alt="Ping Only" src="/img/add-ping-only.png" /></p>
-<p>If you would like to add devices automatically then you will probably want to read the <a href="../../Extensions/Auto-Discovery/">Auto-discovery Setup</a> guide.</p>
-<p>You may also want to add devices programatically, if so, take a look at our <a href="../../API/">API documentation</a></p>
+<p>If you would like to add devices automatically then you will probably
+want to read the <a href="../../Extensions/Auto-Discovery/">Auto-discovery
+Setup</a> guide.</p>
+<p>You may also want to add devices programatically, if so, take a look
+at our <a href="../../API/">API documentation</a></p>
                 
                   
                     <h2 id="__source">Source</h2>

@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1-Minute-Polling/" title="1 Minute Polling" class="md-nav__link">
-      1 Minute Polling
+    <a href="../1-Minute-Polling/" title="Information" class="md-nav__link">
+      Information
     </a>
   </li>
 
@@ -1067,8 +1067,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite." class="md-nav__link">
-      Enabling support for Graphite.
+    <a href="../../Extensions/metrics/Graphite/" title="Enabling support for Graphite" class="md-nav__link">
+      Enabling support for Graphite
     </a>
   </li>
 
@@ -1079,8 +1079,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB." class="md-nav__link">
-      Enabling support for InfluxDB.
+    <a href="../../Extensions/metrics/InfluxDB/" title="Enabling support for InfluxDB" class="md-nav__link">
+      Enabling support for InfluxDB
     </a>
   </li>
 
@@ -1091,8 +1091,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB." class="md-nav__link">
-      Enabling support for OpenTSDB.
+    <a href="../../Extensions/metrics/OpenTSDB/" title="Enabling support for OpenTSDB" class="md-nav__link">
+      Enabling support for OpenTSDB
     </a>
   </li>
 
@@ -1103,8 +1103,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus." class="md-nav__link">
-      Enabling support for Prometheus.
+    <a href="../../Extensions/metrics/Prometheus/" title="Enabling support for Prometheus" class="md-nav__link">
+      Enabling support for Prometheus
     </a>
   </li>
 
@@ -1518,8 +1518,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../FAQ/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../FAQ/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
   </li>
 
@@ -1538,44 +1538,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Install validation
-      </label>
-    
     <a href="./" title="Install validation" class="md-nav__link md-nav__link--active">
       Install validation
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#validate-from-the-webui" title="Validate from the WebUI" class="md-nav__link">
-    Validate from the WebUI
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1598,8 +1563,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Discovery Support/" title="Discovery Support" class="md-nav__link">
-      Discovery Support
+    <a href="../Discovery Support/" title="discovery.php" class="md-nav__link">
+      discovery.php
     </a>
   </li>
 
@@ -1610,8 +1575,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Poller Support/" title="Poller Support" class="md-nav__link">
-      Poller Support
+    <a href="../Poller Support/" title="poller.php" class="md-nav__link">
+      poller.php
     </a>
   </li>
 
@@ -1622,8 +1587,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Example-Hardware-Setup/" title="Example Hardware Setup" class="md-nav__link">
-      Example Hardware Setup
+    <a href="../Example-Hardware-Setup/" title="Example hardware setups" class="md-nav__link">
+      Example hardware setups
     </a>
   </li>
 
@@ -2154,28 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#validate-from-the-webui" title="Validate from the WebUI" class="md-nav__link">
-    Validate from the WebUI
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2190,11 +2133,15 @@
                 
                 
                 <h1 id="install-validation">Install validation</h1>
-<p>With a lot of configuration possibilities, manually editing config.php means it's not
-uncommon that mistakes get made. It's also impossible to validate user input in config.php when you're just using a text editor :)</p>
-<p>So, to try and help with some of the general issues people come across we've put together a simple validation tool which at present will:</p>
+<p>With a lot of configuration possibilities, manually editing config.php
+means it's not uncommon that mistakes get made. It's also impossible
+to validate user input in config.php when you're just using a text
+editor :)</p>
+<p>So, to try and help with some of the general issues people come across
+we've put together a simple validation tool which at present will:</p>
 <ul>
-<li>Validate config.php from a php perspective including whitespace where it shouldn't be.</li>
+<li>Validate config.php from a php perspective including whitespace
+  where it shouldn't be.</li>
 <li>Connection to your MySQL server to verify credentials.</li>
 <li>Checks if you are running the older alerting system.</li>
 <li>Checks your rrd directory setup if not running rrdcached.</li>
@@ -2203,22 +2150,27 @@ uncommon that mistakes get made. It's also impossible to validate user input in 
 <li>Tests MySQL strict mode being enabled</li>
 <li>Tests for files not owned by librenms user (if configured)</li>
 </ul>
-<p>Optionally you can also pass -m and a module name for that to be tested. Current modules are:</p>
+<p>Optionally you can also pass -m and a module name for that to be
+tested. Current modules are:</p>
 <ul>
 <li>mail - This will validate your mail transport configuration.</li>
 <li>dist-poller - This will test your distributed poller configuration.</li>
-<li>rrdcheck - This will test your rrd files to see if they are unreadable or corrupted (source of broken graphs).</li>
+<li>rrdcheck - This will test your rrd files to see if they are
+  unreadable or corrupted (source of broken graphs).</li>
 </ul>
-<p>You can run validate.php as <code>root</code> by executing <code>./validate.php</code> within your install directory.</p>
-<p>The output will provide you either a clean bill of health or a list of things you need to fix:</p>
+<p>You can run validate.php as <code>root</code> by executing <code>./validate.php</code>
+within your install directory.</p>
+<p>The output will provide you either a clean bill of health or a list of
+things you need to fix:</p>
 <p><strong>OK</strong> - This is a good thing, you can skip over these :)</p>
 <p><strong>WARN</strong> - You probably want to check this out.</p>
 <p><strong>FAIL</strong> - This is going to need your attention!</p>
-<h3 id="validate-from-the-webui">Validate from the WebUI</h3>
-<p>You can validate your LibreNMS install from the WebUI, using the nav bar and clicking on the little Gear Icon -&gt; Validate Config.
-<img alt="Validate Config Icon" src="/img/validate-config-icon.png" />
-Then You should see the results of validate. 
-Below is just example of the results.</p>
+<h1 id="validate-from-the-webui">Validate from the WebUI</h1>
+<p>You can validate your LibreNMS install from the WebUI, using the nav
+bar and clicking on the little Gear Icon -&gt; Validate
+Config. <img alt="Validate Config Icon" src="/img/validate-config-icon.png" /> Then
+You should see the results of validate.</p>
+<p>Below is just example of the results.</p>
 <p><img alt="Validate results" src="/img/validate-results.png" /></p>
                 
                   
@@ -2251,7 +2203,7 @@ Below is just example of the results.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../FAQ/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../FAQ/" title="Getting started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2260,7 +2212,7 @@ Below is just example of the results.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                FAQ
+                Getting started
               </span>
             </div>
           </a>
