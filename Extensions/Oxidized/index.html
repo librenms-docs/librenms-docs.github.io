@@ -1031,42 +1031,49 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#feeding-oxidized" title="Feeding Oxidized" class="md-nav__link">
+    Feeding Oxidized
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-overrides" title="Creating overrides" class="md-nav__link">
+    Creating overrides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-configuration-backups" title="Trigger configuration backups" class="md-nav__link">
+    Trigger configuration backups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-oxidized-config" title="Validate Oxidized config" class="md-nav__link">
+    Validate Oxidized config
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#feeding-oxidized" title="Feeding Oxidized" class="md-nav__link">
-    Feeding Oxidized
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-overrides" title="Creating overrides" class="md-nav__link">
-    Creating overrides
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
-    Miscellaneous
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trigger-configuration-backups" title="Trigger configuration backups" class="md-nav__link">
-    Trigger configuration backups
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validate-oxidized-config" title="Validate Oxidized config" class="md-nav__link">
-    Validate Oxidized config
+  <a href="#accessing-configuration-of-a-disabledremoved-device" title="Accessing configuration of a disabled/removed device" class="md-nav__link">
+    Accessing configuration of a disabled/removed device
   </a>
   
 </li>
@@ -2220,42 +2227,49 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#feeding-oxidized" title="Feeding Oxidized" class="md-nav__link">
+    Feeding Oxidized
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-overrides" title="Creating overrides" class="md-nav__link">
+    Creating overrides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-configuration-backups" title="Trigger configuration backups" class="md-nav__link">
+    Trigger configuration backups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-oxidized-config" title="Validate Oxidized config" class="md-nav__link">
+    Validate Oxidized config
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#feeding-oxidized" title="Feeding Oxidized" class="md-nav__link">
-    Feeding Oxidized
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-overrides" title="Creating overrides" class="md-nav__link">
-    Creating overrides
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
-    Miscellaneous
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trigger-configuration-backups" title="Trigger configuration backups" class="md-nav__link">
-    Trigger configuration backups
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validate-oxidized-config" title="Validate Oxidized config" class="md-nav__link">
-    Validate Oxidized config
+  <a href="#accessing-configuration-of-a-disabledremoved-device" title="Accessing configuration of a disabled/removed device" class="md-nav__link">
+    Accessing configuration of a disabled/removed device
   </a>
   
 </li>
@@ -2297,7 +2311,7 @@
 <p>Then you can procede to the LibreNMS Web UI and go to Oxidized Settings in the External Settings section of Global Settings. Enable it and enter the url to your oxidized instance.</p>
 <p>To have devices automatically added, you will need to configure oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding Oxidized</a></p>
 <p>LibreNMS will automatically map the OS to the Oxidized model name if they don't match. this means you shouldn't need to use the model_map config option within Oxidized.</p>
-<h3 id="detailed-integration-information">Detailed integration information</h3>
+<h2 id="detailed-integration-information">Detailed integration information</h2>
 <hr />
 <p>This is a straight forward use of Oxidized, it relies on you having a working Oxidized setup which is already taking config snapshots for your devices.
 When you have that, you only need the following config to enable the display of device configs within the device page itself:</p>
@@ -2407,6 +2421,28 @@ $config['oxidized']['ignore_os'] = array('linux','windows');
 <p>You can perform basic validation of the Oxidized configuration by going to the Overview -&gt; Tools -&gt; Oxidized link and in the Oxidized config validation page, paste your 
  yaml file into the input box and click 'Validate YAML'.</p>
 <p>We check for yaml syntax errors and also actual config values to ensure they are used in the correct location.</p>
+<h2 id="accessing-configuration-of-a-disabledremoved-device">Accessing configuration of a disabled/removed device</h2>
+<p>When you're disabling or removing a device from LibreNMS, Oxidized will no longer shows it in the web interface the configuration. You can access directly to this information in the Git repository of Oxidized (if using Git to store versions).</p>
+<ol>
+<li>
+<p>Check in your Oxidized where are stored your Git repositories:</p>
+</li>
+<li>
+<p><code>/home/oxidized/.config/oxidized/config</code></p>
+</li>
+<li>
+<p>Go the correct Git repository for the needed device (the .git one) and get the list of devices using this command:</p>
+</li>
+<li>
+<p><code>git ls-files -s</code></p>
+</li>
+<li>
+<p>Save the object ID of the device, and run the command to get the file content:</p>
+</li>
+<li>
+<p><code>git cat-file -p &lt;object id&gt;</code></p>
+</li>
+</ol>
                 
                   
                     <h2 id="__source">Source</h2>
