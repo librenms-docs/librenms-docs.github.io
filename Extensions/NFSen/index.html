@@ -1011,6 +1011,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stats-defaults-and-settings" title="Stats Defaults and Settings" class="md-nav__link">
+    Stats Defaults and Settings
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2164,6 +2171,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stats-defaults-and-settings" title="Stats Defaults and Settings" class="md-nav__link">
+    Stats Defaults and Settings
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
@@ -2193,40 +2207,155 @@
 <blockquote>
 <p>The installation of NFSen is out of scope for this document / LibreNMS</p>
 </blockquote>
-<h4 id="configuration">Configuration</h4>
+<h2 id="configuration">Configuration</h2>
 <p>The following is the configuration that can be used:</p>
 <pre><code class="php">$config['nfsen_enable'] = 1;
 $config['nfsen_split_char']   = '_';
 $config['nfsen_rrds'][]   = '/var/nfsen/profiles-stat/live/';
 $config['nfsen_rrds'][] = '/var/nfsen/profiles-stat';
+$config['nfsen_base'][] = '/var/nfsen/';
 $config['nfsen_suffix']   = &quot;_yourdomain_com&quot;;
 </code></pre>
 
 <p>Set <code>$config['nfsen_enable'] = 1;</code> to enable NFSen support.</p>
-<p><code>$config['nfsen_rrds']</code> This value tells us where your NFSen rrd files live. This can also be an array to 
-specify more directories like:</p>
+<p><code>$config['nfsen_rrds']</code> This value tells us where your NFSen rrd files
+live. This can also be an array to specify more directories like:</p>
 <pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/sitea/';
 $config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/siteb/';
 </code></pre>
 
-<p>Although for most setups, it will look like below, with the profiles-stat/live directory being where it stores the general RRDs for data sources.</p>
+<p>Although for most setups, it will look like below, with the
+profiles-stat/live directory being where it stores the general RRDs
+for data sources.</p>
 <pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat/live';
 </code></pre>
 
-<p><code>$config['nfsen_split_char']</code> This value tells us what to replace the full stops <code>.</code> in the devices hostname with.</p>
-<p><code>$config['nfsen_suffix']</code> This value will be removed from the domain name and can be useful if your rrd files are 
-something like <code>host1.rrd</code> but your device hostname is <code>domain.host1.rrd</code>. You can then set $config['nfsen_suffix'] = 'domain';</p>
-<p>If you wish to render info for configure channels for a device, you need add the various profile-stat directories your system uses, which for most systems will be as below.</p>
+<p>If you wish to render info for configure channels for a device, you
+need add the various profile-stat directories your system uses, which
+for most systems will be as below.</p>
 <pre><code class="php">$config['nfsen_rrds'][] = '/var/nfsen/profiles-stat';
 </code></pre>
 
-<p>When adding sources to nfsen.conf, it is important to use the hostname that matches what is configured in LibreNMS, because the rrd files NfSen creates is named after the source name (ident), and it doesn't allow you to use an IP address instead. However, in LibreNMS, if your device is added by an IP address, add your source with any name of your choice, and create a symbolic link to the rrd file.</p>
+<p>When adding sources to nfsen.conf, it is important to use the hostname
+that matches what is configured in LibreNMS, because the rrd files
+NfSen creates is named after the source name (ident), and it doesn't
+allow you to use an IP address instead. However, in LibreNMS, if your
+device is added by an IP address, add your source with any name of
+your choice, and create a symbolic link to the rrd file.</p>
 <pre><code class="sh">cd /var/nfsen/profiles-stat/sitea/
 ln -s mychannel.rrd librenmsdeviceIP.rrd
 </code></pre>
 
-<p>When creating profiles under nfsen, be sure to use the hostname so it matches the name in LibreNMS. That is where channel data will be pulled from.</p>
-<p>You should see a new tab for the device called Nfsen.</p>
+<pre><code class="php">$config['nfsen_split_char']   = '_';
+</code></pre>
+
+<p>This value tells us what to replace the full stops <code>.</code> in the devices
+hostname with.</p>
+<pre><code class="php">$config['nfsen_suffix']   = &quot;_yourdomain_com&quot;;
+</code></pre>
+
+<p>The above is a very important bit as device names in NfSen are limited
+to 21 characters. This means full domain names for devices can be very
+problematic to squeeze in, so there for this chunk is usually removed.</p>
+<p>On a similar note, NfSen profiles for channels should be created with
+the same name.</p>
+<h2 id="stats-defaults-and-settings">Stats Defaults and Settings</h2>
+<p>Below are the default settings used with nfdump for stats.</p>
+<p>For more defailted information on that, please see nfdump(1).</p>
+<pre><code class="php">$config['nfsen_last_max'] = 153600;
+$config['nfsen_top_max'] = 500;
+$config['nfsen_top_N']=array( 10, 20, 50, 100, 200, 500 );
+$config['nfsen_top_default']=20;
+$config['nfsen_stat_default']='srcip';
+$config['nfsen_order_default']='packets';
+$config['nfsen_last_default']=900;
+$config['nfsen_lasts']=array(
+                            '300'=&gt;'5 minutes',
+                            '600'=&gt;'10 minutes',
+                            '900'=&gt;'15 minutes',
+                            '1800'=&gt;'30 minutes',
+                            '3600'=&gt;'1 hour',
+                            '9600'=&gt;'3 hours',
+                            '38400'=&gt;'12 hours',
+                            '76800'=&gt;'24 hours',
+                            '115200'=&gt;'36 hours',
+                            '153600'=&gt;'48 hours',
+                            );
+</code></pre>
+
+<pre><code>$config['nfsen_last_max'] = 153600;
+</code></pre>
+
+<p>The above is the max value in seconds one may pull stats for. The
+higher this is, the more CPU and disk intensive the search will be.</p>
+<p>Numbers larger than this will be set to this.</p>
+<pre><code>$config['nfsen_top_max'] = 500;
+</code></pre>
+
+<p>The above is max number of items to be displayed.</p>
+<p>Numbers larger than this will be set to this.</p>
+<pre><code>$config['nfsen_top_N']=array( 10, 20, 50, 100, 200, 500 );
+</code></pre>
+
+<p>The above is a array containing a list for the drop down menu how many
+top items should be returned.</p>
+<pre><code class="php">$config['nfsen_top_default']=20;
+</code></pre>
+
+<p>The above sets default top number to use from the drop down.</p>
+<pre><code class="php">$config['nfsen_stat_default']='srcip';
+</code></pre>
+
+<p>The above sets default stat type to use from the drop down.</p>
+<pre><code>record  Flow Records
+ip       Any IP Address
+srcip    SRC IP Address
+dstip    DST IP Address
+port     Any Port
+srcport  SRC Port
+dstport  DST Port
+srctos   SRC TOS
+dsttos   DST TOS
+tos      TOS
+as       AS
+srcas    SRC AS
+dstas    DST AS
+</code></pre>
+
+<pre><code class="php">$config['nfsen_order_default']='packets';
+</code></pre>
+
+<p>The above sets default order type to use from the drop down. Any of
+the following below are currently supported.</p>
+<pre><code>flows    Number of total flows for the time period.
+packet   Number of total packets for the time period.
+bytes    Number of total bytes for the time period.
+pps      Packets Per Second
+bps      Bytes Per Second
+bpp      Bytes Per Packet
+</code></pre>
+
+<pre><code>$config['nfsen_last_default']=900;
+</code></pre>
+
+<p>The above is the last default to use from the drop down.</p>
+<pre><code>$config['nfsen_lasts']=array(
+                            '300'=&gt;'5 minutes',
+                            '600'=&gt;'10 minutes',
+                            '900'=&gt;'15 minutes',
+                            '1800'=&gt;'30 minutes',
+                            '3600'=&gt;'1 hour',
+                            '9600'=&gt;'3 hours',
+                            '38400'=&gt;'12 hours',
+                            '76800'=&gt;'24 hours',
+                            '115200'=&gt;'36 hours',
+                            '153600'=&gt;'48 hours',
+                            );
+</code></pre>
+
+<p>The above associative array contains time intervals for how
+far back to go. The keys are the length in seconds and the
+value is just a description to display.</p>
                 
                   
                     <h2 id="__source">Source</h2>
