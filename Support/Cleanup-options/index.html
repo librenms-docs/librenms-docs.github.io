@@ -2137,7 +2137,7 @@
 will things such as the RRD files, MySQL database containing
 eventlogs, Syslogs and performance data etc. Your LibreNMS install
 could become quite large so it becomes necessary to clean up those
-entries. With Cleanup Options, you can keep in crontrol.</p>
+entries. With Cleanup Options, you can stay in control.</p>
 <p>These options rely on <code>daily.sh</code> running from cron as per the installation instructions.</p>
 <p>Cleanup Options are set in <code>config.php</code></p>
 <pre><code class="php">$config['syslog_purge']                              = 30;
@@ -2153,10 +2153,10 @@ $config['ports_purge']                               = true;// Set to false by d
 automatically purged. You can alter these individually, values are in
 days.</p>
 <p><strong>NOTE</strong>: Please be aware that <code>$config['rrd_purge']</code> is NOT set
-by default. This option will remove any rrd files that have not been
+by default. This option will remove any RRD files that have not been
 updated for the set amount of days automatically - only enable this if
-you are comfortable with that happening. (all active rrd files are
-updated every polling period)</p>
+you are comfortable with that happening. (All active RRD files are
+updated every polling period.)</p>
 <h1 id="ports-purge">Ports Purge</h1>
 <p>Over time as you add devices some interfaces will need to be purged as
 they are set to be ignored or bad interfaces or marked as deleted.</p>
