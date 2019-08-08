@@ -2670,6 +2670,33 @@ these are not provided by the vendor, the guess method can be disabled:</p>
 <pre><code class="php">$config['sensors']['guess_limits'] = false;
 </code></pre>
 
+<h1 id="ignoring-health-sensors">Ignoring Health Sensors</h1>
+<p>It is possible to filter some sensors from the configuration:</p>
+<ul>
+<li>Ignore all temperature sensors</li>
+</ul>
+<pre><code class="php">$config['disabled_sensors']['current'] = true;
+</code></pre>
+
+<ul>
+<li>Filter all sensors matching regexp <code>'/PEM Iout/'</code>.</li>
+</ul>
+<pre><code class="php">$config['disabled_sensors_regex'][] = '/PEM Iout/';
+</code></pre>
+
+<ul>
+<li>Filter all 'current' sensors for Operating System 'vrp'.</li>
+</ul>
+<pre><code class="php">$config['os']['vrp']['disabled_sensors']['current'] = true;
+</code></pre>
+
+<ul>
+<li>Filter all sensors matching regexp <code>'/PEM Iout/'</code> for 
+Operating System iosxe.</li>
+</ul>
+<pre><code class="php">$config['os']['iosxe']['disabled_sensors_regex'][] = '/PEM Iout/';
+</code></pre>
+
 <h1 id="storage-configuration">Storage configuration</h1>
 <p>Mounted storage / mount points to ignore in discovery and polling.</p>
 <pre><code class="php">$config['ignore_mount_removable']  = 1;
