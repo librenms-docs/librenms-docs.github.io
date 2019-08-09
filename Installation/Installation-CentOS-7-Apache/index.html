@@ -2144,7 +2144,9 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </code></pre>
 
 <pre><code>rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-yum install composer cronie fping git httpd ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nmap php72w php72w-cli php72w-common php72w-curl php72w-gd php72w-mbstring php72w-mysqlnd php72w-process php72w-snmp php72w-xml php72w-zip python-memcached rrdtool
+</code></pre>
+
+<pre><code>yum install composer cronie fping git httpd ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nmap php72w php72w-cli php72w-common php72w-curl php72w-gd php72w-mbstring php72w-mysqlnd php72w-process php72w-snmp php72w-xml php72w-zip python-memcached rrdtool
 </code></pre>
 
 <h1 id="add-librenms-user">Add librenms user</h1>
@@ -2158,33 +2160,28 @@ git clone https://github.com/librenms/librenms.git
 </code></pre>
 
 <h1 id="set-permissions">Set permissions</h1>
-<p>````
-chown -R librenms:librenms /opt/librenms
+<pre><code>chown -R librenms:librenms /opt/librenms
 chmod 770 /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
-setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/</p>
-<pre><code>
-# Install PHP dependencies
-
+setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 </code></pre>
 
-<p>su - librenms
+<h1 id="install-php-dependencies">Install PHP dependencies</h1>
+<pre><code>su - librenms
 ./scripts/composer_wrapper.php install --no-dev
-exit</p>
-<pre><code>
-# DB Server
-
-## Configure MySQL
-
+exit
 </code></pre>
 
-<p>systemctl start mariadb
-mysql -u root</p>
-<pre><code>
-&gt; NOTE: Please change the 'password' below to something secure.
+<h1 id="db-server">DB Server</h1>
+<h2 id="configure-mysql">Configure MySQL</h2>
+<pre><code>systemctl start mariadb
+mysql -u root
+</code></pre>
 
-```sql
-CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+<blockquote>
+<p>NOTE: Please change the 'password' below to something secure.</p>
+</blockquote>
+<pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
 FLUSH PRIVILEGES;
