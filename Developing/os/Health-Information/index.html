@@ -2388,7 +2388,8 @@ modules:
   the value. If not provided willuse <code>oid</code></li>
 <li><code>num_oid</code> (required): This is the numerical OID that contains
   <code>value</code>. This should always include <code>{{ $index }}</code>.  snmptranslate
-  -On can help figure out the number</li>
+  -On can help figure out the number.
+  In case the index is a string, <code>{{ $index_string }}</code> can be used instead.</li>
 <li><code>divisor</code> (optional): This is the divisor to use against the returned <code>value</code>.</li>
 <li><code>multiplier</code> (optional): This is the multiplier to use against the returned <code>value</code>.</li>
 <li><code>low_limit</code> (optional): This is the critical low threshold that
