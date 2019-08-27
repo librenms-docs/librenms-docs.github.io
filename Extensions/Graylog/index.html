@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
@@ -204,7 +204,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -981,7 +981,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" title="Suppressing/enabling the domain part of a hostname for specific platforms" class="md-nav__link">
+  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" class="md-nav__link">
     Suppressing/enabling the domain part of a hostname for specific platforms
   </a>
   
@@ -989,21 +989,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ios-cisco" title="IOS (Cisco)" class="md-nav__link">
+  <a href="#ios-cisco" class="md-nav__link">
     IOS (Cisco)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#junos-juniper-networks" title="JunOS (Juniper Networks)" class="md-nav__link">
+  <a href="#junos-juniper-networks" class="md-nav__link">
     JunOS (Juniper Networks)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#panos-palo-alto-networks" title="PanOS (Palo Alto Networks)" class="md-nav__link">
+  <a href="#panos-palo-alto-networks" class="md-nav__link">
     PanOS (Palo Alto Networks)
   </a>
   
@@ -2185,7 +2185,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" title="Suppressing/enabling the domain part of a hostname for specific platforms" class="md-nav__link">
+  <a href="#suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms" class="md-nav__link">
     Suppressing/enabling the domain part of a hostname for specific platforms
   </a>
   
@@ -2193,21 +2193,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ios-cisco" title="IOS (Cisco)" class="md-nav__link">
+  <a href="#ios-cisco" class="md-nav__link">
     IOS (Cisco)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#junos-juniper-networks" title="JunOS (Juniper Networks)" class="md-nav__link">
+  <a href="#junos-juniper-networks" class="md-nav__link">
     JunOS (Juniper Networks)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#panos-palo-alto-networks" title="PanOS (Palo Alto Networks)" class="md-nav__link">
+  <a href="#panos-palo-alto-networks" class="md-nav__link">
     PanOS (Palo Alto Networks)
   </a>
   
@@ -2277,6 +2277,11 @@ Additionally, the certificate's Common Name (CN) has to match the FQDN or IP add
 <p>If you want to match the source address of the log entries against any IP address of a device instead of only against 
 the primary address and the host name to assign the log entries to a device, you can activate this function using
 $config['graylog']['match-any-address'] = 'true';</p>
+<p>There are 2 configuration parameters to influence the behaviour of the "Recent Graylog" table on the overview page of the devices.
+$config['graylog']['device-page']['rowCount'] sets the maximum number of rows to be displayed (default: 10)
+With $config['graylog']['device-page']['loglevel'] you can set which loglevels should be displayed on the overview page. (default: 7, min: 0, max: 7)
+$config['graylog']['device-page']['loglevel'] = 4 shows only entries with a log level less than or equal to 4 (Emergency, Alert, Critical, Error, Warning).</p>
+<p>You can set a default Log Level Filter with $config['graylog']['loglevel'] (applies to  /graylog and /device/device=/tab=logs/section=graylog/ (min: 0, max: 7)</p>
 <h2 id="suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms">Suppressing/enabling the domain part of a hostname for specific platforms</h2>
 <p>You should see if what you get in syslog/Graylog matches up with your configured hosts first. If you need to modify the syslog messages from specific platforms, this may be of assistance:</p>
 <h3 id="ios-cisco">IOS (Cisco)</h3>
