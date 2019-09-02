@@ -2273,21 +2273,22 @@ application discovery module is enabled by default for most *nix
 operating systems, but in some cases you will need to manually enable
 the application discovery module.</p>
 <h3 id="sudo">SUDO</h3>
-<p>One majoy thing to keep in mind when using SNMP extends is on my
-systems these run as a unprivlidged user. In these situations you need
-to use sudo.</p>
-<p>To test if you need to see if you need to, first check to see what
-user snmpd is running as. Then test you run it as that user with out
-issue. For example if snmpd is running as 'Debian-snmp' and we want
-to run the extend for proxmox, we would do <code>sudo -u Debian-snmp
-/usr/local/bin/proxmox</code> and make sure it runs as expected.</p>
-<p>If it does not work, then you will need to use sudo with the
-extend. And for the example above, that would mean adding the line
-below to the sudoers file.</p>
+<p>One major thing to keep in mind when using SNMP extend is these run as the snmpd
+user that can be an unprivileged user. In these situations you need to use sudo.</p>
+<p>To test if you need sudo, first check the user snmpd is running as.
+Then test if you can run the extend script as that user without issue.
+For example if snmpd is running as 'Debian-snmp' and we want
+to run the extend for proxmox, we check that the following run without error:</p>
+<pre><code>sudo -u Debian-snmpn/usr/local/bin/proxmox
+</code></pre>
+
+<p>If it doesn't work, then you will need to use sudo with the extend command.
+For the example above, that would mean adding the line below to the sudoers file:</p>
 <pre><code>Debian-snmp ALL = NOPASSWD: /usr/local/bin/proxmox
 </code></pre>
 
-<p>And we would then just add sudo to snmpd.conf like below for it.</p>
+<p>Finally we would need to add sudo to the extend command, which would look
+like that for proxmox:</p>
 <pre><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox
 </code></pre>
 
