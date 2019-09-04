@@ -2292,6 +2292,9 @@ You can find one in the <a href="../../Alerting/Rules/#alert-rules-collection">A
 <pre><code>*    *    * * *   librenms    /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
 
+<blockquote>
+<p><strong>NOTE</strong>: If you are using distributed pollers you can restrict a poller to a group by appending <code>-g</code> to the cron entry.  Alternatively, you should only run ping.php on a single node.</p>
+</blockquote>
 <h4 id="sub-minute-ping-check">Sub minute ping check</h4>
 <p>Cron only has a resolution of one minute, so we have to use a trick to allow sub minute checks.
 We add two entries, but add a delay before one.</p>
