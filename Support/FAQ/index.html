@@ -2171,6 +2171,7 @@
 <li><a href="#my-reverse-proxy-is-not-working">My reverse proxy is not working</a></li>
 <li><a href="#my-alerts-aren't-being-delivered-on-time">My alerts aren't being delivered on time</a></li>
 <li><a href="#my-alert-templates-stopped-working">My alert templates stopped working</a></li>
+<li><a href="#how-do-i-use-trend-prediction-in-graphs">How do I use trend prediction in graphs</a></li>
 </ul>
 <h1 id="developing">Developing</h1>
 <ul>
@@ -2582,6 +2583,16 @@ new template syntax:
 <a href="https://docs.librenms.org/Alerting/Templates/">https://docs.librenms.org/Alerting/Templates/</a>. Since version 1.42,
 syntax changed, and you basically need to convert your templates to
 this new syntax (including the titles).</p>
+<h2 id="how-do-i-use-trend-prediction-in-graphs"><a name='how-do-i-use-trend-prediction-in-graphs'>How do I use trend prediction in graphs</a></h2>
+<p>As of <a href="https://community.librenms.org/t/v1-55-release-changelog-august-2019/9428">Ver. 1.55</a> a new feature has been added where you can view a simple linear prediction in port graphs. </p>
+<blockquote>
+<p>It doesn't work on non-port graphs or consolidated graphs at the time this FAQ entry was written.</p>
+</blockquote>
+<p>To view a prediction:
+- Click on any <code>port</code> graph of any network device
+- Select a <code>From</code> date to your liking (not earlier than the device was actually added to LNMS), and then select a future date in the <code>To</code> field. 
+- Click update</p>
+<p>You should now see a linear prediction line on the graph.</p>
                 
                   
                     <h2 id="__source">Source</h2>
