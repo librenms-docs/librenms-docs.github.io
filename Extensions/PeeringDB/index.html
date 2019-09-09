@@ -2133,10 +2133,14 @@
                 
                 
                 <h1 id="peeringdb-support">PeeringDB Support</h1>
-<p>LibreNMS has integration with PeeringDB to match up your BGP sessions with the peering exchanges you are connected to.</p>
-<p>To enable the integration please do so within the WebUI -&gt; Global Settings -&gt; External Settings -&gt; PeeringDB Integration.</p>
-<p>Data will be collated the next time daily.sh is run or you can manually force this by running <code>php daily.php -f peeringdb</code>,
-the initial collection is delayed for a random amount of time to avoid overloading the PeeringDB API.</p>
+<p>LibreNMS has integration with PeeringDB to match up your BGP sessions
+with the peering exchanges you are connected to.</p>
+<p>To enable the integration please do so within the WebUI -&gt; Global
+Settings -&gt; External Settings -&gt; PeeringDB Integration.</p>
+<p>Data will be collated the next time daily.sh is run or you can
+manually force this by running <code>php daily.php -f peeringdb</code>, the
+initial collection is delayed for a random amount of time to avoid
+overloading the PeeringDB API.</p>
 <p>Once enabled you will have an additional menu item under Routing -&gt; PeeringDB</p>
                 
                   

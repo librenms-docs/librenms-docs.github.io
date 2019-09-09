@@ -2132,21 +2132,28 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/RRDTune.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="rrdtune">RRDTune?</h1>
-<p>When we create rrd files for ports, we currently do so with a max value of 12500000000 (100G). Because of this if a device sends us bad data back then it can appear as though
-a 100M port is doing 40G+ which is impossible. To counter this you can enable the rrdtool tune option which will fix the max value to the interfaces physical speed (minimum of 10M).</p>
+                <h1 id="rrdtune">RRDTune</h1>
+<p>When we create rrd files for ports, we currently do so with a max
+value of 12500000000 (100G). Because of this if a device sends us bad
+data back then it can appear as though a 100M port is doing 40G+ which
+is impossible. To counter this you can enable the rrdtool tune option
+which will fix the max value to the interfaces physical speed (minimum
+of 10M).</p>
 <p>To enable this you can do so in three ways!</p>
 <ul>
 <li>Globally under Global Settings -&gt; External Settings -&gt; RRDTool Setup</li>
 <li>For the actual device, Edit Device -&gt; Misc</li>
 <li>For each port, Edit Device -&gt; Port Settings</li>
 </ul>
-<p>Now when a port interface speed changes (this can happen because of a physical change or just because the device has misreported) the max value is set. If you don't want to wait until
-a port speed changes then you can run the included script:</p>
+<p>Now when a port interface speed changes (this can happen because of a
+physical change or just because the device has misreported) the max
+value is set. If you don't want to wait until a port speed changes
+then you can run the included script:</p>
 <p><code>./scripts/tune_port.php -h &lt;hostname&gt; -p &lt;ifName&gt;</code></p>
 <p>Wildcards are supported using *, i.e:</p>
 <p><code>./scripts/tune_port.php -h local* -p eth*</code></p>
-<p>This script will then perform the rrdtool tune on each port found using the provided ifSpeed for that port.</p>
+<p>This script will then perform the rrdtool tune on each port found
+using the provided ifSpeed for that port.</p>
 <p>Run <code>./scripts/tune_port.php</code> to see help page.</p>
                 
                   

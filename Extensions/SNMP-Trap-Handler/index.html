@@ -2216,13 +2216,17 @@
                 
                 
                 <h1 id="snmp-trap-handling">SNMP trap handling</h1>
-<p>Currently, librenms only supports linkUp/linkDown (port up/down), bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and authenticationFailure SNMP traps.
-To add more see <a href="../../Developing/SNMP-Traps/">Adding new SNMP Trap handlers</a></p>
+<p>Currently, librenms only supports linkUp/linkDown (port up/down),
+bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and
+authenticationFailure SNMP traps. To add more see <a href="../../Developing/SNMP-Traps/">Adding new SNMP Trap handlers</a></p>
 <p>Traps are handled via snmptrapd.</p>
 <h2 id="configure-snmptrapd">Configure snmptrapd</h2>
 <p>Install snmptrapd via your package manager.</p>
 <p>To enable snmptrapd to properly parse traps, we will need to add MIBs.</p>
-<p>Make the folder <code>/etc/systemd/system/snmptrapd.service.d/</code> and edit the file <code>/etc/systemd/system/snmptrapd.service.d/mibs.conf</code> and add the following content. You may want to tweak to add vendor directories for devices you care about (in addition to or instead of cisco).</p>
+<p>Make the folder <code>/etc/systemd/system/snmptrapd.service.d/</code> and edit
+the file <code>/etc/systemd/system/snmptrapd.service.d/mibs.conf</code> and add
+the following content. You may want to tweak to add vendor directories
+for devices you care about (in addition to or instead of cisco).</p>
 <pre><code class="ini">[Service]
 Environment=MIBDIRS=+/opt/librenms/mibs:/opt/librenms/mibs/cisco
 Environment=MIBS=+ALL
@@ -2234,7 +2238,8 @@ Environment=MIBS=+ALL
 <pre><code class="text">traphandle default /opt/librenms/snmptrap.php
 </code></pre>
 
-<p>Along with any necessary configuration to receive the traps from your devices (community, etc.)</p>
+<p>Along with any necessary configuration to receive the traps from your
+devices (community, etc.)</p>
 <p>Reload service files, enable, and start the snmptrapd service:</p>
 <pre><code>sudo systemctl daemon-reload
 sudo systemctl enable snmptrapd
@@ -2242,16 +2247,18 @@ sudo systemctl restart snmptrapd
 </code></pre>
 
 <h3 id="event-logging">Event logging</h3>
-<p>You can configure generic event logging for snmp traps.  This will log an event of the type trap for received traps.
-These events can be utilized for alerting.</p>
+<p>You can configure generic event logging for snmp traps.  This will log
+an event of the type trap for received traps. These events can be utilized for alerting.</p>
 <p>In config.php</p>
 <pre><code class="php">$config['snmptraps']['eventlog'] = 'unhandled';
 </code></pre>
 
-<p>Valid options are:
- - <code>unhandled</code> only unhandled traps will be logged
- - <code>all</code> log all traps
- - <code>none</code> no traps will create a generic event log (handled traps may still log events)</p>
+<p>Valid options are:</p>
+<ul>
+<li><code>unhandled</code> only unhandled traps will be logged</li>
+<li><code>all</code> log all traps</li>
+<li><code>none</code> no traps will create a generic event log (handled traps may still log events)</li>
+</ul>
                 
                   
                     <h2 id="__source">Source</h2>

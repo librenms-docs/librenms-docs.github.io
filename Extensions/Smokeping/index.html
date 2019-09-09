@@ -2406,20 +2406,27 @@
                 
                 
                 <h1 id="smokeping-integration">Smokeping integration</h1>
-<p><a href="https://oss.oetiker.ch/smokeping/">SmokePing</a> is a tool which lets us keep track of network latency, and visualise this through RRD graphs. </p>
-<p>LibreNMS has support for both new and pre-existing SmokePing installations. </p>
-<p>For new installations, we can use the included <code>scripts/gen_smokeping.php</code> script to generate a Smokeping config file.</p>
+<p><a href="https://oss.oetiker.ch/smokeping/">SmokePing</a> is a tool which lets us
+keep track of network latency, and visualise this through RRD graphs.</p>
+<p>LibreNMS has support for both new and pre-existing SmokePing installations.</p>
+<p>For new installations, we can use the included
+<code>scripts/gen_smokeping.php</code> script to generate a Smokeping config file.</p>
 <h2 id="new-smokeping-installation">New Smokeping installation</h2>
 <h3 id="install-and-integrate-smokeping-debianubuntu">Install and integrate Smokeping - Debian/Ubuntu</h3>
-<p>This guide assumes you have already <a href="http://docs.librenms.org/Installation/Installing-LibreNMS/">installed librenms</a>, and is working with either <strong>Apache</strong> or <strong>nginx</strong>.</p>
+<p>This guide assumes you have already <a href="http://docs.librenms.org/Installation/Installing-LibreNMS/">installed
+librenms</a>,
+and is working with either <strong>Apache</strong> or
+<strong>nginx</strong>.</p>
 <p>Note: You may need to install <code>fcgiwrap</code> as well (at least with <code>nginx</code>).</p>
 <h3 id="install-smokeping">Install Smokeping</h3>
 <pre><code class="bash">sudo apt update &amp;&amp; sudo apt install smokeping
 </code></pre>
 
 <h2 id="configure-smokeping">Configure SmokePing</h2>
-<p>Smokeping has several configuration files. By default, these are located in <code>/etc/smokeping/config.d/</code> </p>
-<p>Edit the <code>General</code> configuration file's <strong>Owner</strong> and <strong>contact</strong>, and <strong>cgiurl hostname</strong> details:</p>
+<p>Smokeping has several configuration files. By default, these are
+located in <code>/etc/smokeping/config.d/</code></p>
+<p>Edit the <code>General</code> configuration file's <strong>Owner</strong> and <strong>contact</strong>, and
+<strong>cgiurl hostname</strong> details:</p>
 <pre><code class="bash">nano /etc/smokeping/config.d/General
 owner    = LibreNMS-Admin
 contact  = admin@ACME.xxx
@@ -2431,14 +2438,18 @@ cgiurl   = http://yourlibrenms/cgi-bin/smokeping.cgi
 <pre><code class="bash">@include /etc/smokeping/config.d/librenms.conf
 </code></pre>
 
-<p>We will generate the conf file in the next step. </p>
+<p>We will generate the conf file in the next step.</p>
 <h3 id="generate-librenms-list-of-smokeping-nodes">Generate LibreNMS list of Smokeping Nodes</h3>
-<p>LibreNMS comes equipped with a script which exports our list of nodes from LibreNMS into a configuration file in the format required by Smokeping. </p>
-<p>To generate the config file once: </p>
+<p>LibreNMS comes equipped with a script which exports our list of nodes
+from LibreNMS into a configuration file in the format required by
+Smokeping.</p>
+<p>To generate the config file once:</p>
 <pre><code class="bash">(echo &quot;+ LibreNMS&quot;; php -f /opt/librenms/scripts/gen_smokeping.php) | sudo tee /etc/smokeping/config.d/librenms.conf
 </code></pre>
 
-<p><strong>However</strong>, it is more desirable to set up a cron job which regenerates our list of nodes and adds these into Smokeping. You can add the following to the end of your librenms cron job, e.g. <code>nano /etc/cron.d/librenms</code> </p>
+<p><strong>However</strong>, it is more desirable to set up a cron job which
+regenerates our list of nodes and adds these into Smokeping. You can
+add the following to the end of your librenms cron job, e.g. <code>nano /etc/cron.d/librenms</code></p>
 <p><strong>Ubuntu 16.04</strong> Sample cron (will run daily at 00:05) :</p>
 <pre><code class="bash">05  00    * * *   root (echo &quot;+ LibreNMS&quot;; php -f /opt/librenms/scripts/gen_smokeping.php) &gt; /etc/smokeping/config.d/librenms.conf &amp;&amp; systemctl reload smokeping.service &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
@@ -2453,21 +2464,26 @@ cgiurl   = http://yourlibrenms/cgi-bin/smokeping.cgi
 title = Network Latency Grapher
 </code></pre>
 
-<p>Which can cause Smokeping to not start. <code>echo "+ LibreNMS"</code> prepends this in our smokeping config file. We could remove the above from the gen_smokeping script, however this may cause issues with LibreNMS failing to update with <code>daily.sh</code> due config files being modified. </p>
+<p>Which can cause Smokeping to not start. <code>echo "+ LibreNMS"</code> prepends
+this in our smokeping config file. We could remove the above from the
+gen_smokeping script, however this may cause issues with LibreNMS
+failing to update with <code>daily.sh</code> due config files being modified.</p>
 <h2 id="configure-librenms">Configure LibreNMS</h2>
 <p>Edit <code>/opt/librenms/config.php</code> and add the following:</p>
 <p><strong>Note:</strong> Make sure you point dir to the correct Smokeping data directory:</p>
 <pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 and newer Location
 #$config['smokeping']['dir'] = '/opt/smokeping/data';
-$config['smokeping']['pings'] = 20;     // should be equal to &quot;pings&quot; in your smokeping config
+$config['smokeping']['pings'] = 20;    // should be equal to &quot;pings&quot; in your smokeping config
 $config['smokeping']['integration'] = true;
 </code></pre>
 
 <h2 id="configure-web-server">Configure web server</h2>
-<p>This section covers the required configuration for your web server of choice. This covers the required configuration for either Apache or Nginx. </p>
+<p>This section covers the required configuration for your web server of
+choice. This covers the required configuration for either Apache or Nginx.</p>
 <h3 id="apache-configuration">Apache Configuration</h3>
-<p>Smokeping should automatically install an Apache config file in <code>/etc/apache2/conf-available/</code>. Verify this using :</p>
-<pre><code class="bash">librenms@librenms:~/scripts$ ls /etc/apache2/conf-available/ | grep smokeping              
+<p>Smokeping should automatically install an Apache config file in
+<code>/etc/apache2/conf-available/</code>. Verify this using :</p>
+<pre><code class="bash">librenms@librenms:~/scripts$ ls /etc/apache2/conf-available/ | grep smokeping
 smokeping.conf
 </code></pre>
 
@@ -2478,8 +2494,9 @@ smokeping.conf
 <p>After creating the symlink, restart Apache with <code>sudo systemctl apache2 restart</code></p>
 <p>You should be able to load the Smokeping web interface at <code>http://yourhost/cgi-bin/smokeping.cgi</code></p>
 <h3 id="nginx-configuration">Nginx Configuration</h3>
-<p>This section assumes you have configured LibreNMS with Nginx as specified in <a href="https://docs.librenms.org/Installation/Installation-Ubuntu-1804-Nginx/">Configure Nginx</a>.</p>
-<p>Add the following configuration to your <code>/etc/nginx/conf.d/librenms</code> config file. </p>
+<p>This section assumes you have configured LibreNMS with Nginx as
+specified in <a href="https://docs.librenms.org/Installation/Installation-Ubuntu-1804-Nginx/">Configure Nginx</a>.</p>
+<p>Add the following configuration to your <code>/etc/nginx/conf.d/librenms</code> config file.</p>
 <p>The following will configure Nginx to respond to <code>http://yourlibrenms/smokeping</code>:</p>
 <pre><code>#Browsing to `http://librenms.xxx/smokeping/` should bring up the smokeping web interface
 
@@ -2514,10 +2531,13 @@ smokeping.conf
         }
 </code></pre>
 
-<p>After saving the config file, verify your Nginx config file syntax is OK with <code>sudo nginx -t</code>, then restart Nginx with <code>sudo systemctl restart nginx</code></p>
+<p>After saving the config file, verify your Nginx config file syntax is
+OK with <code>sudo nginx -t</code>, then restart Nginx with <code>sudo systemctl restart nginx</code></p>
 <p>You should be able to load the Smokeping web interface at <code>http://yourhost/smokeping</code></p>
 <h4 id="nginx-password-authentification">Nginx Password Authentification</h4>
-<p>You can use the purpose-made htpasswd utility included in the apache2-utils package (Nginx password files use the same format as Apache). You can install it on Ubuntu with</p>
+<p>You can use the purpose-made htpasswd utility included in the
+apache2-utils package (Nginx password files use the same format as
+Apache). You can install it on Ubuntu with</p>
 <pre><code>apt install apache2-utils
 </code></pre>
 
@@ -2525,7 +2545,7 @@ smokeping.conf
 <pre><code>htpasswd -c /etc/nginx/.htpasswd USER
 </code></pre>
 
-<p>You can verify your user and password with </p>
+<p>You can verify your user and password with</p>
 <pre><code>cat /etc/nginx/.htpasswd
 </code></pre>
 
@@ -2540,42 +2560,57 @@ smokeping.conf
 </code></pre>
 
 <h3 id="start-smokeping">Start SmokePing</h3>
-<p>Use the below commands to start and verify smokeping is running. </p>
+<p>Use the below commands to start and verify smokeping is running.</p>
 <p><strong>Ubuntu 14.04:</strong>  <code>sudo service smokeping start</code></p>
 <p>Verify: <code>sudo service smokeping status</code></p>
 <p><strong>Ubuntu 16.04 and newer:</strong>  <code>sudo systemctl start smokeping</code></p>
 <p>Verify: <code>sudo systemctl status smokeping</code></p>
 <h2 id="verify-in-librenms">Verify in LibreNMS</h2>
-<p>Within LibreNMS, you should now have a new device sub-tab called Ping.</p>
+<p>Within LibreNMS, you should now have a new device sub-tab called Ping</p>
 <hr />
 <h1 id="pre-existing-smokeping-installation">Pre-Existing Smokeping Installation</h1>
-<p>The following section covers the requirements for an existing SmokePing installation. The primary difference is this section does not cover using the LibreNMS Smokeping config script, and assumes an existing Smokeping server is set up and working correctly. </p>
-<p>In terms of configuration, simply add the location of where smokeping data such as RRD files are stored. If this is on a separate server, ensure there is a mount point reachable, along with the server's hostname. </p>
-<p><strong>Note:</strong> The location should be the RRD root folder, NOT the sub-directory such as network. </p>
+<p>The following section covers the requirements for an existing
+SmokePing installation. The primary difference is this section does
+not cover using the LibreNMS Smokeping config script, and assumes an
+existing Smokeping server is set up and working correctly.</p>
+<p>In terms of configuration, simply add the location of where smokeping
+data such as RRD files are stored. If this is on a separate server,
+ensure there is a mount point reachable, along with the server's hostname.</p>
+<p><strong>Note:</strong> The location should be the RRD root folder, NOT the
+sub-directory such as network.</p>
 <pre><code class="php">$config['smokeping']['dir'] = '/var/lib/smokeping'; // Ubuntu 16.04 and newer Location
 #$config['smokeping']['dir'] = '/opt/smokeping/data';
-$config['smokeping']['pings'] = 20;     // should be equal to &quot;pings&quot; in your smokeping config
+$config['smokeping']['pings'] = 20;    // should be equal to &quot;pings&quot; in your smokeping config
 $config['smokeping']['integration'] = true;
 </code></pre>
 
 <p>You should now see a new tab in your device page called ping.</p>
 <h1 id="issues">Issues</h1>
-<h3 id="error-etcsmokepingconfigdpathnames-line-1-file-usrsbinsendmail-does-not-exist"><code>ERROR: /etc/smokeping/config.d/pathnames, line 1: File '/usr/sbin/sendmail' does not exist</code></h3>
-<p>If you got this error at the end of the installation, simply edit smokeping's config file like so:</p>
+<h2 id="error-etcsmokepingconfigdpathnames-line-1-file-usrsbinsendmail-does-not-exist"><code>ERROR: /etc/smokeping/config.d/pathnames, line 1: File '/usr/sbin/sendmail' does not exist</code></h2>
+<p>If you got this error at the end of the installation, simply edit
+smokeping's config file like so:</p>
 <pre><code class="diff">nano /etc/smokeping/config.d/pathnames
 
 -sendmail = /usr/sbin/sendmail
 +#sendmail = /usr/sbin/sendmail
 </code></pre>
 
-<h3 id="smokeping-and-rrdcached">Smokeping and RRDCached</h3>
-<p>If you are using the standard smokeping data dir (<code>/etc/smokeping/data</code>) then you may need to alter the rrdcached config slightly.</p>
-<p>In the standard configuration the -B argument may have been used to restrict rrdcached to read only from a single base dir.</p>
-<p>If this is true, when you try an open one of the smokeping graphs from within LibreNMS you will see something like this error at the end of the rrdcached command:</p>
+<h2 id="smokeping-and-rrdcached">Smokeping and RRDCached</h2>
+<p>If you are using the standard smokeping data dir
+(<code>/etc/smokeping/data</code>) then you may need to alter the rrdcached
+config slightly.</p>
+<p>In the standard configuration the -B argument may have been used to
+restrict rrdcached to read only from a single base dir.</p>
+<p>If this is true, when you try an open one of the smokeping graphs from
+within LibreNMS you will see something like this error at the end of
+the rrdcached command:</p>
 <pre><code class="bash">ERROR: rrdcached: /var/lib/smokeping/&lt;device name&gt;.rrd: Permission denied
 </code></pre>
 
-<p>You will need to either change the dir in which smokeping saves its rrd files to be the same as the main librenms dir or you can remove the -B argument from the rrdcached config to allow it to read from more than one dir.</p>
+<p>You will need to either change the dir in which smokeping saves its
+rrd files to be the same as the main librenms dir or you can remove
+the -B argument from the rrdcached config to allow it to read from
+more than one dir.</p>
 <p>To remove the -B switch:</p>
 <pre><code class="bash">sudo nano /etc/default/rrdcached
 </code></pre>

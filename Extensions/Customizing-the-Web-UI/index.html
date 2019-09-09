@@ -2229,8 +2229,10 @@
 
 <h2 id="custom-device-menu-entry">Custom device menu entry</h2>
 <p>You can add custom external links in the menu on the device page.</p>
-<p>This feature allows you to easily link applications to related systems, as shown in the example of Open-audIT.</p>
-<p>The Links value is parsed by Laravel Blade's templating engine so you can use Device variables such as <code>hostname</code>, <code>sysName</code> and more.</p>
+<p>This feature allows you to easily link applications to related
+systems, as shown in the example of Open-audIT.</p>
+<p>The Links value is parsed by Laravel Blade's templating engine so you
+can use Device variables such as <code>hostname</code>, <code>sysName</code> and more.</p>
 <p><code>config.php:</code></p>
 <pre><code class="php">$config['html']['device']['links'][] = ['url' =&gt; 'http://atssrv/open-audit/index/devices/{{ $device[\'sysName\'] }}', 'title' =&gt; 'Open-AudIT'];
 </code></pre>

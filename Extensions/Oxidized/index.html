@@ -998,99 +998,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Oxidized
-      </label>
-    
     <a href="./" title="Oxidized" class="md-nav__link md-nav__link--active">
       Oxidized
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#detailed-integration-information" class="md-nav__link">
-    Detailed integration information
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#selinux" class="md-nav__link">
-    SELinux
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#feeding-oxidized" class="md-nav__link">
-    Feeding Oxidized
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-overrides" class="md-nav__link">
-    Creating overrides
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#miscellaneous" class="md-nav__link">
-    Miscellaneous
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trigger-configuration-backups" class="md-nav__link">
-    Trigger configuration backups
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validate-oxidized-config" class="md-nav__link">
-    Validate Oxidized config
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessing-configuration-of-a-disabledremoved-device" class="md-nav__link">
-    Accessing configuration of a disabled/removed device
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2209,83 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#detailed-integration-information" class="md-nav__link">
-    Detailed integration information
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#selinux" class="md-nav__link">
-    SELinux
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#feeding-oxidized" class="md-nav__link">
-    Feeding Oxidized
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-overrides" class="md-nav__link">
-    Creating overrides
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#miscellaneous" class="md-nav__link">
-    Miscellaneous
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trigger-configuration-backups" class="md-nav__link">
-    Trigger configuration backups
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validate-oxidized-config" class="md-nav__link">
-    Validate Oxidized config
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessing-configuration-of-a-disabledremoved-device" class="md-nav__link">
-    Accessing configuration of a disabled/removed device
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2300,31 +2133,45 @@
                 
                 
                 <h1 id="oxidized-intro">Oxidized intro</h1>
-<hr />
-<p>Integrating LibreNMS with <a href="https://github.com/ytti/oxidized-web">Oxidized</a> brings the following benefits:</p>
+<p>Integrating LibreNMS with
+<a href="https://github.com/ytti/oxidized-web">Oxidized</a> brings the following
+benefits:</p>
 <ul>
 <li>Config viewing: Current, History, and Diffs all under the Configs tab of each device</li>
-<li>Automatic addition of devices to Oxidized: Including filtering and grouping to ease credential management</li>
+<li>Automatic addition of devices to Oxidized: Including filtering and
+  grouping to ease credential management</li>
 <li>Configuration searching (Requires oxidized-web 0.8.0 or newer)</li>
 </ul>
 <p>First you will need to <a href="https://github.com/ytti/oxidized#installation">install Oxidized following their documentation</a>.</p>
-<p>Then you can procede to the LibreNMS Web UI and go to Oxidized Settings in the External Settings section of Global Settings. Enable it and enter the url to your oxidized instance.</p>
-<p>To have devices automatically added, you will need to configure oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding Oxidized</a></p>
-<p>LibreNMS will automatically map the OS to the Oxidized model name if they don't match. this means you shouldn't need to use the model_map config option within Oxidized.</p>
-<h2 id="detailed-integration-information">Detailed integration information</h2>
-<hr />
-<p>This is a straight forward use of Oxidized, it relies on you having a working Oxidized setup which is already taking config snapshots for your devices.
-When you have that, you only need the following config to enable the display of device configs within the device page itself:</p>
+<p>Then you can procede to the LibreNMS Web UI and go to Oxidized
+Settings in the External Settings section of Global Settings. Enable
+it and enter the url to your oxidized instance.</p>
+<p>To have devices automatically added, you will need to configure
+oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding
+Oxidized</a></p>
+<p>LibreNMS will automatically map the OS to the Oxidized model name if
+they don't match. this means you shouldn't need to use the model_map
+config option within Oxidized.</p>
+<h1 id="detailed-integration-information">Detailed integration information</h1>
+<p>This is a straight forward use of Oxidized, it relies on you having a
+working Oxidized setup which is already taking config snapshots for
+your devices. When you have that, you only need the following config
+to enable the display of device configs within the device page itself:</p>
 <pre><code class="php">$config['oxidized']['enabled']         = TRUE;
 $config['oxidized']['url']             = 'http://127.0.0.1:8888';
 </code></pre>
 
-<p>LibreNMS supports config versioning if Oxidized does.  This is known to work with the git output module.</p>
+<p>LibreNMS supports config versioning if Oxidized does.  This is known
+to work with the git output module.</p>
 <pre><code class="php">$config['oxidized']['features']['versioning'] = true;
 </code></pre>
 
-<p>Oxidized supports various ways to utilise credentials to login to devices, you can specify global username/password within Oxidized, Group level username/password or per device.
-LibreNMS currently supports sending groups back to Oxidized so that you can then define group credentials within Oxidized. To enable this support please switch on 'Enable the return of groups to Oxidized':</p>
+<p>Oxidized supports various ways to utilise credentials to login to
+devices, you can specify global username/password within Oxidized,
+Group level username/password or per device. LibreNMS currently
+supports sending groups back to Oxidized so that you can then define
+group credentials within Oxidized. To enable this support please
+switch on 'Enable the return of groups to Oxidized':</p>
 <pre><code class="php">$config['oxidized']['group_support'] = true;
 </code></pre>
 
@@ -2332,15 +2179,21 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
 <pre><code class="php">$config['oxidized']['default_group'] = 'default';
 </code></pre>
 
-<h4 id="selinux">SELinux</h4>
-<p>If you're runnng SELinux, you'll need to allow httpd to connect outbound to the network, otherwise Oxidized integration in the web UI will silently fail:</p>
+<h1 id="selinux">SELinux</h1>
+<p>If you're runnng SELinux, you'll need to allow httpd to connect
+outbound to the network, otherwise Oxidized integration in the web UI
+will silently fail:</p>
 <pre><code>setsebool -P httpd_can_network_connect 1
 </code></pre>
 
-<h3 id="feeding-oxidized">Feeding Oxidized</h3>
+<h1 id="feeding-oxidized">Feeding Oxidized</h1>
 <hr />
-<p>Oxidized has support for feeding devices into it via an API call, support for Oxidized has been added to the LibreNMS API. A sample config for Oxidized is provided below.</p>
-<p>You will need to configure default credentials for your devices in the Oxidized config, LibreNMS doesn't provide login credentials at this time.</p>
+<p>Oxidized has support for feeding devices into it via an API call,
+support for Oxidized has been added to the LibreNMS API. A sample
+config for Oxidized is provided below.</p>
+<p>You will need to configure default credentials for your devices in the
+Oxidized config, LibreNMS doesn't provide login credentials at this
+time.</p>
 <pre><code class="bash">      source:
         default: http
         debug: false
@@ -2354,23 +2207,35 @@ LibreNMS currently supports sending groups back to Oxidized so that you can then
             X-Auth-Token: '01582bf94c03104ecb7953dsadsadwed'
 </code></pre>
 
-<p>LibreNMS is able to reload the Oxidized list of nodes, each time a device is added to LibreNMS.
-To do so, edit the option in Global Settings&gt;External Settings&gt;Oxidized Integration or add the following to your config.php.</p>
+<p>LibreNMS is able to reload the Oxidized list of nodes, each time a
+device is added to LibreNMS. To do so, edit the option in Global
+Settings&gt;External Settings&gt;Oxidized Integration or add the following
+to your config.php.</p>
 <pre><code class="php">$config['oxidized']['reload_nodes'] = true;
 
 </code></pre>
 
-<h3 id="creating-overrides">Creating overrides</h3>
-<p>To return an override to Oxidized you can do this by providing the override key, followed by matching a lookup for a host (or hosts), and finally by defining the overriding value itself. LibreNMS does not check for the validity of these attributes but will deliver them to Oxidized as defined.</p>
-<p>Matching of hosts can be done using <code>hostname</code>, <code>sysname</code>, <code>os</code>, <code>location</code>, <code>sysDescr</code> or <code>hardware</code> and including either a 'match' key and value, or a 'regex' key and value. The order of matching is:
-* <code>hostname</code> 
-* <code>sysname</code>
-* <code>sysDescr</code>
-* <code>hardware</code>
-* <code>os</code>
-* <code>location</code>
-* <code>ip</code></p>
-<p>To match on the device hostnames or sysnames that contain 'lon-sw' or if the location contains 'London' then you would place the following within config.php:</p>
+<h1 id="creating-overrides">Creating overrides</h1>
+<p>To return an override to Oxidized you can do this by providing the
+override key, followed by matching a lookup for a host (or hosts), and
+finally by defining the overriding value itself. LibreNMS does not
+check for the validity of these attributes but will deliver them to
+Oxidized as defined.</p>
+<p>Matching of hosts can be done using <code>hostname</code>, <code>sysname</code>, <code>os</code>,
+<code>location</code>, <code>sysDescr</code> or <code>hardware</code> and including either a 'match'
+key and value, or a 'regex' key and value. The order of matching is:</p>
+<ul>
+<li><code>hostname</code></li>
+<li><code>sysname</code></li>
+<li><code>sysDescr</code></li>
+<li><code>hardware</code></li>
+<li><code>os</code></li>
+<li><code>location</code></li>
+<li><code>ip</code></li>
+</ul>
+<p>To match on the device hostnames or sysnames that contain 'lon-sw' or
+if the location contains 'London' then you would place the following
+within config.php:</p>
 <pre><code class="php">$config['oxidized']['maps']['group']['hostname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
 $config['oxidized']['maps']['group']['sysname'][] = array('regex' =&gt; '/^lon-sw/', 'group' =&gt; 'london-switches');
 $config['oxidized']['maps']['group']['location'][] = array('regex' =&gt; '/london/', 'group' =&gt; 'london-switches');
@@ -2380,69 +2245,85 @@ $config['oxidized']['maps']['group']['location'][] = array('regex' =&gt; '/londo
 <pre><code class="php">$config['oxidized']['maps']['group']['os'][] = array('match' =&gt; 'edgeos', 'group' =&gt; 'wireless');
 </code></pre>
 
-<p>Matching on OS requires system name of the OS. For example, 'match' =&gt; 'RouterOS' will not work, while 'match' =&gt; 'routeros' will.</p>
-<p>To override the IP Oxidized uses to poll the device, you can add the following within config.php:</p>
+<p>Matching on OS requires system name of the OS. For example, 'match' =&gt;
+'RouterOS' will not work, while 'match' =&gt; 'routeros' will.</p>
+<p>To override the IP Oxidized uses to poll the device, you can add the
+following within config.php:</p>
 <pre><code class="php">$config['oxidized']['maps']['ip']['sysname'][] = array('regex' =&gt; '/^my.node/', 'ip' =&gt; '192.168.1.10');
 $config['oxidized']['maps']['ip']['sysname'][] = array('match' =&gt; 'my-other.node', 'ip' =&gt; '192.168.1.20');
 </code></pre>
 
-<p>This allows extending the configuration further by providing a completely flexible model for custom flags and settings, for example, below shows the ability to add an ssh_proxy host within Oxidized simply by adding the below to your configuration:</p>
+<p>This allows extending the configuration further by providing a
+completely flexible model for custom flags and settings, for example,
+below shows the ability to add an ssh_proxy host within Oxidized
+simply by adding the below to your configuration:</p>
 <pre><code class="php">$config['oxidized']['maps']['ssh_proxy']['sysname'][] = array('regex' =&gt; '/^my.node/', 'ssh_proxy' =&gt; 'my-ssh-gateway.node');
 </code></pre>
 
-<p>Or of course, any custom value that could be needed or wanted can be applied, for example, setting a "myAttribute" to "Super cool value" for any configured and enabled "routeros" device.</p>
+<p>Or of course, any custom value that could be needed or wanted can be
+applied, for example, setting a "myAttribute" to "Super cool value"
+for any configured and enabled "routeros" device.</p>
 <pre><code class="php">$config['oxidized']['maps']['myAttribute']['os'][] = array('match' =&gt; 'routeros', 'myAttribute' =&gt; 'Super cool value');
 </code></pre>
 
 <p>Verify the return of groups by querying the API:</p>
-<pre><code>curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized               
+<pre><code>curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized
 </code></pre>
 
-<p>If you need to, you can specify credentials for groups by using the following in your Oxidized config:</p>
+<p>If you need to, you can specify credentials for groups by using the
+following in your Oxidized config:</p>
 <pre><code class="bash">groups:
   &lt;groupname&gt;:
     username: &lt;user&gt;
     password: &lt;password&gt;
 </code></pre>
 
-<h3 id="miscellaneous">Miscellaneous</h3>
-<p>If you have devices which you do not wish to appear in Oxidized then you can edit those devices in Device -&gt; Edit -&gt; Misc and enable "Exclude from Oxidized?"</p>
-<p>It's also possible to exclude certain device types and OS' from being output via the API. This is currently only possible via config.php:</p>
+<h1 id="miscellaneous">Miscellaneous</h1>
+<p>If you have devices which you do not wish to appear in Oxidized then
+you can edit those devices in Device -&gt; Edit -&gt; Misc and enable
+"Exclude from Oxidized?"</p>
+<p>It's also possible to exclude certain device types and OS' from being
+output via the API. This is currently only possible via config.php:</p>
 <pre><code class="php">$config['oxidized']['ignore_types'] = array('server','power');
 $config['oxidized']['ignore_os'] = array('linux','windows');
 </code></pre>
 
-<h3 id="trigger-configuration-backups">Trigger configuration backups</h3>
-<p>Using the Oxidized REST API and <a href="/Extensions/Syslog/#external-hooks">Syslog Hooks</a>, Oxidized can trigger configuration downloads whenever a configuration change event has been logged. An example script to do this is included in <code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new worker thread and perform the download immediately with the following configuration</p>
+<h1 id="trigger-configuration-backups">Trigger configuration backups</h1>
+<p>Using the Oxidized REST API and <a href="/Extensions/Syslog/#external-hooks">Syslog
+Hooks</a>, Oxidized can trigger
+configuration downloads whenever a configuration change event has been
+logged. An example script to do this is included in
+<code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new
+worker thread and perform the download immediately with the following
+configuration</p>
 <pre><code class="bash">next_adds_job: true
 </code></pre>
 
-<h3 id="validate-oxidized-config">Validate Oxidized config</h3>
-<p>You can perform basic validation of the Oxidized configuration by going to the Overview -&gt; Tools -&gt; Oxidized link and in the Oxidized config validation page, paste your 
- yaml file into the input box and click 'Validate YAML'.</p>
-<p>We check for yaml syntax errors and also actual config values to ensure they are used in the correct location.</p>
-<h2 id="accessing-configuration-of-a-disabledremoved-device">Accessing configuration of a disabled/removed device</h2>
-<p>When you're disabling or removing a device from LibreNMS, Oxidized will no longer shows it in the web interface the configuration. You can access directly to this information in the Git repository of Oxidized (if using Git to store versions).</p>
-<ol>
-<li>
-<p>Check in your Oxidized where are stored your Git repositories:</p>
-</li>
-<li>
-<p><code>/home/oxidized/.config/oxidized/config</code></p>
-</li>
-<li>
-<p>Go the correct Git repository for the needed device (the .git one) and get the list of devices using this command:</p>
-</li>
-<li>
-<p><code>git ls-files -s</code></p>
-</li>
-<li>
-<p>Save the object ID of the device, and run the command to get the file content:</p>
-</li>
-<li>
-<p><code>git cat-file -p &lt;object id&gt;</code></p>
-</li>
-</ol>
+<h1 id="validate-oxidized-config">Validate Oxidized config</h1>
+<p>You can perform basic validation of the Oxidized configuration by
+going to the Overview -&gt; Tools -&gt; Oxidized link and in the Oxidized
+config validation page, paste your yaml file into the input box and
+click 'Validate YAML'.</p>
+<p>We check for yaml syntax errors and also actual config values to
+ensure they are used in the correct location.</p>
+<h1 id="accessing-configuration-of-a-disabledremoved-device">Accessing configuration of a disabled/removed device</h1>
+<p>When you're disabling or removing a device from LibreNMS, Oxidized
+will no longer shows it in the web interface the configuration. You
+can access directly to this information in the Git repository of
+Oxidized (if using Git to store versions).</p>
+<p>1: Check in your Oxidized where are stored your Git repositories:</p>
+<pre><code>/home/oxidized/.config/oxidized/config
+</code></pre>
+
+<p>2: Go the correct Git repository for the needed device (the .git one)
+and get the list of devices using this command:</p>
+<pre><code>git ls-files -s
+</code></pre>
+
+<p>3: Save the object ID of the device, and run the command to get the
+file content:</p>
+<pre><code>git cat-file -p &lt;object id&gt;
+</code></pre>
                 
                   
                     <h2 id="__source">Source</h2>

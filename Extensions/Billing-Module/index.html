@@ -2204,8 +2204,9 @@
                 
                 
                 <h1 id="billing-module">Billing Module</h1>
-<p>With the billing module you can create a bill, assign a quota to it and add ports to it.<br />
-It then tracks the ports usage and shows you the usage in the bill, including any overage.<br />
+<p>With the billing module you can create a bill, assign a quota to it
+and add ports to it. It then tracks the ports usage and shows you the
+usage in the bill, including any overage.
 Accounting by both total transferred data and 95th percentile is supported.</p>
 <p>To enable and use the billing module you need to perform the following steps:</p>
 <p>Edit <code>config.php</code> and add (or enable) the following line near the end of the config</p>
@@ -2219,18 +2220,19 @@ Accounting by both total transferred data and 95th percentile is supported.</p>
 
 <p>Create billing graphs as required.</p>
 <h2 id="data-retention">Data Retention</h2>
-<p>Billing data is stored in the MySQL database, and you may wish to purge the detailed 
-stats for old data (per-month totals will always be kept).  To enable this, add the 
+<p>Billing data is stored in the MySQL database, and you may wish to
+purge the detailed stats for old data (per-month totals will always be
+kept).  To enable this, add the
 following to <code>config.php</code>:</p>
 <pre><code class="php">$config['billing_data_purge'] = 12;     // Number of months to retain
 </code></pre>
 
-<p>Data for the last complete billing cycle will always be retained - only data older than
-this by the configured number of months will be removed.  This task is performed in the
-daily cleanup tasks.</p>
+<p>Data for the last complete billing cycle will always be retained -
+only data older than this by the configured number of months will be
+removed.  This task is performed in the daily cleanup tasks.</p>
 <h2 id="95th-percentile-calculation">95th Percentile Calculation</h2>
-<p>For 95th Percentile billing, the default behavior is to use the highest of the input 
-or output 95th Percentile calculation.</p>
+<p>For 95th Percentile billing, the default behavior is to use the
+highest of the input or output 95th Percentile calculation.</p>
 <p>To instead use the combined total of inout + output to derive the 95th percentile,
 This can be changed on a per bill basis by setting 95th Calculation to "Aggregate".</p>
 <p>To change the default option to Aggregate,
@@ -2238,8 +2240,8 @@ add the following the <code>config.php</code>:</p>
 <pre><code class="php">$config['billing']['95th_default_agg'] = 1;  // Set aggregate 95th as default
 </code></pre>
 
-<p>This configuration setting is cosmetic and only changes the default selected option 
-when adding a new bill</p>
+<p>This configuration setting is cosmetic and only changes the default
+selected option when adding a new bill.</p>
                 
                   
                     <h2 id="__source">Source</h2>

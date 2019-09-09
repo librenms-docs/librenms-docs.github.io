@@ -2134,11 +2134,14 @@
                 
                 <h1 id="quick-guide">Quick Guide</h1>
 <p>Okay this is a very quick walk-through in writing own <code>commands</code> for the IRC-Bot.</p>
-<p>First of all, create a file in <code>includes/ircbot</code>, the file-name should be in this format: <code>command.inc.php</code>.</p>
+<p>First of all, create a file in <code>includes/ircbot</code>, the file-name should
+be in this format: <code>command.inc.php</code>.</p>
 <p>When editing the file, do not open nor close PHP-tags.
 Any variable you assign will be discarded as soon as your command returns.
 Some variables, specially all listed under <code>$this-&gt;</code>, have special meanings or effects.
-Before a command is executed, the IRC-Bot ensures that the MySQL-Socket is working, that <code>$this-&gt;user</code> points to the right user and that the user is authenticated.
+Before a command is executed, the IRC-Bot ensures that the
+MySQL-Socket is working, that <code>$this-&gt;user</code> points to the right user
+and that the user is authenticated.
 Below you will find a table with related functions and attributes.
 You can chain-load any built-in command by calling <code>$this-&gt;_command("My Parameters")</code>.
 You cannot chain-load external commands.</p>
@@ -2151,7 +2154,7 @@ You cannot chain-load external commands.</p>
 <p>See: <a href="#example">Example</a></p>
 <h1 id="functions-and-attributes">Functions and Attributes</h1>
 <p>... that are accessible from within an extension</p>
-<h3 id="functions"><a name="glob.func">Functions</a></h3>
+<h2 id="functions">Functions</h2>
 <table>
 <thead>
 <tr>
@@ -2213,7 +2216,7 @@ You cannot chain-load external commands.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="attributes"><a name="glob.attr">Attributes</a></h3>
+<h2 id="attributes">Attributes</h2>
 <table>
 <thead>
 <tr>
@@ -2295,7 +2298,7 @@ You cannot chain-load external commands.</p>
 </tr>
 </tbody>
 </table>
-<h1 id="example"><a name="example">Example!</a></h1>
+<h1 id="example">Example</h1>
 <p><code>includes/ircbot/join-ng.inc.php</code></p>
 <pre><code class="php">   if( $this-&gt;user['level'] != 10 ) {
       return $this-&gt;respond(&quot;Sorry only admins can make me join.&quot;);

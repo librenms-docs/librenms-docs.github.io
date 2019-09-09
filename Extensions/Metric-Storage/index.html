@@ -1064,43 +1064,12 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Intro
-      </label>
     
     <a href="./" title="Intro" class="md-nav__link md-nav__link--active">
       Intro
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#metric-storage" class="md-nav__link">
-    Metric storage
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2149,28 +2118,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#metric-storage" class="md-nav__link">
-    Metric storage
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2185,22 +2134,20 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Metric-Storage.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Intro</h1>
-                
-                <h3 id="metric-storage">Metric storage</h3>
-<p>By default we ship all metrics to RRD files, either directly or via <a href="../RRDCached/">RRDCached</a>. On top of this 
-you can ship metrics to Graphite, InfluxDB, OpenTSDB or Prometheus. At present you can't use these 
-backends to display graphs within LibreNMS and will need to use something like <a href="https://grafana.com/">Grafana</a>.</p>
-<p>For further information on configuring LibreNMS to ship data to one of the other backends then please see 
-the documentation below.</p>
-<blockquote>
+                <h1 id="metric-storage">Metric storage</h1>
+<p>By default we ship all metrics to RRD files, either directly or via
+<a href="../RRDCached/">RRDCached</a>. On top of this  you can ship metrics to
+Graphite, InfluxDB, OpenTSDB or Prometheus. At present you can't use
+these backends to display graphs within LibreNMS and will need to use
+something like <a href="https://grafana.com/">Grafana</a>.</p>
+<p>For further information on configuring LibreNMS to ship data to one of
+the other backends then please see the documentation below.</p>
 <ul>
 <li><a href="../metrics/Graphite/">Graphite</a></li>
 <li><a href="../metrics/InfluxDB/">InfluxDB</a></li>
 <li><a href="../metrics/OpenTSDB/">OpenTSDB</a></li>
 <li><a href="../metrics/Prometheus/">Prometheus</a></li>
 </ul>
-</blockquote>
                 
                   
                     <h2 id="__source">Source</h2>

@@ -1994,51 +1994,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Plugin System
-      </label>
-    
     <a href="./" title="Plugin System" class="md-nav__link md-nav__link--active">
       Plugin System
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generic-structure" class="md-nav__link">
-    Generic structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-hooks" class="md-nav__link">
-    System Hooks
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2161,35 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generic-structure" class="md-nav__link">
-    Generic structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-hooks" class="md-nav__link">
-    System Hooks
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2204,12 +2133,11 @@
                 
                 
                 <h1 id="developing-for-the-plugin-system">Developing for the Plugin System</h1>
-<blockquote>
-<p>This will most likely be deprecated in favour of adding the possible extensions to the core code base.</p>
-</blockquote>
-<p>This documentation will hopefully give you a basis for how to write a plugin for LibreNMS.
-A test plugin is included in LibreNMS distribution.</p>
-<h3 id="generic-structure">Generic structure</h3>
+<p>This will most likely be deprecated in favour of adding the possible
+extensions to the core code base.</p>
+<p>This documentation will hopefully give you a basis for how to write a
+plugin for LibreNMS. A test plugin is included in LibreNMS distribution.</p>
+<h1 id="generic-structure">Generic structure</h1>
 <p>Plugins need to be installed into html/plugins</p>
 <p>The structure of a plugin is follows:</p>
 <pre><code>html/plugins
@@ -2220,11 +2148,16 @@ A test plugin is included in LibreNMS distribution.</p>
 
 <p>The above structure is checked before a plugin can be installed.</p>
 <p>All files / folder names are case sensitive and must match.</p>
-<p>PluginName - This is a directory and needs to be named as per the plugin you are creating.</p>
-<p>PluginName.php - This file is used to process calls into the plugin from the main LibreNMS install.
-                 Here only functions within the class for your plugin that LibreNMS calls will be executed.
-                 For a list of currently enabled system hooks, please see further down.
-                 The minimum code required in this file is (replace Test with the name of your plugin):</p>
+<p>PluginName - This is a directory and needs to be named as per the
+plugin you are creating.</p>
+<ul>
+<li>PluginName.php :: This file is used to process calls into the plugin
+  from the main LibreNMS install. Here only functions within the class
+  for your plugin that LibreNMS calls will be executed. For a list of
+  currently enabled system hooks, please see further down. The minimum
+  code required in this file is (replace Test with the name of your
+  plugin):</li>
+</ul>
 <pre><code>&lt;?php
 
 class Test {
@@ -2233,20 +2166,23 @@ class Test {
 ?&gt;
 </code></pre>
 
-<p>PluginName.inc.php - This file is the main included file when browsing to the plugin itself.
-                     You can use this to display / edit / remove whatever you like.
-                     The minimum code required in this file is:</p>
+<ul>
+<li>PluginName.inc.php :: This file is the main included file when
+                     browsing to the plugin itself. You can use this
+                     to display / edit / remove whatever you like. The
+                     minimum code required in this file is:</li>
+</ul>
 <pre><code>&lt;?php
 
 ?&gt;
 </code></pre>
 
-<h3 id="system-hooks">System Hooks</h3>
-<p>System hooks are called as functions within your plugin class. 
-The following system hooks are currently available:</p>
+<h1 id="system-hooks">System Hooks</h1>
+<p>System hooks are called as functions within your plugin class. The
+following system hooks are currently available:</p>
 <ul>
-<li>menu()</li>
-<li>This is called to build the plugin menu system and you can use this to link to your plugin (you don't have to).</li>
+<li>menu() :: This is called to build the plugin menu system and you
+   can use this to link to your plugin (you don't have to).</li>
 </ul>
 <pre><code>    public static function menu() {
         echo('&lt;li&gt;&lt;a href=&quot;plugin/p='.get_class().'&quot;&gt;'.get_class().'&lt;/a&gt;&lt;/li&gt;');
@@ -2254,8 +2190,9 @@ The following system hooks are currently available:</p>
 </code></pre>
 
 <ul>
-<li>device_overview_container($device)</li>
-<li>This is called in the Device Overview page. You receive the $device as a parameter, can do your work here and display your results in a frame. </li>
+<li>device_overview_container($device) :: This is called in the Device
+  Overview page. You receive the $device as a parameter, can do your
+  work here and display your results in a frame.</li>
 </ul>
 <pre><code>    public function device_overview_container($device) {
         echo('&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;'.get_class().' Plugin &lt;/strong&gt; &lt;/div&gt;');
@@ -2265,8 +2202,10 @@ The following system hooks are currently available:</p>
 </code></pre>
 
 <ul>
-<li>port_container($device, $port)</li>
-<li>This is called in the Port page, in the "Plugins" menu_option that will appear when your plugin gets enabled. In this function, you can do your work and display your results in a frame. </li>
+<li>port_container($device, $port) :: This is called in the Port page,
+  in the "Plugins" menu_option that will appear when your plugin gets
+  enabled. In this function, you can do your work and display your
+  results in a frame.</li>
 </ul>
 <pre><code>    public function port_container($device, $port) {
         echo('&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;'.get_class().' plugin in &quot;Port&quot; tab&lt;/strong&gt; &lt;/div&gt;');

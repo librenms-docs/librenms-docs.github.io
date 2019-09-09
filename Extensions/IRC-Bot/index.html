@@ -877,12 +877,18 @@
     Configuration &amp; Defaults
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#irc-commands" class="md-nav__link">
     IRC-Commands
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2169,12 +2175,18 @@
     Configuration &amp; Defaults
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#irc-commands" class="md-nav__link">
     IRC-Commands
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2206,8 +2218,10 @@
                 <div class="toc">
 <ul>
 <li><a href="#about">About</a><ul>
-<li><a href="#configuration-defaults">Configuration &amp; Defaults</a></li>
+<li><a href="#configuration-defaults">Configuration &amp; Defaults</a><ul>
 <li><a href="#irc-commands">IRC-Commands</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#examples">Examples</a><ul>
@@ -2221,12 +2235,18 @@
 </ul>
 </div>
 <h1 id="about">About</h1>
-<p>LibreNMS has an easy to use IRC-Interface for basic tasks like viewing last log-entry, current device/port status and such.</p>
-<p>By default the IRC-Bot will not start when executed and will return an error until at least <code>$config['irc_host']</code> and <code>$config['irc_port']</code> has been specified inside <code>config.php</code>. (To start the IRC-Bot run ./irc.php )</p>
-<p>If no channel has been specified with <code>$config['irc_chan']</code>, <code>##librenms</code> will be used.
-The default Nick for the bot is <code>LibreNMS</code>.</p>
-<p>The Bot will reply the same way it's being called. If you send it the commands via Query, it will respond in the Query. If you send the commands via a Channel, then it will respond in the Channel.</p>
-<h3 id="configuration-defaults">Configuration &amp; Defaults</h3>
+<p>LibreNMS has an easy to use IRC-Interface for basic tasks like viewing
+last log-entry, current device/port status and such.</p>
+<p>By default the IRC-Bot will not start when executed and will return an
+error until at least <code>$config['irc_host']</code> and <code>$config['irc_port']</code>
+has been specified inside <code>config.php</code>. (To start the IRC-Bot run
+./irc.php )</p>
+<p>If no channel has been specified with <code>$config['irc_chan']</code>,
+<code>##librenms</code> will be used. The default Nick for the bot is <code>LibreNMS</code>.</p>
+<p>The Bot will reply the same way it's being called. If you send it the
+commands via Query, it will respond in the Query. If you send the
+commands via a Channel, then it will respond in the Channel.</p>
+<h2 id="configuration-defaults">Configuration &amp; Defaults</h2>
 <table>
 <thead>
 <tr>
@@ -2379,7 +2399,7 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
 </table>
 <p>( __/!_<em> All commands are case-_insensitive</em> but their arguments are case-<em>sensitive</em>)</p>
 <h1 id="examples">Examples</h1>
-<h3 id="server-examples">Server examples:</h3>
+<h2 id="server-examples">Server examples:</h2>
 <p>Unencrypted Connection to <code>irc.freenode.org</code>:</p>
 <pre><code class="php">   ...
    $config['irc_host'] = &quot;irc.freenode.org&quot;;
@@ -2402,7 +2422,7 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
    ...
 </code></pre>
 
-<h3 id="channel-notations">Channel notations:</h3>
+<h2 id="channel-notations">Channel notations:</h2>
 <p>Channels can be defined using Array-Notation like:</p>
 <pre><code class="php">   ...
    $config['irc_chan'][] = &quot;#librenms&quot;;
@@ -2417,7 +2437,7 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
    ...
 </code></pre>
 
-<h3 id="hostmask-authentication">Hostmask authentication:</h3>
+<h2 id="hostmask-authentication">Hostmask authentication:</h2>
 <pre><code class="php">   ...
    $config['irc_auth']['admin'][] = &quot;*!root@nms.host.invalid&quot;;
    $config['irc_auth']['admin'][] = &quot;*!*peter@peters.computer.invalid&quot;;
@@ -2425,15 +2445,21 @@ The default Nick for the bot is <code>LibreNMS</code>.</p>
    ...
 </code></pre>
 
-<p>Any client matching one of the first two hostmasks will automatically be authenticated as the "admin" user in LibreNMS, and clients matching the last line will be authenticated as the user "john" in LibreNMS, without using .auth and a waiting for a valid token.</p>
+<p>Any client matching one of the first two hostmasks will automatically
+be authenticated as the "admin" user in LibreNMS, and clients matching
+the last line will be authenticated as the user "john" in LibreNMS,
+without using .auth and a waiting for a valid token.</p>
 <h1 id="extensions">Extensions?!</h1>
 <p>The bot is coded in a unified way.
 This makes writing extensions by far less painful.
-Simply add your <code>command</code> to the <code>$config['irc_external']</code> directive and create a file called <code>includes/ircbot/command.inc.php</code> containing your code.
-The string behind the call of <code>.command</code> is passed as <code>$params</code>.
+Simply add your <code>command</code> to the <code>$config['irc_external']</code> directive
+and create a file called <code>includes/ircbot/command.inc.php</code> containing
+your code. The string behind the call of <code>.command</code> is passed as <code>$params</code>.
 The user who requested something is accessible via <code>$this-&gt;user</code>.
 Send your reply/ies via <code>$this-&gt;respond($string)</code>.</p>
-<p>A more detailed documentation of the functions and variables available for extensions can be found at <a href="IRC-Bot-Extensions">IRC-Bot Extensions</a>;</p>
+<p>A more detailed documentation of the functions and variables available
+for extensions can be found at <a href="IRC-Bot-Extensions">IRC-Bot
+Extensions</a>;</p>
 <p>Confused? Here an Echo-Example:</p>
 <p>File: config.php</p>
 <pre><code class="php">   ...
@@ -2451,14 +2477,16 @@ Send your reply/ies via <code>$this-&gt;respond($string)</code>.</p>
 </code></pre>
 
 <h1 id="systemd-start-up-script">Systemd start up script</h1>
-<p>Basic systemd start up script to be placed in /etc/systemd/system/ to start irc service at boot. </p>
+<p>Basic systemd start up script to be placed in /etc/systemd/system/ to
+start irc service at boot.</p>
 <p>librenms-irc.service script is located at /opt/librenms/misc/</p>
 <p>Once copied to /etc/systemd/system/ you must run the following commands:</p>
 <p>a) chmod 664 /etc/systemd/system/librenms-irc.service</p>
 <p>b) systemctl daemon-reload</p>
 <p>c) systemctl enable librenms-irc.service</p>
 <p>d) systemctl start librenms-irc.service</p>
-<p>It can be stopped or started just like any other systemd script such as systemctl start librenms-irc.service</p>
+<p>It can be stopped or started just like any other systemd script such
+as systemctl start librenms-irc.service</p>
                 
                   
                     <h2 id="__source">Source</h2>

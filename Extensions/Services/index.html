@@ -2273,20 +2273,30 @@
 </ul>
 </div>
 <h1 id="setting-up-services">Setting up services</h1>
-<p>Services within LibreNMS provides the ability to use Nagios plugins to perform additional monitoring outside of SNMP.</p>
-<p><strong>These services are tied into an existing device so you need at least one device to be able to add it
-to LibreNMS - localhost is a good one. This is needed in order for alerting to work properly.</strong></p>
+<p>Services within LibreNMS provides the ability to use Nagios plugins to
+perform additional monitoring outside of SNMP.</p>
+<p><strong>These services are tied into an existing device so you need at least
+one device to be able to add it to LibreNMS - localhost is a good
+one. This is needed in order for alerting to work properly.</strong></p>
 <h2 id="pre-installed-plugins">Pre installed plugins</h2>
-<p>Note: Plugins will only load if they are prefixed with "check_" and they have that prefix stripped out when displaying in the "Add Serice" GUI "Type" dropdown list.</p>
-<p>Plugins come from two main places <a href="https://github.com/bzed/pkg-nagios-plugins-contrib">pkg-nagios-plugins-contrib</a> and <a href="https://www.monitoring-plugins.org">monitoring-plugins</a>. This is where you can find the documentation for most, if not all of the plugins.</p>
-<p>The plugins are bundled with the pre build VM images via the package <code>monitoring-plugins</code> in Ubuntu and <code>nagios-plugins-all</code> in CentOS.</p>
+<p>Note: Plugins will only load if they are prefixed with "check_" and
+they have that prefix stripped out when displaying in the "Add Serice"
+GUI "Type" dropdown list.</p>
+<p>Plugins come from two main places
+<a href="https://github.com/bzed/pkg-nagios-plugins-contrib">pkg-nagios-plugins-contrib</a>
+and <a href="https://www.monitoring-plugins.org">monitoring-plugins</a>. This is
+where you can find the documentation for most, if not all of the plugins.</p>
+<p>The plugins are bundled with the pre build VM images via the package
+<code>monitoring-plugins</code> in Ubuntu and <code>nagios-plugins-all</code> in CentOS.</p>
 <h2 id="setup">Setup</h2>
-<blockquote>
-<p>Service checks is now distributed aware. If you run a distributed setup then you can now run 
-<code>services-wrapper.py</code> in cron instead of <code>check-services.php</code> across all polling nodes.</p>
-</blockquote>
-<p>If you need to debug the output of services-wrapper.py then you can add <code>-d</code> to the end of the command - it is NOT recommended to do this in cron.</p>
-<p>Firstly, install Nagios plugins however you would like, this could be via yum, apt-get or direct from source.</p>
+<p>Service checks is now distributed aware. If you run a distributed
+setup then you can now run <code>services-wrapper.py</code> in cron instead of
+<code>check-services.php</code> across all polling nodes.</p>
+<p>If you need to debug the output of services-wrapper.py then you can
+add <code>-d</code> to the end of the command - it is NOT recommended to do this
+in cron.</p>
+<p>Firstly, install Nagios plugins however you would like, this could be
+via yum, apt-get or direct from source.</p>
 <p>Next, you need to enable the services within config.php with the following:</p>
 <pre><code class="php">$config['show_services']           = 1;
 </code></pre>
@@ -2295,64 +2305,85 @@ to LibreNMS - localhost is a good one. This is needed in order for alerting to w
 <pre><code class="php">$config['nagios_plugins']   = &quot;/usr/lib/nagios/plugins&quot;;
 </code></pre>
 
-<p>This will point LibreNMS at the location of the nagios plugins - please ensure that any plugins you use are set to executable.
-For example: </p>
+<p>This will point LibreNMS at the location of the nagios plugins -
+please ensure that any plugins you use are set to executable. For example:</p>
 <pre><code>chmod +x /usr/lib/nagios/plugins/*
 </code></pre>
 
-<p>Finally, you now need to add services-wrapper.py to the current cron file (/etc/cron.d/librenms typically) like:</p>
+<p>Finally, you now need to add services-wrapper.py to the current cron
+file (/etc/cron.d/librenms typically) like:</p>
 <pre><code class="bash">*/5 * * * * librenms /opt/librenms/services-wrapper.py 1
 </code></pre>
 
-<p>Now you can add services via the main Services link in the navbar, or via the 'Add Service' link within the device, services page.</p>
-<p>Note that some services (procs, inodes, load and similar) will always poll the local LibreNMS server it's running on, regardless of which device you add it to.</p>
+<p>Now you can add services via the main Services link in the navbar, or
+via the 'Add Service' link within the device, services page.</p>
+<p>Note that some services (procs, inodes, load and similar) will always
+poll the local LibreNMS server it's running on, regardless of which
+device you add it to.</p>
 <h2 id="performance-data">Performance data</h2>
-<p>By default, the check-services script will collect all performance data that the Nagios script returns and display each datasource on a separate graph. LibreNMS expects scripts to return using Nagios convention for the response message structure: <a href="https://nagios-plugins.org/doc/guidelines.html#AEN200">AEN200</a></p>
-<p>However for some modules it would be better if some of this information was consolidated on a single graph.
-An example is the ICMP check. This check returns: Round Trip Average (rta), Round Trip Min (rtmin) and Round Trip Max (rtmax).
+<p>By default, the check-services script will collect all performance
+data that the Nagios script returns and display each datasource on a
+separate graph. LibreNMS expects scripts to return using Nagios
+convention for the response message structure:
+<a href="https://nagios-plugins.org/doc/guidelines.html#AEN200">AEN200</a></p>
+<p>However for some modules it would be better if some of this
+information was consolidated on a single graph.
+An example is the ICMP check. This check returns: Round Trip Average
+(rta), Round Trip Min (rtmin) and Round Trip Max (rtmax).
 These have been combined onto a single graph.</p>
-<p>If you find a check script that would benefit from having some datasources graphed together, please log an issue on GitHub with the debug information from the script, and let us know which DS's should go together. Example below:</p>
-<pre><code>./check-services.php -d
--- snip --
-Nagios Service - 26
-Request:  /usr/lib/nagios/plugins/check_icmp localhost
-Perf Data - DS: rta, Value: 0.016, UOM: ms
-Perf Data - DS: pl, Value: 0, UOM: %
-Perf Data - DS: rtmax, Value: 0.044, UOM: ms
-Perf Data - DS: rtmin, Value: 0.009, UOM: ms
-Response: OK - localhost: rta 0.016ms, lost 0%
-Service DS: {
-    "rta": "ms",
-    "pl": "%",
-    "rtmax": "ms",
-    "rtmin": "ms"
-}
-OK u:0.00 s:0.00 r:40.67
-RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
--- snip --
+<p>If you find a check script that would benefit from having some
+datasources graphed together, please log an issue on GitHub with the
+debug information from the script, and let us know which DS's should
+go together. Example below:</p>
+<pre><code>    ./check-services.php -d
+    -- snip --
+    Nagios Service - 26
+    Request:  /usr/lib/nagios/plugins/check_icmp localhost
+    Perf Data - DS: rta, Value: 0.016, UOM: ms
+    Perf Data - DS: pl, Value: 0, UOM: %
+    Perf Data - DS: rtmax, Value: 0.044, UOM: ms
+    Perf Data - DS: rtmin, Value: 0.009, UOM: ms
+    Response: OK - localhost: rta 0.016ms, lost 0%
+    Service DS: {
+        &quot;rta&quot;: &quot;ms&quot;,
+        &quot;pl&quot;: &quot;%&quot;,
+        &quot;rtmax&quot;: &quot;ms&quot;,
+        &quot;rtmin&quot;: &quot;ms&quot;
+    }
+    OK u:0.00 s:0.00 r:40.67
+    RRD[update /opt/librenms/rrd/localhost/services-26.rrd N:0.016:0:0.044:0.009]
+    -- snip --
 </code></pre>
+
 <h2 id="alerting">Alerting</h2>
 <p>Services uses the Nagios Alerting scheme where:</p>
-<pre><code>0 = Ok,
-1 = Warning,
-2 = Critical,
+<pre><code>    0 = Ok,
+    1 = Warning,
+    2 = Critical,
 </code></pre>
-<p>To create an alerting rule to alert on service=critical, your alerting rule would look like:</p>
-<pre><code>%services.service_status = "2"
+
+<p>To create an alerting rule to alert on service=critical, your alerting
+rule would look like:</p>
+<pre><code>    %services.service_status = &quot;2&quot;
 </code></pre>
+
 <h2 id="debug">Debug</h2>
-<p>Change user to librenms for example </p>
+<p>Change user to librenms for example</p>
 <pre><code>su - librenms
 </code></pre>
 
-<p>then you can run the following command to help troubleshoot services. </p>
+<p>then you can run the following command to help troubleshoot services.</p>
 <pre><code>./check-services.php -d
 </code></pre>
 
 <h2 id="service-checks-polling-logic">Service checks polling logic</h2>
-<p>Service check is skipped when the associated device is not pingable, and an appropriate entry is populated in the event log. 
-Service check is polled if it's <code>IP address</code> parameter is not equal to associated device's IP address, even when the associated device is not pingable.</p>
-<p>To override the default logic and always poll service checks, you can disable ICMP testing for any device by switching <code>Disable ICMP Test</code> setting (Edit -&gt; Misc) to ON.</p>
+<p>Service check is skipped when the associated device is not pingable,
+and an appropriate entry is populated in the event log. Service check
+is polled if it's <code>IP address</code> parameter is not equal to associated
+device's IP address, even when the associated device is not pingable.</p>
+<p>To override the default logic and always poll service checks, you can
+disable ICMP testing for any device by switching <code>Disable ICMP Test</code>
+setting (Edit -&gt; Misc) to ON.</p>
 <p>Service checks will never be polled on disabled devices.</p>
                 
                   

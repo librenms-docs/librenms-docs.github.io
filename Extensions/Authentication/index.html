@@ -746,72 +746,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Authentication Options
-      </label>
-    
     <a href="./" title="Authentication Options" class="md-nav__link md-nav__link--active">
       Authentication Options
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#available-authentication-modules" class="md-nav__link">
-    Available authentication modules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-authentication-module" class="md-nav__link">
-    Enable authentication module
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user-levels-and-user-account-type" class="md-nav__link">
-    User levels and User account type
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-for-selinux-users" class="md-nav__link">
-    Note for SELinux users
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-authentication" class="md-nav__link">
-    Testing authentication
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2182,56 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#available-authentication-modules" class="md-nav__link">
-    Available authentication modules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-authentication-module" class="md-nav__link">
-    Enable authentication module
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user-levels-and-user-account-type" class="md-nav__link">
-    User levels and User account type
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#note-for-selinux-users" class="md-nav__link">
-    Note for SELinux users
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-authentication" class="md-nav__link">
-    Testing authentication
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2248,7 +2135,7 @@
                 <h1 id="authentication-modules">Authentication modules</h1>
 <p>LibreNMS supports multiple authentication modules along with <a href="http://docs.librenms.org/Extensions/Two-Factor-Auth/">Two Factor Auth</a>.
 Here we will provide configuration details for these modules.</p>
-<h3 id="available-authentication-modules">Available authentication modules</h3>
+<h1 id="available-authentication-modules">Available authentication modules</h1>
 <ul>
 <li>
 <p>MySQL: <a href="#mysql-authentication">mysql</a></p>
@@ -2263,40 +2150,52 @@ Here we will provide configuration details for these modules.</p>
 <p>Radius: <a href="#radius-authentication">radius</a></p>
 </li>
 <li>
-<p>HTTP Auth: <a href="#http-authentication">http-auth</a>, <a href="#http-authentication-ad-authorization">ad_authorization</a>, <a href="#http-authentication-ldap-authorization">ldap_authorization</a></p>
+<p>HTTP Auth: <a href="#http-authentication">http-auth</a>,
+  <a href="#http-authentication-ad-authorization">ad_authorization</a>,
+  <a href="#http-authentication-ldap-authorization">ldap_authorization</a></p>
 </li>
 <li>
 <p>Single Sign-on: <a href="#single-sign-on">sso</a></p>
 </li>
 </ul>
-<p>⚠️ <strong>When enabling a new authentication module, the local users will no longer be available to log in.</strong></p>
-<h3 id="enable-authentication-module">Enable authentication module</h3>
-<p>To enable a particular authentication module you need to set this up in config.php. Please note that only ONE module can be enabled. LibreNMS doesn't support multiple authentication mechanism at the same time.</p>
+<p>⚠️ <strong>When enabling a new authentication module, the local users will no
+longer be available to log in.</strong></p>
+<h1 id="enable-authentication-module">Enable authentication module</h1>
+<p>To enable a particular authentication module you need to set this up
+in config.php. Please note that only ONE module can be
+enabled. LibreNMS doesn't support multiple authentication mechanism at
+the same time.</p>
 <pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
 </code></pre>
 
-<h3 id="user-levels-and-user-account-type">User levels and User account type</h3>
+<h1 id="user-levels-and-user-account-type">User levels and User account type</h1>
 <ul>
 <li>
-<p>1: <strong>Normal User</strong>: You will need to assign device / port permissions for users at this level.</p>
+<p>1: <strong>Normal User</strong>: You will need to assign device / port
+  permissions for users at this level.</p>
 </li>
 <li>
-<p>5: <strong>Global Read</strong>: Read only Administrator. </p>
+<p>5: <strong>Global Read</strong>: Read only Administrator.</p>
 </li>
 <li>
 <p>10: <strong>Administrator</strong>: This is a global read/write admin account.</p>
 </li>
 <li>
-<p>11: <strong>Demo Account</strong>: Provides full read/write with certain restrictions (i.e can't delete devices).</p>
+<p>11: <strong>Demo Account</strong>: Provides full read/write with certain
+  restrictions (i.e can't delete devices).</p>
 </li>
 </ul>
-<p><strong>Note</strong> Oxidized configs can often contain sensitive data. Because of that only Administrator account type can see configs.</p>
-<h3 id="note-for-selinux-users">Note for SELinux users</h3>
-<p>When using SELinux on the LibreNMS server, you need to allow Apache (httpd) to connect LDAP/Active Directory server, this is disabled by default. You can use SELinux Booleans to allow network access to LDAP resources with this command:</p>
+<p><strong>Note</strong> Oxidized configs can often contain sensitive data. Because of
+that only Administrator account type can see configs.</p>
+<h1 id="note-for-selinux-users">Note for SELinux users</h1>
+<p>When using SELinux on the LibreNMS server, you need to allow Apache
+(httpd) to connect LDAP/Active Directory server, this is disabled by
+default. You can use SELinux Booleans to allow network access to LDAP
+resources with this command:</p>
 <pre><code class="shell">setsebool -P httpd_can_connect_ldap=1
 </code></pre>
 
-<h3 id="testing-authentication">Testing authentication</h3>
+<h1 id="testing-authentication">Testing authentication</h1>
 <p>You can test authentication with this script:</p>
 <pre><code class="shell">./scripts/auth_test.php
 </code></pre>
@@ -2304,7 +2203,8 @@ Here we will provide configuration details for these modules.</p>
 <p>Enable debug output to troubleshoot issues</p>
 <h1 id="mysql-authentication">MySQL Authentication</h1>
 <p>Config option: <code>mysql</code></p>
-<p>This is default option with LibreNMS so you should have already have the configuration setup.</p>
+<p>This is default option with LibreNMS so you should have already have
+the configuration setup.</p>
 <pre><code class="php">$config['db_host'] = &quot;HOSTNAME&quot;;
 $config['db_user'] = &quot;DBUSER&quot;;
 $config['db_pass'] = &quot;DBPASS&quot;;
@@ -2313,17 +2213,25 @@ $config['db_name'] = &quot;DBNAME&quot;;
 
 <h1 id="active-directory-authentication">Active Directory Authentication</h1>
 <p>Config option: <code>active_directory</code></p>
-<p>Install <strong>php_ldap</strong>  or <strong>php7.0-ldap</strong>, making sure to install the same version as PHP.</p>
-<p>If you have issues with secure LDAP try setting <code>$config['auth_ad_check_certificates']</code> to <code>0</code>, this will ignore certificate errors.</p>
-<h3 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h3>
-<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the authenticated user has to be a member of the specific group.
-Otherwise all users can authenticate, and will be either level 0 or you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will have read only access unless otherwise specified.</p>
-<h4 id="old-account-cleanup">Old account cleanup</h4>
-<p>Cleanup of old accounts is done by checking the authlog. You will need to set the number of days when old accounts will be purged AUTOMATICALLY by daily.sh.</p>
-<blockquote>
-<p>Please ensure that you set the $config['authlog_purge'] value to be greater than $config['active_directory']['users_purge'] otherwise old users won't be removed.</p>
-</blockquote>
-<h3 id="sample-configuration">Sample configuration</h3>
+<p>Install <strong>php_ldap</strong>  or <strong>php7.0-ldap</strong>, making sure to install the
+same version as PHP.</p>
+<p>If you have issues with secure LDAP try setting
+<code>$config['auth_ad_check_certificates']</code> to <code>0</code>, this will ignore
+certificate errors.</p>
+<h2 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h2>
+<p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the
+authenticated user has to be a member of the specific group.
+Otherwise all users can authenticate, and will be either level 0 or
+you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will
+have read only access unless otherwise specified.</p>
+<h2 id="old-account-cleanup">Old account cleanup</h2>
+<p>Cleanup of old accounts is done by checking the authlog. You will need
+to set the number of days when old accounts will be purged
+AUTOMATICALLY by daily.sh.</p>
+<p>Please ensure that you set the $config['authlog_purge'] value to be
+greater than $config['active_directory']['users_purge'] otherwise old
+users won't be removed.</p>
+<h2 id="sample-configuration">Sample configuration</h2>
 <pre><code class="php">$config['auth_mechanism'] = 'active_directory';
 $config['auth_ad_url'] = 'ldaps://server.example.com';    // Set server(s), space separated. Prefix with ldaps:// for ssl
 $config['auth_ad_domain'] = 'example.com';
@@ -2340,25 +2248,31 @@ $config['auth_ad_groups']['ad-usergroup']['level'] = 5;   // set the &quot;AD Us
 
 </code></pre>
 
-<p>Replace <code>ad-admingroup</code> with your Active Directory admin-user group and <code>ad-usergroup</code> with your standard user group.
-It is <strong>highly suggested</strong> to create a bind user, otherwise "remember me", alerting users, and the API will not work.</p>
-<h3 id="active-directory-redundancy">Active Directory redundancy</h3>
-<p>You can set two Active Directory servers by editing the <code>$config['auth_ad_url']</code> like this example:</p>
+<p>Replace <code>ad-admingroup</code> with your Active Directory admin-user group
+and <code>ad-usergroup</code> with your standard user group. It is <strong>highly
+suggested</strong> to create a bind user, otherwise "remember me", alerting
+users, and the API will not work.</p>
+<h2 id="active-directory-redundancy">Active Directory redundancy</h2>
+<p>You can set two Active Directory servers by editing the
+<code>$config['auth_ad_url']</code> like this example:</p>
 <pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
 </code></pre>
 
-<h3 id="active-directory-ldap-filters">Active Directory LDAP filters</h3>
+<h2 id="active-directory-ldap-filters">Active Directory LDAP filters</h2>
 <p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
 <p>The defaults are:</p>
 <pre><code>$config['auth_ad_user_filter'] = &quot;(objectclass=user)&quot;;
 $config['auth_ad_group_filter'] = &quot;(objectclass=group)&quot;;
 </code></pre>
 
-<p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for the group filter.</p>
+<p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the
+user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for
+the group filter.</p>
 <h1 id="ldap-authentication">LDAP Authentication</h1>
 <p>Config option: <code>ldap</code></p>
-<p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the same version as PHP.</p>
-<h3 id="standard-config">Standard config</h3>
+<p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the
+same version as PHP.</p>
+<h2 id="standard-config">Standard config</h2>
 <pre><code class="php">$config['auth_mechanism'] = 'ldap';
 $config['auth_ldap_server'] = 'ldap.example.com';               // Set server(s), space separated. Prefix with ldaps:// for ssl
 $config['auth_ldap_suffix'] = ',ou=People,dc=example,dc=com';   // appended to usernames
@@ -2368,7 +2282,7 @@ $config['auth_ldap_groups']['pfy']['level'] = 5;                // set pfy group
 $config['auth_ldap_groups']['support']['level'] = 1;            // set support group as a normal user
 </code></pre>
 
-<h3 id="additional-options-usually-not-needed">Additional options (usually not needed):</h3>
+<h2 id="additional-options-usually-not-needed">Additional options (usually not needed)</h2>
 <pre><code class="php">$config['auth_ldap_version'] = 3; # v2 or v3
 $config['auth_ldap_port'] = 389;                    // 389 or 636 for ssl
 $config['auth_ldap_starttls'] = True;               // Enable TLS on port 389
@@ -2381,15 +2295,18 @@ $config['auth_ldap_userdn'] = true;                 // Uses a users full DN as t
 $config['auth_ldap_userlist_filter'] = 'service=informatique'; // Replace 'service=informatique' by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users
 </code></pre>
 
-<h3 id="ldap-bind-user-optional">LDAP bind user (optional)</h3>
-<p>If your ldap server does not allow anonymous bind, it is highly suggested to create a bind user, otherwise "remember me", alerting users, and the API will not work.</p>
+<h2 id="ldap-bind-user-optional">LDAP bind user (optional)</h2>
+<p>If your ldap server does not allow anonymous bind, it is highly
+suggested to create a bind user, otherwise "remember me", alerting
+users, and the API will not work.</p>
 <pre><code class="php">$config['auth_ldap_binduser'] = 'ldapbind'; // will use auth_ldap_prefix and auth_ldap_suffix
 #$config['auth_ldap_binddn'] = 'CN=John.Smith,CN=Users,DC=MyDomain,DC=com'; // overrides binduser
 $config['auth_ldap_bindpassword'] = 'password';
 </code></pre>
 
-<h3 id="ldap-server-redundancy">LDAP server redundancy</h3>
-<p>You can set two LDAP servers by editing the <code>$config['auth_ldap_server']</code> like this example:</p>
+<h2 id="ldap-server-redundancy">LDAP server redundancy</h2>
+<p>You can set two LDAP servers by editing the
+<code>$config['auth_ldap_server']</code> like this example:</p>
 <pre><code>$config['auth_ldap_server'] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
 </code></pre>
 
@@ -2406,8 +2323,12 @@ $config['auth_ldap_groups'] = ['{group}' =&gt; ['level' =&gt; 10],];
 $config['auth_ldap_userdn'] = true;
 </code></pre>
 
-<p>Replace {id} with the unique ID provided by Jumpcloud.  Replace {group} with the unique group name created in Jumpcloud.  This field is case sensitive.</p>
-<p>Note: If you have multiple user groups to define individual access levels replace the <code>$config['auth_ldap_groups']</code> line with the following:</p>
+<p>Replace {id} with the unique ID provided by Jumpcloud.  Replace
+{group} with the unique group name created in Jumpcloud.  This field
+is case sensitive.</p>
+<p>Note: If you have multiple user groups to define individual access
+levels replace the <code>$config['auth_ldap_groups']</code> line with the
+following:</p>
 <pre><code class="php">$config['auth_ldap_groups'] = [
     '{admin_group}' =&gt; ['level' =&gt; 10],
     '{global_readonly_group}' =&gt; ['level' =&gt; 5],
@@ -2415,7 +2336,10 @@ $config['auth_ldap_userdn'] = true;
 </code></pre>
 
 <h1 id="radius-authentication">Radius Authentication</h1>
-<p>Please note that a mysql user is created for each user the logs in successfully. User level 1 is assigned to those accounts so you will then need to assign the relevant permissions unless you set <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
+<p>Please note that a mysql user is created for each user the logs in
+successfully. User level 1 is assigned to those accounts so you will
+then need to assign the relevant permissions unless you set
+<code>$config['radius']['userlevel']</code> to be something other than 1.</p>
 <pre><code class="php">$config['radius']['hostname']   = 'localhost';
 $config['radius']['port']       = '1812';
 $config['radius']['secret']     = 'testing123';
@@ -2424,15 +2348,18 @@ $config['radius']['users_purge'] = 14;//Purge users who haven't logged in for 14
 $config['radius']['default_level'] = 1;//Set the default user level when automatically creating a user.
 </code></pre>
 
-<h4 id="old-account-cleanup_1">Old account cleanup</h4>
-<p>Cleanup of old accounts is done by checking the authlog. You will need to set the number of days when old accounts will be purged AUTOMATICALLY by daily.sh.</p>
-<blockquote>
-<p>Please ensure that you set the $config['authlog_purge'] value to be greater than $config['radius']['users_purge'] otherwise old users won't be removed.</p>
-</blockquote>
+<h2 id="old-account-cleanup_1">Old account cleanup</h2>
+<p>Cleanup of old accounts is done by checking the authlog. You will need
+to set the number of days when old accounts will be purged
+AUTOMATICALLY by daily.sh.</p>
+<p>Please ensure that you set the $config['authlog_purge'] value to be
+greater than $config['radius']['users_purge'] otherwise old users
+won't be removed.</p>
 <h1 id="http-authentication">HTTP Authentication</h1>
 <p>Config option: <code>http-auth</code></p>
-<p>LibreNMS will expect the user to have authenticated via your webservice already. At this stage it will need to assign a
-userlevel for that user which is done in one of two ways:</p>
+<p>LibreNMS will expect the user to have authenticated via your
+webservice already. At this stage it will need to assign a userlevel
+for that user which is done in one of two ways:</p>
 <ul>
 <li>
 <p>A user exists in MySQL still where the usernames match up.</p>
@@ -2448,13 +2375,22 @@ userlevel for that user which is done in one of two ways:</p>
 <h2 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h2>
 <p>Config option: <code>ad-authorization</code></p>
 <p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>active</em>directory</strong>_</p>
-<p>LibreNMS will expect the user to have authenticated via your webservice already (e.g. using Kerberos Authentication in Apache) but will use Active Directory lookups to determine and assign the userlevel of a user.
-The userlevel will be calculated by using AD group membership information as the <strong><em>active</em>directory</strong>_ module does.</p>
-<p>The configuration is the same as for the <strong><em>active</em>directory</strong>_ module with two extra, optional options: auth_ad_binduser and auth_ad_bindpassword.
-These should be set to a AD user with read capabilities in your AD Domain in order to be able to perform searches. 
-If these options are omitted, the module will attempt an anonymous bind (which then of course must be allowed by your Active Directory server(s)).</p>
+<p>LibreNMS will expect the user to have authenticated via your
+webservice already (e.g. using Kerberos Authentication in Apache) but
+will use Active Directory lookups to determine and assign the
+userlevel of a user. The userlevel will be calculated by using AD
+group membership information as the <strong><em>active</em>directory</strong>_ module
+does.</p>
+<p>The configuration is the same as for the <strong><em>active</em>directory</strong>_ module
+with two extra, optional options: auth_ad_binduser and
+auth_ad_bindpassword. These should be set to a AD user with read
+capabilities in your AD Domain in order to be able to perform
+searches. If these options are omitted, the module will attempt an
+anonymous bind (which then of course must be allowed by your Active
+Directory server(s)).</p>
 <p>There is also one extra option for controlling user information caching: auth_ldap_cache_ttl.
-This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
+This option allows to control how long user information (user_exists,
+userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disable this caching (highly discourage) set this option to 0.</p>
 <pre><code class="php">$config['auth_ad_binduser']     = &quot;ad_binduser&quot;;
@@ -2465,8 +2401,11 @@ $config['auth_ldap_cache_ttl']  = 300;
 <h2 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h2>
 <p>Config option: <code>ldap-authorization</code></p>
 <p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>ldap</em></strong></p>
-<p>LibreNMS will expect the user to have authenticated via your webservice already (e.g. using Kerberos Authentication in Apache) but will use LDAP to determine and assign the userlevel of a user.
-The userlevel will be calculated by using LDAP group membership information as the <strong><em>ldap</em></strong> module does.</p>
+<p>LibreNMS will expect the user to have authenticated via your
+webservice already (e.g. using Kerberos Authentication in Apache) but
+will use LDAP to determine and assign the userlevel of a user. The
+userlevel will be calculated by using LDAP group membership
+information as the <strong><em>ldap</em></strong> module does.</p>
 <p>The configuration is the same as for the <strong><em>ldap</em></strong> module with one extra option: auth_ldap_cache_ttl.
 This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
@@ -2474,16 +2413,29 @@ To disabled this caching (highly discourage) set this option to 0.</p>
 <pre><code class="php">$config['auth_ldap_cache_ttl'] = 300;
 </code></pre>
 
-<h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
+<h1 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h1>
 <pre><code class="php">$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 
 <h1 id="single-sign-on">Single Sign-on</h1>
-<p>The single sign-on mechanism is used to integrate with third party authentication providers that are managed outside of LibreNMS - such as ADFS, Shibboleth, EZProxy, BeyondCorp, and others.
-A large number of these methods use <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a> - the module has been written assuming the use of SAML, and therefore these instructions contain some SAML terminology, but it should be possible to use any software that works in a similar way.</p>
-<p>In order to make use of the single sign-on module, you need to have an Identity Provider up and running, and know how to configure your Relying Party to pass attributes to LibreNMS via header injection or environment variables. Setting these up is outside of the scope of this documentation.</p>
-<p>As this module deals with authentication, it is extremely careful about validating the configuration - if it finds that certain values in the configuration are not set, it will reject access rather than try and guess.</p>
+<p>The single sign-on mechanism is used to integrate with third party
+authentication providers that are managed outside of LibreNMS - such
+as ADFS, Shibboleth, EZProxy, BeyondCorp, and others. A large number
+of these methods use
+<a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a>
+the module has been written assuming the use of SAML, and therefore
+these instructions contain some SAML terminology, but it should be
+possible to use any software that works in a similar way.</p>
+<p>In order to make use of the single sign-on module, you need to have an
+Identity Provider up and running, and know how to configure your
+Relying Party to pass attributes to LibreNMS via header injection or
+environment variables. Setting these up is outside of the scope of
+this documentation.</p>
+<p>As this module deals with authentication, it is extremely careful
+about validating the configuration - if it finds that certain values
+in the configuration are not set, it will reject access rather than
+try and guess.</p>
 <h2 id="basic-configuration">Basic Configuration</h2>
 <p>To get up and running, all you need to do is configure the following values:</p>
 <pre><code class="php">$config['auth_mechanism']        = &quot;sso&quot;;
@@ -2492,36 +2444,61 @@ $config['sso']['group_strategy'] = &quot;static&quot;;
 $config['sso']['static_level']   = 10;
 </code></pre>
 
-<p>This, along with the defaults, sets up a basic Single Sign-on setup that:
-* Reads values from environment variables
-* Automatically creates users when they're first seen
-* Authomatically updates users with new values
-* Gives everyone privilege level 10</p>
-<p>This happens to mimic the behaviour of <a href="#http-auth">http-auth</a>, so if this is the kind of setup you want, you're probably better of just going and using that mechanism.</p>
+<p>This, along with the defaults, sets up a basic Single Sign-on setup that:</p>
+<ul>
+<li>Reads values from environment variables</li>
+<li>Automatically creates users when they're first seen</li>
+<li>Authomatically updates users with new values</li>
+<li>Gives everyone privilege level 10</li>
+</ul>
+<p>This happens to mimic the behaviour of <a href="#http-auth">http-auth</a>, so if
+this is the kind of setup you want, you're probably better of just
+going and using that mechanism.</p>
 <h2 id="security">Security</h2>
-<p>If there is a proxy involved (e.g. EZProxy, Azure AD Application Proxy, NGINX, mod_proxy) it's <strong><em>essential</em></strong> that you have some means in place to prevent headers being injected between the proxy and the end user, and also prevent end users from contacting LibreNMS directly.</p>
-<p>This should also apply to user connections to the proxy itself - the proxy <strong><em>must not</em></strong> be allowed to blindly pass through HTTP headers. <strong><em>mod</em>security</strong>_ should be considered a minimum, with a full <a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a> being strongly recommended. This advice applies to the IDP too.</p>
-<p>The mechanism includes very basic protection, in the form of an IP whitelist with should contain the source addresses of your proxies:</p>
+<p>If there is a proxy involved (e.g. EZProxy, Azure AD Application
+Proxy, NGINX, mod_proxy) it's <strong><em>essential</em></strong> that you have some means
+in place to prevent headers being injected between the proxy and the
+end user, and also prevent end users from contacting LibreNMS
+directly.</p>
+<p>This should also apply to user connections to the proxy itself - the
+proxy <strong><em>must not</em></strong> be allowed to blindly pass through HTTP
+headers. <strong><em>mod</em>security</strong>_ should be considered a minimum, with a
+full <a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a>
+being strongly recommended. This advice applies to the IDP too.</p>
+<p>The mechanism includes very basic protection, in the form of an IP
+whitelist with should contain the source addresses of your proxies:</p>
 <pre><code class="php">$config['sso']['trusted_proxies'] = ['127.0.0.1/8', '::1/128', '192.0.2.0', '2001:DB8::'];
 </code></pre>
 
-<p>This configuration item should contain an array with a list of IP addresses or CIDR prefixes that are allowed to connect to LibreNMS and supply environment variables or headers.</p>
+<p>This configuration item should contain an array with a list of IP
+addresses or CIDR prefixes that are allowed to connect to LibreNMS and
+supply environment variables or headers.</p>
 <h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
 <h3 id="user-attribute">User Attribute</h3>
-<p>If for some reason your relying party doesn't store the username in <strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
+<p>If for some reason your relying party doesn't store the username in
+<strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
 <pre><code class="php">$config['sso']['user_attr'] = 'HTTP_UID';
 </code></pre>
 
-<p>Note that the user lookup is a little special - normally headers are prefixed with <strong><em>HTTP_</em></strong>, however this is not the case for remote user - it's a special case. If you're using something different you need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or not yourself.</p>
+<p>Note that the user lookup is a little special - normally headers are
+prefixed with <strong><em>HTTP_</em></strong>, however this is not the case for remote
+user - it's a special case. If you're using something different you
+need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or not
+yourself.</p>
 <h3 id="automatic-user-createupdate">Automatic User Create/Update</h3>
 <p>These are enabled by default:</p>
 <pre><code class="php">$config['sso']['create_users'] = true;
 $config['sso']['update_users'] = true;
 </code></pre>
 
-<p>If these are not enabled, user logins will be (somewhat silently) rejected unless an administrator has created the account in advance. Note that in the case of SAML federations, unless release of the users true identity has been negotiated with the IDP, the username (probably ePTID) is not likely to be predicable.</p>
+<p>If these are not enabled, user logins will be (somewhat silently)
+rejected unless an administrator has created the account in
+advance. Note that in the case of SAML federations, unless release of
+the users true identity has been negotiated with the IDP, the username
+(probably ePTID) is not likely to be predicable.</p>
 <h3 id="personalisation">Personalisation</h3>
-<p>If the attributes are being populated, you can instruct the mechanism to add additional information to the user's database entry:</p>
+<p>If the attributes are being populated, you can instruct the mechanism
+to add additional information to the user's database entry:</p>
 <pre><code class="php">$config['sso']['email_attr']    = &quot;mail&quot;;
 $config['sso']['realname_attr'] = &quot;displayName&quot;;
 $config['sso']['descr_attr']    = &quot;unscoped-affiliation
@@ -2529,14 +2506,21 @@ $config['sso']['descr_attr']    = &quot;unscoped-affiliation
 
 <h3 id="group-strategies">Group Strategies</h3>
 <h4 id="static">Static</h4>
-<p>As used above, <strong><em>static</em></strong> gives every single user the same privilege level. If you're working with a small team, or don't need access control, this is probably suitable.</p>
+<p>As used above, <strong><em>static</em></strong> gives every single user the same privilege
+level. If you're working with a small team, or don't need access
+control, this is probably suitable.</p>
 <h4 id="attribute">Attribute</h4>
 <pre><code class="php">$config['sso']['group_strategy'] = &quot;attribute&quot;;
 $config['sso']['level_attr']     = &quot;entitlement&quot;;
 </code></pre>
 
-<p>If your Relying Party is capable of calculating the necessary privilege level, you can configure the module to read the privilege number straight from an attribute. <strong><em>sso</em>level_attr</strong><em> should contain the name of the attribute that the Relying Party exposes to LibreNMS - as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanism should find the value.</p>
-<h3 id="group-map">Group Map</h3>
+<p>If your Relying Party is capable of calculating the necessary
+privilege level, you can configure the module to read the privilege
+number straight from an attribute. <strong><em>sso</em>level_attr</strong><em> should contain
+the name of the attribute that the Relying Party exposes to LibreNMS -
+as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanism should find
+the value.</p>
+<h4 id="group-map">Group Map</h4>
 <p>This is the most flexible (and complex) way of assigning privileges.</p>
 <pre><code class="php">$config['sso']['group_strategy']  = &quot;map&quot;;
 $config['sso']['group_attr']      = &quot;member&quot;;
@@ -2544,23 +2528,33 @@ $config['sso']['group_level_map'] = ['librenms-admins' =&gt; 10, 'librenms-reade
 $config['sso']['group_delimiter'] = ';';
 </code></pre>
 
-<p>The mechanism expects to find a delimited list of groups within the attribute that <strong><em>sso</em>group_attr</strong>_ points to. This should be an associative array of group name keys, with  privilege levels as values.
-The mechanism will scan the list and find the <strong><em>highest</em></strong> privilege level that the user is entitled to, and assign that value to the user.</p>
-<p>This format may be specific to Shibboleth; other relying party software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_ may create pseudo arrays).</p>
+<p>The mechanism expects to find a delimited list of groups within the
+attribute that <strong><em>sso</em>group_attr</strong>_ points to. This should be an
+associative array of group name keys, with  privilege levels as
+values. The mechanism will scan the list and find the <strong><em>highest</em></strong>
+privilege level that the user is entitled to, and assign that value to
+the user.</p>
+<p>This format may be specific to Shibboleth; other relying party
+software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_
+may create pseudo arrays).</p>
 <p>There is an optional value for sites with large numbers of groups:</p>
 <pre><code class="php">$config['sso']['group_filter']  = &quot;/librenms-(.*)/i&quot;;
 </code></pre>
 
 <p>This filter causes the mechanism to only consider groups matching a regular expression.</p>
 <h3 id="logout-behaviour">Logout Behaviour</h3>
-<p>LibreNMS has no capability to log out a user authenticated via Single Sign-On - that responsability falls to the Relying Party.</p>
-<p>If your Relying Party has a magic URL that needs to be called to end a session, you can configure LibreNMS to direct the user to it:</p>
+<p>LibreNMS has no capability to log out a user authenticated via Single
+Sign-On - that responsability falls to the Relying Party.</p>
+<p>If your Relying Party has a magic URL that needs to be called to end a
+session, you can configure LibreNMS to direct the user to it:</p>
 <pre><code class="php">$config['post_logout_action'] = '/Shibboleth.sso/Logout';
 </code></pre>
 
 <p>This option functions independantly of the Single Sign-on mechanism.</p>
 <h2 id="complete-configuration">Complete Configuration</h2>
-<p>This configuration works on my deployment with a Shibboleth relying party, injecting environment variables, with the IDP supplying a list of groups.</p>
+<p>This configuration works on my deployment with a Shibboleth relying
+party, injecting environment variables, with the IDP supplying a list
+of groups.</p>
 <pre><code class="php">$config['auth_mechanism'] = 'sso';
 $config['auth_logout_handler'] = '/Shibboleth.sso/Logout';
 $config['sso']['mode'] = 'env';

@@ -623,78 +623,12 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Interface Description Parsing
-      </label>
     
     <a href="./" title="Interface Description Parsing" class="md-nav__link md-nav__link--active">
       Interface Description Parsing
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    About
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keywords" class="md-nav__link">
-    Keywords
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customisation" class="md-nav__link">
-    Customisation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-interface-parser" class="md-nav__link">
-    Custom interface parser
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2182,63 +2116,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    About
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keywords" class="md-nav__link">
-    Keywords
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customisation" class="md-nav__link">
-    Customisation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-interface-parser" class="md-nav__link">
-    Custom interface parser
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2253,30 +2132,24 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Interface-Description-Parsing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Interface Description Parsing</h1>
-                
-                <h2 id="about">About</h2>
+                <h1 id="about">About</h1>
 <p>Librenms can interpret, display and group certain additional information on ports.
-This is done based on the format that the port description is written although it's possible 
-to customise the parser to be specific for your setup.</p>
-<h2 id="keywords">Keywords</h2>
+This is done based on the format that the port description is written
+although it's possible  to customise the parser to be specific for your setup.</p>
+<h1 id="keywords">Keywords</h1>
 <p>See <a href="#examples">examples</a> for formats.</p>
 <ul>
-<li><strong>Keywords</strong><ul>
+<li><strong>Keywords</strong></li>
 <li><code>Cust</code>    - Customer</li>
 <li><code>Transit</code> - Transit link</li>
 <li><code>Peering</code> - Peering link</li>
 <li><code>Core</code>    - Infrastructure link (non-customer)</li>
-</ul>
-</li>
-<li>Info-keywords<ul>
+<li>Info-keywords</li>
 <li><code>()</code> contains a note</li>
 <li><code>{}</code> contains <em>your</em> circuit id</li>
 <li><code>[]</code> contains the service type or speed</li>
 </ul>
-</li>
-</ul>
-<h2 id="examples">Examples</h2>
+<h1 id="examples">Examples</h1>
 <p>Cisco IOS / NXOS / IOSXR:</p>
 <pre><code class="text">interface Gi0/1
 descr Transit: Example Provider (AS65000)
@@ -2289,16 +2162,14 @@ descr Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 </code></pre>
 
 <p>Unix / Linux:</p>
-<blockquote>
 <p>This requires an additional script to be <a href="#setup">setup</a></p>
-</blockquote>
 <pre><code class="text"># eth3: Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 # eth0: Transit: Example Provider (AS65000)
 # eth1: Core: core.router01 FastEthernet0/0 (Telco X CCID023141)
 # eth2: Peering: Peering Exchange
 </code></pre>
 
-<h2 id="customisation">Customisation</h2>
+<h1 id="customisation">Customisation</h1>
 <p>The following config options can be set to enable more custom types:</p>
 <pre><code class="php">$config['customers_descr'][]         = 'cust';
 $config['transit_descr'][]           = &quot;transit&quot;;
@@ -2307,20 +2178,22 @@ $config['core_descr'][]              = &quot;core&quot;;
 $config['custom_descr'][]            = &quot;something_made_up&quot;;
 </code></pre>
 
-<h2 id="custom-interface-parser">Custom interface parser</h2>
+<h1 id="custom-interface-parser">Custom interface parser</h1>
 <p>It's also possible to write your own parser, the existing one is: includes/port-descr-parser.inc.php</p>
 <p>Once you've created your own then you can enable it with:</p>
 <pre><code class="php">$config['port_descr_parser'] = &quot;includes/custom/my-port-descr-parser.inc.php&quot;;
 </code></pre>
 
 <h2 id="setup">Setup</h2>
-<p>For Unix / Linux based systems, you need to run an additional script to support the parsing of interface infor.</p>
+<p>For Unix / Linux based systems, you need to run an additional script
+to support the parsing of interface infor.</p>
 <ul>
-<li>Add <code>ifAlias</code> from <code>/opt/librenms/scripts/</code> or download it from <a href="https://github.com/librenms/librenms/blob/master/scripts/ifAlias">here</a> to the Server and make
-    it executable <code>chmod +x /path/to/ifAlias</code></li>
+<li>Add <code>ifAlias</code> from <code>/opt/librenms/scripts/</code> or download it from
+  <a href="https://github.com/librenms/librenms/blob/master/scripts/ifAlias">here</a>
+  to the Server and make it executable <code>chmod +x /path/to/ifAlias</code></li>
 <li>Add to <code>snmpd.conf</code> something like:
-    <code>pass .1.3.6.1.2.1.31.1.1.1.18 /path/to/ifAlias</code></li>
-<li>Restart <code>snmpd</code> - <code>service snmpd restart</code></li>
+    <code>pass .1.3.6.1.2.1.31.1.1.1.18 /path/to/ifAlias</code>
+ Restart <code>snmpd</code> - <code>service snmpd restart</code></li>
 </ul>
 <p>There are no changes to be made or additions to install for the polling librenms.</p>
 <p>Now you can set up your <a href="#keywords">keywords</a> in your <code>/etc/network/interfaces</code>

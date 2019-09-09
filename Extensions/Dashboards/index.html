@@ -720,19 +720,6 @@
     Dimension parameter replacement for Generic-image widget
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
       
@@ -2245,19 +2232,6 @@
     Dimension parameter replacement for Generic-image widget
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
       
@@ -2286,72 +2260,83 @@
                 
                 
                 <h1 id="dashboards">Dashboards</h1>
-<p>Create customised dashboards in LibreNMS per user. You can share dashboards with other users. You can also make a custom dashboard and
+<p>Create customised dashboards in LibreNMS per user. You can share
+dashboards with other users. You can also make a custom dashboard and
 default it for all users in LibreNMS.</p>
 <p>Example Dashboard
 <img alt="Example Dashboard" src="/img/example-dashboard.png" /></p>
-<h3 id="widgets">Widgets</h3>
-<p>LibreNMS has a whole list of Widgets to select from. </p>
+<h2 id="widgets">Widgets</h2>
+<p>LibreNMS has a whole list of Widgets to select from.</p>
 <ul>
 <li>Alerts Widget: Displays all alert notifications.</li>
-<li>Availability Map: Displays all devices with colored tiles, green up, yellow for warning (device has been restarted in last 24 hours),red   for down. You can also list all services and ignored/disabled devcies in this widget.</li>
+<li>Availability Map: Displays all devices with colored tiles, green up,
+  yellow for warning (device has been restarted in last 24 hours),red
+  for down. You can also list all services and ignored/disabled
+  devcies in this widget.</li>
 <li>Componet Status: List all componets Ok state, Warning state, Critical state.</li>
-<li>Device Summary horizontal: List device totals, up, down, ignored, disabled. Same for ports and services. </li>
-<li>Device Summary vertical: List device totals, up, down, ignored, disabled. Same for ports and services.</li>
-<li>Eventlog: Displays all events with your devices and LibreNMS. </li>
-<li>External Image: can be used to show external images on your dashboard. Or images from inside LibreNMS.</li>
+<li>Device Summary horizontal: List device totals, up, down, ignored,
+  disabled. Same for ports and services.</li>
+<li>Device Summary vertical: List device totals, up, down, ignored,
+  disabled. Same for ports and services.</li>
+<li>Eventlog: Displays all events with your devices and LibreNMS.</li>
+<li>External Image: can be used to show external images on your
+  dashboard. Or images from inside LibreNMS.</li>
 <li>Globe Map: Will display map of the globe.</li>
-<li>Graph: Can be used to display graphs from devices. </li>
+<li>Graph: Can be used to display graphs from devices.</li>
 <li>Graylog: Displays all Graylog's syslog entries.</li>
-<li>Notes: use for html tags, embed links and external web pages. Or just notes in general.</li>
-<li>Server Stats: Will display gauges for CPU, Memory, Storage usage. Note the device type has to be listed as "Server".</li>
+<li>Notes: use for html tags, embed links and external web pages. Or
+  just notes in general.</li>
+<li>Server Stats: Will display gauges for CPU, Memory, Storage
+  usage. Note the device type has to be listed as "Server".</li>
 <li>Syslog: Displays all syslog entries.</li>
-<li>Top Devices: By Traffic, or  Uptime, or Response time, or Poller Duration, or Procssor load, or Memory Usage, or Storage Usage.</li>
+<li>Top Devices: By Traffic, or  Uptime, or Response time, or Poller
+  Duration, or Procssor load, or Memory Usage, or Storage Usage.</li>
 <li>Top Interfaces: Lists top interfaces by traffic utilization.</li>
-<li>Worldmap: displays all your devices locations. From syslocation or from override sysLocation.</li>
+<li>Worldmap: displays all your devices locations. From syslocation or
+  from override sysLocation.</li>
 </ul>
-<p>List of Widgets: 
+<p>List of Widgets:
 <img alt="List of Widgets" src="/img/list-widgets.png" title="List of the widgets" /></p>
-<h3 id="dashboard-permissions">Dashboard Permissions</h3>
+<h2 id="dashboard-permissions">Dashboard Permissions</h2>
 <ul>
-<li>Private: Sets the dashabord to only the user that created the dashboard can view and edit.</li>
-<li>Shared Read: Sets the dashboard to allow other users to view the dashboard, but cant make changes to the dashboard.</li>
+<li>Private: Sets the dashabord to only the user that created the
+  dashboard can view and edit.</li>
+<li>Shared Read: Sets the dashboard to allow other users to view the
+  dashboard, but cant make changes to the dashboard.</li>
 <li>Shared: Allows all users to view the dashboard and make changes.</li>
 </ul>
-<h3 id="setting-a-global-default-dashboard">Setting a global default dashboard</h3>
-<p>Step 1: Set the dashboard to either shared read or shared, depending on what you want the users access to change. </p>
-<p>Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings and set the global default dashboard.</p>
-<h3 id="setting-embeded-webpage">Setting embeded webpage</h3>
+<h2 id="setting-a-global-default-dashboard">Setting a global default dashboard</h2>
+<p>Step 1: Set the dashboard to either shared read or shared, depending
+on what you want the users access to change.</p>
+<p>Step 2: Then go to Settings -&gt; WebUI settings -&gt; Dashboard Settings
+and set the global default dashboard.</p>
+<h2 id="setting-embeded-webpage">Setting embeded webpage</h2>
 <p>Using the Notes Widget.</p>
 <pre><code class="html">&lt;iframe src=&quot;your_url&quot; frameBorder=&quot;0&quot; width=&quot;100%&quot; height = &quot;100%&quot;&gt;
   &lt;p&gt;Your browser does not support iframes.&lt;/p&gt;
 &lt;/iframe&gt;
 </code></pre>
 
-<p>Note you may need to play with the width and height and also size your widget properly.
-<code>src="url"</code> needs to be URL to webpage your linking to.
+<p>Note you may need to play with the width and height and also size your widget properly.</p>
+<p><code>src="url"</code> needs to be URL to webpage your linking to.
 Also some web pages may not support html embeded or iframe.
 <img alt="Example embed webpage" src="/img/example-embed-website.png" /></p>
-<h3 id="how-to-create-ports-graph">How to create ports graph</h3>
+<h2 id="how-to-create-ports-graph">How to create ports graph</h2>
 <p>In the dashboard, you want to create an interface graph select the widget called</p>
-<ul>
-<li>
-<p>Graph:  then select "Port" "Bits"
+<p>'Graph' then select "Port" "Bits"
 <img alt="port-bits-graph" src="/img/port-bits-graph.png" /></p>
-</li>
-<li>
-<p>Note: you can map the port by description or the alias or by port id. You will need to know this in order to map the port to the graph. </p>
-</li>
-</ul>
+<p>Note: you can map the port by description or the alias or by port
+id. You will need to know this in order to map the port to the graph.</p>
 <p><img alt="port-bits-graph" src="/img/port-bits-port.png" /></p>
-<h3 id="dimension-parameter-replacement-for-generic-image-widget">Dimension parameter replacement for Generic-image widget</h3>
-<p>When using the Generic-image widget you can provide the width and height of the widget with your request.
-This will ensure that the image will fit nicely with the dimensions if the Generic-image widget.
+<h2 id="dimension-parameter-replacement-for-generic-image-widget">Dimension parameter replacement for Generic-image widget</h2>
+<p>When using the Generic-image widget you can provide the width and
+height of the widget with your request. This will ensure that the
+image will fit nicely with the dimensions if the Generic-image widget.
 You can add @AUTO_HEIGHT@ and @AUTO_WIDTH@ to the Image URL as parameters.</p>
-<h4 id="examples">Examples:</h4>
+<p>Examples:</p>
 <ul>
-<li>http://librenms.example.com/graph.php?id=333%2C444&amp;type=multiport_bits_separate&amp;legend=no&amp;absolute=1&amp;from=-14200&amp;width=@AUTO_WIDTH@&amp;height=@AUTO_HEIGHT@</li>
-<li>http://example.com/myimage.php?size=@AUTO_WIDTH@x@AUTO_HEIGHT@</li>
+<li><a href="http://librenms.example.com/graph.php?id=333%2C444&amp;type=multiport_bits_separate&amp;legend=no&amp;absolute=1&amp;from=-14200&amp;width=@AUTO_WIDTH@&amp;height=@AUTO_HEIGHT@">http://librenms.example.com/graph.php?id=333%2C444&amp;type=multiport_bits_separate&amp;legend=no&amp;absolute=1&amp;from=-14200&amp;width=@AUTO_WIDTH@&amp;height=@AUTO_HEIGHT@</a></li>
+<li><a href="http://example.com/myimage.php?size=@AUTO_WIDTH@x@AUTO_HEIGHT@">http://example.com/myimage.php?size=@AUTO_WIDTH@x@AUTO_HEIGHT@</a></li>
 </ul>
                 
                   

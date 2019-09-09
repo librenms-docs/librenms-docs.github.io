@@ -42,7 +42,7 @@
     
     
       
-        <title>RRDCached Security - LibreNMS Docs</title>
+        <title>Securing with nginx - LibreNMS Docs</title>
       
     
     
@@ -138,7 +138,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                RRDCached Security
+                Securing with nginx
               
             </span>
           
@@ -2105,22 +2105,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#securing-with-nginx" class="md-nav__link">
-    Securing with nginx
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2135,12 +2121,17 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/RRDCached-Security.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>RRDCached Security</h1>
-                
-                <h3 id="securing-with-nginx">Securing with nginx</h3>
-<p>path: blob/master/doc/
-According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>, under "SECURITY CONSIDERATIONS", rrdcached has no authentication or security except for running under a unix socket. If you choose to use a network socket instead of a unix socket, you will need to secure your rrdcached installation. To do so you can proxy rrdcached using nginx to allow only specific IPs to connect.</p>
-<p>using the same setup above, using nginx version 1.9.0 or later, you can follow this setup to proxy the default rrdcached port to the local unix socket.</p>
+                <h1 id="securing-with-nginx">Securing with nginx</h1>
+<p>path: blob/master/doc/</p>
+<p>According to the <a href="https://linux.die.net/man/1/rrdcached">man page</a>,
+under "SECURITY CONSIDERATIONS", rrdcached has no authentication or
+security except for running under a unix socket. If you choose to use
+a network socket instead of a unix socket, you will need to secure
+your rrdcached installation. To do so you can proxy rrdcached using
+nginx to allow only specific IPs to connect.</p>
+<p>Using the same setup above, using nginx version 1.9.0 or later, you
+can follow this setup to proxy the default rrdcached port to the local
+unix socket.</p>
 <p>(You can use <code>./conf.d</code> for your configuration as well)</p>
 <p><code>mkdir /etc/nginx/streams-{available,enabled}</code></p>
 <p>add the following to your nginx.conf file:</p>
@@ -2151,7 +2142,7 @@ stream {
 }
 </code></pre>
 
-<p>add this to <code>/etc/nginx/streams-available/rrd</code></p>
+<p>Add this to <code>/etc/nginx/streams-available/rrd</code></p>
 <pre><code class="nginx">server {
     listen 42217;
 
@@ -2162,10 +2153,13 @@ stream {
 
     proxy_pass unix:/var/run/rrdcached/rrdcached.sock;
 }
+
 </code></pre>
 
-<p>replace <code>$LibreNMS_IP</code> with the ip of the server that will be using rrdcached. You can specify more than one <code>allow</code> statement.
-This will bind nginx to TCP 42217 (the default rrdcached port), allow the specified IPs to connect, and deny all others.</p>
+<p>Replace <code>$LibreNMS_IP</code> with the ip of the server that will be using
+rrdcached. You can specify more than one <code>allow</code> statement. This will
+bind nginx to TCP 42217 (the default rrdcached port), allow the
+specified IPs to connect, and deny all others.</p>
 <p>next, we'll symlink the config to streams-enabled:
 <code>ln -s /etc/nginx/streams-{available,enabled}/rrd</code></p>
 <p>and reload nginx

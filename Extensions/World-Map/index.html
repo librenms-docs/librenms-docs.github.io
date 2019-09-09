@@ -2142,12 +2142,12 @@ these addresses will be Geocoded by Google and stored in the database.</p>
 <p>Location resolution happens as follows</p>
 <ol>
 <li>If <code>device['location']</code> contains <code>[lat, lng]</code> (note the square
-    brackets), that is used</li>
+   brackets), that is used</li>
 <li>If there is a location overide for the device in the WebUI and it
-    contains <code>[lat, lng]</code> (note the square brackets), that is used.</li>
+   contains <code>[lat, lng]</code> (note the square brackets), that is used.</li>
 <li>Attempt to resolve lat, lng using <code>$config['geoloc']['engine']</code></li>
 <li>Properly formatted addresses in sysLocation or sysLocation
-    override, under device settings.</li>
+   override, under device settings.</li>
 </ol>
 <p>Example:</p>
 <p>[40.424521, -86.912755]</p>
@@ -2181,8 +2181,9 @@ different url you can set:</p>
 <pre><code class="php">$config['map']['engine']                                = &quot;leaflet&quot;;
 $config['leaflet']['default_lat']                       = &quot;51.981074&quot;;
 $config['leaflet']['default_lng']                       = &quot;5.350342&quot;;
-$config['leaflet']['default_zoom']                      = 8;    
-$config['leaflet']['group_radius']                      = 1;    // Device grouping radius in KM default 80KM
+$config['leaflet']['default_zoom']                      = 8;
+// Device grouping radius in KM default 80KM
+$config['leaflet']['group_radius']                      = 1;
 </code></pre>
 
 <h1 id="geocode-engine-config">Geocode engine config</h1>

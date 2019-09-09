@@ -2113,22 +2113,25 @@
                 
                   <h1>Check_MK Setup</h1>
                 
-                <p>The agent can be used to gather data from remote systems you can use LibreNMS in combination with check_mk (found <a href="https://github.com/librenms/librenms-agent">here</a>).
-The agent can be extended to include data about <a href="../Applications/">applications</a> on the remote system.</p>
-<p>Make sure that systemd or xinetd is installed on the host you want to run the agent on.</p>
-<p>The agent uses TCP-Port 6556, please allow access from the <strong>LibreNMS host</strong> and <strong>poller nodes</strong> if you're using the <a href="http://docs.librenms.org/Extensions/Distributed-Poller/">Distributed Polling</a> setup.</p>
+                <p>The agent can be used to gather data from remote systems you can use
+LibreNMS in combination with check_mk (found
+<a href="https://github.com/librenms/librenms-agent">here</a>). The agent can be
+extended to include data about <a href="../Applications/">applications</a> on the
+remote system.</p>
+<p>Make sure that systemd or xinetd is installed on the host you want to
+run the agent on.</p>
+<p>The agent uses TCP-Port 6556, please allow access from the <strong>LibreNMS
+host</strong> and <strong>poller nodes</strong> if you're using the <a href="http://docs.librenms.org/Extensions/Distributed-Poller/">Distributed
+Polling</a>
+setup.</p>
 <p>On each of the hosts you would like to use the agent on, you need to do the following:</p>
-<ol>
-<li>Clone the <code>librenms-agent</code> repository:</li>
-</ol>
+<p>1: Clone the <code>librenms-agent</code> repository:</p>
 <pre><code class="shell">cd /opt/
 git clone https://github.com/librenms/librenms-agent.git
 cd librenms-agent
 </code></pre>
 
-<ol>
-<li>Copy the relevant check_mk_agent to <code>/usr/bin</code>:</li>
-</ol>
+<p>2: Copy the relevant check_mk_agent to <code>/usr/bin</code>:</p>
 <table>
 <thead>
 <tr>
@@ -2146,9 +2149,7 @@ cd librenms-agent
 <pre><code class="shell">chmod +x /usr/bin/check_mk_agent
 </code></pre>
 
-<ol>
-<li>Copy the service file(s) into place.</li>
-</ol>
+<p>3: Copy the service file(s) into place.</p>
 <table>
 <thead>
 <tr>
@@ -2163,17 +2164,16 @@ cd librenms-agent
 </tr>
 </tbody>
 </table>
-<ol>
-<li>Create the relevant directories.</li>
-</ol>
+<p>4: Create the relevant directories.</p>
 <pre><code class="shell">mkdir -p /usr/lib/check_mk_agent/plugins /usr/lib/check_mk_agent/local
 </code></pre>
 
-<ol>
-<li>Copy each of the scripts from <code>agent-local/</code> into <code>/usr/lib/check_mk_agent/local</code> that you require to be graphed.  You can find detail setup instructions for specific applications above.</li>
-<li>Make each one executable that you want to use with <code>chmod +x /usr/lib/check_mk_agent/local/$script</code></li>
-<li>Enable the check_mk service</li>
-</ol>
+<p>5: Copy each of the scripts from <code>agent-local/</code> into
+<code>/usr/lib/check_mk_agent/local</code> that you require to be graphed.  You
+can find detail setup instructions for specific applications above.</p>
+<p>6: Make each one executable that you want to use with <code>chmod +x
+/usr/lib/check_mk_agent/local/$script</code></p>
+<p>7: Enable the check_mk service</p>
 <table>
 <thead>
 <tr>
@@ -2188,11 +2188,11 @@ cd librenms-agent
 </tr>
 </tbody>
 </table>
-<ol>
-<li>Login to the LibreNMS web interface and edit the device you want to monitor. Under the modules section, ensure that unix-agent is enabled.</li>
-<li>Then under Applications, enable the apps that you plan to monitor.</li>
-<li>Wait for around 10 minutes and you should start seeing data in your graphs under Apps for the device.</li>
-</ol>
+<p>8: Login to the LibreNMS web interface and edit the device you want to
+monitor. Under the modules section, ensure that unix-agent is enabled.</p>
+<p>9: Then under Applications, enable the apps that you plan to monitor.</p>
+<p>10: Wait for around 10 minutes and you should start seeing data in
+your graphs under Apps for the device.</p>
                 
                   
                     <h2 id="__source">Source</h2>

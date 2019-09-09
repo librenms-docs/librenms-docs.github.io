@@ -2757,26 +2757,16 @@ Extend</code> heading top of page.</p>
 <h1 id="mdadm">Mdadm</h1>
 <p>This shell script checks mdadm health and array data</p>
 <h2 id="snmp-extend_15">SNMP Extend</h2>
-<ol>
-<li>Download the script onto the desired host.</li>
-</ol>
+<p>1: Download the script onto the desired host.</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
 </code></pre>
 
-<ol>
-<li>
-<p>Run <code>chmod +x /etc/snmp/mdadm</code></p>
-</li>
-<li>
-<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-</li>
-</ol>
+<p>2: Run <code>chmod +x /etc/snmp/mdadm</code></p>
+<p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 <pre><code>extend mdadm /etc/snmp/mdadm
 </code></pre>
 
-<ol>
-<li>Restart snmpd on your host</li>
-</ol>
+<p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the
 top of the page. If it is not, please follow the steps set out
 under <code>SNMP Extend</code> heading top of page.</p>

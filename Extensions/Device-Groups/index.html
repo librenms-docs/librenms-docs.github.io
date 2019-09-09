@@ -2189,20 +2189,31 @@
                   <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Device-Groups.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p>LibreNMS supports grouping your devices together in much the same way as you can configure alerts. This document will hopefully help you get started.</p>
+                <p>LibreNMS supports grouping your devices together in much the same way
+as you can configure alerts. This document will hopefully help you get
+started.</p>
 <h1 id="dynamic-groups">Dynamic Groups</h1>
-<h3 id="rule-editor">Rule Editor</h3>
+<h2 id="rule-editor">Rule Editor</h2>
 <p>The rule is based on the MySQL structure your data is in. Such as <strong>tablename.columnname</strong>.
-If you already know the entity you want, you can browse around inside MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
-<p>As a working example and a common question, let's assume you want to group devices by hostname. If your hostname format is dcX.[devicetype].example.com. You would use the field
-<code>devices.hostname</code>. </p>
-<p>If you want to group them by device type, you would add a rule for routers of <code>devices.hostname</code> endswith <code>rtr.example.com</code>.</p>
-<p>If you want to group them by DC, you could use the rule <code>devices.hostname</code> regex <code>dc1\..*\.example\.com</code> (Don't forget to escape periods in the regex)</p>
+If you already know the entity you want, you can browse around inside
+MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
+<p>As a working example and a common question, let's assume you want to
+group devices by hostname. If your hostname format is
+dcX.[devicetype].example.com. You would use the field
+<code>devices.hostname</code>.</p>
+<p>If you want to group them by device type, you would add a rule for
+routers of <code>devices.hostname</code> endswith <code>rtr.example.com</code>.</p>
+<p>If you want to group them by DC, you could use the rule
+<code>devices.hostname</code> regex <code>dc1\..*\.example\.com</code> (Don't forget to
+escape periods in the regex)</p>
 <h1 id="static-groups">Static Groups</h1>
-<p>You can create static groups (and convert dynamic groups to static) to put specific devices in a group.
-Just select static as the type and select the devices you want in the group.</p>
+<p>You can create static groups (and convert dynamic groups to static) to
+put specific devices in a group. Just select static as the type and
+select the devices you want in the group.</p>
 <p><img alt="Device Groups" src="/img/device_groups.png" /></p>
-<p>You can now select this group from the Devices -&gt; All Devices link in the navigation at the top. You can also use the group to map alert rules to by creating an alert mapping
+<p>You can now select this group from the Devices -&gt; All Devices link in
+the navigation at the top. You can also use the group to map alert
+rules to by creating an alert mapping
 <code>Overview -&gt; Alerts -&gt; Rule Mapping</code>.</p>
                 
                   

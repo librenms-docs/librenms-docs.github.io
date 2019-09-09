@@ -782,119 +782,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Scaling LibreNMS
-      </label>
-    
     <a href="./" title="Scaling LibreNMS" class="md-nav__link md-nav__link--active">
       Scaling LibreNMS
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-setup" class="md-nav__link">
-    Example Setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    Architecture
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#web-api-layer" class="md-nav__link">
-    Web / API Layer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-server" class="md-nav__link">
-    Database Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rrd-storage" class="md-nav__link">
-    RRD Storage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memcache" class="md-nav__link">
-    Memcache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pollers" class="md-nav__link">
-    Pollers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discovery" class="md-nav__link">
-    Discovery
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-sample" class="md-nav__link">
-    Config sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -2229,103 +2119,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-setup" class="md-nav__link">
-    Example Setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    Architecture
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#web-api-layer" class="md-nav__link">
-    Web / API Layer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-server" class="md-nav__link">
-    Database Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rrd-storage" class="md-nav__link">
-    RRD Storage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memcache" class="md-nav__link">
-    Memcache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pollers" class="md-nav__link">
-    Pollers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discovery" class="md-nav__link">
-    Discovery
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-sample" class="md-nav__link">
-    Config sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2341,72 +2134,135 @@
                 
                 <h1 id="distributed-poller">Distributed Poller</h1>
 <p>LibreNMS has the ability to distribute polling of devices to other machines.</p>
-<p>These machines can be in a different physical location and therefore minimize network latency for devices that are a considerable 
-distance away or are behind NAT firewalls.</p>
-<p>Devices can be grouped together into a <code>poller_group</code> to pin these devices to a single or a group of designated pollers.</p>
-<blockquote>
-<p>All pollers need to share their RRD-folder, for example via NFS or a combination of NFS and rrdcached.</p>
-</blockquote>
-<p>It is a requirement that all pollers can access the central memcached to communicate with each other.</p>
-<h3 id="requirements">Requirements</h3>
-<blockquote>
+<p>These machines can be in a different physical location and therefore
+minimize network latency for devices that are a considerable distance
+away or are behind NAT firewalls.</p>
+<p>Devices can be grouped together into a <code>poller_group</code> to pin these
+devices to a single or a group of designated pollers.</p>
+<p>All pollers need to share their RRD-folder, for example via NFS or a
+combination of NFS and rrdcached.</p>
+<p>It is a requirement that all pollers can access the central memcached
+to communicate with each other.</p>
+<h1 id="requirements">Requirements</h1>
 <p>These requirements are above the normal requirements for a full LibreNMS install.</p>
-</blockquote>
 <ul>
 <li>rrdtool version 1.4 or above</li>
 <li>python-memcached package</li>
 <li>a memcached install</li>
 <li>a rrdcached install</li>
 </ul>
-<p>By default, all hosts are shared and have the <code>poller_group = 0</code>. To pin a device to a poller, set it to a value greater than 0 and set the same value in the poller's config with <code>$config['distributed_poller_group']</code>. One can also specify a comma separated string of poller groups in $config['distributed_poller_group'].  The poller will then poll devices from any of the groups listed.  If new devices get added from the poller they will be assigned to the first poller group in the list unless the group is specified when adding the device.</p>
+<p>By default, all hosts are shared and have the <code>poller_group = 0</code>. To
+pin a device to a poller, set it to a value greater than 0 and set the
+same value in the poller's config with
+<code>$config['distributed_poller_group']</code>. One can also specify a comma
+separated string of poller groups in
+$config['distributed_poller_group'].  The poller will then poll
+devices from any of the groups listed.  If new devices get added from
+the poller they will be assigned to the first poller group in the list
+unless the group is specified when adding the device.</p>
 <p>A standard configuration for a distributed poller would look like:</p>
 <pre><code class="php">// Distributed Poller-Settings
 $config['distributed_poller']                            = true;
-#$config['distributed_poller_name']                      = 'custom'; // optional: defaults to hostname
+// optional: defaults to hostname
+#$config['distributed_poller_name']                      = 'custom';
 $config['distributed_poller_group']                      = 0;
 $config['distributed_poller_memcached_host']             = 'example.net';
 $config['distributed_poller_memcached_port']             = '11211';
 </code></pre>
 
 <h2 id="example-setup">Example Setup</h2>
-<p>Below is an example setup based on a real deployment which at the time of writing covers over 2,500 devices and 50,000 ports. The setup is running within an OpenStack environment with some commodity hardware for remote pollers. Here's a diagram of how you can scale LibreNMS out:</p>
+<p>Below is an example setup based on a real deployment which at the time
+of writing covers over 2,500 devices and 50,000 ports. The setup is
+running within an OpenStack environment with some commodity hardware
+for remote pollers. Here's a diagram of how you can scale LibreNMS
+out:</p>
 <p><img alt="Example Setup" src="http://docs.librenms.org/img/librenms-distributed-diagram.png" /></p>
-<h3 id="architecture">Architecture</h3>
-<p>How you setup the distribution is entirely up to you, you can choose to host the majority of the required services on a single virtual machine or server and then a poller to actually query the devices being monitored all the way through to having a dedicated server for each of the individual roles. Below are notes on what you need to consider both from the software layer but also connectivity.</p>
-<h4 id="web-api-layer">Web / API Layer</h4>
-<p>This is typically Apache but we have setup guides for both Nginx and Lighttpd which should work perfectly fine. There is nothing unique about the role this service is providing except that if you are adding devices from this layer then the web service will need to be able to connect to the end device via SNMP and perform an ICMP test.</p>
-<p>It is advisable to run RRDCached within this setup so that you don't need to share the rrd folder via a remote file share such as NFS. The web service can then generate rrd graphs via RRDCached. If RRDCached isn't an option then you can mount the rrd directory to read the RRD files directly.</p>
-<h4 id="database-server">Database Server</h4>
-<p>MySQL / MariaDB - At the moment these are the only database servers that are supported, work is being done to ensure MySQL Strict mode is also supported but this should be considered to be incomplete still and therefor disabled.</p>
-<p>The pollers, web and API layers should all be able to access the database server directly.</p>
-<h4 id="rrd-storage">RRD Storage</h4>
-<p>Central storage should be provided so all RRD files can be read from and written to in one location. As suggested above, it's recommended that RRD Cached is configured and used.</p>
-<p>For this example, we are running RRDCached to allow all pollers and web/api servers to read/write to the rrd files with the rrd directory also exported by NFS for simple access and maintenance.</p>
-<h4 id="memcache">Memcache</h4>
-<p>Memcache is required for the distributed pollers to be able to register to a central location and record what devices are polled. Memcache can run from any of the servers so long as it is accessible by all pollers.</p>
-<h4 id="pollers">Pollers</h4>
+<h2 id="architecture">Architecture</h2>
+<p>How you setup the distribution is entirely up to you, you can choose
+to host the majority of the required services on a single virtual
+machine or server and then a poller to actually query the devices
+being monitored all the way through to having a dedicated server for
+each of the individual roles. Below are notes on what you need to
+consider both from the software layer but also connectivity.</p>
+<h3 id="web-api-layer">Web / API Layer</h3>
+<p>This is typically Apache but we have setup guides for both Nginx and
+Lighttpd which should work perfectly fine. There is nothing unique
+about the role this service is providing except that if you are adding
+devices from this layer then the web service will need to be able to
+connect to the end device via SNMP and perform an ICMP test.</p>
+<p>It is advisable to run RRDCached within this setup so that you don't
+need to share the rrd folder via a remote file share such as NFS. The
+web service can then generate rrd graphs via RRDCached. If RRDCached
+isn't an option then you can mount the rrd directory to read the RRD
+files directly.</p>
+<h3 id="database-server">Database Server</h3>
+<p>MySQL / MariaDB - At the moment these are the only database servers
+that are supported, work is being done to ensure MySQL Strict mode is
+also supported but this should be considered to be incomplete still
+and therefor disabled.</p>
+<p>The pollers, web and API layers should all be able to access the
+database server directly.</p>
+<h3 id="rrd-storage">RRD Storage</h3>
+<p>Central storage should be provided so all RRD files can be read from
+and written to in one location. As suggested above, it's recommended
+that RRD Cached is configured and used.</p>
+<p>For this example, we are running RRDCached to allow all pollers and
+web/api servers to read/write to the rrd files with the rrd directory
+also exported by NFS for simple access and maintenance.</p>
+<h3 id="memcache">Memcache</h3>
+<p>Memcache is required for the distributed pollers to be able to
+register to a central location and record what devices are
+polled. Memcache can run from any of the servers so long as it is
+accessible by all pollers.</p>
+<h3 id="pollers">Pollers</h3>
 <p>Pollers can be installed and run from anywhere, the only requirements are:</p>
-<p>They can access the Memcache instance
-They can create RRD files via some method such as a shared filesystem or RRDTool &gt;=1.5.5
-They can access the MySQL server</p>
-<p>You can either assign pollers into groups and set a poller group against certain devices, this will mean that those devices will only be processed by certain pollers (default poller group is 0) or you can assign all pollers to the default poller group for them to process any and all devices.</p>
-<p>This will provide the ability to have a single poller behind a NAT firewall monitor internal devices and report back to your central system. You will then be able to monitor those devices from the Web UI as normal.</p>
-<p>Another benefit to this is that you can provide N+x pollers, i.e if you know that you require three pollers to process all devices within 300 seconds then adding a 4th poller will mean that should any one single poller fail then the remaining three will complete polling in time. You could also use this to take a poller out of service for maintenance, i.e OS updates and software updates.</p>
-<p>It is extremely advisable to either run a central recursive dns server such as pdns-recursor and have all of your pollers use this or install a recursive dns server on each poller - the volume of DNS requests on large installs can be significant and will slow polling down enough to cause issues with a large number of devices.</p>
-<h4 id="discovery">Discovery</h4>
-<p>It's not necessary to run discovery services on all pollers. In fact, you should only run one discovery process per poller group. Designate a single poller to run discovery (or a separate server if required).</p>
-<h4 id="config-sample">Config sample</h4>
-<p>The following config is taken from a live setup which consists of a Web server, DB server, RRDCached server and 3 pollers.</p>
-<p>Web Server:
-Running Apache and an install of LibreNMS in /opt/librenms
- - config.php</p>
+<ul>
+<li>They can access the Memcache instance</li>
+<li>They can create RRD files via some method such as a shared
+  filesystem or RRDTool &gt;=1.5.5</li>
+<li>They can access the MySQL server</li>
+</ul>
+<p>You can either assign pollers into groups and set a poller group
+against certain devices, this will mean that those devices will only
+be processed by certain pollers (default poller group is 0) or you can
+assign all pollers to the default poller group for them to process any
+and all devices.</p>
+<p>This will provide the ability to have a single poller behind a NAT
+firewall monitor internal devices and report back to your central
+system. You will then be able to monitor those devices from the Web UI
+as normal.</p>
+<p>Another benefit to this is that you can provide N+x pollers, i.e if
+you know that you require three pollers to process all devices within
+300 seconds then adding a 4th poller will mean that should any one
+single poller fail then the remaining three will complete polling in
+time. You could also use this to take a poller out of service for
+maintenance, i.e OS updates and software updates.</p>
+<p>It is extremely advisable to either run a central recursive dns server
+such as pdns-recursor and have all of your pollers use this or install
+a recursive dns server on each poller - the volume of DNS requests on
+large installs can be significant and will slow polling down enough to
+cause issues with a large number of devices.</p>
+<h3 id="discovery">Discovery</h3>
+<p>It's not necessary to run discovery services on all pollers. In fact,
+you should only run one discovery process per poller group. Designate
+a single poller to run discovery (or a separate server if required).</p>
+<h3 id="config-sample">Config sample</h3>
+<p>The following config is taken from a live setup which consists of a
+Web server, DB server, RRDCached server and 3 pollers.</p>
+<p>Web Server:</p>
+<p>Running Apache and an install of LibreNMS in /opt/librenms</p>
+<ul>
+<li>config.php</li>
+</ul>
 <pre><code class="php">$config['distributed_poller'] = true;
 $config['rrdcached']    = &quot;example.com:42217&quot;;
 </code></pre>
 
 <p>Database Server:
-Running Memcache and MariaDB
- - Memcache</p>
+Running Memcache and MariaDB</p>
+<ul>
+<li>Memcache</li>
+</ul>
 <p>Ubuntu (/etc/memcached.conf)</p>
 <pre><code class="conf">-d
 -m 64
@@ -2416,8 +2272,10 @@ Running Memcache and MariaDB
 </code></pre>
 
 <p>RRDCached Server:
-Running RRDCached
-  - RRDCached</p>
+Running RRDCached</p>
+<ul>
+<li>RRDCached</li>
+</ul>
 <p>Ubuntu (/etc/default/rrdcached)</p>
 <pre><code class="conf">OPTS=&quot;-l 0:42217&quot;
 OPTS=&quot;$OPTS -j /var/lib/rrdcached/journal/ -F&quot;
@@ -2444,8 +2302,9 @@ $config['rrdcached']                         = &quot;example.com:42217&quot;;
 $config['update']                            = 0;
 </code></pre>
 
-<p><code>/etc/cron.d/librenms</code>
-Runs discovery and polling for group 0, daily.sh to deal with notifications and DB cleanup and alerts.</p>
+<p><code>/etc/cron.d/librenms</code></p>
+<p>Runs discovery and polling for group 0, daily.sh to deal with
+notifications and DB cleanup and alerts.</p>
 <pre><code class="conf">33   */6  * * *   librenms    /opt/librenms/cronic /opt/librenms/discovery-wrapper.py 1
 */5  *    * * *   librenms    /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
 */5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
@@ -2465,8 +2324,8 @@ $config['rrdcached']                         = &quot;example.com:42217&quot;;
 $config['update']                            = 0;
 </code></pre>
 
-<p><code>/etc/cron.d/librenms</code>
-Runs billing as well as polling for group 0.</p>
+<p><code>/etc/cron.d/librenms</code></p>
+<p>Runs billing as well as polling for group 0.</p>
 <pre><code class="conf">*/5 * * * * librenms /opt/librenms/poller-wrapper.py 16 &gt;&gt; /opt/librenms/logs/wrapper.log
 */5 * * * * librenms /opt/librenms/poll-billing.php &gt;&gt; /dev/null 2&gt;&amp;1
 01  * * * * librenms /opt/librenms/billing-calculate.php &gt;&gt; /dev/null 2&gt;&amp;1
@@ -2491,7 +2350,6 @@ Runs discovery and polling for groups 2 and 3.</p>
 */5 *   * * *   librenms    /opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
 */5 *   * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
 15  0   * * *   librenms    /opt/librenms/daily.sh &gt;&gt; /dev/null 2&gt;&amp;1
-
 </code></pre>
                 
                   
