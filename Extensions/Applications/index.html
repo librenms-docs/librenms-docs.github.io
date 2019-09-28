@@ -2414,9 +2414,12 @@ that it is owned by the user running the SNMP daemon.</p>
 <h1 id="asterisk">Asterisk</h1>
 <p>A small shell script that reports various Asterisk call status.</p>
 <h2 id="snmp-extend_2">SNMP Extend</h2>
-<p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/asterisk">asterisk
+<p>1: Download the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/asterisk">asterisk
 script</a>
 to <code>/etc/snmp/</code> on your asterisk server.</p>
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/asterisk -O /etc/snmp/asterisk
+</code></pre>
+
 <p>2: Run <code>chmod +x /etc/snmp/asterisk</code></p>
 <p>3: Configure <code>ASCLI</code> in the script.</p>
 <p>4: Verify it is working by running <code>/etc/snmp/asterisk</code></p>
