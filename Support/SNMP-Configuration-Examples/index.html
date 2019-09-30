@@ -1778,6 +1778,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ubiquiti" class="md-nav__link">
+    Ubiquiti
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edgeos" class="md-nav__link">
+    EdgeOs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vmware" class="md-nav__link">
     VMware
   </a>
@@ -2569,6 +2589,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ubiquiti" class="md-nav__link">
+    Ubiquiti
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edgeos" class="md-nav__link">
+    EdgeOs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vmware" class="md-nav__link">
     VMware
   </a>
@@ -2742,6 +2782,10 @@
 <li><a href="#panos-6x7x">PANOS 6.x/7.x</a></li>
 </ul>
 </li>
+<li><a href="#ubiquiti">Ubiquiti</a><ul>
+<li><a href="#edgeos">EdgeOs</a></li>
+</ul>
+</li>
 <li><a href="#vmware">VMware</a><ul>
 <li><a href="#esxesxi-5x6x">ESX/ESXi 5.x/6.x</a></li>
 <li><a href="#vcenter-6x">VCenter 6.x</a></li>
@@ -2909,6 +2953,29 @@ username@devicename# set deviceconfig system snmp-setting snmp-system location &
 username@devicename# set deviceconfig system snmp-setting snmp-system contact noc@your.org
 username@devicename# commit
 username@devicename# exit
+</code></pre>
+
+<h3 id="ubiquiti">Ubiquiti</h3>
+<h4 id="edgeos">EdgeOs</h4>
+<p>If you use the HTTP interface:
+1. Access the legacy web admin page and log in
+1. Go to System &gt; Advanced Configuration
+1. Go to the sub-tab "SNMP" &gt; "Community"
+1. Click "Add Community Group"
+1. Enter your SNMP community, ip address and click submit
+1. Go to System &gt; Summary
+1. Go to the sub-tab "Description"
+1. Enter your System Name, System Location and System Contact.
+1. Click submit
+1. Click "Save Configuration"</p>
+<p>If you use CLI:</p>
+<pre><code>username@devicename&gt; enable
+username@devicename# configure
+username@devicename (Config)# snmp-server community &quot;public&quot; ro
+username@devicename (Config)# snmp-server sysname &quot;devicename&quot;
+username@devicename (Config)# snmp-server contact &quot;noc@example.com&quot;
+username@devicename (Config)# exit
+username@devicename# write memory
 </code></pre>
 
 <h3 id="vmware">VMware</h3>
