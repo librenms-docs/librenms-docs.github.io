@@ -2192,9 +2192,13 @@ DB_PASSWORD=
 <h2 id="distributed-polling-configuration">Distributed Polling Configuration</h2>
 <p>Once you have your Redis database set up, configure it in the .env file on each node.</p>
 <pre><code class="dotenv">REDIS_HOST=127.0.0.1
-#REDIS_DB=0
+REDIS_PORT=6379
+# OR
+REDIS_SENTINEL=192.0.2.1:26379
+REDIS_SENTINEL_SERVICE=myservice
+
+REDIS_DB=0
 #REDIS_PASSWORD=
-#REDIS_PORT=6379
 </code></pre>
 
 <h2 id="basic-configuration">Basic Configuration</h2>
