@@ -2826,6 +2826,9 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 snmp-server host &lt;INTERFACE&gt; &lt;LIBRENMS-IP&gt; poll version 3 &lt;USER-NAME&gt;
 </code></pre>
 
+<blockquote>
+<p>Note: If the device is unable to find the SNMP user, reboot the ASA. Once rebooted, continue the steps as normal.</p>
+</blockquote>
 <h4 id="ios-ios-xe">IOS / IOS XE</h4>
 <pre><code># SNMPv2c
 
@@ -2845,6 +2848,9 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 snmp-server group &lt;GROUP-NAME&gt; v3 priv context vlan- match prefix 
 </code></pre>
 
+<blockquote>
+<p>Note: If the device is unable to find the SNMP user, reboot the ASA. Once rebooted, continue the steps as normal.</p>
+</blockquote>
 <h4 id="nx-os">NX-OS</h4>
 <pre><code># SNMPv2c
 
@@ -2994,7 +3000,7 @@ esxcli system snmp hash --auth-hash YOUR_AUTH_SECRET --priv-hash YOUR_PRIV_SECRE
 </code></pre>
 
 <p>Now define a SNMPv3 user:</p>
-<pre><code>esxcli system snmp set --users authpriv/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
+<pre><code>esxcli system snmp set --users &lt;username&gt;/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
 esxcli system snmp set -L &quot;Yourcity, Yourcountry [60.4,5.3]&quot;
 esxcli system snmp set -C noc@your.org
 esxcli system snmp set --enable true
@@ -3099,6 +3105,11 @@ syscontact Your Name &lt;your@email.address&gt;
 <pre><code>systemctl restart snmpd
 </code></pre>
 
+<p>Add SNMP to Firewalld</p>
+<pre><code>firewall-cmd --zone=public --permanent --add-service=snmp
+firewall-cmd --reload
+</code></pre>
+
 <h5 id="ubuntu">Ubuntu</h5>
 <pre><code>service snmpd restart
 </code></pre>
@@ -3132,6 +3143,9 @@ syscontact Your Name &lt;your@email.address&gt;
    LibreNMS server IP address</li>
 <li>Validate change by clicking "Apply"</li>
 </ol>
+<blockquote>
+<p>Note: SNMPv3 can be supported on Windows playforms with the use of Net-SNMP.</p>
+</blockquote>
 <h3 id="mac-osx">Mac OSX</h3>
 <p>Step 1: <code>sudo nano /etc/snmp/snmpd.conf</code></p>
 <pre><code class="bash">#Allow read-access with the following SNMP Community String:
