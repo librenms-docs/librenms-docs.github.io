@@ -2384,9 +2384,13 @@ architecture then the following steps should be all that's needed:</p>
 <li>and import it into your new server (<code>mysql -u root -p &lt; librenms.sql</code>).</li>
 <li>Copy the <code>rrd/</code> folder to the new server.</li>
 <li>Copy the <code>config.php</code> file to the new server.</li>
+<li>Check for modified files (eg specific os, ...) with <code>git status</code> and 
+  migrate them.</li>
 <li>Ensure ownership of the copied files and folders (substitute your
   user if necessary) - <code>chown -R librenms:librenms rrd/; chown
   librenms:librenms config.php</code></li>
+<li>Delete old pollers on the GUI (gear icon --&gt; Pollers --&gt; Pollers)</li>
+<li>Validate your installation (/opt/librenms/validate.php)</li>
 <li>Re-enable cron by uncommenting all lines in <code>/etc/cron.d/librenms</code></li>
 </ul>
 <h2 id="why-is-my-edgerouter-device-not-detected"><a name="faq25"> Why is my EdgeRouter device not detected?</a></h2>
