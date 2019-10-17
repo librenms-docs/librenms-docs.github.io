@@ -1386,6 +1386,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#search_oxidized" class="md-nav__link">
+    search_oxidized
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2508,6 +2515,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#search_oxidized" class="md-nav__link">
+    search_oxidized
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -3493,6 +3507,35 @@ they don't match.</p>
         ]
     }
 ]
+</code></pre>
+
+<h3 id="search_oxidized"><code>search_oxidized</code></h3>
+<p>search all oxidized device configs for a string.</p>
+<p>Route: <code>api/v0/oxidized/config/search/:searchstring</code></p>
+<ul>
+<li>searchstring is the specific string you would like to search for.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/configsearch/vlan10
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;nodes&quot;: [
+        {
+            &quot;node&quot;: &quot;asr9k.librenms.org&quot;,
+            &quot;full_name&quot;: &quot;cisco\/ASR9K.Librenms.org&quot;
+        },
+        {
+            &quot;node&quot;: &quot;ios.Librenms.org&quot;,
+            &quot;full_name&quot;: &quot;cisco\/ios.Librenms.org&quot;
+        }
+    ],
+    &quot;count&quot;: 2
+}
 </code></pre>
                 
                   
