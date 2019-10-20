@@ -2261,7 +2261,10 @@ problematic to squeeze in, so therefor this chunk is usually removed.</p>
 the same name.</p>
 <h2 id="stats-defaults-and-settings">Stats Defaults and Settings</h2>
 <p>Below are the default settings used with nfdump for stats.</p>
-<p>For more defaulted information on that, please see nfdump(1).</p>
+<p>For more defaulted information on that, please see nfdump(1). 
+The default location for nfdump is <code>/usr/bin/nfdump</code>. If nfdump
+is located elsewhere, set it with 
+<code>$config['nfdump'] = '/usr/local/bin/nfdump';</code> for example.</p>
 <pre><code class="php">$config['nfsen_last_max'] = 153600;
 $config['nfsen_top_max'] = 500;
 $config['nfsen_top_N']=array( 10, 20, 50, 100, 200, 500 );
