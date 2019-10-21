@@ -3232,8 +3232,43 @@ Extend</code> heading top of page.</p>
 <code>Debian-snmp</code>. Change <code>snmp</code> above to <code>Debian-snmp</code>. You can verify
 the user snmpd is using with <code>ps aux | grep snmpd</code></p>
 <p>5: Restart snmpd on PI host</p>
-<h1 id="smart">SMART</h1>
+<h1 id="seafile">Seafile</h1>
 <h2 id="snmp-extend_34">SNMP Extend</h2>
+<p>1: Copy the Python script, seafile.py, to the desired host. <code>wget
+https://github.com/librenms/librenms-agent/raw/master/snmp/seafile.py -O
+/etc/snmp/seafile.py</code></p>
+<p>Also you have to install the requests Package for Python3.
+Under Ubuntu/Debian just run <code>apt install python3-requests</code></p>
+<p>2: Run <code>chmod +x /etc/snmp/seafile.py</code></p>
+<p>3: Edit your snmpd.conf file and add:</p>
+<pre><code>extend seafile /etc/snmp/seafile.py
+</code></pre>
+
+<p>4: You will also need to create the config file, which is named
+seafile.json . The script has to be located at /etc/snmp/.</p>
+<pre><code>{&quot;url&quot;: &quot;https://seafile.mydomain.org&quot;,
+ &quot;username&quot;: &quot;some_admin_login@mail.address&quot;,
+ &quot;password&quot;: &quot;password&quot;,
+ &quot;account_identifier&quot;: &quot;name&quot;
+ &quot;hide_monitoring_account&quot;: true
+}
+</code></pre>
+
+<p>The variables are as below.</p>
+<pre><code>url = Url how to get access to Seafile Server
+username = Login to Seafile Server.
+           It is important that used Login has admin privileges.
+           Otherwise most API calls will be denied.
+password = Password to the configured login.
+        the device name. 1 is the default. 0 will use the device name.
+account_identifier = Defines how accounts are listed.
+                     Options are: name, email
+hide_monitoring_account = With this Boolean you can hide the Account which you
+                          use to access Seafile API
+</code></pre>
+
+<h1 id="smart">SMART</h1>
+<h2 id="snmp-extend_35">SNMP Extend</h2>
 <p>1: Copy the Perl script, smart, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O
 /etc/snmp/smart</code></p>
@@ -3373,7 +3408,7 @@ Extend</code> heading top of page.</p>
 and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h1 id="ups-nut">UPS-nut</h1>
 <p>A small shell script that exports nut ups status.</p>
-<h2 id="snmp-extend_35">SNMP Extend</h2>
+<h2 id="snmp-extend_36">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups
    nut</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3388,7 +3423,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="ups-apcups">UPS-apcups</h1>
 <p>A small shell script that exports apcacess ups status.</p>
-<h2 id="snmp-extend_36">SNMP Extend</h2>
+<h2 id="snmp-extend_37">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups">ups
    apcups</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3408,7 +3443,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="sdfs-info">SDFS info</h1>
 <p>A small shell script that exportfs SDFS volume info.</p>
-<h2 id="snmp-extend_37">SNMP Extend</h2>
+<h2 id="snmp-extend_38">SNMP Extend</h2>
 <p>1: Download the script onto the desired host (the host must be added
    to LibreNMS devices)</p>
 <pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
@@ -3424,7 +3459,7 @@ Extend</code> heading top of page.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="zfs">ZFS</h1>
-<h2 id="snmp-extend_38">SNMP Extend</h2>
+<h2 id="snmp-extend_39">SNMP Extend</h2>
 <p><code>zfs-linux</code> requires python3 &gt;=python3.5.</p>
 <p>The installation steps are:</p>
 <ol>
