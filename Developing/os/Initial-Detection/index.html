@@ -2376,7 +2376,7 @@ is the preferred method for detection.  Other options are available:</p>
   element. As an example:</li>
 </ul>
 <pre><code class="yaml">discovery:
-    - 
+    -
       sysObjectID:
           - .1.3.6.1.4.1.12532.
       sysDescr_except:
@@ -2419,9 +2419,9 @@ which modules are enabled/disabled by default.</p>
 
 <h5 id="discovery-logic">Discovery Logic</h5>
 <p>YAML is converted to an array in PHP.  Consider the following YAML:</p>
-<pre><code class="yaml">discovery: 
+<pre><code class="yaml">discovery:
   - sysObjectID: foo
-  - 
+  -
     sysDescr: [ snafu, exodar ]
     sysObjectID: bar
 
@@ -2442,16 +2442,18 @@ which modules are enabled/disabled by default.</p>
 ]
 </code></pre>
 
-<p>The logic for the discovery is as follows:
-1. One of the first level items must match
-2. ALL of the second level items must match (sysObjectID, sysDescr)
-3. One of the third level items (foo, [snafu,exodar], bar) must match</p>
+<p>The logic for the discovery is as follows:</p>
+<ol>
+<li>One of the first level items must match</li>
+<li>ALL of the second level items must match (sysObjectID, sysDescr)</li>
+<li>One of the third level items (foo, [snafu,exodar], bar) must match</li>
+</ol>
 <p>So, considering the example:</p>
 <ul>
 <li><code>sysObjectID: foo, sysDescr: ANYTHING</code> matches</li>
 <li><code>sysObjectID: bar, sysDescr: ANYTHING</code> does not match</li>
-<li><code>sysObjectID: bar, sysDescr: exodar</code> matches </li>
-<li><code>sysObjectID: bar, sysDescr: snafu</code> matches </li>
+<li><code>sysObjectID: bar, sysDescr: exodar</code> matches</li>
+<li><code>sysObjectID: bar, sysDescr: snafu</code> matches</li>
 </ul>
 <h4 id="discovery-helpers">Discovery helpers</h4>
 <p>Within the discovery code base if you are using php then the following helpers are available:</p>
@@ -2462,11 +2464,8 @@ which modules are enabled/disabled by default.</p>
 </ul>
 <h3 id="poller">Poller</h3>
 <p>OS polling is done within <code>includes/polling/os/$os.inc.php</code> and is where we detect certain values.</p>
-<pre><code class="php">&lt;?php
-
-$version = preg_replace('/[\r\n\&quot;]+/', ' ', snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));
+<pre><code class="php">$version = preg_replace('/[\r\n\&quot;]+/', ' ', snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));
 $hardware = &quot;Juniper &quot; . preg_replace('/[\r\n\&quot;]+/', ' ', snmp_get($device, &quot;productName.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));
-
 </code></pre>
 
 <p><code>$version</code>: The version of the OS running on the device.</p>
@@ -2474,11 +2473,11 @@ $hardware = &quot;Juniper &quot; . preg_replace('/[\r\n\&quot;]+/', ' ', snmp_ge
 <p><code>$features</code>: Features for the device, for example a list of cards in the slots of a modular chassis.</p>
 <p><code>$serial</code>: The main serial number of the device.</p>
 <h3 id="mibs">MIBs</h3>
-<p>If the device has MIBs available and you use it in the detection then you can add these in. It is highly 
-recommended that you add mibs to a vendor specific directory. For instance HP mibs are in <code>mibs/hp</code>. Please 
+<p>If the device has MIBs available and you use it in the detection then you can add these in. It is highly
+recommended that you add mibs to a vendor specific directory. For instance HP mibs are in <code>mibs/hp</code>. Please
  ensure that these directories are specified in the yaml detection file, see <code>mib_dir</code> above.</p>
 <h3 id="icon-and-logo">Icon and Logo</h3>
-<p>It is highly recommended to use SVG images where possible, these scale and provide a nice visual image for users 
+<p>It is highly recommended to use SVG images where possible, these scale and provide a nice visual image for users
 with HiDPI screens. If you can't find SVG images then please use png.</p>
 <p>Create an SVG image of the icon and logo.  Legacy PNG bitmaps are also supported but look bad on HiDPI.</p>
 <ul>

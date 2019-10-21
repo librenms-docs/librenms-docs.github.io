@@ -2412,23 +2412,23 @@ directory. This will read composer.json and install any dependencies required.</
 <code>./scripts/pre-commit.php -p -u</code> verify they pass.</p>
 <p>To run the full suite of tests enable database and snmpsim reliant
 tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
-<h4 id="specific-os">Specific OS</h4>
+<h3 id="specific-os">Specific OS</h3>
 <p><code>./scripts/pre-commit.php -p -o osname</code></p>
-<h4 id="specific-module">Specific Module</h4>
+<h3 id="specific-module">Specific Module</h3>
 <p><code>./scripts/pre-commit.php -p -m modulename</code></p>
 <h2 id="using-snmpsim-for-testing">Using snmpsim for testing</h2>
 <p>You can run snmpsim to access test data by running
 <code>./scripts/collect-snmp-data.php --snmpsim</code></p>
 <p>You may then run snmp queries against it using the os (and variant) as
 the community and 127.1.6.1:1161 as the host.</p>
-<pre><code>snmpget -v 2c -c ios_c3560e 127.1.6.1:1161 sysDescr.0
+<pre><code class="bash">snmpget -v 2c -c ios_c3560e 127.1.6.1:1161 sysDescr.0
 </code></pre>
 
 <h2 id="snmprec-format">Snmprec format</h2>
 <p>Snmprec files are simple files that store the snmp data. The data
 format is simple with three columns: numeric oid, type code, and
 data. Here is an example snippet.</p>
-<pre><code>1.3.6.1.2.1.1.1.0|4|Pulse Secure,LLC,MAG-2600,8.0R14 (build 41869)
+<pre><code class="snmp">1.3.6.1.2.1.1.1.0|4|Pulse Secure,LLC,MAG-2600,8.0R14 (build 41869)
 1.3.6.1.2.1.1.2.0|6|1.3.6.1.4.1.12532.254.1.1
 </code></pre>
 
@@ -2505,15 +2505,13 @@ must use a variant to store your test data (-v).</p>
 <h3 id="add-initial-detection">Add initial detection</h3>
 <ol>
 <li>Add device to LibreNMS. It is generic and device_id = 42</li>
-<li>Run <code>./scripts/collect-snmp-data.php -h 42</code>, initial snmprec will
-   be created</li>
+<li>Run <code>./scripts/collect-snmp-data.php -h 42</code>, initial snmprec will be created</li>
 <li><a href="../Initial-Detection/">Add initial detection</a> for <code>example-os</code></li>
 <li>Run discovery to make sure it detects properly <code>./discovery.php -h 42</code></li>
 <li>Add any additional os items like version, hardware, features, or serial.</li>
 <li>If there is additional snmp data required, run <code>./scripts/collect-snmp-data.php -h 42</code></li>
 <li>Run <code>./scripts/save-test-data.php -o example-os</code> to update the dumped database data.</li>
-<li>Review data. If you modified the snmprec or code (don't modify json
-   manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
+<li>Review data. If you modified the snmprec or code (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
 <li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
 </ol>

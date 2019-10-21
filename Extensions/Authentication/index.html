@@ -2192,12 +2192,12 @@ that only Administrator account type can see configs.</p>
 (httpd) to connect LDAP/Active Directory server, this is disabled by
 default. You can use SELinux Booleans to allow network access to LDAP
 resources with this command:</p>
-<pre><code class="shell">setsebool -P httpd_can_connect_ldap=1
+<pre><code class="bash">setsebool -P httpd_can_connect_ldap=1
 </code></pre>
 
 <h1 id="testing-authentication">Testing authentication</h1>
 <p>You can test authentication with this script:</p>
-<pre><code class="shell">./scripts/auth_test.php
+<pre><code class="bash">./scripts/auth_test.php
 </code></pre>
 
 <p>Enable debug output to troubleshoot issues</p>

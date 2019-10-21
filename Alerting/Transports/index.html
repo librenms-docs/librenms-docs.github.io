@@ -2710,14 +2710,11 @@ entered as a new line.</p>
 </table>
 <h2 id="api">API</h2>
 <p>The API transport allows to reach any service provider using POST or GET URLs
-(Like SMS provider, etc). It can be used in multiple ways:
-- The same text built from the Alert template is available in the variable 
-<code>$msg</code>, which can then be sent as an option to the API. Be carefull that
-HTTP GET requests are usually limited in length.
-- The API-Option fields can be directly built from the variables defined in
-<a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix.
-For instance, <code>$alert-&gt;uptime</code> is available as <code>$uptime</code> in the 
-API transport</p>
+(Like SMS provider, etc). It can be used in multiple ways:</p>
+<ul>
+<li>The same text built from the Alert template is available in the variable <code>$msg</code>, which can then be sent as an option to the API. Be carefull that HTTP GET requests are usually limited in length.</li>
+<li>The API-Option fields can be directly built from the variables defined in <a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix. For instance, <code>$alert-&gt;uptime</code> is available as <code>$uptime</code> in the API transport</li>
+</ul>
 <p>A few variables commonly used :</p>
 <table>
 <thead>
@@ -2787,7 +2784,7 @@ API transport</p>
 </table>
 <p><strong>Example:</strong></p>
 <p>The example below will use the API named sms-api of my.example.com and send
-the title of the alert to the provided number using the provided service key. 
+the title of the alert to the provided number using the provided service key.
 Refer to your service documentation to configure it properly.</p>
 <table>
 <thead>
@@ -2803,7 +2800,7 @@ Refer to your service documentation to configure it properly.</p>
 </tr>
 <tr>
 <td>API URL</td>
-<td>http://my.example.com/sms-api</td>
+<td><a href="http://my.example.com/sms-api">http://my.example.com/sms-api</a></td>
 </tr>
 <tr>
 <td>API Options</td>
@@ -2835,7 +2832,7 @@ the title and text of the alert to a screen in the Network Operation Center.</p>
 </tr>
 <tr>
 <td>API URL</td>
-<td>http://my.example.com/wall-display</td>
+<td><a href="http://my.example.com/wall-display">http://my.example.com/wall-display</a></td>
 </tr>
 <tr>
 <td>API Options</td>
@@ -2973,7 +2970,7 @@ in the Discord Docs below.</p>
 <tbody>
 <tr>
 <td>Discord URL</td>
-<td>https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe</td>
+<td><a href="https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe">https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe</a></td>
 </tr>
 <tr>
 <td>Options</td>
@@ -3023,7 +3020,7 @@ tokens to authenticate with Gitlab and will store the token in cleartext.</p>
 <tbody>
 <tr>
 <td>Host</td>
-<td>http://gitlab.host.tld</td>
+<td><a href="http://gitlab.host.tld">http://gitlab.host.tld</a></td>
 </tr>
 <tr>
 <td>Project ID</td>
@@ -3053,7 +3050,7 @@ because the v2 API is still in beta.</p>
 <tbody>
 <tr>
 <td>API URL</td>
-<td>https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj</td>
+<td><a href="https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj">https://api.hipchat.com/v1/rooms/message?auth_token=109jawregoaihj</a></td>
 </tr>
 <tr>
 <td>Room ID</td>
@@ -3115,7 +3112,7 @@ LibreNMS database.</p>
 <tbody>
 <tr>
 <td>URL</td>
-<td>https://myjira.mysite.com</td>
+<td><a href="https://myjira.mysite.com">https://myjira.mysite.com</a></td>
 </tr>
 <tr>
 <td>Project Key</td>
@@ -3189,7 +3186,7 @@ API which are then posted to a specific channel.</p>
 <tbody>
 <tr>
 <td>WebHook URL</td>
-<td>https://outlook.office365.com/webhook/123456789</td>
+<td><a href="https://outlook.office365.com/webhook/123456789">https://outlook.office365.com/webhook/123456789</a></td>
 </tr>
 </tbody>
 </table>
@@ -3236,7 +3233,7 @@ integration. More detail with screenshots is available in
 <tbody>
 <tr>
 <td>WebHook URL</td>
-<td>https://url/path/to/webhook</td>
+<td><a href="https://url/path/to/webhook">https://url/path/to/webhook</a></td>
 </tr>
 </tbody>
 </table>
@@ -3253,7 +3250,7 @@ integration. More detail with screenshots is available in
 <tbody>
 <tr>
 <td>API URL</td>
-<td>http://osticket.example.com/api/http.php/tickets.json</td>
+<td><a href="http://osticket.example.com/api/http.php/tickets.json">http://osticket.example.com/api/http.php/tickets.json</a></td>
 </tr>
 <tr>
 <td>API Token</td>
@@ -3289,7 +3286,7 @@ Service you have created in the PagerDuty portal.</p>
 <h2 id="philips-hue">Philips Hue</h2>
 <p>Want to spice up your noc life? LibreNMS will flash all lights
 connected to your philips hue bridge whenever an alert is triggered.</p>
-<p>To setup, go to the you http://<code>your-bridge-ip</code>/debug/clip.html</p>
+<p>To setup, go to the you <a href="http://your-bridge-ip/debug/clip.html">http://<code>your-bridge-ip</code>/debug/clip.html</a></p>
 <ul>
 <li>Update the "URL:" field to <code>/api</code></li>
 <li>Paste this in the "Message Body" {"devicetype":"librenms"}</li>
@@ -3339,7 +3336,7 @@ documentation regarding number formatting.</p>
 <tbody>
 <tr>
 <td>PlaySMS</td>
-<td>https://localhost/index.php?app=ws</td>
+<td><a href="https://localhost/index.php?app=ws">https://localhost/index.php?app=ws</a></td>
 </tr>
 <tr>
 <td>User</td>
@@ -3459,7 +3456,7 @@ only required value is for url, without this  then no call to Slack will be made
 <tbody>
 <tr>
 <td>Webhook URL</td>
-<td>https://slack.com/url/somehook</td>
+<td><a href="https://slack.com/url/somehook">https://slack.com/url/somehook</a></td>
 </tr>
 <tr>
 <td>Slack Options</td>
@@ -3646,7 +3643,7 @@ such as librenms. I.e:</p>
 <tbody>
 <tr>
 <td>Post URL</td>
-<td>https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</td>
+<td><a href="https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms">https://alert.victorops.com/integrations/generic/20132414/alert/2f974ce1-08fc-4dg8-a4f4-9aee6cf35c98/librenms</a></td>
 </tr>
 </tbody>
 </table>
@@ -3661,7 +3658,7 @@ appropriate department and a user email to provide, which is used as
 ticket author.  To get department id: navigate to appropriate
 department name at the departments list page in Admin CP and watch the
 number at the end of url. Example:
-http://servicedesk.example.com/admin/Base/Department/Edit/17. Department
+<a href="http://servicedesk.example.com/admin/Base/Department/Edit/17">http://servicedesk.example.com/admin/Base/Department/Edit/17</a>. Department
 ID is 17</p>
 <p>As a requirement, you have to know API Url, API Key and API Secret to
 connect to servicedesk</p>
@@ -3677,7 +3674,7 @@ connect to servicedesk</p>
 <tbody>
 <tr>
 <td>Kayako URL</td>
-<td>http://servicedesk.example.com/api/</td>
+<td><a href="http://servicedesk.example.com/api/">http://servicedesk.example.com/api/</a></td>
 </tr>
 <tr>
 <td>Kayako API Key</td>

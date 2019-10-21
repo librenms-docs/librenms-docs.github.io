@@ -2140,38 +2140,40 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </blockquote>
 <p><strong>Please note the minimum supported PHP version is 7.1.3</strong></p>
 <h1 id="install-required-packages">Install Required Packages</h1>
-<pre><code>apt install software-properties-common
+<pre><code class="bash">apt install software-properties-common
 add-apt-repository universe
 apt update
 apt install curl apache2 composer fping git graphviz imagemagick libapache2-mod-php7.2 mariadb-client mariadb-server mtr-tiny nmap php7.2-cli php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
-</code></pre>
+```bash
 
-<h1 id="add-librenms-user">Add librenms user</h1>
-<pre><code>useradd librenms -d /opt/librenms -M -r
+# Add librenms user
+
+```bash
+useradd librenms -d /opt/librenms -M -r
 usermod -a -G librenms www-data
 </code></pre>
 
 <h1 id="download-librenms">Download LibreNMS</h1>
-<pre><code>cd /opt
+<pre><code class="bash">cd /opt
 git clone https://github.com/librenms/librenms.git
 </code></pre>
 
 <h1 id="set-permissions">Set permissions</h1>
-<pre><code>chown -R librenms:librenms /opt/librenms
+<pre><code class="bash">chown -R librenms:librenms /opt/librenms
 chmod 770 /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 </code></pre>
 
 <h1 id="install-php-dependencies">Install PHP dependencies</h1>
-<pre><code>su - librenms
+<pre><code class="bash">su - librenms
 ./scripts/composer_wrapper.php install --no-dev
 exit
 </code></pre>
 
 <h1 id="db-server">DB Server</h1>
 <h2 id="configure-mysql">Configure MySQL</h2>
-<pre><code>systemctl restart mysql
+<pre><code class="bash">systemctl restart mysql
 mysql -uroot -p
 </code></pre>
 
@@ -2185,7 +2187,7 @@ FLUSH PRIVILEGES;
 exit
 </code></pre>
 
-<pre><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
+<pre><code class="bash">vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre>
 
 <p>Within the <code>[mysqld]</code> section please add:</p>
@@ -2193,7 +2195,7 @@ exit
 lower_case_table_names=0
 </code></pre>
 
-<pre><code>systemctl restart mysql
+<pre><code class="bash">systemctl restart mysql
 </code></pre>
 
 <h1 id="web-server">Web Server</h1>
@@ -2202,15 +2204,16 @@ lower_case_table_names=0
 See <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> for a list of supported
 timezones.  Valid examples are: "America/New_York",
 "Australia/Brisbane", "Etc/UTC".</p>
-<pre><code>vi /etc/php/7.2/apache2/php.ini
+<pre><code class="bash">vi /etc/php/7.2/apache2/php.ini
 vi /etc/php/7.2/cli/php.ini
 
 a2enmod php7.2
 a2dismod mpm_event
 a2enmod mpm_prefork
 </code></pre>
+
 <h2 id="configure-apache">Configure Apache</h2>
-<pre><code>vi /etc/apache2/sites-available/librenms.conf
+<pre><code class="bash">vi /etc/apache2/sites-available/librenms.conf
 </code></pre>
 
 <p>Add the following config, edit <code>ServerName</code> as required:</p>
@@ -2232,24 +2235,24 @@ a2enmod mpm_prefork
 should be :)) then you will need to disable the default
 site. <code>a2dissite 000-default</code></p>
 </blockquote>
-<pre><code>a2ensite librenms.conf
+<pre><code class="bash">a2ensite librenms.conf
 a2enmod rewrite
 systemctl restart apache2
 </code></pre>
 
 <h1 id="configure-snmpd">Configure snmpd</h1>
-<pre><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+<pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 vi /etc/snmp/snmpd.conf
 </code></pre>
 
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
-<pre><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+<pre><code class="bash">curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
 systemctl restart snmpd
 </code></pre>
 
 <h1 id="cron-job">Cron job</h1>
-<pre><code>cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
+<pre><code class="bash">cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
 </code></pre>
 
 <blockquote>
@@ -2265,7 +2268,7 @@ finished librenms install steps:
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can
 become large and be rotated out.  To rotate out the old logs you can
 use the provided logrotate config file:</p>
-<pre><code>cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
+<pre><code class="bash">cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 </code></pre>
 
 <h1 id="web-installer">Web installer</h1>
@@ -2278,7 +2281,7 @@ your librenms install location manually, copying the content displayed
 on-screen to the file. If you have to do this, please remember to set
 the permissions on config.php after you copied the on-screen contents
 to the file. Run:</p>
-<pre><code>chown librenms:librenms /opt/librenms/config.php
+<pre><code class="bash">chown librenms:librenms /opt/librenms/config.php
 </code></pre>
 
 <h1 id="final-steps">Final steps</h1>
@@ -2293,7 +2296,7 @@ steps.</p>
 <h1 id="troubleshooting">Troubleshooting</h1>
 <p>If you ever have issues with your install, run validate.php as root in
 the librenms directory:</p>
-<pre><code>cd /opt/librenms
+<pre><code class="bash">cd /opt/librenms
 ./validate.php
 </code></pre>
 

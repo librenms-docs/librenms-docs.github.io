@@ -2412,7 +2412,7 @@ which may be mounted as <code>/storage</code> you can specify:</p>
 <p>Or</p>
 <p><code>disk /storage</code></p>
 <p>Restart snmpd and LibreNMS should populate the additional disk after a fresh discovery.</p>
-<h4 id="why-are-my-disks-reporting-an-incorrect-size"><a name="faq27"> Why are my disks reporting an incorrect size?</a></h4>
+<h3 id="why-are-my-disks-reporting-an-incorrect-size"><a name="faq27"> Why are my disks reporting an incorrect size?</a></h3>
 <p>There is a known issue for net-snmp, which causes it to report
 incorrect disk size and disk usage when the size of the disk (or raid)
 are larger then 16TB, a workaround has been implemented but is not
@@ -2588,14 +2588,16 @@ new template syntax:
 syntax changed, and you basically need to convert your templates to
 this new syntax (including the titles).</p>
 <h2 id="how-do-i-use-trend-prediction-in-graphs"><a name='how-do-i-use-trend-prediction-in-graphs'>How do I use trend prediction in graphs</a></h2>
-<p>As of <a href="https://community.librenms.org/t/v1-55-release-changelog-august-2019/9428">Ver. 1.55</a> a new feature has been added where you can view a simple linear prediction in port graphs. </p>
+<p>As of <a href="https://community.librenms.org/t/v1-55-release-changelog-august-2019/9428">Ver. 1.55</a> a new feature has been added where you can view a simple linear prediction in port graphs.</p>
 <blockquote>
 <p>It doesn't work on non-port graphs or consolidated graphs at the time this FAQ entry was written.</p>
 </blockquote>
-<p>To view a prediction:
-- Click on any <code>port</code> graph of any network device
-- Select a <code>From</code> date to your liking (not earlier than the device was actually added to LNMS), and then select a future date in the <code>To</code> field. 
-- Click update</p>
+<p>To view a prediction:</p>
+<ul>
+<li>Click on any <code>port</code> graph of any network device</li>
+<li>Select a <code>From</code> date to your liking (not earlier than the device was actually added to LNMS), and then select a future date in the <code>To</code> field.</li>
+<li>Click update</li>
+</ul>
 <p>You should now see a linear prediction line on the graph.</p>
                 
                   

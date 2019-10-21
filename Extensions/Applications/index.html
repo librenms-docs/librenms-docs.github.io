@@ -2433,7 +2433,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="bind9-aka-named">BIND9 aka named</h1>
 <p>1: Create stats file with appropriate permissions:</p>
-<pre><code class="shell">~$ touch /var/run/named/stats
+<pre><code class="bash">~$ touch /var/run/named/stats
 ~$ chown bind:bind /var/run/named/stats
 </code></pre>
 
@@ -3327,12 +3327,12 @@ tinydns. And that your tinydns instance is located in <code>/service/dns</code>,
 adjust this path if necessary.</p>
 <p>1: Replace your <em>log</em>'s <code>run</code> file, typically located in
    <code>/service/dns/log/run</code> with:</p>
-<pre><code class="shell">#!/bin/sh
+<pre><code class="bash">#!/bin/sh
 exec setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
 </code></pre>
 
 <p>2: Create tinystats directory and chown:</p>
-<pre><code class="shell">mkdir /service/dns/log/main/tinystats
+<pre><code class="bash">mkdir /service/dns/log/main/tinystats
 chown dnslog:nofiles /service/dns/log/main/tinystats
 </code></pre>
 

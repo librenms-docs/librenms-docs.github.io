@@ -2218,10 +2218,10 @@
                 
                 
                 <h1 id="creating-a-new-transport">Creating a new Transport</h1>
-<h3 id="file-location">File location</h3>
+<h2 id="file-location">File location</h2>
 <p>All transports are located in <code>LibreNMS\Alert\Transport</code> and the files
 are named after the Transport name. I.e <code>Discord.php</code> for Discord.</p>
-<h3 id="transport-structure">Transport structure</h3>
+<h2 id="transport-structure">Transport structure</h2>
 <p>The following functions are required for a new transport to pass the unit tests:</p>
 <p><code>deliverAlert()</code> - This is function called within alerts to invoke the
 transport. Here you should do any post processing of the transport
@@ -2235,17 +2235,29 @@ the transport config in the webui and then what data should be
 validated and how. Validation is done using <a href="https://laravel.com/docs/5.7/validation">Laravel validation</a></p>
 <p>The following function is <strong>not</strong> required for new Transports and is
 for legacy reasons only. <code>deliverAlertOld()</code>.</p>
-<h3 id="documentation">Documentation</h3>
+<h2 id="documentation">Documentation</h2>
 <p>Please don't forget to update the <a href="../Transports/">Transport</a> file to
 include details of your new transport.</p>
 <p>A table should be provided to indicate the form values that we ask for
 and examples. I.e:</p>
-<pre><code>**Example:**
-Config | Example
------- | -------
-Discord URL | https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe
-Options | username=myname
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discord URL</td>
+<td><a href="https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe">https://discordapp.com/api/webhooks/4515489001665127664/82-sf4385ysuhfn34u2fhfsdePGLrg8K7cP9wl553Fg6OlZuuxJGaa1d54fe</a></td>
+</tr>
+<tr>
+<td>Options</td>
+<td>username=myname</td>
+</tr>
+</tbody>
+</table>
                 
                   
                     <h2 id="__source">Source</h2>

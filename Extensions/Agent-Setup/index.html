@@ -2126,7 +2126,7 @@ Polling</a>
 setup.</p>
 <p>On each of the hosts you would like to use the agent on, you need to do the following:</p>
 <p>1: Clone the <code>librenms-agent</code> repository:</p>
-<pre><code class="shell">cd /opt/
+<pre><code class="bash">cd /opt/
 git clone https://github.com/librenms/librenms-agent.git
 cd librenms-agent
 </code></pre>
@@ -2146,7 +2146,7 @@ cd librenms-agent
 </tr>
 </tbody>
 </table>
-<pre><code class="shell">chmod +x /usr/bin/check_mk_agent
+<pre><code class="bash">chmod +x /usr/bin/check_mk_agent
 </code></pre>
 
 <p>3: Copy the service file(s) into place.</p>
@@ -2165,7 +2165,7 @@ cd librenms-agent
 </tbody>
 </table>
 <p>4: Create the relevant directories.</p>
-<pre><code class="shell">mkdir -p /usr/lib/check_mk_agent/plugins /usr/lib/check_mk_agent/local
+<pre><code class="bash">mkdir -p /usr/lib/check_mk_agent/plugins /usr/lib/check_mk_agent/local
 </code></pre>
 
 <p>5: Copy each of the scripts from <code>agent-local/</code> into

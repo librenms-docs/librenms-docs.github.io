@@ -2192,32 +2192,32 @@ use <code>localhost</code>.</p>
 <p>If you are deploying a separate database server, you need to change
 the <code>bind-address</code>.  If your MySQL database resides on the same server
 as LibreNMS, you should skip this step.</p>
-<pre><code>vim /etc/mysql/my.cnf
+<pre><code class="bash">vim /etc/mysql/my.cnf
 </code></pre>
 
 <p>Within the [mysqld] section please add:</p>
-<pre><code>innodb_file_per_table=1
+<pre><code class="mysql">innodb_file_per_table=1
 </code></pre>
 
 <p>Find the line: <code>bind-address = 127.0.0.1</code></p>
 <p>Change <code>127.0.0.1</code> to the IP address that your MySQL server should
 listen on.  Restart MySQL:</p>
 <p>If you see a line that starts <code>sql-mode</code> then change this to <code>sql-mode=""</code>.</p>
-<pre><code>service mysql restart
+<pre><code class="bash">service mysql restart
 </code></pre>
 
 <h1 id="on-the-nms">On the NMS</h1>
 <p>This host is where the web server and SNMP poller run.  It could be
 the same machine as your database server.</p>
 <p>Install the required software:</p>
-<pre><code>apt-get install nginx-full php5-fpm php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl php5-mcrypt php5-json php-net-ipv4 php-net-ipv6 snmp snmpd graphviz fping imagemagick whois mtr-tiny nmap python-mysqldb rrdtool git
+<pre><code class="bash">apt-get install nginx-full php5-fpm php5-cli php5-mysql php5-gd php5-snmp php-pear php5-curl php5-mcrypt php5-json php-net-ipv4 php-net-ipv6 snmp snmpd graphviz fping imagemagick whois mtr-tiny nmap python-mysqldb rrdtool git
 </code></pre>
 
 <p>The packages listed above are an all-inclusive list of packages that
 were necessary on a clean install of Ubuntu 12.04/14.04.</p>
 <p>You need to configure snmpd appropriately if you have not already done
 so.  An absolute minimal config for snmpd is:</p>
-<pre><code>    rocommunity public 127.0.0.1
+<pre><code class="snmp">    rocommunity public 127.0.0.1
 </code></pre>
 
 <p>Adding the above line to <code>/etc/snmp/snmpd.conf</code> and running <code>service
@@ -2230,8 +2230,8 @@ Please also ensure that <code>allow_url_fopen</code> is enabled. Other functions
 needed for LibreNMS include
 <code>exec,passthru,shell_exec,escapeshellarg,escapeshellcmd,proc_close,proc_open,popen</code>.</p>
 <h1 id="adding-the-librenms-user">Adding the librenms-user</h1>
-<pre><code>    useradd librenms -d /opt/librenms -M -r
-    usermod -a -G librenms www-data
+<pre><code class="bash">useradd librenms -d /opt/librenms -M -r
+usermod -a -G librenms www-data
 </code></pre>
 
 <h1 id="cloning">Cloning</h1>
@@ -2242,7 +2242,7 @@ updates are done through <code>git pull</code>.</p>
 <p>You can clone the repository via HTTPS or SSH.  In either case, you
 need to ensure that the appropriate port (443 for HTTPS, 22 for SSH)
 is open in the outbound direction for your server.</p>
-<pre><code>cd /opt
+<pre><code class="bash">cd /opt
 git clone https://github.com/librenms/librenms.git librenms
 cd /opt/librenms
 </code></pre>
@@ -2258,7 +2258,7 @@ limitations (namely that you can't use it as the basis for further git
 repos), but if you're not planning to develop for LibreNMS it's an
 acceptable option.  To perform the initial clone without full history,
 run the following instead:</p>
-<pre><code>cd /opt
+<pre><code class="bash">cd /opt
 git clone --depth 1 https://github.com/librenms/librenms.git librenms
 cd /opt/librenms
 </code></pre>
@@ -2267,10 +2267,11 @@ cd /opt/librenms
 <p>To prepare the web interface (and adding devices shortly), you'll need
 to create and chown a directory as well as create a Nginx vhost.</p>
 <p>First, create and chown the <code>rrd</code> directory and create the <code>logs</code> directory:</p>
-<pre><code>mkdir rrd logs
+<pre><code class="bash">mkdir rrd logs
 chown -R librenms:librenms /opt/librenms
 chmod 775 rrd
 </code></pre>
+
 <blockquote>
 <p>NOTE: If you're not running Ubuntu or Debian, you will need to
 change <code>www-data</code> to the user and group which run the Nginx web
@@ -2310,18 +2311,18 @@ with the following content:</p>
 <p>On at least Ubuntu 14.04 (and possibly other distributions and
 versions as well), mcrypt is not enabled on install.  Run the
 following to enable it:</p>
-<pre><code>php5enmod mcrypt
+<pre><code class="bash">php5enmod mcrypt
 </code></pre>
 
 <p>(To get to your LibreNMS install externally, you'll also need add it
 to your DNS or hosts file.)</p>
 <h1 id="start-the-web-server">Start the web-server</h1>
 <p>Restart nginx:</p>
-<pre><code>service nginx restart
+<pre><code class="bashg">service nginx restart
 </code></pre>
 
 <p>Restart php5-fpm:</p>
-<pre><code>service php5-fpm restart
+<pre><code class="bash">service php5-fpm restart
 </code></pre>
 
 <h1 id="manual-vs-web-installer">Manual vs. web installer</h1>
@@ -2330,7 +2331,7 @@ to your DNS or hosts file.)</p>
 instructions then skip to the 'Add localhost' section. Alternatively
 if you want to continue the setup manually then just keep following
 these instructions.</p>
-<pre><code>cp config.php.default config.php
+<pre><code class="bash">cp config.php.default config.php
 vim config.php
 </code></pre>
 
@@ -2344,24 +2345,24 @@ newlines, spaces, tabs, etc) outside of the <code>&lt;?php?&gt;</code> blocks. Y
 graphs will break otherwise. </strong></p>
 <h1 id="initialise-the-database">Initialise the database</h1>
 <p>Initiate the follow database with the following command:</p>
-<pre><code>php build-base.php
+<pre><code class="bash">php build-base.php
 </code></pre>
 
 <h1 id="create-admin-user">Create admin user</h1>
 <p>Create the admin user - priv should be 10</p>
-<pre><code>php adduser.php &lt;name&gt; &lt;pass&gt; 10 &lt;email&gt;
+<pre><code class="bash">php adduser.php &lt;name&gt; &lt;pass&gt; 10 &lt;email&gt;
 </code></pre>
 
 <p>Substitute your desired username, password and email address--and
 leave the angled brackets off.</p>
 <h1 id="validate-your-install">Validate your install</h1>
 <p>Run validate.php as root in the librenms directory</p>
-<pre><code>php validate.php
+<pre><code class="bash">php validate.php
 </code></pre>
 
 <p>This will check your install to verify it is set up correctly.</p>
 <h1 id="add-localhost">Add localhost</h1>
-<pre><code>php addhost.php localhost public v2c
+<pre><code class="bash">php addhost.php localhost public v2c
 </code></pre>
 
 <p>This assumes you haven't made community changes--if you have, replace
@@ -2369,7 +2370,7 @@ leave the angled brackets off.</p>
 using v3, there are additional steps (NOTE: instructions for SNMPv3 to
 come).</p>
 <p>Discover localhost::</p>
-<pre><code>php discovery.php -h all
+<pre><code class="bash">php discovery.php -h all
 </code></pre>
 
 <h1 id="create-cronjob">Create cronjob</h1>
@@ -2379,11 +2380,11 @@ recommendation is to use 4 threads per core as a rule of thumb.  If
 the thread count needs to be changed, you can do so by editing the
 cron file (<code>/etc/cron.d/librenms</code>).  Just add a number after
 <code>poller-wrapper.py</code>, as in the example below:</p>
-<pre><code>/opt/librenms/poller-wrapper.py 12 &gt;&gt; /dev/null 2&gt;&amp;1
+<pre><code class="bash">/opt/librenms/poller-wrapper.py 12 &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
 
 <p>Create the cronjob</p>
-<pre><code>cp librenms.nonroot.cron /etc/cron.d/librenms
+<pre><code class="bash">cp librenms.nonroot.cron /etc/cron.d/librenms
 </code></pre>
 
 <blockquote>
@@ -2399,7 +2400,7 @@ finished librenms install steps:
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can
 become large and be rotated out.  To rotate out the old logs you can
 use the provided logrotate config file:</p>
-<pre><code>cp misc/librenms.logrotate /etc/logrotate.d/librenms
+<pre><code class="bash">cp misc/librenms.logrotate /etc/logrotate.d/librenms
 </code></pre>
 
 <h1 id="daily-updates">Daily Updates</h1>
@@ -2407,11 +2408,11 @@ use the provided logrotate config file:</p>
 every day, a <code>git pull --no-edit --quiet</code> is performed.  You can
 override this default by editing your <code>config.php</code> file.  Remove the
 comment (the <code>#</code> mark) on the line:</p>
-<pre><code>#$config['update'] = 0;
+<pre><code class="php">#$config['update'] = 0;
 </code></pre>
 
 <p>so that it looks like this:</p>
-<pre><code>$config['update'] = 0;
+<pre><code class="php">$config['update'] = 0;
 </code></pre>
 
 <h1 id="install-complete">Install complete</h1>

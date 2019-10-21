@@ -2165,15 +2165,13 @@
                 
                 
                 <h1 id="templates">Templates</h1>
-<p>Templates can be assigned to a single or a group of rules and can contain any kind of text. There is also a default template which is used for any rule that isn't associated with a template. This template can be found under <code>Alert Templates</code> page and can be edited. It also has an option revert it back to its default content. </p>
+<p>Templates can be assigned to a single or a group of rules and can contain any kind of text. There is also a default template which is used for any rule that isn't associated with a template. This template can be found under <code>Alert Templates</code> page and can be edited. It also has an option revert it back to its default content.</p>
 <p>The template-parser understands <code>if</code> and <code>foreach</code> controls and replaces certain placeholders with information gathered about the alert.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Controls:</p>
 <ul>
-<li>if-else (Else can be omitted):
-<code>{if %placeholder == value}Some Text{else}Other Text{/if}</code></li>
-<li>foreach-loop:
-<code>{foreach %faults}Key: %key&lt;br/&gt;Value: %value{/foreach}</code></li>
+<li>if-else (Else can be omitted): <code>{if %placeholder == value}Some Text{else}Other Text{/if}</code></li>
+<li>foreach-loop: <code>{foreach %faults}Key: %key&lt;br/&gt;Value: %value{/foreach}</code></li>
 </ul>
 <p>Placeholders:</p>
 <p>Placeholders are special variables that if used within the template will be replaced with the relevant data, I.e:</p>
@@ -2184,7 +2182,7 @@
 <li>sysName of the Device: <code>%sysName</code></li>
 <li>sysDescr of the Device: <code>%sysDescr</code></li>
 <li>hardware of the Device: <code>%hardware</code></li>
-<li>Software version of the Device: <code>%version</code> </li>
+<li>Software version of the Device: <code>%version</code></li>
 <li>location of the Device: <code>%location</code></li>
 <li>uptime of the Device (in seconds): <code>%uptime</code></li>
 <li>short uptime of the Device (28d 22h 30m 7s): <code>%uptime_short</code></li>
@@ -2260,7 +2258,7 @@ Outbound Utilization: {calc ((%value.ifOutOctets_rate*8)/%value.ifSpeed)*100}%
 %title
 
 Device Name: %hostname
-Severity: %severity 
+Severity: %severity
 Uptime: %uptime_short
 {if %state == 0}Time elapsed: %elapsed{/if}
 Timestamp: %timestamp
@@ -2278,7 +2276,7 @@ Server: %sysName {foreach %faults}Mount Point: %value.storage_descr Percent Util
 %title
 
 Device Name: %hostname
-Severity: %severity 
+Severity: %severity
 Timestamp: %timestamp
 Uptime: %uptime_short
 {if %state == 0}Time elapsed: %elapsed{/if}
@@ -2304,7 +2302,7 @@ High Temperature Limit: %value.sensor_limit°C
 %title
 
 Device Name: %hostname
-Severity: %severity 
+Severity: %severity
 Timestamp: %timestamp
 Uptime: %uptime_short
 {if %state == 0}Time elapsed: %elapsed{/if}
@@ -2329,7 +2327,7 @@ Limit: %value.sensor_limit
 <pre><code class="text">%title
 
 Device Name: %hostname
-Severity: %severity 
+Severity: %severity
 Uptime: %uptime_short
 {if %state == 0}Time elapsed: %elapsed{/if}
 Timestamp: %timestamp
@@ -2338,7 +2336,7 @@ Description: %description
 Notes: %notes
 
 Server: %hostname {foreach %faults}
-Memory Description: %value.mempool_descr 
+Memory Description: %value.mempool_descr
 Percent Utilized: %value.mempool_perc{/foreach}
 </code></pre>
 
@@ -2353,7 +2351,7 @@ Percent Utilized: %value.mempool_perc{/foreach}
 <h2 id="examples-html">Examples HTML</h2>
 <p>Note: To use HTML emails you must set HTML email to Yes in the WebUI under Global Settings &gt; Alerting Settings &gt; Email transport &gt; Use HTML emails</p>
 <p>Note: To include Graphs you must enable unauthorized graphs in config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
-<pre><code>$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');  
+<pre><code>$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');
 $config['allow_unauth_graphs'] = true;
 </code></pre>
 
@@ -2368,11 +2366,11 @@ $config['allow_unauth_graphs'] = true;
 &lt;b&gt;Duration:&lt;/b&gt; %elapsed&lt;br&gt;
 &lt;br&gt;
 
-{if %faults}                                                                                       
-{foreach %faults}&lt;b&gt;%value.service_desc - %value.service_type&lt;/b&gt;&lt;br&gt;                                         
+{if %faults}
+{foreach %faults}&lt;b&gt;%value.service_desc - %value.service_type&lt;/b&gt;&lt;br&gt;
 %value.service_message&lt;br&gt;
-&lt;br&gt;                                                                                         
-{/foreach}                                                                                                             
+&lt;br&gt;
+{/foreach}
 {/if}
 &lt;/div&gt;
 </code></pre>
@@ -2398,7 +2396,7 @@ Template: CPU alert &lt;br&gt;
 </code></pre>
 
 <h2 id="included">Included</h2>
-<p>We include a few templates for you to use, these are specific to the type of alert rules you are creating. For example if you create a rule that would alert on BGP sessions then you can 
+<p>We include a few templates for you to use, these are specific to the type of alert rules you are creating. For example if you create a rule that would alert on BGP sessions then you can
 assign the BGP template to this rule to provide more information.</p>
 <p>The included templates apart from the default template are:</p>
 <ul>
