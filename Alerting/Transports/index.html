@@ -2709,11 +2709,18 @@ entered as a new line.</p>
 </tbody>
 </table>
 <h2 id="api">API</h2>
-<p>The API transport allows to reach any service provider using POST or GET URLs
+<p>The API transport allows to reach any service provider using POST, PUT or GET URLs
 (Like SMS provider, etc). It can be used in multiple ways:</p>
 <ul>
-<li>The same text built from the Alert template is available in the variable <code>$msg</code>, which can then be sent as an option to the API. Be carefull that HTTP GET requests are usually limited in length.</li>
-<li>The API-Option fields can be directly built from the variables defined in <a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix. For instance, <code>$alert-&gt;uptime</code> is available as <code>$uptime</code> in the API transport</li>
+<li>The same text built from the Alert template is available in the variable
+<code>$msg</code>, which can then be sent as an option to the API. Be carefull that
+HTTP GET requests are usually limited in length.</li>
+<li>The API-Option fields can be directly built from the variables defined in
+<a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix.
+For instance, <code>$alert-&gt;uptime</code> is available as <code>$uptime</code> in the
+API transport</li>
+<li>The API-Headers allows you to add the headers that the api endpoint requires.</li>
+<li>The API-body allow sending data in the format required by the ApI endpoint.</li>
 </ul>
 <p>A few variables commonly used :</p>
 <table>
@@ -2837,6 +2844,37 @@ the title and text of the alert to a screen in the Network Operation Center.</p>
 <tr>
 <td>API Options</td>
 <td>title={{ $title }} <br/> msg={{ $msg }}</td>
+</tr>
+</tbody>
+</table>
+<p>The example below will use the API named component of my.example.com with id 1, body as json status value and headers send token authentication and content type required.</p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Method</td>
+<td>PUT</td>
+</tr>
+<tr>
+<td>API URL</td>
+<td>http://my.example.com/comonent/1</td>
+</tr>
+<tr>
+<td>API Headers</td>
+<td>X-Token=HASH</td>
+</tr>
+<tr>
+<td></td>
+<td>Content-Type=application/json</td>
+</tr>
+<tr>
+<td>API Body</td>
+<td>{ "status": 2 }</td>
 </tr>
 </tbody>
 </table>
