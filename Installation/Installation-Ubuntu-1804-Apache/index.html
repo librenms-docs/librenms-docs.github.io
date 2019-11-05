@@ -2144,12 +2144,10 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 add-apt-repository universe
 apt update
 apt install curl apache2 composer fping git graphviz imagemagick libapache2-mod-php7.2 mariadb-client mariadb-server mtr-tiny nmap php7.2-cli php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
-```bash
+</code></pre>
 
-# Add librenms user
-
-```bash
-useradd librenms -d /opt/librenms -M -r
+<h1 id="add-librenms-user">Add librenms user</h1>
+<pre><code class="bash">useradd librenms -d /opt/librenms -M -r
 usermod -a -G librenms www-data
 </code></pre>
 
