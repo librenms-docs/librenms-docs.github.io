@@ -1224,6 +1224,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add_devicegroup" class="md-nav__link">
+    add_devicegroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_devices_by_group" class="md-nav__link">
     get_devices_by_group
   </a>
@@ -2166,6 +2173,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add_devicegroup" class="md-nav__link">
+    add_devicegroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_devices_by_group" class="md-nav__link">
     get_devices_by_group
   </a>
@@ -2224,6 +2238,54 @@
         ]
     }
 ]
+</code></pre>
+
+<h3 id="add_devicegroup"><code>add_devicegroup</code></h3>
+<p>Add a new device group. Upon success, the ID of the new device group is returned
+and the HTTP response code is <code>201</code>.</p>
+<p>Route: <code>/api/v0/devicegroups</code></p>
+<p>Input (JSON):</p>
+<ul>
+<li><code>name</code>: <em>required</em> - The name of the device group</li>
+<li><code>type</code>: <em>required</em> - should be <code>static</code> or <code>dynamic</code>. Setting this to static
+  requires that the devices input be provided</li>
+<li><code>desc</code>: <em>optional</em> - Description of the device group</li>
+<li><code>rules</code>: <em>required if type == dynamic</em> - A set of rules to determine which
+  devices should be included in this device group</li>
+<li><code>devices</code>: <em>required if type == static</em> - A list of devices that should be
+  included in this group. This is a static list of devices</li>
+</ul>
+<p>Examples:</p>
+<p>Dynamic Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' \
+  -d '{&quot;name&quot;: &quot;New Device Group&quot;, \
+       &quot;desc&quot;: &quot;A very fancy dynamic group&quot;, \
+       &quot;type&quot;: &quot;dynamic&quot;,
+       &quot;rules&quot;: &quot;{\&quot;condition\&quot;:\&quot;AND\&quot;,\&quot;rules\&quot;:[{\&quot;id\&quot;:\&quot;access_points.name\&quot;,\&quot;field\&quot;:\&quot;access_points.name\&quot;,\&quot;type\&quot;:\&quot;string\&quot;,\&quot;input\&quot;:\&quot;text\&quot;,\&quot;operator\&quot;:\&quot;equal\&quot;,\&quot;value\&quot;:\&quot;accesspoint1\&quot;}],\&quot;valid\&quot;:true}&quot;}' \
+  https://librenms.org/api/v0/devicegroups
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;id&quot;: 86,
+    &quot;message&quot;: &quot;Device group New Device Group created&quot;
+}
+</code></pre>
+
+<p>Static Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' \
+  -X POST \
+  -d '{&quot;name&quot;:&quot;New Device Group&quot;,&quot;type&quot;:&quot;static&quot;,&quot;devices&quot;:[261,271]}' \
+  https://librenms.org/api/v0/devicegroups
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;id&quot;: 86,
+    &quot;message&quot;: &quot;Device group New Device Group created&quot;
+}
 </code></pre>
 
 <h3 id="get_devices_by_group"><code>get_devices_by_group</code></h3>
