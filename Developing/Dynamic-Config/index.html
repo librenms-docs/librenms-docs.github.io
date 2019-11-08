@@ -2201,9 +2201,9 @@ If the user is overriding the option in config.php it would use the format <code
 <h2 id="translation">Translation</h2>
 <p>The config definition system inherently supports translation. You must add the English names in the 
 <code>resoures/lang/en/settings.php</code> file (and other languages if you can).</p>
-<pre><code>Note: Right now the Vue.js translation is a little cumbersome.  First you need to update the language
-files, then run `./lnms vue-i18n:generate`, run `npm run development` or `npm run watch`, then hard refresh your web
-page.
+<p>To update the javascript translation files, run:</p>
+<pre><code>./lnms vue-i18n:generate --multi-locales --format=umd
+npm run production
 </code></pre>
 <h1 id="definition-format">Definition Format</h1>
 <p>For snmp.community, this is the definition:</p>
