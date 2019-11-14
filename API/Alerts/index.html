@@ -2529,13 +2529,16 @@
 <li>delay: Delay is when to start alerting and how frequently. The value
   is stored in seconds but you can specify minutes, hours or days by
   doing 5 m, 5 h, 5 d for each one.</li>
+<li>interval: How often to re-issue notifications while this alert is active,0 means notify once.The value
+  is stored in seconds but you can specify minutes, hours or days by
+  doing 5 m, 5 h, 5 d for each one.</li>
 <li>mute: If mute is enabled then an alert will never be sent but will
   show up in the Web UI (true or false).</li>
 <li>invert: This would invert the rules check.</li>
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X POST -d '{&quot;devices&quot;:[1,2,3], &quot;name&quot;: &quot;testrule&quot;, &quot;builder&quot;:{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;id&quot;:&quot;devices.hostname&quot;,&quot;field&quot;:&quot;devices.hostname&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;localhost&quot;}],&quot;valid&quot;:true},&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+<pre><code class="curl">curl -X POST -d '{&quot;devices&quot;:[1,2,3], &quot;name&quot;: &quot;testrule&quot;, &quot;builder&quot;:{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;id&quot;:&quot;devices.hostname&quot;,&quot;field&quot;:&quot;devices.hostname&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;localhost&quot;}],&quot;valid&quot;:true},&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;interval&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
 </code></pre>
 
 <p>Output:</p>
@@ -2562,13 +2565,16 @@
 <li>delay: Delay is when to start alerting and how frequently. The value
   is stored in seconds but you can specify minutes, hours or days by
   doing 5 m, 5 h, 5 d for each one.</li>
+<li>interval: How often to re-issue notifications while this alert is active,0 means notify once.The value
+  is stored in seconds but you can specify minutes, hours or days by
+  doing 5 m, 5 h, 5 d for each one.</li>
 <li>mute: If mute is enabled then an alert will never be sent but will
   show up in the Web UI (true or false).</li>
 <li>invert: This would invert the rules check.</li>
 <li>name: This is the name of the rule and is mandatory.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;name&quot;: &quot;testrule&quot;, &quot;builder&quot;:&quot;{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;id&quot;:&quot;devices.hostname&quot;,&quot;field&quot;:&quot;devices.hostname&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;localhost&quot;}],&quot;valid&quot;:true}&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+<pre><code class="curl">curl -X PUT -d '{&quot;rule_id&quot;:1,&quot;device_id&quot;:&quot;-1&quot;, &quot;name&quot;: &quot;testrule&quot;, &quot;builder&quot;:&quot;{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;id&quot;:&quot;devices.hostname&quot;,&quot;field&quot;:&quot;devices.hostname&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;localhost&quot;}],&quot;valid&quot;:true}&quot;,&quot;severity&quot;: &quot;critical&quot;,&quot;count&quot;:15,&quot;delay&quot;:&quot;5 m&quot;,&quot;interval&quot;:&quot;5 m&quot;,&quot;mute&quot;:false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
 </code></pre>
 
 <p>Output:</p>
