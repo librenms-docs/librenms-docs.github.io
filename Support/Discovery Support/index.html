@@ -2299,7 +2299,9 @@ configured to be ignored by config options.</p>
 <p><code>cisco-vrf-lite</code>: VRF-Lite detection and support.</p>
 <p><code>ipv4-addresses</code>: IPv4 Address detection</p>
 <p><code>ipv6-addresses</code>: IPv6 Address detection</p>
-<p><code>route</code>: Route detection</p>
+<p><code>route</code>: This module will load the routing table of the device. The default route
+ limit is 1000 (configurable in config.php with
+ <code>$config['routes']['max_number'] = 1000;</code>), with history data.</p>
 <p><code>sensors</code>: Sensor detection such as Temperature, Humidity, Voltages + More</p>
 <p><code>storage</code>: Storage detection for hard disks</p>
 <p><code>hr-device</code>: Processor and Memory support via HOST-RESOURCES-MIB.</p>
