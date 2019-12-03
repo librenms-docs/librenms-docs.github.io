@@ -2248,25 +2248,17 @@ Processor for your new device.</p>
 and the other for polling:</p>
 <p><code>includes/discovery/mempools/pulse.inc.php</code></p>
 <pre><code class="php">&lt;?php
-
-if ($device['os'] === 'pulse') {
-    echo 'PULSE-MEMORY-POOL: ';
-
-    $usage = str_replace('&quot;', &quot;&quot;, snmp_get($device, 'iveMemoryUtil.0', '-OvQ', 'PULSESECURE-PSG-MIB'));
-
-    if (is_numeric($usage)) {
-        discover_mempool($valid_mempool, $device, 0, 'pulse-mem', 'Main Memory', '100', null, null);
-    }
+echo 'PULSE-MEMORY-POOL: ';
+$usage = str_replace('&quot;', &quot;&quot;, snmp_get($device, 'iveMemoryUtil.0', '-OvQ', 'PULSESECURE-PSG-MIB'));
+if (is_numeric($usage)) {
+    discover_mempool($valid_mempool, $device, 0, 'pulse-mem', 'Main Memory', '100', null, null);
 }
 </code></pre>
 
 <p><code>includes/polling/mempools/pulse.inc.php</code></p>
 <pre><code class="php">&lt;?php
-
 echo 'Pulse Secure MemPool\n';
-
 $perc = str_replace('&quot;', &quot;&quot;, snmp_get($device, &quot;iveMemoryUtil.0&quot;, '-OvQ', 'PULSESECURE-PSG-MIB'));
-
 if (is_numeric($perc)) {
     $memory_available = str_replace('&quot;', &quot;&quot;, snmp_get($device, &quot;memTotalReal.0&quot;, '-OvQ', 'UCD-SNMP-MIB'));
     $mempool['total'] = $memory_available;
