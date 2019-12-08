@@ -1393,6 +1393,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get_oxidized_config" class="md-nav__link">
+    get_oxidized_config
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2522,6 +2529,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get_oxidized_config" class="md-nav__link">
+    get_oxidized_config
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -3519,7 +3533,7 @@ they don't match.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/configsearch/vlan10
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/config/search/vlan10
 </code></pre>
 
 <p>Output:</p>
@@ -3536,6 +3550,25 @@ they don't match.</p>
         }
     ],
     &quot;count&quot;: 2
+}
+</code></pre>
+
+<h3 id="get_oxidized_config"><code>get_oxidized_config</code></h3>
+<p>Returns a specific device's config from oxidized.</p>
+<p>Route: <code>api/v0/oxidized/config/:device_name</code></p>
+<ul>
+<li>device_name is the full dns name of the device used when adding the device to librenms.</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/config/router.corp.com
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;config&quot;: &quot;DEVICE CONFIG HERE&quot;
 }
 </code></pre>
                 
