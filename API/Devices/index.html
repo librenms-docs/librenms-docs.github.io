@@ -1219,6 +1219,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#discover_device" class="md-nav__link">
+    discover_device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_graphs" class="md-nav__link">
     get_graphs
   </a>
@@ -2355,6 +2362,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#discover_device" class="md-nav__link">
+    discover_device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_graphs" class="md-nav__link">
     get_graphs
   </a>
@@ -2615,6 +2629,29 @@
             &quot;icon&quot;: null
         }
     ]
+}
+</code></pre>
+
+<h3 id="discover_device"><code>discover_device</code></h3>
+<p>Trigger a discovery of given device.</p>
+<p>Route: <code>/api/v0/devices/:hostname/discover</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/discover
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;result&quot;: {
+        &quot;status&quot;: 0,
+        &quot;message&quot;: &quot;Device will be rediscovered&quot;
+    },
+    &quot;count&quot;: 2
 }
 </code></pre>
 
