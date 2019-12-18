@@ -2494,6 +2494,9 @@ with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <pre><code class="php">$config['snmp']['community'][0] = &quot;public&quot;;
 </code></pre>
 
+<blockquote>
+<p>NOTE: This list of SNMP communities is used for auto discovery, and as a default set for any manually added device.</p>
+</blockquote>
 <p>The default v3 snmp details to use, you can expand this array with
 <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <pre><code class="php">$config['snmp']['v3'][0]['authlevel'] = &quot;noAuthNoPriv&quot;;  # noAuthNoPriv | authNoPriv | authPriv

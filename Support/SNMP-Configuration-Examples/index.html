@@ -2921,14 +2921,23 @@ set snmp view mysnmpv3view oid iso include
 
 <h3 id="mikrotik">Mikrotik</h3>
 <h4 id="routeros-6x">RouterOS 6.x</h4>
-<pre><code>#Terminal SNMP v2 Configuration
-/snmp community
+<p>CLI SNMP v2 Configuration</p>
+<pre><code>/snmp community
 set [ find default=yes ] read-access=no
 add addresses=&lt;SRC IP/NETWORK&gt; name=&lt;COMMUNITY&gt;
 /snmp
 set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; location=&quot;&lt;LOCALTION&gt;&quot;
 </code></pre>
 
+<p>Notes:
+* About the snmp community commands:
+    * The commands change the default snmp community.  It is probably possible to create a new one instead.
+    * <SRC IP/NETWORK> specify the address and host (not network) netmask of the LibreNMS server.  Example: 192.168.8.71/32
+    * trap-version=2 must also be specified if some other trap-version has been set
+    * trap-interfaces may also be used to limit the interfaces the router listens on
+* About the snmp command:
+    * contact, engine-id and location are optional
+    * trap-community is probably required if a new snmp community has been created.</p>
 <h3 id="palo-alto">Palo Alto</h3>
 <h4 id="panos-6x7x">PANOS 6.x/7.x</h4>
 <ol>
