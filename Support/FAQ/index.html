@@ -2161,7 +2161,7 @@
 <li><a href="#faq25">Why is my EdgeRouter device not detected?</a></li>
 <li><a href="#faq26">Why are some of my disks not showing?</a></li>
 <li><a href="#faq27">Why are my disks reporting an incorrect size?</a></li>
-<li><a href="#faq28">What does ignore alert tag on device?</a></li>
+<li><a href="#faq28">What does mean \"ignore alert tag\" on device, component, service and port?</a></li>
 <li><a href="#faq29">Why can't Normal and Global View users see Oxidized?</a></li>
 <li><a href="#faq30">What is the Demo User for?</a></li>
 <li><a href="#faq31">Why does modifying 'Default Alert Template' fail?</a></li>
@@ -2421,9 +2421,11 @@ breaks official SNMP specs, and as such could cause unexpected
 behaviour in other SNMP tools. You can activate the workaround by
 adding to /etc/snmp/snmpd.conf :</p>
 <p><code>realStorageUnits 0</code></p>
-<h2 id="what-does-ignore-alert-tag-on-device"><a name="faq28"> What does ignore alert tag on device?</a></h2>
-<p>It used to tag a device to not match specific alert rules where
-<code>devices.ignore = 1</code> condition is is set.</p>
+<h2 id="what-does-mean-ignore-alert-tag-on-device-component-service-and-port"><a name="faq28"> What does mean \"ignore alert tag\" on device, component, service and port?</a></h2>
+<p>Tag device, component, service and port to ignore alerts. Alert checks will still run.
+However, ignore tag can be read in alert rules. For example on device, if <code>devices.ignore = 0</code> 
+or <code>macros.device = 1</code> condition is is set and ignore alert tag is on,
+the alert rule won't match. The alert rule is ignored.</p>
 <h2 id="how-do-i-add-support-for-a-new-os"><a name="faq8"> How do I add support for a new OS?</a></h2>
 <p>Please see <a href="../../Developing/Support-New-OS/">Supporting a new OS</a> if you are adding all
 the support yourself, i.e. writing all of the supporting code. If you are only able
