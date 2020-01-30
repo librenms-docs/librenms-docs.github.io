@@ -2254,7 +2254,10 @@ as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'P
 details required for the device that you want to add and then click
 'Add Host'. As an example, if your device is configured to use the
 community <code>my_company</code> using snmp <code>v2c</code> then you would enter: SNMP
-Port defaults to 161</p>
+Port defaults to 161.</p>
+<p>By default Hostname will be used for polling data. If you want
+to get polling Device data via a specific IP-Addresse (e.g. Management IP)
+fill out the optional field <code>Overwrite IP</code> with it's IP-Addresse.</p>
 <p><img alt="Add device" src="/img/webui_add_device.png" /></p>
 <h3 id="ping-only-device">Ping Only Device</h3>
 <p>You can add ping only devices into LibreNMS through the WebUI. When
