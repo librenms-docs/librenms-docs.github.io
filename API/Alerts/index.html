@@ -2402,6 +2402,7 @@
 <ul>
 <li>state: Filter the alerts by state, 0 = ok, 1 = alert, 2 = ack</li>
 <li>severity: Filter the alerts by severity. Valid values are <code>ok</code>, <code>warning</code>, <code>critical</code>.</li>
+<li>alert_rule: Filter alerts by alert rule ID.</li>
 <li>order: How to order the output, default is by timestamp
   (descending). Can be appended by DESC or ASC to change the order.</li>
 </ul>
@@ -2413,6 +2414,9 @@
 </code></pre>
 
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts?order=timestamp%20ASC
+</code></pre>
+
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts?alert_rule=49
 </code></pre>
 
 <p>Output:</p>
