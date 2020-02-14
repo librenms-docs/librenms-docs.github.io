@@ -1407,6 +1407,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#add_parents_to_host" class="md-nav__link">
+    add_parents_to_host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_parents_from_host" class="md-nav__link">
+    delete_parents_from_host
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2550,6 +2564,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#add_parents_to_host" class="md-nav__link">
+    add_parents_to_host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_parents_from_host" class="md-nav__link">
+    delete_parents_from_host
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -3607,6 +3635,42 @@ they don't match.</p>
 <pre><code class="json">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;config&quot;: &quot;DEVICE CONFIG HERE&quot;
+}
+</code></pre>
+
+<h3 id="add_parents_to_host"><code>add_parents_to_host</code></h3>
+<p>Add one or more parents to a host.</p>
+<p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
+<p>Input (JSON):</p>
+<ul>
+<li>parent_ids: one or more parent ids</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X POST -d '{&quot;parent_ids&quot;:&quot;15,16,17&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/1/parents
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Device dependencies have been saved&quot;
+}
+</code></pre>
+
+<h3 id="delete_parents_from_host"><code>delete_parents_from_host</code></h3>
+<p>Deletes some or all the parents from a host.</p>
+<p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
+<p>Input (JSON):</p>
+<ul>
+<li>parent_ids: One or more parent ids, if not specified deletes all parents from host.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -d '{&quot;parent_ids&quot;:&quot;15,16,17&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/1/parents
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;All device dependencies have been removed&quot;
 }
 </code></pre>
                 
