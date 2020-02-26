@@ -300,6 +300,10 @@
      <lastmod>2020-02-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>http://docs.librenms.org/API/Locations/</loc>
+     <lastmod>2020-02-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>http://docs.librenms.org/Alerting/</loc>
      <lastmod>2020-02-26</lastmod>
      <changefreq>daily</changefreq>

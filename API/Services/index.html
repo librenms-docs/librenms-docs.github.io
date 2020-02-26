@@ -1345,6 +1345,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#edit_service_from_host" class="md-nav__link">
+    edit_service_from_host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_service_from_host" class="md-nav__link">
+    delete_service_from_host
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -1381,6 +1395,18 @@
 
   <li class="md-nav__item">
     <a href="../Logs/" title="Logs" class="md-nav__link">
+      Logs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Locations/" title="Logs" class="md-nav__link">
       Logs
     </a>
   </li>
@@ -2186,6 +2212,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#edit_service_from_host" class="md-nav__link">
+    edit_service_from_host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_service_from_host" class="md-nav__link">
+    delete_service_from_host
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2335,6 +2375,49 @@ curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/services/:h
 <pre><code class="json">{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;Service ping has been added to device 192.168.1.10 (#10)&quot;
+}
+</code></pre>
+
+<h3 id="edit_service_from_host"><code>edit_service_from_host</code></h3>
+<p>Edits a service</p>
+<p>Route: <code>/api/v0/services/:service_id</code></p>
+<ul>
+<li>service id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>id: service id</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X PATCH -d '{&quot;service_disabled&quot;:&quot;1&quot;}' 'X-Auth-Token:YOUR-API-TOKEN' https://librenms.org/api/v0/services/5
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Service updated successfully&quot;
+
+}
+</code></pre>
+
+<h3 id="delete_service_from_host"><code>delete_service_from_host</code></h3>
+<p>Deletes service from device</p>
+<p>Route: <code>/api/v0/services/:service_id</code></p>
+<ul>
+<li>service id</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>id: service id</li>
+</ul>
+<p>Example:</p>
+<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token:YOUR-API-TOKEN' https://librenms.org/api/v0/services/35
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Service has been deleted successfully&quot;
 }
 </code></pre>
                 
