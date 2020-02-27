@@ -2428,7 +2428,7 @@ preferred reference to the device.</p>
 </code></pre>
 
 <p>Interface types that aren't graphed in the WebUI. The default array
-contains more items, please see includes/defaults.inc.php for the full list.</p>
+contains more items, please see misc/config_definitions.json for the full list.</p>
 <pre><code class="php">$config['enable_clear_discovery'] = 1;
 </code></pre>
 
@@ -2635,15 +2635,35 @@ and keeps Rack/Room/Building information intact after the substitution.</p>
 <p>The above are examples, these will rewrite device snmp locations so
 you don't need to configure full location within snmp.</p>
 <h1 id="interfaces-to-be-ignored">Interfaces to be ignored</h1>
+<p>Interfaces can be automatically ignored during discovery by modifying 
+bad_if* entries in a default array, unsetting a default array and 
+customizing it, or creating an OS specific array. The preferred method 
+for ignoring interfaces is to use an OS specific array. The default 
+arrays can be found in misc/config_definitions.json. OS specific 
+definitions (includes/definitions/<em>specific_os</em>.yaml) can contain 
+bad_if* arrays, but should only be modified via pull-request as 
+manipulation of the definition files will block updating. </p>
 <p>Examples:</p>
+<p><strong>Add entries to default arrays</strong></p>
 <pre><code class="php">$config['bad_if'][] = &quot;voip-null&quot;;
 $config['bad_iftype'][] = &quot;voiceEncap&quot;;
 $config['bad_if_regexp'][] = '/^lo[0-9].*/';    // loopback
 </code></pre>
 
-<p>Numerous defaults exist for this array already (see
-includes/defaults.inc.php for the full list). You can expand this list
-by continuing the array.</p>
+<p><strong>Unset and customize a default array</strong></p>
+<pre><code class="php">unset($config['bad_if']);
+$config['bad_if'][] = &quot;voip-null&quot;;
+$config['bad_if'][] = &quot;voiceEncap&quot;;
+$config['bad_if'][] = &quot;voiceFXO&quot;;
+...
+</code></pre>
+
+<p><strong>Create an OS specific array</strong></p>
+<pre><code class="php">$config['os']['iosxe']['bad_iftype'][] = &quot;macSecControlledIF&quot;;
+$config['os']['iosxe']['bad_iftype'][] = &quot;macSecUncontrolledIF&quot;;
+</code></pre>
+
+<p><strong>Various bad_if* selection options available</strong></p>
 <p><code>bad_if</code> is matched against the ifDescr value.</p>
 <p><code>bad_iftype</code> is matched against the ifType value.</p>
 <p><code>bad_if_regexp</code> is matched against the ifDescr value as a regular expression.</p>
