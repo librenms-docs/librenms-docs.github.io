@@ -2341,6 +2341,8 @@ within the Modules section.</p>
 <p>Enabled by default.</p>
 <p><code>$config['autodiscovery']['xdp'] = false;</code> to disable.</p>
 <p>This includes FDP, CDP and LLDP support based on the device type.</p>
+<p>The LLDP/xDP links with neighbours will always be discovered as soon as the discovery module is enabled.
+However, LibreNMS will only try to add the new devices discovered with LLDP/xDP if <code>$config['autodiscovery']['xdp'] = true</code>; </p>
 <p>Devices may be excluded from xdp discovery by sysName and sysDescr.</p>
 <pre><code class="php">//Exclude devices by name
 $config['autodiscovery']['xdp_exclude']['sysname_regexp'][] = '/host1/';
