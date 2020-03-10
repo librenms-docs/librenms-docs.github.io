@@ -917,6 +917,47 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#option-1" class="md-nav__link">
+    Option 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2" class="md-nav__link">
+    Option 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-send-snmp-v2-trap" class="md-nav__link">
+    How to send SNMP v2 Trap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-need-uptime" class="md-nav__link">
+    Why we need Uptime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event-logging" class="md-nav__link">
     Event logging
   </a>
@@ -2191,6 +2232,47 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#option-1" class="md-nav__link">
+    Option 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2" class="md-nav__link">
+    Option 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-send-snmp-v2-trap" class="md-nav__link">
+    How to send SNMP v2 Trap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-need-uptime" class="md-nav__link">
+    Why we need Uptime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event-logging" class="md-nav__link">
     Event logging
   </a>
@@ -2228,36 +2310,143 @@
                 
                 
                 <h1 id="snmp-trap-handling">SNMP trap handling</h1>
-<p>Currently, librenms only supports linkUp/linkDown (port up/down),
-bgpEstablished/bgpBackwardTransition (BGP Sessions Up/Down) and
-authenticationFailure SNMP traps. To add more see <a href="../../Developing/SNMP-Traps/">Adding new SNMP Trap handlers</a></p>
-<p>Traps are handled via snmptrapd.</p>
+<p>Currently, LibreNMS supports a lot of trap handlers. You can check them on 
+GitHub <a href="https://github.com/librenms/librenms/tree/master/LibreNMS/Snmptrap/Handlers">there</a>.
+To add more see <a href="../../Developing/SNMP-Traps/">Adding new SNMP Trap handlers</a>. Traps are handled via snmptrapd. </p>
+<p>snmptrapd is an SNMP application that receives and logs SNMP TRAP and INFORM messages.</p>
+<blockquote>
+<p>The default is to listen on UDP port 162 on all IPv4 interfaces. Since 162 is a
+privileged port, snmptrapd must typically be run as root.</p>
+</blockquote>
 <h2 id="configure-snmptrapd">Configure snmptrapd</h2>
 <p>Install snmptrapd via your package manager.</p>
-<p>To enable snmptrapd to properly parse traps, we will need to add MIBs.</p>
+<p>For example (Debian based systems):</p>
+<pre><code>sudo apt install snmptrapd -y
+</code></pre>
+
+<p>In <code>/etc/snmp/snmptrapd.conf</code>, add :</p>
+<pre><code class="text">disableAuthorization yes
+authCommunity log,execute,net COMMUNITYSTRING
+traphandle default /opt/librenms/snmptrap.php
+</code></pre>
+
+<p>To enable snmptrapd to properly parse traps, we will need to add MIBs to service.</p>
+<h3 id="option-1">Option 1</h3>
 <p>Make the folder <code>/etc/systemd/system/snmptrapd.service.d/</code> and edit
 the file <code>/etc/systemd/system/snmptrapd.service.d/mibs.conf</code> and add
-the following content. You may want to tweak to add vendor directories
-for devices you care about (in addition to or instead of cisco).</p>
+the following content. </p>
+<p>You may want to tweak to add vendor directories
+for devices you care about. In the example below, standard and cisco
+directories are defined, and only IF-MIB is loaded. </p>
 <pre><code class="ini">[Service]
 Environment=MIBDIRS=+/opt/librenms/mibs:/opt/librenms/mibs/cisco
-Environment=MIBS=+ALL
+Environment=MIBS=+IF-MIB
 </code></pre>
 
 <p>For non-systemd systems, you can edit TRAPDOPTS in the init script in /etc/init.d/snmptrapd.</p>
-<p><code>TRAPDOPTS="-Lsd  -M /opt/librenms/mibs -m ALL -f -p $TRAPD_PID"</code></p>
-<p>In <code>/etc/snmp/snmptrapd.conf</code>, add something like the following:</p>
-<pre><code class="text">traphandle default /opt/librenms/snmptrap.php
-</code></pre>
-
+<p><code>TRAPDOPTS="-Lsd  -M /opt/librenms/mibs -m IF-MIB -f -p $TRAPD_PID"</code></p>
 <p>Along with any necessary configuration to receive the traps from your
 devices (community, etc.)</p>
-<p>Reload service files, enable, and start the snmptrapd service:</p>
+<h3 id="option-2">Option 2</h3>
+<blockquote>
+<p>Tested on Ubuntu 18</p>
+</blockquote>
+<p>Just setup your service like:</p>
+<pre><code>[Unit]
+Description=Simple Network Management Protocol (SNMP) Trap Daemon.
+After=network.target
+ConditionPathExists=/etc/snmp/snmptrapd.conf
+
+[Service]
+Environment=&quot;MIBSDIR=/opt/librenms/mibs&quot;
+Type=simple
+ExecStart=/usr/sbin/snmptrapd -f -m IF-MIB -M /opt/librenms/mibs
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<blockquote>
+<p>In Ubuntu 18 is service located by default in <code>/etc/systemd/system/multi-user.target.wants/snmptrapd.service</code></p>
+</blockquote>
+<p>There is a list of snmptrapd options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>Ignore authenticationFailure traps. [OPTIONAL]</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>Do not fork from the shell</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>Use numeric addresses instead of attempting hostname lookups (no DNS) [OPTIONAL]</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>MIBLIST: use MIBLIST (<code>FILE1-MIB:FILE2-MIB</code>). <code>ALL</code> = Load all MIBS in DIRLIST. (usually fails)</td>
+</tr>
+<tr>
+<td>-M</td>
+<td>DIRLIST: use DIRLIST as the list of locations to look for MIBs. Option is not recursive, so you need to specify each DIR individually, separated by <code>:</code>. (For example: /opt/librenms/mibs:/opt/librenms/mibs/cisco:/opt/librenms/mibs/edgecos)</td>
+</tr>
+</tbody>
+</table>
+<p>Good practice is to avoid <code>-m ALL</code> because then it will try to load all the MIBs in DIRLIST, which
+will typically fail (snmptrapd cannot load that many mibs). Better is to specify the
+exact MIB files defining the traps you are interested in, for example for LinkDown and LinkUp
+as well as BGP traps, use <code>-m IF-MIB:BGP4-MIB</code>. Multiple files can be added, separated with <code>:</code>.</p>
+<p>If you want to test or store original TRAPS in log then:</p>
+<p>Create folder for storing traps for example in file <code>traps.log</code></p>
+<pre><code>sudo mkdir /var/log/snmptrap
+
+</code></pre>
+
+<p>Add following config to your snmptrapd.service after <code>ExecStart=/usr/sbin/snmptrapd -f -m ALL -M /opt/librenms/mibs</code></p>
+<pre><code>-tLf /var/log/snmptrap/traps.log
+
+</code></pre>
+
+<p>After succesfuly configured service reload service files, enable, and start the snmptrapd service:</p>
 <pre><code>sudo systemctl daemon-reload
 sudo systemctl enable snmptrapd
 sudo systemctl restart snmptrapd
 </code></pre>
 
+<h2 id="testing">Testing</h2>
+<p>The easiest test is to generate a trap from your device. Usually, changing the configuration on a network device, or
+plugging/unplugging a network cable (LinkUp, LinkDown) will generate a trap. You can confirm it using a with <code>tcpdump</code>, <code>tshark</code> or <code>wireshark</code>.</p>
+<p>You can also generate a trap using the <code>snmptrap</code> command from the LibreNMS server itself (if and only if the LibreNMS server is monitored).</p>
+<h3 id="how-to-send-snmp-v2-trap">How to send SNMP v2 Trap</h3>
+<p>The command below takes the form of:</p>
+<pre><code>snmptrap -v &lt;snmp_version&gt; -c &lt;community&gt; &lt;destination_host&gt; &lt;uptime&gt; &lt;OID_or_MIB&gt; &lt;object&gt; &lt;value_type&gt; &lt;value&gt;
+</code></pre>
+
+<p>Using OID's:</p>
+<pre><code>snmptrap -v 2c -c public localhost '' 1.3.6.1.4.1.8072.2.3.0.1 1.3.6.1.4.1.8072.2.3.2.1 i 123456
+</code></pre>
+
+<p>If you have configured logging of traps to <code>/var/log/snmptrap/traps.log</code> then you will see in <code>traps.log</code> new entry: </p>
+<pre><code>2020-03-09 16:22:59 localhost [UDP: [127.0.0.1]:58942-&gt;[127.0.0.1]:162]:
+SNMPv2-MIB::sysUpTime.0 = Timeticks: (149721964) 17 days, 7:53:39.64    SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.8072.2.3.0.1   SNMPv2-SMI::enterprises.8072.2.3.2.1 = INTEGER: 123456
+</code></pre>
+
+<p>and in LibreNMS your localhost device eventlog like:</p>
+<pre><code>2020-03-09 16:22:59     SNMP trap received: SNMPv2-SMI::enterprises.8072.2.3.0.1
+</code></pre>
+
+<h3 id="why-we-need-uptime">Why we need Uptime</h3>
+<p>When you send a trap, it must of course conform to a set of standards. Every trap needs an uptime value. Uptime is how long the system has been running since boot. Sometimes this is the operating system, other devices might use the SNMP engine uptime. Regardless, a value will be sent.</p>
+<p>So what value should you type in the commands below? Oddly enough, simply supplying no value by using two single quotes '' will instruct the command to obtain the value from the operating system you are executing this on.</p>
 <h3 id="event-logging">Event logging</h3>
 <p>You can configure generic event logging for snmp traps.  This will log
 an event of the type trap for received traps. These events can be utilized for alerting.</p>
