@@ -2714,7 +2714,7 @@ Percent Utilized: {{ $value['mempool_perc'] }}
 <h4 id="conditional-formatting">Conditional formatting</h4>
 <p>Conditional formatting example, will display a link to the host in
 email or just the hostname in any other transport:</p>
-<pre><code class="text">@if ($alert-&gt;transport == mail)&lt;a href=&quot;https://my.librenms.install/device/device={{ $alert-&gt;hostname }}/&quot;&gt;{{ $alert-&gt;hostname }}&lt;/a&gt;
+<pre><code class="text">@if ($alert-&gt;transport == 'mail')&lt;a href=&quot;https://my.librenms.install/device/device={{ $alert-&gt;hostname }}/&quot;&gt;{{ $alert-&gt;hostname }}&lt;/a&gt;
 @else
 {{ $alert-&gt;hostname }}
 @endif
