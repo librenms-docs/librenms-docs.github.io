@@ -2800,10 +2800,13 @@ and copy the <code>gpsd</code> script to <code>/usr/lib/check_mk_agent/local/</c
 <h1 id="mailcow-dockerized-postfix">mailcow-dockerized postfix</h1>
 <h2 id="snmp-extend_14">SNMP Extend</h2>
 <p>1: Download the script into the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/master/snmp/mailcow-dockerized-postfix -O /etc/snmp/mailcow-dockerized-postfix
+<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailcow-dockerized-postfix -O /etc/snmp/mailcow-dockerized-postfix
 </code></pre>
 
 <p>2: Run <code>chmod +x /etc/snmp/mailcow-dockerized-postfix</code></p>
+<blockquote>
+<p>Maybe you will be neeed to install <code>pflogsumm</code> on debian based OS. Please check if you have package installed. </p>
+</blockquote>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
 <pre><code>extend mailcow-postfix /etc/snmp/mailcow-dockerized-postfix
 </code></pre>
