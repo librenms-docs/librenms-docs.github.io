@@ -2249,6 +2249,11 @@ distributed_poller_name                        = null;  # Uniquely identifies th
 distributed_poller_group                       = 0;     # Which group to poll
 </code></pre>
 
+<h3 id="tuning-the-number-of-workers">Tuning the number of workers</h3>
+<p>See https://your_librenms_install/poller </p>
+<p>You want to keep Consumed Worker Seconds comfortably below Maximum Worker Seconds. The closer the values are to each other, the flatter the CPU graph of the poller machine. Meaning that you are utilizing your CPU resources well. As long as Consumed WS stays below Maximum WS and Devices Pending is 0, you should be ok.</p>
+<p>If Consumed WS is below Maximum WS and Devices Pending is &gt; 0, your hardware is not up to the task.</p>
+<p>Maximum WS equals the number of workers multiplied with the number of seconds in the polling period. (default 300)</p>
 <h1 id="fast-ping">Fast Ping</h1>
 <p>The <a href="../Fast-Ping-Check/">fast ping</a> scheduler is disabled by default.
 You can enable it by setting the following:</p>
