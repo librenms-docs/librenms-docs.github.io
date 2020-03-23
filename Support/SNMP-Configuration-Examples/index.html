@@ -1690,6 +1690,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eaton" class="md-nav__link">
+    Eaton
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-card-ms" class="md-nav__link">
+    Network Card-MS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hpe-3par" class="md-nav__link">
     HPE 3PAR
   </a>
@@ -2501,6 +2521,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eaton" class="md-nav__link">
+    Eaton
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-card-ms" class="md-nav__link">
+    Network Card-MS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hpe-3par" class="md-nav__link">
     HPE 3PAR
   </a>
@@ -2886,6 +2926,14 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 <li>Click "New..."</li>
 <li>Add your community name and leave IP addresses empty</li>
 <li>Click Apply and Save</li>
+</ol>
+<h3 id="eaton">Eaton</h3>
+<h4 id="network-card-ms">Network Card-MS</h4>
+<ol>
+<li>Connect to the Web UI of the device</li>
+<li>Upgrade to the lastest available manufacturer firmware which applies to your hardware revision. Refer to the releasenotes.   For devices which can use the Lx releases, <em>do</em> install LD.</li>
+<li>After rebooting the card (safe for connected load), configure Network, System and Access Control. Save config for each step.</li>
+<li>Configure SNMP. The device defaults to both SNMP v1 and v3 enabled, with default credentials. Disable what you do not need. SNMP v3 works, but uses MD5/DES. You may have to add another section to your SNMP credentials table in LibreNMS. Save.</li>
 </ol>
 <h3 id="hpe-3par">HPE 3PAR</h3>
 <h4 id="inform-os-32x">Inform OS 3.2.x</h4>
