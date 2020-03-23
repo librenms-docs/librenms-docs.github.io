@@ -3394,51 +3394,68 @@ hide_monitoring_account = With this Boolean you can hide the Account which you
 <p><strong>Note:</strong>It is recommended to use a dedicated Administrator account for monitoring.</p>
 <h1 id="smart">SMART</h1>
 <h2 id="snmp-extend_38">SNMP Extend</h2>
-<p>1: Copy the Perl script, smart, to the desired host. <code>wget
-https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O
-/etc/snmp/smart</code></p>
-<p>2: Run <code>chmod +x /etc/snmp/smart</code></p>
-<p>3: Edit your snmpd.conf file and add:</p>
+<ol>
+<li>Copy the Perl script, smart, to the desired host.</li>
+</ol>
+<p><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/smart -O /etc/snmp/smart</code></p>
+<ol>
+<li>
+<p>Run <code>chmod +x /etc/snmp/smart</code></p>
+</li>
+<li>
+<p>Edit your snmpd.conf file and add:</p>
+</li>
+</ol>
 <pre><code>extend smart /etc/snmp/smart
 </code></pre>
 
-<p>4: You will also need to create the config file, which defaults to the
-same path as the script, but with .config appended. So if the script
-is located at /etc/snmp/smart, the config file will be
-/etc/snmp/smart.config. Alternatively you can also specific a config
-via -c.</p>
-<p>Anything starting with a # is comment. The format for variables is
-$variable=$value. Empty lines are ignored. Spaces and tabes at either
-the start or end of a line are ignored. Any line with out a = or # are
-treated as a disk.</p>
+<ol>
+<li>You will also need to create the config file, which defaults to the same path as the script,
+but with .config appended. So if the script is located at /etc/snmp/smart, the config file
+will be <code>/etc/snmp/smart.config</code>. Alternatively you can also specific a config via <code>-c</code>.</li>
+</ol>
+<p>Anything starting with a # is comment. The format for variables is $variable=$value. Empty
+lines are ignored. Spaces and tabes at either the start or end of a line are ignored. Any
+line with out a matched variable or # are treated as a disk.</p>
 <pre><code>#This is a comment
 cache=/var/cache/smart
 smartctl=/usr/bin/env smartctl
 useSN=1
 ada0
 ada1
+da5 /dev/da5 -d sat
+twl0,0 /dev/twl0 -d 3ware,0
+twl0,1 /dev/twl0 -d 3ware,1
+twl0,2 /dev/twl0 -d 3ware,2
 </code></pre>
 
 <p>The variables are as below.</p>
 <pre><code>cache = The path to the cache file to use. Default: /var/cache/smart
 smartctl = The path to use for smartctl. Default: /usr/bin/env smartctl
-useSN = If set to 1, it will use the disks SN for reporting instead of
-        the device name. 1 is the default. 0 will use the device name.
+useSN = If set to 1, it will use the disks SN for reporting instead of the device name.
+        1 is the default. 0 will use the device name.
 </code></pre>
 
-<p>If you want to guess at the configuration, call it with -g and it will
-print out what it thinks it should be. This will result in a usable
-config, but may miss some less common disk devices.</p>
-<p>5: Restart snmpd on your host</p>
+<p>A disk line is can be as simple as just a disk name under /dev/. Such as in the config above
+The line "ada0" would resolve to "/dev/ada0" and would be called with no special argument. If
+a line has a space in it, everything before the space is treated as the disk name and is what
+used for reporting and everything after that is used as the argument to be passed to smartctl.</p>
+<p>If you want to guess at the configuration, call it with -g and it will print out what it thinks
+it should be.</p>
+<ol>
+<li>Restart snmpd on your host</li>
+</ol>
 <p>If you have a large number of more than one or two disks on a system,
 you should consider adding this to cron. Also make sure the cache file
 is some place it can be written to.</p>
 <pre><code> */3 * * * * /etc/snmp/smart -u
 </code></pre>
 
-<p>6: If your snmp agent runs as user "snmp", edit your sudo users
-   (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/sbin/smartctl
+<ol>
+<li>If your snmp agent runs as user "snmp", edit your sudo users
+   (usually <code>visudo</code>) and add at the bottom:</li>
+</ol>
+<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/bin/env smartctl
 
 </code></pre>
 
