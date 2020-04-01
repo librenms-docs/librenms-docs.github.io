@@ -2215,6 +2215,7 @@ REDIS_SENTINEL_SERVICE=myservice
 
 REDIS_DB=0
 #REDIS_PASSWORD=
+#REDIS_TIMEOUT=60
 </code></pre>
 
 <h2 id="basic-configuration">Basic Configuration</h2>
@@ -2260,6 +2261,12 @@ You can enable it by setting the following:</p>
 <pre><code class="php">$config['service_ping_enabled'] = true;
 </code></pre>
 
+<h1 id="watchdog">Watchdog</h1>
+<p>The watchdog scheduler is disabled by default. You can enable it by setting the following:</p>
+<pre><code class="php">$config['service_watchdog_enabled'] = true;
+</code></pre>
+
+<p>The watchdog scheduler will check that the poller log file has been written to within the last poll period. If there is no change to the log file since, the watchdog will restart the polling service. The poller log file is set by <code>$config['log_file']</code> and defaults to <code>./logs/librenms.log</code></p>
 <h1 id="cron-scripts">Cron Scripts</h1>
 <p>Once the LibreNMS service is installed, the cron scripts used by
 LibreNMS are no longer required and must be removed.</p>
