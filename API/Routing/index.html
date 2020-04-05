@@ -2329,20 +2329,17 @@
 <p>Input:</p>
 <ul>
 <li>hostname = Either the devices hostname or id.</li>
-</ul>
-<p><strong>OR</strong></p>
-<ul>
 <li>asn = The local ASN you would like to filter by</li>
-</ul>
-<p>Then you can filter by remote ASN</p>
-<ul>
-<li>remote_asn = The remote ASN</li>
+<li>remote_asn = Filter by remote peer ASN</li>
+<li>remote_address = Filter by remote peer address</li>
+<li>local_address = Filter by local address</li>
 </ul>
 <p>Example:</p>
 <pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?hostname=host.example.com
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?asn=1234
 curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?remote_asn=1234
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp?local_address=1.1.1.1&amp;remote_address=2.2.2.2
 </code></pre>
 
 <p>Output:</p>
