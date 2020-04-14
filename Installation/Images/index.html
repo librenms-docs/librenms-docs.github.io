@@ -433,8 +433,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#credentials" class="md-nav__link">
-    Credentials
+  <a href="#accesscredentials" class="md-nav__link">
+    Access/Credentials
   </a>
   
 </li>
@@ -2227,8 +2227,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#credentials" class="md-nav__link">
-    Credentials
+  <a href="#accesscredentials" class="md-nav__link">
+    Access/Credentials
   </a>
   
 </li>
@@ -2308,9 +2308,18 @@ tags follow the main LibreNMS repo. When a new LibreNMS release is
 available we will push new images out running that version. Please do
 note that if you download an older release with a view to running that
 specific version, you will need to disable updates in config.php.</p>
-<h2 id="credentials">Credentials</h2>
+<h2 id="accesscredentials">Access/Credentials</h2>
+<p>To access your newly imported VM, those ports are forwarded from your machine to the VM: 8080 for WebUI and 2023 for SSH.
+Remember to edit/remove them if you change (and you should) the VM network configuration.</p>
 <ul>
-<li>SSH</li>
+<li>WebUI (http://localhost:8080)</li>
+<li>username: librenms</li>
+<li>
+<p>password: <code>D32fwefwef</code></p>
+</li>
+<li>
+<p>SSH (ssh://localhost:2023)</p>
+</li>
 <li>username: librenms</li>
 <li>
 <p>password: <code>CDne3fwdfds</code></p>
@@ -2319,14 +2328,7 @@ specific version, you will need to disable updates in config.php.</p>
 <p>MySQL/MariaDB</p>
 </li>
 <li>username: librenms</li>
-<li>
-<p>password: <code>D42nf23rewD</code></p>
-</li>
-<li>
-<p>WebUI</p>
-</li>
-<li>username: librenms</li>
-<li>password: <code>D32fwefwef</code></li>
+<li>password: <code>D42nf23rewD</code></li>
 </ul>
 <h2 id="contributing">Contributing</h2>
 <p>If you would like to help with these images whether it's add
