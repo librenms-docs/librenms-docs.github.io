@@ -2445,12 +2445,10 @@ the support yourself, i.e. writing all of the supporting code. If you are only a
 to supply supporting info, and would like the help of others to write up the code, please
 follow the below steps.</p>
 <h2 id="what-information-do-you-need-to-add-a-new-os"><a name="faq20"> What information do you need to add a new OS?</a></h2>
-<p>Under the device, click the gear and select Capture.</p>
-<p>Please <a href="https://github.com/librenms/librenms/issues/new">open an issue on
-GitHub</a> and provide
+<p>Please <a href="https://community.librenms.org/c/feature-requests">open a feature request in the community forum</a> and provide
 the output of Discovery, Poller, and Snmpwalk as separate non-expiring
-<a href="https://p.libren.ms/">https://p.libren.ms/</a> links.</p>
-<p>You can also use the command line to obtain the information.
+<a href="https://p.libren.ms/">https://p.libren.ms/</a> links :</p>
+<p>Please use preferably the command line to obtain the information.
 Especially, if snmpwalk results in a large amount of data. Replace the
 relevant information in these commands such as HOSTNAME and
 COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1 devices.</p>
@@ -2462,8 +2460,9 @@ COMMUNITY. Use <code>snmpwalk</code> instead of <code>snmpbulkwalk</code> for v1
 snmpbulkwalk -OUneb -v2c -c COMMUNITY HOSTNAME .  | ./pbin.sh
 </code></pre>
 
-<p>You can use the links provided by these commands within the issue.</p>
-<p>If possible please also provide what the OS name should be if it doesn't exist already.</p>
+<p>You can use the links provided by these commands within the community post.</p>
+<p>If possible please also provide what the OS name should be if it doesn't exist already,
+as well as any useful link (MIBs from vendor, logo, etc etc)</p>
 <h2 id="what-can-i-do-to-help"><a name="faq9"> What can I do to help?</a></h2>
 <p>Thanks for asking, sometimes it's not quite so obvious and everyone
 can contribute something different. So here are some ways you can help
