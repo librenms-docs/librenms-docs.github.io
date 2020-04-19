@@ -2450,15 +2450,15 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="bind9-aka-named">BIND9 aka named</h1>
 <p>1: Create stats file with appropriate permissions:</p>
-<pre><code class="bash">~$ touch /var/run/named/stats
-~$ chown bind:bind /var/run/named/stats
+<pre><code class="bash">~$ touch /var/cache/bind/stats
+~$ chown bind:bind /var/cache/bind/stats
 </code></pre>
 
 <p>Change <code>user:group</code> to the user and group that's running bind/named.</p>
 <p>2: Bind/named configuration:</p>
 <pre><code class="text">options {
     ...
-    statistics-file &quot;/var/run/named/stats&quot;;
+    statistics-file &quot;/var/cache/bind/stats&quot;;
     zone-statistics yes;
     ...
 };
@@ -2493,7 +2493,7 @@ own settings.</p>
 <pre><code>rndc = The path to rndc. Default: /usr/bin/env rndc
 call_rndc = A 0/1 boolean on whether or not to call rndc stats.
     Suggest to set to 0 if using netdata. Default: 1
-stats_file = The path to the named stats file. Default: /var/run/named/stats
+stats_file = The path to the named stats file. Default: /var/cache/bind/stats
 agent = A 0/1 boolean for if this is being used as a LibreNMS
     agent or not. Default: 0
 zero_stats = A 0/1 boolean for if the stats file should be zeroed
