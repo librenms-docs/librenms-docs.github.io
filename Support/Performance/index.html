@@ -1663,6 +1663,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#php-opcache" class="md-nav__link">
+    PHP-opcache
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-web-servers-using-mod_php-and-php-fpm" class="md-nav__link">
+    For web servers using mod_php and php-fpm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-pollers" class="md-nav__link">
+    For pollers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2328,6 +2355,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#php-opcache" class="md-nav__link">
+    PHP-opcache
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-web-servers-using-mod_php-and-php-fpm" class="md-nav__link">
+    For web servers using mod_php and php-fpm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-pollers" class="md-nav__link">
+    For pollers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2485,6 +2539,32 @@ whatever web server you use:</p>
 <p>For Nginx (1.9.5 and above) change <code>listen 443 ssl;</code> to <code>listen 443
 ssl http2;</code> in the Virtualhost config.</p>
 <p>For Apache (2.4.17 an above) set <code>Protocols h2 http/1.1</code> in the Virtualhost config.</p>
+<h2 id="php-opcache">PHP-opcache</h2>
+<p>A lot of performance can be gained from setting up <code>php-opcache</code> correctly. </p>
+<p><strong>Note: Memory based caching with PHP cli will increase memory usage and slow things down. File based caching is not as fast as memory based and is more likely to have stale cache issues.</strong></p>
+<p>Some distributions allow seperate cli, mod_php and php-fpm configurations, we can use this to set the optimal config.</p>
+<h3 id="for-web-servers-using-mod_php-and-php-fpm">For web servers using mod_php and php-fpm</h3>
+<p>Update your web PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/fpm/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code> </p>
+<pre><code>zend_extension=opcache
+opcache.enable=1
+opcache.memory_consumption=256
+</code></pre>
+
+<p>If you are having caching issues, you can clear the opcache by simply restarting httpd or php-fpm.</p>
+<h3 id="for-pollers">For pollers</h3>
+<p>Create a cache directory that is writable by the librenms user first:
+<code>sudo mkdir -p /tmp/cache &amp;&amp; sudo chmod 775 /tmp/cache &amp;&amp; sudo chown -R librenms /tmp/cache</code></p>
+<p>Update your PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/cli/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code> </p>
+<pre><code>zend_extension=opcache.so
+opcache.enable=1
+opcache.enable_cli=1
+opcache.file_cache=&quot;/tmp/cache/&quot;
+opcache.file_cache_only=0
+opcache.file_cache_consistency_checks=1
+opcache.memory_consumption=256
+</code></pre>
+
+<p>If you are having caching issues, you can clear the file based opcache with <code>rm -rf /tmp/cache</code>. </p>
                 
                   
                     <h2 id="__source">Source</h2>
