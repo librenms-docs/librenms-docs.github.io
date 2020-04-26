@@ -1677,6 +1677,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#smsmode" class="md-nav__link">
+    SMSmode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#syslog" class="md-nav__link">
     Syslog
   </a>
@@ -2644,6 +2651,13 @@
         <li class="md-nav__item">
   <a href="#smseagle" class="md-nav__link">
     SMSEagle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smsmode" class="md-nav__link">
+    SMSmode
   </a>
   
 </li>
@@ -3649,6 +3663,37 @@ either local or international dialling format.</p>
 <tr>
 <td>Mobiles</td>
 <td>+3534567890 <br/> 0834567891</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smsmode">SMSmode</h2>
+<p>SMSmode is a SMS provider that can be configured by using the generic API Transport.
+You need a token you can find on your personnal space.</p>
+<p><a href="https://www.smsmode.com/pdf/fiche-api-http.pdf">SMSmode docs</a></p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport type</td>
+<td>Api</td>
+</tr>
+<tr>
+<td>API Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>API URL</td>
+<td>http://api.smsmode.com/http/1.6/sendSMS.do</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>accessToken=<em>PUT_HERE_YOUR_TOKEN</em><br />numero=<em>PUT_HERE_DESTS_NUMBER_COMMA_SEPARATED</em><br />message={{ $msg }}</td>
 </tr>
 </tbody>
 </table>
