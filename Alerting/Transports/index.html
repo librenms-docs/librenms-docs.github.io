@@ -1489,6 +1489,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aspsms" class="md-nav__link">
+    aspSMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#boxcar" class="md-nav__link">
     Boxcar
   </a>
@@ -2468,6 +2475,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aspsms" class="md-nav__link">
+    aspSMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#boxcar" class="md-nav__link">
     Boxcar
   </a>
@@ -2953,6 +2967,37 @@ the title and text of the alert to a screen in the Network Operation Center.</p>
 <tr>
 <td>API Body</td>
 <td>{ "status": 2 }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aspsms">aspSMS</h2>
+<p>aspSMS is a SMS provider that can be configured by using the generic API Transport.
+You need a token you can find on your personnal space.</p>
+<p><a href="https://www.aspsms.com/en/documentation/">aspSMS docs</a></p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport type</td>
+<td>Api</td>
+</tr>
+<tr>
+<td>API Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>API URL</td>
+<td>https://soap.aspsms.com/aspsmsx.asmx/SimpleTextSMS</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>UserKey=USERKEY<br />Password=APIPASSWORD<br />Recipient=RECIPIENT<br />Originator=ORIGINATOR<br />MessageText={{ $msg }}</td>
 </tr>
 </tbody>
 </table>
