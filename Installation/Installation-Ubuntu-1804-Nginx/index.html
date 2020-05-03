@@ -2167,7 +2167,7 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 <pre><code class="bash">apt install software-properties-common
 add-apt-repository universe
 apt update
-apt install curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois
+apt install curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois unzip
 </code></pre>
 
 <h1 id="add-librenms-user">Add librenms user</h1>
@@ -2189,6 +2189,7 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstra
 
 <h1 id="install-php-dependencies">Install PHP dependencies</h1>
 <pre><code class="bash">su - librenms
+cd /opt/librenms
 ./scripts/composer_wrapper.php install --no-dev
 exit
 </code></pre>
@@ -2225,14 +2226,19 @@ lower_case_table_names=0
 <p>Ensure date.timezone is set in php.ini to your preferred time zone.
 See <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> for a list of supported
 timezones.  Valid examples are: "America/New_York",
-"Australia/Brisbane", "Etc/UTC".</p>
+"Australia/Brisbane", "Etc/UTC".
+Please remember to set the system timezone as well.</p>
 <pre><code class="bash">vi /etc/php/7.2/fpm/php.ini
 vi /etc/php/7.2/cli/php.ini
 </code></pre>
 
 <pre><code class="bash">systemctl restart php7.2-fpm
+´´´
+
 </code></pre>
 
+<p>timedatectl set-timezone Etc/UTC
+´´´</p>
 <h2 id="configure-nginx">Configure NGINX</h2>
 <pre><code class="bash">vi /etc/nginx/conf.d/librenms.conf
 </code></pre>
