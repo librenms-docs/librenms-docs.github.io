@@ -2264,7 +2264,7 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 <pre><code>yum install epel-release
 </code></pre>
 
-<pre><code>yum install git cronie fping jwhois ImageMagick mtr MySQL-python net-snmp net-snmp-utils nmap python-memcached rrdtool policycoreutils-python httpd mariadb mariadb-server unzip
+<pre><code>yum install git cronie fping jwhois ImageMagick mtr MySQL-python net-snmp net-snmp-utils nmap python-memcached rrdtool policycoreutils-python httpd mariadb mariadb-server unzip python3 python3-pip
 </code></pre>
 
 <h3 id="install-php">Install PHP</h3>
@@ -2321,7 +2321,7 @@ exit
 
 <h1 id="db-server">DB Server</h1>
 <h2 id="configure-mysql">Configure MySQL</h2>
-<pre><code>systemctl start mariadb
+<pre><code>systemctl enable --now mariadb
 mysql -u root
 </code></pre>
 
@@ -2343,8 +2343,7 @@ exit
 lower_case_table_names=0
 </code></pre>
 
-<pre><code>systemctl enable mariadb
-systemctl restart mariadb
+<pre><code>systemctl restart mariadb
 </code></pre>
 
 <h1 id="web-server">Web Server</h1>
@@ -2387,8 +2386,7 @@ timezones.  Valid examples are: "America/New_York",
 <p>NOTE: If this is the only site you are hosting on this server (it
 should be :)) then you will need to disable the default site. <code>rm -f /etc/httpd/conf.d/welcome.conf</code></p>
 </blockquote>
-<pre><code>systemctl enable httpd
-systemctl restart httpd
+<pre><code>systemctl enable --now httpd
 </code></pre>
 
 <h1 id="selinux">SELinux</h1>
