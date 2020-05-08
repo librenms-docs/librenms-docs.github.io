@@ -2163,8 +2163,8 @@ minimize network latency for devices that are a considerable distance
 away or are behind NAT firewalls.</p>
 <p>Devices can be grouped together into a <code>poller_group</code> to pin these
 devices to a single or a group of designated pollers.</p>
-<p>All pollers need to share their RRD-folder, for example via NFS or a
-combination of NFS and rrdcached.</p>
+<p>All pollers need to write to the same set of RRD files, preferably via
+RRDcached.</p>
 <p>It is a requirement that all pollers can access the central memcached
 to communicate with each other.</p>
 <h1 id="requirements">Requirements</h1>
@@ -2266,6 +2266,8 @@ such as pdns-recursor and have all of your pollers use this or install
 a recursive dns server on each poller - the volume of DNS requests on
 large installs can be significant and will slow polling down enough to
 cause issues with a large number of devices.</p>
+<p>A last note to make sure of, is that all pollers writing to the same DB
+need to have the same <code>APP_KEY</code> value set in the <code>.env</code> file.</p>
 <h3 id="discovery">Discovery</h3>
 <p>It's not necessary to run discovery services on all pollers. In fact,
 you should only run one discovery process per poller group. Designate
