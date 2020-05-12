@@ -2358,7 +2358,7 @@ set, the global default will be used.</p>
 </code></pre>
 
 <ul>
-<li>Filter all sensors matching regexp <code>'/PEM Iout/'</code> for Operating System iosxe.</li>
+<li>Filter all sensors with description matching regexp <code>'/PEM Iout/'</code> for Operating System iosxe.</li>
 </ul>
 <pre><code class="php">$config['os']['iosxe']['disabled_sensors_regex'][] = '/PEM Iout/';
 </code></pre>
@@ -2366,11 +2366,11 @@ set, the global default will be used.</p>
 <ul>
 <li>Ignore all temperature sensors</li>
 </ul>
-<pre><code class="php">$config['disabled_sensors']['current'] = true;
+<pre><code class="php">$config['disabled_sensors']['temperature'] = true;
 </code></pre>
 
 <ul>
-<li>Filter all sensors matching regexp <code>'/PEM Iout/'</code>.</li>
+<li>Filter all sensors matching with description regexp <code>'/PEM Iout/'</code>.</li>
 </ul>
 <pre><code class="php">$config['disabled_sensors_regex'][] = '/PEM Iout/';
 </code></pre>
