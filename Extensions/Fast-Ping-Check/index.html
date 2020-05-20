@@ -2241,20 +2241,24 @@ status, enabling this will be a waste of resources. You can find one
 in the <a href="../../Alerting/Rules/#alert-rules-collection">Alert Rules
 Collection</a>.</p>
 <h2 id="setting-the-ping-check-to-1-minute">Setting the ping check to 1 minute</h2>
-<p>1: Change the ping_rrd_step setting in config.php</p>
+<p>1: If you are using <a href="http://docs.librenms.org/Extensions/RRDCached/">RRDCached</a>, stop the service.</p>
+<pre><code>- This will flush all pending writes so that the rrdstep.php script can change the steps.
+</code></pre>
+<p>2: Change the ping_rrd_step setting in config.php</p>
 <pre><code>$config['ping_rrd_step'] = 60;
 </code></pre>
 
-<p>2: Update the rrd files to change the step (step is hardcoded at file
+<p>3: Update the rrd files to change the step (step is hardcoded at file
 creation in rrd files)</p>
 <pre><code>./scripts/rrdstep.php -h all
 </code></pre>
 
-<p>3: Add the following line to /etc/cron.d/librenms to allow 1 minute
+<p>4: Add the following line to /etc/cron.d/librenms to allow 1 minute
 ping checks</p>
 <pre><code>*    *    * * *   librenms    /opt/librenms/ping.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre>
 
+<p>5: If applicable: Start the <a href="http://docs.librenms.org/Extensions/RRDCached/">RRDCached</a> service</p>
 <p><strong>NOTE</strong>: If you are using distributed pollers you can restrict a
 poller to a group by appending <code>-g</code> to the cron entry.  Alternatively,
 you should only run ping.php on a single node.</p>
