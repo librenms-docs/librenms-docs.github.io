@@ -2249,9 +2249,9 @@ your LibreNMS web UI configuration.</p>
 <code>rsyslog</code>) - see
 <a href="https://docs.python.org/3/library/logging.html#logging-levels">https://docs.python.org/3/library/logging.html#logging-levels</a> for the
 options available.</p>
-<pre><code class="php">distributed_poller                             = true;  # Set to true to enable distributed polling
-distributed_poller_name                        = null;  # Uniquely identifies the poller instance
-distributed_poller_group                       = 0;     # Which group to poll
+<pre><code class="php">$config['distributed_poller']                    = true;            # Set to true to enable distributed polling
+$config['distributed_poller_name']               = php_uname('n');  # Uniquely identifies the poller instance
+$config['distributed_poller_group']              = 0;               # Which group to poll
 </code></pre>
 
 <h3 id="tuning-the-number-of-workers">Tuning the number of workers</h3>
@@ -2298,11 +2298,12 @@ collections build:</p>
 
 <p>Then install and configure the runtime and service:</p>
 <pre><code># yum install rh-python36 epel-release
-# yum install redis
+# yum --enablerepo=remi install redis
 # vi /opt/librenms/config.php
 # vi /etc/redis.conf
 # systemctl enable --now redis.service
 # scl enable rh-python36 bash
+# change directory to librenms (default /opt/librenms)
 # pip3 install -r requirements.txt
 # cp /opt/librenms/misc/librenms.service.scl /etc/systemd/system/librenms.service
 # systemctl enable --now librenms.service
