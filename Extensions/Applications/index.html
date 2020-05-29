@@ -2479,7 +2479,7 @@ Extend</code> heading top of page.</p>
 
 <p>3: Restart your bind9/named after changing the configuration.</p>
 <p>4: Verify that everything works by executing <code>rndc stats &amp;&amp; cat
-/var/run/named/stats</code>. In case you get a <code>Permission Denied</code> error,
+/var/cache/bind/stats</code>. In case you get a <code>Permission Denied</code> error,
 make sure you changed the ownership correctly.</p>
 <p>5: Also be aware that this file is appended to each time <code>rndc stats</code>
 is called. Given this it is suggested you setup file rotation for

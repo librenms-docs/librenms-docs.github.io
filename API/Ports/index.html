@@ -1248,6 +1248,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#search_ports" class="md-nav__link">
+    search_ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_port_info" class="md-nav__link">
     get_port_info
   </a>
@@ -2197,6 +2204,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#search_ports" class="md-nav__link">
+    search_ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_port_info" class="md-nav__link">
     get_port_info
   </a>
@@ -2267,6 +2281,44 @@ the <code>columns</code> parameter to avoid pulling too much data.</p>
         {
           &quot;ifName&quot;: &quot;Vlan 3615&quot;,
           &quot;port_id&quot;: &quot;5488&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="search_ports"><code>search_ports</code></h3>
+<p>Search for ports matching the query.</p>
+<p>Route: <code>/api/v0/ports/search/:search</code></p>
+<ul>
+<li>search string to search in fields: ifAlias, ifDescr, and ifName</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/ports/search/lo
+</code></pre>
+
+<p>Output:</p>
+<pre><code class="json">{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;ports&quot;: [
+        {
+            &quot;device_id&quot;: 1,
+            &quot;port_id&quot;: 1,
+            &quot;ifIndex&quot;: 1,
+            &quot;ifName&quot;: &quot;lo&quot;
+        },
+        {
+            &quot;device_id&quot;: 2,
+            &quot;port_id&quot;: 3,
+            &quot;ifIndex&quot;: 1,
+            &quot;ifName&quot;: &quot;lo&quot;
+        },
+        {
+            &quot;device_id&quot;: 3,
+            &quot;port_id&quot;: 5,
+            &quot;ifIndex&quot;: 1,
+            &quot;ifName&quot;: &quot;lo&quot;
         }
     ]
 }
