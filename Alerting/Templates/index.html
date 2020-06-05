@@ -1566,13 +1566,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ms-teams-formatted-default-template" class="md-nav__link">
-    MS Teams formatted default template
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1582,6 +1575,33 @@
   <a href="#included" class="md-nav__link">
     Included
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-examples" class="md-nav__link">
+    Other Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-teams-markdown" class="md-nav__link">
+    Microsoft Teams - Markdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-teams-json" class="md-nav__link">
+    Microsoft Teams - JSON
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2429,13 +2449,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ms-teams-formatted-default-template" class="md-nav__link">
-    MS Teams formatted default template
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2445,6 +2458,33 @@
   <a href="#included" class="md-nav__link">
     Included
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-examples" class="md-nav__link">
+    Other Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-teams-markdown" class="md-nav__link">
+    Microsoft Teams - Markdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-teams-json" class="md-nav__link">
+    Microsoft Teams - JSON
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2790,19 +2830,6 @@ Template: CPU alert &lt;br&gt;
 @endif
 </code></pre>
 
-<h4 id="ms-teams-formatted-default-template">MS Teams formatted default template</h4>
-<pre><code>&lt;a href=&quot;https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/&quot;&gt;{{ $alert-&gt;title }}&lt;/a&gt;
-&lt;pre&gt;&lt;strong&gt;Device name:&lt;/strong&gt; {{ $alert-&gt;sysName }}
-&lt;strong&gt;Severity:&lt;/strong&gt; {{ $alert-&gt;severity }}
-@if ($alert-&gt;state == 0)&lt;strong&gt;Time elapsed:&lt;/strong&gt;{{ $alert-&gt;elapsed }}
-@endif&lt;strong&gt;Timestamp:&lt;/strong&gt; {{ $alert-&gt;timestamp }}
-&lt;strong&gt;Unique-ID:&lt;/strong&gt; {{ $alert-&gt;uid }}
-&lt;strong&gt;Rule:&lt;/strong&gt;@if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif&lt;/pre&gt;
-&lt;pre style=&quot;white-space:normal;&quot;&gt;@if ($alert-&gt;faults) &lt;strong&gt;Faults:&lt;/strong&gt;
- @foreach ($alert-&gt;faults as $key =&gt; $value)  #{{ $key }}: {{ $value['string'] }}
- @endforeach &lt;/pre&gt;  @endif
-</code></pre>
-
 <h2 id="included">Included</h2>
 <p>We include a few templates for you to use, these are specific to the
 type of alert rules you are creating. For example if you create a rule
@@ -2814,6 +2841,127 @@ to this rule to provide more information.</p>
 <li>Ports</li>
 <li>Temperature</li>
 </ul>
+<h2 id="other-examples">Other Examples</h2>
+<h4 id="microsoft-teams-markdown">Microsoft Teams - Markdown</h4>
+<pre><code>[{{ $alert-&gt;title }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/)  
+**Device name:** {{ $alert-&gt;sysName }}  
+**Severity:** {{ $alert-&gt;severity }}  
+@if ($alert-&gt;state == 0)
+**Time elapsed:** {{ $alert-&gt;elapsed }}  
+@endif
+**Timestamp:** {{ $alert-&gt;timestamp }}  
+**Unique-ID:** {{ $alert-&gt;uid }}  
+@if ($alert-&gt;name)
+**Rule:** {{ $alert-&gt;name }}  
+@else
+**Rule:** {{ $alert-&gt;rule }}  
+@endif
+@if ($alert-&gt;faults)
+**Faults:**@foreach ($alert-&gt;faults as $key =&gt; $value) {{ $key }}: {{ $value['string'] }}  
+@endforeach
+@endif
+</code></pre>
+
+<h4 id="microsoft-teams-json">Microsoft Teams - JSON</h4>
+<pre><code>{
+    &quot;@context&quot;: &quot;https://schema.org/extensions&quot;,
+    &quot;@type&quot;: &quot;MessageCard&quot;,
+    &quot;title&quot;: &quot;{{ $alert-&gt;title }}&quot;,
+@if ($alert-&gt;state === 0)
+    &quot;themeColor&quot;: &quot;00FF00&quot;,
+@elseif ($alert-&gt;state === 1)
+    &quot;themeColor&quot;: &quot;FF0000&quot;,
+@elseif ($alert-&gt;state === 2)
+    &quot;themeColor&quot;: &quot;337AB7&quot;,
+@elseif ($alert-&gt;state === 3)
+    &quot;themeColor&quot;: &quot;FF0000&quot;,
+@elseif ($alert-&gt;state === 4)
+    &quot;themeColor&quot;: &quot;F0AD4E&quot;,
+@else
+    &quot;themeColor&quot;: &quot;337AB7&quot;,
+@endif
+    &quot;summary&quot;: &quot;LibreNMS&quot;,
+    &quot;sections&quot;: [
+        {
+@if ($alert-&gt;name)
+            &quot;facts&quot;: [
+                {
+                    &quot;name&quot;: &quot;Rule:&quot;,
+                    &quot;value&quot;: &quot;[{{ $alert-&gt;name }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/tab=alert/)&quot;
+                },
+@else
+                {
+                    &quot;name&quot;: &quot;Rule:&quot;,
+                    &quot;value&quot;: &quot;[{{ $alert-&gt;rule }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/tab=alert/)&quot;
+                },
+@endif
+                {
+                    &quot;name&quot;: &quot;Severity:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;severity }}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Unique-ID:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;uid }}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Timestamp:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;timestamp }}&quot;
+                },
+@if ($alert-&gt;state == 0)
+                {
+                    &quot;name&quot;: &quot;Time elapsed:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;elapsed }}&quot;
+                },
+@endif
+                {
+                    &quot;name&quot;: &quot;Hostname:&quot;,
+                    &quot;value&quot;: &quot;[{{ $alert-&gt;hostname }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Hardware:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;hardware }}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;IP:&quot;,
+                    &quot;value&quot;: &quot;{{ $alert-&gt;ip }}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Faults:&quot;,
+                    &quot;value&quot;: &quot; &quot;
+                }
+            ]
+@if ($alert-&gt;faults)
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+        },
+        {
+            &quot;facts&quot;: [
+                {
+                    &quot;name&quot;: &quot;Port:&quot;,
+                    &quot;value&quot;: &quot;[{{ $value['ifName'] }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/tab=port/port={{ $value['port_id'] }}/)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Description:&quot;,
+                    &quot;value&quot;: &quot;{{ $value['ifAlias'] }}&quot;
+                },
+@if ($alert-&gt;state != 0)
+                {
+                    &quot;name&quot;: &quot;Status:&quot;,
+                    &quot;value&quot;: &quot;down&quot;
+                }
+            ]
+@else
+                {
+                    &quot;name&quot;: &quot;Status:&quot;,
+                    &quot;value&quot;: &quot;up&quot;
+                }
+            ]
+@endif
+@endforeach
+@endif
+        }
+    ]
+}
+</code></pre>
                 
                   
                     <h2 id="__source">Source</h2>

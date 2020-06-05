@@ -3391,8 +3391,12 @@ As a small reminder, here is it's configuration directives including defaults:</
 </tbody>
 </table>
 <h2 id="microsoft-teams">Microsoft Teams</h2>
-<p>Microsoft Teams. LibreNMS can send alerts to Microsoft Teams Connector
-API which are then posted to a specific channel.</p>
+<p>LibreNMS can send alerts to Microsoft Teams <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">Incoming Webhooks</a> which are 
+then posted to a specific channel. Microsoft recommends using 
+<a href="https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-format#markdown-formatting-for-connector-cards">markdown</a> formatting for connector cards. 
+Administrators can opt to <a href="https://messagecardplayground.azurewebsites.net/">compose</a>
+the <a href="https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference">MessageCard</a>
+themselves using JSON to get the full functionality.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3405,6 +3409,10 @@ API which are then posted to a specific channel.</p>
 <tr>
 <td>WebHook URL</td>
 <td><a href="https://outlook.office365.com/webhook/123456789">https://outlook.office365.com/webhook/123456789</a></td>
+</tr>
+<tr>
+<td>Use JSON?</td>
+<td>x</td>
 </tr>
 </tbody>
 </table>
