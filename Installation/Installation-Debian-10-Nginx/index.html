@@ -2164,7 +2164,7 @@ privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </blockquote>
 <p><strong>Please note the minimum supported PHP version is 7.2.5</strong></p>
 <h1 id="install-required-packages">Install Required Packages</h1>
-<pre><code class="bash">apt install curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.3-cli php7.3-curl php7.3-fpm php7.3-gd php7.3-json php7.3-mbstring php7.3-mysql php7.3-snmp php7.3-xml php7.3-zip python-memcache python-mysqldb rrdtool snmp snmpd whois python3-pymysql python3-dotenv python3-redis python3-setuptools
+<pre><code class="bash">apt install acl curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.3-cli php7.3-curl php7.3-fpm php7.3-gd php7.3-json php7.3-mbstring php7.3-mysql php7.3-snmp php7.3-xml php7.3-zip python-memcache python-mysqldb rrdtool snmp snmpd whois python3-pymysql python3-dotenv python3-redis python3-setuptools
 </code></pre>
 
 <h1 id="add-librenms-user">Add librenms user</h1>
@@ -2192,7 +2192,7 @@ exit
 
 <h1 id="db-server">DB Server</h1>
 <h2 id="configure-mysql">Configure MySQL</h2>
-<pre><code class="bash">systemctl restart mysql
+<pre><code class="bash">service mysql restart
 mysql -uroot -p
 </code></pre>
 
@@ -2214,7 +2214,7 @@ exit
 lower_case_table_names=0
 </code></pre>
 
-<pre><code class="bash">systemctl restart mysql
+<pre><code class="bash">service mysql restart
 </code></pre>
 
 <h1 id="web-server">Web Server</h1>
@@ -2227,12 +2227,12 @@ timezones.  Valid examples are: "America/New_York",
 nano /etc/php/7.3/cli/php.ini
 </code></pre>
 
-<pre><code class="bash">systemctl restart php7.3-fpm
+<pre><code class="bash">service php7.3-fpm restart
 </code></pre>
 
 <h2 id="configure-nginx">Configure NGINX</h2>
-<pre><code class="bash">rm /etc/nginx/sites-available/default &amp;&amp; rm /etc/nginx/sites-enabled/default
-nano /etc/nginx/sites-enabled/librenms.vhost
+<pre><code class="bash">rm /etc/nginx/sites-enabled/default
+nano /etc/nginx/sites-available/librenms.vhost
 </code></pre>
 
 <p>Add the following config, edit <code>server_name</code> as required:</p>
@@ -2262,18 +2262,20 @@ nano /etc/nginx/sites-enabled/librenms.vhost
 }
 </code></pre>
 
-<pre><code class="bash">systemctl reload nginx
+<pre><code class="bash">ln -s /etc/nginx/sites-available/librenms.vhost /etc/nginx/sites-enabled/librenms.vhost
+service nginx reload
 </code></pre>
 
 <h1 id="configure-snmpd">Configure snmpd</h1>
 <pre><code class="bash">cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+chmod 600 /etc/snmp/snmpd.conf
 nano /etc/snmp/snmpd.conf
 </code></pre>
 
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
 <pre><code class="bash">curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
-systemctl restart snmpd
+service snmpd restart
 </code></pre>
 
 <h1 id="cron-job">Cron job</h1>
