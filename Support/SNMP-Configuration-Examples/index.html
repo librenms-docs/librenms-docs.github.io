@@ -2996,20 +2996,46 @@ set snmp view mysnmpv3view oid iso include
 <p>CLI SNMP v2 Configuration</p>
 <pre><code>/snmp community
 set [ find default=yes ] read-access=no
-add addresses=&lt;SRC IP/NETWORK&gt; name=&lt;COMMUNITY&gt;
+add addresses=&lt;ALLOWED-SRC-IPs/NETMASK&gt; name=&lt;COMMUNITY&gt;
 /snmp
 set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; location=&quot;&lt;LOCALTION&gt;&quot;
 </code></pre>
 
-<p>Notes:
-* About the snmp community commands:
-    * The commands change the default snmp community.  It is probably possible to create a new one instead.
-    * <SRC IP/NETWORK> specify the address and host (not network) netmask of the LibreNMS server.  Example: 192.168.8.71/32
-    * trap-version=2 must also be specified if some other trap-version has been set
-    * trap-interfaces may also be used to limit the interfaces the router listens on
-* About the snmp command:
-    * contact, engine-id and location are optional
-    * trap-community is probably required if a new snmp community has been created.</p>
+<p>Notes:</p>
+<ul>
+<li>About the snmp community commands:<ul>
+<li>The commands change the default snmp community.  It is probably possible to create a new one instead.</li>
+<li><ALLOWED-SRC-IPs/NETMASK> specify the address and host (not network) netmask of the LibreNMS server.  Example: 192.168.8.71/32</li>
+<li>trap-version=2 must also be specified if some other trap-version has been set</li>
+<li>trap-interfaces may also be used to limit the interfaces the router listens on</li>
+</ul>
+</li>
+<li>About the snmp command:<ul>
+<li>contact, engine-id and location are optional</li>
+<li>trap-community is probably required if a new snmp community has been created.</li>
+</ul>
+</li>
+</ul>
+<p>CLI SNMP v3 Configuration for <em>authPriv</em></p>
+<pre><code>/snmp community 
+add name=&quot;&lt;COMMUNITY&gt;&quot; addresses=&quot;&lt;ALLOWED-SRC-IPs/NETMASK&gt;&quot; 
+set &quot;&lt;COMMUNITY&gt;&quot; authentication-password=&quot;&lt;AUTH_PASS&gt;&quot; authentication-protocol=MD5
+set &quot;&lt;COMMUNITY&gt;&quot; encryption-password=&quot;&lt;ENCRYP_PASS&gt;&quot; encryption-protocol=AES
+set &quot;&lt;COMMUNITY&gt;&quot; read-access=yes write-access=no security=private
+#Disable public SNMP
+set public read-access=no write-access=no security=private
+/snmp
+set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&quot;&lt;ENGINE ID&gt;&quot; location=&quot;&lt;LOCALTION&gt;&quot;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+<li>Use password with length of min 8 chars</li>
+</ul>
+<p>Notes for both SNMP v2 and v3</p>
+<ul>
+<li>In some cases of advanced routing one may need to set explicitly the source IP address from which the SNMP daemon will reply - <code>/snmp set src-address=&lt;SELF_IP_ADDRESS&gt;</code></li>
+</ul>
 <h3 id="palo-alto">Palo Alto</h3>
 <h4 id="panos-6x7x">PANOS 6.x/7.x</h4>
 <ol>
