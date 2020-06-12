@@ -2298,12 +2298,6 @@ use the provided logrotate config file:</p>
 <pre><code class="bash">cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 </code></pre>
 
-<h1 id="set-permissions_1">Set permissions</h1>
-<pre><code class="bash">chown -R librenms:librenms /opt/librenms
-setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
-setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
-</code></pre>
-
 <h1 id="web-installer">Web installer</h1>
 <p>Now head to the web installer and follow the on-screen instructions.</p>
 <p><a href="http://librenms.example.com/install.php">http://librenms.example.com/install.php</a></p>
