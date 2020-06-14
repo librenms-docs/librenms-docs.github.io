@@ -2516,7 +2516,7 @@ to be skipped during discovery. An example of this is below:</p>
 <p><code>op</code> can be any of the following operators :</p>
 <p>=, !=, ==, !==, &lt;=, &gt;=, &lt;, &gt;,
 starts, ends, contains, regex, in_array, not_starts,
-not_ends, not_contains, not_regex, not_in_array</p>
+not_ends, not_contains, not_regex, not_in_array, exists</p>
 <p>Example:</p>
 </blockquote>
 <pre><code class="yaml">                    skip_values:
@@ -2524,6 +2524,13 @@ not_ends, not_contains, not_regex, not_in_array</p>
                       oid: sensorName
                       op: 'not_in_array'
                       value: ['sensor1', 'sensor2']
+</code></pre>
+
+<pre><code class="yaml">                    skip_values:
+                    -
+                      oid: sensorOptionalOID
+                      op: 'exists'
+                      value: false
 </code></pre>
 
 <p>If you aren't able to use yaml to perform the sensor discovery, you
