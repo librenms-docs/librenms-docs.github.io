@@ -2221,29 +2221,15 @@ or over, in addition to your rrdcached version.</p>
 </table>
 <p>It is recommended that you monitor your LibreNMS server with LibreNMS
 so you can view the disk I/O usage delta.</p>
-<h2 id="rrdcached-installation-centos-7">RRDCached installation CentOS 7</h2>
-<p>1: Create <code>/etc/systemd/system/rrdcached.service</code> with this content:</p>
-<pre><code>[Unit]
-Description=Data caching daemon for rrdtool
-After=network.service
-
-[Service]
-Type=forking
-PIDFile=/run/rrdcached.pid
-ExecStart=/usr/bin/rrdcached -w 1800 -z 1800 -f 3600 -s librenms -U librenms -G librenms -B -R -j /var/tmp -l unix:/run/rrdcached.sock -t 4 -F -b /opt/librenms/rrd/
-
-[Install]
-WantedBy=default.target
-</code></pre>
-
-<p>2: Start rrdcached</p>
-<pre><code class="bash">systemctl enable --now rrdcached.service
-</code></pre>
-
-<p>3: Edit <code>/opt/librenms/config.php</code> to include:</p>
-<pre><code class="php">$config['rrdcached'] = &quot;unix:/run/rrdcached.sock&quot;;
-</code></pre>
-
+<h1 id="installation-manual-for">Installation Manual for</h1>
+<ol>
+<li><a href="#RRDCached-installation-Ubuntu-16">RRDCached installation Ubuntu 16</a></li>
+<li><a href="#RRDCached-installation-Debian-Buster">RRDCached installation Debian Buster</a></li>
+<li><a href="#RRDCached-installation-Debian-Stretch">RRDCached installation Debian Stretch</a></li>
+<li><a href="#RRDCached-installation-CentOS-7">RRDCached installation CentOS 7</a></li>
+<li><a href="#RRDCached-installation-CentOS-6">RRDCached installation CentOS 6</a></li>
+<li><a href="#Securing-RRCached">Securing RRCached</a></li>
+</ol>
 <h2 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h2>
 <p>1: Install rrdcached</p>
 <pre><code class="bash">sudo apt-get install rrdcached
@@ -2273,31 +2259,11 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 </code></pre>
 
 <p>5: Edit <code>/opt/librenms/config.php</code> to include:</p>
-<pre><code class="php">$config['rrdcached'] = &quot;unix:/var/run/rrdcached.sock&quot;;
+<pre><code class="php">$config['rrdcached'] = &quot;unix:/run/rrdcached.sock&quot;;
 </code></pre>
 
-<h2 id="rrdcached-installation-debian-jessie-rrdcached-148">RRDCached installation Debian Jessie (rrdcached 1.4.8)</h2>
-<p>1: Install rrdcached</p>
-<pre><code class="bash">sudo apt-get install rrdcached
-</code></pre>
-
-<p>2: Edit /etc/default/rrdcached to include:</p>
-<pre><code class="bash">OPTS=&quot;-s librenms&quot;
-OPTS=&quot;$OPTS -l unix:/var/run/rrdcached.sock&quot;
-OPTS=&quot;$OPTS -j /var/lib/rrdcached/journal/ -F&quot;
-OPTS=&quot;$OPTS -b /opt/librenms/rrd/ -B&quot;
-OPTS=&quot;$OPTS -w 1800 -z 1800 -f 3600 -t 4&quot;
-</code></pre>
-
-<p>3: Restart the rrdcached service</p>
-<pre><code class="bash">    systemctl restart rrdcached.service
-</code></pre>
-
-<p>4: Edit /opt/librenms/config.php to include:</p>
-<pre><code class="php">$config['rrdcached'] = &quot;unix:/var/run/rrdcached.sock&quot;;
-</code></pre>
-
-<h2 id="rrdcached-installation-debian-stretch-rrdcached-160">RRDCached installation Debian Stretch (rrdcached 1.6.0)</h2>
+<h2 id="rrdcached-installation-debian-buster">RRDCached installation Debian Buster</h2>
+<p>(rrdcached 1.7.1)</p>
 <p>1: Install rrdcached</p>
 <pre><code class="bash">sudo apt-get install rrdcached
 </code></pre>
@@ -2310,7 +2276,7 @@ WRITE_THREADS=4
 BASE_PATH=/opt/librenms/rrd/
 JOURNAL_PATH=/var/lib/rrdcached/journal/
 PIDFILE=/var/run/rrdcached.pid
-SOCKFILE=/var/run/rrdcached.sock
+SOCKFILE=/run/rrdcached.sock
 SOCKGROUP=librenms
 DAEMON_GROUP=librenms
 DAEMON_USER=librenms
@@ -2327,7 +2293,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 
 <p>5: Edit /opt/librenms/config.php to include:</p>
 <p>For local RRDCached server</p>
-<pre><code class="php">$config['rrdcached'] = &quot;unix:/var/run/rrdcached.sock&quot;;
+<pre><code class="php">$config['rrdcached'] = &quot;unix:/run/rrdcached.sock&quot;;
 </code></pre>
 
 <p>For remote RRDCached server make sure you have network option in /var/default/rrdcached</p>
@@ -2338,6 +2304,71 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 </code></pre>
 
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
+<h2 id="rrdcached-installation-debian-stretch">RRDCached installation Debian Stretch</h2>
+<p>(rrdcached 1.6.0)</p>
+<p>1: Install rrdcached</p>
+<pre><code class="bash">sudo apt-get install rrdcached
+</code></pre>
+
+<p>2; Edit /etc/default/rrdcached to include:</p>
+<pre><code class="bash">DAEMON=/usr/bin/rrdcached
+WRITE_TIMEOUT=1800
+WRITE_JITTER=1800
+WRITE_THREADS=4
+BASE_PATH=/opt/librenms/rrd/
+JOURNAL_PATH=/var/lib/rrdcached/journal/
+PIDFILE=/var/run/rrdcached.pid
+SOCKFILE=/run/rrdcached.sock
+SOCKGROUP=librenms
+DAEMON_GROUP=librenms
+DAEMON_USER=librenms
+BASE_OPTIONS=&quot;-B -F -R&quot;
+</code></pre>
+
+<p>3: Fix permissions</p>
+<pre><code class="bash">chown librenms:librenms /var/lib/rrdcached/journal/
+</code></pre>
+
+<p>4: Restart the rrdcached service</p>
+<pre><code class="bash">    systemctl restart rrdcached.service
+</code></pre>
+
+<p>5: Edit /opt/librenms/config.php to include:</p>
+<p>For local RRDCached server</p>
+<pre><code class="php">$config['rrdcached'] = &quot;unix:/run/rrdcached.sock&quot;;
+</code></pre>
+
+<p>For remote RRDCached server make sure you have network option in /var/default/rrdcached</p>
+<pre><code class="bash">NETWORK_OPTIONS=&quot;-L&quot;
+</code></pre>
+
+<pre><code class="php">$config['rrdcached'] = &quot;IPADDRESS:42217&quot;;
+</code></pre>
+
+<p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
+<h2 id="rrdcached-installation-centos-7">RRDCached installation CentOS 7</h2>
+<p>1: Create <code>/etc/systemd/system/rrdcached.service</code> with this content:</p>
+<pre><code>[Unit]
+Description=Data caching daemon for rrdtool
+After=network.service
+
+[Service]
+Type=forking
+PIDFile=/run/rrdcached.pid
+ExecStart=/usr/bin/rrdcached -w 1800 -z 1800 -f 3600 -s librenms -U librenms -G librenms -B -R -j /var/tmp -l unix:/run/rrdcached.sock -t 4 -F -b /opt/librenms/rrd/
+
+[Install]
+WantedBy=default.target
+</code></pre>
+
+<p>2: Start rrdcached</p>
+<pre><code class="bash">systemctl enable --now rrdcached.service
+</code></pre>
+
+<p>3: Edit <code>/opt/librenms/config.php</code> to include:</p>
+<pre><code class="php">$config['rrdcached'] = &quot;unix:/run/rrdcached.sock&quot;;
+</code></pre>
+
 <h2 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h2>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
 In this example, we'll use the Repoforge repository.</p>
@@ -2358,7 +2389,7 @@ vi /etc/yum.repos.d/rpmforge.repo
 <pre><code class="ssh">vi /etc/sysconfig/rrdcached
 
 # Settings for rrdcached
-OPTIONS=&quot;-w 1800 -z 1800 -f 3600 -s librenms -U librenms -G librenms -B -R -j /var/tmp -l unix:/var/run/rrdcached/rrdcached.sock -t 4 -F -b /opt/librenms/rrd/&quot;
+OPTIONS=&quot;-w 1800 -z 1800 -f 3600 -s librenms -U librenms -G librenms -B -R -j /var/tmp -l unix:/run/rrdcached.sock -t 4 -F -b /opt/librenms/rrd/&quot;
 RRDC_USER=librenms
 
 mkdir /var/run/rrdcached
@@ -2372,7 +2403,7 @@ service rrdcached start
 <ul>
 <li>Edit /opt/librenms/config.php to include:</li>
 </ul>
-<pre><code class="php">$config['rrdcached']    = &quot;unix:/var/run/rrdcached/rrdcached.sock&quot;;
+<pre><code class="php">$config['rrdcached']    = &quot;unix:/run/rrdcached.sock&quot;;
 </code></pre>
 
 <h1 id="verify">Verify</h1>
