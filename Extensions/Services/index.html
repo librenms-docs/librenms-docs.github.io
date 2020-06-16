@@ -1058,6 +1058,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check_mrpe" class="md-nav__link">
+    CHECK_MRPE
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2270,6 +2277,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check_mrpe" class="md-nav__link">
+    CHECK_MRPE
+  </a>
+  
+</li>
+      
       
         <li class="md-nav__item">
           <a href="#__source" class="md-nav__link md-nav__link--active">
@@ -2304,6 +2318,7 @@
 <li><a href="#alerting">Alerting</a></li>
 <li><a href="#debug">Debug</a></li>
 <li><a href="#service-checks-polling-logic">Service checks polling logic</a></li>
+<li><a href="#check_mrpe">CHECK_MRPE</a></li>
 </ul>
 </li>
 </ul>
@@ -2421,6 +2436,19 @@ device's IP address, even when the associated device is not pingable.</p>
 disable ICMP testing for any device by switching <code>Disable ICMP Test</code>
 setting (Edit -&gt; Misc) to ON.</p>
 <p>Service checks will never be polled on disabled devices.</p>
+<h2 id="check_mrpe">CHECK_MRPE</h2>
+<p>In most cases, only Nagios plugins that run against a remote host with the -H option are available as services.  However, if you're remote host is running the <a href="../Agent-Setup/">Check_MK agent</a> you may be able to use MRPE to monitor Nagios plugins that only execute locally as services.</p>
+<p>For example, consider the fairly common check_cpu.sh Nagios plugin.
+If you added..</p>
+<blockquote>
+<p>cpu_check /usr/lib/nagios/plugins/check_cpu.sh -c 95 -w 75</p>
+</blockquote>
+<p>...to <code>/etc/check_mk/mrpe.cfg</code> on your remote host, you should be able to check its output by configuring a service using the <a href="https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/check_mrpe">check_mrpe</a> script.</p>
+<ul>
+<li>Add <a href="https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/check_mrpe">check_mrpe</a> to the Nagios plugins directory on your LibreNMS server and make it executable.</li>
+<li>In LibreNMS, add a new service to the desired device with the type mrpe.</li>
+<li>Enter the IP address of the remote host and in parameters enter <code>-a cpu_check</code> (this should match the name used at the beginning of the line in the mrpe.cfg file).</li>
+</ul>
                 
                   
                     <h2 id="__source">Source</h2>
