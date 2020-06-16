@@ -2622,18 +2622,27 @@ Further details: <a href="https://getchip.com/pages/chip">https://getchip.com/pa
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="dhcp-stats">DHCP Stats</h1>
-<p>A small shell script that reports current DHCP leases stats.</p>
+<p>A small python3 script that reports current DHCP leases stats and pool usage.</p>
+<p>Also you have to install the dhcpd-pools Package.
+Under Ubuntu/Debian just run <code>apt install dhcpd-pools</code></p>
 <h2 id="snmp-extend_6">SNMP Extend</h2>
 <p>1: Copy the shell script to the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp-status.sh -O /etc/snmp/dhcp-status.sh
+<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp.py -O /etc/snmp/dhcp.py
 </code></pre>
 
-<p>2: Run <code>chmod +x /etc/snmp/dhcp-status.sh</code></p>
-<p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend dhcpstats /etc/snmp/dhcp-status.sh
+<p>2: Run <code>chmod +x /etc/snmp/dhcp.py</code></p>
+<p>3: edit a config file:</p>
+<p>Content of an example /etc/snmp/dhcp.json . Please edit with your own settings.</p>
+<pre><code>{&quot;leasefile&quot;: &quot;/var/lib/dhcp/dhcpd.leases&quot;
+}
 </code></pre>
 
-<p>4: Restart snmpd on your host</p>
+<p>Key 'leasefile' specifies the path to your lease file.</p>
+<p>4: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+<pre><code>extend dhcpstats /etc/snmp/dhcp.py
+</code></pre>
+
+<p>5: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
