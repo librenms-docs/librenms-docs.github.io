@@ -2315,7 +2315,7 @@ user that can be an unprivileged user. In these situations you need to use sudo.
 Then test if you can run the extend script as that user without issue.
 For example if snmpd is running as 'Debian-snmp' and we want
 to run the extend for proxmox, we check that the following run without error:</p>
-<pre><code>sudo -u Debian-snmpn/usr/local/bin/proxmox
+<pre><code>sudo -u Debian-snmp /usr/local/bin/proxmox
 </code></pre>
 
 <p>If it doesn't work, then you will need to use sudo with the extend command.
@@ -3332,7 +3332,7 @@ Extend</code> heading top of page.</p>
 </code></pre>
 
 <p>after, edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
+<pre><code>Debian-snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
 </code></pre>
 
 <p>6: Restart snmpd on your host</p>
