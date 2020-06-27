@@ -2239,12 +2239,12 @@ resources with this command:</p>
 <p>Enable debug output to troubleshoot issues</p>
 <h1 id="mysql-authentication">MySQL Authentication</h1>
 <p>Config option: <code>mysql</code></p>
-<p>This is default option with LibreNMS so you should have already have
-the configuration setup.</p>
-<pre><code class="php">$config['db_host'] = &quot;HOSTNAME&quot;;
-$config['db_user'] = &quot;DBUSER&quot;;
-$config['db_pass'] = &quot;DBPASS&quot;;
-$config['db_name'] = &quot;DBNAME&quot;;
+<p>This is default option with LibreNMS so you should have already have the configuration setup in your
+environment file (.env).</p>
+<pre><code class="dotenv">DB_HOST=HOSTNAME
+DB_DATABASE=DBNAME
+DB_USERNAME=DBUSER
+DB_PASSWORD=&quot;DBPASS&quot;
 </code></pre>
 
 <h1 id="active-directory-authentication">Active Directory Authentication</h1>

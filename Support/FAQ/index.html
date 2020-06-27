@@ -2588,16 +2588,9 @@ menu similarly to device types.</p>
 <h2 id="where-do-i-update-my-database-credentials"><a name="faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></h2>
 <p>If you've changed your database credentials then you will need to
 update LibreNMS with those new details.
-Please edit both <code>config.php</code> and <code>.env</code></p>
-<p>config.php:</p>
-<pre><code class="php">$config['db_host'] = '';
-$config['db_user'] = '';
-$config['db_pass'] = '';
-$config['db_name'] = '';
-</code></pre>
-
+Please edit <code>.env</code></p>
 <p><a href="../Environment-Variables/#database">.env</a>:</p>
-<pre><code class="bash">DB_HOST=
+<pre><code class="dotenv">DB_HOST=
 DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
