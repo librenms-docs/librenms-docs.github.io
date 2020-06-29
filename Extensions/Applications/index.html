@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#introduction" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Applications
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Applications
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -552,13 +462,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -573,13 +489,16 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Applications
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Applications" class="md-nav__link md-nav__link--active">
@@ -587,13 +506,18 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -601,7 +525,7 @@
     SNMP Extend
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="SNMP Extend">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -636,16 +560,6 @@
   </a>
   
 </li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
       
     </ul>
   
@@ -762,13 +676,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1026,13 +946,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1141,13 +1067,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1254,13 +1186,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1458,13 +1396,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1602,13 +1546,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1770,13 +1720,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1921,13 +1877,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2118,13 +2080,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2161,13 +2129,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2218,13 +2192,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2232,7 +2211,7 @@
     SNMP Extend
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="SNMP Extend">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2268,16 +2247,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2290,7 +2259,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Applications.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Applications.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Applications.md" title="Extensions/Applications.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="introduction">Introduction</h1>
@@ -2315,18 +2301,18 @@ user that can be an unprivileged user. In these situations you need to use sudo.
 Then test if you can run the extend script as that user without issue.
 For example if snmpd is running as 'Debian-snmp' and we want
 to run the extend for proxmox, we check that the following run without error:</p>
-<pre><code>sudo -u Debian-snmp /usr/local/bin/proxmox
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo -u Debian-snmp /usr/local/bin/proxmox
+</code></pre></div>
 
 <p>If it doesn't work, then you will need to use sudo with the extend command.
 For the example above, that would mean adding the line below to the sudoers file:</p>
-<pre><code>Debian-snmp ALL = NOPASSWD: /usr/local/bin/proxmox
-</code></pre>
+<div class="highlight"><pre><span></span><code>Debian-snmp ALL = NOPASSWD: /usr/local/bin/proxmox
+</code></pre></div>
 
 <p>Finally we would need to add sudo to the extend command, which would look
 like that for proxmox:</p>
-<pre><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox
+</code></pre></div>
 
 <h2 id="enable-the-application-discovery-module">Enable the application discovery module</h2>
 <ol>
@@ -2417,29 +2403,29 @@ module before trying the script.</p>
 <h2 id="snmp-extend_1">SNMP Extend</h2>
 <p>1: Download the script onto the desired host (the host must be added
 to LibreNMS devices)</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/apache-stats.py -O /etc/snmp/apache-stats.py
+</code></pre></div>
 
 <p>2: Make the script executable (chmod +x /etc/snmp/apache-stats.py)</p>
 <p>3: Create the cache directory, '/var/cache/librenms/' and make sure
 that it is owned by the user running the SNMP daemon.</p>
-<pre><code>mkdir -p /var/cache/librenms/
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
+</code></pre></div>
 
 <p>4: Verify it is working by running /etc/snmp/apache-stats.py In some
 cases urlgrabber and pycurl needs to be installed, in Debian this can
 be achieved by:</p>
-<pre><code>apt-get install python-urlgrabber python-pycurl
-</code></pre>
+<div class="highlight"><pre><span></span><code>apt-get install python-urlgrabber python-pycurl
+</code></pre></div>
 
 <p>5: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend apache /etc/snmp/apache-stats.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend apache /etc/snmp/apache-stats.py
+</code></pre></div>
 
 <p>6: Restart snmpd on your host</p>
 <p>7: Test by running</p>
-<pre><code>snmpwalk &lt;various options depending on your setup&gt; localhost NET-SNMP-EXTEND-MIB::nsExtendOutput2Table
-</code></pre>
+<div class="highlight"><pre><span></span><code>snmpwalk &lt;various options depending on your setup&gt; localhost NET-SNMP-EXTEND-MIB::nsExtendOutput2Table
+</code></pre></div>
 
 <h2 id="agent_1">Agent</h2>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already
@@ -2449,8 +2435,8 @@ and copy the <code>apache</code> script to <code>/usr/lib/check_mk_agent/local/<
 to be installed: apt-get install libwww-perl)</p>
 <p>2: Create the cache directory, '/var/cache/librenms/' and make sure
 that it is owned by the user running the SNMP daemon.</p>
-<pre><code>mkdir -p /var/cache/librenms/
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
+</code></pre></div>
 
 <p>3: On the device page in Librenms, edit your host and check the
 <code>Apache</code> under the Applications tab.</p>
@@ -2459,16 +2445,15 @@ that it is owned by the user running the SNMP daemon.</p>
 <h2 id="snmp-extend_2">SNMP Extend</h2>
 <p>1: Download the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/asterisk">asterisk
 script</a>
-to <code>/etc/snmp/</code> on your asterisk server.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/asterisk -O /etc/snmp/asterisk
-</code></pre>
-
+to <code>/etc/snmp/</code> on your asterisk server.
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/asterisk -O /etc/snmp/asterisk
+</code></pre></div></p>
 <p>2: Run <code>chmod +x /etc/snmp/asterisk</code></p>
 <p>3: Configure <code>ASCLI</code> in the script.</p>
 <p>4: Verify it is working by running <code>/etc/snmp/asterisk</code></p>
 <p>5: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend asterisk /etc/snmp/asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend asterisk /etc/snmp/asterisk
+</code></pre></div>
 
 <p>6: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2479,31 +2464,30 @@ Extend</code> heading top of page.</p>
 <h2 id="snmp-extend_3">SNMP Extend</h2>
 <p>1: Download the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/backupninja.py">backupninja
 script</a>
-to <code>/etc/snmp/backupninja.py</code> on your backuped server.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/backupninja.py -O /etc/snmp/backupninja.py`
-</code></pre>
-
-<p>2: Make the script executable: <code>chmod +x /etc/snmp/backupninja.py</code>
+to <code>/etc/snmp/backupninja.py</code> on your backuped server.
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/backupninja.py -O /etc/snmp/backupninja.py`
+</code></pre></div>
+2: Make the script executable: <code>chmod +x /etc/snmp/backupninja.py</code>
 3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend backupninja /etc/snmp/backupninja.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend backupninja /etc/snmp/backupninja.py
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <h1 id="bind9-aka-named">BIND9 aka named</h1>
 <p>1: Create stats file with appropriate permissions:</p>
-<pre><code class="bash">~$ touch /var/cache/bind/stats
+<div class="highlight"><pre><span></span><code>~$ touch /var/cache/bind/stats
 ~$ chown bind:bind /var/cache/bind/stats
-</code></pre>
+</code></pre></div>
 
 <p>Change <code>user:group</code> to the user and group that's running bind/named.</p>
 <p>2: Bind/named configuration:</p>
-<pre><code class="text">options {
+<div class="highlight"><pre><span></span><code>options {
     ...
     statistics-file &quot;/var/cache/bind/stats&quot;;
     zone-statistics yes;
     ...
 };
-</code></pre>
+</code></pre></div>
 
 <p>3: Restart your bind9/named after changing the configuration.</p>
 <p>4: Verify that everything works by executing <code>rndc stats &amp;&amp; cat
@@ -2514,10 +2498,10 @@ is called. Given this it is suggested you setup file rotation for
 it. Alternatively you can also set zero_stats to 1 in the config.</p>
 <p>6: The script for this also requires the Perl module
 <code>File::ReadBackwards</code>.</p>
-<pre><code>FreeBSD       =&gt; p5-File-ReadBackwards
+<div class="highlight"><pre><span></span><code>FreeBSD       =&gt; p5-File-ReadBackwards
 CentOS/RedHat =&gt; perl-File-ReadBackwards
 Debian/Ubuntu =&gt; libfile-readbackwards-perl
-</code></pre>
+</code></pre></div>
 
 <p>If it is not available, it can be installed by <code>cpan -i File::ReadBackwards</code>.</p>
 <p>7: You may possibly need to configure the agent/extend script as well.</p>
@@ -2531,7 +2515,7 @@ $variable=$value. Empty lines are ignored. Spaces and tabs at either
 the start or end of a line are ignored.</p>
 <p>Content of an example /etc/snmp/bind.config . Please edit with your
 own settings.</p>
-<pre><code>rndc = The path to rndc. Default: /usr/bin/env rndc
+<div class="highlight"><pre><span></span><code>rndc = The path to rndc. Default: /usr/bin/env rndc
 call_rndc = A 0/1 boolean on whether or not to call rndc stats.
     Suggest to set to 0 if using netdata. Default: 1
 stats_file = The path to the named stats file. Default: /var/cache/bind/stats
@@ -2539,22 +2523,22 @@ agent = A 0/1 boolean for if this is being used as a LibreNMS
     agent or not. Default: 0
 zero_stats = A 0/1 boolean for if the stats file should be zeroed
     first. Default: 0 (1 if guessed)
-</code></pre>
+</code></pre></div>
 
 <p>If you want to guess at the configuration, call the script with <code>-g</code>
 and it will print out what it thinks it should be.</p>
 <h2 id="snmp-extend_4">SNMP Extend</h2>
 <p>1: Copy the bind shell script, to the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/bind -O /etc/snmp/bind
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/bind -O /etc/snmp/bind
+</code></pre></div>
 
 <p>2: Make the script executable</p>
-<pre><code>chmod +x /etc/snmp/bind
-</code></pre>
+<div class="highlight"><pre><span></span><code>chmod +x /etc/snmp/bind
+</code></pre></div>
 
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend bind /etc/snmp/bind
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend bind /etc/snmp/bind
+</code></pre></div>
 
 <p>4: Restart snmpd on the host in question.</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2571,37 +2555,32 @@ via <code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/
 <p>This script needs following packages on Debian/Ubuntu Systems:
 * python3
 * python3-openssl</p>
-<p>Content of an example /etc/snmp/certificate.json . Please edit with your own settings.</p>
-<pre><code>{&quot;domains&quot;: [
+<p>Content of an example /etc/snmp/certificate.json . Please edit with your own settings.
+<div class="highlight"><pre><span></span><code>{&quot;domains&quot;: [
     {&quot;fqdn&quot;: &quot;www.mydomain.com&quot;},
     {&quot;fqdn&quot;: &quot;some.otherdomain.org&quot;,
      &quot;port&quot;: 8443},
     {&quot;fqdn&quot;: &quot;personal.domain.net&quot;}
 ]
 }
-</code></pre>
-
-<p>Key 'domains' contains a list of domains to check.
+</code></pre></div>
+Key 'domains' contains a list of domains to check.
 Optional you can define a port. By default it checks on port 443.</p>
 <h2 id="snmp-extend_5">SNMP Extend</h2>
 <ol>
-<li>Copy the shell script to the desired host.</li>
-</ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
-</code></pre>
-
-<ol>
+<li>
+<p>Copy the shell script to the desired host.
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
+</code></pre></div></p>
+</li>
 <li>
 <p>Run <code>chmod +x /etc/snmp/certificate.py</code></p>
 </li>
 <li>
-<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+<p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:
+<div class="highlight"><pre><span></span><code>extend certificate /etc/snmp/certificate.py
+</code></pre></div></p>
 </li>
-</ol>
-<pre><code>extend certificate /etc/snmp/certificate.py
-</code></pre>
-
-<ol>
 <li>Restart snmpd on your host</li>
 </ol>
 <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p>
@@ -2609,13 +2588,13 @@ Optional you can define a port. By default it checks on port 443.</p>
 <p>C.H.I.P. is a $9 R8 based tiny computer ideal for small projects.
 Further details: <a href="https://getchip.com/pages/chip">https://getchip.com/pages/chip</a></p>
 <p>1: Copy the shell script to the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/chip.sh -O /etc/snmp/power-stat.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/chip.sh -O /etc/snmp/power-stat.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/power-stat.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend power-stat /etc/snmp/power-stat.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend power-stat /etc/snmp/power-stat.sh
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2627,20 +2606,19 @@ Extend</code> heading top of page.</p>
 Under Ubuntu/Debian just run <code>apt install dhcpd-pools</code></p>
 <h2 id="snmp-extend_6">SNMP Extend</h2>
 <p>1: Copy the shell script to the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp.py -O /etc/snmp/dhcp.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp.py -O /etc/snmp/dhcp.py
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/dhcp.py</code></p>
 <p>3: edit a config file:</p>
-<p>Content of an example /etc/snmp/dhcp.json . Please edit with your own settings.</p>
-<pre><code>{&quot;leasefile&quot;: &quot;/var/lib/dhcp/dhcpd.leases&quot;
+<p>Content of an example /etc/snmp/dhcp.json . Please edit with your own settings.
+<div class="highlight"><pre><span></span><code>{&quot;leasefile&quot;: &quot;/var/lib/dhcp/dhcpd.leases&quot;
 }
-</code></pre>
-
-<p>Key 'leasefile' specifies the path to your lease file.</p>
+</code></pre></div>
+Key 'leasefile' specifies the path to your lease file.</p>
 <p>4: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend dhcpstats /etc/snmp/dhcp.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend dhcpstats /etc/snmp/dhcp.py
+</code></pre></div>
 
 <p>5: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2650,13 +2628,13 @@ Extend</code> heading top of page.</p>
 <p>A small shell script that checks your system's available random entropy.</p>
 <h2 id="snmp-extend_7">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/entropy.sh -O /etc/snmp/entropy.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/entropy.sh -O /etc/snmp/entropy.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/entropy.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend entropy /etc/snmp/entropy.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend entropy /etc/snmp/entropy.sh
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2666,18 +2644,18 @@ Extend</code> heading top of page.</p>
 <p>SNMP extend script to get your exim stats data into your host.</p>
 <h2 id="snmp-extend_8">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/exim-stats.sh -O /etc/snmp/exim-stats.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/exim-stats.sh -O /etc/snmp/exim-stats.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/exim-stats.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend exim-stats /etc/snmp/exim-stats.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend exim-stats /etc/snmp/exim-stats.sh
+</code></pre></div>
 
 <p>4: If you are using sudo edit your sudo users (usually <code>visudo</code>) and
 add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/exim-stats.sh, /usr/bin/exim*
-</code></pre>
+<div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/exim-stats.sh, /usr/bin/exim*
+</code></pre></div>
 
 <p>5: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2686,34 +2664,34 @@ Extend</code> heading top of page.</p>
 <h1 id="fail2ban">Fail2ban</h1>
 <h2 id="snmp-extend_9">SNMP Extend</h2>
 <p>1: Copy the shell script, fail2ban, to the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/fail2ban -O /etc/snmp/fail2ban
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/fail2ban -O /etc/snmp/fail2ban
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/fail2ban</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend fail2ban /etc/snmp/fail2ban
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fail2ban /etc/snmp/fail2ban
+</code></pre></div>
 
 <p>If you want to use the cache, it is as below, by using the -c switch.</p>
-<pre><code>extend fail2ban /etc/snmp/fail2ban -c
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fail2ban /etc/snmp/fail2ban -c
+</code></pre></div>
 
 <p>If you want to use the cache and update it if needed, this can by
 using the -c and -U switches.</p>
-<pre><code>extend fail2ban /etc/snmp/fail2ban -c -U
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fail2ban /etc/snmp/fail2ban -c -U
+</code></pre></div>
 
 <p>If you need to specify a custom location for the fail2ban-client, that
 can be done via the -f switch.</p>
 <p>If not specified, "/usr/bin/env fail2ban-client" is used.</p>
-<pre><code>extend fail2ban /etc/snmp/fail2ban -f /foo/bin/fail2ban-client
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fail2ban /etc/snmp/fail2ban -f /foo/bin/fail2ban-client
+</code></pre></div>
 
 <p>5: Restart snmpd on your host</p>
 <p>6: If you wish to use caching, add the following to /etc/crontab and
 restart cron.</p>
-<pre><code>*/3    *    *    *    *    root    /etc/snmp/fail2ban -u
-</code></pre>
+<div class="highlight"><pre><span></span><code>*/3    *    *    *    *    root    /etc/snmp/fail2ban -u
+</code></pre></div>
 
 <p>7: Restart or reload cron on your system.</p>
 <p>If you have more than a few jails configured, you may need to use
@@ -2729,8 +2707,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsclient
 -O /etc/snmp/fbsdnfsclient</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/fbsdnfsclient</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend fbsdnfsclient /etc/snmp/fbsdnfsclient
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fbsdnfsclient /etc/snmp/fbsdnfsclient
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2743,8 +2721,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/fbsdnfsserver
 -O /etc/snmp/fbsdnfsserver</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/fbsdnfsserver</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend fbsdnfsserver /etc/snmp/fbsdnfsserver
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend fbsdnfsserver /etc/snmp/fbsdnfsserver
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2763,24 +2741,24 @@ or /etc/freeradius).</p>
 <p>3: <code>ln -s ../sites-available/status status</code></p>
 <p>4: Restart FreeRADIUS.</p>
 <p>5: You should be able to test with the radclient as follows...</p>
-<pre><code>echo &quot;Message-Authenticator = 0x00, FreeRADIUS-Statistics-Type = 31, Response-Packet-Type = Access-Accept&quot; | \
+<div class="highlight"><pre><span></span><code>echo &quot;Message-Authenticator = 0x00, FreeRADIUS-Statistics-Type = 31, Response-Packet-Type = Access-Accept&quot; | \
 radclient -x localhost:18121 status adminsecret
-</code></pre>
+</code></pre></div>
 
 <p>Note that adminsecret is the default secret key in status_server.
 Change if you've modified this.</p>
 <h2 id="snmp-extend_12">SNMP Extend</h2>
 <p>1: Copy the freeradius shell script, to the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/freeradius.sh -O /etc/snmp/freeradius.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/freeradius.sh -O /etc/snmp/freeradius.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/freeradius.sh</code></p>
 <p>3: If you've made any changes to the FreeRADIUS status_server config
 (secret key, port, etc.) edit freeradius.sh and adjust the config
 variable accordingly.</p>
 <p>4: Edit your snmpd.conf file and add:</p>
-<pre><code>extend freeradius /etc/snmp/freeradius.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend freeradius /etc/snmp/freeradius.sh
+</code></pre></div>
 
 <p>5: Restart snmpd on the host in question.</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2820,8 +2798,8 @@ to <code>/etc/snmp/</code> on your Freeswitch server.</p>
 authentication.</p>
 <p>4: Verify it is working by running <code>/etc/snmp/freeswitch</code></p>
 <p>5: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend freeswitch /etc/snmp/freeswitch
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend freeswitch /etc/snmp/freeswitch
+</code></pre></div>
 
 <p>6: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2830,13 +2808,13 @@ Extend</code> heading top of page.</p>
 <h1 id="gpsd">GPSD</h1>
 <h2 id="snmp-extend_14">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/gpsd -O /etc/snmp/gpsd
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/gpsd -O /etc/snmp/gpsd
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/gpsd</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend gpsd /etc/snmp/gpsd
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend gpsd /etc/snmp/gpsd
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2850,16 +2828,16 @@ and copy the <code>gpsd</code> script to <code>/usr/lib/check_mk_agent/local/</c
 <h1 id="mailcow-dockerized-postfix">mailcow-dockerized postfix</h1>
 <h2 id="snmp-extend_15">SNMP Extend</h2>
 <p>1: Download the script into the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailcow-dockerized-postfix -O /etc/snmp/mailcow-dockerized-postfix
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailcow-dockerized-postfix -O /etc/snmp/mailcow-dockerized-postfix
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/mailcow-dockerized-postfix</code></p>
 <blockquote>
 <p>Maybe you will be neeed to install <code>pflogsumm</code> on debian based OS. Please check if you have package installed. </p>
 </blockquote>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend mailcow-postfix /etc/snmp/mailcow-dockerized-postfix
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend mailcow-postfix /etc/snmp/mailcow-dockerized-postfix
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2868,13 +2846,13 @@ Extend</code> heading top of page.</p>
 <h1 id="mailscanner">Mailscanner</h1>
 <h2 id="snmp-extend_16">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailscanner.php -O /etc/snmp/mailscanner.php
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mailscanner.php -O /etc/snmp/mailscanner.php
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/mailscanner.php</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend mailscanner /etc/snmp/mailscanner.php
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend mailscanner /etc/snmp/mailscanner.php
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2884,13 +2862,13 @@ Extend</code> heading top of page.</p>
 <p>This shell script checks mdadm health and array data</p>
 <h2 id="snmp-extend_17">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/mdadm</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend mdadm /etc/snmp/mdadm
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend mdadm /etc/snmp/mdadm
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the
@@ -2901,13 +2879,13 @@ under <code>SNMP Extend</code> heading top of page.</p>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/agent-local/memcached">memcached
    script</a>
    to <code>/etc/snmp/</code> on your remote server.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/memcached -O /etc/snmp/memcached
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/memcached -O /etc/snmp/memcached
+</code></pre></div>
 
 <p>2: Make the script executable: <code>chmod +x /etc/snmp/memcached</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend memcached /etc/snmp/memcached
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend memcached /etc/snmp/memcached
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -2926,20 +2904,20 @@ Extend</code> heading top of page.</p>
 <li>Install your munin scripts into the above directory.</li>
 </ol>
 <p>To create your own custom munin scripts, please see this example:</p>
-<pre><code>#!/bin/bash
+<div class="highlight"><pre><span></span><code>#!/bin/bash
 if [ &quot;$1&quot; = &quot;config&quot; ]; then
-    echo 'graph_title Some title'
-    echo 'graph_args --base 1000 -l 0' #not required
-    echo 'graph_vlabel Some label'
-    echo 'graph_scale no' #not required, can be yes/no
-    echo 'graph_category system' #Choose something meaningful, can be anything
-    echo 'graph_info This graph shows something awesome.' #Short desc
-    echo 'foobar.label Label for your unit' # Repeat these two lines as much as you like
-    echo 'foobar.info Desc for your unit.'
+    echo &#39;graph_title Some title&#39;
+    echo &#39;graph_args --base 1000 -l 0&#39; #not required
+    echo &#39;graph_vlabel Some label&#39;
+    echo &#39;graph_scale no&#39; #not required, can be yes/no
+    echo &#39;graph_category system&#39; #Choose something meaningful, can be anything
+    echo &#39;graph_info This graph shows something awesome.&#39; #Short desc
+    echo &#39;foobar.label Label for your unit&#39; # Repeat these two lines as much as you like
+    echo &#39;foobar.info Desc for your unit.&#39;
     exit 0
 fi
 echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-timestamp
-</code></pre>
+</code></pre></div>
 
 <h1 id="mysql">MySQL</h1>
 <h2 id="agent_7">Agent</h2>
@@ -2947,28 +2925,28 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Create the cache directory, '/var/cache/librenms/' and make sure
 that it is owned by the user running the SNMP daemon.</p>
-<pre><code>mkdir -p /var/cache/librenms/
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
+</code></pre></div>
 
 <p>The MySQL script requires PHP-CLI and the PHP MySQL extension, so
 please verify those are installed.</p>
 <p>CentOS (May vary based on PHP version)</p>
-<pre><code>yum install php-cli php-mysql
-</code></pre>
+<div class="highlight"><pre><span></span><code>yum install php-cli php-mysql
+</code></pre></div>
 
 <p>Debian (May vary based on PHP version)</p>
-<pre><code>apt-get install php5-cli php5-mysql
-</code></pre>
+<div class="highlight"><pre><span></span><code>apt-get install php5-cli php5-mysql
+</code></pre></div>
 
 <p>Unlike most other scripts, the MySQL script requires a configuration
 file <code>mysql.cnf</code> in the same directory as the extend or agent script
 with following content:</p>
-<pre><code class="php">&lt;?php
-$mysql_user = 'root';
-$mysql_pass = 'toor';
-$mysql_host = 'localhost';
-$mysql_port = 3306;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nv">$mysql_user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_pass</span> <span class="o">=</span> <span class="s1">&#39;toor&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_port</span> <span class="o">=</span> <span class="mi">3306</span><span class="p">;</span>
+</code></pre></div>
 
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h2 id="snmp-extend_19">SNMP extend</h2>
@@ -2977,25 +2955,25 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/my
 <p>2: Run <code>chmod +x /etc/snmp/mysql</code></p>
 <p>3: Create the cache directory, '/var/cache/librenms/' and make sure
 that it is owned by the user running the SNMP daemon.</p>
-<pre><code>mkdir -p /var/cache/librenms/
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
+</code></pre></div>
 
 <p>4: Unlike most other scripts, the MySQL script requires a
 configuration file <code>mysql.cnf</code> in <code>/etc/snmp/</code> with following content:</p>
-<pre><code class="php">&lt;?php
-$mysql_user = 'root';
-$mysql_pass = 'toor';
-$mysql_host = 'localhost';
-$mysql_port = 3306;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nv">$mysql_user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_pass</span> <span class="o">=</span> <span class="s1">&#39;toor&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$mysql_port</span> <span class="o">=</span> <span class="mi">3306</span><span class="p">;</span>
+</code></pre></div>
 
 <p>Note that depending on your MySQL installation (chrooted install for example),
 you may have to specify 127.0.0.1 instead of localhost. Localhost make
 a MySQL connection via the mysql socket, while 127.0.0.1 make a standard
 IP connection to mysql.</p>
 <p>5: Edit your snmpd.conf file and add:</p>
-<pre><code>extend mysql /etc/snmp/mysql
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend mysql /etc/snmp/mysql
+</code></pre></div>
 
 <p>6: Install the PHP CLI language and your MySQL module of choice for
 PHP.</p>
@@ -3007,24 +2985,24 @@ Extend</code> heading top of page.</p>
 <p>NGINX is a free, open-source, high-performance HTTP server: <a href="https://www.nginx.org/">https://www.nginx.org/</a></p>
 <p>It's required to have the following directive in your nginx
 configuration responsible for the localhost server:</p>
-<pre><code class="text">location /nginx-status {
+<div class="highlight"><pre><span></span><code>location /nginx-status {
     stub_status on;
     access_log   off;
     allow 127.0.0.1;
     allow ::1;
     deny all;
 }
-</code></pre>
+</code></pre></div>
 
 <h2 id="snmp-extend_20">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx -O /etc/snmp/nginx
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nginx -O /etc/snmp/nginx
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/nginx</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend nginx /etc/snmp/nginx
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend nginx /etc/snmp/nginx
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3037,8 +3015,8 @@ and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</
 <p>Export the NFS stats from as server.</p>
 <h2 id="snmp-extend_21">SNMP Extend</h2>
 <p>1: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add :</p>
-<pre><code>extend nfs-server /bin/cat /proc/net/rpc/nfsd
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend nfs-server /bin/cat /proc/net/rpc/nfsd
+</code></pre></div>
 
 <p>note : find out where cat is located using : <code>which cat</code></p>
 <p>2: reload snmpd service to activate the configuration</p>
@@ -3046,13 +3024,13 @@ and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</
 <p>A shell script that gets stats from ntp client.</p>
 <h2 id="snmp-extend_22">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client -O /etc/snmp/ntp-client
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client -O /etc/snmp/ntp-client
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/ntp-client</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend ntp-client /etc/snmp/ntp-client
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ntp-client /etc/snmp/ntp-client
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3064,13 +3042,13 @@ Extend</code> heading top of page.</p>
 <ol>
 <li>Download the script onto the desired host.</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-server.sh -O /etc/snmp/ntp-server.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-server.sh -O /etc/snmp/ntp-server.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/ntp-server.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend ntp-server /etc/snmp/ntp-server.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ntp-server /etc/snmp/ntp-server.sh
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3083,8 +3061,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/nvidia -O
 /etc/snmp/nvidia</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/nvidia</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend nvidia /etc/snmp/nvidia
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend nvidia /etc/snmp/nvidia
+</code></pre></div>
 
 <p>5: Restart snmpd on your host.</p>
 <p>6: Verify you have nvidia-smi installed, which it generally should be
@@ -3097,13 +3075,13 @@ nvidia-smi man file under the section covering dmon.</p>
 <p>Shell script to track the OGS/GE jobs running on clusters.</p>
 <h2 id="snmp-extend_25">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/rocks.sh -O /etc/snmp/rocks.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/agent-local/rocks.sh -O /etc/snmp/rocks.sh
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/rocks.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend ogs /etc/snmp/rocks.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ogs /etc/snmp/rocks.sh
+</code></pre></div>
 
 <p>4: Restart snmpd.</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3118,13 +3096,13 @@ recommended you use an alternative database location
 <code>--dbpath=/var/lib/pacman/checkupdate</code></p>
 <h2 id="snmp-extend_26">SNMP Extend</h2>
 <p>1: Download the script onto the desired host.</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate -O /etc/snmp/osupdate
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate -O /etc/snmp/osupdate
+</code></pre></div>
 
 <p>2: Run <code>chmod +x /etc/snmp/osupdate</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend osupdate /etc/snmp/osupdate
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend osupdate /etc/snmp/osupdate
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p><em>Note</em>: apt-get depends on an updated package index. There are several
@@ -3143,8 +3121,8 @@ Extend</code> heading top of page.</p>
    -O /etc/snmp/phpfpmsp</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/phpfpmsp</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend phpfpmsp /etc/snmp/phpfpmsp
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend phpfpmsp /etc/snmp/phpfpmsp
+</code></pre></div>
 
 <p>5: Edit /etc/snmp/phpfpmsp to include the status URL for the PHP-FPM
    pool you are monitoring.</p>
@@ -3161,8 +3139,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/pi-hole -O
 /etc/snmp/pi-hole</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/pi-hole</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend pi-hole /etc/snmp/pi-hole
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend pi-hole /etc/snmp/pi-hole
+</code></pre></div>
 
 <p>4: To get all data you must get your API auth token from Pi-hole
 server and change the API_AUTH_KEY entry inside the snmp script.</p>
@@ -3173,19 +3151,19 @@ Extend</code> heading top of page.</p>
 <h1 id="portactivity">Portactivity</h1>
 <h2 id="snmp-extend_29">SNMP Extend</h2>
 <p>Ubuntu is shown below.</p>
-<pre><code>apt install libparse-netstat-perl
+<div class="highlight"><pre><span></span><code>apt install libparse-netstat-perl
 apt install libjson-perl
-</code></pre>
+</code></pre></div>
 
 <p>2: Copy the Perl script to the desired host (the host must be added to
    LibreNMS devices)</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/portactivity -O /etc/snmp/portactivity
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/portactivity -O /etc/snmp/portactivity
+</code></pre></div>
 
 <p>3: Make the script executable. (chmod +x /etc/snmp/portactivity)</p>
 <p>4: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend portactivity /etc/snmp/portactivity -p http,ldap,imap
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend portactivity /etc/snmp/portactivity -p http,ldap,imap
+</code></pre></div>
 
 <p>Will monitor HTTP, LDAP, and IMAP. The -p switch specifies what ports
 to use. This is a comma seperated list.</p>
@@ -3206,9 +3184,9 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/postfixdetailed
 <p>3: Make both scripts executable. Run <code>chmod +x
 /etc/snmp/postfixdetailed /etc/snmp/postfix-queues</code></p>
 <p>4: Edit your snmpd.conf file and add:</p>
-<pre><code>extend mailq /etc/snmp/postfix-queues
+<div class="highlight"><pre><span></span><code>extend mailq /etc/snmp/postfix-queues
 extend postfixdetailed /etc/snmp/postfixdetailed
-</code></pre>
+</code></pre></div>
 
 <p>5: Restart snmpd.</p>
 <p>6: Install pflogsumm for your OS.</p>
@@ -3236,8 +3214,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/postgres -O
 /etc/snmp/postgres</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/postgres</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend postgres /etc/snmp/postgres
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend postgres /etc/snmp/postgres
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>5: Install the Nagios check check_postgres.pl on your system:
@@ -3259,8 +3237,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns.py
 -O /etc/snmp/powerdns.py</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/powerdns.py</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend powerdns /etc/snmp/powerdns.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend powerdns /etc/snmp/powerdns.py
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3289,8 +3267,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-recursor
 -O /etc/snmp/powerdns-recursor</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/powerdns-recursor</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend powerdns-recursor /etc/snmp/powerdns-recursor
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend powerdns-recursor /etc/snmp/powerdns-recursor
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3304,13 +3282,13 @@ and copy the <code>powerdns-recursor</code> script to
 <h1 id="powerdns-dnsdist">PowerDNS-dnsdist</h1>
 <h2 id="snmp-extend_34">SNMP Extend</h2>
 <p>1: Copy the BASH script to the desired host.</p>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/powerdns-dnsdist -O /etc/snmp/powerdns-dnsdist
+</code></pre></div>
 
 <p>2: Make the script executable (chmod +x /etc/snmp/powerdns-dnsdist)</p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend powerdns-dnsdist /etc/snmp/powerdns-dnsdist
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend powerdns-dnsdist /etc/snmp/powerdns-dnsdist
+</code></pre></div>
 
 <p>4: Restart snmpd on your host.</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3328,12 +3306,12 @@ Extend</code> heading top of page.</p>
    <code>extend proxmox /usr/local/bin/proxmox</code></p>
 <p>5: Note: if your snmpd doesn't run as root, you might have to invoke
    the script using sudo and modify the "extend" line</p>
-<pre><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend proxmox /usr/bin/sudo /usr/local/bin/proxmox
+</code></pre></div>
 
 <p>after, edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>Debian-snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
-</code></pre>
+<div class="highlight"><pre><span></span><code>Debian-snmp ALL=(ALL) NOPASSWD: /usr/local/bin/proxmox
+</code></pre></div>
 
 <p>6: Restart snmpd on your host</p>
 <h1 id="puppet-agent">Puppet Agent</h1>
@@ -3344,8 +3322,8 @@ Extend</code> heading top of page.</p>
    -O /etc/snmp/puppet_agent.py</code></p>
 <p>2: Make the script executable: <code>chmod +x /etc/snmp/puppet_agent.py</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend puppet-agent /etc/snmp/puppet_agent.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend puppet-agent /etc/snmp/puppet_agent.py
+</code></pre></div>
 
 <p>The Script needs <code>python3-yaml</code> package to be installed.</p>
 <p>Per default script searches for on of this files:</p>
@@ -3353,15 +3331,14 @@ Extend</code> heading top of page.</p>
 <li>/var/cache/puppet/state/last_run_summary.yaml</li>
 <li>/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml</li>
 </ul>
-<p>optionally you can add a specific summary file with creating <code>/etc/snmp/puppet.json</code></p>
-<pre><code>{
+<p>optionally you can add a specific summary file with creating <code>/etc/snmp/puppet.json</code>
+<div class="highlight"><pre><span></span><code>{
      &quot;agent&quot;: {
         &quot;summary_file&quot;: &quot;/my/custom/path/to/summary_file&quot;
      }
 }
-</code></pre>
-
-<p>custom summary file has highest priority</p>
+</code></pre></div>
+custom summary file has highest priority</p>
 <p>4: Restart snmpd on the host</p>
 <h1 id="pureftpd">PureFTPd</h1>
 <p>SNMP extend script to monitor PureFTPd.</p>
@@ -3371,20 +3348,19 @@ Extend</code> heading top of page.</p>
    -O /etc/snmp/pureftpd.py</code></p>
 <p>2: Make the script executable: <code>chmod +x /etc/snmp/pureftpd.py</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend pureftpd sudo /etc/snmp/pureftpd.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend pureftpd sudo /etc/snmp/pureftpd.py
+</code></pre></div>
 
 <p>4: Edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/pureftpd.py
-</code></pre>
-
-<p>or the path where your pure-ftpwho is located</p>
+<p><div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/pureftpd.py
+</code></pre></div>
+or the path where your pure-ftpwho is located</p>
 <p>5: If pure-ftpwho is not located in /usr/sbin</p>
 <p>you will also need to create a config file, which is named</p>
 <p>pureftpd.json. The file has to be located in /etc/snmp/.</p>
-<pre><code>{&quot;pureftpwho_cmd&quot;: &quot;/usr/sbin/pure-ftpwho&quot;
+<div class="highlight"><pre><span></span><code>{&quot;pureftpwho_cmd&quot;: &quot;/usr/sbin/pure-ftpwho&quot;
 }
-</code></pre>
+</code></pre></div>
 
 <p>5: Restart snmpd on your host</p>
 <h1 id="raspberry-pi">Raspberry PI</h1>
@@ -3395,12 +3371,12 @@ Extend</code> heading top of page.</p>
    -O /etc/snmp/raspberry.sh</code></p>
 <p>2: Make the script executable: <code>chmod +x /etc/snmp/raspberry.sh</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend raspberry sudo /etc/snmp/raspberry.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend raspberry sudo /etc/snmp/raspberry.sh
+</code></pre></div>
 
 <p>4: Edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/raspberry.sh, /usr/bin/vcgencmd
-</code></pre>
+<div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/raspberry.sh, /usr/bin/vcgencmd
+</code></pre></div>
 
 <p><strong>Note:</strong> If you are using Raspian, the default user is
 <code>Debian-snmp</code>. Change <code>snmp</code> above to <code>Debian-snmp</code>. You can verify
@@ -3414,8 +3390,8 @@ the user snmpd is using with <code>ps aux | grep snmpd</code></p>
    -O /etc/snmp/redis.py</code></p>
 <p>2: Make the script executable: <code>chmod +x /etc/snmp/redis.py</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
-<pre><code>extend redis /etc/snmp/redis.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend redis /etc/snmp/redis.py
+</code></pre></div>
 
 <h1 id="seafile">Seafile</h1>
 <p>SNMP extend script to monitor your Seafile Server</p>
@@ -3427,21 +3403,21 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/seafile.py -O
 Under Ubuntu/Debian just run <code>apt install python3-requests</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/seafile.py</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend seafile /etc/snmp/seafile.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend seafile /etc/snmp/seafile.py
+</code></pre></div>
 
 <p>4: You will also need to create the config file, which is named
 seafile.json . The script has to be located at /etc/snmp/.</p>
-<pre><code>{&quot;url&quot;: &quot;https://seafile.mydomain.org&quot;,
+<div class="highlight"><pre><span></span><code>{&quot;url&quot;: &quot;https://seafile.mydomain.org&quot;,
  &quot;username&quot;: &quot;some_admin_login@mail.address&quot;,
  &quot;password&quot;: &quot;password&quot;,
  &quot;account_identifier&quot;: &quot;name&quot;
  &quot;hide_monitoring_account&quot;: true
 }
-</code></pre>
+</code></pre></div>
 
 <p>The variables are as below.</p>
-<pre><code>url = Url how to get access to Seafile Server
+<div class="highlight"><pre><span></span><code>url = Url how to get access to Seafile Server
 username = Login to Seafile Server.
            It is important that used Login has admin privileges.
            Otherwise most API calls will be denied.
@@ -3450,7 +3426,7 @@ account_identifier = Defines how user accounts are listed in RRD Graph.
                      Options are: name, email
 hide_monitoring_account = With this Boolean you can hide the Account which you
                           use to access Seafile API
-</code></pre>
+</code></pre></div>
 
 <p><strong>Note:</strong>It is recommended to use a dedicated Administrator account for monitoring.</p>
 <h1 id="smart">SMART</h1>
@@ -3467,8 +3443,8 @@ hide_monitoring_account = With this Boolean you can hide the Account which you
 <p>Edit your snmpd.conf file and add:</p>
 </li>
 </ol>
-<pre><code>extend smart /etc/snmp/smart
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend smart /etc/snmp/smart
+</code></pre></div>
 
 <ol>
 <li>You will also need to create the config file, which defaults to the same path as the script,
@@ -3478,7 +3454,7 @@ will be <code>/etc/snmp/smart.config</code>. Alternatively you can also specific
 <p>Anything starting with a # is comment. The format for variables is $variable=$value. Empty
 lines are ignored. Spaces and tabes at either the start or end of a line are ignored. Any
 line with out a matched variable or # are treated as a disk.</p>
-<pre><code>#This is a comment
+<div class="highlight"><pre><span></span><code>#This is a comment
 cache=/var/cache/smart
 smartctl=/usr/bin/env smartctl
 useSN=1
@@ -3488,14 +3464,14 @@ da5 /dev/da5 -d sat
 twl0,0 /dev/twl0 -d 3ware,0
 twl0,1 /dev/twl0 -d 3ware,1
 twl0,2 /dev/twl0 -d 3ware,2
-</code></pre>
+</code></pre></div>
 
 <p>The variables are as below.</p>
-<pre><code>cache = The path to the cache file to use. Default: /var/cache/smart
+<div class="highlight"><pre><span></span><code>cache = The path to the cache file to use. Default: /var/cache/smart
 smartctl = The path to use for smartctl. Default: /usr/bin/env smartctl
 useSN = If set to 1, it will use the disks SN for reporting instead of the device name.
         1 is the default. 0 will use the device name.
-</code></pre>
+</code></pre></div>
 
 <p>A disk line is can be as simple as just a disk name under /dev/. Such as in the config above
 The line "ada0" would resolve to "/dev/ada0" and would be called with no special argument. If
@@ -3509,20 +3485,19 @@ it should be.</p>
 <p>If you have a large number of more than one or two disks on a system,
 you should consider adding this to cron. Also make sure the cache file
 is some place it can be written to.</p>
-<pre><code> */3 * * * * /etc/snmp/smart -u
-</code></pre>
+<div class="highlight"><pre><span></span><code> */3 * * * * /etc/snmp/smart -u
+</code></pre></div>
 
 <ol>
 <li>If your snmp agent runs as user "snmp", edit your sudo users
    (usually <code>visudo</code>) and add at the bottom:</li>
 </ol>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/bin/env smartctl
-
-</code></pre>
+<div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/smart, /usr/bin/env smartctl
+</code></pre></div>
 
 <p>and modify your snmpd.conf file accordingly:</p>
-<pre><code>extend smart /usr/bin/sudo /etc/snmp/smart
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend smart /usr/bin/sudo /etc/snmp/smart
+</code></pre></div>
 
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
@@ -3539,17 +3514,17 @@ device ID is going to be irrelevant in that case.</p>
 <h2 id="snmp-proxy">SNMP Proxy</h2>
 <p>1: Enable SNMP for Squid like below, if you have not already, and
 restart it.</p>
-<pre><code>acl snmppublic snmp_community public
+<div class="highlight"><pre><span></span><code>acl snmppublic snmp_community public
 snmp_port 3401
 snmp_access allow snmppublic localhost
 snmp_access deny all
-</code></pre>
+</code></pre></div>
 
 <p>2: Restart squid on your host.</p>
 <p>3: Edit your snmpd.conf file and add, making sure you have the same
 community, host, and port as above:</p>
-<pre><code>proxy -v 2c -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
-</code></pre>
+<div class="highlight"><pre><span></span><code>proxy -v 2c -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
+</code></pre></div>
 
 <p>For more advanced information on Squid and SNMP or setting up proxying
 for net-snmp, please see the links below.</p>
@@ -3565,14 +3540,14 @@ tinydns. And that your tinydns instance is located in <code>/service/dns</code>,
 adjust this path if necessary.</p>
 <p>1: Replace your <em>log</em>'s <code>run</code> file, typically located in
    <code>/service/dns/log/run</code> with:</p>
-<pre><code class="bash">#!/bin/sh
-exec setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nb">exec</span> setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
+</code></pre></div>
 
 <p>2: Create tinystats directory and chown:</p>
-<pre><code class="bash">mkdir /service/dns/log/main/tinystats
+<div class="highlight"><pre><span></span><code>mkdir /service/dns/log/main/tinystats
 chown dnslog:nofiles /service/dns/log/main/tinystats
-</code></pre>
+</code></pre></div>
 
 <p>3: Restart TinyDNS and Daemontools: <code>/etc/init.d/svscan restart</code>
    <em>Note</em>: Some say <code>svc -t /service/dns</code> is enough, on my install
@@ -3580,7 +3555,7 @@ chown dnslog:nofiles /service/dns/log/main/tinystats
    entirely.</p>
 <h1 id="unbound">Unbound</h1>
 <p>Unbound configuration:</p>
-<pre><code class="text"># Enable extended statistics.
+<div class="highlight"><pre><span></span><code># Enable extended statistics.
 server:
         extended-statistics: yes
         statistics-cumulative: yes
@@ -3588,8 +3563,7 @@ server:
 remote-control:
         control-enable: yes
         control-interface: 127.0.0.1
-
-</code></pre>
+</code></pre></div>
 
 <p>Restart your unbound after changing the configuration, verify it is
 working by running <code>unbound-control stats</code>.</p>
@@ -3599,8 +3573,8 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O
 /etc/snmp/unbound</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/unbound</code></p>
 <p>3: Edit your snmpd.conf file and add:</p>
-<pre><code>extend unbound /etc/snmp/unbound
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend unbound /etc/snmp/unbound
+</code></pre></div>
 
 <p>4: Restart snmpd.</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3617,8 +3591,8 @@ and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/loc
    to <code>/etc/snmp/</code> on your host.</p>
 <p>2: Make the script executable (chmod +x /etc/snmp/ups-nut.sh)</p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend ups-nut /etc/snmp/ups-nut.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ups-nut /etc/snmp/ups-nut.sh
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3632,13 +3606,13 @@ Extend</code> heading top of page.</p>
    to <code>/etc/snmp/</code> on your host.</p>
 <p>2: Run <code>chmod +x /etc/snmp/ups-apcups</code></p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend ups-apcups /etc/snmp/ups-apcups
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ups-apcups /etc/snmp/ups-apcups
+</code></pre></div>
 
 <p>If 'apcaccess' is not in the PATH enviromental variable snmpd is
 using, you may need to do something like below.</p>
-<pre><code>extend ups-apcups/usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /etc/snmp/ups-apcups
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend ups-apcups/usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /etc/snmp/ups-apcups
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3649,13 +3623,13 @@ Extend</code> heading top of page.</p>
 <h2 id="snmp-extend_43">SNMP Extend</h2>
 <p>1: Download the script onto the desired host (the host must be added
    to LibreNMS devices)</p>
-<pre><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
-</code></pre>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
+</code></pre></div>
 
 <p>2: Make the script executable (chmod +x /etc/snmp/sdfsinfo)</p>
 <p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<pre><code>extend sdfsinfo /etc/snmp/sdfsinfo
-</code></pre>
+<div class="highlight"><pre><span></span><code>extend sdfsinfo /etc/snmp/sdfsinfo
+</code></pre></div>
 
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
@@ -3672,36 +3646,24 @@ Extend</code> heading top of page.</p>
 <li>Edit snmpd.conf to include ZFS stats</li>
 </ol>
 <h3 id="freebsd">FreeBSD</h3>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-freebsd -O /etc/snmp/zfs-freebsd
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-freebsd -O /etc/snmp/zfs-freebsd
 chmod +x /etc/snmp/zfs-freebsd
 echo &quot;extend zfs /etc/snmp/zfs-freebsd&quot; &gt;&gt; /etc/snmp/snmpd.conf
-</code></pre>
+</code></pre></div>
 
 <h3 id="linux">Linux</h3>
-<pre><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-linux -O /etc/snmp/zfs-linux
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-linux -O /etc/snmp/zfs-linux
 chmod +x /etc/snmp/zfs-linux
 echo &quot;extend zfs sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.conf
-</code></pre>
+</code></pre></div>
 
 <p>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:</p>
-<pre><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/zfs-linux
-</code></pre>
+<div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/zfs-linux
+</code></pre></div>
 
 <p>Now restart snmpd and you're all set.</p>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Applications.md" title="Extensions/Applications.md" class="md-source-file">
-                      Extensions/Applications.md
-                    </a>
-                  
-                
                 
               
               
@@ -3718,34 +3680,34 @@ echo &quot;extend zfs sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.co
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../General/Updating/" title="Updating an install" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../../General/Updating/" title="Updating an install" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Updating an install
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../Agent-Setup/" title="Check_MK Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../Agent-Setup/" title="Check_MK Setup" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Check_MK Setup
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -3756,11 +3718,10 @@ echo &quot;extend zfs sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.co
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -3769,9 +3730,18 @@ echo &quot;extend zfs sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.co
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

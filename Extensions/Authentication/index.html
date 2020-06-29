@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#authentication-modules" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#authentication-modules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Authentication Options
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Authentication Options
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -684,13 +600,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -753,7 +675,7 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
@@ -957,13 +879,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1072,13 +1000,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1185,13 +1119,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1389,13 +1329,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1533,13 +1479,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1701,13 +1653,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1852,13 +1810,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2049,13 +2013,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2092,13 +2062,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2149,7 +2125,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
@@ -2165,7 +2141,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Authentication.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Authentication.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Authentication.md" title="Extensions/Authentication.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="authentication-modules">Authentication modules</h1>
@@ -2201,8 +2194,8 @@ longer be available to log in.</strong></p>
 in config.php. Please note that only ONE module can be
 enabled. LibreNMS doesn't support multiple authentication mechanism at
 the same time.</p>
-<pre><code class="php">$config['auth_mechanism'] = &quot;mysql&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &quot;mysql&quot;;</span>
+</code></pre></div>
 
 <h1 id="user-levels-and-user-account-type">User levels and User account type</h1>
 <ul>
@@ -2228,24 +2221,24 @@ that only Administrator account type can see configs.</p>
 (httpd) to connect LDAP/Active Directory server, this is disabled by
 default. You can use SELinux Booleans to allow network access to LDAP
 resources with this command:</p>
-<pre><code class="bash">setsebool -P httpd_can_connect_ldap=1
-</code></pre>
+<div class="highlight"><pre><span></span><code>setsebool -P <span class="nv">httpd_can_connect_ldap</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
 
 <h1 id="testing-authentication">Testing authentication</h1>
 <p>You can test authentication with this script:</p>
-<pre><code class="bash">./scripts/auth_test.php
-</code></pre>
+<div class="highlight"><pre><span></span><code>./scripts/auth_test.php
+</code></pre></div>
 
 <p>Enable debug output to troubleshoot issues</p>
 <h1 id="mysql-authentication">MySQL Authentication</h1>
 <p>Config option: <code>mysql</code></p>
 <p>This is default option with LibreNMS so you should have already have the configuration setup in your
 environment file (.env).</p>
-<pre><code class="dotenv">DB_HOST=HOSTNAME
+<div class="highlight"><pre><span></span><code>DB_HOST=HOSTNAME
 DB_DATABASE=DBNAME
 DB_USERNAME=DBUSER
 DB_PASSWORD=&quot;DBPASS&quot;
-</code></pre>
+</code></pre></div>
 
 <h1 id="active-directory-authentication">Active Directory Authentication</h1>
 <p>Config option: <code>active_directory</code></p>
@@ -2268,21 +2261,20 @@ AUTOMATICALLY by daily.sh.</p>
 greater than $config['active_directory']['users_purge'] otherwise old
 users won't be removed.</p>
 <h2 id="sample-configuration">Sample configuration</h2>
-<pre><code class="php">$config['auth_mechanism'] = 'active_directory';
-$config['auth_ad_url'] = 'ldaps://server.example.com';    // Set server(s), space separated. Prefix with ldaps:// for ssl
-$config['auth_ad_domain'] = 'example.com';
-$config['auth_ad_base_dn'] = 'dc=example,dc=com';         // groups and users must be under this dn
-$config['auth_ad_check_certificates'] = true;             // require a valid ssl certificate
-$config['auth_ad_binduser'] = 'examplebinduser';          // bind user (non-admin)
-$config['auth_ad_bindpassword'] = 'examplepassword';      // bind password
-$config['auth_ad_timeout'] = 5;                           // time to wait before giving up (or trying the next server)
-$config['auth_ad_debug'] = false;                         // enable for verbose debug messages
-$config['active_directory']['users_purge'] = 30;          // purge users who haven't logged in for 30 days.
-$config['auth_ad_require_groupmembership'] = true;        // false: allow all users to auth level 0
-$config['auth_ad_groups']['ad-admingroup']['level'] = 10; // set the &quot;AD AdminGroup&quot; group to admin level
-$config['auth_ad_groups']['ad-usergroup']['level'] = 5;   // set the &quot;AD UserGroup&quot; group to global read only level
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;active_directory&#39;;</span>
+<span class="x">$config[&#39;auth_ad_url&#39;] = &#39;ldaps://server.example.com&#39;;    // Set server(s), space separated. Prefix with ldaps:// for ssl</span>
+<span class="x">$config[&#39;auth_ad_domain&#39;] = &#39;example.com&#39;;</span>
+<span class="x">$config[&#39;auth_ad_base_dn&#39;] = &#39;dc=example,dc=com&#39;;         // groups and users must be under this dn</span>
+<span class="x">$config[&#39;auth_ad_check_certificates&#39;] = true;             // require a valid ssl certificate</span>
+<span class="x">$config[&#39;auth_ad_binduser&#39;] = &#39;examplebinduser&#39;;          // bind user (non-admin)</span>
+<span class="x">$config[&#39;auth_ad_bindpassword&#39;] = &#39;examplepassword&#39;;      // bind password</span>
+<span class="x">$config[&#39;auth_ad_timeout&#39;] = 5;                           // time to wait before giving up (or trying the next server)</span>
+<span class="x">$config[&#39;auth_ad_debug&#39;] = false;                         // enable for verbose debug messages</span>
+<span class="x">$config[&#39;active_directory&#39;][&#39;users_purge&#39;] = 30;          // purge users who haven&#39;t logged in for 30 days.</span>
+<span class="x">$config[&#39;auth_ad_require_groupmembership&#39;] = true;        // false: allow all users to auth level 0</span>
+<span class="x">$config[&#39;auth_ad_groups&#39;][&#39;ad-admingroup&#39;][&#39;level&#39;] = 10; // set the &quot;AD AdminGroup&quot; group to admin level</span>
+<span class="x">$config[&#39;auth_ad_groups&#39;][&#39;ad-usergroup&#39;][&#39;level&#39;] = 5;   // set the &quot;AD UserGroup&quot; group to global read only level</span>
+</code></pre></div>
 
 <p>Replace <code>ad-admingroup</code> with your Active Directory admin-user group
 and <code>ad-usergroup</code> with your standard user group. It is <strong>highly
@@ -2291,15 +2283,15 @@ users, and the API will not work.</p>
 <h2 id="active-directory-redundancy">Active Directory redundancy</h2>
 <p>You can set two Active Directory servers by editing the
 <code>$config['auth_ad_url']</code> like this example:</p>
-<pre><code>$config['auth_ad_url'] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;auth_ad_url&#39;] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
+</code></pre></div>
 
 <h2 id="active-directory-ldap-filters">Active Directory LDAP filters</h2>
 <p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
 <p>The defaults are:</p>
-<pre><code>$config['auth_ad_user_filter'] = &quot;(objectclass=user)&quot;;
-$config['auth_ad_group_filter'] = &quot;(objectclass=group)&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;auth_ad_user_filter&#39;] = &quot;(objectclass=user)&quot;;
+$config[&#39;auth_ad_group_filter&#39;] = &quot;(objectclass=group)&quot;;
+</code></pre></div>
 
 <p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the
 user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for
@@ -2309,56 +2301,56 @@ the group filter.</p>
 <p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the
 same version as PHP.</p>
 <h2 id="standard-config">Standard config</h2>
-<pre><code class="php">$config['auth_mechanism'] = 'ldap';
-$config['auth_ldap_server'] = 'ldap.example.com';               // Set server(s), space separated. Prefix with ldaps:// for ssl
-$config['auth_ldap_suffix'] = ',ou=People,dc=example,dc=com';   // appended to usernames
-$config['auth_ldap_groupbase'] = 'ou=groups,dc=example,dc=com'; // all groups must be inside this
-$config['auth_ldap_groups']['admin']['level'] = 10;             // set admin group to admin level
-$config['auth_ldap_groups']['pfy']['level'] = 5;                // set pfy group to global read only level
-$config['auth_ldap_groups']['support']['level'] = 1;            // set support group as a normal user
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;ldap&#39;;</span>
+<span class="x">$config[&#39;auth_ldap_server&#39;] = &#39;ldap.example.com&#39;;               // Set server(s), space separated. Prefix with ldaps:// for ssl</span>
+<span class="x">$config[&#39;auth_ldap_suffix&#39;] = &#39;,ou=People,dc=example,dc=com&#39;;   // appended to usernames</span>
+<span class="x">$config[&#39;auth_ldap_groupbase&#39;] = &#39;ou=groups,dc=example,dc=com&#39;; // all groups must be inside this</span>
+<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;admin&#39;][&#39;level&#39;] = 10;             // set admin group to admin level</span>
+<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;pfy&#39;][&#39;level&#39;] = 5;                // set pfy group to global read only level</span>
+<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;support&#39;][&#39;level&#39;] = 1;            // set support group as a normal user</span>
+</code></pre></div>
 
 <h2 id="additional-options-usually-not-needed">Additional options (usually not needed)</h2>
-<pre><code class="php">$config['auth_ldap_version'] = 3; # v2 or v3
-$config['auth_ldap_port'] = 389;                    // 389 or 636 for ssl
-$config['auth_ldap_starttls'] = True;               // Enable TLS on port 389
-$config['auth_ldap_prefix'] = 'uid=';               // prepended to usernames
-$config['auth_ldap_group']  = 'cn=groupname,ou=groups,dc=example,dc=com'; // generic group with level 0
-$config['auth_ldap_groupmemberattr'] = 'memberUid'; // attribute to use to see if a user is a member of a group
-$config['auth_ldap_uid_attribute'] = 'uidnumber';   // attribute for unique id
-$config['auth_ldap_debug'] = false;                 // enable for verbose debug messages
-$config['auth_ldap_userdn'] = true;                 // Uses a users full DN as the value of the member attribute in a group instead of member: username. (it’s member: uid=username,ou=groups,dc=domain,dc=com)
-$config['auth_ldap_userlist_filter'] = 'service=informatique'; // Replace 'service=informatique' by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users
-$config['auth_ldap_wildcard_ou'] = false; // Search for user matching user name independently of OU set in auth_ldap_suffix. Useful if your users are in different OU. Bind username, if set, still user auth_ldap_suffix
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_version&#39;] = 3; # v2 or v3</span>
+<span class="x">$config[&#39;auth_ldap_port&#39;] = 389;                    // 389 or 636 for ssl</span>
+<span class="x">$config[&#39;auth_ldap_starttls&#39;] = True;               // Enable TLS on port 389</span>
+<span class="x">$config[&#39;auth_ldap_prefix&#39;] = &#39;uid=&#39;;               // prepended to usernames</span>
+<span class="x">$config[&#39;auth_ldap_group&#39;]  = &#39;cn=groupname,ou=groups,dc=example,dc=com&#39;; // generic group with level 0</span>
+<span class="x">$config[&#39;auth_ldap_groupmemberattr&#39;] = &#39;memberUid&#39;; // attribute to use to see if a user is a member of a group</span>
+<span class="x">$config[&#39;auth_ldap_uid_attribute&#39;] = &#39;uidnumber&#39;;   // attribute for unique id</span>
+<span class="x">$config[&#39;auth_ldap_debug&#39;] = false;                 // enable for verbose debug messages</span>
+<span class="x">$config[&#39;auth_ldap_userdn&#39;] = true;                 // Uses a users full DN as the value of the member attribute in a group instead of member: username. (it’s member: uid=username,ou=groups,dc=domain,dc=com)</span>
+<span class="x">$config[&#39;auth_ldap_userlist_filter&#39;] = &#39;service=informatique&#39;; // Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
+<span class="x">$config[&#39;auth_ldap_wildcard_ou&#39;] = false; // Search for user matching user name independently of OU set in auth_ldap_suffix. Useful if your users are in different OU. Bind username, if set, still user auth_ldap_suffix</span>
+</code></pre></div>
 
 <h2 id="ldap-bind-user-optional">LDAP bind user (optional)</h2>
 <p>If your ldap server does not allow anonymous bind, it is highly
 suggested to create a bind user, otherwise "remember me", alerting
 users, and the API will not work.</p>
-<pre><code class="php">$config['auth_ldap_binduser'] = 'ldapbind'; // will use auth_ldap_prefix and auth_ldap_suffix
-#$config['auth_ldap_binddn'] = 'CN=John.Smith,CN=Users,DC=MyDomain,DC=com'; // overrides binduser
-$config['auth_ldap_bindpassword'] = 'password';
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_binduser&#39;] = &#39;ldapbind&#39;; // will use auth_ldap_prefix and auth_ldap_suffix</span>
+<span class="x">#$config[&#39;auth_ldap_binddn&#39;] = &#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;; // overrides binduser</span>
+<span class="x">$config[&#39;auth_ldap_bindpassword&#39;] = &#39;password&#39;;</span>
+</code></pre></div>
 
 <h2 id="ldap-server-redundancy">LDAP server redundancy</h2>
 <p>You can set two LDAP servers by editing the
 <code>$config['auth_ldap_server']</code> like this example:</p>
-<pre><code>$config['auth_ldap_server'] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;auth_ldap_server&#39;] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
+</code></pre></div>
 
 <p>An example config setup for use with Jumpcloud LDAP as a service is:</p>
-<pre><code class="php">$config['auth_mechanism'] = &quot;ldap&quot;;
-$config['auth_ldap_version'] = 3;
-$config['auth_ldap_server'] = &quot;ldap.jumpcloud.com&quot;; #Set to ldaps://ldap.jumpcloud.com to enable LDAPS
-$config['auth_ldap_port'] = 389; #Set to 636 if using LDAPS
-$config['auth_ldap_prefix'] = &quot;uid=&quot;;
-$config['auth_ldap_suffix'] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupbase'] = &quot;ou=Users,o={id},dc=jumpcloud,dc=com&quot;;
-$config['auth_ldap_groupmemberattr'] = &quot;member&quot;;
-$config['auth_ldap_groups'] = ['{group}' =&gt; ['level' =&gt; 10],];
-$config['auth_ldap_userdn'] = true;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &quot;ldap&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_version&#39;] = 3;</span>
+<span class="x">$config[&#39;auth_ldap_server&#39;] = &quot;ldap.jumpcloud.com&quot;; #Set to ldaps://ldap.jumpcloud.com to enable LDAPS</span>
+<span class="x">$config[&#39;auth_ldap_port&#39;] = 389; #Set to 636 if using LDAPS</span>
+<span class="x">$config[&#39;auth_ldap_prefix&#39;] = &quot;uid=&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_suffix&#39;] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_groupbase&#39;] = &quot;ou=Users,o={id},dc=jumpcloud,dc=com&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_groupmemberattr&#39;] = &quot;member&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_groups&#39;] = [&#39;{group}&#39; =&gt; [&#39;level&#39; =&gt; 10],];</span>
+<span class="x">$config[&#39;auth_ldap_userdn&#39;] = true;</span>
+</code></pre></div>
 
 <p>Replace {id} with the unique ID provided by Jumpcloud.  Replace
 {group} with the unique group name created in Jumpcloud.  This field
@@ -2366,24 +2358,24 @@ is case sensitive.</p>
 <p>Note: If you have multiple user groups to define individual access
 levels replace the <code>$config['auth_ldap_groups']</code> line with the
 following:</p>
-<pre><code class="php">$config['auth_ldap_groups'] = [
-    '{admin_group}' =&gt; ['level' =&gt; 10],
-    '{global_readonly_group}' =&gt; ['level' =&gt; 5],
-];
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_groups&#39;] = [</span>
+<span class="x">    &#39;{admin_group}&#39; =&gt; [&#39;level&#39; =&gt; 10],</span>
+<span class="x">    &#39;{global_readonly_group}&#39; =&gt; [&#39;level&#39; =&gt; 5],</span>
+<span class="x">];</span>
+</code></pre></div>
 
 <h1 id="radius-authentication">Radius Authentication</h1>
 <p>Please note that a mysql user is created for each user the logs in
 successfully. User level 1 is assigned to those accounts so you will
 then need to assign the relevant permissions unless you set
 <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
-<pre><code class="php">$config['radius']['hostname']   = 'localhost';
-$config['radius']['port']       = '1812';
-$config['radius']['secret']     = 'testing123';
-$config['radius']['timeout']    = 3;
-$config['radius']['users_purge'] = 14;//Purge users who haven't logged in for 14 days.
-$config['radius']['default_level'] = 1;//Set the default user level when automatically creating a user.
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;radius&#39;][&#39;hostname&#39;]   = &#39;localhost&#39;;</span>
+<span class="x">$config[&#39;radius&#39;][&#39;port&#39;]       = &#39;1812&#39;;</span>
+<span class="x">$config[&#39;radius&#39;][&#39;secret&#39;]     = &#39;testing123&#39;;</span>
+<span class="x">$config[&#39;radius&#39;][&#39;timeout&#39;]    = 3;</span>
+<span class="x">$config[&#39;radius&#39;][&#39;users_purge&#39;] = 14;//Purge users who haven&#39;t logged in for 14 days.</span>
+<span class="x">$config[&#39;radius&#39;][&#39;default_level&#39;] = 1;//Set the default user level when automatically creating a user.</span>
+</code></pre></div>
 
 <h2 id="old-account-cleanup_1">Old account cleanup</h2>
 <p>Cleanup of old accounts is done by checking the authlog. You will need
@@ -2405,8 +2397,8 @@ for that user which is done in one of two ways:</p>
 <p>A global guest user (which still needs to be added into MySQL:</p>
 </li>
 </ul>
-<pre><code class="php">$config['http_auth_guest'] = &quot;guest&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;http_auth_guest&#39;] = &quot;guest&quot;;</span>
+</code></pre></div>
 
 <p>This will then assign the userlevel for guest to all authenticated users.</p>
 <h2 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h2>
@@ -2430,10 +2422,10 @@ This option allows to control how long user information (user_exists,
 userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disable this caching (highly discourage) set this option to 0.</p>
-<pre><code class="php">$config['auth_ad_binduser']     = &quot;ad_binduser&quot;;
-$config['auth_ad_bindpassword'] = &quot;ad_bindpassword&quot;;
-$config['auth_ldap_cache_ttl']  = 300;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ad_binduser&#39;]     = &quot;ad_binduser&quot;;</span>
+<span class="x">$config[&#39;auth_ad_bindpassword&#39;] = &quot;ad_bindpassword&quot;;</span>
+<span class="x">$config[&#39;auth_ldap_cache_ttl&#39;]  = 300;</span>
+</code></pre></div>
 
 <h2 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h2>
 <p>Config option: <code>ldap-authorization</code></p>
@@ -2447,13 +2439,13 @@ information as the <strong><em>ldap</em></strong> module does.</p>
 This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disabled this caching (highly discourage) set this option to 0.</p>
-<pre><code class="php">$config['auth_ldap_cache_ttl'] = 300;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_cache_ttl&#39;] = 300;</span>
+</code></pre></div>
 
 <h1 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h1>
-<pre><code class="php">$config['allow_unauth_graphs_cidr'] = array('127.0.0.1/32');
-$config['allow_unauth_graphs'] = true;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;allow_unauth_graphs_cidr&#39;] = array(&#39;127.0.0.1/32&#39;);</span>
+<span class="x">$config[&#39;allow_unauth_graphs&#39;] = true;</span>
+</code></pre></div>
 
 <h1 id="single-sign-on">Single Sign-on</h1>
 <p>The single sign-on mechanism is used to integrate with third party
@@ -2475,11 +2467,11 @@ in the configuration are not set, it will reject access rather than
 try and guess.</p>
 <h2 id="basic-configuration">Basic Configuration</h2>
 <p>To get up and running, all you need to do is configure the following values:</p>
-<pre><code class="php">$config['auth_mechanism']        = &quot;sso&quot;;
-$config['sso']['mode']           = &quot;env&quot;;
-$config['sso']['group_strategy'] = &quot;static&quot;;
-$config['sso']['static_level']   = 10;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;]        = &quot;sso&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;mode&#39;]           = &quot;env&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &quot;static&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;static_level&#39;]   = 10;</span>
+</code></pre></div>
 
 <p>This, along with the defaults, sets up a basic Single Sign-on setup that:</p>
 <ul>
@@ -2504,8 +2496,8 @@ full <a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a>
 being strongly recommended. This advice applies to the IDP too.</p>
 <p>The mechanism includes very basic protection, in the form of an IP
 whitelist with should contain the source addresses of your proxies:</p>
-<pre><code class="php">$config['sso']['trusted_proxies'] = ['127.0.0.1/8', '::1/128', '192.0.2.0', '2001:DB8::'];
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;trusted_proxies&#39;] = [&#39;127.0.0.1/8&#39;, &#39;::1/128&#39;, &#39;192.0.2.0&#39;, &#39;2001:DB8::&#39;];</span>
+</code></pre></div>
 
 <p>This configuration item should contain an array with a list of IP
 addresses or CIDR prefixes that are allowed to connect to LibreNMS and
@@ -2514,8 +2506,8 @@ supply environment variables or headers.</p>
 <h3 id="user-attribute">User Attribute</h3>
 <p>If for some reason your relying party doesn't store the username in
 <strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
-<pre><code class="php">$config['sso']['user_attr'] = 'HTTP_UID';
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;user_attr&#39;] = &#39;HTTP_UID&#39;;</span>
+</code></pre></div>
 
 <p>Note that the user lookup is a little special - normally headers are
 prefixed with <strong><em>HTTP_</em></strong>, however this is not the case for remote
@@ -2524,9 +2516,9 @@ need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or 
 yourself.</p>
 <h3 id="automatic-user-createupdate">Automatic User Create/Update</h3>
 <p>These are enabled by default:</p>
-<pre><code class="php">$config['sso']['create_users'] = true;
-$config['sso']['update_users'] = true;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;create_users&#39;] = true;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;update_users&#39;] = true;</span>
+</code></pre></div>
 
 <p>If these are not enabled, user logins will be (somewhat silently)
 rejected unless an administrator has created the account in
@@ -2536,10 +2528,10 @@ the users true identity has been negotiated with the IDP, the username
 <h3 id="personalisation">Personalisation</h3>
 <p>If the attributes are being populated, you can instruct the mechanism
 to add additional information to the user's database entry:</p>
-<pre><code class="php">$config['sso']['email_attr']    = &quot;mail&quot;;
-$config['sso']['realname_attr'] = &quot;displayName&quot;;
-$config['sso']['descr_attr']    = &quot;unscoped-affiliation
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;email_attr&#39;]    = &quot;mail&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;realname_attr&#39;] = &quot;displayName&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;descr_attr&#39;]    = &quot;unscoped-affiliation</span>
+</code></pre></div>
 
 <h3 id="group-strategies">Group Strategies</h3>
 <h4 id="static">Static</h4>
@@ -2547,9 +2539,9 @@ $config['sso']['descr_attr']    = &quot;unscoped-affiliation
 level. If you're working with a small team, or don't need access
 control, this is probably suitable.</p>
 <h4 id="attribute">Attribute</h4>
-<pre><code class="php">$config['sso']['group_strategy'] = &quot;attribute&quot;;
-$config['sso']['level_attr']     = &quot;entitlement&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &quot;attribute&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;level_attr&#39;]     = &quot;entitlement&quot;;</span>
+</code></pre></div>
 
 <p>If your Relying Party is capable of calculating the necessary
 privilege level, you can configure the module to read the privilege
@@ -2559,11 +2551,11 @@ as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanis
 the value.</p>
 <h4 id="group-map">Group Map</h4>
 <p>This is the most flexible (and complex) way of assigning privileges.</p>
-<pre><code class="php">$config['sso']['group_strategy']  = &quot;map&quot;;
-$config['sso']['group_attr']      = &quot;member&quot;;
-$config['sso']['group_level_map'] = ['librenms-admins' =&gt; 10, 'librenms-readers' =&gt; 1, 'librenms-billingcontacts' =&gt; 5];
-$config['sso']['group_delimiter'] = ';';
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;]  = &quot;map&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_attr&#39;]      = &quot;member&quot;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_level_map&#39;] = [&#39;librenms-admins&#39; =&gt; 10, &#39;librenms-readers&#39; =&gt; 1, &#39;librenms-billingcontacts&#39; =&gt; 5];</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_delimiter&#39;] = &#39;;&#39;;</span>
+</code></pre></div>
 
 <p>The mechanism expects to find a delimited list of groups within the
 attribute that <strong><em>sso</em>group_attr</strong>_ points to. This should be an
@@ -2575,8 +2567,8 @@ the user.</p>
 software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_
 may create pseudo arrays).</p>
 <p>There is an optional value for sites with large numbers of groups:</p>
-<pre><code class="php">$config['sso']['group_filter']  = &quot;/librenms-(.*)/i&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_filter&#39;]  = &quot;/librenms-(.*)/i&quot;;</span>
+</code></pre></div>
 
 <p>This filter causes the mechanism to only consider groups matching a regular expression.</p>
 <h3 id="logout-behaviour">Logout Behaviour</h3>
@@ -2584,41 +2576,29 @@ may create pseudo arrays).</p>
 Sign-On - that responsability falls to the Relying Party.</p>
 <p>If your Relying Party has a magic URL that needs to be called to end a
 session, you can configure LibreNMS to direct the user to it:</p>
-<pre><code class="php">$config['post_logout_action'] = '/Shibboleth.sso/Logout';
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;post_logout_action&#39;] = &#39;/Shibboleth.sso/Logout&#39;;</span>
+</code></pre></div>
 
 <p>This option functions independantly of the Single Sign-on mechanism.</p>
 <h2 id="complete-configuration">Complete Configuration</h2>
 <p>This configuration works on my deployment with a Shibboleth relying
 party, injecting environment variables, with the IDP supplying a list
 of groups.</p>
-<pre><code class="php">$config['auth_mechanism'] = 'sso';
-$config['auth_logout_handler'] = '/Shibboleth.sso/Logout';
-$config['sso']['mode'] = 'env';
-$config['sso']['create_users'] = true;
-$config['sso']['update_users'] = true;
-$config['sso']['realname_attr'] = 'displayName';
-$config['sso']['email_attr'] = 'mail';
-$config['sso']['group_strategy'] = 'map';
-$config['sso']['group_attr'] = 'member';
-$config['sso']['group_filter'] = '/(librenms-.*)/i';
-$config['sso']['group_delimiter'] = ';';
-$config['sso']['group_level_map'] = ['librenms-demo' =&gt; 11, 'librenms-globaladmin' =&gt; 10, 'librenms-globalread' =&gt; 5, 'librenms-lowpriv'=&gt; 1];
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;sso&#39;;</span>
+<span class="x">$config[&#39;auth_logout_handler&#39;] = &#39;/Shibboleth.sso/Logout&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;mode&#39;] = &#39;env&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;create_users&#39;] = true;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;update_users&#39;] = true;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;realname_attr&#39;] = &#39;displayName&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;email_attr&#39;] = &#39;mail&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &#39;map&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_attr&#39;] = &#39;member&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_filter&#39;] = &#39;/(librenms-.*)/i&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_delimiter&#39;] = &#39;;&#39;;</span>
+<span class="x">$config[&#39;sso&#39;][&#39;group_level_map&#39;] = [&#39;librenms-demo&#39; =&gt; 11, &#39;librenms-globaladmin&#39; =&gt; 10, &#39;librenms-globalread&#39; =&gt; 5, &#39;librenms-lowpriv&#39;=&gt; 1];</span>
+</code></pre></div>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Authentication.md" title="Extensions/Authentication.md" class="md-source-file">
-                      Extensions/Authentication.md
-                    </a>
-                  
-                
                 
               
               
@@ -2635,34 +2615,34 @@ $config['sso']['group_level_map'] = ['librenms-demo' =&gt; 11, 'librenms-globala
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../Support/Configuration/" title="Configuration Docs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../../Support/Configuration/" title="Configuration Docs" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Configuration Docs
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../Two-Factor-Auth/" title="Two-Factor Auth" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../Two-Factor-Auth/" title="Two-Factor Auth" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Two-Factor Auth
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2673,11 +2653,10 @@ $config['sso']['group_level_map'] = ['librenms-demo' =&gt; 11, 'librenms-globala
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -2686,9 +2665,18 @@ $config['sso']['group_level_map'] = ['librenms-demo' =&gt; 11, 'librenms-globala
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

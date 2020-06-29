@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#setting-up-syslog-support" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-syslog-support" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Syslog
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Syslog
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -552,13 +462,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -657,13 +573,16 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Syslog
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Syslog" class="md-nav__link md-nav__link--active">
@@ -671,13 +590,18 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -685,7 +609,7 @@
     Syslog server installation
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Syslog server installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -713,16 +637,6 @@
     </nav>
   
 </li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
       
     </ul>
   
@@ -755,13 +669,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1019,13 +939,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1134,13 +1060,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1247,13 +1179,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1451,13 +1389,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1595,13 +1539,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1763,13 +1713,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1914,13 +1870,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2111,13 +2073,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2154,13 +2122,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2211,13 +2185,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2225,7 +2204,7 @@
     Syslog server installation
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Syslog server installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2254,16 +2233,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2276,7 +2245,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Syslog.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Syslog.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Syslog.md" title="Extensions/Syslog.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="setting-up-syslog-support">Setting up syslog support</h1>
@@ -2286,97 +2272,97 @@ integrating syslog with LibreNMS.</p>
 <h2 id="syslog-server-installation">Syslog server installation</h2>
 <h3 id="syslog-ng">syslog-ng</h3>
 <p>For Debian / Ubuntu:</p>
-<pre><code class="ssh">apt-get install syslog-ng
-</code></pre>
+<div class="highlight"><pre><span></span><code>apt-get install syslog-ng
+</code></pre></div>
 
 <p>For CentOS / RedHat</p>
-<pre><code class="ssh">yum install syslog-ng
-</code></pre>
+<div class="highlight"><pre><span></span><code>yum install syslog-ng
+</code></pre></div>
 
 <p>Once syslog-ng is installed, edit the relevant config file (most
 likely /etc/syslog-ng/syslog-ng.conf) and paste the following:</p>
-<pre><code class="bash">@version:3.5
-@include &quot;scl.conf&quot;
+<div class="highlight"><pre><span></span><code>@version:3.5
+@include <span class="s2">&quot;scl.conf&quot;</span>
 
-# syslog-ng configuration file.
-#
-# This should behave pretty much like the original syslog on RedHat. But
-# it could be configured a lot smarter.
-#
-# See syslog-ng(8) and syslog-ng.conf(5) for more information.
-#
-# Note: it also sources additional configuration files (*.conf)
-#       located in /etc/syslog-ng/conf.d/
+<span class="c1"># syslog-ng configuration file.</span>
+<span class="c1">#</span>
+<span class="c1"># This should behave pretty much like the original syslog on RedHat. But</span>
+<span class="c1"># it could be configured a lot smarter.</span>
+<span class="c1">#</span>
+<span class="c1"># See syslog-ng(8) and syslog-ng.conf(5) for more information.</span>
+<span class="c1">#</span>
+<span class="c1"># Note: it also sources additional configuration files (*.conf)</span>
+<span class="c1">#       located in /etc/syslog-ng/conf.d/</span>
 
-options {
-        chain_hostnames(off);
-        flush_lines(0);
-        use_dns(no);
-        use_fqdn(no);
-        owner(&quot;root&quot;);
-        group(&quot;adm&quot;);
-        perm(0640);
-        stats_freq(0);
-        bad_hostname(&quot;^gconfd$&quot;);
-};
+options <span class="o">{</span>
+        chain_hostnames<span class="o">(</span>off<span class="o">)</span><span class="p">;</span>
+        flush_lines<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+        use_dns<span class="o">(</span>no<span class="o">)</span><span class="p">;</span>
+        use_fqdn<span class="o">(</span>no<span class="o">)</span><span class="p">;</span>
+        owner<span class="o">(</span><span class="s2">&quot;root&quot;</span><span class="o">)</span><span class="p">;</span>
+        group<span class="o">(</span><span class="s2">&quot;adm&quot;</span><span class="o">)</span><span class="p">;</span>
+        perm<span class="o">(</span><span class="m">0640</span><span class="o">)</span><span class="p">;</span>
+        stats_freq<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+        bad_hostname<span class="o">(</span><span class="s2">&quot;^gconfd</span>$<span class="s2">&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 
-source s_sys {
-    system();
-    internal();
-};
+<span class="nb">source</span> s_sys <span class="o">{</span>
+    system<span class="o">()</span><span class="p">;</span>
+    internal<span class="o">()</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 
-source s_net {
-        tcp(port(514) flags(syslog-protocol));
-        udp(port(514) flags(syslog-protocol));
-};
+<span class="nb">source</span> s_net <span class="o">{</span>
+        tcp<span class="o">(</span>port<span class="o">(</span><span class="m">514</span><span class="o">)</span> flags<span class="o">(</span>syslog-protocol<span class="o">))</span><span class="p">;</span>
+        udp<span class="o">(</span>port<span class="o">(</span><span class="m">514</span><span class="o">)</span> flags<span class="o">(</span>syslog-protocol<span class="o">))</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 
-########################
-# Destinations
-########################
-destination d_librenms {
-        program(&quot;/opt/librenms/syslog.php&quot; template (&quot;$HOST||$FACILITY||$PRIORITY||$LEVEL||$TAG||$R_YEAR-$R_MONTH-$R_DAY $R_HOUR:$R_MIN:$R_SEC||$MSG||$PROGRAM\n&quot;) template-escape(yes));
-};
+<span class="c1">########################</span>
+<span class="c1"># Destinations</span>
+<span class="c1">########################</span>
+destination d_librenms <span class="o">{</span>
+        program<span class="o">(</span><span class="s2">&quot;/opt/librenms/syslog.php&quot;</span> template <span class="o">(</span><span class="s2">&quot;</span><span class="nv">$HOST</span><span class="s2">||</span><span class="nv">$FACILITY</span><span class="s2">||</span><span class="nv">$PRIORITY</span><span class="s2">||</span><span class="nv">$LEVEL</span><span class="s2">||</span><span class="nv">$TAG</span><span class="s2">||</span><span class="nv">$R_YEAR</span><span class="s2">-</span><span class="nv">$R_MONTH</span><span class="s2">-</span><span class="nv">$R_DAY</span><span class="s2"> </span><span class="nv">$R_HOUR</span><span class="s2">:</span><span class="nv">$R_MIN</span><span class="s2">:</span><span class="nv">$R_SEC</span><span class="s2">||</span><span class="nv">$MSG</span><span class="s2">||</span><span class="nv">$PROGRAM</span><span class="s2">\n&quot;</span><span class="o">)</span> template-escape<span class="o">(</span>yes<span class="o">))</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 
-filter f_kernel     { facility(kern); };
-filter f_default    { level(info..emerg) and
-                        not (facility(mail)
-                        or facility(authpriv)
-                        or facility(cron)); };
-filter f_auth       { facility(authpriv); };
-filter f_mail       { facility(mail); };
-filter f_emergency  { level(emerg); };
-filter f_news       { facility(uucp) or
-                        (facility(news)
-                        and level(crit..emerg)); };
-filter f_boot   { facility(local7); };
-filter f_cron   { facility(cron); };
+filter f_kernel     <span class="o">{</span> facility<span class="o">(</span>kern<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_default    <span class="o">{</span> level<span class="o">(</span>info..emerg<span class="o">)</span> and
+                        not <span class="o">(</span>facility<span class="o">(</span>mail<span class="o">)</span>
+                        or facility<span class="o">(</span>authpriv<span class="o">)</span>
+                        or facility<span class="o">(</span>cron<span class="o">))</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_auth       <span class="o">{</span> facility<span class="o">(</span>authpriv<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_mail       <span class="o">{</span> facility<span class="o">(</span>mail<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_emergency  <span class="o">{</span> level<span class="o">(</span>emerg<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_news       <span class="o">{</span> facility<span class="o">(</span>uucp<span class="o">)</span> or
+                        <span class="o">(</span>facility<span class="o">(</span>news<span class="o">)</span>
+                        and level<span class="o">(</span>crit..emerg<span class="o">))</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_boot   <span class="o">{</span> facility<span class="o">(</span>local7<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+filter f_cron   <span class="o">{</span> facility<span class="o">(</span>cron<span class="o">)</span><span class="p">;</span> <span class="o">}</span><span class="p">;</span>
 
-########################
-# Log paths
-########################
-log {
-        source(s_net);
-        source(s_sys);
-        destination(d_librenms);
-};
+<span class="c1">########################</span>
+<span class="c1"># Log paths</span>
+<span class="c1">########################</span>
+log <span class="o">{</span>
+        source<span class="o">(</span>s_net<span class="o">)</span><span class="p">;</span>
+        source<span class="o">(</span>s_sys<span class="o">)</span><span class="p">;</span>
+        destination<span class="o">(</span>d_librenms<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 
-# Source additional configuration files (.conf extension only)
-@include &quot;/etc/syslog-ng/conf.d/*.conf&quot;
+<span class="c1"># Source additional configuration files (.conf extension only)</span>
+@include <span class="s2">&quot;/etc/syslog-ng/conf.d/*.conf&quot;</span>
 
 
-# vim:ft=syslog-ng:ai:si:ts=4:sw=4:et:
-</code></pre>
+<span class="c1"># vim:ft=syslog-ng:ai:si:ts=4:sw=4:et:</span>
+</code></pre></div>
 
 <p>Next start syslog-ng:</p>
-<pre><code class="ssh">service syslog-ng restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>service syslog-ng restart
+</code></pre></div>
 
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
-<pre><code class="php">$config['enable_syslog'] = 1;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_syslog&#39;] = 1;</span>
+</code></pre></div>
 
 <p>If no messages make it to the syslog tab in LibreNMS, chances are you experience an issue with SELinux. If so, create a file mycustom-librenms-rsyslog.te , with the following content:</p>
-<pre><code>module mycustom-librenms-rsyslog 1.0;
+<div class="highlight"><pre><span></span><code>module mycustom-librenms-rsyslog 1.0;
 
 require {
         type syslogd_t;
@@ -2392,26 +2378,26 @@ allow syslogd_t httpd_sys_rw_content_t:dir { getattr search write };
 allow syslogd_t httpd_sys_rw_content_t:file { open read append getattr };
 allow syslogd_t self:process execmem;
 allow syslogd_t ping_exec_t:file execute;
-</code></pre>
+</code></pre></div>
 
 <p>Then, as root, execute the following commands:</p>
-<pre><code class="ssh">checkmodule -M -m -o mycustom-librenms-rsyslog.mod mycustom-librenms-rsyslog.te
+<div class="highlight"><pre><span></span><code>checkmodule -M -m -o mycustom-librenms-rsyslog.mod mycustom-librenms-rsyslog.te
 semodule_package -o mycustom-librenms-rsyslog.pp -m mycustom-librenms-rsyslog.mod
 semodule -i mycustom-librenms-rsyslog.pp
-</code></pre>
+</code></pre></div>
 
 <h3 id="rsyslog">rsyslog</h3>
 <p>If you prefer rsyslog, here are some hints on how to get it working.</p>
 <p>Add the following to your rsyslog config somewhere (could be at the
 top of the file in the step below, could be in <code>rsyslog.conf</code> if you
 are using remote logs for something else on this host)</p>
-<pre><code># Listen for syslog messages on UDP:514
+<div class="highlight"><pre><span></span><code># Listen for syslog messages on UDP:514
 $ModLoad imudp
 $UDPServerRun 514
-</code></pre>
+</code></pre></div>
 
 <p>Create a file called something like <code>/etc/rsyslog.d/30-librenms.conf</code> containing:</p>
-<pre><code># Feed syslog messages to librenms
+<div class="highlight"><pre><span></span><code># Feed syslog messages to librenms
 $ModLoad omprog
 
 $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n&quot;
@@ -2419,18 +2405,17 @@ $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslog
 *.* action(type=&quot;omprog&quot; binary=&quot;/opt/librenms/syslog.php&quot; template=&quot;librenms&quot;)
 
 &amp; stop
-
-</code></pre>
+</code></pre></div>
 
 <p>Ancient versions of rsyslog may require different syntax.</p>
 <p>This is an example for rsyslog 5 (default on Debian 7):</p>
-<pre><code class="bash"># Feed syslog messages to librenms
-$ModLoad omprog
-$template librenms,&quot;%FROMHOST%||%syslogfacility-text%||%syslogpriority-text%||%syslogseverity%||%syslogtag%||%$YEAR%-%$MONTH%-%$DAY% %timegenerated:8:25%||%msg%||%programname%\n&quot;
+<div class="highlight"><pre><span></span><code><span class="c1"># Feed syslog messages to librenms</span>
+<span class="nv">$ModLoad</span> omprog
+<span class="nv">$template</span> librenms,<span class="s2">&quot;%FROMHOST%||%syslogfacility-text%||%syslogpriority-text%||%syslogseverity%||%syslogtag%||%</span><span class="nv">$YEAR</span><span class="s2">%-%</span><span class="nv">$MONTH</span><span class="s2">%-%</span><span class="nv">$DAY</span><span class="s2">% %timegenerated:8:25%||%msg%||%programname%\n&quot;</span>
 
-$ActionOMProgBinary /opt/librenms/syslog.php
-*.* :omprog:;librenms
-</code></pre>
+<span class="nv">$ActionOMProgBinary</span> /opt/librenms/syslog.php
+*.* :omprog:<span class="p">;</span>librenms
+</code></pre></div>
 
 <p>If your rsyslog server is recieving messages relayed by another syslog
 server, you may try replacing <code>%fromhost%</code> with <code>%hostname%</code>, since
@@ -2439,20 +2424,20 @@ that generated the message.  The <code>fromhost</code> property is preferred as
 it avoids problems caused by devices sending incorrect hostnames in
 syslog messages.</p>
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
-<pre><code class="php">$config['enable_syslog'] = 1;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_syslog&#39;] = 1;</span>
+</code></pre></div>
 
 <h3 id="logstash">logstash</h3>
 <p>If you prefer logstash, and it is installed on the same server as
 LibreNMS, here are some hints on how to get it working.</p>
 <p>First, install the output-exec plugin for logstash:</p>
-<pre><code class="bash">/usr/share/logstash/bin/logstash-plugin install logstash-output-exec
-</code></pre>
+<div class="highlight"><pre><span></span><code>/usr/share/logstash/bin/logstash-plugin install logstash-output-exec
+</code></pre></div>
 
 <p>Next, create a logstash configuration file
 (ex. /etc/logstash/conf.d/logstash-simple.conf), and add the
 following:</p>
-<pre><code>input {
+<div class="highlight"><pre><span></span><code>input {
 syslog {
     port =&gt; 514
   }
@@ -2461,27 +2446,27 @@ syslog {
 
 output {
         exec {
-        command =&gt; &quot;echo `echo %{host},,,,%{facility},,,,%{priority},,,,%{severity},,,,%{facility_label},,,,``date --date='%{timestamp}' '+%Y-%m-%d %H:%M:%S'``echo ',,,,%{message}'``echo ,,,,%{program} | sed 's/\x25\x7b\x70\x72\x6f\x67\x72\x61\x6d\x7d/%{facility_label}/'` | sed 's/,,,,/||/g' | /opt/librenms/syslog.php &amp;&quot;
+        command =&gt; &quot;echo `echo %{host},,,,%{facility},,,,%{priority},,,,%{severity},,,,%{facility_label},,,,``date --date=&#39;%{timestamp}&#39; &#39;+%Y-%m-%d %H:%M:%S&#39;``echo &#39;,,,,%{message}&#39;``echo ,,,,%{program} | sed &#39;s/\x25\x7b\x70\x72\x6f\x67\x72\x61\x6d\x7d/%{facility_label}/&#39;` | sed &#39;s/,,,,/||/g&#39; | /opt/librenms/syslog.php &amp;&quot;
         }
         elasticsearch {
         hosts =&gt; [&quot;10.10.10.10:9200&quot;]
         index =&gt; &quot;syslog-%{+YYYY.MM.dd}&quot;
         }
 }
-</code></pre>
+</code></pre></div>
 
 <p>Replace 10.10.10.10 with your primary elasticsearch server IP, and set
 the incoming syslog port. Alternatively, if you already have a
 logstash config file that works except for the LibreNMS export, take
 only the "exec" section from output and add it.</p>
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
-<pre><code class="ssh">$config['enable_syslog'] = 1;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;enable_syslog&#39;] = 1;
+</code></pre></div>
 
 <h1 id="syslog-clean-up">Syslog Clean Up</h1>
 <p>Can be set inside of  <code>config.php</code></p>
-<pre><code class="php">$config['syslog_purge'] = 30;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;syslog_purge&#39;] = 30;</span>
+</code></pre></div>
 
 <p>The cleanup is run by daily.sh and any entries over X days old are
 automatically purged. Values are in days. See here for more Clean Up
@@ -2494,34 +2479,34 @@ slight changes. Further configuration hints may be found in the file Graylog.md.
 <p>Replace librenms.ip with IP or hostname of your LibreNMS install.</p>
 <p>Replace any variables in <brackets> with the relevant information.</p>
 <h2 id="syslog">syslog</h2>
-<pre><code class="config">*.*     @librenms.ip
-</code></pre>
+<div class="highlight"><pre><span></span><code>*.*     @librenms.ip
+</code></pre></div>
 
 <h2 id="rsyslog_1">rsyslog</h2>
-<pre><code class="config">*.* @librenms.ip:514
-</code></pre>
+<div class="highlight"><pre><span></span><code>*.* @librenms.ip:514
+</code></pre></div>
 
 <h2 id="cisco-asa">Cisco ASA</h2>
-<pre><code class="config">logging enable
+<div class="highlight"><pre><span></span><code>logging enable
 logging timestamp
 logging buffer-size 200000
 logging buffered debugging
 logging trap notifications
 logging host &lt;outside interface name&gt; librenms.ip
-</code></pre>
+</code></pre></div>
 
 <h2 id="cisco-ios">Cisco IOS</h2>
-<pre><code class="config">logging trap debugging
+<div class="highlight"><pre><span></span><code>logging trap debugging
 logging facility local6
 logging librenms.ip
-</code></pre>
+</code></pre></div>
 
 <h2 id="cisco-nxos">Cisco NXOS</h2>
-<pre><code class="config">logging server librenms.ip 5 use-vrf default facility local6
-</code></pre>
+<div class="highlight"><pre><span></span><code>logging server librenms.ip 5 use-vrf default facility local6
+</code></pre></div>
 
 <h2 id="juniper-junos">Juniper Junos</h2>
-<pre><code class="config">set system syslog host librenms.ip authorization any
+<div class="highlight"><pre><span></span><code>set system syslog host librenms.ip authorization any
 set system syslog host librenms.ip daemon any
 set system syslog host librenms.ip kernel any
 set system syslog host librenms.ip user any
@@ -2529,35 +2514,35 @@ set system syslog host librenms.ip change-log any
 set system syslog host librenms.ip source-address &lt;management ip&gt;
 set system syslog host librenms.ip exclude-hostname
 set system syslog time-format
-</code></pre>
+</code></pre></div>
 
 <h2 id="huawei-vrp">Huawei VRP</h2>
-<pre><code class="config">info-center loghost librenms.ip
+<div class="highlight"><pre><span></span><code>info-center loghost librenms.ip
 info-center timestamp debugging short-date without-timezone // Optional
 info-center timestamp log short-date // Optional
 info-center timestamp trap short-date // Optional
-//This is optional config, especially if the device is in public ip and you dont'want to get a lot of messages of ACL
+//This is optional config, especially if the device is in public ip and you dont&#39;want to get a lot of messages of ACL
 info-center filter-id bymodule-alias VTY ACL_DENY
 info-center filter-id bymodule-alias SSH SSH_FAIL
 info-center filter-id bymodule-alias SNMP SNMP_FAIL
 info-center filter-id bymodule-alias SNMP SNMP_IPLOCK
 info-center filter-id bymodule-alias SNMP SNMP_IPUNLOCK
 info-center filter-id bymodule-alias HTTP ACL_DENY
-</code></pre>
+</code></pre></div>
 
 <h2 id="huawei-smartax-gpon-olt">Huawei SmartAX (GPON OLT)</h2>
-<pre><code class="config">loghost add librenms.ip librenms
+<div class="highlight"><pre><span></span><code>loghost add librenms.ip librenms
 loghost activate name librenms
-</code></pre>
+</code></pre></div>
 
 <h2 id="allied-telesis-alliedware-plus">Allied Telesis Alliedware Plus</h2>
-<pre><code class="config">log date-format iso // Required so syslog-ng/LibreNMS can correctly interpret the log message formatting.
+<div class="highlight"><pre><span></span><code>log date-format iso // Required so syslog-ng/LibreNMS can correctly interpret the log message formatting.
 log host x.x.x.x
 log host x.x.x.x level &lt;errors&gt; // Required. A log-level must be specified for syslog messages to send.
 log host x.x.x.x level notices program imish // Useful for seeing all commands executed by users.
 log host x.x.x.x level notices program imi // Required for Oxidized Syslog hook log message.
 log host source &lt;eth0&gt;
-</code></pre>
+</code></pre></div>
 
 <p>If you have permitted udp and tcp 514 through any firewall then that
 should be all you need. Logs should start appearing and displayed
@@ -2576,43 +2561,43 @@ just using this Datagram-Syslog Agent for this example.</p>
 <p>Trigger external scripts based on specific syslog patterns being
 matched with syslog hooks. Add the following to your LibreNMS
 <code>config.php</code> to enable hooks:</p>
-<pre><code class="ssh">$config['enable_syslog_hooks'] = 1;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;enable_syslog_hooks&#39;] = 1;
+</code></pre></div>
 
 <p>The below are some example hooks to call an external script in the
 event of a configuration change on Cisco ASA, IOS, NX-OS and IOS-XR
 devices. Add to your <code>config.php</code> file to enable.</p>
 <h2 id="cisco-asa_1">Cisco ASA</h2>
-<pre><code class="ssh">$config['os']['asa']['syslog_hook'][] = Array('regex' =&gt; '/%ASA-(config-)?5-111005/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;asa&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/%ASA-(config-)?5-111005/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="cisco-ios_1">Cisco IOS</h2>
-<pre><code class="ssh">$config['os']['ios']['syslog_hook'][] = Array('regex' =&gt; '/%SYS-(SW[0-9]+-)?5-CONFIG_I/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;ios&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/%SYS-(SW[0-9]+-)?5-CONFIG_I/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="cisco-nxos_1">Cisco NXOS</h2>
-<pre><code class="ssh">$config['os']['nxos']['syslog_hook'][] = Array('regex' =&gt; '/%VSHD-5-VSHD_SYSLOG_CONFIG_I/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;nxos&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/%VSHD-5-VSHD_SYSLOG_CONFIG_I/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="cisco-iosxr">Cisco IOSXR</h2>
-<pre><code class="ssh">$config['os']['iosxr']['syslog_hook'][] = Array('regex' =&gt; '/%GBL-CONFIG-6-DB_COMMIT/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;iosxr&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/%GBL-CONFIG-6-DB_COMMIT/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="juniper-junos_1">Juniper Junos</h2>
-<pre><code class="ssh">$config['os']['junos']['syslog_hook'][] = Array('regex' =&gt; '/UI_COMMIT:/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;junos&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/UI_COMMIT:/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="juniper-screenos">Juniper ScreenOS</h2>
-<pre><code class="ssh">$config['os']['screenos']['syslog_hook'][] = Array('regex' =&gt; '/System configuration saved/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;screenos&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/System configuration saved/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h2 id="allied-telesis-alliedware-plus_1">Allied Telesis Alliedware Plus</h2>
 <p><strong>Note:</strong> At least software version 5.4.8-2.1 is required. <code>log host
 x.x.x.x level notices program imi</code> may also be required depending on
 configuration. This is to ensure the syslog hook log message gets sent
 to the syslog server.</p>
-<pre><code class="ssh">$config['os']['awplus']['syslog_hook'][] = Array('regex' =&gt; '/IMI.+.Startup-config saved on/', 'script' =&gt; '/opt/librenms/scripts/syslog-notify-oxidized.php');
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;awplus&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/IMI.+.Startup-config saved on/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
 
 <h1 id="configuration-options">Configuration Options</h1>
 <h2 id="matching-syslogs-to-hosts-with-different-names">Matching syslogs to hosts with different names</h2>
@@ -2624,25 +2609,13 @@ syslogs are for "loopback.core-nw".</p>
 incoming syslog hostname into another hostname, so that the logs get
 associated with the correct device.</p>
 <p>Example:</p>
-<pre><code class="ssh">$config['syslog_xlate'] = array(
-        'loopback0.core7k1.noc.net' =&gt; 'n7k1-core7k1',
-        'loopback0.core7k2.noc.net' =&gt; 'n7k2-core7k2'
+<div class="highlight"><pre><span></span><code>$config[&#39;syslog_xlate&#39;] = array(
+        &#39;loopback0.core7k1.noc.net&#39; =&gt; &#39;n7k1-core7k1&#39;,
+        &#39;loopback0.core7k2.noc.net&#39; =&gt; &#39;n7k2-core7k2&#39;
 );
-</code></pre>
+</code></pre></div>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Syslog.md" title="Extensions/Syslog.md" class="md-source-file">
-                      Extensions/Syslog.md
-                    </a>
-                  
-                
                 
               
               
@@ -2659,34 +2632,34 @@ associated with the correct device.</p>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Network-Map/" title="Network Map" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../Network-Map/" title="Network Map" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Network Map
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../Dashboards/" title="Dashboards" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../Dashboards/" title="Dashboards" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Dashboards
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2697,11 +2670,10 @@ associated with the correct device.</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -2710,9 +2682,18 @@ associated with the correct device.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#sensors" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sensors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Health Information
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Health Information
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -682,13 +598,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -946,13 +868,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1061,13 +989,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1174,13 +1108,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1378,13 +1318,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1522,13 +1468,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1692,13 +1644,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1845,13 +1803,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12" checked>
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1914,11 +1878,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Health Information
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Health Information" class="md-nav__link md-nav__link--active">
@@ -1926,11 +1893,16 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1967,16 +1939,6 @@
   </a>
   
 </li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
       
     </ul>
   
@@ -2110,13 +2072,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2153,13 +2121,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2210,11 +2184,16 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2252,16 +2231,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2274,7 +2243,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/os/Health-Information.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Developing/os/Health-Information.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Developing/os/Health-Information.md" title="Developing/os/Health-Information.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                   <h1>Health Information</h1>
@@ -2416,21 +2402,21 @@ sensible with the MIBs they generate. Only snmp walks are supported
 and you must provide a sane table that can be traversed and contains
 all of the data you need. We will use netbotz as an example here.</p>
 <p><code>includes/definitions/discovery/netbotz.yaml</code></p>
-<pre><code class="yaml">mib: NETBOTZV2-MIB
-modules:
-    sensors:
-        airflow:
-            options:
-                skip_values_lt: 0
-            data:
-                -
-                    oid: airFlowSensorTable
-                    value: airFlowSensorValue
-                    divisor: 10
-                    num_oid: '.1.3.6.1.4.1.5528.100.4.1.5.1.2.{{ $index }}'
-                    descr: '{{ $airFlowSensorLabel }}'
-                    index: 'airFlowSensorValue.{{ $index }}'
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">mib</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NETBOTZV2-MIB</span>
+<span class="nt">modules</span><span class="p">:</span>
+    <span class="nt">sensors</span><span class="p">:</span>
+        <span class="nt">airflow</span><span class="p">:</span>
+            <span class="nt">options</span><span class="p">:</span>
+                <span class="nt">skip_values_lt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+            <span class="nt">data</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span>
+                    <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">airFlowSensorTable</span>
+                    <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">airFlowSensorValue</span>
+                    <span class="nt">divisor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+                    <span class="nt">num_oid</span><span class="p">:</span> <span class="s">&#39;.1.3.6.1.4.1.5528.100.4.1.5.1.2.{{</span><span class="nv"> </span><span class="s">$index</span><span class="nv"> </span><span class="s">}}&#39;</span>
+                    <span class="nt">descr</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">$airFlowSensorLabel</span><span class="nv"> </span><span class="s">}}&#39;</span>
+                    <span class="nt">index</span><span class="p">:</span> <span class="s">&#39;airFlowSensorValue.{{</span><span class="nv"> </span><span class="s">$index</span><span class="nv"> </span><span class="s">}}&#39;</span>
+</code></pre></div>
 
 <p>At the top you can define one or more mibs to be used in the lookup of data:</p>
 <p><code>mib: NETBOTZV2-MIB</code>
@@ -2501,16 +2487,16 @@ Comparisons behave on a logical OR basis when chained, so only
 one of them needs to be matched for that particular sensor
 to be skipped during discovery. An example of this is below:</p>
 </blockquote>
-<pre><code class="yaml">                    skip_values:
-                    -
-                      oid: sensUnit
-                      op: '!='
-                      value: 4
-                    -
-                      oid: sensConfig.0
-                      op: '!='
-                      value: 1
-</code></pre>
+<div class="highlight"><pre><span></span><code>                    <span class="nt">skip_values</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span>
+                      <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensUnit</span>
+                      <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;!=&#39;</span>
+                      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+                    <span class="p p-Indicator">-</span>
+                      <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensConfig.0</span>
+                      <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;!=&#39;</span>
+                      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</code></pre></div>
 
 <blockquote>
 <p><code>op</code> can be any of the following operators :</p>
@@ -2519,19 +2505,19 @@ starts, ends, contains, regex, in_array, not_starts,
 not_ends, not_contains, not_regex, not_in_array, exists</p>
 <p>Example:</p>
 </blockquote>
-<pre><code class="yaml">                    skip_values:
-                    -
-                      oid: sensorName
-                      op: 'not_in_array'
-                      value: ['sensor1', 'sensor2']
-</code></pre>
+<div class="highlight"><pre><span></span><code>                    <span class="nt">skip_values</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span>
+                      <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensorName</span>
+                      <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;not_in_array&#39;</span>
+                      <span class="nt">value</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;sensor1&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;sensor2&#39;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
 
-<pre><code class="yaml">                    skip_values:
-                    -
-                      oid: sensorOptionalOID
-                      op: 'exists'
-                      value: false
-</code></pre>
+<div class="highlight"><pre><span></span><code>                    <span class="nt">skip_values</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span>
+                      <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensorOptionalOID</span>
+                      <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;exists&#39;</span>
+                      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
 
 <p>If you aren't able to use yaml to perform the sensor discovery, you
 will most likely need to use Advanced health discovery.</p>
@@ -2646,39 +2632,39 @@ this information we extract the model type which will identify which tables in t
 the ports are populated in. The program then reads the appropriate table into the <code>$pre_cache</code>
 array <code>adva_fsp150_ports</code>. This array will have OID indexies for each port, which we will use
 later to identify our sensor OIDs. </p>
-<pre><code>$pre_cache['adva_fsp150'] = snmpwalk_cache_multi_oid($device, 'cmEntityObjects', [], 'CM-ENTITY-MIB', null, '-OQUbs');
-$neType = $pre_cache['adva_fsp150'][1]['neType'];
+<div class="highlight"><pre><span></span><code>$pre_cache[&#39;adva_fsp150&#39;] = snmpwalk_cache_multi_oid($device, &#39;cmEntityObjects&#39;, [], &#39;CM-ENTITY-MIB&#39;, null, &#39;-OQUbs&#39;);
+$neType = $pre_cache[&#39;adva_fsp150&#39;][1][&#39;neType&#39;];
 
-if ($neType == 'ccxg116pro') {
-    $pre_cache['adva_fsp150_ports'] = snmpwalk_cache_multi_oid($device, 'cmEthernetTrafficPortTable', $pre_cache['adva_fsp150_ports'], 'CM-FACILITY-MIB', null, '-OQUbs');
+if ($neType == &#39;ccxg116pro&#39;) {
+    $pre_cache[&#39;adva_fsp150_ports&#39;] = snmpwalk_cache_multi_oid($device, &#39;cmEthernetTrafficPortTable&#39;, $pre_cache[&#39;adva_fsp150_ports&#39;], &#39;CM-FACILITY-MIB&#39;, null, &#39;-OQUbs&#39;);
 } else {
-    $pre_cache['adva_fsp150_ports'] = snmpwalk_cache_multi_oid($device, 'cmEthernetNetPortTable', $pre_cache['adva_fsp150_ports'], 'CM-FACILITY-MIB', null, '-OQUbs');
-    $pre_cache['adva_fsp150_ports'] = snmpwalk_cache_multi_oid($device, 'cmEthernetAccPortTable', $pre_cache['adva_fsp150_ports'], 'CM-FACILITY-MIB', null, '-OQUbs');
+    $pre_cache[&#39;adva_fsp150_ports&#39;] = snmpwalk_cache_multi_oid($device, &#39;cmEthernetNetPortTable&#39;, $pre_cache[&#39;adva_fsp150_ports&#39;], &#39;CM-FACILITY-MIB&#39;, null, &#39;-OQUbs&#39;);
+    $pre_cache[&#39;adva_fsp150_ports&#39;] = snmpwalk_cache_multi_oid($device, &#39;cmEthernetAccPortTable&#39;, $pre_cache[&#39;adva_fsp150_ports&#39;], &#39;CM-FACILITY-MIB&#39;, null, &#39;-OQUbs&#39;);
 }
-</code></pre>
+</code></pre></div>
 
 <p>Next we are going to build our sensor discovery code. These are optical readings, so the file will be
 created as the dBm sensor type in <code>includes/discover/sensors/dbm/adva_fsp150.inc.php</code>. Below is
 a snippet of the code:</p>
-<pre><code>foreach ($pre_cache['adva_fsp150_ports'] as $index =&gt; $entry) {
-    if ($entry['cmEthernetTrafficPortMediaType'] == 'fiber') {
+<div class="highlight"><pre><span></span><code>foreach ($pre_cache[&#39;adva_fsp150_ports&#39;] as $index =&gt; $entry) {
+    if ($entry[&#39;cmEthernetTrafficPortMediaType&#39;] == &#39;fiber&#39;) {
         //Discover received power level
-        $oidRx = '.1.3.6.1.4.1.2544.1.12.5.1.21.1.34.' . $index . '.3';
-        $oidTx = '.1.3.6.1.4.1.2544.1.12.5.1.21.1.33.' . $index . '.3';
-        $currentRx = snmp_get($device, $oidRx, '-Oqv', 'CM-PERFORMANCE-MIB', '/opt/librenms/mibs/adva');
-        $currentTx = snmp_get($device, $oidTx, '-Oqv', 'CM-PERFORMANCE-MIB', '/opt/librenms/mibs/adva');
+        $oidRx = &#39;.1.3.6.1.4.1.2544.1.12.5.1.21.1.34.&#39; . $index . &#39;.3&#39;;
+        $oidTx = &#39;.1.3.6.1.4.1.2544.1.12.5.1.21.1.33.&#39; . $index . &#39;.3&#39;;
+        $currentRx = snmp_get($device, $oidRx, &#39;-Oqv&#39;, &#39;CM-PERFORMANCE-MIB&#39;, &#39;/opt/librenms/mibs/adva&#39;);
+        $currentTx = snmp_get($device, $oidTx, &#39;-Oqv&#39;, &#39;CM-PERFORMANCE-MIB&#39;, &#39;/opt/librenms/mibs/adva&#39;);
         if ($currentRx != 0 || $currentTx != 0) {
-            $entPhysicalIndex = $entry['cmEthernetTrafficPortIfIndex'];
-            $entPhysicalIndex_measured = 'ports';
-            $descrRx = dbFetchCell('SELECT `ifName` FROM `ports` WHERE `ifIndex`= ? AND `device_id` = ?', [$entry['cmEthernetTrafficPortIfIndex'], $device['device_id']]) . ' Rx Power';
+            $entPhysicalIndex = $entry[&#39;cmEthernetTrafficPortIfIndex&#39;];
+            $entPhysicalIndex_measured = &#39;ports&#39;;
+            $descrRx = dbFetchCell(&#39;SELECT `ifName` FROM `ports` WHERE `ifIndex`= ? AND `device_id` = ?&#39;, [$entry[&#39;cmEthernetTrafficPortIfIndex&#39;], $device[&#39;device_id&#39;]]) . &#39; Rx Power&#39;;
 
             discover_sensor(
-                $valid['sensor'],
-                'dbm',
+                $valid[&#39;sensor&#39;],
+                &#39;dbm&#39;,
                 $device,
                 $oidRx,
-                'cmEthernetTrafficPortStatsOPR.' . $index,
-                'adva_fsp150',
+                &#39;cmEthernetTrafficPortStatsOPR.&#39; . $index,
+                &#39;adva_fsp150&#39;,
                 $descrRx,
                 $divisor,
                 $multiplier,
@@ -2687,20 +2673,20 @@ a snippet of the code:</p>
                 null,
                 null,
                 $currentRx,
-                'snmp',
+                &#39;snmp&#39;,
                 $entPhysicalIndex,
                 $entPhysicalIndex_measured
             );
 
-            $descrTx = dbFetchCell('SELECT `ifName` FROM `ports` WHERE `ifIndex`= ? AND `device_id` = ?', [$entry['cmEthernetTrafficPortIfIndex'], $device['device_id']]) . ' Tx Power';
+            $descrTx = dbFetchCell(&#39;SELECT `ifName` FROM `ports` WHERE `ifIndex`= ? AND `device_id` = ?&#39;, [$entry[&#39;cmEthernetTrafficPortIfIndex&#39;], $device[&#39;device_id&#39;]]) . &#39; Tx Power&#39;;
 
             discover_sensor(
-                $valid['sensor'],
-                'dbm',
+                $valid[&#39;sensor&#39;],
+                &#39;dbm&#39;,
                 $device,
                 $oidTx,
-                'cmEthernetTrafficPortStatsOPT.' . $index,
-                'adva_fsp150',
+                &#39;cmEthernetTrafficPortStatsOPT.&#39; . $index,
+                &#39;adva_fsp150&#39;,
                 $descrTx,
                 $divisor,
                 $multiplier,
@@ -2709,14 +2695,14 @@ a snippet of the code:</p>
                 null,
                 null,
                 $currentTx,
-                'snmp',
+                &#39;snmp&#39;,
                 $entPhysicalIndex,
                 $entPhysicalIndex_measured
             );
         }
     }
 }
-</code></pre>
+</code></pre></div>
 
 <p>First the program will loop through each port's index value. In the case of Advas, the ports are
 names Ethernet 1-1-1-1, 1-1-1-2, etc, and they are indexed as oid.1.1.1.1, oid.1.1.1.2, etc in
@@ -2747,13 +2733,13 @@ In the output under <code>#### Load disco module sensors ####</code> you can see
 there is a <code>+</code> a sensor is added, if there is a <code>-</code> one was deleted, and a <code>.</code> means no change. If
 there is nothing next to the sensor type then the sensor was not discovered. There is is also
 information about changes to the database and RRD files at the bottom.</p>
-<pre><code>[librenms@nms-test ~]$ ./discovery.php -h 2 -m sensors
+<div class="highlight"><pre><span></span><code>[librenms@nms-test ~]$ ./discovery.php -h 2 -m sensors
 LibreNMS Discovery
 164.113.194.250 2 adva_fsp150
 
 #### Load disco module core ####
 
-&gt;&gt; Runtime for discovery module 'core': 0.0240 seconds with 66536 bytes
+&gt;&gt; Runtime for discovery module &#39;core&#39;: 0.0240 seconds with 66536 bytes
 &gt;&gt; SNMP: [2/0.06s] MySQL: [3/0.00s] RRD: [0/0.00s]
 #### Unload disco module core ####
 
@@ -2788,7 +2774,7 @@ Ber:
 Eer:
 Waterflow:
 
-&gt;&gt; Runtime for discovery module 'sensors': 3.9340 seconds with 190024 bytes
+&gt;&gt; Runtime for discovery module &#39;sensors&#39;: 3.9340 seconds with 190024 bytes
 &gt;&gt; SNMP: [16/3.89s] MySQL: [36/0.03s] RRD: [0/0.00s]
 #### Unload disco module sensors ####
 
@@ -2797,21 +2783,9 @@ Discovered in 5.521 seconds
 SNMP [18/3.96s]: Get[8/0.81s] Getnext[0/0.00s] Walk[10/3.15s]
 MySQL [41/0.03s]: Cell[10/0.01s] Row[-4/-0.00s] Rows[31/0.02s] Column[0/0.00s] Update[2/0.00s] Insert[2/0.00s] Delete[0/0.00s]
 RRD [0/0.00s]: Update[0/0.00s] Create [0/0.00s] Other[0/0.00s]
-</code></pre>
+</code></pre></div>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Developing/os/Health-Information.md" title="Developing/os/Health-Information.md" class="md-source-file">
-                      Developing/os/Health-Information.md
-                    </a>
-                  
-                
                 
               
               
@@ -2828,34 +2802,34 @@ RRD [0/0.00s]: Update[0/0.00s] Create [0/0.00s] Other[0/0.00s]
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Test-Units/" title="Test Units" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../Test-Units/" title="Test Units" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Test Units
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../Wireless-Sensors/" title="Wireless Sensors" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../Wireless-Sensors/" title="Wireless Sensors" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Wireless Sensors
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2866,11 +2840,10 @@ RRD [0/0.00s]: Update[0/0.00s] Create [0/0.00s] Other[0/0.00s]
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -2879,9 +2852,18 @@ RRD [0/0.00s]: Update[0/0.00s] Create [0/0.00s] Other[0/0.00s]
       
     </div>
     
-      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

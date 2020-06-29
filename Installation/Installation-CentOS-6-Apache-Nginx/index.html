@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#on-the-db-server" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#on-the-db-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Installation CentOS 6 Apache Nginx
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Installation CentOS 6 Apache Nginx
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -682,13 +598,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -946,13 +868,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1061,13 +989,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1174,13 +1108,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1378,13 +1318,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1522,13 +1468,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1690,13 +1642,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1841,13 +1799,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2038,13 +2002,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2081,13 +2051,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2138,13 +2114,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2168,16 +2149,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2190,7 +2161,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Installation-CentOS-6-Apache-Nginx.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Installation-CentOS-6-Apache-Nginx.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Installation/Installation-CentOS-6-Apache-Nginx.md" title="Installation/Installation-CentOS-6-Apache-Nginx.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <blockquote>
@@ -2211,60 +2199,60 @@ installed.</p>
 </blockquote>
 <p>You are free to choose between using MySQL or MariaDB:</p>
 <h2 id="mysql">MySQL</h2>
-<pre><code class="bash">yum install net-snmp mysql-server mysql-client
+<div class="highlight"><pre><span></span><code>yum install net-snmp mysql-server mysql-client
 chkconfig mysqld on
 service mysqld start
-</code></pre>
+</code></pre></div>
 
 <h2 id="mariadb">MariaDB</h2>
-<pre><code class="bash">yum install net-snmp mariadb-server mariadb-client
+<div class="highlight"><pre><span></span><code>yum install net-snmp mariadb-server mariadb-client
 chkconfig mariadb on
 service mariadb start
-</code></pre>
+</code></pre></div>
 
 <h2 id="gneral">Gneral</h2>
 <p>Now continue with the installation:</p>
-<pre><code class="bash">chkconfig snmpd on
+<div class="highlight"><pre><span></span><code>chkconfig snmpd on
 service snmpd start
 mysql_secure_installation
 mysql -uroot -p
-</code></pre>
+</code></pre></div>
 
 <p>Enter the MySQL/MariaDB root password to enter the command-line interface.</p>
 <p>Create database.</p>
-<pre><code class="sql">CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
-FLUSH PRIVILEGES;
-exit
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">librenms</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">&#39;librenms&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">librenms</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;librenms&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+<span class="n">exit</span>
+</code></pre></div>
 
 <p>Replace <code>&lt;ip&gt;</code> above with the IP of the server running LibreNMS.  If
 your database is on the same server as LibreNMS, use <code>localhost</code> as
 the IP address.</p>
 <p>Edit the mysql/mariadb configuration file:</p>
-<pre><code class="bash">vim /etc/my.cnf
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim /etc/my.cnf
+</code></pre></div>
 
 <p>Add the following line:</p>
-<pre><code>innodb_file_per_table=1
-</code></pre>
+<div class="highlight"><pre><span></span><code>innodb_file_per_table=1
+</code></pre></div>
 
 <p>If you are deploying a separate database server, you also need to
 specify the <code>bind-address</code>.  If your MySQL database resides on the
 same server as LibreNMS, you should skip this step.</p>
-<pre><code>bind-address = &lt;ip&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>bind-address = &lt;ip&gt;
+</code></pre></div>
 
 <p>If you see a line that starts <code>sql-mode</code> then change this to
 <code>sql-mode=""</code>.</p>
 <p>Save, and restart MySQL/MariaDB to apply your changes:</p>
-<pre><code>service mysqld restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>service mysqld restart
+</code></pre></div>
 
 <p>or</p>
-<pre><code>service mariadb restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>service mariadb restart
+</code></pre></div>
 
 <h1 id="on-the-nms">On the NMS</h1>
 <p>Install necessary software.  The packages listed below are an
@@ -2274,17 +2262,17 @@ required even if your network environment does not support IPv6.</p>
 <p>Note if not using HTTPd (Apache): RHEL requires <code>httpd</code> to be
 installed regardless of of <code>nginx</code>'s (or any other web-server's)
 presence.</p>
-<pre><code class="bash">yum install epel-release
+<div class="highlight"><pre><span></span><code>yum install epel-release
 yum install php php-cli php-gd php-mysql php-snmp php-pear php-curl httpd net-snmp graphviz graphviz-php mysql ImageMagick jwhois nmap mtr rrdtool MySQL-python net-snmp-utils vixie-cron php-mcrypt fping git
 pear install Net_IPv4-1.3.4
 pear install Net_IPv6-1.2.2b2
-</code></pre>
+</code></pre></div>
 
 <h1 id="configure-snmpd-on-localhost">Configure SNMPD on localhost</h1>
 <p>Edit <code>/etc/snmp/snmpd.conf</code> to enable self-polling.  An absolute
 minimal config for snmpd is:</p>
-<pre><code>rocommunity public 127.0.0.1
-</code></pre>
+<div class="highlight"><pre><span></span><code>rocommunity public 127.0.0.1
+</code></pre></div>
 
 <p>You may either edit the default configuration file to your liking, or
 backup the default config file and replace it entirely with your
@@ -2292,19 +2280,19 @@ own. To apply your changes, run <code>service snmpd restart</code> for Centos
 6.x. If you have deployed a separate database server, you will likely
 want to configure snmpd on that host as well.</p>
 <h1 id="adding-the-librenms-user-for-apache">Adding the librenms-user for Apache</h1>
-<pre><code class="bash">    useradd librenms -d /opt/librenms -M -r
+<div class="highlight"><pre><span></span><code>    useradd librenms -d /opt/librenms -M -r
     usermod -a -G librenms apache
-</code></pre>
+</code></pre></div>
 
 <h1 id="adding-the-librenms-user-for-nginx">Adding the librenms-user for Nginx</h1>
-<pre><code class="bash">    useradd librenms -d /opt/librenms -M -r
+<div class="highlight"><pre><span></span><code>    useradd librenms -d /opt/librenms -M -r
     usermod -a -G librenms nginx
-</code></pre>
+</code></pre></div>
 
 <h1 id="using-httpd-apache2">Using HTTPd (Apache2)</h1>
 <p>Set <code>httpd</code> to start on system boot.</p>
-<pre><code class="bash">chkconfig --levels 235 httpd on
-</code></pre>
+<div class="highlight"><pre><span></span><code>chkconfig --levels <span class="m">235</span> httpd on
+</code></pre></div>
 
 <p>In <code>/etc/php.ini</code>, ensure <code>date.timezone</code> is set to your preferred
 time zone.  See <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> for a list of
@@ -2315,91 +2303,91 @@ include
 <code>exec,passthru,shell_exec,escapeshellarg,escapeshellcmd,proc_close,proc_open,popen</code>.</p>
 <p>Next, add the following to <code>/etc/httpd/conf.d/librenms.conf</code></p>
 <p>If you are running Apache below version 2.2.18:</p>
-<pre><code class="apache">&lt;VirtualHost *:80&gt;
-  DocumentRoot /opt/librenms/html/
-  ServerName  librenms.example.com
-  CustomLog /opt/librenms/logs/access_log combined
-  ErrorLog /opt/librenms/logs/error_log
-  AllowEncodedSlashes On
-  &lt;Directory &quot;/opt/librenms/html/&quot;&gt;
-    AllowOverride All
-    Options FollowSymLinks MultiViews
-  &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+  <span class="nb">DocumentRoot</span> <span class="sx">/opt/librenms/html/</span>
+  <span class="nb">ServerName</span>  librenms.example.com
+  <span class="nb">CustomLog</span> <span class="sx">/opt/librenms/logs/access_log</span> combined
+  <span class="nb">ErrorLog</span> <span class="sx">/opt/librenms/logs/error_log</span>
+  <span class="nb">AllowEncodedSlashes</span> <span class="k">On</span>
+  <span class="nt">&lt;Directory</span> <span class="s">&quot;/opt/librenms/html/&quot;</span><span class="nt">&gt;</span>
+    <span class="nb">AllowOverride</span> <span class="k">All</span>
+    <span class="nb">Options</span> FollowSymLinks MultiViews
+  <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
 
 <p>If you are running Apache 2.2.18 or higher:</p>
-<pre><code class="apache">&lt;VirtualHost *:80&gt;
-  DocumentRoot /opt/librenms/html/
-  ServerName  librenms.example.com
-  CustomLog /opt/librenms/logs/access_log combined
-  ErrorLog /opt/librenms/logs/error_log
-  AllowEncodedSlashes NoDecode
-  &lt;Directory &quot;/opt/librenms/html/&quot;&gt;
-    AllowOverride All
-    Options FollowSymLinks MultiViews
-    Require all granted
-  &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+  <span class="nb">DocumentRoot</span> <span class="sx">/opt/librenms/html/</span>
+  <span class="nb">ServerName</span>  librenms.example.com
+  <span class="nb">CustomLog</span> <span class="sx">/opt/librenms/logs/access_log</span> combined
+  <span class="nb">ErrorLog</span> <span class="sx">/opt/librenms/logs/error_log</span>
+  <span class="nb">AllowEncodedSlashes</span> NoDecode
+  <span class="nt">&lt;Directory</span> <span class="s">&quot;/opt/librenms/html/&quot;</span><span class="nt">&gt;</span>
+    <span class="nb">AllowOverride</span> <span class="k">All</span>
+    <span class="nb">Options</span> FollowSymLinks MultiViews
+    <span class="nb">Require</span> <span class="k">all</span> granted
+  <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
 
 <p>If the file <code>/etc/httpd/conf.d/welcome.conf</code> exists, you will want to
 remove that as well unless you're familiar with <a href="https://httpd.apache.org/docs/2.2/vhosts/name-based.html">Name-based Virtual
 Hosts</a>.</p>
-<pre><code class="bash">rn /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.bak
-</code></pre>
+<div class="highlight"><pre><span></span><code>rn /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.bak
+</code></pre></div>
 
 <h1 id="using-nginx-and-php-fpm">Using Nginx and PHP-FPM</h1>
 <p>If you choose to run Nginx, you will need to install necessary extra
 software and let it start on system boot.</p>
-<pre><code class="bash">    yum install nginx php-fpm
+<div class="highlight"><pre><span></span><code>    yum install nginx php-fpm
     chkconfig nginx on
     chkconfig php-fpm on
-</code></pre>
+</code></pre></div>
 
 <p>Modify permissions and configuration for <code>php-fpm</code> to use nginx credentials.</p>
-<pre><code>mkdir /var/lib/php/session
+<div class="highlight"><pre><span></span><code>mkdir /var/lib/php/session
 chown root:nginx /var/lib/php -R
 vim /etc/php-fpm.d/www.conf      # At line #12: Change `listen` to `/var/run/php5-fpm.sock`
                                  # At line #39-41: Change the `user` and `group` to `nginx`
-</code></pre>
+</code></pre></div>
 
 <p>Add configuration for <code>nginx</code> at <code>/etc/nginx/conf.d/librenms.conf</code>
 with the following content:</p>
-<pre><code class="nginx">server {
- listen      80;
- server_name librenms.example.com;
- root        /opt/librenms/html;
- index       index.php;
- access_log  /opt/librenms/logs/access_log;
- error_log   /opt/librenms/logs/error_log;
- location / {
-  try_files $uri $uri/ @librenms;
- }
- location ~ \.php {
-  fastcgi_param PATH_INFO $fastcgi_path_info;
-  include fastcgi.conf;
-  fastcgi_split_path_info ^(.+\.php)(/.+)$;
-  fastcgi_pass unix:/var/run/php5-fpm.sock;
- }
- location ~ /\.ht {
-  deny all;
- }
- location @librenms {
-  rewrite api/v0(.*)$ /api_v0.php/$1 last;
-  rewrite ^(.+)$ /index.php/$1 last;
- }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
+ <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
+ <span class="kn">server_name</span> <span class="s">librenms.example.com</span><span class="p">;</span>
+ <span class="kn">root</span>        <span class="s">/opt/librenms/html</span><span class="p">;</span>
+ <span class="kn">index</span>       <span class="s">index.php</span><span class="p">;</span>
+ <span class="kn">access_log</span>  <span class="s">/opt/librenms/logs/access_log</span><span class="p">;</span>
+ <span class="kn">error_log</span>   <span class="s">/opt/librenms/logs/error_log</span><span class="p">;</span>
+ <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">@librenms</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php</span> <span class="p">{</span>
+  <span class="kn">fastcgi_param</span> <span class="s">PATH_INFO</span> <span class="nv">$fastcgi_path_info</span><span class="p">;</span>
+  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
+  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
+  <span class="kn">fastcgi_pass</span> <span class="s">unix:/var/run/php5-fpm.sock</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.ht</span> <span class="p">{</span>
+  <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="s">@librenms</span> <span class="p">{</span>
+  <span class="kn">rewrite</span> <span class="s">api/v</span><span class="mi">0</span><span class="s">(.*)</span>$ <span class="s">/api_v0.php/</span><span class="nv">$1</span> <span class="s">last</span><span class="p">;</span>
+  <span class="kn">rewrite</span> <span class="s">^(.+)</span>$ <span class="s">/index.php/</span><span class="nv">$1</span> <span class="s">last</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h1 id="cloning">Cloning</h1>
 <p>You can clone the repository via HTTPS or SSH.  In either case, you
 need to ensure the appropriate port (443 for HTTPS, 22 for SSH) is
 open in the outbound direction for your server.</p>
-<pre><code class="bash">cd /opt
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt
 git clone https://github.com/librenms/librenms.git librenms
-cd /opt/librenms
-</code></pre>
+<span class="nb">cd</span> /opt/librenms
+</code></pre></div>
 
 <p>NOTE: The recommended method of cloning a git repository is HTTPS.  If
 you would like to clone via SSH instead, use the command <code>git clone
@@ -2408,10 +2396,10 @@ git@github.com:librenms/librenms.git librenms</code> instead.</p>
 <p>To prepare the web interface, you'll need to create and chown a
 directory as well as create an Apache vhost.</p>
 <p>First, create and chown the <code>rrd</code> directory and create the <code>logs</code> directory</p>
-<pre><code class="bash">mkdir rrd logs
+<div class="highlight"><pre><span></span><code>mkdir rrd logs
 chown -R librenms:librenms /opt/librenms
-chmod 775 rrd
-</code></pre>
+chmod <span class="m">775</span> rrd
+</code></pre></div>
 
 <p>If you're planing on running rrdcached, make sure that the path is
 also chmod'ed to 775 and chown'ed to librenms:librenms.</p>
@@ -2423,25 +2411,25 @@ it, you can install it  <strong>Please note that running LibreNMS with
 SELinux is still experimental and we cannot guarantee that everything
 will be working fine for now.</strong></p>
 </blockquote>
-<pre><code class="bash">    yum install policycoreutils-python
-</code></pre>
+<div class="highlight"><pre><span></span><code>    yum install policycoreutils-python
+</code></pre></div>
 
-<pre><code class="bash">    semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
-    semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
+<div class="highlight"><pre><span></span><code>    semanage fcontext -a -t httpd_sys_content_t <span class="s1">&#39;/opt/librenms/logs(/.*)?&#39;</span>
+    semanage fcontext -a -t httpd_sys_rw_content_t <span class="s1">&#39;/opt/librenms/logs(/.*)?&#39;</span>
     restorecon -RFvv /opt/librenms/logs/
-</code></pre>
+</code></pre></div>
 
 <p>Set selinux to allow httpd to sendmail</p>
-<pre><code class="bash">    setsebool -P httpd_can_sendmail=1
-</code></pre>
+<div class="highlight"><pre><span></span><code>    setsebool -P <span class="nv">httpd_can_sendmail</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
 
 <h1 id="start-the-web-server">Start the web-server</h1>
-<pre><code># For HTTPd (Apache):
+<div class="highlight"><pre><span></span><code># For HTTPd (Apache):
 service httpd restart
 
 # For Nginx:
 service nginx restart
-</code></pre>
+</code></pre></div>
 
 <h1 id="web-installer">Web Installer</h1>
 <p>At this stage you can launch the web installer by going to
@@ -2451,14 +2439,14 @@ then perform the manual install steps. If you cannot reach the
 installer, stop here and solve that problem before
 proceeding. Afterwards, Add the following line to the end of
 <code>config.php</code>:</p>
-<pre><code>$config['fping'] = &quot;/usr/sbin/fping&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;fping&#39;] = &quot;/usr/sbin/fping&quot;;
+</code></pre></div>
 
 <h1 id="manual-install">Manual Install</h1>
 <p>You may skip this section if the web installer succeeded.</p>
-<pre><code class="bash">cp config.php.default config.php
+<div class="highlight"><pre><span></span><code>cp config.php.default config.php
 vi config.php
-</code></pre>
+</code></pre></div>
 
 <p>Change the values to the right of the equal sign for lines beginning
 with <code>$config[db_]</code> to match your database information as previously
@@ -2468,8 +2456,8 @@ whatever your default read-only SNMP community is.  If you have
 multiple existing communities in your environment, set it to the most
 common.</p>
 <p>Add the following line to the end of <code>config.php</code>:</p>
-<pre><code>$config['fping'] = &quot;/usr/sbin/fping&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;fping&#39;] = &quot;/usr/sbin/fping&quot;;
+</code></pre></div>
 
 <p>Important: Be sure you have no characters (including whitespace like:
 newlines, spaces, tabs, etc) outside of the <code>&lt;?php?&gt;</code> blocks. Your
@@ -2477,33 +2465,33 @@ graphs will break otherwise and there will be no error messages to
 indicate otherwise!</p>
 <h1 id="initialize-the-database">Initialize the database</h1>
 <p>Initiate the follow database with the following command:</p>
-<pre><code>php build-base.php
-</code></pre>
+<div class="highlight"><pre><span></span><code>php build-base.php
+</code></pre></div>
 
 <h1 id="create-admin-user">Create admin user</h1>
 <p>Create the admin user - priv should be 10</p>
-<pre><code>php adduser.php &lt;name&gt; &lt;pass&gt; 10 &lt;email&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>php adduser.php &lt;name&gt; &lt;pass&gt; 10 &lt;email&gt;
+</code></pre></div>
 
 <p>Substitute your desired username, password and email address--and
 leave the angled brackets off.</p>
 <h1 id="validate-your-install">Validate your install</h1>
 <p>After performing the manual install or web install, be sure to run
 validate.php as root in the librenms directory:</p>
-<pre><code>php validate.php
-</code></pre>
+<div class="highlight"><pre><span></span><code>php validate.php
+</code></pre></div>
 
 <p>This will check your install to verify it is set up correctly.</p>
 <h1 id="add-localhost">Add localhost</h1>
-<pre><code>php addhost.php localhost public v2c
-</code></pre>
+<div class="highlight"><pre><span></span><code>php addhost.php localhost public v2c
+</code></pre></div>
 
 <p>Replace <code>public</code> to match what you set in <code>/etc/snmp/snmpd.conf</code>.
 This command also assumes you are using SNMP v2c.  If you're using v3,
 there are additional steps (NOTE: instructions for SNMPv3 to come).</p>
 <p>Discover localhost:</p>
-<pre><code>php discovery.php -h all
-</code></pre>
+<div class="highlight"><pre><span></span><code>php discovery.php -h all
+</code></pre></div>
 
 <h1 id="create-cronjob">Create cronjob</h1>
 <p>The polling method used by LibreNMS is <code>poller-wrapper.py</code>, which was
@@ -2513,12 +2501,12 @@ LibreNMS recommendation is to use 4 threads per core.  The default if
 no thread count is <code>16 threads</code>.</p>
 <p>If the thread count needs to be changed, you can do so by editing the cron file (<code>/etc/cron.d/librenms</code>).
  Just add a number after <code>poller-wrapper.py</code>, as in the below example:</p>
-<pre><code>/opt/librenms/poller-wrapper.py 12 &gt;&gt; /dev/null 2&gt;&amp;1
-</code></pre>
+<div class="highlight"><pre><span></span><code>/opt/librenms/poller-wrapper.py 12 &gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre></div>
 
 <p>Create the cronjob</p>
-<pre><code>cp librenms.nonroot.cron /etc/cron.d/librenms
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp librenms.nonroot.cron /etc/cron.d/librenms
+</code></pre></div>
 
 <blockquote>
 <p>NOTE: Keep in mind  that cron, by default, only uses a very limited
@@ -2533,20 +2521,20 @@ finished librenms install steps:
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can
 become large and be rotated out.  To rotate out the old logs you can
 use the provided logrotate config file:</p>
-<pre><code>cp misc/librenms.logrotate /etc/logrotate.d/librenms
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp misc/librenms.logrotate /etc/logrotate.d/librenms
+</code></pre></div>
 
 <h1 id="daily-updates">Daily Updates</h1>
 <p>LibreNMS performs daily updates by default.  At 00:15 system time
 every day, a <code>git pull --no-edit --quiet</code> is performed.  You can
 override this default by editing your <code>config.php</code> file.  Remove the
 comment (the <code>#</code> mark) on the line:</p>
-<pre><code>#$config['update'] = 0;
-</code></pre>
+<div class="highlight"><pre><span></span><code>#$config[&#39;update&#39;] = 0;
+</code></pre></div>
 
 <p>so that it looks like this:</p>
-<pre><code>$config['update'] = 0;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$config[&#39;update&#39;] = 0;
+</code></pre></div>
 
 <h1 id="install-complete">Install complete</h1>
 <p>Please allow for 2-3 runs of the poller-wrapper for data to start
@@ -2564,18 +2552,6 @@ page</a> on
 what it is and how to enable it.</p>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Installation/Installation-CentOS-6-Apache-Nginx.md" title="Installation/Installation-CentOS-6-Apache-Nginx.md" class="md-source-file">
-                      Installation/Installation-CentOS-6-Apache-Nginx.md
-                    </a>
-                  
-                
                 
               
               
@@ -2595,11 +2571,10 @@ what it is and how to enable it.</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -2608,9 +2583,18 @@ what it is and how to enable it.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

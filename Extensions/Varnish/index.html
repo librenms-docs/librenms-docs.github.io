@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#varnish-installation-guide" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#varnish-installation-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Varnish
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Varnish
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -684,13 +600,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -825,7 +747,7 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
@@ -957,13 +879,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1072,13 +1000,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1185,13 +1119,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1389,13 +1329,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1533,13 +1479,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1701,13 +1653,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1852,13 +1810,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2049,13 +2013,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2092,13 +2062,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2149,7 +2125,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
@@ -2165,7 +2141,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Varnish.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Extensions/Varnish.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Varnish.md" title="Extensions/Varnish.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="varnish-installation-guide">Varnish Installation Guide</h1>
@@ -2186,28 +2179,28 @@ configured to process HTTP requests on port 80.  If not, please see
 <ul>
 <li>Enable the Varnish CentOS 7 repo and install</li>
 </ul>
-<pre><code class="bash">rpm --nosignature -i https://repo.varnish-cache.org/redhat/varnish-4.0.el7.rpm
+<div class="highlight"><pre><span></span><code>rpm --nosignature -i https://repo.varnish-cache.org/redhat/varnish-4.0.el7.rpm
 yum install varnish
-</code></pre>
+</code></pre></div>
 
 <p>By default Varnish listens for HTTP requests on port 6081.</p>
 <ul>
 <li>Temporarily add a firewalld rule for testing Varnish.</li>
 </ul>
-<pre><code class="bash">firewall-cmd --zone=public --add-port=6081/tcp
-</code></pre>
+<div class="highlight"><pre><span></span><code>firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span><span class="m">6081</span>/tcp
+</code></pre></div>
 
 <h1 id="test-varnish">Test Varnish</h1>
 <ul>
 <li>Start Varnish</li>
 </ul>
-<pre><code class="bash">systemctl start varnish
-</code></pre>
+<div class="highlight"><pre><span></span><code>systemctl start varnish
+</code></pre></div>
 
 <p>Using a web browser navigate to <server ip addr>:6081 or
 127.0.0.1:6081. You should see a Varnish error message, this shows
 that Varnish is working. Example error message:</p>
-<pre><code class="ssh">Error 503 Backend fetch failed
+<div class="highlight"><pre><span></span><code>Error 503 Backend fetch failed
 
 Backend fetch failed
 
@@ -2216,8 +2209,7 @@ Guru Meditation:
 XID: 3
 
 Varnish cache server
-
-</code></pre>
+</code></pre></div>
 
 <h1 id="edit-varnish-parameters">Edit Varnish Parameters</h1>
 <p>Now we need to configure Varnish to listen to HTTP requests on port 80 and
@@ -2225,182 +2217,182 @@ relay those requests to the Apache HTTP server on port 8080 (see block diagram).
 <ul>
 <li>Stop Varnish.</li>
 </ul>
-<pre><code class="bash">systemctl stop varnish
-</code></pre>
+<div class="highlight"><pre><span></span><code>systemctl stop varnish
+</code></pre></div>
 
 <ul>
 <li>Create a back-up of varnish.params just in case you make a mistake.</li>
 </ul>
-<pre><code class="bash">cp /etc/varnish/varnish.params /etc/varnish/varnish.params.bak
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp /etc/varnish/varnish.params /etc/varnish/varnish.params.bak
+</code></pre></div>
 
 <ul>
 <li>Edit the varnish.params config.</li>
 </ul>
-<pre><code class="bash">vim /etc/varnish/varnish.params
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim /etc/varnish/varnish.params
+</code></pre></div>
 
 <p>Set the VCL location, IP address, port, and cache location and
 size. <code>malloc</code> sets the cache location to RAM, and <code>512M</code> sets the
 cache size to 512MB.</p>
-<pre><code class="vcl">VARNISH_LISTEN_ADDRESS=192.168.1.10
-VARNISH_LISTEN_PORT=80
-VARNISH_VCL_CONF=/etc/varnish/librenms.vcl
-VARNISH_STORAGE=&quot;malloc,512M&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">VARNISH_LISTEN_ADDRESS</span><span class="o">=</span><span class="m">192</span><span class="o">.</span><span class="m">168</span><span class="o">.</span><span class="m">1</span><span class="o">.</span><span class="m">10</span>
+<span class="n">VARNISH_LISTEN_PORT</span><span class="o">=</span><span class="m">80</span>
+<span class="n">VARNISH_VCL_CONF</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">varnish</span><span class="o">/</span><span class="n">librenms</span><span class="o">.</span><span class="n">vcl</span>
+<span class="n">VARNISH_STORAGE</span><span class="o">=</span><span class="s">&quot;malloc,512M&quot;</span>
+</code></pre></div>
 
 <p>Example varnish.params:</p>
-<pre><code class="vcl"># Set this to 1 to make systemd reload try to switch vcl without restart.
-RELOAD_VCL=1
+<div class="highlight"><pre><span></span><code><span class="c"># Set this to 1 to make systemd reload try to switch vcl without restart.</span>
+<span class="n">RELOAD_VCL</span><span class="o">=</span><span class="m">1</span>
 
-# Main configuration file. You probably want to change it.
-VARNISH_VCL_CONF=/etc/varnish/librenms.vcl
+<span class="c"># Main configuration file. You probably want to change it.</span>
+<span class="n">VARNISH_VCL_CONF</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">varnish</span><span class="o">/</span><span class="n">librenms</span><span class="o">.</span><span class="n">vcl</span>
 
-# Default address and port to bind to. Blank address means all IPv4
-# and IPv6 interfaces, otherwise specify a host name, an IPv4 dotted
-# quad, or an IPv6 address in brackets.
-VARNISH_LISTEN_ADDRESS=192.168.1.10
-VARNISH_LISTEN_PORT=80
+<span class="c"># Default address and port to bind to. Blank address means all IPv4</span>
+<span class="c"># and IPv6 interfaces, otherwise specify a host name, an IPv4 dotted</span>
+<span class="c"># quad, or an IPv6 address in brackets.</span>
+<span class="n">VARNISH_LISTEN_ADDRESS</span><span class="o">=</span><span class="m">192</span><span class="o">.</span><span class="m">168</span><span class="o">.</span><span class="m">1</span><span class="o">.</span><span class="m">10</span>
+<span class="n">VARNISH_LISTEN_PORT</span><span class="o">=</span><span class="m">80</span>
 
-# Admin interface listen address and port
-VARNISH_ADMIN_LISTEN_ADDRESS=127.0.0.1
-VARNISH_ADMIN_LISTEN_PORT=6082
+<span class="c"># Admin interface listen address and port</span>
+<span class="n">VARNISH_ADMIN_LISTEN_ADDRESS</span><span class="o">=</span><span class="m">127</span><span class="o">.</span><span class="m">0</span><span class="o">.</span><span class="m">0</span><span class="o">.</span><span class="m">1</span>
+<span class="n">VARNISH_ADMIN_LISTEN_PORT</span><span class="o">=</span><span class="m">6082</span>
 
-# Shared secret file for admin interface
-VARNISH_SECRET_FILE=/etc/varnish/secret
+<span class="c"># Shared secret file for admin interface</span>
+<span class="n">VARNISH_SECRET_FILE</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">varnish</span><span class="o">/</span><span class="n">secret</span>
 
-# Backend storage specification, see Storage Types in the varnishd(5)
-# man page for details.
-VARNISH_STORAGE=&quot;malloc,512M&quot;
+<span class="c"># Backend storage specification, see Storage Types in the varnishd(5)</span>
+<span class="c"># man page for details.</span>
+<span class="n">VARNISH_STORAGE</span><span class="o">=</span><span class="s">&quot;malloc,512M&quot;</span>
 
-# Default TTL used when the backend does not specify one
-VARNISH_TTL=120
+<span class="c"># Default TTL used when the backend does not specify one</span>
+<span class="n">VARNISH_TTL</span><span class="o">=</span><span class="m">120</span>
 
-# User and group for the varnishd worker processes
-VARNISH_USER=varnish
-VARNISH_GROUP=varnish
+<span class="c"># User and group for the varnishd worker processes</span>
+<span class="n">VARNISH_USER</span><span class="o">=</span><span class="n">varnish</span>
+<span class="n">VARNISH_GROUP</span><span class="o">=</span><span class="n">varnish</span>
 
-# Other options, see the man page varnishd(1)
-DAEMON_OPTS=&quot;-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_timeout=300&quot;
-</code></pre>
+<span class="c"># Other options, see the man page varnishd(1)</span>
+<span class="n">DAEMON_OPTS</span><span class="o">=</span><span class="s">&quot;-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_timeout=300&quot;</span>
+</code></pre></div>
 
 <h1 id="configure-apache-for-varnish">Configure Apache for Varnish</h1>
 <p>Edit librenms.conf and modify the Apache Virtual Host listening port.</p>
 <ul>
 <li>Modify:<code>&lt;VirtualHost *:80&gt;</code> to: <code>&lt;VirtualHost *:8080&gt;</code></li>
 </ul>
-<pre><code class="bash">vim /etc/httpd/conf.d/librenms.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim /etc/httpd/conf.d/librenms.conf
+</code></pre></div>
 
 <p>Varnish can not share a port with Apache. Change the Apache listening port to 8080.</p>
 <ul>
 <li>Modify:<code>Listen 80</code> to:<code>Listen 8080</code></li>
 </ul>
-<pre><code class="bash">vim /etc/httpd/conf/httpd.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim /etc/httpd/conf/httpd.conf
+</code></pre></div>
 
 <ul>
 <li>Create the librenms.vcl</li>
 </ul>
-<pre><code class="bash">cd /etc/varnish
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /etc/varnish
 touch librenms.vcl
-</code></pre>
+</code></pre></div>
 
 <ul>
 <li>Set ownership and permissions for Varnish files.</li>
 </ul>
-<pre><code class="bash">chown varnish:varnish default.vcl varnish.params secret
-chmod 644 default.vcl varnish.params secret
-</code></pre>
+<div class="highlight"><pre><span></span><code>chown varnish:varnish default.vcl varnish.params secret
+chmod <span class="m">644</span> default.vcl varnish.params secret
+</code></pre></div>
 
 <p>Edit the librenms.vcl.</p>
-<pre><code class="bash">vim librenms.vcl
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim librenms.vcl
+</code></pre></div>
 
 <p>Paste example VCL config, read config comments for more information.</p>
-<pre><code class="vcl">#
-# This is an example VCL file for Varnish.
-#
-# It does not do anything by default, delegating control to the
-# builtin VCL. The builtin VCL is called when there is no explicit
-# return statement.
-#
-# See the VCL chapters in the Users Guide at https://www.varnish-cache.org/docs/
-# and http://varnish-cache.org/trac/wiki/VCLExamples for more examples.
+<div class="highlight"><pre><span></span><code><span class="c">#</span>
+<span class="c"># This is an example VCL file for Varnish.</span>
+<span class="c">#</span>
+<span class="c"># It does not do anything by default, delegating control to the</span>
+<span class="c"># builtin VCL. The builtin VCL is called when there is no explicit</span>
+<span class="c"># return statement.</span>
+<span class="c">#</span>
+<span class="c"># See the VCL chapters in the Users Guide at https://www.varnish-cache.org/docs/</span>
+<span class="c"># and http://varnish-cache.org/trac/wiki/VCLExamples for more examples.</span>
 
-# Marker to tell the VCL compiler that this VCL has been adapted to the
-# new 4.0 format.
-vcl 4.0;
+<span class="c"># Marker to tell the VCL compiler that this VCL has been adapted to the</span>
+<span class="c"># new 4.0 format.</span>
+<span class="kr">vcl </span><span class="no">4.0</span><span class="p">;</span>
 
-# Default backend definition. Set this to point to your Apache server.
-backend librenms {
-    .host = &quot;127.0.0.1&quot;;
-    .port = &quot;8080&quot;;
-}
+<span class="c"># Default backend definition. Set this to point to your Apache server.</span>
+<span class="k">backend</span><span class="vg"> librenms</span><span class="p"> {</span>
+    <span class="na">.host</span><span class="o"> = </span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+    <span class="na">.port</span><span class="o"> = </span><span class="s">&quot;8080&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-# In this example our objective is to cache static content with Varnish and temporarily
-# cache dynamic content in the client web browser.
+<span class="c"># In this example our objective is to cache static content with Varnish and temporarily</span>
+<span class="c"># cache dynamic content in the client web browser.</span>
 
-sub vcl_recv {
-    # HTTP requests from client web browser.
-    # Here we remove any cookie HTTP requests for the 'librenms.domain.net' host
-    # containing the matching file extensions. We don't have to match by host if you
-    # only have LibreNMS running on Apache.
-    # If the cookies are not removed from the HTTP request then Varnish will not cache
-    # the files. 'else' function is set to 'pass', or don't cache anything that doesn't
-    # match.
+<span class="k">sub </span><span class="nf">vcl_recv</span><span class="p"> {</span>
+    <span class="c"># HTTP requests from client web browser.</span>
+    <span class="c"># Here we remove any cookie HTTP requests for the &#39;librenms.domain.net&#39; host</span>
+    <span class="c"># containing the matching file extensions. We don&#39;t have to match by host if you</span>
+    <span class="c"># only have LibreNMS running on Apache.</span>
+    <span class="c"># If the cookies are not removed from the HTTP request then Varnish will not cache</span>
+    <span class="c"># the files. &#39;else&#39; function is set to &#39;pass&#39;, or don&#39;t cache anything that doesn&#39;t</span>
+    <span class="c"># match.</span>
 
-    if (req.http.host ~ &quot;^librenms.domain.net&quot;) {
-        set req.backend_hint = librenms;
-        if (req.url ~ &quot;\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$&quot;) {
-            unset req.http.Cookie;
-        }
+    <span class="k">if</span> <span class="p">(</span><span class="nv">req.http.host</span> <span class="o">~</span> <span class="s">&quot;^librenms.domain.net&quot;</span><span class="p">)</span> <span class="o">{</span>
+        <span class="k">set</span> <span class="nv">req.backend_hint</span> <span class="o">=</span> <span class="n">librenms</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">req.url</span> <span class="o">~</span> <span class="s">&quot;\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$&quot;</span><span class="p">)</span> <span class="o">{</span>
+            <span class="k">unset</span> <span class="nv">req.http.Cookie</span><span class="p">;</span>
+        <span class="o">}</span>
 
-        else{
-            return(pass);
-        }
-    }
-}
+        <span class="k">else</span><span class="o">{</span>
+            <span class="k">return</span><span class="p">(</span><span class="no">pass</span><span class="p">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-sub vcl_backend_response {
-    # 'sub vcl_backend_response' is the same function as 'sub vcl_fetch' in Varnish 3, however,
-    # the syntax is slightly different
-    # This function happens after we read the response headers from the backend (Apache).
-    # First function 'if (bereq.url ~ &quot;\' removes cookies from the Apache HTTP responses
-    # that match the file extensions that are between the quotes, and cache the files for 24 hours.
-    # This assumes you update LibreNMS once a day, otherwise restart Varnish to clear cache.
-    # Second function 'if (bereq.url ~ &quot;^/' removes the Pragma no-cache statements and sets the age
-    # of how long the client browser will cache the matching urls.
-    # LibreNMS graphs are updated every 300 seconds, 'max-age=300' is set to match this behavior.
-    # We could cache these URLs in Varnish but it would add to the complexity of the config.
+<span class="k">sub </span><span class="nf">vcl_backend_response</span><span class="p"> {</span>
+    <span class="c"># &#39;sub vcl_backend_response&#39; is the same function as &#39;sub vcl_fetch&#39; in Varnish 3, however,</span>
+    <span class="c"># the syntax is slightly different</span>
+    <span class="c"># This function happens after we read the response headers from the backend (Apache).</span>
+    <span class="c"># First function &#39;if (bereq.url ~ &quot;\&#39; removes cookies from the Apache HTTP responses</span>
+    <span class="c"># that match the file extensions that are between the quotes, and cache the files for 24 hours.</span>
+    <span class="c"># This assumes you update LibreNMS once a day, otherwise restart Varnish to clear cache.</span>
+    <span class="c"># Second function &#39;if (bereq.url ~ &quot;^/&#39; removes the Pragma no-cache statements and sets the age</span>
+    <span class="c"># of how long the client browser will cache the matching urls.</span>
+    <span class="c"># LibreNMS graphs are updated every 300 seconds, &#39;max-age=300&#39; is set to match this behavior.</span>
+    <span class="c"># We could cache these URLs in Varnish but it would add to the complexity of the config.</span>
 
-    if (bereq.http.host ~ &quot;^librenms.domain.net&quot;) {
-        if (bereq.url ~ &quot;\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$&quot;) {
-            unset beresp.http.Set-cookie;
-            set beresp.ttl = 24h;
-        }
+    <span class="k">if</span> <span class="p">(</span><span class="nv">bereq.http.host</span> <span class="o">~</span> <span class="s">&quot;^librenms.domain.net&quot;</span><span class="p">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">bereq.url</span> <span class="o">~</span> <span class="s">&quot;\.(png|gif|jpg|jpeg|ico|pdf|js|css|svg|eot|otf|woff|woff2|ttf)$&quot;</span><span class="p">)</span> <span class="o">{</span>
+            <span class="k">unset</span> <span class="nv">beresp.http.Set-cookie</span><span class="p">;</span>
+            <span class="k">set</span> <span class="nv">beresp.ttl</span> <span class="o">=</span> <span class="ld">24h</span><span class="p">;</span>
+        <span class="o">}</span>
 
-        if (bereq.url ~ &quot;^/graph.php&quot; || &quot;^/device/&quot; || &quot;^/iftype/&quot; || &quot;^/customers/&quot; || &quot;^/health/&quot; || &quot;^/apps/&quot; || &quot;^/(plugin)$&quot; || &quot;^/(alert)$&quot; || &quot;^/eventlog/&quot; || &quot;^/graphs/&quot; || &quot;^/ports/&quot; ) {
-            unset beresp.http.Pragma;
-            set beresp.http.Cache-Control = &quot;max-age=300&quot;;
-        }
-    }
-}
+        <span class="k">if</span> <span class="p">(</span><span class="nv">bereq.url</span> <span class="o">~</span> <span class="s">&quot;^/graph.php&quot;</span> <span class="o">||</span> <span class="s">&quot;^/device/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/iftype/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/customers/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/health/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/apps/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/(plugin)$&quot;</span> <span class="o">||</span> <span class="s">&quot;^/(alert)$&quot;</span> <span class="o">||</span> <span class="s">&quot;^/eventlog/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/graphs/&quot;</span> <span class="o">||</span> <span class="s">&quot;^/ports/&quot;</span> <span class="p">)</span> <span class="o">{</span>
+            <span class="k">unset</span> <span class="nv">beresp.http.Pragma</span><span class="p">;</span>
+            <span class="k">set</span> <span class="nv">beresp.http.Cache-Control</span> <span class="o">=</span> <span class="s">&quot;max-age=300&quot;</span><span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-sub vcl_deliver {
-    # Happens when we have all the pieces we need, and are about to send the
-    # response to the client.
-    # You can do accounting or modifying the final object here.
+<span class="k">sub </span><span class="nf">vcl_deliver</span><span class="p"> {</span>
+    <span class="c"># Happens when we have all the pieces we need, and are about to send the</span>
+    <span class="c"># response to the client.</span>
+    <span class="c"># You can do accounting or modifying the final object here.</span>
 
-    return (deliver);
-}
-</code></pre>
+    <span class="k">return</span> <span class="p">(</span><span class="no">deliver</span><span class="p">);</span>
+<span class="o">}</span>
+</code></pre></div>
 
 <ul>
 <li>Reload rules to remove the temporary port rule we added earlier.</li>
 </ul>
-<pre><code class="bash">firewall-cmd --reload
-</code></pre>
+<div class="highlight"><pre><span></span><code>firewall-cmd --reload
+</code></pre></div>
 
 <p>Varnish caching does not take effect immediately.  You will need to
 browse the LibreNMS website to build up the cache.</p>
@@ -2417,18 +2409,6 @@ the above VCL the hit to request ratio is approximately 84%.</p>
 </ul>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Extensions/Varnish.md" title="Extensions/Varnish.md" class="md-source-file">
-                      Extensions/Varnish.md
-                    </a>
-                  
-                
                 
               
               
@@ -2445,34 +2425,34 @@ the above VCL the hit to request ratio is approximately 84%.</p>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Sub-Directory/" title="Sub-directory Support" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../Sub-Directory/" title="Sub-directory Support" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Sub-directory Support
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../Dispatcher-Service/" title="Dispatcher Service (RC)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../Dispatcher-Service/" title="Dispatcher Service (RC)" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Dispatcher Service (RC)
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2483,11 +2463,10 @@ the above VCL the hit to request ratio is approximately 84%.</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -2496,9 +2475,18 @@ the above VCL the hit to request ratio is approximately 84%.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

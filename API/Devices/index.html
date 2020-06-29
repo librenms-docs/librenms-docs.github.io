@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#del_device" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#del_device" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Devices
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Devices
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -682,13 +598,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -946,13 +868,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1061,13 +989,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1176,13 +1110,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1209,11 +1149,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Devices
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Devices" class="md-nav__link md-nav__link--active">
@@ -1221,11 +1164,16 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1445,16 +1393,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -1630,13 +1568,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1774,13 +1718,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1942,13 +1892,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2093,13 +2049,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2290,13 +2252,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2333,13 +2301,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2390,11 +2364,16 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2614,16 +2593,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2636,7 +2605,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/API/Devices.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/API/Devices.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//API/Devices.md" title="API/Devices.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                   <h1>Devices</h1>
@@ -2650,24 +2636,24 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X DELETE -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;Removed device localhost&quot;,
-    &quot;devices&quot;: [
-        {
-            &quot;device_id&quot;: &quot;1&quot;,
-            &quot;hostname&quot;: &quot;localhost&quot;,
-            ...
-            &quot;serial&quot;: null,
-            &quot;icon&quot;: null
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Removed device localhost&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+            <span class="err">...</span>
+            <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_device"><code>get_device</code></h3>
 <p>Get details of a given device.</p>
@@ -2678,23 +2664,23 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;devices&quot;: [
-        {
-            &quot;device_id&quot;: &quot;1&quot;,
-            &quot;hostname&quot;: &quot;localhost&quot;,
-            ...
-            &quot;serial&quot;: null,
-            &quot;icon&quot;: null
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+            <span class="err">...</span>
+            <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="discover_device"><code>discover_device</code></h3>
 <p>Trigger a discovery of given device.</p>
@@ -2705,19 +2691,19 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/discover
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/discover
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;result&quot;: {
-        &quot;status&quot;: 0,
-        &quot;message&quot;: &quot;Device will be rediscovered&quot;
-    },
-    &quot;count&quot;: 2
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device will be rediscovered&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_graphs"><code>get_graphs</code></h3>
 <p>Get a list of available graphs for a device, this does not include ports.</p>
@@ -2728,30 +2714,30 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/graphs
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;count&quot;: 3,
-    &quot;graphs&quot;: [
-        {
-            &quot;desc&quot;: &quot;Poller Time&quot;,
-            &quot;name&quot;: &quot;device_poller_perf&quot;
-        },
-        {
-            &quot;desc&quot;: &quot;Ping Response&quot;,
-            &quot;name&quot;: &quot;device_ping_perf&quot;
-        },
-        {
-            &quot;desc&quot;: &quot;System Uptime&quot;,
-            &quot;name&quot;: &quot;uptime&quot;
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;graphs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Poller Time&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;device_poller_perf&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Ping Response&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;device_ping_perf&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;System Uptime&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;uptime&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="list_available_health_graphs"><code>list_available_health_graphs</code></h3>
 <p>This function allows to do three things:</p>
@@ -2769,11 +2755,11 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/health
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;&quot;,
     &quot;count&quot;: 2,
@@ -2788,14 +2774,14 @@
         }
     ]
 }
-</code></pre>
+</code></pre></div>
 
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health/device_voltage
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/health/device_voltage
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;&quot;,
     &quot;count&quot;: 2,
@@ -2810,14 +2796,14 @@
         }
     ]
 }
-</code></pre>
+</code></pre></div>
 
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health/device_voltage/1
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/health/device_voltage/1
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;&quot;,
     &quot;count&quot;: 1,
@@ -2848,7 +2834,7 @@
         }
     ]
 }
-</code></pre>
+</code></pre></div>
 
 <h3 id="list_available_wireless_graphs"><code>list_available_wireless_graphs</code></h3>
 <p>This function allows to do three things:</p>
@@ -2866,11 +2852,11 @@
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/wireless
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/wireless
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;graphs&quot;: [
         {
@@ -2884,14 +2870,14 @@
     ],
     &quot;count&quot;: 2
 }
-</code></pre>
+</code></pre></div>
 
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/wireless/device_wireless_ccq
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/wireless/device_wireless_ccq
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;graphs&quot;: [
         {
@@ -2905,14 +2891,14 @@
     ],
     &quot;count&quot;: 2
 }
-</code></pre>
+</code></pre></div>
 
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/health/device_wireless_ccq/1
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/health/device_wireless_ccq/1
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;graphs&quot;: [
         {
@@ -2943,7 +2929,7 @@
     ],
     &quot;count&quot;: 1
 }
-</code></pre>
+</code></pre></div>
 
 <h3 id="get_health_graph"><code>get_health_graph</code></h3>
 <p>Get a particular health class graph for a device, if you provide a
@@ -2958,14 +2944,14 @@ sensor_id value is provided then you will be sent a stacked sensor graph.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is a stacked graph for the health type provided.</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage/1
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/graphs/health/device_voltage/1
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is the graph of the particular health type sensor provided.</p>
@@ -2983,14 +2969,14 @@ sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/wireless/device_wireless_ccq
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/graphs/wireless/device_wireless_ccq
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is a stacked graph for the wireless type provided.</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs/wireless/device_wireless_ccq/1
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/graphs/wireless/device_wireless_ccq/1
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is the graph of the particular wireless type sensor provided.</p>
@@ -3016,8 +3002,8 @@ sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <li>output: Set how the graph should be outputted (base64, display), defaults to display.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/device_poller_perf
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/device_poller_perf
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is an image.</p>
@@ -3032,27 +3018,27 @@ sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <li>columns: Comma separated list of columns you want returned.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/ports
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;count&quot;: 3,
-    &quot;ports&quot;: [
-        {
-            &quot;ifName&quot;: &quot;lo&quot;
-        },
-        {
-            &quot;ifName&quot;: &quot;eth0&quot;
-        },
-        {
-            &quot;ifName&quot;: &quot;eth1&quot;
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;ifName&quot;</span><span class="p">:</span> <span class="s2">&quot;lo&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;ifName&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;ifName&quot;</span><span class="p">:</span> <span class="s2">&quot;eth1&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_device_fdb"><code>get_device_fdb</code></h3>
 <p>Get a list of FDB entries associated with a device.</p>
@@ -3061,23 +3047,23 @@ sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <li>hostname can be either the device hostname or id</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/fdb
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/fdb
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;ports_fdb&quot;: {
-        &quot;ports_fdb_id&quot;: 10,
-        &quot;port_id&quot;: 10000,
-        &quot;mac_address&quot;: &quot;1aaa2bbb3ccc&quot;,
-        &quot;vlan_id&quot;: 20000,
-        &quot;device_id&quot;: 1,
-        &quot;created_at&quot;: &quot;2019-01-1 01:01:01&quot;,
-        &quot;updated_at&quot;: &quot;2019-01-1 01:01:01&quot;
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ports_fdb&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;ports_fdb_id&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="nt">&quot;mac_address&quot;</span><span class="p">:</span> <span class="s2">&quot;1aaa2bbb3ccc&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vlan_id&quot;</span><span class="p">:</span> <span class="mi">20000</span><span class="p">,</span>
+        <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-01-1 01:01:01&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-01-1 01:01:01&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_device_ip_addresses"><code>get_device_ip_addresses</code></h3>
 <p>Get a list of IP addresses (v4 and v6) associated with a device.</p>
@@ -3086,25 +3072,25 @@ sensor_id value is provided then you will be sent a stacked wireless graph.</p>
 <li>hostname can be either the device hostname or id</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ip
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/ip
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;addresses&quot;: [
-        {
-          &quot;ipv4_address_id&quot;: &quot;290&quot;,
-          &quot;ipv4_address&quot;: &quot;192.168.99.292&quot;,
-          &quot;ipv4_prefixlen&quot;: &quot;30&quot;,
-          &quot;ipv4_network_id&quot;: &quot;247&quot;,
-          &quot;port_id&quot;: &quot;323&quot;,
-          &quot;context_name&quot;: &quot;&quot;
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;ipv4_address_id&quot;</span><span class="p">:</span> <span class="s2">&quot;290&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;ipv4_address&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.99.292&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;ipv4_prefixlen&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;ipv4_network_id&quot;</span><span class="p">:</span> <span class="s2">&quot;247&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="s2">&quot;323&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;context_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_port_stack"><code>get_port_stack</code></h3>
 <p>Get a list of port mappings for a device.  This is useful for showing
@@ -3119,30 +3105,30 @@ physical ports that are in a virtual port-channel.</p>
   ("0" values not shown).</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/port_stack?valid_mappings
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/port_stack?valid_mappings
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-  &quot;status&quot;: &quot;ok&quot;,
-  &quot;message&quot;: &quot;&quot;,
-  &quot;count&quot;: 2,
-  &quot;mappings&quot;: [
-    {
-      &quot;device_id&quot;: &quot;3742&quot;,
-      &quot;port_id_high&quot;: &quot;1001000&quot;,
-      &quot;port_id_low&quot;: &quot;51001&quot;,
-      &quot;ifStackStatus&quot;: &quot;active&quot;
-    },
-    {
-      &quot;device_id&quot;: &quot;3742&quot;,
-      &quot;port_id_high&quot;: &quot;1001000&quot;,
-      &quot;port_id_low&quot;: &quot;52001&quot;,
-      &quot;ifStackStatus&quot;: &quot;active&quot;
-    }
-  ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;3742&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port_id_high&quot;</span><span class="p">:</span> <span class="s2">&quot;1001000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port_id_low&quot;</span><span class="p">:</span> <span class="s2">&quot;51001&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifStackStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;3742&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port_id_high&quot;</span><span class="p">:</span> <span class="s2">&quot;1001000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port_id_low&quot;</span><span class="p">:</span> <span class="s2">&quot;52001&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifStackStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_components"><code>get_components</code></h3>
 <p>Get a list of components for a particular device.</p>
@@ -3160,48 +3146,48 @@ physical ports that are in a virtual port-channel.</p>
 <li>ignore: Filter the result by ignore (Equals).</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/components
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;count&quot;: 3,
-    &quot;components&quot;: {
-        &quot;2&quot;: {
-            &quot;TestAttribute-1&quot;: &quot;Value1&quot;,
-            &quot;TestAttribute-2&quot;: &quot;Value2&quot;,
-            &quot;TestAttribute-3&quot;: &quot;Value3&quot;,
-            &quot;type&quot;: &quot;TestComponent-1&quot;,
-            &quot;label&quot;: &quot;This is a really cool blue component&quot;,
-            &quot;status&quot;: &quot;1&quot;,
-            &quot;ignore&quot;: &quot;0&quot;,
-            &quot;disabled&quot;: &quot;0&quot;
-        },
-        &quot;20&quot;: {
-            &quot;TestAttribute-1&quot;: &quot;Value4&quot;,
-            &quot;TestAttribute-2&quot;: &quot;Value5&quot;,
-            &quot;TestAttribute-3&quot;: &quot;Value6&quot;,
-            &quot;type&quot;: &quot;TestComponent-1&quot;,
-            &quot;label&quot;: &quot;This is a really cool red component&quot;,
-            &quot;status&quot;: &quot;1&quot;,
-            &quot;ignore&quot;: &quot;0&quot;,
-            &quot;disabled&quot;: &quot;0&quot;
-        },
-        &quot;27&quot;: {
-            &quot;TestAttribute-1&quot;: &quot;Value7&quot;,
-            &quot;TestAttribute-2&quot;: &quot;Value8&quot;,
-            &quot;TestAttribute-3&quot;: &quot;Value9&quot;,
-            &quot;type&quot;: &quot;TestComponent-2&quot;,
-            &quot;label&quot;: &quot;This is a really cool yellow widget&quot;,
-            &quot;status&quot;: &quot;1&quot;,
-            &quot;ignore&quot;: &quot;0&quot;,
-            &quot;disabled&quot;: &quot;0&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;TestAttribute-1&quot;</span><span class="p">:</span> <span class="s2">&quot;Value1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-2&quot;</span><span class="p">:</span> <span class="s2">&quot;Value2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-3&quot;</span><span class="p">:</span> <span class="s2">&quot;Value3&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;TestComponent-1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a really cool blue component&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;ignore&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;20&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;TestAttribute-1&quot;</span><span class="p">:</span> <span class="s2">&quot;Value4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-2&quot;</span><span class="p">:</span> <span class="s2">&quot;Value5&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-3&quot;</span><span class="p">:</span> <span class="s2">&quot;Value6&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;TestComponent-1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a really cool red component&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;ignore&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;27&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;TestAttribute-1&quot;</span><span class="p">:</span> <span class="s2">&quot;Value7&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-2&quot;</span><span class="p">:</span> <span class="s2">&quot;Value8&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;TestAttribute-3&quot;</span><span class="p">:</span> <span class="s2">&quot;Value9&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;TestComponent-2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a really cool yellow widget&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;ignore&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="add_components"><code>add_components</code></h3>
 <p>Create a new component of a type on a particular device.</p>
@@ -3211,26 +3197,26 @@ physical ports that are in a virtual port-channel.</p>
 <li>type is the type of component to add</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X POST -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/APITEST
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X POST -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/components/APITEST
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;count&quot;: 1,
-    &quot;components&quot;: {
-        &quot;4459&quot;: {
-            &quot;type&quot;: &quot;APITEST&quot;,
-            &quot;label&quot;: &quot;&quot;,
-            &quot;status&quot;: 1,
-            &quot;ignore&quot;: 0,
-            &quot;disabled&quot;: 0,
-            &quot;error&quot;: &quot;&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;4459&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;APITEST&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;ignore&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="edit_components"><code>edit_components</code></h3>
 <p>Edit an existing component on a particular device.</p>
@@ -3239,16 +3225,16 @@ physical ports that are in a virtual port-channel.</p>
 <li>hostname can be either the device hostname or id</li>
 </ul>
 <p>In this example we set the label and add a new field: TestField:</p>
-<pre><code class="curl">curl -X PUT -d '{&quot;4459&quot;: {&quot;type&quot;: &quot;APITEST&quot;,&quot;label&quot;: &quot;This is a test label&quot;,&quot;status&quot;: 1,&quot;ignore&quot;: 0,&quot;disabled&quot;: 0,&quot;error&quot;: &quot;&quot;,&quot;TestField&quot;: &quot;TestData&quot;}}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X PUT -d &#39;{&quot;4459&quot;: {&quot;type&quot;: &quot;APITEST&quot;,&quot;label&quot;: &quot;This is a test label&quot;,&quot;status&quot;: 1,&quot;ignore&quot;: 0,&quot;disabled&quot;: 0,&quot;error&quot;: &quot;&quot;,&quot;TestField&quot;: &quot;TestData&quot;}}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/components
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;,
-    &quot;count&quot;: 1
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p>Just take the JSON array from add_components or edit_components, edit
 as you wish and submit it back to edit components.</p>
@@ -3260,15 +3246,15 @@ as you wish and submit it back to edit components.</p>
 <li>component is the component ID to be deleted.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/components/4459
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X DELETE -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/components/4459
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_port_stats_by_port_hostname"><code>get_port_stats_by_port_hostname</code></h3>
 <p>Get information about a particular port for a device.</p>
@@ -3285,21 +3271,21 @@ as you wish and submit it back to edit components.</p>
 <li>columns: Comma separated list of columns you want returned.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/ports/eth0
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
- &quot;status&quot;: &quot;ok&quot;,
- &quot;port&quot;: {
-  &quot;port_id&quot;: &quot;2&quot;,
-  &quot;device_id&quot;: &quot;1&quot;,
-  ...
-  &quot;poll_prev&quot;: &quot;1418412902&quot;,
-  &quot;poll_period&quot;: &quot;300&quot;
- }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+ <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+  <span class="err">...</span>
+  <span class="nt">&quot;poll_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;1418412902&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;poll_period&quot;</span><span class="p">:</span> <span class="s2">&quot;300&quot;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="get_graph_by_port_hostname"><code>get_graph_by_port_hostname</code></h3>
 <p>Get a graph of a port for a particular device.</p>
@@ -3329,8 +3315,8 @@ as you wish and submit it back to edit components.</p>
   search as you would ifName.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
+</code></pre></div>
 
 <p>Output:</p>
 <p>Output is an image.</p>
@@ -3340,25 +3326,25 @@ as you wish and submit it back to edit components.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/locations
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/locations
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;locations&quot;: [
-        {
-            &quot;id&quot;: &quot;1&quot;,
-            &quot;location&quot;: &quot;Example location, Example city, Example Country&quot;,
-            &quot;lat&quot;: &quot;-18.911436&quot;,
-            &quot;lng&quot;: &quot;47.517446&quot;,
-            &quot;timestamp&quot;: &quot;2017-04-01 02:40:05&quot;
-        },
-        ...
-    ],
-    &quot;count&quot;: 100
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;locations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Example location, Example city, Example Country&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="s2">&quot;-18.911436&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="s2">&quot;47.517446&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-04-01 02:40:05&quot;</span>
+        <span class="p">},</span>
+        <span class="err">...</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="list_sensors"><code>list_sensors</code></h3>
 <p>Get a list of all Sensors.</p>
@@ -3366,44 +3352,44 @@ as you wish and submit it back to edit components.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/resources/sensors
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/sensors
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;sensors&quot;: [
-        {
-            &quot;sensor_id&quot;: 218810,
-            &quot;sensor_deleted&quot;: 0,
-            &quot;sensor_class&quot;: &quot;dbm&quot;,
-            &quot;device_id&quot;: 136,
-            &quot;poller_type&quot;: &quot;snmp&quot;,
-            &quot;sensor_oid&quot;: &quot;.1.3.6.1.4.1.2636.3.60.1.1.1.1.7.919&quot;,
-            &quot;sensor_index&quot;: &quot;tx-919&quot;,
-            &quot;sensor_type&quot;: &quot;junos&quot;,
-            &quot;sensor_descr&quot;: &quot;xe-2/1/4 Tx Power&quot;,
-            &quot;group&quot;: null,
-            &quot;sensor_divisor&quot;: 100,
-            &quot;sensor_multiplier&quot;: 1,
-            &quot;sensor_current&quot;: -1.81,
-            &quot;sensor_limit&quot;: 2,
-            &quot;sensor_limit_warn&quot;: 0.5,
-            &quot;sensor_limit_low&quot;: -9.7,
-            &quot;sensor_limit_low_warn&quot;: -8.21,
-            &quot;sensor_alert&quot;: 1,
-            &quot;sensor_custom&quot;: &quot;No&quot;,
-            &quot;entPhysicalIndex&quot;: &quot;919&quot;,
-            &quot;entPhysicalIndex_measured&quot;: &quot;ports&quot;,
-            &quot;lastupdate&quot;: &quot;2019-02-18 02:47:09&quot;,
-            &quot;sensor_prev&quot;: -1.77,
-            &quot;user_func&quot;: null
-        },
-        ...
-    ],
-    &quot;count&quot;: 100
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sensors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;sensor_id&quot;</span><span class="p">:</span> <span class="mi">218810</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_deleted&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_class&quot;</span><span class="p">:</span> <span class="s2">&quot;dbm&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="mi">136</span><span class="p">,</span>
+            <span class="nt">&quot;poller_type&quot;</span><span class="p">:</span> <span class="s2">&quot;snmp&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_oid&quot;</span><span class="p">:</span> <span class="s2">&quot;.1.3.6.1.4.1.2636.3.60.1.1.1.1.7.919&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_index&quot;</span><span class="p">:</span> <span class="s2">&quot;tx-919&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_type&quot;</span><span class="p">:</span> <span class="s2">&quot;junos&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_descr&quot;</span><span class="p">:</span> <span class="s2">&quot;xe-2/1/4 Tx Power&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_divisor&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_multiplier&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_current&quot;</span><span class="p">:</span> <span class="mf">-1.81</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_limit&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_limit_warn&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_limit_low&quot;</span><span class="p">:</span> <span class="mf">-9.7</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_limit_low_warn&quot;</span><span class="p">:</span> <span class="mf">-8.21</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_alert&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_custom&quot;</span><span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;entPhysicalIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;919&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;entPhysicalIndex_measured&quot;</span><span class="p">:</span> <span class="s2">&quot;ports&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lastupdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-18 02:47:09&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sensor_prev&quot;</span><span class="p">:</span> <span class="mf">-1.77</span><span class="p">,</span>
+            <span class="nt">&quot;user_func&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="err">...</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 <p>Return a list of devices.</p>
@@ -3428,44 +3414,44 @@ as you wish and submit it back to edit components.</p>
 <li>query: If searching by, then this will be used as the input.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices?order=hostname%20DESC&amp;type=down
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
- &quot;status&quot;: &quot;ok&quot;,
- &quot;count&quot;: 1,
- &quot;devices&quot;: [
-  {
-   &quot;device_id&quot;: &quot;1&quot;,
-   &quot;hostname&quot;: &quot;localhost&quot;,
-   ...
-   &quot;serial&quot;: null,
-   &quot;icon&quot;: null
-  }
- ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+ <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+   <span class="err">...</span>
+   <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?type=mac&amp;query=00000c9ff013
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices?type=mac&amp;query=00000c9ff013
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
- &quot;status&quot;: &quot;ok&quot;,
- &quot;count&quot;: 1,
- &quot;devices&quot;: [
-  {
-   &quot;device_id&quot;: &quot;1&quot;,
-   &quot;hostname&quot;: &quot;localhost&quot;,
-   ...
-   &quot;serial&quot;: null,
-   &quot;icon&quot;: null
-  }
- ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+ <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+   <span class="err">...</span>
+   <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+   <span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="add_device"><code>add_device</code></h3>
 <p>Add a new device.</p>
@@ -3502,15 +3488,15 @@ as you wish and submit it back to edit components.</p>
 <li>hardware: Device hardware.</li>
 </ul>
 <p>Example:</p>
-<pre><code class="curl">curl -X POST -d '{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;Device localhost.localdomain (57) has been added successfully&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device localhost.localdomain (57) has been added successfully&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h3 id="list_oxidized"><code>list_oxidized</code></h3>
 <p>List devices for use with Oxidized. If you have group support enabled
@@ -3523,21 +3509,21 @@ they don't match.</p>
 <p>Input (JSON):</p>
 <p>-</p>
 <p>Examples:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">[
-    {
-        &quot;hostname&quot;: &quot;localhost&quot;,
-        &quot;os&quot;: &quot;linux&quot;
-    },
-    {
-        &quot;hostname&quot;: &quot;otherserver&quot;,
-        &quot;os&quot;: &quot;linux&quot;
-    }
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;linux&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;otherserver&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;linux&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <h3 id="update_device_field"><code>update_device_field</code></h3>
 <p>Update devices field in the database.</p>
@@ -3551,29 +3537,29 @@ they don't match.</p>
 <li>data: The data to update the column with (can be an array of data))</li>
 </ul>
 <p>Examples:</p>
-<pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: &quot;notes&quot;, &quot;data&quot;: &quot;This server should be kept online&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X PATCH -d &#39;{&quot;field&quot;: &quot;notes&quot;, &quot;data&quot;: &quot;This server should be kept online&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">[
-    {
-        &quot;status&quot;: &quot;ok&quot;,
-        &quot;message&quot;: &quot;Device notes has been updated&quot;
-    }
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device notes has been updated&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
-<pre><code class="curl">curl -X PATCH -d '{&quot;field&quot;: [&quot;notes&quot;,&quot;purpose&quot;], &quot;data&quot;: [&quot;This server should be kept online&quot;, &quot;For serving web traffic&quot;]}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X PATCH -d &#39;{&quot;field&quot;: [&quot;notes&quot;,&quot;purpose&quot;], &quot;data&quot;: [&quot;This server should be kept online&quot;, &quot;For serving web traffic&quot;]}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">[
-    {
-        &quot;status&quot;: &quot;ok&quot;,
-        &quot;message&quot;: &quot;Device fields have been updated&quot;
-    }
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device fields have been updated&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <h3 id="rename_device"><code>rename_device</code></h3>
 <p>Rename device.</p>
@@ -3584,17 +3570,17 @@ they don't match.</p>
 <p>Input:</p>
 <p>-</p>
 <p>Examples:</p>
-<pre><code class="curl">curl -X PATCH  -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/rename/localhost2
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -X PATCH  -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/rename/localhost2
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">[
-    {
-        &quot;status&quot;: &quot;ok&quot;,
-        &quot;message&quot;: &quot;Device has been renamed&quot;
-    }
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device has been renamed&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <h3 id="get_device_groups"><code>get_device_groups</code></h3>
 <p>List the device groups that a device is matched on.</p>
@@ -3605,26 +3591,26 @@ they don't match.</p>
 <p>Input (JSON):</p>
 <p>-</p>
 <p>Examples:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/groups
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/groups
+</code></pre></div>
 
 <p>Output:</p>
-<pre><code class="json">[
-    {
-        &quot;status&quot;: &quot;ok&quot;,
-        &quot;message&quot;: &quot;Found 1 device groups&quot;,
-        &quot;count&quot;: 1,
-        &quot;groups&quot;: [
-        {
-            &quot;id&quot;: &quot;1&quot;,
-            &quot;name&quot;: &quot;Testing&quot;,
-            &quot;desc&quot;: &quot;Testing&quot;,
-            &quot;pattern&quot;: &quot;%devices.status = \&quot;1\&quot; &amp;&amp;&quot;
-        }
-        ]
-    }
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Found 1 device groups&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;%devices.status = \&quot;1\&quot; &amp;&amp;&quot;</span>
+        <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
 <h3 id="search_oxidized"><code>search_oxidized</code></h3>
 <p>search all oxidized device configs for a string.</p>
@@ -3634,27 +3620,25 @@ they don't match.</p>
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/config/search/vlan10
-</code></pre>
-
-<p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;nodes&quot;: [
-        {
-            &quot;node&quot;: &quot;asr9k.librenms.org&quot;,
-            &quot;full_name&quot;: &quot;cisco\/ASR9K.Librenms.org&quot;
-        },
-        {
-            &quot;node&quot;: &quot;ios.Librenms.org&quot;,
-            &quot;full_name&quot;: &quot;cisco\/ios.Librenms.org&quot;
-        }
-    ],
-    &quot;count&quot;: 2
-}
-</code></pre>
-
+<p>Example:
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized/config/search/vlan10
+</code></pre></div></p>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;asr9k.librenms.org&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco\/ASR9K.Librenms.org&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;ios.Librenms.org&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco\/ios.Librenms.org&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="get_oxidized_config"><code>get_oxidized_config</code></h3>
 <p>Returns a specific device's config from oxidized.</p>
 <p>Route: <code>api/v0/oxidized/config/:device_name</code></p>
@@ -3663,17 +3647,15 @@ they don't match.</p>
 </ul>
 <p>Input:</p>
 <p>-</p>
-<p>Example:</p>
-<pre><code class="curl">curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/oxidized/config/router.corp.com
-</code></pre>
-
-<p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;config&quot;: &quot;DEVICE CONFIG HERE&quot;
-}
-</code></pre>
-
+<p>Example:
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized/config/router.corp.com
+</code></pre></div></p>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="s2">&quot;DEVICE CONFIG HERE&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="add_parents_to_host"><code>add_parents_to_host</code></h3>
 <p>Add one or more parents to a host.</p>
 <p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
@@ -3681,17 +3663,15 @@ they don't match.</p>
 <ul>
 <li>parent_ids: one or more parent ids</li>
 </ul>
-<p>Example:</p>
-<pre><code class="curl">curl -X POST -d '{&quot;parent_ids&quot;:&quot;15,16,17&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/1/parents
-</code></pre>
-
-<p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;Device dependencies have been saved&quot;
-}
-</code></pre>
-
+<p>Example:
+<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;parent_ids&quot;:&quot;15,16,17&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/1/parents
+</code></pre></div></p>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Device dependencies have been saved&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="delete_parents_from_host"><code>delete_parents_from_host</code></h3>
 <p>Deletes some or all the parents from a host.</p>
 <p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
@@ -3699,30 +3679,17 @@ they don't match.</p>
 <ul>
 <li>parent_ids: One or more parent ids, if not specified deletes all parents from host.</li>
 </ul>
-<p>Example:</p>
-<pre><code class="curl">curl -X DELETE -d '{&quot;parent_ids&quot;:&quot;15,16,17&quot;}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/1/parents
-</code></pre>
-
-<p>Output:</p>
-<pre><code class="json">{
-    &quot;status&quot;: &quot;ok&quot;,
-    &quot;message&quot;: &quot;All device dependencies have been removed&quot;
-}
-</code></pre>
+<p>Example:
+<div class="highlight"><pre><span></span><code>curl -X DELETE -d &#39;{&quot;parent_ids&quot;:&quot;15,16,17&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/1/parents
+</code></pre></div></p>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;All device dependencies have been removed&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//API/Devices.md" title="API/Devices.md" class="md-source-file">
-                      API/Devices.md
-                    </a>
-                  
-                
                 
               
               
@@ -3739,34 +3706,34 @@ they don't match.</p>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../" title="Using the API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../" title="Using the API" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Using the API
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../DeviceGroups/" title="DeviceGroups" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../DeviceGroups/" title="DeviceGroups" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 DeviceGroups
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -3777,11 +3744,10 @@ they don't match.</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -3790,9 +3756,18 @@ they don't match.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

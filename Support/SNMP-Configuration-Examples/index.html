@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="LibreNMS user and developer documentation">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="LibreNMS">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,99 +46,79 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-79149977-2", "docs.librenms.org")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#snmp-configuration-examples" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#snmp-configuration-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://docs.librenms.org" title="LibreNMS Docs" aria-label="LibreNMS Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../img/librenms.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              LibreNMS Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                SNMP Configuration Examples
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-header-nav__button md-logo" aria-label="LibreNMS Docs">
+      
+  <img src="../../img/librenms.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LibreNMS Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              SNMP Configuration Examples
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -170,71 +126,55 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://docs.librenms.org" title="LibreNMS Docs" class="md-nav__button md-logo" aria-label="LibreNMS Docs">
       
-        <img alt="logo" src="../../img/librenms.svg" width="48" height="48">
-      
+  <img src="../../img/librenms.svg" alt="logo">
+
     </a>
     LibreNMS Docs
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     GitHub
   </div>
@@ -262,13 +202,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. General
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="1. General" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         1. General
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +292,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. Installing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         2. Installing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,8 +316,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Installation/" title="Installing LibreNMS" class="md-nav__link">
-      Installing LibreNMS
+    <a href="../../Installation/" title="How to install LibreNMS" class="md-nav__link">
+      How to install LibreNMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Installation/Install-LibreNMS/" title="Install LibreNMS" class="md-nav__link">
+      Install LibreNMS
     </a>
   </li>
 
@@ -378,66 +342,6 @@
   <li class="md-nav__item">
     <a href="../../Installation/Images/" title="LibreNMS VMs" class="md-nav__link">
       LibreNMS VMs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" title="Ubuntu 18.04 (Nginx)" class="md-nav__link">
-      Ubuntu 18.04 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Ubuntu-1804-Apache/" title="Ubuntu 18.04 (Apache)" class="md-nav__link">
-      Ubuntu 18.04 (Apache)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-Debian-10-Nginx/" title="Debian 10 (Nginx)" class="md-nav__link">
-      Debian 10 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Nginx/" title="CentOS 7 (Nginx)" class="md-nav__link">
-      CentOS 7 (Nginx)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Installation/Installation-CentOS-7-Apache/" title="CentOS 7 (Apache)" class="md-nav__link">
-      CentOS 7 (Apache)
     </a>
   </li>
 
@@ -466,13 +370,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. Getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         3. Getting started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,13 +460,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. Basic Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         4. Basic Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -682,13 +598,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       5. Advanced Setup
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         5. Advanced Setup
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -946,13 +868,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. 3rd Party Integration
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         6. 3rd Party Integration
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1061,13 +989,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
     
     <label class="md-nav__link" for="nav-7-9">
       Storing Metrics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
       <label class="md-nav__title" for="nav-7-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Storing Metrics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1174,13 +1108,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="7. API" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         7. API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1378,13 +1318,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       8. Alerting
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         8. Alerting
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1524,13 +1470,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       9. Getting help
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         9. Getting help
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1641,13 +1593,16 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         SNMP Configuration Examples
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="SNMP Configuration Examples" class="md-nav__link md-nav__link--active">
@@ -1655,13 +1610,18 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1669,7 +1629,7 @@
     Devices
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Devices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1677,7 +1637,7 @@
     Cisco
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Cisco">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1718,7 +1678,7 @@
     Eaton
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Eaton">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1738,7 +1698,7 @@
     HPE 3PAR
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="HPE 3PAR">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1758,7 +1718,7 @@
     Infoblox
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Infoblox">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1778,7 +1738,7 @@
     Juniper
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Juniper">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1798,7 +1758,7 @@
     Mikrotik
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Mikrotik">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1818,7 +1778,7 @@
     Palo Alto
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Palo Alto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1838,7 +1798,7 @@
     Ubiquiti
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Ubiquiti">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1858,7 +1818,7 @@
     VMware
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="VMware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1890,7 +1850,7 @@
     Operating systems
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Operating systems">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1905,7 +1865,7 @@
     Linux (snmpd v3)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Linux (snmpd v3)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1913,7 +1873,7 @@
     Restart the snmpd service
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Restart the snmpd service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1973,16 +1933,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2038,13 +1988,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       10. Contributing + Developing
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         10. Contributing + Developing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2189,13 +2145,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-12" type="checkbox" id="nav-11-12">
     
     <label class="md-nav__link" for="nav-11-12">
       Support for a new OS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
       <label class="md-nav__title" for="nav-11-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Support for a new OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2386,13 +2348,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       11. Misc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         11. Misc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2429,13 +2397,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
     
     <label class="md-nav__link" for="nav-12-3">
       Device Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
       <label class="md-nav__title" for="nav-12-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Device Notes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2486,13 +2460,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -2500,7 +2479,7 @@
     Devices
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Devices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2508,7 +2487,7 @@
     Cisco
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Cisco">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2549,7 +2528,7 @@
     Eaton
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Eaton">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2569,7 +2548,7 @@
     HPE 3PAR
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="HPE 3PAR">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2589,7 +2568,7 @@
     Infoblox
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Infoblox">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2609,7 +2588,7 @@
     Juniper
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Juniper">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2629,7 +2608,7 @@
     Mikrotik
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Mikrotik">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2649,7 +2628,7 @@
     Palo Alto
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Palo Alto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2669,7 +2648,7 @@
     Ubiquiti
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Ubiquiti">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2689,7 +2668,7 @@
     VMware
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="VMware">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2721,7 +2700,7 @@
     Operating systems
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Operating systems">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2736,7 +2715,7 @@
     Linux (snmpd v3)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Linux (snmpd v3)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2744,7 +2723,7 @@
     Restart the snmpd service
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Restart the snmpd service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2804,16 +2783,6 @@
   
 </li>
       
-      
-        <li class="md-nav__item">
-          <a href="#__source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -2826,7 +2795,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Support/SNMP-Configuration-Examples.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Support/SNMP-Configuration-Examples.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                    
+
+
+  
+
+
+<a href="https://github.com/librenms/librenms/blob/master/doc//Support/SNMP-Configuration-Examples.md" title="Support/SNMP-Configuration-Examples.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="snmp-configuration-examples">SNMP configuration examples</h1>
@@ -2886,7 +2872,7 @@
 <li>Click Apply and Save</li>
 </ol>
 <p>CLI</p>
-<pre><code># SNMPv2c
+<div class="highlight"><pre><span></span><code># SNMPv2c
 
 snmp-server community &lt;YOUR-COMMUNITY&gt;
 snmp-server contact &lt;YOUR-CONTACT&gt;
@@ -2900,13 +2886,13 @@ snmp-server user &lt;USER-NAME&gt; &lt;GROUP-NAME&gt; v3 auth sha &lt;AUTH-PASSW
 snmp-server contact &lt;YOUR-CONTACT&gt;
 snmp-server location &lt;YOUR-LOCATION&gt;
 snmp-server host &lt;INTERFACE&gt; &lt;LIBRENMS-IP&gt; poll version 3 &lt;USER-NAME&gt;
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>Note: If the device is unable to find the SNMP user, reboot the ASA. Once rebooted, continue the steps as normal.</p>
 </blockquote>
 <h4 id="ios-ios-xe">IOS / IOS XE</h4>
-<pre><code># SNMPv2c
+<div class="highlight"><pre><span></span><code># SNMPv2c
 
 snmp-server community &lt;YOUR-COMMUNITY&gt; RO
 snmp-server contact &lt;YOUR-CONTACT&gt;
@@ -2922,13 +2908,13 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 # Note: The following is also required if using SNMPv3 and you want to populate the FDB table.
 
 snmp-server group &lt;GROUP-NAME&gt; v3 priv context vlan- match prefix
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>Note: If the device is unable to find the SNMP user, reboot the ASA. Once rebooted, continue the steps as normal.</p>
 </blockquote>
 <h4 id="nx-os">NX-OS</h4>
-<pre><code># SNMPv2c
+<div class="highlight"><pre><span></span><code># SNMPv2c
 
 snmp-server community &lt;YOUR-COMMUNITY&gt; RO
 snmp-server contact &lt;YOUR-CONTACT&gt;
@@ -2939,7 +2925,7 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 snmp-server user &lt;USER-NAME&gt; &lt;GROUP-NAME&gt; v3 auth sha &lt;AUTH-PASSWORD&gt; priv aes 128 &lt;PRIV-PASSWORD&gt;
 snmp-server contact &lt;YOUR-CONTACT&gt;
 snmp-server location &lt;YOUR-LOCATION&gt;
-</code></pre>
+</code></pre></div>
 
 <h4 id="wireless-lan-controller-wlc">Wireless LAN Controller (WLC)</h4>
 <ol>
@@ -2965,14 +2951,14 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 <li>Access the CLI</li>
 <li>Add an SNMP Manager with your LibreNMS IP address:</li>
 </ul>
-<pre><code>addsnmpmgr &lt;librenms ip&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>addsnmpmgr &lt;librenms ip&gt;
+</code></pre></div>
 
 <ul>
 <li>Add your SNMP community:</li>
 </ul>
-<pre><code>setsnmppw &lt;community&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>setsnmppw &lt;community&gt;
+</code></pre></div>
 
 <h3 id="infoblox">Infoblox</h3>
 <h4 id="nios-7x">NIOS 7.x+</h4>
@@ -2988,32 +2974,31 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 <h3 id="juniper">Juniper</h3>
 <h4 id="junos-os">Junos OS</h4>
 <p>for SNMPv1/v2c</p>
-<pre><code>set snmp description description
+<div class="highlight"><pre><span></span><code>set snmp description description
 set snmp location location
 set snmp contact contact
 set snmp community YOUR-COMMUNITY authorization read-only
-</code></pre>
+</code></pre></div>
 
 <p>for SNMPv3 (authPriv):</p>
-<pre><code>set snmp v3 usm local-engine user authpriv authentication-sha authentication-password YOUR_AUTH_SECRET
+<div class="highlight"><pre><span></span><code>set snmp v3 usm local-engine user authpriv authentication-sha authentication-password YOUR_AUTH_SECRET
 set snmp v3 usm local-engine user authpriv privacy-aes128 privacy-password YOUR_PRIV_SECRET
 set snmp v3 vacm security-to-group security-model usm security-name authpriv group mysnmpv3
 set snmp v3 vacm access group mysnmpv3 default-context-prefix security-model any security-level authentication read-view mysnmpv3view
 set snmp v3 vacm access group mysnmpv3 default-context-prefix security-model any security-level privacy read-view mysnmpv3view
 set snmp view mysnmpv3view oid iso include
-</code></pre>
+</code></pre></div>
 
 <h3 id="mikrotik">Mikrotik</h3>
 <h4 id="routeros-6x">RouterOS 6.x</h4>
 <p>CLI SNMP v2 Configuration</p>
-<pre><code>/snmp community
+<p><div class="highlight"><pre><span></span><code>/snmp community
 set [ find default=yes ] read-access=no
 add addresses=&lt;ALLOWED-SRC-IPs/NETMASK&gt; name=&lt;COMMUNITY&gt;
 /snmp
 set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; location=&quot;&lt;LOCALTION&gt;&quot;
-</code></pre>
-
-<p>Notes:</p>
+</code></pre></div>
+Notes:</p>
 <ul>
 <li>About the snmp community commands:<ul>
 <li>The commands change the default snmp community.  It is probably possible to create a new one instead.</li>
@@ -3028,8 +3013,8 @@ set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&lt;ENGINE ID&gt; loc
 </ul>
 </li>
 </ul>
-<p>CLI SNMP v3 Configuration for <em>authPriv</em></p>
-<pre><code>/snmp community 
+<p>CLI SNMP v3 Configuration for <em>authPriv</em>
+<div class="highlight"><pre><span></span><code>/snmp community 
 add name=&quot;&lt;COMMUNITY&gt;&quot; addresses=&quot;&lt;ALLOWED-SRC-IPs/NETMASK&gt;&quot; 
 set &quot;&lt;COMMUNITY&gt;&quot; authentication-password=&quot;&lt;AUTH_PASS&gt;&quot; authentication-protocol=MD5
 set &quot;&lt;COMMUNITY&gt;&quot; encryption-password=&quot;&lt;ENCRYP_PASS&gt;&quot; encryption-protocol=AES
@@ -3038,9 +3023,8 @@ set &quot;&lt;COMMUNITY&gt;&quot; read-access=yes write-access=no security=priva
 set public read-access=no write-access=no security=private
 /snmp
 set contact=&quot;&lt;NAME&gt;&quot; enabled=yes engine-id=&quot;&lt;ENGINE ID&gt;&quot; location=&quot;&lt;LOCALTION&gt;&quot;
-</code></pre>
-
-<p>Notes:</p>
+</code></pre></div>
+Notes:</p>
 <ul>
 <li>Use password with length of min 8 chars</li>
 </ul>
@@ -3066,7 +3050,7 @@ Interface Settings" for out of band management interface.</p>
 when you need to configure more than one firewall for SNMP
 monitoring. Log into the firewall(s) via ssh, and perform these
 commands for basic SNMPv3 configuration:</p>
-<pre><code>username@devicename&gt; configure
+<div class="highlight"><pre><span></span><code>username@devicename&gt; configure
 username@devicename# set deviceconfig system service disable-snmp no
 username@devicename# set deviceconfig system snmp-setting access-setting version v3 views pa view iso oid 1.3.6.1
 username@devicename# set deviceconfig system snmp-setting access-setting version v3 views pa view iso option include
@@ -3078,7 +3062,7 @@ username@devicename# set deviceconfig system snmp-setting snmp-system location &
 username@devicename# set deviceconfig system snmp-setting snmp-system contact noc@your.org
 username@devicename# commit
 username@devicename# exit
-</code></pre>
+</code></pre></div>
 
 <h3 id="ubiquiti">Ubiquiti</h3>
 <h4 id="edgeos">EdgeOs</h4>
@@ -3093,37 +3077,36 @@ username@devicename# exit
 1. Enter your System Name, System Location and System Contact.
 1. Click submit
 1. Click "Save Configuration"</p>
-<p>If you use CLI:</p>
-<pre><code>username@devicename&gt; enable
+<p>If you use CLI:
+<div class="highlight"><pre><span></span><code>username@devicename&gt; enable
 username@devicename# configure
 username@devicename (Config)# snmp-server community &quot;public&quot; ro
 username@devicename (Config)# snmp-server sysname &quot;devicename&quot;
 username@devicename (Config)# snmp-server contact &quot;noc@example.com&quot;
 username@devicename (Config)# exit
 username@devicename# write memory
-</code></pre>
-
+</code></pre></div></p>
 <h3 id="vmware">VMware</h3>
 <h4 id="esxesxi-5x6x">ESX/ESXi 5.x/6.x</h4>
 <p>Log on to your ESX server by means of ssh. You may have to enable the
 ssh service in the GUI first.
 From the CLI, execute the following commands:</p>
-<pre><code>esxcli system snmp set --authentication SHA1
+<div class="highlight"><pre><span></span><code>esxcli system snmp set --authentication SHA1
 esxcli system snmp set --privacy AES128
 esxcli system snmp hash --auth-hash YOUR_AUTH_SECRET --priv-hash YOUR_PRIV_SECRET --raw-secret
-</code></pre>
+</code></pre></div>
 
 <p>This command produces output like this</p>
-<pre><code>   Authhash: f3d8982fc28e8d1346c26eee49eb2c4a5950c934
+<div class="highlight"><pre><span></span><code>   Authhash: f3d8982fc28e8d1346c26eee49eb2c4a5950c934
    Privhash: 0596ab30b315576a4e9f7d7bde65bf49b749e335
-</code></pre>
+</code></pre></div>
 
 <p>Now define a SNMPv3 user:</p>
-<pre><code>esxcli system snmp set --users &lt;username&gt;/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
+<div class="highlight"><pre><span></span><code>esxcli system snmp set --users &lt;username&gt;/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
 esxcli system snmp set -L &quot;Yourcity, Yourcountry [60.4,5.3]&quot;
 esxcli system snmp set -C noc@your.org
 esxcli system snmp set --enable true
-</code></pre>
+</code></pre></div>
 
 <blockquote>
 <p>Note: In case of snmp timouts, disable the firewall with <code>esxcli
@@ -3134,29 +3117,29 @@ with firewall disabled, migrate VMs if needed and reboot ESXi host.</p>
 <p>Log on to your ESX server by means of ssh. You may have to enable the
 ssh service in the GUI first. From the CLI, execute the following
 commands:</p>
-<pre><code>snmp.set --authentication SHA1
+<div class="highlight"><pre><span></span><code>snmp.set --authentication SHA1
 snmp.set --privacy AES128
 snmp.hash --auth_hash YOUR_AUTH_SECRET --priv_hash YOUR_PRIV_SECRET --raw_secret true
-</code></pre>
+</code></pre></div>
 
 <p>This command produces output like this</p>
-<pre><code>   Privhash: 0596ab30b315576a4e9f7d7bde65bf49b749e335
+<div class="highlight"><pre><span></span><code>   Privhash: 0596ab30b315576a4e9f7d7bde65bf49b749e335
    Authhash: f3d8982fc28e8d1346c26eee49eb2c4a5950c934
-</code></pre>
+</code></pre></div>
 
 <p>Now define a SNMPv3 user:</p>
-<pre><code>snmp.set --users authpriv/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
+<div class="highlight"><pre><span></span><code>snmp.set --users authpriv/f3d8982fc28e8d1346c26eee49eb2c4a5950c934/0596ab30b315576a4e9f7d7bde65bf49b749e335/priv
 snmp.enable
-</code></pre>
+</code></pre></div>
 
 <h2 id="operating-systems">Operating systems</h2>
 <h3 id="linux-snmpd-v2">Linux (snmpd v2)</h3>
 <p>Replace your snmpd.conf file by the example below and edit it with
 appropriate community in "RANDOMSTRINGGOESHERE".</p>
-<pre><code>vi /etc/snmp/snmpd.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>vi /etc/snmp/snmpd.conf
+</code></pre></div>
 
-<pre><code># Change RANDOMSTRINGGOESHERE to your preferred SNMP community string
+<div class="highlight"><pre><span></span><code># Change RANDOMSTRINGGOESHERE to your preferred SNMP community string
 com2sec readonly  default         RANDOMSTRINGGOESHERE
 
 group MyROGroup v2c        readonly
@@ -3170,10 +3153,10 @@ syscontact Your Name &lt;your@email.address&gt;
 extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
 
 #Hardware Detection (uncomment to enable)
-#extend .1.3.6.1.4.1.2021.7890.2 hardware '/bin/cat /sys/devices/virtual/dmi/id/product_name'
-#extend .1.3.6.1.4.1.2021.7890.3 manufacturer '/bin/cat /sys/devices/virtual/dmi/id/sys_vendor'
-#extend .1.3.6.1.4.1.2021.7890.4 serial '/bin/cat /sys/devices/virtual/dmi/id/product_serial'
-</code></pre>
+#extend .1.3.6.1.4.1.2021.7890.2 hardware &#39;/bin/cat /sys/devices/virtual/dmi/id/product_name&#39;
+#extend .1.3.6.1.4.1.2021.7890.3 manufacturer &#39;/bin/cat /sys/devices/virtual/dmi/id/sys_vendor&#39;
+#extend .1.3.6.1.4.1.2021.7890.4 serial &#39;/bin/cat /sys/devices/virtual/dmi/id/product_serial&#39;
+</code></pre></div>
 
 <p><strong>NOTE</strong>: On some systems the snmpd is running as its own user, which
 means it can't read <code>/sys/devices/virtual/dmi/id/product_serial</code> which
@@ -3181,57 +3164,57 @@ is mode 0400. One solution is to include <code>@reboot chmod 444
 /sys/devices/virtual/dmi/id/product_serial</code> in the crontab for root or
 equivalent.</p>
 <p>The LibreNMS server include a copy of this example here:</p>
-<pre><code>/opt/librenms/snmpd.conf.example
-</code></pre>
+<div class="highlight"><pre><span></span><code>/opt/librenms/snmpd.conf.example
+</code></pre></div>
 
 <p>The binary /usr/bin/distro must be copied from the original source repository:</p>
-<pre><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+<div class="highlight"><pre><span></span><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
-</code></pre>
+</code></pre></div>
 
 <h3 id="linux-snmpd-v3">Linux (snmpd v3)</h3>
 <p>Go to /etc/snmp/snmpd.conf</p>
 <p>Open the file in vi or nano /etc/snmp/snmpd.conf and add the following
 line to create SNMPV3 User (replace username and passwords with your
 own):</p>
-<pre><code>createUser authPrivUser MD5 &quot;authPassword&quot; DES &quot;privPassword&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>createUser authPrivUser MD5 &quot;authPassword&quot; DES &quot;privPassword&quot;
+</code></pre></div>
 
 <p>Make sure the agent listens to all interfaces by adding the following
 line inside snmpd.conf:</p>
-<pre><code>agentAddress udp:161,udp6:[::1]:161
-</code></pre>
+<div class="highlight"><pre><span></span><code>agentAddress udp:161,udp6:[::1]:161
+</code></pre></div>
 
 <p>This line simply means listen to connections across all interfaces
 IPv4 and IPv6 respectively</p>
 <p>Uncomment and change the following line to give read access to the
 username created above (rouser is what LibreNMS uses) :</p>
-<pre><code>#rouser authPrivUser priv
-</code></pre>
+<div class="highlight"><pre><span></span><code>#rouser authPrivUser priv
+</code></pre></div>
 
 <p>Change the following details inside snmpd.conf</p>
-<pre><code>syslocation Rack, Room, Building, City, Country [GPSX,Y]
+<div class="highlight"><pre><span></span><code>syslocation Rack, Room, Building, City, Country [GPSX,Y]
 syscontact Your Name &lt;your@email.address&gt;
-</code></pre>
+</code></pre></div>
 
 <p>Save and exit the file</p>
 <h4 id="restart-the-snmpd-service">Restart the snmpd service</h4>
 <h5 id="centos-6-red-hat-6">CentOS 6 / Red hat 6</h5>
-<pre><code>service snmpd restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>service snmpd restart
+</code></pre></div>
 
 <h5 id="centos-7-red-hat-7">CentOS 7 / Red hat 7</h5>
-<pre><code>systemctl restart snmpd
-</code></pre>
+<div class="highlight"><pre><span></span><code>systemctl restart snmpd
+</code></pre></div>
 
 <p>Add SNMP to Firewalld</p>
-<pre><code>firewall-cmd --zone=public --permanent --add-service=snmp
+<div class="highlight"><pre><span></span><code>firewall-cmd --zone=public --permanent --add-service=snmp
 firewall-cmd --reload
-</code></pre>
+</code></pre></div>
 
 <h5 id="ubuntu">Ubuntu</h5>
-<pre><code>service snmpd restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>service snmpd restart
+</code></pre></div>
 
 <h3 id="windows-server-2008-r2">Windows Server 2008 R2</h3>
 <ol>
@@ -3267,42 +3250,30 @@ firewall-cmd --reload
 </blockquote>
 <h3 id="mac-osx">Mac OSX</h3>
 <p>Step 1: <code>sudo nano /etc/snmp/snmpd.conf</code></p>
-<pre><code class="bash">#Allow read-access with the following SNMP Community String:
+<div class="highlight"><pre><span></span><code><span class="c1">#Allow read-access with the following SNMP Community String:</span>
 rocommunity public
 
-# all other settings are optional but recommended.
+<span class="c1"># all other settings are optional but recommended.</span>
 
-# Location of the device
+<span class="c1"># Location of the device</span>
 syslocation data centre A
 
-# Human Contact for the device
+<span class="c1"># Human Contact for the device</span>
 syscontact SysAdmin
 
-# System Name of the device
+<span class="c1"># System Name of the device</span>
 sysName SystemName
 
-# the system OID for this device. This is optional but recommended,
-# to identify this as a MAC OS system.
-sysobjectid 1.3.6.1.4.1.8072.3.2.16
-</code></pre>
+<span class="c1"># the system OID for this device. This is optional but recommended,</span>
+<span class="c1"># to identify this as a MAC OS system.</span>
+sysobjectid <span class="m">1</span>.3.6.1.4.1.8072.3.2.16
+</code></pre></div>
 
 <p>Step 2:</p>
-<pre><code class="bash">sudo launchctl load -w /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo launchctl load -w /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
+</code></pre></div>
                 
                   
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      
-                    
-                    
-                    
-                    <a href="https://github.com/librenms/librenms/blob/master/doc//Support/SNMP-Configuration-Examples.md" title="Support/SNMP-Configuration-Examples.md" class="md-source-file">
-                      Support/SNMP-Configuration-Examples.md
-                    </a>
-                  
-                
                 
               
               
@@ -3319,34 +3290,34 @@ sysobjectid 1.3.6.1.4.1.8072.3.2.16
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Remote-Monitoring-VPN/" title="Remote Monitoring VPN" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../Remote-Monitoring-VPN/" title="Remote Monitoring VPN" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Remote Monitoring VPN
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../SSL-Configuration/" title="SSL Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../SSL-Configuration/" title="SSL Configuration" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 SSL Configuration
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -3357,11 +3328,10 @@ sysobjectid 1.3.6.1.4.1.8072.3.2.16
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -3370,9 +3340,18 @@ sysobjectid 1.3.6.1.4.1.8072.3.2.16
       
     </div>
     
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "clipboard.copied": "Copied to clipboard", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "search.result.one": "1 matching document"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>
