@@ -2413,12 +2413,11 @@ architecture then the following steps should be all that's needed:</p>
   librenms -u root -p &gt; librenms.sql</code>)...</li>
 <li>and import it into your new server (<code>mysql -u root -p librenms &lt; librenms.sql</code>).</li>
 <li>Copy the <code>rrd/</code> folder to the new server.</li>
-<li>Copy the <code>config.php</code> file to the new server.</li>
+<li>Copy the <code>.env</code> and <code>config.php</code> files to the new server.</li>
 <li>Check for modified files (eg specific os, ...) with <code>git status</code> and 
   migrate them.</li>
 <li>Ensure ownership of the copied files and folders (substitute your
-  user if necessary) - <code>chown -R librenms:librenms rrd/; chown
-  librenms:librenms config.php</code></li>
+  user if necessary) - <code>chown -R librenms:librenms /opt/librenms</code></li>
 <li>Delete old pollers on the GUI (gear icon --&gt; Pollers --&gt; Pollers)</li>
 <li>Validate your installation (/opt/librenms/validate.php)</li>
 <li>Re-enable cron by uncommenting all lines in <code>/etc/cron.d/librenms</code></li>
@@ -2711,7 +2710,7 @@ exit;
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.one": "1 matching document", "search.result.other": "# matching documents", "clipboard.copy": "Copy to clipboard", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.placeholder": "Type to start searching", "clipboard.copied": "Copied to clipboard"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.one": "1 matching document", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.config.separator": "[\\s\\-]+", "clipboard.copy": "Copy to clipboard", "search.result.none": "No matching documents", "clipboard.copied": "Copied to clipboard"}</script>
       
       <script>
         app = initialize({
