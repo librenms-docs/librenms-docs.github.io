@@ -2163,7 +2163,7 @@
                 
                 <h1 id="prepare-linux-server">Prepare Linux Server</h1>
 <p>You should have an installed Linux server running one of the supported OS.
-Make sure you select the correct OS in the tabbed options below each time.
+Make sure you select your server's OS in the tabbed options below.
 Choice of web server is your preference, NGINX is recommended.</p>
 <p>Connect to the server command line and follow the instructions below.</p>
 <blockquote>
@@ -2249,14 +2249,14 @@ vi /etc/php/7.4/cli/php.ini
 </code></pre></div>
 
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Debian 10</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/php/7.3/fpm/php.ini
-vi /etc/php/7.3/cli/php.ini
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">CentOS 8</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>vi /etc/php.ini
 </code></pre></div>
 
 </div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/php.ini
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Debian 10</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>vi /etc/php/7.3/fpm/php.ini
+vi /etc/php/7.3/cli/php.ini
 </code></pre></div>
 
 </div>
@@ -2266,13 +2266,18 @@ vi /etc/php/7.3/cli/php.ini
 </code></pre></div>
 
 <h1 id="configure-mariadb">Configure MariaDB</h1>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Ubuntu 20.04 / Debian 10</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Ubuntu 20.04</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
 
 </div>
 <input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">CentOS 8</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>vi /etc/my.cnf.d/mariadb-server.cnf
+</code></pre></div>
+
+</div>
+<input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">Debian 10</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
 
 </div>
@@ -2306,15 +2311,15 @@ vi /etc/php/7.4/fpm/pool.d/librenms.conf
 </code></pre></div>
 
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Debian 10</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>cp /etc/php/7.3/fpm/pool.d/www.conf /etc/php/7.3/fpm/pool.d/librenms.conf
-vi /etc/php/7.3/fpm/pool.d/librenms.conf
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">CentOS 8</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>cp /etc/php-fpm.d/www.conf /etc/php-fpm.d/librenms.conf
+vi /etc/php-fpm.d/librenms.conf
 </code></pre></div>
 
 </div>
-<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>cp /etc/php-fpm.d/www.conf /etc/php-fpm.d/librenms.conf
-vi /etc/php-fpm.d/librenms.conf
+<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">Debian 10</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>cp /etc/php/7.3/fpm/pool.d/www.conf /etc/php/7.3/fpm/pool.d/librenms.conf
+vi /etc/php/7.3/fpm/pool.d/librenms.conf
 </code></pre></div>
 
 </div>
@@ -2405,45 +2410,8 @@ systemctl restart php7.4-fpm
 </div>
 </div>
 </div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Debian 10</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/nginx/sites-enabled/librenms.vhost
-</code></pre></div>
-
-<p>Add the following config, edit <code>server_name</code> as required:</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
- <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
- <span class="kn">server_name</span> <span class="s">librenms.example.com</span><span class="p">;</span>
- <span class="kn">root</span>        <span class="s">/opt/librenms/html</span><span class="p">;</span>
- <span class="kn">index</span>       <span class="s">index.php</span><span class="p">;</span>
-
- <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
- <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
- <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">application/javascript</span> <span class="s">text/javascript</span> <span class="s">application/x-javascript</span> <span class="s">image/svg+xml</span> <span class="s">text/plain</span> <span class="s">text/xsd</span> <span class="s">text/xsl</span> <span class="s">text/xml</span> <span class="s">image/x-icon</span><span class="p">;</span>
- <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">[^/]\.php(/|$)</span> <span class="p">{</span>
-  <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm-librenms.sock</span><span class="p">;</span>
-  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
-  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.(?!well-known).*</span> <span class="p">{</span>
-  <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
- <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>rm /etc/nginx/sites-enabled/default
-systemctl reload nginx
-systemctl restart php7.3-fpm
-</code></pre></div>
-
-</div>
-</div>
-</div>
-<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">CentOS 8</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">NGINX</label><div class="tabbed-content">
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">CentOS 8</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">NGINX</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>vi /etc/nginx/conf.d/librenms.conf
 </code></pre></div>
 
@@ -2481,7 +2449,7 @@ systemctl enable --now php-fpm
 </code></pre></div>
 
 </div>
-<input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><label for="__tabbed_11_2">Apache</label><div class="tabbed-content">
+<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">Apache</label><div class="tabbed-content">
 <p>Create the librenms.conf:</p>
 <div class="highlight"><pre><span></span><code>vi /etc/httpd/conf.d/librenms.conf
 </code></pre></div>
@@ -2520,9 +2488,46 @@ systemctl enable --now php-fpm
 </div>
 </div>
 </div>
+<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">Debian 10</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">NGINX</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>vi /etc/nginx/sites-enabled/librenms.vhost
+</code></pre></div>
+
+<p>Add the following config, edit <code>server_name</code> as required:</p>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
+ <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
+ <span class="kn">server_name</span> <span class="s">librenms.example.com</span><span class="p">;</span>
+ <span class="kn">root</span>        <span class="s">/opt/librenms/html</span><span class="p">;</span>
+ <span class="kn">index</span>       <span class="s">index.php</span><span class="p">;</span>
+
+ <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+ <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+ <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">application/javascript</span> <span class="s">text/javascript</span> <span class="s">application/x-javascript</span> <span class="s">image/svg+xml</span> <span class="s">text/plain</span> <span class="s">text/xsd</span> <span class="s">text/xsl</span> <span class="s">text/xml</span> <span class="s">image/x-icon</span><span class="p">;</span>
+ <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">[^/]\.php(/|$)</span> <span class="p">{</span>
+  <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm-librenms.sock</span><span class="p">;</span>
+  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
+  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.(?!well-known).*</span> <span class="p">{</span>
+  <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>rm /etc/nginx/sites-enabled/default
+systemctl reload nginx
+systemctl restart php7.3-fpm
+</code></pre></div>
+
+</div>
+</div>
+</div>
 </div>
 <h1 id="selinux">SELinux</h1>
-<div class="tabbed-set" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">Ubuntu 20.04 / Debian 10</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">Ubuntu 20.04</label><div class="tabbed-content">
 <p>SELinux not enabled by default</p>
 </div>
 <input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><label for="__tabbed_12_2">CentOS 8</label><div class="tabbed-content">
@@ -2568,9 +2573,12 @@ semodule -i http_fping.pp
 </code></pre></div>
 
 </div>
+<input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><label for="__tabbed_12_3">Debian 10</label><div class="tabbed-content">
+<p>SELinux not enabled by default</p>
+</div>
 </div>
 <h1 id="allow-access-through-firewall">Allow access through firewall</h1>
-<div class="tabbed-set" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">Ubuntu 20.04 / Debian 10</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">Ubuntu 20.04</label><div class="tabbed-content">
 <p>Firewall not enabled by default</p>
 </div>
 <input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><label for="__tabbed_13_2">CentOS 8</label><div class="tabbed-content">
@@ -2578,6 +2586,9 @@ semodule -i http_fping.pp
 firewall-cmd --permanent --zone public --add-service http --add-service https
 </code></pre></div>
 
+</div>
+<input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><label for="__tabbed_13_3">Debian 10</label><div class="tabbed-content">
+<p>Firewall not enabled by default</p>
 </div>
 </div>
 <h1 id="enable-lnms-command-completion">Enable lnms command completion</h1>
@@ -2736,7 +2747,7 @@ Collective</a>.</p>
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.one": "1 matching document", "search.result.none": "No matching documents", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.other": "# matching documents", "search.config.lang": "en", "search.result.placeholder": "Type to start searching", "clipboard.copied": "Copied to clipboard", "search.config.separator": "[\\s\\-]+", "search.result.one": "1 matching document", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard"}</script>
       
       <script>
         app = initialize({
@@ -2747,6 +2758,8 @@ Collective</a>.</p>
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="../../librenms-docs.js"></script>
       
     
   </body>
