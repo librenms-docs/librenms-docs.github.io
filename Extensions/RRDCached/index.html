@@ -2227,11 +2227,11 @@ or over, in addition to your rrdcached version.</p>
 so you can view the disk I/O usage delta.</p>
 <h1 id="installation-manual-for">Installation Manual for</h1>
 <ol>
-<li><a href="#RRDCached-installation-Ubuntu-16">RRDCached installation Ubuntu 16</a></li>
-<li><a href="#RRDCached-installation-Debian-Buster">RRDCached installation Debian Buster</a></li>
-<li><a href="#RRDCached-installation-Debian-Stretch">RRDCached installation Debian Stretch</a></li>
-<li><a href="#RRDCached-installation-CentOS-7">RRDCached installation CentOS 7</a></li>
-<li><a href="#RRDCached-installation-CentOS-6">RRDCached installation CentOS 6</a></li>
+<li><a href="#rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</a></li>
+<li><a href="#rrdcached-installation-debian-buster">RRDCached installation Debian Buster</a></li>
+<li><a href="#rrdcached-installation-debian-stretch">RRDCached installation Debian Stretch</a></li>
+<li><a href="#rrdcached-installation-centos-7-or-8">RRDCached installation CentOS 7 or 8</a></li>
+<li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
 <li><a href="#Securing-RRCached">Securing RRCached</a></li>
 </ol>
 <h2 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h2>
@@ -2350,7 +2350,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 </code></pre></div>
 
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
-<h2 id="rrdcached-installation-centos-78">RRDCached installation CentOS 7/8</h2>
+<h2 id="rrdcached-installation-centos-7-or-8">RRDCached installation CentOS 7 or 8</h2>
 <p>1: Create <code>/etc/systemd/system/rrdcached.service</code> with this content:</p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=Data caching daemon for rrdtool
@@ -2487,7 +2487,7 @@ hostname]&gt;Health&gt;Disk I/O.</p>
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.separator": "[\\s\\-]+", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "en", "search.result.placeholder": "Type to start searching", "search.result.other": "# matching documents", "clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.result.one": "1 matching document", "search.result.none": "No matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.placeholder": "Type to start searching", "clipboard.copy": "Copy to clipboard", "search.result.none": "No matching documents", "search.result.other": "# matching documents", "search.result.one": "1 matching document", "clipboard.copied": "Copied to clipboard", "search.config.separator": "[\\s\\-]+", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter"}</script>
       
       <script>
         app = initialize({
