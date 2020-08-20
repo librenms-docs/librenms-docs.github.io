@@ -1553,6 +1553,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#matrix" class="md-nav__link">
+    Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#microsoft-teams" class="md-nav__link">
     Microsoft Teams
   </a>
@@ -2590,6 +2597,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#matrix" class="md-nav__link">
+    Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#microsoft-teams" class="md-nav__link">
     Microsoft Teams
   </a>
@@ -3400,6 +3414,40 @@ As a small reminder, here is it's configuration directives including defaults:</
 </tr>
 </tbody>
 </table>
+<h2 id="matrix">Matrix</h2>
+<p>For using the Matrix transports, you have to create a room on the Matrix-server.
+The provided Auth_token belongs to an user, which is member of this room. 
+The Message, sent to the matrix-room can be built from the variables defined in
+<a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix. 
+See API-Transport. The variable <code>$msg</code> is contains the result of the Alert template.
+The Matrix-Server URL is cutted before the beginning of the <code>_matrix/client/r0/...</code> API-part.</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matrix-Server URL</td>
+<td><a href="https://matrix.example.com/">https://matrix.example.com/</a></td>
+</tr>
+<tr>
+<td>Room</td>
+<td>!ajPbbPalmVbNuQoBDK:example.com</td>
+</tr>
+<tr>
+<td>Auth_token:</td>
+<td>MDAyYmxvY2F0aW9uI...z1DCn6lz_uOhtW3XRICg</td>
+</tr>
+<tr>
+<td>Message:</td>
+<td>Alert: {{ $msg }} https://librenms.example.com</td>
+</tr>
+</tbody>
+</table>
 <h2 id="microsoft-teams">Microsoft Teams</h2>
 <p>LibreNMS can send alerts to Microsoft Teams <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">Incoming Webhooks</a> which are 
 then posted to a specific channel. Microsoft recommends using 
@@ -4164,7 +4212,7 @@ connect to servicedesk</p>
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.lang": "en", "search.result.placeholder": "Type to start searching", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "clipboard.copied": "Copied to clipboard", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.result.placeholder": "Type to start searching", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.one": "1 matching document", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.config.separator": "[\\s\\-]+", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
