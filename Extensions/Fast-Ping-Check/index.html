@@ -2273,10 +2273,10 @@ ping checks</p>
 poller to a group by appending <code>-g</code> to the cron entry.  Alternatively,
 you should only run ping.php on a single node.</p>
 <h2 id="sub-minute-ping-check">Sub minute ping check</h2>
-<p>Cron only has a resolution of one minute, so we have to use a trick to
-allow sub minute checks. We add two entries, but add a delay before one.</p>
-<p>Alerts are only run every minute, so you will have to modify them as
-well. Remove the original alerts.php entry.</p>
+<p>Cron only has a resolution of one minute, so for sub-minute ping checks we need to adapt both <code>ping</code>
+and <code>alerts</code> entries. We add two entries per function, but add a delay before one of these entries.</p>
+<p>Remember, you need to remove the original <code>ping.php</code> and <code>alerts.php</code> entries in crontab before
+proceeding!</p>
 <p>1: Set ping_rrd_step</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;ping_rrd_step&#39;] = 30;
 </code></pre></div>
@@ -2298,9 +2298,9 @@ does not (for technical reasons). However, using this script does not
 disable the icmp check in the poller and a child may be reported as
 down before the parent.</p>
 <h1 id="settings">Settings</h1>
-<p>ping.php uses much the same settings as the poller fping with one
+<p><code>ping.php</code> uses much the same settings as the poller fping with one
 exception: retries is used instead of count.
-ping.php does not measure loss and avg response time, only up/down, so
+<code>ping.php</code> does not measure loss and avg response time, only up/down, so
 once a device responds it stops pinging it.</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;fping_options&#39;][&#39;retries&#39;] = 2;
 $config[&#39;fping_options&#39;][&#39;timeout&#39;] = 500;
@@ -2375,7 +2375,7 @@ $config[&#39;fping_options&#39;][&#39;interval&#39;] = 500;
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.result.placeholder": "Type to start searching", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.one": "1 matching document", "search.result.none": "No matching documents", "clipboard.copy": "Copy to clipboard", "search.config.separator": "[\\s\\-]+", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.other": "# matching documents", "clipboard.copy": "Copy to clipboard", "search.result.placeholder": "Type to start searching", "clipboard.copied": "Copied to clipboard", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.config.separator": "[\\s\\-]+", "search.config.lang": "en"}</script>
       
       <script>
         app = initialize({
