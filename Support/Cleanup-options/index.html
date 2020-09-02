@@ -2181,13 +2181,13 @@ could become quite large so it becomes necessary to clean up those
 entries. With Cleanup Options, you can stay in control.</p>
 <p>These options rely on <code>daily.sh</code> running from cron as per the installation instructions.</p>
 <p>Cleanup Options are set in <code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;syslog_purge&#39;]                              = 30;</span>
-<span class="x">$config[&#39;eventlog_purge&#39;]                            = 30;</span>
-<span class="x">$config[&#39;authlog_purge&#39;]                             = 30;</span>
-<span class="x">$config[&#39;perf_times_purge&#39;]                          = 30;</span>
-<span class="x">$config[&#39;device_perf_purge&#39;]                         = 7;</span>
-<span class="x">$config[&#39;rrd_purge&#39;]                                 = 90;// Not set by default</span>
-<span class="x">$config[&#39;ports_purge&#39;]                               = true;// Set to false by default</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span>                              <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;eventlog_purge&#39;</span><span class="p">]</span>                            <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;authlog_purge&#39;</span><span class="p">]</span>                             <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;perf_times_purge&#39;</span><span class="p">]</span>                          <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_perf_purge&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrd_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">90</span><span class="p">;</span><span class="c1">// Not set by default</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ports_purge&#39;</span><span class="p">]</span>                               <span class="o">=</span> <span class="k">true</span><span class="p">;</span><span class="c1">// Set to false by default</span>
 </code></pre></div>
 
 <p>These options will ensure data within LibreNMS over X days old is

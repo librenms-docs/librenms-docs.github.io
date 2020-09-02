@@ -2181,7 +2181,7 @@
 </ul>
 <p>By default, both are are included but you can enable / disable either
 one using the following config option:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;network_map_items&#39;] = array(&#39;mac&#39;,&#39;xdp&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;network_map_items&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;mac&#39;</span><span class="p">,</span><span class="s1">&#39;xdp&#39;</span><span class="p">);</span>
 </code></pre></div>
 
 <p>Either remove mac or xdp depending on which you want.
@@ -2197,9 +2197,9 @@ do. <a href="https://visjs.github.io/vis-network/docs/network/">Link</a>
 You may also access the dyanamic configuration interface <a href="https://visjs.github.io/vis-network/examples/network/other/configuration.html">example
 here</a>
 from within LibreNMS by adding the following to config.php</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;network_map_vis_options&#39;] = &#39;{</span>
-<span class="x">  &quot;configure&quot;: { &quot;enabled&quot;: true},</span>
-<span class="x">}&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;network_map_vis_options&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;{</span>
+<span class="s1">  &quot;configure&quot;: { &quot;enabled&quot;: true},</span>
+<span class="s1">}&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="note">Note</h2>
@@ -2215,36 +2215,36 @@ config into config.php the format will need to look something like
 this. Note that the configuartor will output the config with <code>var options</code>
 you will need strip that out and at the end of the config you need to
 add in <code>}';</code> see the example below.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;network_map_vis_options&#39;] = &#39;{</span>
-<span class="x">  &quot;nodes&quot;: {</span>
-<span class="x">    &quot;color&quot;: {</span>
-<span class="x">      &quot;background&quot;: &quot;rgba(20,252,18,1)&quot;</span>
-<span class="x">    },</span>
-<span class="x">    &quot;font&quot;: {</span>
-<span class="x">      &quot;face&quot;: &quot;tahoma&quot;</span>
-<span class="x">    },</span>
-<span class="x">    &quot;physics&quot;: false</span>
-<span class="x">  },</span>
-<span class="x">  &quot;edges&quot;: {</span>
-<span class="x">    &quot;smooth&quot;: {</span>
-<span class="x">      &quot;forceDirection&quot;: &quot;none&quot;</span>
-<span class="x">    }</span>
-<span class="x">  },</span>
-<span class="x">  &quot;interaction&quot;: {</span>
-<span class="x">    &quot;hover&quot;: true,</span>
-<span class="x">    &quot;multiselect&quot;: true,</span>
-<span class="x">    &quot;navigationButtons&quot;: true</span>
-<span class="x">  },</span>
-<span class="x">  &quot;manipulation&quot;: {</span>
-<span class="x">    &quot;enabled&quot;: true</span>
-<span class="x">  },</span>
-<span class="x">  &quot;physics&quot;: {</span>
-<span class="x">    &quot;barnesHut&quot;: {</span>
-<span class="x">      &quot;avoidOverlap&quot;: 0.11</span>
-<span class="x">    },</span>
-<span class="x">    &quot;minVelocity&quot;: 0.75</span>
-<span class="x">  }</span>
-<span class="x">}&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;network_map_vis_options&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;{</span>
+<span class="s1">  &quot;nodes&quot;: {</span>
+<span class="s1">    &quot;color&quot;: {</span>
+<span class="s1">      &quot;background&quot;: &quot;rgba(20,252,18,1)&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;font&quot;: {</span>
+<span class="s1">      &quot;face&quot;: &quot;tahoma&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;physics&quot;: false</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;edges&quot;: {</span>
+<span class="s1">    &quot;smooth&quot;: {</span>
+<span class="s1">      &quot;forceDirection&quot;: &quot;none&quot;</span>
+<span class="s1">    }</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;interaction&quot;: {</span>
+<span class="s1">    &quot;hover&quot;: true,</span>
+<span class="s1">    &quot;multiselect&quot;: true,</span>
+<span class="s1">    &quot;navigationButtons&quot;: true</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;manipulation&quot;: {</span>
+<span class="s1">    &quot;enabled&quot;: true</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;physics&quot;: {</span>
+<span class="s1">    &quot;barnesHut&quot;: {</span>
+<span class="s1">      &quot;avoidOverlap&quot;: 0.11</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;minVelocity&quot;: 0.75</span>
+<span class="s1">  }</span>
+<span class="s1">}&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><img alt="Example Network Map" src="/img/networkmap.png" /></p>

@@ -2200,15 +2200,15 @@ really able to provide any help with this side of things.</p>
 <p>RRD will continue to function as normal so LibreNMS itself should
 continue to function as normal.</p>
 <h1 id="configuration">Configuration</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;influxdb&#39;][&#39;enable&#39;] = true;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;transport&#39;] = &#39;http&#39;; # Default, other options: https, udp</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;host&#39;] = &#39;127.0.0.1&#39;;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;port&#39;] = &#39;8086&#39;;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;db&#39;] = &#39;librenms&#39;;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;username&#39;] = &#39;admin&#39;;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;password&#39;] = &#39;admin&#39;;</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;timeout&#39;] = 0; # Optional</span>
-<span class="x">$config[&#39;influxdb&#39;][&#39;verifySSL&#39;] = false; # Optional</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;transport&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http&#39;</span><span class="p">;</span> <span class="c1"># Default, other options: https, udp</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;8086&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;db&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;librenms&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1"># Optional</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;verifySSL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span> <span class="c1"># Optional</span>
 </code></pre></div>
 
 <p>No credentials are needed if you don't use InfluxDB authentication.</p>

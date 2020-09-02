@@ -2286,7 +2286,7 @@ restart snmptrapd.</p>
 <p><code>MIBDIRS</code> option is not recursive, so you need to specify each directory individually.</p>
 <p>Create a new class in <code>LibreNMS\Snmptrap\Handlers</code> that implements the
 <code>LibreNMS\Interfaces\SnmptrapHandler</code> interface. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="sd">/**</span>
 <span class="sd"> * ColdBoot.php</span>
 <span class="sd"> *</span>
@@ -2343,7 +2343,7 @@ restart snmptrapd.</p>
 
 <p>Register the mapping in the <code>config/snmptraps.php</code> file. Make sure to
 use the full trap OID and correct class.</p>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;SNMPv2-MIB::coldStart&#39; =&gt; \LibreNMS\Snmptrap\Handlers\ColdBoot::class,</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;SNMPv2-MIB::coldStart&#39;</span> <span class="o">=&gt;</span> <span class="nx">\LibreNMS\Snmptrap\Handlers\ColdBoot</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
 </code></pre></div>
 
 <p>The handle function inside your new class will receive a LibreNMS/Snmptrap/Trap
@@ -2351,25 +2351,25 @@ object containing the parsed trap.  It is common to update the database and crea
 event log entries within the handle function.</p>
 <h3 id="getting-information-from-the-trap">Getting information from the Trap</h3>
 <h4 id="source-information">Source information</h4>
-<div class="highlight"><pre><span></span><code><span class="x">$trap-&gt;getDevice();   // gets Device model for the device associated with this trap</span>
-<span class="x">$trap-&gt;getHostname(); // gets hostname sent with the trap</span>
-<span class="x">$trap-&gt;getIp();       // gets source IP of this trap</span>
-<span class="x">$trap-&gt;getTrapOid();  // returns the string you registered your class with</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getDevice</span><span class="p">();</span>   <span class="c1">// gets Device model for the device associated with this trap</span>
+<span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getHostname</span><span class="p">();</span> <span class="c1">// gets hostname sent with the trap</span>
+<span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getIp</span><span class="p">();</span>       <span class="c1">// gets source IP of this trap</span>
+<span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getTrapOid</span><span class="p">();</span>  <span class="c1">// returns the string you registered your class with</span>
 </code></pre></div>
 
 <h4 id="retrieving-data-from-the-trap">Retrieving data from the Trap</h4>
-<div class="highlight"><pre><span></span><code><span class="x">$trap-&gt;getOidData(&#39;IF-MIB::ifDescr.114&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getOidData</span><span class="p">(</span><span class="s1">&#39;IF-MIB::ifDescr.114&#39;</span><span class="p">);</span>
 </code></pre></div>
 
 <p>getOidData() requires the full name including any additional index.
 You can use these functions to search the OID keys.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$trap-&gt;findOid(&#39;ifDescr&#39;);  // returns the first oid key that contains the string</span>
-<span class="x">$trap-&gt;findOids(&#39;ifDescr&#39;); // returns all oid keys containing the string</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">findOid</span><span class="p">(</span><span class="s1">&#39;ifDescr&#39;</span><span class="p">);</span>  <span class="c1">// returns the first oid key that contains the string</span>
+<span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">findOids</span><span class="p">(</span><span class="s1">&#39;ifDescr&#39;</span><span class="p">);</span> <span class="c1">// returns all oid keys containing the string</span>
 </code></pre></div>
 
 <h4 id="advanced">Advanced</h4>
 <p>If the above isn't adequate, you can get the entire trap text:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$trap-&gt;getRaw();</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$trap</span><span class="o">-&gt;</span><span class="na">getRaw</span><span class="p">();</span>
 </code></pre></div>
                 
                   

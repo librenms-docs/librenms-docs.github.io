@@ -2178,7 +2178,7 @@
 <p>Since version 1.5, rrdtool / rrdcached now supports creating rrd files
 over rrdcached. If you have rrdcached 1.5.5 or above, you can also
 tune over rrdcached. To enable this set the following config:</p>
-<p><div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdtool_version&#39;] = &#39;1.5.5&#39;;</span>
+<p><div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdtool_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.5.5&#39;</span><span class="p">;</span>
 </code></pre></div>
 This setting has to be the exact version of rrdtool you are running. </p>
 <p>NOTE: This feature requires your client version of rrdtool to be 1.5.5
@@ -2263,7 +2263,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 </code></pre></div>
 
 <p>5: Edit <code>/opt/librenms/config.php</code> to include:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;unix:/run/rrdcached.sock&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="rrdcached-installation-debian-buster">RRDCached installation Debian Buster</h2>
@@ -2297,14 +2297,14 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 
 <p>5: Edit /opt/librenms/config.php to include:</p>
 <p>For local RRDCached server</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;unix:/run/rrdcached.sock&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>For remote RRDCached server make sure you have network option in /var/default/rrdcached</p>
 <div class="highlight"><pre><span></span><code><span class="nv">NETWORK_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-L&quot;</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;IPADDRESS:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IPADDRESS:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
@@ -2339,14 +2339,14 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 
 <p>5: Edit /opt/librenms/config.php to include:</p>
 <p>For local RRDCached server</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;unix:/run/rrdcached.sock&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>For remote RRDCached server make sure you have network option in /var/default/rrdcached</p>
 <div class="highlight"><pre><span></span><code><span class="nv">NETWORK_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-L&quot;</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;IPADDRESS:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IPADDRESS:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
@@ -2370,7 +2370,7 @@ WantedBy=default.target
 </code></pre></div>
 
 <p>3: Edit <code>/opt/librenms/config.php</code> to include:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;] = &quot;unix:/run/rrdcached.sock&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h2>
@@ -2407,7 +2407,7 @@ service rrdcached start
 <ul>
 <li>Edit /opt/librenms/config.php to include:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdcached&#39;]    = &quot;unix:/run/rrdcached.sock&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="verify">Verify</h1>

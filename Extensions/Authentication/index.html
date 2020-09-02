@@ -2206,7 +2206,7 @@ longer be available to log in.</strong></p>
 in config.php. Please note that only ONE module can be
 enabled. LibreNMS doesn't support multiple authentication mechanism at
 the same time.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &quot;mysql&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mysql&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="user-levels-and-user-account-type">User levels and User account type</h1>
@@ -2273,19 +2273,19 @@ AUTOMATICALLY by daily.sh.</p>
 greater than $config['active_directory']['users_purge'] otherwise old
 users won't be removed.</p>
 <h2 id="sample-configuration">Sample configuration</h2>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;active_directory&#39;;</span>
-<span class="x">$config[&#39;auth_ad_url&#39;] = &#39;ldaps://server.example.com&#39;;    // Set server(s), space separated. Prefix with ldaps:// for ssl</span>
-<span class="x">$config[&#39;auth_ad_domain&#39;] = &#39;example.com&#39;;</span>
-<span class="x">$config[&#39;auth_ad_base_dn&#39;] = &#39;dc=example,dc=com&#39;;         // groups and users must be under this dn</span>
-<span class="x">$config[&#39;auth_ad_check_certificates&#39;] = true;             // require a valid ssl certificate</span>
-<span class="x">$config[&#39;auth_ad_binduser&#39;] = &#39;examplebinduser&#39;;          // bind user (non-admin)</span>
-<span class="x">$config[&#39;auth_ad_bindpassword&#39;] = &#39;examplepassword&#39;;      // bind password</span>
-<span class="x">$config[&#39;auth_ad_timeout&#39;] = 5;                           // time to wait before giving up (or trying the next server)</span>
-<span class="x">$config[&#39;auth_ad_debug&#39;] = false;                         // enable for verbose debug messages</span>
-<span class="x">$config[&#39;active_directory&#39;][&#39;users_purge&#39;] = 30;          // purge users who haven&#39;t logged in for 30 days.</span>
-<span class="x">$config[&#39;auth_ad_require_groupmembership&#39;] = true;        // false: allow all users to auth level 0</span>
-<span class="x">$config[&#39;auth_ad_groups&#39;][&#39;ad-admingroup&#39;][&#39;level&#39;] = 10; // set the &quot;AD AdminGroup&quot; group to admin level</span>
-<span class="x">$config[&#39;auth_ad_groups&#39;][&#39;ad-usergroup&#39;][&#39;level&#39;] = 5;   // set the &quot;AD UserGroup&quot; group to global read only level</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;active_directory&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldaps://server.example.com&#39;</span><span class="p">;</span>    <span class="c1">// Set server(s), space separated. Prefix with ldaps:// for ssl</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_domain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;example.com&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_base_dn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dc=example,dc=com&#39;</span><span class="p">;</span>         <span class="c1">// groups and users must be under this dn</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_check_certificates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>             <span class="c1">// require a valid ssl certificate</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_binduser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;examplebinduser&#39;</span><span class="p">;</span>          <span class="c1">// bind user (non-admin)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;examplepassword&#39;</span><span class="p">;</span>      <span class="c1">// bind password</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                           <span class="c1">// time to wait before giving up (or trying the next server)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_debug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>                         <span class="c1">// enable for verbose debug messages</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;active_directory&#39;</span><span class="p">][</span><span class="s1">&#39;users_purge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>          <span class="c1">// purge users who haven&#39;t logged in for 30 days.</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_require_groupmembership&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>        <span class="c1">// false: allow all users to auth level 0</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_groups&#39;</span><span class="p">][</span><span class="s1">&#39;ad-admingroup&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// set the &quot;AD AdminGroup&quot; group to admin level</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_groups&#39;</span><span class="p">][</span><span class="s1">&#39;ad-usergroup&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>   <span class="c1">// set the &quot;AD UserGroup&quot; group to global read only level</span>
 </code></pre></div>
 
 <p>Replace <code>ad-admingroup</code> with your Active Directory admin-user group
@@ -2313,36 +2313,36 @@ the group filter.</p>
 <p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the
 same version as PHP.</p>
 <h2 id="standard-config">Standard config</h2>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;ldap&#39;;</span>
-<span class="x">$config[&#39;auth_ldap_server&#39;] = &#39;ldap.example.com&#39;;               // Set server(s), space separated. Prefix with ldaps:// for ssl</span>
-<span class="x">$config[&#39;auth_ldap_suffix&#39;] = &#39;,ou=People,dc=example,dc=com&#39;;   // appended to usernames</span>
-<span class="x">$config[&#39;auth_ldap_groupbase&#39;] = &#39;ou=groups,dc=example,dc=com&#39;; // all groups must be inside this</span>
-<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;admin&#39;][&#39;level&#39;] = 10;             // set admin group to admin level</span>
-<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;pfy&#39;][&#39;level&#39;] = 5;                // set pfy group to global read only level</span>
-<span class="x">$config[&#39;auth_ldap_groups&#39;][&#39;support&#39;][&#39;level&#39;] = 1;            // set support group as a normal user</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap.example.com&#39;</span><span class="p">;</span>               <span class="c1">// Set server(s), space separated. Prefix with ldaps:// for ssl</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_suffix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,ou=People,dc=example,dc=com&#39;</span><span class="p">;</span>   <span class="c1">// appended to usernames</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupbase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ou=groups,dc=example,dc=com&#39;</span><span class="p">;</span> <span class="c1">// all groups must be inside this</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>             <span class="c1">// set admin group to admin level</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;pfy&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                <span class="c1">// set pfy group to global read only level</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;support&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">// set support group as a normal user</span>
 </code></pre></div>
 
 <h2 id="additional-options-usually-not-needed">Additional options (usually not needed)</h2>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_version&#39;] = 3; # v2 or v3</span>
-<span class="x">$config[&#39;auth_ldap_port&#39;] = 389;                    // 389 or 636 for ssl</span>
-<span class="x">$config[&#39;auth_ldap_starttls&#39;] = True;               // Enable TLS on port 389</span>
-<span class="x">$config[&#39;auth_ldap_prefix&#39;] = &#39;uid=&#39;;               // prepended to usernames</span>
-<span class="x">$config[&#39;auth_ldap_group&#39;]  = &#39;cn=groupname,ou=groups,dc=example,dc=com&#39;; // generic group with level 0</span>
-<span class="x">$config[&#39;auth_ldap_groupmemberattr&#39;] = &#39;memberUid&#39;; // attribute to use to see if a user is a member of a group</span>
-<span class="x">$config[&#39;auth_ldap_uid_attribute&#39;] = &#39;uidnumber&#39;;   // attribute for unique id</span>
-<span class="x">$config[&#39;auth_ldap_debug&#39;] = false;                 // enable for verbose debug messages</span>
-<span class="x">$config[&#39;auth_ldap_userdn&#39;] = true;                 // Uses a users full DN as the value of the member attribute in a group instead of member: username. (it’s member: uid=username,ou=groups,dc=domain,dc=com)</span>
-<span class="x">$config[&#39;auth_ldap_userlist_filter&#39;] = &#39;service=informatique&#39;; // Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
-<span class="x">$config[&#39;auth_ldap_wildcard_ou&#39;] = false; // Search for user matching user name independently of OU set in auth_ldap_suffix. Useful if your users are in different OU. Bind username, if set, still user auth_ldap_suffix</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># v2 or v3</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">389</span><span class="p">;</span>                    <span class="c1">// 389 or 636 for ssl</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_starttls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">True</span><span class="p">;</span>               <span class="c1">// Enable TLS on port 389</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uid=&#39;</span><span class="p">;</span>               <span class="c1">// prepended to usernames</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_group&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;cn=groupname,ou=groups,dc=example,dc=com&#39;</span><span class="p">;</span> <span class="c1">// generic group with level 0</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmemberattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;memberUid&#39;</span><span class="p">;</span> <span class="c1">// attribute to use to see if a user is a member of a group</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_uid_attribute&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uidnumber&#39;</span><span class="p">;</span>   <span class="c1">// attribute for unique id</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_debug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>                 <span class="c1">// enable for verbose debug messages</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>                 <span class="c1">// Uses a users full DN as the value of the member attribute in a group instead of member: username. (it’s member: uid=username,ou=groups,dc=domain,dc=com)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userlist_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;service=informatique&#39;</span><span class="p">;</span> <span class="c1">// Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_wildcard_ou&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span> <span class="c1">// Search for user matching user name independently of OU set in auth_ldap_suffix. Useful if your users are in different OU. Bind username, if set, still user auth_ldap_suffix</span>
 </code></pre></div>
 
 <h2 id="ldap-bind-user-optional">LDAP bind user (optional)</h2>
 <p>If your ldap server does not allow anonymous bind, it is highly
 suggested to create a bind user, otherwise "remember me", alerting
 users, and the API will not work.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_binduser&#39;] = &#39;ldapbind&#39;; // will use auth_ldap_prefix and auth_ldap_suffix</span>
-<span class="x">#$config[&#39;auth_ldap_binddn&#39;] = &#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;; // overrides binduser</span>
-<span class="x">$config[&#39;auth_ldap_bindpassword&#39;] = &#39;password&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_binduser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldapbind&#39;</span><span class="p">;</span> <span class="c1">// will use auth_ldap_prefix and auth_ldap_suffix</span>
+<span class="c1">#$config[&#39;auth_ldap_binddn&#39;] = &#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;; // overrides binduser</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="ldap-server-redundancy">LDAP server redundancy</h2>
@@ -2352,16 +2352,16 @@ users, and the API will not work.</p>
 </code></pre></div>
 
 <p>An example config setup for use with Jumpcloud LDAP as a service is:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &quot;ldap&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_version&#39;] = 3;</span>
-<span class="x">$config[&#39;auth_ldap_server&#39;] = &quot;ldap.jumpcloud.com&quot;; #Set to ldaps://ldap.jumpcloud.com to enable LDAPS</span>
-<span class="x">$config[&#39;auth_ldap_port&#39;] = 389; #Set to 636 if using LDAPS</span>
-<span class="x">$config[&#39;auth_ldap_prefix&#39;] = &quot;uid=&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_suffix&#39;] = &quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_groupbase&#39;] = &quot;ou=Users,o={id},dc=jumpcloud,dc=com&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_groupmemberattr&#39;] = &quot;member&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_groups&#39;] = [&#39;{group}&#39; =&gt; [&#39;level&#39; =&gt; 10],];</span>
-<span class="x">$config[&#39;auth_ldap_userdn&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ldap&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ldap.jumpcloud.com&quot;</span><span class="p">;</span> <span class="c1">#Set to ldaps://ldap.jumpcloud.com to enable LDAPS</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">389</span><span class="p">;</span> <span class="c1">#Set to 636 if using LDAPS</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;uid=&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_suffix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;,ou=Users,o={id},dc=jumpcloud,dc=com&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupbase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ou=Users,o={id},dc=jumpcloud,dc=com&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmemberattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;member&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;{group}&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">],];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Replace {id} with the unique ID provided by Jumpcloud.  Replace
@@ -2370,10 +2370,10 @@ is case sensitive.</p>
 <p>Note: If you have multiple user groups to define individual access
 levels replace the <code>$config['auth_ldap_groups']</code> line with the
 following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_groups&#39;] = [</span>
-<span class="x">    &#39;{admin_group}&#39; =&gt; [&#39;level&#39; =&gt; 10],</span>
-<span class="x">    &#39;{global_readonly_group}&#39; =&gt; [&#39;level&#39; =&gt; 5],</span>
-<span class="x">];</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;{admin_group}&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="s1">&#39;{global_readonly_group}&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">],</span>
+<span class="p">];</span>
 </code></pre></div>
 
 <h1 id="radius-authentication">Radius Authentication</h1>
@@ -2381,12 +2381,12 @@ following:</p>
 successfully. User level 1 is assigned to those accounts so you will
 then need to assign the relevant permissions unless you set
 <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;radius&#39;][&#39;hostname&#39;]   = &#39;localhost&#39;;</span>
-<span class="x">$config[&#39;radius&#39;][&#39;port&#39;]       = &#39;1812&#39;;</span>
-<span class="x">$config[&#39;radius&#39;][&#39;secret&#39;]     = &#39;testing123&#39;;</span>
-<span class="x">$config[&#39;radius&#39;][&#39;timeout&#39;]    = 3;</span>
-<span class="x">$config[&#39;radius&#39;][&#39;users_purge&#39;] = 14;//Purge users who haven&#39;t logged in for 14 days.</span>
-<span class="x">$config[&#39;radius&#39;][&#39;default_level&#39;] = 1;//Set the default user level when automatically creating a user.</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="s1">&#39;1812&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;secret&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;testing123&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;users_purge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span><span class="c1">//Purge users who haven&#39;t logged in for 14 days.</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;default_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//Set the default user level when automatically creating a user.</span>
 </code></pre></div>
 
 <h2 id="old-account-cleanup_1">Old account cleanup</h2>
@@ -2409,7 +2409,7 @@ for that user which is done in one of two ways:</p>
 <p>A global guest user (which still needs to be added into MySQL:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;http_auth_guest&#39;] = &quot;guest&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;http_auth_guest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;guest&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This will then assign the userlevel for guest to all authenticated users.</p>
@@ -2434,9 +2434,9 @@ This option allows to control how long user information (user_exists,
 userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disable this caching (highly discourage) set this option to 0.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ad_binduser&#39;]     = &quot;ad_binduser&quot;;</span>
-<span class="x">$config[&#39;auth_ad_bindpassword&#39;] = &quot;ad_bindpassword&quot;;</span>
-<span class="x">$config[&#39;auth_ldap_cache_ttl&#39;]  = 300;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_binduser&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;ad_binduser&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ad_bindpassword&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h2>
@@ -2451,12 +2451,12 @@ information as the <strong><em>ldap</em></strong> module does.</p>
 This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disabled this caching (highly discourage) set this option to 0.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_ldap_cache_ttl&#39;] = 300;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;allow_unauth_graphs_cidr&#39;] = array(&#39;127.0.0.1/32&#39;);</span>
-<span class="x">$config[&#39;allow_unauth_graphs&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_unauth_graphs_cidr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;127.0.0.1/32&#39;</span><span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_unauth_graphs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="single-sign-on">Single Sign-on</h1>
@@ -2479,10 +2479,10 @@ in the configuration are not set, it will reject access rather than
 try and guess.</p>
 <h2 id="basic-configuration">Basic Configuration</h2>
 <p>To get up and running, all you need to do is configure the following values:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;]        = &quot;sso&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;mode&#39;]           = &quot;env&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &quot;static&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;static_level&#39;]   = 10;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="s2">&quot;sso&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="s2">&quot;env&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;static&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;static_level&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This, along with the defaults, sets up a basic Single Sign-on setup that:</p>
@@ -2508,7 +2508,7 @@ full <a href="https://en.wikipedia.org/wiki/Web_application_firewall">WAF</a>
 being strongly recommended. This advice applies to the IDP too.</p>
 <p>The mechanism includes very basic protection, in the form of an IP
 whitelist with should contain the source addresses of your proxies:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;trusted_proxies&#39;] = [&#39;127.0.0.1/8&#39;, &#39;::1/128&#39;, &#39;192.0.2.0&#39;, &#39;2001:DB8::&#39;];</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;trusted_proxies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;127.0.0.1/8&#39;</span><span class="p">,</span> <span class="s1">&#39;::1/128&#39;</span><span class="p">,</span> <span class="s1">&#39;192.0.2.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2001:DB8::&#39;</span><span class="p">];</span>
 </code></pre></div>
 
 <p>This configuration item should contain an array with a list of IP
@@ -2518,7 +2518,7 @@ supply environment variables or headers.</p>
 <h3 id="user-attribute">User Attribute</h3>
 <p>If for some reason your relying party doesn't store the username in
 <strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;user_attr&#39;] = &#39;HTTP_UID&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;user_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HTTP_UID&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Note that the user lookup is a little special - normally headers are
@@ -2528,8 +2528,8 @@ need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or 
 yourself.</p>
 <h3 id="automatic-user-createupdate">Automatic User Create/Update</h3>
 <p>These are enabled by default:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;create_users&#39;] = true;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;update_users&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;create_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;update_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If these are not enabled, user logins will be (somewhat silently)
@@ -2540,9 +2540,9 @@ the users true identity has been negotiated with the IDP, the username
 <h3 id="personalisation">Personalisation</h3>
 <p>If the attributes are being populated, you can instruct the mechanism
 to add additional information to the user's database entry:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;email_attr&#39;]    = &quot;mail&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;realname_attr&#39;] = &quot;displayName&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;descr_attr&#39;]    = &quot;unscoped-affiliation</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;email_attr&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;mail&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;realname_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;displayName&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;descr_attr&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;unscoped-affiliation</span>
 </code></pre></div>
 
 <h3 id="group-strategies">Group Strategies</h3>
@@ -2551,8 +2551,8 @@ to add additional information to the user's database entry:</p>
 level. If you're working with a small team, or don't need access
 control, this is probably suitable.</p>
 <h4 id="attribute">Attribute</h4>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &quot;attribute&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;level_attr&#39;]     = &quot;entitlement&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;attribute&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;level_attr&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;entitlement&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If your Relying Party is capable of calculating the necessary
@@ -2563,10 +2563,10 @@ as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanis
 the value.</p>
 <h4 id="group-map">Group Map</h4>
 <p>This is the most flexible (and complex) way of assigning privileges.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;]  = &quot;map&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_attr&#39;]      = &quot;member&quot;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_level_map&#39;] = [&#39;librenms-admins&#39; =&gt; 10, &#39;librenms-readers&#39; =&gt; 1, &#39;librenms-billingcontacts&#39; =&gt; 5];</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_delimiter&#39;] = &#39;;&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;map&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_attr&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="s2">&quot;member&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_level_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;librenms-admins&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;librenms-readers&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;librenms-billingcontacts&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_delimiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The mechanism expects to find a delimited list of groups within the
@@ -2579,7 +2579,7 @@ the user.</p>
 software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_
 may create pseudo arrays).</p>
 <p>There is an optional value for sites with large numbers of groups:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sso&#39;][&#39;group_filter&#39;]  = &quot;/librenms-(.*)/i&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_filter&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;/librenms-(.*)/i&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This filter causes the mechanism to only consider groups matching a regular expression.</p>
@@ -2588,7 +2588,7 @@ may create pseudo arrays).</p>
 Sign-On - that responsability falls to the Relying Party.</p>
 <p>If your Relying Party has a magic URL that needs to be called to end a
 session, you can configure LibreNMS to direct the user to it:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;post_logout_action&#39;] = &#39;/Shibboleth.sso/Logout&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;post_logout_action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Shibboleth.sso/Logout&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This option functions independantly of the Single Sign-on mechanism.</p>
@@ -2596,18 +2596,18 @@ session, you can configure LibreNMS to direct the user to it:</p>
 <p>This configuration works on my deployment with a Shibboleth relying
 party, injecting environment variables, with the IDP supplying a list
 of groups.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;auth_mechanism&#39;] = &#39;sso&#39;;</span>
-<span class="x">$config[&#39;auth_logout_handler&#39;] = &#39;/Shibboleth.sso/Logout&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;mode&#39;] = &#39;env&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;create_users&#39;] = true;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;update_users&#39;] = true;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;realname_attr&#39;] = &#39;displayName&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;email_attr&#39;] = &#39;mail&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_strategy&#39;] = &#39;map&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_attr&#39;] = &#39;member&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_filter&#39;] = &#39;/(librenms-.*)/i&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_delimiter&#39;] = &#39;;&#39;;</span>
-<span class="x">$config[&#39;sso&#39;][&#39;group_level_map&#39;] = [&#39;librenms-demo&#39; =&gt; 11, &#39;librenms-globaladmin&#39; =&gt; 10, &#39;librenms-globalread&#39; =&gt; 5, &#39;librenms-lowpriv&#39;=&gt; 1];</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sso&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_logout_handler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Shibboleth.sso/Logout&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;env&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;create_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;update_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;realname_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;displayName&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;email_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mail&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;map&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;member&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/(librenms-.*)/i&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_delimiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_level_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;librenms-demo&#39;</span> <span class="o">=&gt;</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;librenms-globaladmin&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;librenms-globalread&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;librenms-lowpriv&#39;</span><span class="o">=&gt;</span> <span class="mi">1</span><span class="p">];</span>
 </code></pre></div>
                 
                   

@@ -2186,10 +2186,10 @@ something like Grafana for graphing.</p>
 <p>RRD will continue to function as normal so LibreNMS itself should
 continue to function as normal.</p>
 <h1 id="configuration">Configuration</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;graphite&#39;][&#39;enable&#39;] = true;</span>
-<span class="x">$config[&#39;graphite&#39;][&#39;host&#39;] = &#39;your.graphite.server&#39;;</span>
-<span class="x">$config[&#39;graphite&#39;][&#39;port&#39;] = 2003; // this defaults to 2003 and is usually not needed</span>
-<span class="x">$config[&#39;graphite&#39;][&#39;prefix&#39;] = &#39;your.metric.prefix&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphite&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphite&#39;</span><span class="p">][</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;your.graphite.server&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphite&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2003</span><span class="p">;</span> <span class="c1">// this defaults to 2003 and is usually not needed</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphite&#39;</span><span class="p">][</span><span class="s1">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;your.metric.prefix&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Your metric path can be prefixed if required, otherwise the metric

@@ -2435,48 +2435,48 @@ commands via a Channel, then it will respond in the Channel.</p>
 <h1 id="examples">Examples</h1>
 <h2 id="server-examples">Server examples</h2>
 <p>Unencrypted Connection to <code>irc.freenode.org</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_host&#39;] = &quot;irc.freenode.org&quot;;</span>
-<span class="x">   $config[&#39;irc_port&#39;] = 6667;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;irc.freenode.org&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6667</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>SSL-Encrypted Connection to <code>irc.freenode.org</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_host&#39;] = &quot;irc.freenode.org&quot;;</span>
-<span class="x">   $config[&#39;irc_port&#39;] = &quot;+6697&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;irc.freenode.org&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;+6697&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>SSL-Encrypted Connection to <code>irc.localdomain</code> with Server-Password and odd port:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_host&#39;] = &quot;irc.localdomain&quot;;</span>
-<span class="x">   $config[&#39;irc_port&#39;] = &quot;+12345&quot;;</span>
-<span class="x">   $config[&#39;irc_pass&#39;] = &quot;Super Secret Passphrase123&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;irc.localdomain&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;+12345&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_pass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Super Secret Passphrase123&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <h2 id="channel-notations">Channel notations</h2>
 <p>Channels can be defined using Array-Notation like:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_chan&#39;][] = &quot;#librenms&quot;;</span>
-<span class="x">   $config[&#39;irc_chan&#39;][] = &quot;#otherchan&quot;;</span>
-<span class="x">   $config[&#39;irc_chan&#39;][] = &quot;#noc&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;#librenms&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;#otherchan&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;#noc&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>Or using a single string using <code>,</code> as delimiter between various channels:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_chan&#39;] = &quot;#librenms,#otherchan,#noc&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;#librenms,#otherchan,#noc&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <h2 id="hostmask-authentication">Hostmask authentication</h2>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_auth&#39;][&#39;admin&#39;][] = &quot;*!root@nms.host.invalid&quot;;</span>
-<span class="x">   $config[&#39;irc_auth&#39;][&#39;admin&#39;][] = &quot;*!*peter@peters.computer.invalid&quot;;</span>
-<span class="x">   $config[&#39;irc_auth&#39;][&#39;john][] = &quot;john!doe@login.server.invalid&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_auth&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;*!root@nms.host.invalid&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_auth&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;*!*peter@peters.computer.invalid&quot;</span><span class="p">;</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_auth&#39;</span><span class="p">][</span><span class="err">&#39;</span><span class="nx">john</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;john!doe@login.server.invalid&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>Any client matching one of the first two hostmasks will automatically
@@ -2496,18 +2496,18 @@ for extensions can be found at <a href="IRC-Bot-Extensions">IRC-Bot
 Extensions</a>;</p>
 <p>Confused? Here an Echo-Example:</p>
 <p>File: config.php</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_external&#39;][] = &quot;echo&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_external&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;echo&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>File: includes/ircbot/echo.inc.php</p>
-<div class="highlight"><pre><span></span><code><span class="x">   //Prefix everything with `You said: &#39;...&#39;`  and return what was sent.</span>
-<span class="x">   if( $this-&gt;user[&#39;name&#39;] != &quot;root&quot; ) {</span>
-<span class="x">      return $this-&gt;respond(&quot;You said: &#39;&quot;.$params.&quot;&#39;&quot;);</span>
-<span class="x">   } else {</span>
-<span class="x">      return $this-&gt;respond(&quot;root shouldn&#39;t be online so late!&quot;);</span>
-<span class="x">   }</span>
+<div class="highlight"><pre><span></span><code>   <span class="c1">//Prefix everything with `You said: &#39;...&#39;`  and return what was sent.</span>
+   <span class="k">if</span><span class="p">(</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;root&quot;</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;You said: &#39;&quot;</span><span class="o">.</span><span class="nv">$params</span><span class="o">.</span><span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;root shouldn&#39;t be online so late!&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
 </code></pre></div>
 
 <h1 id="systemd-start-up-script">Systemd start up script</h1>

@@ -2215,21 +2215,21 @@ these addresses will be Geocoded by Google and stored in the database.</p>
 <p>If you can't access OpenStreet map directly you can run a local <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile
 server</a>. To specify a
 different url you can set:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;leaflet&#39;][&#39;tile_url&#39;] = &#39;localhost.com&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;tile_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;localhost.com&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="additional-leaflet-config">Additional Leaflet config</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;map&#39;][&#39;engine&#39;]                                = &quot;leaflet&quot;;</span>
-<span class="x">$config[&#39;leaflet&#39;][&#39;default_lat&#39;]                       = &quot;51.981074&quot;;</span>
-<span class="x">$config[&#39;leaflet&#39;][&#39;default_lng&#39;]                       = &quot;5.350342&quot;;</span>
-<span class="x">$config[&#39;leaflet&#39;][&#39;default_zoom&#39;]                      = 8;</span>
-<span class="x">// Device grouping radius in KM default 80KM</span>
-<span class="x">$config[&#39;leaflet&#39;][&#39;group_radius&#39;]                      = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">][</span><span class="s1">&#39;engine&#39;</span><span class="p">]</span>                                <span class="o">=</span> <span class="s2">&quot;leaflet&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;default_lat&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="s2">&quot;51.981074&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;default_lng&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="s2">&quot;5.350342&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;default_zoom&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="c1">// Device grouping radius in KM default 80KM</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;group_radius&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="geocode-engine-config">Geocode engine config</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;geoloc&#39;][&#39;engine&#39;] = &quot;google&quot;;// Valid options are google, mapquest or bing</span>
-<span class="x">$config[&#39;geoloc&#39;][&#39;api_key&#39;] = &quot;abcdefghijklmnopqrstuvwxyz&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;geoloc&#39;</span><span class="p">][</span><span class="s1">&#39;engine&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;google&quot;</span><span class="p">;</span><span class="c1">// Valid options are google, mapquest or bing</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;geoloc&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Google:
@@ -2245,12 +2245,12 @@ Cons: Microsoft(debatable)</p>
 <p>Further custom options are available to load different maps of the
 world, set default coordinates of where the map will zoom and the zoom
 level by default. An example of this is:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;map&#39;][&#39;engine&#39;]                                = &quot;jquery-mapael&quot;;</span>
-<span class="x">$config[&#39;mapael&#39;][&#39;default_map&#39;] = &#39;mapael-maps/united_kingdom/united_kingdom.js&#39;;</span>
-<span class="x">$config[&#39;mapael&#39;][&#39;map_width&#39;] = 400;</span>
-<span class="x">$config[&#39;mapael&#39;][&#39;default_lat&#39;] = &#39;50.898482&#39;;</span>
-<span class="x">$config[&#39;mapael&#39;][&#39;default_lng&#39;] = &#39;-3.401402&#39;;</span>
-<span class="x">$config[&#39;mapael&#39;][&#39;default_zoom&#39;] = 20;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">][</span><span class="s1">&#39;engine&#39;</span><span class="p">]</span>                                <span class="o">=</span> <span class="s2">&quot;jquery-mapael&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mapael&#39;</span><span class="p">][</span><span class="s1">&#39;default_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mapael-maps/united_kingdom/united_kingdom.js&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mapael&#39;</span><span class="p">][</span><span class="s1">&#39;map_width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mapael&#39;</span><span class="p">][</span><span class="s1">&#39;default_lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;50.898482&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mapael&#39;</span><span class="p">][</span><span class="s1">&#39;default_lng&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;-3.401402&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mapael&#39;</span><span class="p">][</span><span class="s1">&#39;default_zoom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 </code></pre></div>
 
 <p>A list of maps can be found in <code>html/js/maps/</code> or <code>html/js/mapael-maps/</code>.</p>

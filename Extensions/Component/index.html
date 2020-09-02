@@ -2222,12 +2222,12 @@ custom attributes, if you update these the module will attempt to
 write them to the <code>component</code> table, not the <code>component_prefs</code> table.</p>
 <h1 id="using-components">Using Components</h1>
 <p>Create an instance of the component class:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$COMPONENT = new LibreNMS\Component();</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$COMPONENT</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LibreNMS\Component</span><span class="p">();</span>
 </code></pre></div>
 
 <h2 id="retrieving-components">Retrieving Components</h2>
 <p>Now you can retrieve an array of the available components:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID, $OPTIONS);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$ARRAY</span> <span class="o">=</span> <span class="nv">$COMPONENT</span><span class="o">-&gt;</span><span class="na">getComponents</span><span class="p">(</span><span class="nv">$DEVICE_ID</span><span class="p">,</span> <span class="nv">$OPTIONS</span><span class="p">);</span>
 </code></pre></div>
 
 <p><code>getComponents</code> takes 2 arguments:</p>
@@ -2236,34 +2236,34 @@ write them to the <code>component</code> table, not the <code>component_prefs</c
 <li><code>OPTIONS</code> - an array of various options.</li>
 </ul>
 <p><code>getComponents</code> will return an array containing components in the following format:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Array</span>
-<span class="x">(</span>
-<span class="x">    [X] =&gt; Array</span>
-<span class="x">    (</span>
-<span class="x">        [Y1] =&gt; Array</span>
-<span class="x">        (</span>
-<span class="x">            [device_id] =&gt; 1</span>
-<span class="x">            [TEST_ATTR] =&gt; TEST_ATTR</span>
-<span class="x">            [type] =&gt; TEST</span>
-<span class="x">            [label] =&gt; TEST LABEL</span>
-<span class="x">            [status] =&gt; 0</span>
-<span class="x">            [ignore] =&gt; 1</span>
-<span class="x">            [disabled] =&gt; 1</span>
-<span class="x">            [error] =&gt;</span>
-<span class="x">        ),</span>
-<span class="x">        [Y2] =&gt; Array</span>
-<span class="x">        (</span>
-<span class="x">            [device_id] =&gt; 1</span>
-<span class="x">            [TEST_ATTR] =&gt; TEST_ATTR</span>
-<span class="x">            [type] =&gt; TESTING</span>
-<span class="x">            [label] =&gt; TEST LABEL</span>
-<span class="x">            [status] =&gt; 0</span>
-<span class="x">            [ignore] =&gt; 1</span>
-<span class="x">            [disabled] =&gt; 0</span>
-<span class="x">            [error] =&gt;</span>
-<span class="x">        ),</span>
-<span class="x">    )</span>
-<span class="x">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="nx">X</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+    <span class="p">(</span>
+        <span class="p">[</span><span class="nx">Y1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+        <span class="p">(</span>
+            <span class="p">[</span><span class="nx">device_id</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="nx">TEST_ATTR</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TEST_ATTR</span>
+            <span class="p">[</span><span class="nx">type</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TEST</span>
+            <span class="p">[</span><span class="nx">label</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TEST</span> <span class="nx">LABEL</span>
+            <span class="p">[</span><span class="nx">status</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+            <span class="p">[</span><span class="nx">ignore</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="nx">error</span><span class="p">]</span> <span class="o">=&gt;</span>
+        <span class="p">),</span>
+        <span class="p">[</span><span class="nx">Y2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+        <span class="p">(</span>
+            <span class="p">[</span><span class="nx">device_id</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="nx">TEST_ATTR</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TEST_ATTR</span>
+            <span class="p">[</span><span class="nx">type</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TESTING</span>
+            <span class="p">[</span><span class="nx">label</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TEST</span> <span class="nx">LABEL</span>
+            <span class="p">[</span><span class="nx">status</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+            <span class="p">[</span><span class="nx">ignore</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+            <span class="p">[</span><span class="nx">error</span><span class="p">]</span> <span class="o">=&gt;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div>
 
 <p>Where X is the Device ID and Y1/Y2 is the Component ID. In the example
@@ -2274,7 +2274,7 @@ components are returned.</p>
 <h4 id="filtering">Filtering</h4>
 <p>You can filter on any of the <a href="#reserved">reserved</a> fields. Filters are
 created in the following format:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$options[&#39;filter&#39;][&#39;FIELD&#39;] = array (&#39;OPERATOR&#39;, &#39;CRITERIA&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">][</span><span class="s1">&#39;FIELD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span><span class="s1">&#39;OPERATOR&#39;</span><span class="p">,</span> <span class="s1">&#39;CRITERIA&#39;</span><span class="p">);</span>
 </code></pre></div>
 
 <p>Where:</p>
@@ -2286,16 +2286,16 @@ created in the following format:</p>
 </ul>
 <p>There are 2 filtering shortcuts:</p>
 <p><code>$DEVICE_ID</code> is a synonym for:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$OPTIONS[&#39;filter&#39;][&#39;device_id&#39;] = array (&#39;=&#39;, $DEVICE_ID);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$OPTIONS</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">][</span><span class="s1">&#39;device_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nv">$DEVICE_ID</span><span class="p">);</span>
 </code></pre></div>
 
 <p><code>$OPTIONS['type'] = $TYPE</code> is a synonym for:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$OPTIONS[&#39;filter&#39;][&#39;type&#39;] = array (&#39;=&#39;, $TYPE);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$OPTIONS</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nv">$TYPE</span><span class="p">);</span>
 </code></pre></div>
 
 <h4 id="sorting">Sorting</h4>
 <p>You can sort the records that are returned by specifying the following option:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$OPTIONS[&#39;sort&#39;][FIELD] = &#39;DIRECTION&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$OPTIONS</span><span class="p">[</span><span class="s1">&#39;sort&#39;</span><span class="p">][</span><span class="nx">FIELD</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DIRECTION&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Where Direction is one of:</p>
@@ -2305,7 +2305,7 @@ created in the following format:</p>
 </ul>
 <h2 id="creating-components">Creating Components</h2>
 <p>To create a new component, run the <code>createComponent</code> function.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$ARRAY = $COMPONENT-&gt;createComponent($DEVICE_ID, $TYPE);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$ARRAY</span> <span class="o">=</span> <span class="nv">$COMPONENT</span><span class="o">-&gt;</span><span class="na">createComponent</span><span class="p">(</span><span class="nv">$DEVICE_ID</span><span class="p">,</span> <span class="nv">$TYPE</span><span class="p">);</span>
 </code></pre></div>
 
 <p><code>createComponent</code> takes 2 arguments:</p>
@@ -2315,23 +2315,23 @@ created in the following format:</p>
 </ul>
 <p>This will return a new, empty array with a component ID and Type set,
 all other fields will be set to defaults.</p>
-<div class="highlight"><pre><span></span><code><span class="x">Array</span>
-<span class="x">(</span>
-<span class="x">    [1] =&gt; Array</span>
-<span class="x">    (</span>
-<span class="x">        [type] =&gt; TESTING</span>
-<span class="x">        [label] =&gt;</span>
-<span class="x">        [status] =&gt; 1</span>
-<span class="x">        [ignore] =&gt; 0</span>
-<span class="x">        [disabled] =&gt; 0</span>
-<span class="x">        [error] =&gt;</span>
-<span class="x">    )</span>
-<span class="x">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+    <span class="p">(</span>
+        <span class="p">[</span><span class="nx">type</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="nx">TESTING</span>
+        <span class="p">[</span><span class="nx">label</span><span class="p">]</span> <span class="o">=&gt;</span>
+        <span class="p">[</span><span class="nx">status</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+        <span class="p">[</span><span class="nx">ignore</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+        <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+        <span class="p">[</span><span class="nx">error</span><span class="p">]</span> <span class="o">=&gt;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div>
 
 <h2 id="deleting-components">Deleting Components</h2>
 <p>When a component is no longer needed, it can be deleted.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$COMPONENT-&gt;deleteComponent($COMPONENT_ID)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$COMPONENT</span><span class="o">-&gt;</span><span class="na">deleteComponent</span><span class="p">(</span><span class="nv">$COMPONENT_ID</span><span class="p">)</span>
 </code></pre></div>
 
 <p>This will return <code>True</code> on success or <code>False</code> on failure.</p>
@@ -2347,26 +2347,26 @@ all other fields will be set to defaults.</p>
 to do is extract the components for only the single device you are
 editing. This is required because the <code>setComponentPrefs</code> function
 only saves a single device at a time.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$ARRAY = $COMPONENT-&gt;getComponents($DEVICE_ID, $OPTIONS);</span>
-<span class="x">$ARRAY = $ARRAY[$DEVICE_ID];</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$ARRAY</span> <span class="o">=</span> <span class="nv">$COMPONENT</span><span class="o">-&gt;</span><span class="na">getComponents</span><span class="p">(</span><span class="nv">$DEVICE_ID</span><span class="p">,</span> <span class="nv">$OPTIONS</span><span class="p">);</span>
+<span class="nv">$ARRAY</span> <span class="o">=</span> <span class="nv">$ARRAY</span><span class="p">[</span><span class="nv">$DEVICE_ID</span><span class="p">];</span>
 </code></pre></div>
 
 <p>Then simply edit this array to suit your needs.
 If you need to add a new Attribute/Value pair you can:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$ARRAY[COMPONENT_ID][&#39;New Attribute&#39;] = &quot;Value&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$ARRAY</span><span class="p">[</span><span class="nx">COMPONENT_ID</span><span class="p">][</span><span class="s1">&#39;New Attribute&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Value&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If you need to delete a previously set Attribute/Value pair you can:</p>
-<div class="highlight"><pre><span></span><code><span class="x">unset($ARRAY[COMPONENT_ID][&#39;New Attribute&#39;]);</span>
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="p">(</span><span class="nv">$ARRAY</span><span class="p">[</span><span class="nx">COMPONENT_ID</span><span class="p">][</span><span class="s1">&#39;New Attribute&#39;</span><span class="p">]);</span>
 </code></pre></div>
 
 <p>If you need to edit a previously set Attribute/Value pair you can:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$ARRAY[COMPONENT_ID][&#39;Existing Attribute&#39;] = &quot;New Value&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$ARRAY</span><span class="p">[</span><span class="nx">COMPONENT_ID</span><span class="p">][</span><span class="s1">&#39;Existing Attribute&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;New Value&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="write-the-components">Write the components</h3>
 <p>To write component changes back to the database simply:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$COMPONENT-&gt;setComponentPrefs($DEVICE_ID, $ARRAY)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$COMPONENT</span><span class="o">-&gt;</span><span class="na">setComponentPrefs</span><span class="p">(</span><span class="nv">$DEVICE_ID</span><span class="p">,</span> <span class="nv">$ARRAY</span><span class="p">)</span>
 </code></pre></div>
 
 <p>When writing the component array there are several caveats to be aware

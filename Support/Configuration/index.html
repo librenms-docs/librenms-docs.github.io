@@ -2176,17 +2176,17 @@
                 <p>The options shown below also contain the default values.</p>
 <p>If you would like to alter any of these then please add your config option to <code>config.php</code>.</p>
 <h1 id="directories">Directories</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;install_dir&#39;] = &quot;/opt/librenms&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;install_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/opt/librenms&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Set the installation directory (defaults to /opt/librenms), if you
 clone the GitHub branch to another location ensure you alter this.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;temp_dir&#39;] = &quot;/tmp&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;temp_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The temporary directory is where images and other temporary files are
 created on your filesystem.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;log_dir&#39;] = &quot;/opt/librenms/logs&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;log_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/opt/librenms/logs&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Log files created by LibreNMS will be stored within this directory.</p>
@@ -2221,17 +2221,17 @@ be linked to rather than having the config provided.</p>
 setting these options within config.php</p>
 <p>Settings -&gt; External Settings -&gt; RRDTool Setup</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rrdtool&#39;] = &quot;/usr/bin/rrdtool&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdtool&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/usr/bin/rrdtool&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Please see <a href="../1-Minute-Polling/">1 Minute polling</a> for information on
 configuring your install to record data more frequently.</p>
 <h3 id="fping">fping</h3>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;fping&#39;]            = &quot;/usr/bin/fping&quot;;</span>
-<span class="x">$config[&#39;fping6&#39;]           = &quot;fping6&quot;;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;timeout&#39;] = 500;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;count&#39;] = 3;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;interval&#39;] = 500;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s2">&quot;/usr/bin/fping&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping6&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="s2">&quot;fping6&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
 </code></pre></div>
 
 <p><code>fping</code> configuration options:</p>
@@ -2262,7 +2262,7 @@ if you have a large number of devices down then it's possible that the
 poller would no longer complete in 5 minutes due to waiting for snmp
 to timeout.</strong></p>
 <p>Globally disable fping / icmp check:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;icmp_check&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;icmp_check&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If you would like to do this on a per device basis then you can do so
@@ -2271,40 +2271,40 @@ under Device -&gt; Edit -&gt; Misc -&gt; Disable ICMP Test? On</p>
 <p>LibreNMS uses traceroute / traceroute6 to record debug information
 when a device is down due to icmp AND you have
 <code>$config['debug']['run_trace'] = true;</code> set.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;traceroute&#39;]  = &#39;/usr/bin/traceroute&#39;;</span>
-<span class="x">$config[&#39;traceroute6&#39;] = &#39;/usr/bin/traceroute6&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;traceroute&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;/usr/bin/traceroute&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;traceroute6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/usr/bin/traceroute6&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="snmp">SNMP</h3>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;snmpwalk&#39;]         = &quot;/usr/bin/snmpwalk&quot;;</span>
-<span class="x">$config[&#39;snmpget&#39;]          = &quot;/usr/bin/snmpget&quot;;</span>
-<span class="x">$config[&#39;snmpbulkwalk&#39;]     = &quot;/usr/bin/snmpbulkwalk&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmpwalk&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="s2">&quot;/usr/bin/snmpwalk&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmpget&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="s2">&quot;/usr/bin/snmpget&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmpbulkwalk&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;/usr/bin/snmpbulkwalk&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>SNMP program locations.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;whois&#39;]            = &quot;/usr/bin/whois&quot;;</span>
-<span class="x">$config[&#39;ping&#39;]             = &quot;/bin/ping&quot;;</span>
-<span class="x">$config[&#39;mtr&#39;]              = &quot;/usr/bin/mtr&quot;;</span>
-<span class="x">$config[&#39;nmap&#39;]             = &quot;/usr/bin/nmap&quot;;</span>
-<span class="x">$config[&#39;nagios_plugins&#39;]   = &quot;/usr/lib/nagios/plugins&quot;;</span>
-<span class="x">$config[&#39;ipmitool&#39;]         = &quot;/usr/bin/ipmitool&quot;;</span>
-<span class="x">$config[&#39;virsh&#39;]            = &quot;/usr/bin/virsh&quot;;</span>
-<span class="x">$config[&#39;dot&#39;]              = &quot;/usr/bin/dot&quot;;</span>
-<span class="x">$config[&#39;unflatten&#39;]        = &quot;/usr/bin/unflatten&quot;;</span>
-<span class="x">$config[&#39;neato&#39;]            = &quot;/usr/bin/neato&quot;;</span>
-<span class="x">$config[&#39;sfdp&#39;]             = &quot;/usr/bin/sfdp&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;whois&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s2">&quot;/usr/bin/whois&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ping&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s2">&quot;/bin/ping&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mtr&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="s2">&quot;/usr/bin/mtr&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nmap&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s2">&quot;/usr/bin/nmap&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nagios_plugins&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s2">&quot;/usr/lib/nagios/plugins&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmitool&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="s2">&quot;/usr/bin/ipmitool&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;virsh&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s2">&quot;/usr/bin/virsh&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dot&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="s2">&quot;/usr/bin/dot&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;unflatten&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="s2">&quot;/usr/bin/unflatten&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;neato&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s2">&quot;/usr/bin/neato&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sfdp&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s2">&quot;/usr/bin/sfdp&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="authentication">Authentication</h1>
 <p>Generic Authentication settings.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;password&#39;][&#39;min_length&#39;] = 8;  // password minimum length for auth that allows user creation</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">][</span><span class="s1">&#39;min_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// password minimum length for auth that allows user creation</span>
 </code></pre></div>
 
 <h1 id="proxy-support">Proxy support</h1>
 <p>For alerting and the callback functionality, we support the use of a
 http proxy setting. These can be any one of the following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;callback_proxy&#39;] = &#39;proxy.domain.com&#39;;</span>
-<span class="x">$config[&#39;http_proxy&#39;]     = &#39;proxy.domain.com&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;callback_proxy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;proxy.domain.com&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;http_proxy&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;proxy.domain.com&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>We can also make use of one of these environment variables which can be set in <code>/etc/environment</code>:</p>
@@ -2315,16 +2315,16 @@ http proxy setting. These can be any one of the following:</p>
 <h1 id="rrdcached">RRDCached</h1>
 <p><a href="../../Extensions/RRDCached/">RRDCached</a></p>
 <h1 id="webui-settings">WebUI Settings</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;base_url&#39;] = &quot;http://demo.librenms.org&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;base_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;http://demo.librenms.org&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>LibreNMS will attempt to detect the URL you are using but you can override that here.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;site_style&#39;]       = &quot;light&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;site_style&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="s2">&quot;light&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Currently we have a number of styles which can be set which will alter
 the navigation bar look. dark, light and mono with light being the default.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;webui&#39;][&#39;custom_css&#39;][]       = &quot;css/custom/styles.css&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;webui&#39;</span><span class="p">][</span><span class="s1">&#39;custom_css&#39;</span><span class="p">][]</span>       <span class="o">=</span> <span class="s2">&quot;css/custom/styles.css&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can override a large number of visual elements by creating your
@@ -2332,24 +2332,24 @@ own css stylesheet and referencing it here, place any custom css files
 into  <code>html/css/custom</code> so they will be ignored by auto updates. You
 can specify as many css files as you like, the order they are within
 your config will be the order they are loaded in the browser.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;title_image&#39;] = &quot;images/custom/yourlogo.png&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;title_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;images/custom/yourlogo.png&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can override the default logo with yours, place any custom images
 files into <code>html/images/custom</code> so they will be ignored by auto updates.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;page_refresh&#39;]     = &quot;300&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;page_refresh&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;300&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Set how often pages are refreshed in seconds. The default is every 5
 minutes. Some pages don't refresh at all by design.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;front_page&#39;]       = &quot;default&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;front_page&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can create your own front page by adding a blade file in <code>resources/views/overview/custom/</code>
 and setting <code>front_page</code> to it's name.
 For example, if you create <code>resources/views/overview/custom/foobar.blade.php</code>, set <code>front_page</code> to <code>foobar</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">// This option exists in the web UI, edit it under Global Settings -&gt; webui</span>
-<span class="x">$config[&#39;webui&#39;][&#39;default_dashboard_id&#39;] = 0;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// This option exists in the web UI, edit it under Global Settings -&gt; webui</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;webui&#39;</span><span class="p">][</span><span class="s1">&#39;default_dashboard_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Allows the specification of a global default dashboard page for any user who
@@ -2357,120 +2357,120 @@ has not set one in their user preferences.  Should be set to dashboard_id of an
 existing dashboard that is shared or shared(read).  Otherwise, the system will
 automatically create each user an empty dashboard called <code>Default</code> on their
 first login.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;login_message&#39;]    = &quot;Unauthorised access or use shall render the user liable to criminal and/or civil prosecution.&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;login_message&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;Unauthorised access or use shall render the user liable to criminal and/or civil prosecution.&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This is the default message on the login page displayed to users.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;public_status&#39;]    = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;public_status&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If this is set to true then an overview will be shown on the login page of devices and the status.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;show_locations&#39;]          = 1;  # Enable Locations on menu</span>
-<span class="x">$config[&#39;show_locations_dropdown&#39;] = 1;  # Enable Locations dropdown on menu</span>
-<span class="x">$config[&#39;show_services&#39;]           = 0;  # Enable Services on menu</span>
-<span class="x">$config[&#39;int_customers&#39;]           = 1;  # Enable Customer Port Parsing</span>
-<span class="x">$config[&#39;summary_errors&#39;]          = 0;  # Show Errored ports in summary boxes on the dashboard</span>
-<span class="x">$config[&#39;customers_descr&#39;]         = &#39;cust&#39;; // The description to look for in ifDescr. Can be an array as well array(&#39;cust&#39;,&#39;cid&#39;);</span>
-<span class="x">$config[&#39;transit_descr&#39;]           = &#39;transit&#39;; // Add custom transit descriptions (can be an array)</span>
-<span class="x">$config[&#39;peering_descr&#39;]           = &#39;peering&#39;; // Add custom peering descriptions (can be an array)</span>
-<span class="x">$config[&#39;core_descr&#39;]              = &#39;core&#39;; // Add custom core descriptions (can be an array)</span>
-<span class="x">$config[&#39;custom_descr&#39;]            = &#39;&#39;; // Add custom interface descriptions (can be an array)</span>
-<span class="x">$config[&#39;int_transit&#39;]             = 1;  # Enable Transit Types</span>
-<span class="x">$config[&#39;int_peering&#39;]             = 1;  # Enable Peering Types</span>
-<span class="x">$config[&#39;int_core&#39;]                = 1;  # Enable Core Port Types</span>
-<span class="x">$config[&#39;int_l2tp&#39;]                = 0;  # Enable L2TP Port Types</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;show_locations&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Locations on menu</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;show_locations_dropdown&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Locations dropdown on menu</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;show_services&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1"># Enable Services on menu</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;int_customers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Customer Port Parsing</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;summary_errors&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1"># Show Errored ports in summary boxes on the dashboard</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;customers_descr&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="s1">&#39;cust&#39;</span><span class="p">;</span> <span class="c1">// The description to look for in ifDescr. Can be an array as well array(&#39;cust&#39;,&#39;cid&#39;);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;transit_descr&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="s1">&#39;transit&#39;</span><span class="p">;</span> <span class="c1">// Add custom transit descriptions (can be an array)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;peering_descr&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="s1">&#39;peering&#39;</span><span class="p">;</span> <span class="c1">// Add custom peering descriptions (can be an array)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;core_descr&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="s1">&#39;core&#39;</span><span class="p">;</span> <span class="c1">// Add custom core descriptions (can be an array)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;custom_descr&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// Add custom interface descriptions (can be an array)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;int_transit&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Transit Types</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;int_peering&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Peering Types</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;int_core&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1"># Enable Core Port Types</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;int_l2tp&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1"># Enable L2TP Port Types</span>
 </code></pre></div>
 
 <p>Enable / disable certain menus from being shown in the WebUI.</p>
 <p>You are able to adjust the number and time frames of the quick select
 time options for graphs and the mini graphs shown per row.</p>
 <p>Quick select:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;graphs&#39;][&#39;mini&#39;][&#39;normal&#39;] = array(</span>
-<span class="x">    &#39;day&#39; =&gt; &#39;24 Hours&#39;,</span>
-<span class="x">    &#39;week&#39; =&gt; &#39;One Week&#39;,</span>
-<span class="x">    &#39;month&#39; =&gt; &#39;One Month&#39;,</span>
-<span class="x">    &#39;year&#39; =&gt; &#39;One Year&#39;,</span>
-<span class="x">);</span>
-<span class="x">$config[&#39;graphs&#39;][&#39;mini&#39;][&#39;widescreen&#39;] = array(</span>
-<span class="x">    &#39;sixhour&#39; =&gt; &#39;6 Hours&#39;,</span>
-<span class="x">    &#39;day&#39; =&gt; &#39;24 Hours&#39;,</span>
-<span class="x">    &#39;twoday&#39; =&gt; &#39;48 Hours&#39;,</span>
-<span class="x">    &#39;week&#39; =&gt; &#39;One Week&#39;,</span>
-<span class="x">    &#39;twoweek&#39; =&gt; &#39;Two Weeks&#39;,</span>
-<span class="x">    &#39;month&#39; =&gt; &#39;One Month&#39;,</span>
-<span class="x">    &#39;twomonth&#39; =&gt; &#39;Two Months&#39;,</span>
-<span class="x">    &#39;year&#39; =&gt; &#39;One Year&#39;,</span>
-<span class="x">    &#39;twoyear&#39; =&gt; &#39;Two Years&#39;,</span>
-<span class="x">);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">][</span><span class="s1">&#39;mini&#39;</span><span class="p">][</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;day&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;24 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;week&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Week&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Month&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Year&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">][</span><span class="s1">&#39;mini&#39;</span><span class="p">][</span><span class="s1">&#39;widescreen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;sixhour&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;6 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;day&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;24 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoday&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;48 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;week&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Week&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoweek&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Weeks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Month&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twomonth&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Months&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Year&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoyear&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Years&#39;</span><span class="p">,</span>
+<span class="p">);</span>
 </code></pre></div>
 
 <p>Mini graphs:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;graphs&#39;][&#39;row&#39;][&#39;normal&#39;] = array(</span>
-<span class="x">    &#39;sixhour&#39; =&gt; &#39;6 Hours&#39;,</span>
-<span class="x">    &#39;day&#39; =&gt; &#39;24 Hours&#39;,</span>
-<span class="x">    &#39;twoday&#39; =&gt; &#39;48 Hours&#39;,</span>
-<span class="x">    &#39;week&#39; =&gt; &#39;One Week&#39;,</span>
-<span class="x">    &#39;twoweek&#39; =&gt; &#39;Two Weeks&#39;,</span>
-<span class="x">    &#39;month&#39; =&gt; &#39;One Month&#39;,</span>
-<span class="x">    &#39;twomonth&#39; =&gt; &#39;Two Months&#39;,</span>
-<span class="x">    &#39;year&#39; =&gt; &#39;One Year&#39;,</span>
-<span class="x">    &#39;twoyear&#39; =&gt; &#39;Two Years&#39;,</span>
-<span class="x">);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">][</span><span class="s1">&#39;row&#39;</span><span class="p">][</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;sixhour&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;6 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;day&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;24 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoday&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;48 Hours&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;week&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Week&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoweek&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Weeks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;month&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Month&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twomonth&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Months&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;year&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;One Year&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;twoyear&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Two Years&#39;</span><span class="p">,</span>
+<span class="p">);</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;web_mouseover&#39;]      = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;web_mouseover&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can disable the mouseover popover for mini graphs by setting this to false.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_lazy_load&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_lazy_load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can disable image lazy loading by setting this to false.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;show_overview_tab&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;show_overview_tab&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Enable or disable the overview tab for a device.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;overview_show_sysDescr&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;overview_show_sysDescr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Enable or disable the sysDescr output for a device.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;force_ip_to_sysname&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;force_ip_to_sysname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <p>When using IP addresses as a hostname you can instead represent the
 devices on the WebUI by its SNMP sysName resulting in an easier to
 read overview of your network. This would apply on networks where you
 don't have DNS records for most of your devices.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;force_hostname_to_sysname&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;force_hostname_to_sysname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <p>When using a dynamic DNS hostname or one that does not resolve, this
 option would allow you to make use of the SNMP sysName instead as the
 preferred reference to the device.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/loopback/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/loopback/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Interface types that aren't graphed in the WebUI. The default array
 contains more items, please see misc/config_definitions.json for the full list.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_clear_discovery&#39;] = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_clear_discovery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Administrators are able to clear the last discovered time of a device
 which will force a full discovery run within the configured 5 minute cron window.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_footer&#39;] = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_footer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Disable the footer of the WebUI by setting <code>enable_footer</code> to 0.</p>
 <p>You can enable the old style network map (only available for
 individual devices with links discovered via xDP) by setting:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;gui&#39;][&#39;network-map&#39;][&#39;style&#39;] = &#39;old&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;gui&#39;</span><span class="p">][</span><span class="s1">&#39;network-map&#39;</span><span class="p">][</span><span class="s1">&#39;style&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;old&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;percentile_value&#39;] = X;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;percentile_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">X</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Show the <code>X</code>th percentile in the graph instead of the default 95th percentile.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;shorthost_target_length&#39;] = X;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;shorthost_target_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">X</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The target maximum hostname length when applying the shorthost() function.
@@ -2492,32 +2492,32 @@ present. If the ip is present the host is not added. If host is added
 by hostname this check is not performed.  If the setting is true
 hostnames are resolved and the check is also performed.  This helps
 prevents accidental duplicate hosts.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;addhost_alwayscheckip&#39;]   = false; #true - check for duplicate ips even when adding host by name.</span>
-<span class="x">                                            #false- only check when adding host by ip.</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;addhost_alwayscheckip&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="k">false</span><span class="p">;</span> <span class="c1">#true - check for duplicate ips even when adding host by name.</span>
+                                            <span class="c1">#false- only check when adding host by ip.</span>
 </code></pre></div>
 
 <p>By default we allow hosts to be added with duplicate sysName's, you
 can disable this with the following config:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;allow_duplicate_sysName&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_duplicate_sysName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="global-poller-and-discovery-modules">Global poller and discovery modules</h1>
 <p>Generally, it is a better to set these <a href="../../Developing/os/Settings/#poller-and-discovery-modules">per
 OS</a> or
 device.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;discovery_modules][&#39;arp-table&#39;] = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;bgp-peers&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules][&#39;</span><span class="nx">arp</span><span class="o">-</span><span class="nx">table</span><span class="s1">&#39;] = true;</span>
+<span class="s1">$config[&#39;</span><span class="nx">poller_modules</span><span class="s1">&#39;][&#39;</span><span class="nx">bgp</span><span class="o">-</span><span class="nx">peers</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="snmp-settings">SNMP Settings</h1>
 <p>Default SNMP options including retry and timeout settings and also
 default version and port.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;snmp&#39;][&#39;timeout&#39;] = 1;                         # timeout in seconds</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;retries&#39;] = 5;                         # how many times to retry the query</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;transports&#39;] = array(&#39;udp&#39;, &#39;udp6&#39;, &#39;tcp&#39;, &#39;tcp6&#39;);    # Transports to use</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;version&#39;] = [&#39;v2c&#39;, &#39;v3&#39;, &#39;v1&#39;];               # Default versions to use</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;port&#39;] = 161;                      # Default port</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;exec_timeout&#39;] = 1200;                 # execution time limit in seconds</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                         <span class="c1"># timeout in seconds</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;retries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                         <span class="c1"># how many times to retry the query</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;transports&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;udp&#39;</span><span class="p">,</span> <span class="s1">&#39;udp6&#39;</span><span class="p">,</span> <span class="s1">&#39;tcp&#39;</span><span class="p">,</span> <span class="s1">&#39;tcp6&#39;</span><span class="p">);</span>    <span class="c1"># Transports to use</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;v2c&#39;</span><span class="p">,</span> <span class="s1">&#39;v3&#39;</span><span class="p">,</span> <span class="s1">&#39;v1&#39;</span><span class="p">];</span>               <span class="c1"># Default versions to use</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">161</span><span class="p">;</span>                      <span class="c1"># Default port</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;exec_timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">;</span>                 <span class="c1"># execution time limit in seconds</span>
 </code></pre></div>
 
 <blockquote>
@@ -2526,7 +2526,7 @@ is the max time to run a query.</p>
 </blockquote>
 <p>The default v1/v2c snmp community to use, you can expand this array
 with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;snmp&#39;][&#39;community&#39;][0] = &quot;public&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;community&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <blockquote>
@@ -2534,12 +2534,12 @@ with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 </blockquote>
 <p>The default v3 snmp details to use, you can expand this array with
 <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authlevel&#39;] = &quot;noAuthNoPriv&quot;;  # noAuthNoPriv | authNoPriv | authPriv</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authname&#39;] = &quot;root&quot;;           # User Name (required even for noAuthNoPriv)</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authpass&#39;] = &quot;&quot;;               # Auth Passphrase</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authalgo&#39;] = &quot;MD5&quot;;            # MD5 | SHA</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;cryptopass&#39;] = &quot;&quot;;             # Privacy (Encryption) Passphrase</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;cryptoalgo&#39;] = &quot;AES&quot;;          # AES | DES</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authlevel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;noAuthNoPriv&quot;</span><span class="p">;</span>  <span class="c1"># noAuthNoPriv | authNoPriv | authPriv</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span>           <span class="c1"># User Name (required even for noAuthNoPriv)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authpass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>               <span class="c1"># Auth Passphrase</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authalgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MD5&quot;</span><span class="p">;</span>            <span class="c1"># MD5 | SHA</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cryptopass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>             <span class="c1"># Privacy (Encryption) Passphrase</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cryptoalgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;AES&quot;</span><span class="p">;</span>          <span class="c1"># AES | DES</span>
 </code></pre></div>
 
 <h1 id="auto-discovery-settings">Auto discovery settings</h1>
@@ -2549,17 +2549,17 @@ with <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, etc.</p>
 <p>You can configure these options within the WebUI now, please avoid
 setting these options within config.php</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;email_backend&#39;]              = &#39;mail&#39;;</span>
-<span class="x">$config[&#39;email_from&#39;]                 = NULL;</span>
-<span class="x">$config[&#39;email_user&#39;]                 = $config[&#39;project_id&#39;];</span>
-<span class="x">$config[&#39;email_sendmail_path&#39;]        = &#39;/usr/sbin/sendmail&#39;;</span>
-<span class="x">$config[&#39;email_smtp_host&#39;]            = &#39;localhost&#39;;</span>
-<span class="x">$config[&#39;email_smtp_port&#39;]            = 25;</span>
-<span class="x">$config[&#39;email_smtp_timeout&#39;]         = 10;</span>
-<span class="x">$config[&#39;email_smtp_secure&#39;]          = NULL;</span>
-<span class="x">$config[&#39;email_smtp_auth&#39;]            = false;</span>
-<span class="x">$config[&#39;email_smtp_username&#39;]        = NULL;</span>
-<span class="x">$config[&#39;email_smtp_password&#39;]        = NULL;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_backend&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="s1">&#39;mail&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_from&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_user&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;project_id&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_sendmail_path&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="s1">&#39;/usr/sbin/sendmail&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_host&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_port&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_timeout&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_secure&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_auth&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_username&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;email_smtp_password&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
 </code></pre></div>
 
 <p>What type of mail transport to use for delivering emails. Valid
@@ -2570,28 +2570,28 @@ options after that are to support the different transports.</p>
 <h1 id="billing">Billing</h1>
 <p><a href="../../Extensions/Billing-Module/">Billing</a></p>
 <h1 id="global-module-support">Global module support</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_bgp&#39;]                   = 1; # Enable BGP session collection and display</span>
-<span class="x">$config[&#39;enable_syslog&#39;]                = 0; # Enable Syslog</span>
-<span class="x">$config[&#39;enable_inventory&#39;]             = 1; # Enable Inventory</span>
-<span class="x">$config[&#39;enable_pseudowires&#39;]           = 1; # Enable Pseudowires</span>
-<span class="x">$config[&#39;enable_vrfs&#39;]                  = 1; # Enable VRFs</span>
-<span class="x">$config[&#39;enable_sla&#39;]                   = 0; # Enable Cisco SLA collection and display</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_bgp&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># Enable BGP session collection and display</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_syslog&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1"># Enable Syslog</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_inventory&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># Enable Inventory</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_pseudowires&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># Enable Pseudowires</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_vrfs&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># Enable VRFs</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_sla&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1"># Enable Cisco SLA collection and display</span>
 </code></pre></div>
 
 <h1 id="port-extensions">Port extensions</h1>
 <p><a href="../../Extensions/Port-Description-Parser/">Port-Description-Parser</a></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_ports_etherlike&#39;]       = 0;</span>
-<span class="x">$config[&#39;enable_ports_junoseatmvp&#39;]     = 0;</span>
-<span class="x">$config[&#39;enable_ports_adsl&#39;]            = 1;</span>
-<span class="x">$config[&#39;enable_ports_poe&#39;]             = 0;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_ports_etherlike&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_ports_junoseatmvp&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_ports_adsl&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_ports_poe&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Enable / disable additional port statistics.</p>
 <h1 id="external-integration">External integration</h1>
 <h2 id="rancid">Rancid</h2>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rancid_configs&#39;][]             = &#39;/var/lib/rancid/network/configs/&#39;;</span>
-<span class="x">$config[&#39;rancid_repo_type&#39;]             = &#39;svn&#39;;</span>
-<span class="x">$config[&#39;rancid_ignorecomments&#39;]        = 0;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_configs&#39;</span><span class="p">][]</span>             <span class="o">=</span> <span class="s1">&#39;/var/lib/rancid/network/configs/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_repo_type&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;svn&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_ignorecomments&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Rancid configuration, <code>rancid_configs</code> is an array containing all of
@@ -2600,32 +2600,32 @@ will disable showing lines that start with #</p>
 <h2 id="oxidized">Oxidized</h2>
 <p><a href="../../Extensions/Oxidized/">Oxidized</a></p>
 <h2 id="collectd">CollectD</h2>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;collectd_dir&#39;]                 = &#39;/var/lib/collectd/rrd&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;collectd_dir&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="s1">&#39;/var/lib/collectd/rrd&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Specify the location of the collectd rrd files. Note that the location
 in config.php should be consistent with the location set in
 /etc/collectd.conf and etc/collectd.d/rrdtool.conf</p>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;Plugin rrdtool&gt;</span>
-<span class="x">        DataDir &quot;/var/lib/collectd/rrd&quot;</span>
-<span class="x">        CreateFilesAsync false</span>
-<span class="x">        CacheTimeout 120</span>
-<span class="x">        CacheFlush   900</span>
-<span class="x">        WritesPerSecond 50</span>
-<span class="x">&lt;/Plugin&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">Plugin</span> <span class="nx">rrdtool</span><span class="o">&gt;</span>
+        <span class="nx">DataDir</span> <span class="s2">&quot;/var/lib/collectd/rrd&quot;</span>
+        <span class="nx">CreateFilesAsync</span> <span class="k">false</span>
+        <span class="nx">CacheTimeout</span> <span class="mi">120</span>
+        <span class="nx">CacheFlush</span>   <span class="mi">900</span>
+        <span class="nx">WritesPerSecond</span> <span class="mi">50</span>
+<span class="o">&lt;/</span><span class="nx">Plugin</span><span class="o">&gt;</span>
 </code></pre></div>
 
 <p>/etc/collectd.conf</p>
-<div class="highlight"><pre><span></span><code><span class="x">LoadPlugin rrdtool</span>
-<span class="x">&lt;Plugin rrdtool&gt;</span>
-<span class="x">       DataDir &quot;/var/lib/collectd/rrd&quot;</span>
-<span class="x">       CacheTimeout 120</span>
-<span class="x">       CacheFlush   900</span>
-<span class="x">&lt;/Plugin&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nx">LoadPlugin</span> <span class="nx">rrdtool</span>
+<span class="o">&lt;</span><span class="nx">Plugin</span> <span class="nx">rrdtool</span><span class="o">&gt;</span>
+       <span class="nx">DataDir</span> <span class="s2">&quot;/var/lib/collectd/rrd&quot;</span>
+       <span class="nx">CacheTimeout</span> <span class="mi">120</span>
+       <span class="nx">CacheFlush</span>   <span class="mi">900</span>
+<span class="o">&lt;/</span><span class="nx">Plugin</span><span class="o">&gt;</span>
 </code></pre></div>
 
 <p>/etc/collectd.d/rrdtool.conf</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;collectd_sock&#39;]                 = &#39;unix:///var/run/collectd.sock&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;collectd_sock&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="s1">&#39;unix:///var/run/collectd.sock&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Specify the location of the collectd unix socket. Using a socket
@@ -2640,15 +2640,15 @@ drawn. Be sure that your web server has permissions to write to this socket.</p>
 visit Devices &gt; Geo Locations &gt; All Locations and edit the coordinates
 there.</p>
 <p>Exact Matching:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;location_map&#39;][&#39;Under the Sink&#39;] = &quot;Under The Sink, The Office, London, UK&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;location_map&#39;</span><span class="p">][</span><span class="s1">&#39;Under the Sink&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Under The Sink, The Office, London, UK&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Regex Matching:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;location_map_regex&#39;][&#39;/Sink/&#39;] = &quot;Under The Sink, The Office, London, UK&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;location_map_regex&#39;</span><span class="p">][</span><span class="s1">&#39;/Sink/&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Under The Sink, The Office, London, UK&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Regex Match Substitution:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;location_map_regex_sub&#39;][&#39;/Sink/&#39;] = &quot;Under The Sink, The Office, London, UK [lat, long]&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;location_map_regex_sub&#39;</span><span class="p">][</span><span class="s1">&#39;/Sink/&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Under The Sink, The Office, London, UK [lat, long]&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If you have an SNMP SysLocation of "Rack10,Rm-314,Sink", Regex Match
@@ -2668,20 +2668,20 @@ bad_if* arrays, but should only be modified via pull-request as
 manipulation of the definition files will block updating. </p>
 <p>Examples:</p>
 <p><strong>Add entries to default arrays</strong>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;bad_if&#39;][] = &quot;voip-null&quot;;</span>
-<span class="x">$config[&#39;bad_iftype&#39;][] = &quot;voiceEncap&quot;;</span>
-<span class="x">$config[&#39;bad_if_regexp&#39;][] = &#39;/^lo[0-9].*/&#39;;    // loopback</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;voip-null&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;voiceEncap&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/^lo[0-9].*/&#39;</span><span class="p">;</span>    <span class="c1">// loopback</span>
 </code></pre></div></p>
 <p><strong>Unset and customize a default array</strong>
-<div class="highlight"><pre><span></span><code><span class="x">unset($config[&#39;bad_if&#39;]);</span>
-<span class="x">$config[&#39;bad_if&#39;][] = &quot;voip-null&quot;;</span>
-<span class="x">$config[&#39;bad_if&#39;][] = &quot;voiceEncap&quot;;</span>
-<span class="x">$config[&#39;bad_if&#39;][] = &quot;voiceFXO&quot;;</span>
-<span class="x">...</span>
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if&#39;</span><span class="p">]);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;voip-null&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;voiceEncap&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;voiceFXO&quot;</span><span class="p">;</span>
+<span class="o">...</span>
 </code></pre></div></p>
 <p><strong>Create an OS specific array</strong>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;iosxe&#39;][&#39;bad_iftype&#39;][] = &quot;macSecControlledIF&quot;;</span>
-<span class="x">$config[&#39;os&#39;][&#39;iosxe&#39;][&#39;bad_iftype&#39;][] = &quot;macSecUncontrolledIF&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxe&#39;</span><span class="p">][</span><span class="s1">&#39;bad_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;macSecControlledIF&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxe&#39;</span><span class="p">][</span><span class="s1">&#39;bad_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;macSecUncontrolledIF&quot;</span><span class="p">;</span>
 </code></pre></div></p>
 <p><strong>Various bad_if* selection options available</strong></p>
 <p><code>bad_if</code> is matched against the ifDescr value.</p>
@@ -2691,8 +2691,8 @@ manipulation of the definition files will block updating. </p>
 <p><code>bad_ifalias_regexp</code> is matched against the ifAlias value as a regular expression.</p>
 <h1 id="interfaces-that-shouldnt-be-ignored">Interfaces that shouldn't be ignored</h1>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;good_if&#39;][] = &#39;FastEthernet&#39;;</span>
-<span class="x">$config[&#39;os&#39;][&#39;ios&#39;][&#39;good_if&#39;][] = &#39;FastEthernet&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;good_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;FastEthernet&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;ios&#39;</span><span class="p">][</span><span class="s1">&#39;good_if&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;FastEthernet&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><code>good_if</code> is matched against ifDescr value. This can be a bad_if value
@@ -2700,8 +2700,8 @@ as well which would stop that port from being ignored. I.e If bad_if
 and good_if both contained FastEthernet then ports with this value in
 the ifDescr will be valid.</p>
 <h1 id="interfaces-to-be-rewritten">Interfaces to be rewritten</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rewrite_if&#39;][&#39;cpu&#39;] = &#39;Management Interface&#39;;</span>
-<span class="x">$config[&#39;rewrite_if_regexp&#39;][&#39;/cpu /&#39;] = &#39;Management &#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rewrite_if&#39;</span><span class="p">][</span><span class="s1">&#39;cpu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Management Interface&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rewrite_if_regexp&#39;</span><span class="p">][</span><span class="s1">&#39;/cpu /&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Management &#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Entries defined in <code>rewrite_if</code> are being replaced completely.
@@ -2712,8 +2712,8 @@ Matches are compared case-insensitive.</p>
 either don't exist or just don't return data. This allows you to
 ignore those based on the descr field in the database. You can either
 ignore globally or on a per os basis.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;bad_entity_sensor_regex&#39;][] = &#39;/Physical id [0-9]+/&#39;;</span>
-<span class="x">$config[&#39;os&#39;][&#39;cisco&#39;][&#39;bad_entity_sensor_regex&#39;] = &#39;/Physical id [0-9]+/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bad_entity_sensor_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/Physical id [0-9]+/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;cisco&#39;</span><span class="p">][</span><span class="s1">&#39;bad_entity_sensor_regex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Physical id [0-9]+/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="entity-sensors-limit-values">Entity sensors limit values</h1>
@@ -2722,7 +2722,7 @@ sensors. By default, when no such value is given, both high and low
 limit values are guessed, based on the value measured during the initial discovery.</p>
 <p>When it is preferred to have no high and/or low limit values at all if
 these are not provided by the vendor, the guess method can be disabled:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;sensors&#39;][&#39;guess_limits&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sensors&#39;</span><span class="p">][</span><span class="s1">&#39;guess_limits&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="ignoring-health-sensors">Ignoring Health Sensors</h1>
@@ -2730,59 +2730,59 @@ these are not provided by the vendor, the guess method can be disabled:</p>
 <ul>
 <li>Ignore all temperature sensors</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;disabled_sensors&#39;][&#39;current&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;disabled_sensors&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Filter all sensors matching regexp <code>'/PEM Iout/'</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;disabled_sensors_regex&#39;][] = &#39;/PEM Iout/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/PEM Iout/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Filter all 'current' sensors for Operating System 'vrp'.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;vrp&#39;][&#39;disabled_sensors&#39;][&#39;current&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;vrp&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Filter all sensors matching regexp <code>'/PEM Iout/'</code> for Operating System iosxe.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;iosxe&#39;][&#39;disabled_sensors_regex&#39;][] = &#39;/PEM Iout/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxe&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/PEM Iout/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="storage-configuration">Storage configuration</h1>
 <p>Mounted storage / mount points to ignore in discovery and polling.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;ignore_mount_removable&#39;]  = 1;</span>
-<span class="x">$config[&#39;ignore_mount_network&#39;]    = 1;</span>
-<span class="x">$config[&#39;ignore_mount_optical&#39;]    = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_removable&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_network&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_optical&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-<span class="x">$config[&#39;ignore_mount&#39;][] = &quot;/kern&quot;;</span>
-<span class="x">$config[&#39;ignore_mount&#39;][] = &quot;/mnt/cdrom&quot;;</span>
-<span class="x">$config[&#39;ignore_mount&#39;][] = &quot;/proc&quot;;</span>
-<span class="x">$config[&#39;ignore_mount&#39;][] = &quot;/dev&quot;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/kern&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/mnt/cdrom&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/proc&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/dev&quot;</span><span class="p">;</span>
 
-<span class="x">$config[&#39;ignore_mount_string&#39;][] = &quot;packages&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_string&#39;][] = &quot;devfs&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_string&#39;][] = &quot;procfs&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_string&#39;][] = &quot;UMA&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_string&#39;][] = &quot;MALLOC&quot;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_string&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;packages&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_string&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;devfs&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_string&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;procfs&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_string&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;UMA&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_string&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;MALLOC&quot;</span><span class="p">;</span>
 
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/packages/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/dev/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/proc/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/junos^/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/junos\/dev/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/on: \/jail\/dev/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/^(dev|proc)fs/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/^\/dev\/md0/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/^\/var\/dhcpd\/dev,/&quot;;</span>
-<span class="x">$config[&#39;ignore_mount_regexp&#39;][] = &quot;/UMA/&quot;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/packages/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/dev/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/proc/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/junos^/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/junos\/dev/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/on: \/jail\/dev/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/^(dev|proc)fs/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/^\/dev\/md0/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/^\/var\/dhcpd\/dev,/&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ignore_mount_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;/UMA/&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Custom storage warning percentage</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;storage_perc_warn&#39;] = 60;</span>
-<span class="x">$config[&#39;os&#39;][&#39;linux&#39;][&#39;storage_perc_warn&#39;] = 60;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;storage_perc_warn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;linux&#39;</span><span class="p">][</span><span class="s1">&#39;storage_perc_warn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="irc-bot">IRC Bot</h1>
@@ -2791,14 +2791,14 @@ these are not provided by the vendor, the guess method can be disabled:</p>
 <p><a href="../../Extensions/Authentication/">Authentication</a></p>
 <h1 id="cleanup-options">Cleanup options</h1>
 <p>These options rely on daily.sh running from cron as per the installation instructions.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;syslog_purge&#39;]                                   = 30;</span>
-<span class="x">$config[&#39;eventlog_purge&#39;]                                 = 30;</span>
-<span class="x">$config[&#39;authlog_purge&#39;]                                  = 30;</span>
-<span class="x">$config[&#39;perf_times_purge&#39;]                               = 30;</span>
-<span class="x">$config[&#39;device_perf_purge&#39;]                              = 7;</span>
-<span class="x">$config[&#39;alert_log_purge&#39;]                                = 365;</span>
-<span class="x">$config[&#39;port_fdb_purge&#39;]                                 = 10;</span>
-<span class="x">$config[&#39;rrd_purge&#39;]                                      = 90;// Not set by default</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span>                                   <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;eventlog_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;authlog_purge&#39;</span><span class="p">]</span>                                  <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;perf_times_purge&#39;</span><span class="p">]</span>                               <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_perf_purge&#39;</span><span class="p">]</span>                              <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;alert_log_purge&#39;</span><span class="p">]</span>                                <span class="o">=</span> <span class="mi">365</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;port_fdb_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrd_purge&#39;</span><span class="p">]</span>                                      <span class="o">=</span> <span class="mi">90</span><span class="p">;</span><span class="c1">// Not set by default</span>
 </code></pre></div>
 
 <p>These options will ensure data within LibreNMS over X days old is
@@ -2812,9 +2812,9 @@ with that happening.</p>
 <h1 id="syslog-options">Syslog options</h1>
 <p><a href="../../Extensions/Syslog/">Syslog</a></p>
 <h1 id="virtualization">Virtualization</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_libvirt&#39;] = 1;</span>
-<span class="x">$config[&#39;libvirt_protocols&#39;]    = array(&quot;qemu+ssh&quot;,&quot;xen+ssh&quot;);</span>
-<span class="x">$config[&#39;libvirt_username&#39;] = &#39;root&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_libvirt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;libvirt_protocols&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;qemu+ssh&quot;</span><span class="p">,</span><span class="s2">&quot;xen+ssh&quot;</span><span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;libvirt_username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Enable this to switch on support for libvirt along with <code>libvirt_protocols</code>
@@ -2832,7 +2832,7 @@ to indicate how you connect to libvirt.  You also need to:</p>
 <p>To test your setup, run <code>virsh -c qemu+ssh://vmhost/system list</code> or
 <code>virsh -c xen+ssh://vmhost list</code> as your librenms polling user.</p>
 <h1 id="bgp-support">BGP Support</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;astext&#39;][&#39;65332&#39;] = &quot;Cymru FullBogon Feed&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;astext&#39;</span><span class="p">][</span><span class="s1">&#39;65332&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Cymru FullBogon Feed&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can use this array to rewrite the description of ASes that you have discovered.</p>
@@ -2841,11 +2841,11 @@ to indicate how you connect to libvirt.  You also need to:</p>
 <h1 id="ipmi">IPMI</h1>
 <p>Setup the types of IPMI protocols to test a host for and in what
 order. Don't forget to install ipmitool on the monitoring host.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;ipmi&#39;][&#39;type&#39;] = array();</span>
-<span class="x">$config[&#39;ipmi&#39;][&#39;type&#39;][] = &quot;lanplus&quot;;</span>
-<span class="x">$config[&#39;ipmi&#39;][&#39;type&#39;][] = &quot;lan&quot;;</span>
-<span class="x">$config[&#39;ipmi&#39;][&#39;type&#39;][] = &quot;imb&quot;;</span>
-<span class="x">$config[&#39;ipmi&#39;][&#39;type&#39;][] = &quot;open&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmi&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmi&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;lanplus&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmi&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;lan&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmi&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;imb&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ipmi&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="distributed-poller-settings">Distributed poller settings</h1>
@@ -2855,13 +2855,13 @@ order. Don't forget to install ipmitool on the monitoring host.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a></p>
 <p>CORS support for the API is disabled by default. Below you will find
 the standard options, all of which you can configure.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;enabled&#39;] = false;</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;origin&#39;] = [&#39;*&#39;];</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;maxage&#39;] = &#39;86400&#39;;</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;allowmethods&#39;] = [&#39;POST&#39;, &#39;GET&#39;, &#39;PUT&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;];</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;allowheaders&#39;] = [&#39;Origin&#39;, &#39;X-Requested-With&#39;, &#39;Content-Type&#39;, &#39;Accept&#39;, &#39;X-Auth-Token&#39;];</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;exposeheaders&#39;] = [&#39;Cache-Control&#39;, &#39;Content-Language&#39;, &#39;Content-Type&#39;, &#39;Expires&#39;, &#39;Last-Modified&#39;, &#39;Pragma&#39;];</span>
-<span class="x">$config[&#39;api&#39;][&#39;cors&#39;][&#39;allowcredentials&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;enabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;maxage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;86400&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;allowmethods&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="s1">&#39;PATCH&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;allowheaders&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span> <span class="s1">&#39;X-Requested-With&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;X-Auth-Token&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;exposeheaders&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Language&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Expires&#39;</span><span class="p">,</span> <span class="s1">&#39;Last-Modified&#39;</span><span class="p">,</span> <span class="s1">&#39;Pragma&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">][</span><span class="s1">&#39;cors&#39;</span><span class="p">][</span><span class="s1">&#39;allowcredentials&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
                 
                   

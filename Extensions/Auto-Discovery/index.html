@@ -2304,17 +2304,17 @@ auto-discovery will work.</p>
 <h2 id="snmp-details">SNMP Details</h2>
 <p>To add devices automatically we need to know your snmp details,
 examples of SNMP v1, v2c and v3 are below:</p>
-<div class="highlight"><pre><span></span><code><span class="x">// v1 or v2c</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;community&#39;][] = &quot;my_custom_community&quot;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;community&#39;][] = &quot;another_community&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// v1 or v2c</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;community&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;my_custom_community&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;community&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;another_community&quot;</span><span class="p">;</span>
 
-<span class="x">// v3</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authlevel&#39;] = &#39;authPriv&#39;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authname&#39;] = &#39;my_username&#39;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authpass&#39;] = &#39;my_password&#39;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;authalgo&#39;] = &#39;MD5&#39;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;cryptopass&#39;] = &#39;my_crypto&#39;;</span>
-<span class="x">$config[&#39;snmp&#39;][&#39;v3&#39;][0][&#39;cryptoalgo&#39;] = &#39;AES&#39;;</span>
+<span class="c1">// v3</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authlevel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;authPriv&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my_username&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authpass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my_password&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authalgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MD5&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cryptopass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my_crypto&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmp&#39;</span><span class="p">][</span><span class="s1">&#39;v3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;cryptoalgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;AES&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>These details will be attempted when adding devices, you can specify
@@ -2323,14 +2323,14 @@ any mixture of these.</p>
 <h3 id="your-networks">Your Networks</h3>
 <p>To add devices, we need to know what are your subnets so we don't go
 blindly attempting to add devices not under your control.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nets&#39;][] = &#39;192.168.0.0/24&#39;;</span>
-<span class="x">$config[&#39;nets&#39;][] = &#39;172.2.4.0/22&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nets&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;192.168.0.0/24&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nets&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;172.2.4.0/22&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="exclusions">Exclusions</h2>
 <p>If you have added a network as above but a single device exists within
 it that you can't auto add, then you can exclude this with the following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;autodiscovery&#39;][&#39;nets-exclude&#39;][] = &#39;192.168.0.1/32&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;nets-exclude&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;192.168.0.1/32&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="additional-options">Additional Options</h1>
@@ -2366,23 +2366,23 @@ within the Modules section.</p>
 <p>The LLDP/xDP links with neighbours will always be discovered as soon as the discovery module is enabled.
 However, LibreNMS will only try to add the new devices discovered with LLDP/xDP if <code>$config['autodiscovery']['xdp'] = true</code>; </p>
 <p>Devices may be excluded from xdp discovery by sysName and sysDescr.</p>
-<div class="highlight"><pre><span></span><code><span class="x">//Exclude devices by name</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;xdp_exclude&#39;][&#39;sysname_regexp&#39;][] = &#39;/host1/&#39;;</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;xdp_exclude&#39;][&#39;sysname_regexp&#39;][] = &#39;/^dev/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//Exclude devices by name</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;xdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;sysname_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/host1/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;xdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;sysname_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/^dev/&#39;</span><span class="p">;</span>
 
-<span class="x">//Exclude devices by description</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;xdp_exclude&#39;][&#39;sysdesc_regexp&#39;][] = &#39;/Vendor X/&#39;;</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;xdp_exclude&#39;][&#39;sysdesc_regexp&#39;][] = &#39;/Vendor Y/&#39;;</span>
+<span class="c1">//Exclude devices by description</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;xdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;sysdesc_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/Vendor X/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;xdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;sysdesc_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/Vendor Y/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Devices may be excluded from cdp discovery by platform.</p>
-<div class="highlight"><pre><span></span><code><span class="x">//Exclude devices by platform(Cisco only)</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;cdp_exclude&#39;][&#39;platform_regexp&#39;][] = &#39;/WS-C3750G/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//Exclude devices by platform(Cisco only)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;cdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;platform_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/WS-C3750G/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>These devices are excluded by default:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;autodiscovery&#39;][&#39;xdp_exclude&#39;][&#39;sysdesc_regexp&#39;][] = &#39;/-K9W8-/&#39;; // Cisco Lightweight Access Point</span>
-<span class="x">$config[&#39;autodiscovery&#39;][&#39;cdp_exclude&#39;][&#39;platform_regexp&#39;][] = &#39;/^Cisco IP Phone/&#39;; //Cisco IP Phone</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;xdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;sysdesc_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/-K9W8-/&#39;</span><span class="p">;</span> <span class="c1">// Cisco Lightweight Access Point</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;autodiscovery&#39;</span><span class="p">][</span><span class="s1">&#39;cdp_exclude&#39;</span><span class="p">][</span><span class="s1">&#39;platform_regexp&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/^Cisco IP Phone/&#39;</span><span class="p">;</span> <span class="c1">//Cisco IP Phone</span>
 </code></pre></div>
 
 <h2 id="ospf">OSPF</h2>

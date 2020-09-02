@@ -2270,45 +2270,45 @@ in cron.</p>
 a module by setting it to 0. If you just want to disable it for one
 device then you can do this within the WebUI -&gt; Device -&gt; Settings -&gt;
 Modules.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;discovery_modules&#39;][&#39;os&#39;]                   = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ports&#39;]                = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ports-stack&#39;]          = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;entity-physical&#39;]      = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;entity-state&#39;]         = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;processors&#39;]           = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;mempools&#39;]             = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-vrf-lite&#39;]       = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-mac-accounting&#39;] = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-pw&#39;]             = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;vrf&#39;]                  = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-cef&#39;]            = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-sla&#39;]            = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-cbqos&#39;]          = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;cisco-otv&#39;]            = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ipv4-addresses&#39;]       = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ipv6-addresses&#39;]       = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;route&#39;]                = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;sensors&#39;]              = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;storage&#39;]              = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;hr-device&#39;]            = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;discovery-protocols&#39;]  = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;arp-table&#39;]            = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;discovery-arp&#39;]        = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;junose-atm-vp&#39;]        = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;bgp-peers&#39;]            = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;vlans&#39;]                = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;vmware-vminfo&#39;]        = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;libvirt-vminfo&#39;]       = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;toner&#39;]                = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ucd-diskio&#39;]           = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;applications&#39;]         = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;services&#39;]             = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;stp&#39;]                  = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;ntp&#39;]                  = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;loadbalancers&#39;]        = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;mef&#39;]                  = false;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;wireless&#39;]             = true;</span>
-<span class="x">$config[&#39;discovery_modules&#39;][&#39;fdb-table&#39;]            = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ports&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ports-stack&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;entity-physical&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;entity-state&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;processors&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;mempools&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-vrf-lite&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-mac-accounting&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-pw&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;vrf&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-cef&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-sla&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-cbqos&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-otv&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ipv4-addresses&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ipv6-addresses&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;route&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;sensors&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;storage&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;hr-device&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;discovery-protocols&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;arp-table&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;discovery-arp&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;junose-atm-vp&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;bgp-peers&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;vlans&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;vmware-vminfo&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;libvirt-vminfo&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;toner&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ucd-diskio&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;applications&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;services&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;stp&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ntp&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;loadbalancers&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;mef&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;wireless&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;fdb-table&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="os-based-discovery-config">OS based Discovery config</h2>
@@ -2318,8 +2318,8 @@ over global. Device based settings have preference over all others</p>
 <p>Discover performance improvement can be achieved by deactivating all
 modules that are not supported by specific OS.</p>
 <p>E.g. to deactivate spanning tree but activate discovery-arp module for linux OS</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;linux&#39;][&#39;discovery_modules&#39;][&#39;stp&#39;] = false;</span>
-<span class="x">$config[&#39;os&#39;][&#39;linux&#39;][&#39;discovery_modules&#39;][&#39;discovery-arp&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;linux&#39;</span><span class="p">][</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;stp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;linux&#39;</span><span class="p">][</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;discovery-arp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="discovery-modules">Discovery modules</h2>

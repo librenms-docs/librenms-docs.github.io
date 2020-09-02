@@ -2244,20 +2244,20 @@ REDIS_DB=0
 directly into the database.</p>
 <p>The defaults are shown here - it's recommended that you at least tune
 the number of workers.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;service_poller_workers&#39;]              = 24;     # Processes spawned for polling</span>
-<span class="x">$config[&#39;service_services_workers&#39;]            = 8;      # Processes spawned for service polling</span>
-<span class="x">$config[&#39;service_discovery_workers&#39;]           = 16;     # Processes spawned for discovery</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_workers&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>     <span class="c1"># Processes spawned for polling</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_workers&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>      <span class="c1"># Processes spawned for service polling</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>     <span class="c1"># Processes spawned for discovery</span>
 
 
-<span class="x">//Optional Settings</span>
-<span class="x">$config[&#39;service_poller_frequency&#39;]            = 300;    # Seconds between polling attempts</span>
-<span class="x">$config[&#39;service_services_frequency&#39;]          = 300;    # Seconds between service polling attempts</span>
-<span class="x">$config[&#39;service_discovery_frequency&#39;]         = 21600;  # Seconds between discovery runs</span>
-<span class="x">$config[&#39;service_billing_frequency&#39;]           = 300;    # Seconds between billing calculations</span>
-<span class="x">$config[&#39;service_billing_calculate_frequency&#39;] = 60;     # Billing interval</span>
-<span class="x">$config[&#39;service_poller_down_retry&#39;]           = 60;     # Seconds between failed polling attempts</span>
-<span class="x">$config[&#39;service_loglevel&#39;]                    = &#39;INFO&#39;; # Must be one of &#39;DEBUG&#39;, &#39;INFO&#39;, &#39;WARNING&#39;, &#39;ERROR&#39;, &#39;CRITICAL&#39;</span>
-<span class="x">$config[&#39;service_update_frequency&#39;]            = 86400;  # Seconds between LibreNMS update checks</span>
+<span class="c1">//Optional Settings</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_frequency&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>    <span class="c1"># Seconds between polling attempts</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_frequency&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>    <span class="c1"># Seconds between service polling attempts</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_frequency&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">21600</span><span class="p">;</span>  <span class="c1"># Seconds between discovery runs</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_billing_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>    <span class="c1"># Seconds between billing calculations</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_billing_calculate_frequency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>     <span class="c1"># Billing interval</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_down_retry&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>     <span class="c1"># Seconds between failed polling attempts</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_loglevel&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span><span class="p">;</span> <span class="c1"># Must be one of &#39;DEBUG&#39;, &#39;INFO&#39;, &#39;WARNING&#39;, &#39;ERROR&#39;, &#39;CRITICAL&#39;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_update_frequency&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="mi">86400</span><span class="p">;</span>  <span class="c1"># Seconds between LibreNMS update checks</span>
 </code></pre></div>
 
 <p>There are also some SQL options, but these should be inherited from
@@ -2266,9 +2266,9 @@ your LibreNMS web UI configuration.</p>
 <code>rsyslog</code>) - see
 <a href="https://docs.python.org/3/library/logging.html#logging-levels">https://docs.python.org/3/library/logging.html#logging-levels</a> for the
 options available.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;distributed_poller&#39;]                    = true;            # Set to true to enable distributed polling</span>
-<span class="x">$config[&#39;distributed_poller_name&#39;]               = php_uname(&#39;n&#39;);  # Uniquely identifies the poller instance</span>
-<span class="x">$config[&#39;distributed_poller_group&#39;]              = 0;               # Which group to poll</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="k">true</span><span class="p">;</span>            <span class="c1"># Set to true to enable distributed polling</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_name&#39;</span><span class="p">]</span>               <span class="o">=</span> <span class="nb">php_uname</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">);</span>  <span class="c1"># Uniquely identifies the poller instance</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>               <span class="c1"># Which group to poll</span>
 </code></pre></div>
 
 <h3 id="tuning-the-number-of-workers">Tuning the number of workers</h3>
@@ -2279,12 +2279,12 @@ options available.</p>
 <h1 id="fast-ping">Fast Ping</h1>
 <p>The <a href="../Fast-Ping-Check/">fast ping</a> scheduler is disabled by default.
 You can enable it by setting the following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;service_ping_enabled&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_ping_enabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="watchdog">Watchdog</h1>
 <p>The watchdog scheduler is disabled by default. You can enable it by setting the following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;service_watchdog_enabled&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_watchdog_enabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The watchdog scheduler will check that the poller log file has been written to within the last poll period. If there is no change to the log file since, the watchdog will restart the polling service. The poller log file is set by <code>$config['log_file']</code> and defaults to <code>./logs/librenms.log</code></p>

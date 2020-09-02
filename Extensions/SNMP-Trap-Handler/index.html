@@ -2471,7 +2471,7 @@ SNMPv2-MIB::sysUpTime.0 = Timeticks: (149721964) 17 days, 7:53:39.64    SNMPv2-M
 <p>You can configure generic event logging for snmp traps.  This will log
 an event of the type trap for received traps. These events can be utilized for alerting.</p>
 <p>In config.php</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;snmptraps&#39;][&#39;eventlog&#39;] = &#39;unhandled&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmptraps&#39;</span><span class="p">][</span><span class="s1">&#39;eventlog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unhandled&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Valid options are:</p>

@@ -2244,7 +2244,7 @@ usage in the bill, including any overage.
 Accounting by both total transferred data and 95th percentile is supported.</p>
 <p>To enable and use the billing module you need to perform the following steps:</p>
 <p>Edit <code>config.php</code> and add (or enable) the following line near the end of the config</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_billing&#39;] = 1; # Enable Billing</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_billing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># Enable Billing</span>
 </code></pre></div>
 
 <p>Edit <code>/etc/cron.d/librenms</code> and add the following:</p>
@@ -2258,7 +2258,7 @@ Accounting by both total transferred data and 95th percentile is supported.</p>
 purge the detailed stats for old data (per-month totals will always be
 kept).  To enable this, add the
 following to <code>config.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;billing_data_purge&#39;] = 12;     // Number of months to retain</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;billing_data_purge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>     <span class="c1">// Number of months to retain</span>
 </code></pre></div>
 
 <p>Data for the last complete billing cycle will always be retained -
@@ -2271,7 +2271,7 @@ highest of the input or output 95th Percentile calculation.</p>
 This can be changed on a per bill basis by setting 95th Calculation to "Aggregate".</p>
 <p>To change the default option to Aggregate,
 add the following the <code>config.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;billing&#39;][&#39;95th_default_agg&#39;] = 1;  // Set aggregate 95th as default</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;billing&#39;</span><span class="p">][</span><span class="s1">&#39;95th_default_agg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// Set aggregate 95th as default</span>
 </code></pre></div>
 
 <p>This configuration setting is cosmetic and only changes the default

@@ -2268,7 +2268,7 @@ systems, as shown in the example of Open-audIT.</p>
 <p>The Links value is parsed by Laravel Blade's templating engine so you
 can use Device variables such as <code>hostname</code>, <code>sysName</code> and more.</p>
 <p><code>config.php:</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;html&#39;][&#39;device&#39;][&#39;links&#39;][] = [&#39;url&#39; =&gt; &#39;http://atssrv/open-audit/index/devices/{{ $device[\&#39;sysName\&#39;] }}&#39;, &#39;title&#39; =&gt; &#39;Open-AudIT&#39;];</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;links&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://atssrv/open-audit/index/devices/{{ $device[\&#39;sysName\&#39;] }}&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Open-AudIT&#39;</span><span class="p">];</span>
 </code></pre></div>
                 
                   

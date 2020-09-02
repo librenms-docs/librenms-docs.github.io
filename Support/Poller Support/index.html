@@ -2268,49 +2268,49 @@ cron.</p>
 module by setting it to 0. If you just want to
 disable it for one device then you can do this within the WebUI Device
 -&gt; Edit -&gt; Modules.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;poller_modules&#39;][&#39;unix-agent&#39;]                  = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;os&#39;]                          = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ipmi&#39;]                        = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;sensors&#39;]                     = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;processors&#39;]                  = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;mempools&#39;]                    = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;storage&#39;]                     = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;netstats&#39;]                    = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;hr-mib&#39;]                      = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ucd-mib&#39;]                     = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ipSystemStats&#39;]               = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ports&#39;]                       = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;nac&#39;]                         = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;bgp-peers&#39;]                   = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;junose-atm-vp&#39;]               = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;toner&#39;]                       = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ucd-diskio&#39;]                  = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;wireless&#39;]                    = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ospf&#39;]                        = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-ipsec-flow-monitor&#39;]    = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-remote-access-monitor&#39;] = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-cef&#39;]                   = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-sla&#39;]                   = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-mac-accounting&#39;]        = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cipsec-tunnels&#39;]              = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-ace-loadbalancer&#39;]      = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-ace-serverfarms&#39;]       = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-asa-firewall&#39;]          = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-voice&#39;]                 = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-cbqos&#39;]                 = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-otv&#39;]                   = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;cisco-vpdn&#39;]                  = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;netscaler-vsvr&#39;]              = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;aruba-controller&#39;]            = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;entity-physical&#39;]             = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;entity-state&#39;]                = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;applications&#39;]                = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;availability&#39;]                = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;stp&#39;]                         = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;ntp&#39;]                         = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;services&#39;]                    = true;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;loadbalancers&#39;]               = false;</span>
-<span class="x">$config[&#39;poller_modules&#39;][&#39;mef&#39;]                         = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;unix-agent&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">]</span>                          <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ipmi&#39;</span><span class="p">]</span>                        <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;sensors&#39;</span><span class="p">]</span>                     <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;processors&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;mempools&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;storage&#39;</span><span class="p">]</span>                     <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;netstats&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;hr-mib&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ucd-mib&#39;</span><span class="p">]</span>                     <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ipSystemStats&#39;</span><span class="p">]</span>               <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ports&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;nac&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;bgp-peers&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;junose-atm-vp&#39;</span><span class="p">]</span>               <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;toner&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ucd-diskio&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;wireless&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ospf&#39;</span><span class="p">]</span>                        <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-ipsec-flow-monitor&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-remote-access-monitor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-cef&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-sla&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-mac-accounting&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cipsec-tunnels&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-ace-loadbalancer&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-ace-serverfarms&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-asa-firewall&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-voice&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-cbqos&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-otv&#39;</span><span class="p">]</span>                   <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;cisco-vpdn&#39;</span><span class="p">]</span>                  <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;netscaler-vsvr&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;aruba-controller&#39;</span><span class="p">]</span>            <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;entity-physical&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;entity-state&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;applications&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;availability&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;stp&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ntp&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;services&#39;</span><span class="p">]</span>                    <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;loadbalancers&#39;</span><span class="p">]</span>               <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;mef&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="os-based-poller-config">OS based Poller config</h2>
@@ -2320,8 +2320,8 @@ over global. Device based settings have preference over all others</p>
 <p>Poller performance improvement can be achieved by deactivating all
 modules that are not supported by specific OS.</p>
 <p>E.g. to deactivate spanning tree but activate unix-agent module for linux OS</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;linux&#39;][&#39;poller_modules&#39;][&#39;stp&#39;]  = false;</span>
-<span class="x">$config[&#39;os&#39;][&#39;linux&#39;][&#39;poller_modules&#39;][&#39;unix-agent&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;linux&#39;</span><span class="p">][</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;stp&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;linux&#39;</span><span class="p">][</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;unix-agent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="poller-modules">Poller modules</h2>

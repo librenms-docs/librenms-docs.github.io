@@ -2433,7 +2433,7 @@ sensor(state_index) where these values are actually returned from.</em></p>
 <p>This example will be based on a Cisco power supply sensor and is all
 it takes to have sensor state support for Cisco power supplys in Cisco
 switches. The file should be located in /includes/discovery/sensors/state/cisco.inc.php.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$oids</span> <span class="o">=</span> <span class="nx">snmpwalk_group</span><span class="p">(</span><span class="nv">$device</span><span class="p">,</span> <span class="s1">&#39;ciscoEnvMonSupplyStatusTable&#39;</span><span class="p">,</span> <span class="s1">&#39;CISCO-ENVMON-MIB&#39;</span><span class="p">);</span>
 

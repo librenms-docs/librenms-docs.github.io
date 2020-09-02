@@ -2569,7 +2569,7 @@
 <p>Macros are shorthands to either portion of rules or pure SQL enhanced with placeholders.</p>
 <p>You can define your own macros in your <code>config.php</code>.</p>
 <p>Example macro-implementation of Debian-Devices</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;alert&#39;][&#39;macros&#39;][&#39;rule&#39;][&#39;is_debian&#39;] = &#39;devices.features ~ &quot;@debian@&quot;&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;alert&#39;</span><span class="p">][</span><span class="s1">&#39;macros&#39;</span><span class="p">][</span><span class="s1">&#39;rule&#39;</span><span class="p">][</span><span class="s1">&#39;is_debian&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;devices.features ~ &quot;@debian@&quot;&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>And in the Rule:</p>

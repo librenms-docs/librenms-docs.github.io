@@ -2383,31 +2383,31 @@ do so by setting <code>$config['uptime_warning'] = '84600';</code> in
 <h2 id="why-do-i-not-see-all-interfaces-in-the-overall-traffic-graph-for-a-device"><a name="faq23"> Why do I not see all interfaces in the Overall traffic graph for a device?</a></h2>
 <p>By default numerous interface types and interface descriptions are
 excluded from this graph. The excluded defailts are:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/loopback/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/tunnel/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/virtual/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/mpls/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/ieee8023adLag/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/l2vlan/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/ppp/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/loopback/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/tunnel/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/virtual/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/mpls/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/ieee8023adLag/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/l2vlan/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/ppp/&#39;</span><span class="p">;</span>
 
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/loopback/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/vlan/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/tunnel/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/bond/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/null/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_descr&#39;][] = &#39;/dummy/&#39;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/loopback/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/vlan/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/tunnel/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/bond/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/null/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_descr&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/dummy/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If you would like to re-include l2vlan interfaces for instance, you
 first need to <code>unset</code> the config array and set your options:</p>
-<div class="highlight"><pre><span></span><code><span class="x">unset($config[&#39;device_traffic_iftype&#39;]);</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/loopback/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/tunnel/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/virtual/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/mpls/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/ieee8023adLag/&#39;;</span>
-<span class="x">$config[&#39;device_traffic_iftype&#39;][] = &#39;/ppp/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="p">(</span><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">]);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/loopback/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/tunnel/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/virtual/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/mpls/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/ieee8023adLag/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_traffic_iftype&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/ppp/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="how-do-i-move-my-librenms-install-to-another-server"><a name="faq24"> How do I move my LibreNMS install to another server?</a></h2>

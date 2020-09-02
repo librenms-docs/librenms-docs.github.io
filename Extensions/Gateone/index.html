@@ -2183,14 +2183,14 @@ install this separately either on the same infrastructure as LibreNMS
 or as a totally  standalone appliance. The installation is beyond the
 scope of this document.</p>
 <p>Config is simple, include the following in your <code>config.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;gateone&#39;][&#39;server&#39;] = &#39;http://&lt;your_gateone_url/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;gateone&#39;</span><span class="p">][</span><span class="s1">&#39;server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://&lt;your_gateone_url/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><strong>Note:</strong> You <em>must</em> use the full url including the trailing <code>/</code>!</p>
 <p>We also support prefixing the currently logged in Librenms user to the
 SSH connection URL that is created, eg. <code>ssh://admin@localhost</code> To
 enable this, put the following in your <code>config.php</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;gateone&#39;][&#39;use_librenms_user&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;gateone&#39;</span><span class="p">][</span><span class="s1">&#39;use_librenms_user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
                 
                   

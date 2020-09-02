@@ -2192,17 +2192,17 @@ hostnames in syslog-messages for some platforms.</p>
 install this separately either on the same infrastructure as LibreNMS
 or as a totally standalone appliance.</p>
 <p>Config is simple, here's an example based on Graylog 2.4:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;graylog&#39;][&#39;server&#39;]   = &#39;http://127.0.0.1&#39;;</span>
-<span class="x">$config[&#39;graylog&#39;][&#39;port&#39;]     = 9000;</span>
-<span class="x">$config[&#39;graylog&#39;][&#39;username&#39;] = &#39;admin&#39;;</span>
-<span class="x">$config[&#39;graylog&#39;][&#39;password&#39;] = &#39;admin&#39;;</span>
-<span class="x">$config[&#39;graylog&#39;][&#39;version&#39;]  = &#39;2.4&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;server&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;2.4&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Graylog messages are stored using GMT timezone. You can display
 graylog messages in LibreNMS webui using your desired timezone by
 setting following option in config.php:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;graylog&#39;][&#39;timezone&#39;] = &#39;Europe/Bucharest&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;timezone&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Europe/Bucharest&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Timezone must be PHP supported timezones, available at:

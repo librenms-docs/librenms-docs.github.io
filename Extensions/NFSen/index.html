@@ -2243,31 +2243,31 @@
 </blockquote>
 <h2 id="configuration">Configuration</h2>
 <p>The following is the configuration that can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_enable&#39;] = 1;</span>
-<span class="x">$config[&#39;nfsen_split_char&#39;]   = &#39;_&#39;;</span>
-<span class="x">$config[&#39;nfsen_rrds&#39;][]   = &#39;/var/nfsen/profiles-stat/live/&#39;;</span>
-<span class="x">$config[&#39;nfsen_rrds&#39;][] = &#39;/var/nfsen/profiles-stat&#39;;</span>
-<span class="x">$config[&#39;nfsen_base&#39;][] = &#39;/var/nfsen/&#39;;</span>
-<span class="x">$config[&#39;nfsen_suffix&#39;]   = &quot;_yourdomain_com&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_split_char&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span>   <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/live/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_base&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_suffix&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s2">&quot;_yourdomain_com&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Set <code>$config['nfsen_enable'] = 1;</code> to enable NFSen support.</p>
 <p><code>$config['nfsen_rrds']</code> This value tells us where your NFSen rrd files
 live. This can also be an array to specify more directories like:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_rrds&#39;][] = &#39;/var/nfsen/profiles-stat/sitea/&#39;;</span>
-<span class="x">$config[&#39;nfsen_rrds&#39;][] = &#39;/var/nfsen/profiles-stat/siteb/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/sitea/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/siteb/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Although for most setups, it will look like below, with the
 profiles-stat/live directory being where it stores the general RRDs
 for data sources.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_rrds&#39;][] = &#39;/var/nfsen/profiles-stat/live&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/live&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If you wish to render info for configure channels for a device, you
 need add the various profile-stat directories your system uses, which
 for most systems will be as below.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_rrds&#39;][] = &#39;/var/nfsen/profiles-stat&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>When adding sources to nfsen.conf, it is important to use the hostname
@@ -2280,12 +2280,12 @@ your choice, and create a symbolic link to the rrd file.</p>
 ln -s mychannel.rrd librenmsdeviceIP.rrd
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_split_char&#39;]   = &#39;_&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_split_char&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This value tells us what to replace the full stops <code>.</code> in the devices
 hostname with.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_suffix&#39;]   = &quot;_yourdomain_com&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_suffix&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s2">&quot;_yourdomain_com&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The above is a very important bit as device names in NfSen are limited
@@ -2299,25 +2299,25 @@ the same name.</p>
 The default location for nfdump is <code>/usr/bin/nfdump</code>. If nfdump
 is located elsewhere, set it with 
 <code>$config['nfdump'] = '/usr/local/bin/nfdump';</code> for example.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_last_max&#39;] = 153600;</span>
-<span class="x">$config[&#39;nfsen_top_max&#39;] = 500;</span>
-<span class="x">$config[&#39;nfsen_top_N&#39;]=array( 10, 20, 50, 100, 200, 500 );</span>
-<span class="x">$config[&#39;nfsen_top_default&#39;]=20;</span>
-<span class="x">$config[&#39;nfsen_stat_default&#39;]=&#39;srcip&#39;;</span>
-<span class="x">$config[&#39;nfsen_order_default&#39;]=&#39;packets&#39;;</span>
-<span class="x">$config[&#39;nfsen_last_default&#39;]=900;</span>
-<span class="x">$config[&#39;nfsen_lasts&#39;]=array(</span>
-<span class="x">                            &#39;300&#39;=&gt;&#39;5 minutes&#39;,</span>
-<span class="x">                            &#39;600&#39;=&gt;&#39;10 minutes&#39;,</span>
-<span class="x">                            &#39;900&#39;=&gt;&#39;15 minutes&#39;,</span>
-<span class="x">                            &#39;1800&#39;=&gt;&#39;30 minutes&#39;,</span>
-<span class="x">                            &#39;3600&#39;=&gt;&#39;1 hour&#39;,</span>
-<span class="x">                            &#39;9600&#39;=&gt;&#39;3 hours&#39;,</span>
-<span class="x">                            &#39;38400&#39;=&gt;&#39;12 hours&#39;,</span>
-<span class="x">                            &#39;76800&#39;=&gt;&#39;24 hours&#39;,</span>
-<span class="x">                            &#39;115200&#39;=&gt;&#39;36 hours&#39;,</span>
-<span class="x">                            &#39;153600&#39;=&gt;&#39;48 hours&#39;,</span>
-<span class="x">                            );</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_last_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">153600</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_top_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_top_N&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span> <span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_top_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_stat_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;srcip&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_order_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;packets&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_last_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">900</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_lasts&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">array</span><span class="p">(</span>
+                            <span class="s1">&#39;300&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;5 minutes&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;600&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;10 minutes&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;900&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;15 minutes&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;1800&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;30 minutes&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;3600&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;1 hour&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;9600&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;3 hours&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;38400&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;12 hours&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;76800&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;24 hours&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;115200&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;36 hours&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;153600&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;48 hours&#39;</span><span class="p">,</span>
+                            <span class="p">);</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>$config[&#39;nfsen_last_max&#39;] = 153600;
@@ -2336,11 +2336,11 @@ higher this is, the more CPU and disk intensive the search will be.</p>
 
 <p>The above is a array containing a list for the drop down menu how many
 top items should be returned.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_top_default&#39;]=20;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_top_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The above sets default top number to use from the drop down.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_stat_default&#39;]=&#39;srcip&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_stat_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;srcip&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The above sets default stat type to use from the drop down.</p>
@@ -2359,7 +2359,7 @@ srcas    SRC AS
 dstas    DST AS
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nfsen_order_default&#39;]=&#39;packets&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_order_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;packets&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The above sets default order type to use from the drop down. Any of

@@ -2281,7 +2281,7 @@ Processor for your new device.</p>
 <p>Detection for memory is done via two php scripts, one for discovery
 and the other for polling:</p>
 <p><code>includes/discovery/mempools/pulse.inc.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">echo</span> <span class="s1">&#39;PULSE-MEMORY-POOL: &#39;</span><span class="p">;</span>
 <span class="nv">$usage</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">snmp_get</span><span class="p">(</span><span class="nv">$device</span><span class="p">,</span> <span class="s1">&#39;iveMemoryUtil.0&#39;</span><span class="p">,</span> <span class="s1">&#39;-OvQ&#39;</span><span class="p">,</span> <span class="s1">&#39;PULSESECURE-PSG-MIB&#39;</span><span class="p">));</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">is_numeric</span><span class="p">(</span><span class="nv">$usage</span><span class="p">))</span> <span class="p">{</span>
@@ -2290,7 +2290,7 @@ and the other for polling:</p>
 </code></pre></div>
 
 <p><code>includes/polling/mempools/pulse.inc.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">echo</span> <span class="s1">&#39;Pulse Secure MemPool\n&#39;</span><span class="p">;</span>
 <span class="nv">$perc</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">snmp_get</span><span class="p">(</span><span class="nv">$device</span><span class="p">,</span> <span class="s2">&quot;iveMemoryUtil.0&quot;</span><span class="p">,</span> <span class="s1">&#39;-OvQ&#39;</span><span class="p">,</span> <span class="s1">&#39;PULSESECURE-PSG-MIB&#39;</span><span class="p">));</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">is_numeric</span><span class="p">(</span><span class="nv">$perc</span><span class="p">))</span> <span class="p">{</span>
@@ -2395,7 +2395,7 @@ processing of data is required.</p>
 <p>If you need to implement custom discovery or polling you can implement
 the ProcessorDiscovery interface and the ProcessorPolling interface in the OS class.</p>
 <p>OS Class files reside under <code>LibreNMS\OS</code></p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">namespace</span> <span class="nx">LibreNMS\OS</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">LibreNMS\Device\Processor</span><span class="p">;</span>

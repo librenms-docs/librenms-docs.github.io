@@ -2370,7 +2370,7 @@ log <span class="o">{</span>
 </code></pre></div>
 
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_syslog&#39;] = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_syslog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If no messages make it to the syslog tab in LibreNMS, chances are you experience an issue with SELinux. If so, create a file mycustom-librenms-rsyslog.te , with the following content:</p>
@@ -2436,7 +2436,7 @@ that generated the message.  The <code>fromhost</code> property is preferred as
 it avoids problems caused by devices sending incorrect hostnames in
 syslog messages.</p>
 <p>Add the following to your LibreNMS <code>config.php</code> file to enable the Syslog extension:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;enable_syslog&#39;] = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_syslog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="logstash">logstash</h3>
@@ -2477,7 +2477,7 @@ only the "exec" section from output and add it.</p>
 
 <h1 id="syslog-clean-up">Syslog Clean Up</h1>
 <p>Can be set inside of  <code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;syslog_purge&#39;] = 30;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The cleanup is run by daily.sh and any entries over X days old are

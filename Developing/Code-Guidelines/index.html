@@ -2320,9 +2320,9 @@ follow the full spec.</p>
 <h3 id="indentation"><a href="http://www.php-fig.org/psr/psr-2/#2-4-indenting">Indentation</a></h3>
 <p>Please use four (4) spaces to indent code rather than a tab. Ensure
 you increase indentation for nested code blocks.</p>
-<div class="highlight"><pre><span></span><code><span class="x">if ($foo == 5) {</span>
-<span class="x">    if ($foo == 5) {</span>
-<span class="x">        if ($foo == 5) {</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
 </code></pre></div>
 
 <h3 id="line-length"><a href="http://www.php-fig.org/psr/psr-2/#1-overview">Line length</a></h3>
@@ -2332,34 +2332,34 @@ reading the code easier and also enables compatibility for all screen sizes.</p>
 <h3 id="control-structures"><a href="http://www.php-fig.org/psr/psr-2/#5-control-structures">Control structures</a></h3>
 <p>A space must be used both before and after the parenthesis and also
 surrounding the condition operator.</p>
-<div class="highlight"><pre><span></span><code><span class="x">if ($foo == 5) {</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
 </code></pre></div>
 
 <p>Do not put blocks of code on a single line, do use parenthesis</p>
-<div class="highlight"><pre><span></span><code><span class="x">if ($foo == 5) {</span>
-<span class="x">    echo &#39;foo is 5&#39;;</span>
-<span class="x">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;foo is 5&#39;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>else and elseif should start on the same line as ending of the previous code block.</p>
-<div class="highlight"><pre><span></span><code><span class="x">if ($foo == 5) {</span>
-<span class="x">    echo &#39;foo is 5&#39;;</span>
-<span class="x">} elsif ($foo == 4) {</span>
-<span class="x">    echo &#39;foo is 4&#39;;</span>
-<span class="x">} else {</span>
-<span class="x">    echo &#39;foo is something else&#39;;</span>
-<span class="x">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;foo is 5&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="nx">elsif</span> <span class="p">(</span><span class="nv">$foo</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;foo is 4&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;foo is something else&#39;</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h3 id="including-files">Including files</h3>
 <p>Using parenthesis around file includes isn't required, instead just
 place the file in between ''</p>
-<div class="highlight"><pre><span></span><code><span class="x">require_once &#39;includes/snmp.inc.php&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="k">require_once</span> <span class="s1">&#39;includes/snmp.inc.php&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="php-tags"><a href="http://www.php-fig.org/psr/psr-1/#1-overview">PHP tags</a></h3>
 <p>Ensure you use &lt;?php rather than the shorthand version &lt;?.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 </code></pre></div>
 
 <p>The <code>?&gt;</code> <a href="http://www.php-fig.org/psr/psr-2/#2-2-files">must be

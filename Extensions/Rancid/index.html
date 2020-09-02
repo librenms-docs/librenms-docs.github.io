@@ -2190,8 +2190,8 @@ php ./gen_rancid.php &gt; /the/path/where/is/rancid/core/router.db
 </code></pre></div>
 
 <p>Now configure LibreNMS (make sure you point dir to your rancid data directory):</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;rancid_configs&#39;][&#39;core&#39;] = &#39;/the/path/where/is/rancid/core&#39;;</span>
-<span class="x">$config[&#39;rancid_ignorecomments&#39;] = 0;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_configs&#39;</span><span class="p">][</span><span class="s1">&#39;core&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/the/path/where/is/rancid/core&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_ignorecomments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 
 <p>After that, you should see some "config" tab on routers that have a rancid update.</p>

@@ -2453,7 +2453,7 @@ is shown per device under device &gt; graphs &gt; poller.</p>
 <p>Disable polling (and discovery) modules that you do not need. You can
 do this globally in <code>config.php</code> like:</p>
 <p>Disable OSPF polling</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;poller_modules&#39;][&#39;ospf&#39;] = false;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;ospf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You can disable modules globally then re-enable the module per device
@@ -2490,18 +2490,18 @@ to ensure you don't set the value too high.</p>
 <h2 id="fping-tuning">fping tuning</h2>
 <p>You can change some of the default fping options used globally or per
 device. The defaults are:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;fping_options&#39;][&#39;timeout&#39;] = 500;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;count&#39;]   = 3;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;interval&#39;] = 500;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
 </code></pre></div>
 
 <p>If your devices are slow to respond then you will need to increase the
 timeout value and potentially the interval value. However if your
 network is stable, you can increase poller performance by dropping the
 count value to 1 and/or the timeout+millsec value to 200 or 300:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;fping_options&#39;][&#39;timeout&#39;] = 300;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;count&#39;]   = 1;</span>
-<span class="x">$config[&#39;fping_options&#39;][&#39;interval&#39;] = 300;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;fping_options&#39;</span><span class="p">][</span><span class="s1">&#39;interval&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This will mean that we no longer delay each icmp packet sent (we send

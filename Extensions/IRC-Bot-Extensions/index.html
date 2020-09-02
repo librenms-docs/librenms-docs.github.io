@@ -2187,9 +2187,9 @@ Below you will find a table with related functions and attributes.
 You can chain-load any built-in command by calling <code>$this-&gt;_command("My Parameters")</code>.
 You cannot chain-load external commands.</p>
 <p>To enable your command, edit your <code>config.php</code> and add something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_external&#39;][] = &quot;mycommand&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_external&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;mycommand&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
 
 <p>See: <a href="#example">Example</a></p>
@@ -2341,21 +2341,21 @@ You cannot chain-load external commands.</p>
 </table>
 <h1 id="example">Example</h1>
 <p><code>includes/ircbot/join-ng.inc.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">   if( $this-&gt;user[&#39;level&#39;] != 10 ) {</span>
-<span class="x">      return $this-&gt;respond(&quot;Sorry only admins can make me join.&quot;);</span>
-<span class="x">   }</span>
-<span class="x">   if( $this-&gt;getChan() == &quot;#noc&quot;) {</span>
-<span class="x">      $this-&gt;respond(&quot;Joining $params&quot;);</span>
-<span class="x">      $this-&gt;joinChan($params);</span>
-<span class="x">   } else {</span>
-<span class="x">      $this-&gt;respond(&quot;Sorry, only people from #noc can make join.&quot;);</span>
-<span class="x">   }</span>
+<div class="highlight"><pre><span></span><code>   <span class="k">if</span><span class="p">(</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;Sorry only admins can make me join.&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="k">if</span><span class="p">(</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getChan</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;#noc&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;Joining </span><span class="si">$params</span><span class="s2">&quot;</span><span class="p">);</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">joinChan</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;Sorry, only people from #noc can make join.&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
 </code></pre></div>
 
 <p><code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">   ...</span>
-<span class="x">   $config[&#39;irc_external&#39;][] = &quot;join-ng&quot;;</span>
-<span class="x">   ...</span>
+<div class="highlight"><pre><span></span><code>   <span class="o">...</span>
+   <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_external&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;join-ng&quot;</span><span class="p">;</span>
+   <span class="o">...</span>
 </code></pre></div>
                 
                   

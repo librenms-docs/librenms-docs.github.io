@@ -2199,9 +2199,9 @@ really able to provide any help with this side of things.</p>
 <p>RRD will continue to function as normal so LibreNMS itself should
 continue to function as normal.</p>
 <h1 id="configuration">Configuration</h1>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;prometheus&#39;][&#39;enable&#39;] = true;</span>
-<span class="x">$config[&#39;prometheus&#39;][&#39;url&#39;] = &#39;http://127.0.0.1:9091&#39;;</span>
-<span class="x">$config[&#39;prometheus&#39;][&#39;job&#39;] = &#39;librenms&#39;; # Optional</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:9091&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;job&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;librenms&#39;</span><span class="p">;</span> <span class="c1"># Optional</span>
 </code></pre></div>
 
 <h1 id="sample-prometheus-scrape-config-for-scraping-the-push-gateway">Sample Prometheus Scrape Config (for scraping the Push Gateway)</h1>

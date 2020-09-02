@@ -2190,10 +2190,10 @@ like Grafana for graphing.</p>
 continue to function normally.</p>
 <p>You can add the following to <code>config.php</code>.</p>
 <h1 id="configuration">Configuration</h1>
-<div class="highlight"><pre><span></span><code><span class="x">// OpenTSDB default configuration</span>
-<span class="x">$config[&#39;opentsdb&#39;][&#39;enable&#39;] = true;</span>
-<span class="x">$config[&#39;opentsdb&#39;][&#39;host&#39;] = &#39;127.0.0.1&#39;;  // your OpenTSDB server</span>
-<span class="x">$config[&#39;opentsdb&#39;][&#39;port&#39;] = 4242;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// OpenTSDB default configuration</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;opentsdb&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;opentsdb&#39;</span><span class="p">][</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>  <span class="c1">// your OpenTSDB server</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;opentsdb&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4242</span><span class="p">;</span>
 </code></pre></div>
 
 <p>The same data than the one stored within rrd will be sent to OpenTSDB

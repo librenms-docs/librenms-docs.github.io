@@ -2337,16 +2337,16 @@ YYYY-MM-DD mm:hh is fine :).</p>
 <p>To keep things consistent we have the following variables which should
 be used rather than to format dates yourself. This has the added
 benefit that users can customise the format:</p>
-<div class="highlight"><pre><span></span><code><span class="x"># Date format for PHP date()s</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;long&#39;]                             = &quot;r&quot;; # RFC2822 style</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;compact&#39;]                          = &quot;Y-m-d H:i:s&quot;;</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;byminute&#39;]                         = &quot;Y-m-d H:i&quot;;</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;time&#39;]                             = &quot;H:i:s&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Date format for PHP date()s</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;long&#39;</span><span class="p">]</span>                             <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">;</span> <span class="c1"># RFC2822 style</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;compact&#39;</span><span class="p">]</span>                          <span class="o">=</span> <span class="s2">&quot;Y-m-d H:i:s&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;byminute&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="s2">&quot;Y-m-d H:i&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>                             <span class="o">=</span> <span class="s2">&quot;H:i:s&quot;</span><span class="p">;</span>
 
-<span class="x"># Date format for MySQL DATE_FORMAT</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;mysql&#39;][&#39;compact&#39;]                 = &quot;%Y-%m-%d %H:%i:%s&quot;;</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;mysql&#39;][&#39;date&#39;]                 = &quot;%Y-%m-%d&quot;;</span>
-<span class="x">$config[&#39;dateformat&#39;][&#39;mysql&#39;][&#39;time&#39;]                 = &quot;%H:%i:%s&quot;;</span>
+<span class="c1"># Date format for MySQL DATE_FORMAT</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;mysql&#39;</span><span class="p">][</span><span class="s1">&#39;compact&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="s2">&quot;%Y-%m-%d %H:%i:%s&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;mysql&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="s2">&quot;%Y-%m-%d&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;dateformat&#39;</span><span class="p">][</span><span class="s1">&#39;mysql&#39;</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>                 <span class="o">=</span> <span class="s2">&quot;%H:%i:%s&quot;</span><span class="p">;</span>
 </code></pre></div>
                 
                   

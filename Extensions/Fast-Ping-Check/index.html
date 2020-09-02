@@ -2252,8 +2252,9 @@ in the <a href="../../Alerting/Rules/#alert-rules-collection">Alert Rules
 Collection</a>.</p>
 <h2 id="setting-the-ping-check-to-1-minute">Setting the ping check to 1 minute</h2>
 <p>1: If you are using <a href="http://docs.librenms.org/Extensions/RRDCached/">RRDCached</a>, stop the service.</p>
-<pre><code>- This will flush all pending writes so that the rrdstep.php script can change the steps.
-</code></pre>
+<div class="highlight"><pre><span></span><code>- This will flush all pending writes so that the rrdstep.php script can change the steps.
+</code></pre></div>
+
 <p>2: Change the ping_rrd_step setting in config.php</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;ping_rrd_step&#39;] = 60;
 </code></pre></div>

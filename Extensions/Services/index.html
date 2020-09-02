@@ -2347,11 +2347,11 @@ in cron.</p>
 <p>Firstly, install Nagios plugins however you would like, this could be
 via yum, apt-get or direct from source.</p>
 <p>Next, you need to enable the services within config.php with the following:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;show_services&#39;]           = 1;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;show_services&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This will enable a new service menu within your navbar.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;nagios_plugins&#39;]   = &quot;/usr/lib/nagios/plugins&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nagios_plugins&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s2">&quot;/usr/lib/nagios/plugins&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This will point LibreNMS at the location of the nagios plugins -

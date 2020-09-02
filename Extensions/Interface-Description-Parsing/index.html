@@ -2212,17 +2212,17 @@ descr Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 
 <h1 id="customisation">Customisation</h1>
 <p>The following config options can be set to enable more custom types:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;customers_descr&#39;][]         = &#39;cust&#39;;</span>
-<span class="x">$config[&#39;transit_descr&#39;][]           = &quot;transit&quot;;</span>
-<span class="x">$config[&#39;peering_descr&#39;][]           = &quot;peering&quot;;</span>
-<span class="x">$config[&#39;core_descr&#39;][]              = &quot;core&quot;;</span>
-<span class="x">$config[&#39;custom_descr&#39;][]            = &quot;something_made_up&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;customers_descr&#39;</span><span class="p">][]</span>         <span class="o">=</span> <span class="s1">&#39;cust&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;transit_descr&#39;</span><span class="p">][]</span>           <span class="o">=</span> <span class="s2">&quot;transit&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;peering_descr&#39;</span><span class="p">][]</span>           <span class="o">=</span> <span class="s2">&quot;peering&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;core_descr&#39;</span><span class="p">][]</span>              <span class="o">=</span> <span class="s2">&quot;core&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;custom_descr&#39;</span><span class="p">][]</span>            <span class="o">=</span> <span class="s2">&quot;something_made_up&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h1 id="custom-interface-parser">Custom interface parser</h1>
 <p>It's also possible to write your own parser, the existing one is: includes/port-descr-parser.inc.php</p>
 <p>Once you've created your own then you can enable it with:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;port_descr_parser&#39;] = &quot;includes/custom/my-port-descr-parser.inc.php&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;port_descr_parser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;includes/custom/my-port-descr-parser.inc.php&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="setup">Setup</h2>

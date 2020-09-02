@@ -2356,7 +2356,7 @@ set, the global default will be used.</p>
 <h3 id="user-override-in-configphp">User override in config.php</h3>
 <p>Users can override these settings in their config.php.</p>
 <p>For example, to set an alternate icon for ios:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;ios&#39;][&#39;icon&#39;] = &#39;fuzzybunny&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;ios&#39;</span><span class="p">][</span><span class="s1">&#39;icon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;fuzzybunny&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="ignoring-sensors">Ignoring Sensors</h3>
@@ -2364,25 +2364,25 @@ set, the global default will be used.</p>
 <ul>
 <li>Filter all 'current' sensors for Operating System 'vrp'.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;vrp&#39;][&#39;disabled_sensors&#39;][&#39;current&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;vrp&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Filter all sensors with description matching regexp <code>'/PEM Iout/'</code> for Operating System iosxe.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;os&#39;][&#39;iosxe&#39;][&#39;disabled_sensors_regex&#39;][] = &#39;/PEM Iout/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxe&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/PEM Iout/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Ignore all temperature sensors</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;disabled_sensors&#39;][&#39;temperature&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;disabled_sensors&#39;</span><span class="p">][</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <ul>
 <li>Filter all sensors matching with description regexp <code>'/PEM Iout/'</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;disabled_sensors_regex&#39;][] = &#39;/PEM Iout/&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/PEM Iout/&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="ignoring-interfaces">Ignoring Interfaces</h3>

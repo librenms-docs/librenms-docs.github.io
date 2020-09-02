@@ -2238,9 +2238,9 @@
                 <p>First we define our graphs in <code>includes/definitions.inc.php</code> to share
 our work and contribute in the development of LibreNMS. :-) (or place
 in <code>config.php</code> if you don't plan to contribute)</p>
-<div class="highlight"><pre><span></span><code><span class="x">// Pulse Secure Graphs</span>
-<span class="x">$config[&#39;graph_types&#39;][&#39;device&#39;][&#39;pulse_sessions&#39;] = [&#39;section&#39; =&gt; &#39;firewall&#39;, &#39;order&#39; =&gt; 0, &#39;descr&#39; =&gt; &#39;Active Sessions&#39;];</span>
-<span class="x">$config[&#39;graph_types&#39;][&#39;device&#39;][&#39;pulse_users&#39;] = [&#39;section&#39; =&gt; &#39;firewall&#39;, &#39;order&#39; =&gt; 0, &#39;descr&#39; =&gt; &#39;Active Users&#39;];</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Pulse Secure Graphs</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graph_types&#39;</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;pulse_sessions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;section&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;firewall&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;descr&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Active Sessions&#39;</span><span class="p">];</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graph_types&#39;</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;pulse_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;section&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;firewall&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;descr&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Active Users&#39;</span><span class="p">];</span>
 </code></pre></div>
 
 <h4 id="polling-os">Polling OS</h4>
@@ -2254,7 +2254,7 @@ please speak to one of the core devs in
 <p>We declare two specific graphs for users and sessions numbers. Theses
 two graphs will be displayed on the firewall section of the graphs tab
 as it was written in the definition include file.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">use</span> <span class="nx">LibreNMS\RRD\RrdDefinition</span><span class="p">;</span>
 
@@ -2294,7 +2294,7 @@ write the following PHP code:</p>
 <div class="highlight"><pre><span></span><code>includes/html/graphs/device/pulse_sessions.inc.php
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$rrd_filename</span> <span class="o">=</span> <span class="nx">rrd_name</span><span class="p">(</span><span class="nv">$device</span><span class="p">[</span><span class="s1">&#39;hostname&#39;</span><span class="p">],</span> <span class="s1">&#39;pulse_sessions&#39;</span><span class="p">);</span>
 
@@ -2319,7 +2319,7 @@ write the following PHP code:</p>
 <div class="highlight"><pre><span></span><code>includes/html/graphs/device/pulse_users.inc.php
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="nv">$rrd_filename</span> <span class="o">=</span> <span class="nx">rrd_name</span><span class="p">(</span><span class="nv">$device</span><span class="p">[</span><span class="s1">&#39;hostname&#39;</span><span class="p">],</span> <span class="s1">&#39;pulse_users&#39;</span><span class="p">);</span>
 

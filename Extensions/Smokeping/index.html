@@ -2505,11 +2505,11 @@ failing to update with <code>daily.sh</code> due config files being modified.</p
 <h2 id="configure-librenms">Configure LibreNMS</h2>
 <p>Edit <code>/opt/librenms/config.php</code> and add the following:</p>
 <p><strong>Note:</strong> Make sure you point dir to the correct Smokeping data directory:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/var/lib/smokeping&#39;; // Ubuntu 16.04 and newer Location</span>
-<span class="x">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/opt/smokeping/data&#39;;</span>
-<span class="x">$config[&#39;smokeping&#39;][&#39;pings&#39;] = 20;    // should be equal to &quot;pings&quot; in your smokeping config</span>
-<span class="x">$config[&#39;smokeping&#39;][&#39;integration&#39;] = true;</span>
-<span class="x">$config[&#39;smokeping&#39;][&#39;url&#39;] = &#39;smokeping/&#39;;  // If you have a specific URL or path for smokeping</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/var/lib/smokeping&#39;</span><span class="p">;</span> <span class="c1">// Ubuntu 16.04 and newer Location</span>
+<span class="c1">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/opt/smokeping/data&#39;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;pings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>    <span class="c1">// should be equal to &quot;pings&quot; in your smokeping config</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;integration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;smokeping/&#39;</span><span class="p">;</span>  <span class="c1">// If you have a specific URL or path for smokeping</span>
 </code></pre></div>
 
 <h2 id="configure-web-server">Configure web server</h2>
@@ -2613,10 +2613,10 @@ data such as RRD files are stored. If this is on a separate server,
 ensure there is a mount point reachable, along with the server's hostname.</p>
 <p><strong>Note:</strong> The location should be the RRD root folder, NOT the
 sub-directory such as network.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/var/lib/smokeping&#39;; // Ubuntu 16.04 and newer Location</span>
-<span class="x">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/opt/smokeping/data&#39;;</span>
-<span class="x">$config[&#39;smokeping&#39;][&#39;pings&#39;] = 20;    // should be equal to &quot;pings&quot; in your smokeping config</span>
-<span class="x">$config[&#39;smokeping&#39;][&#39;integration&#39;] = true;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/var/lib/smokeping&#39;</span><span class="p">;</span> <span class="c1">// Ubuntu 16.04 and newer Location</span>
+<span class="c1">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/opt/smokeping/data&#39;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;pings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>    <span class="c1">// should be equal to &quot;pings&quot; in your smokeping config</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;integration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
 
 <p>You should now see a new tab in your device page called ping.</p>
@@ -2676,8 +2676,8 @@ And give to smokeping rights to access files</p>
 <div class="highlight"><pre><span></span><code>nano /opt/librenms/config.php
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/opt/librenms/rrd/smokeping&#39;;</span>
-<span class="x">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/var/lib/smokeping&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;smokeping&#39;</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/opt/librenms/rrd/smokeping&#39;</span><span class="p">;</span>
+<span class="c1">#$config[&#39;smokeping&#39;][&#39;dir&#39;] = &#39;/var/lib/smokeping&#39;;</span>
 </code></pre></div>
                 
                   

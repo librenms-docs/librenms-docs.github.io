@@ -1879,15 +1879,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#os-discovery" class="md-nav__link">
+    OS discovery
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#poller" class="md-nav__link">
-    Poller
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2277,15 +2277,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#os-discovery" class="md-nav__link">
+    OS discovery
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#poller" class="md-nav__link">
-    Poller
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2461,18 +2461,18 @@ which modules are enabled/disabled by default.</p>
 </code></pre></div>
 
 <p>This is how the discovery array would look in PHP:</p>
-<div class="highlight"><pre><span></span><code><span class="x">[</span>
-<span class="x">     [</span>
-<span class="x">       &quot;sysObjectID&quot; =&gt; &quot;foo&quot;,</span>
-<span class="x">     ],</span>
-<span class="x">     [</span>
-<span class="x">       &quot;sysDescr&quot; =&gt; [</span>
-<span class="x">         &quot;snafu&quot;,</span>
-<span class="x">         &quot;exodar&quot;,</span>
-<span class="x">       ],</span>
-<span class="x">       &quot;sysObjectID&quot; =&gt; &quot;bar&quot;,</span>
-<span class="x">     ]</span>
-<span class="x">]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+     <span class="p">[</span>
+       <span class="s2">&quot;sysObjectID&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+     <span class="p">],</span>
+     <span class="p">[</span>
+       <span class="s2">&quot;sysDescr&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+         <span class="s2">&quot;snafu&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;exodar&quot;</span><span class="p">,</span>
+       <span class="p">],</span>
+       <span class="s2">&quot;sysObjectID&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+     <span class="p">]</span>
+<span class="p">]</span>
 </code></pre></div>
 
 <p>The logic for the discovery is as follows:</p>
@@ -2495,17 +2495,25 @@ which modules are enabled/disabled by default.</p>
   sysObjectID for this device.</li>
 <li><code>$device['sysDescr']</code>: This will contain the full sysDescr for this device.</li>
 </ul>
-<h3 id="poller">Poller</h3>
-<p>OS polling is done within <code>includes/polling/os/$os.inc.php</code> and is where we detect certain values.</p>
-<div class="highlight"><pre><span></span><code><span class="x">$version = preg_replace(&#39;/[\r\n\&quot;]+/&#39;, &#39; &#39;, snmp_get($device, &quot;productVersion.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));</span>
-<span class="x">$hardware = &quot;Juniper &quot; . preg_replace(&#39;/[\r\n\&quot;]+/&#39;, &#39; &#39;, snmp_get($device, &quot;productName.0&quot;, &quot;-OQv&quot;, &quot;PULSESECURE-PSG-MIB&quot;));</span>
+<h4 id="os-discovery">OS discovery</h4>
+<p>OS discovery is done within <code>LibreNMS/OS/$os.php</code> and is where we detect certain values.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">function</span> <span class="nf">discoverOS</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+<span class="p">{</span>
+    <span class="nv">$device</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDeviceModel</span><span class="p">();</span>
+    <span class="nv">$info</span> <span class="o">=</span> <span class="nx">snmp_getnext_multi</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDevice</span><span class="p">(),</span> <span class="s1">&#39;enclosureModel enclosureSerialNum entPhysicalFirmwareRev&#39;</span><span class="p">,</span> <span class="s1">&#39;-OQUs&#39;</span><span class="p">,</span> <span class="s1">&#39;NAS-MIB:ENTITY-MIB&#39;</span><span class="p">);</span>
+    <span class="nv">$device</span><span class="o">-&gt;</span><span class="na">version</span> <span class="o">=</span> <span class="nx">Str</span><span class="o">::</span><span class="na">replaceFirst</span><span class="p">(</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;entPhysicalFirmwareRev&#39;</span><span class="p">]);</span>
+    <span class="nv">$device</span><span class="o">-&gt;</span><span class="na">hardware</span> <span class="o">=</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;enclosureModel&#39;</span><span class="p">];</span>
+    <span class="nv">$device</span><span class="o">-&gt;</span><span class="na">serial</span> <span class="o">=</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;enclosureSerialNum&#39;</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></div>
 
-<p><code>$version</code>: The version of the OS running on the device.</p>
-<p><code>$hardware</code>: The hardware version for the device. For example: 'WS-C3560X-24T-S'</p>
-<p><code>$features</code>: Features for the device, for example a list of cards in the slots of a modular chassis.</p>
-<p><code>$serial</code>: The main serial number of the device.</p>
-<p><code>$location</code>: Overrides sysLocation of the device.</p>
+<ul>
+<li><code>$device-&gt;version</code> The version of the OS running on the device.</li>
+<li><code>$device-&gt;hardware</code> The hardware version for the device. For example: 'WS-C3560X-24T-S'</li>
+<li><code>$device-&gt;features</code> Features for the device, for example a list of cards in the slots of a modular chassis.</li>
+<li><code>$device-&gt;serial</code> The main serial number of the device.</li>
+<li><code>$device-&gt;icon</code> The icon of the device.</li>
+</ul>
 <h3 id="mibs">MIBs</h3>
 <p>If the device has MIBs available and you use it in the detection then you can add these in. It is highly
 recommended that you add mibs to a vendor specific directory. For instance HP mibs are in <code>mibs/hp</code>. Please

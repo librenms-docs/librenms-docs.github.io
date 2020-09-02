@@ -2207,13 +2207,13 @@ devices from any of the groups listed.  If new devices get added from
 the poller they will be assigned to the first poller group in the list
 unless the group is specified when adding the device.</p>
 <p>A standard configuration for a distributed poller would look like:</p>
-<div class="highlight"><pre><span></span><code><span class="x">// Distributed Poller-Settings</span>
-<span class="x">$config[&#39;distributed_poller&#39;]                            = true;</span>
-<span class="x">// optional: defaults to hostname</span>
-<span class="x">#$config[&#39;distributed_poller_name&#39;]                      = &#39;custom&#39;;</span>
-<span class="x">$config[&#39;distributed_poller_group&#39;]                      = 0;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_host&#39;]             = &#39;example.net&#39;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_port&#39;]             = &#39;11211&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Distributed Poller-Settings</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="c1">// optional: defaults to hostname</span>
+<span class="c1">#$config[&#39;distributed_poller_name&#39;]                      = &#39;custom&#39;;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_host&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;example.net&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_port&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;11211&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="example-setup">Example Setup</h2>
@@ -2303,8 +2303,8 @@ Web server, DB server, RRDCached server and 3 pollers.</p>
 <ul>
 <li>config.php</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;distributed_poller&#39;] = true;</span>
-<span class="x">$config[&#39;rrdcached&#39;]    = &quot;example.com:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;example.com:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Database Server:
@@ -2342,12 +2342,12 @@ OPTS=&quot;$OPTS -w 1800 -z 900&quot;
 <p>Poller 1:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;distributed_poller_name&#39;]           = php_uname(&#39;n&#39;);</span>
-<span class="x">$config[&#39;distributed_poller_group&#39;]          = &#39;0&#39;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_host&#39;] = &quot;example.com&quot;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_port&#39;] = 11211;</span>
-<span class="x">$config[&#39;distributed_poller&#39;]                = true;</span>
-<span class="x">$config[&#39;rrdcached&#39;]                         = &quot;example.com:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_name&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="nb">php_uname</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;example.com&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11211</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="s2">&quot;example.com:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><code>/etc/cron.d/librenms</code></p>
@@ -2363,12 +2363,12 @@ notifications and DB cleanup and alerts.</p>
 <p>Poller 2:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;distributed_poller_name&#39;]           = php_uname(&#39;n&#39;);</span>
-<span class="x">$config[&#39;distributed_poller_group&#39;]          = &#39;0&#39;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_host&#39;] = &quot;example.com&quot;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_port&#39;] = 11211;</span>
-<span class="x">$config[&#39;distributed_poller&#39;]                = true;</span>
-<span class="x">$config[&#39;rrdcached&#39;]                         = &quot;example.com:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_name&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="nb">php_uname</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;example.com&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11211</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="s2">&quot;example.com:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><code>/etc/cron.d/librenms</code></p>
@@ -2382,12 +2382,12 @@ Running an install of LibreNMS in /opt/librenms</p>
 <p>Poller 3:
 Running an install of LibreNMS in /opt/librenms</p>
 <p><code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="x">$config[&#39;distributed_poller_name&#39;]           = php_uname(&#39;n&#39;);</span>
-<span class="x">$config[&#39;distributed_poller_group&#39;]          = &#39;2,3&#39;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_host&#39;] = &quot;example.com&quot;;</span>
-<span class="x">$config[&#39;distributed_poller_memcached_port&#39;] = 11211;</span>
-<span class="x">$config[&#39;distributed_poller&#39;]                = true;</span>
-<span class="x">$config[&#39;rrdcached&#39;]                         = &quot;example.com:42217&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_name&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="nb">php_uname</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">);</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="s1">&#39;2,3&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;example.com&quot;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11211</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="s2">&quot;example.com:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p><code>/etc/cron.d/librenms</code>
