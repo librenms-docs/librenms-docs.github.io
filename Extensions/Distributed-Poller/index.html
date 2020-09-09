@@ -2333,10 +2333,10 @@ OPTS=&quot;$OPTS -w 1800 -z 900&quot;
 </code></pre></div>
 
 <p>Ubuntu (/etc/default/rrdcached) - RRDCached 1.5.5 and above.</p>
-<div class="highlight"><pre><span></span><code>OPTS=&quot;-l 0:42217&quot;
-OPTS=&quot;$OPTS -R -j /var/lib/rrdcached/journal/ -F&quot;
-OPTS=&quot;$OPTS -b /opt/librenms/rrd -B&quot;
-OPTS=&quot;$OPTS -w 1800 -z 900&quot;
+<div class="highlight"><pre><span></span><code>BASE_OPTIONS=&quot;-l 0:42217&quot;
+BASE_OPTIONS=&quot;$BASE_OPTIONS -R -j /var/lib/rrdcached/journal/ -F&quot;
+BASE_OPTIONS=&quot;$BASE_OPTIONS -b /opt/librenms/rrd -B&quot;
+BASE_OPTIONS=&quot;$BASE_OPTIONS -w 1800 -z 900&quot;
 </code></pre></div>
 
 <p>Poller 1:
