@@ -2931,9 +2931,6 @@ echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-times
 </code></pre></div>
 
 <h1 id="mysql">MySQL</h1>
-<h2 id="agent_7">Agent</h2>
-<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already
-and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Create the cache directory, '/var/cache/librenms/' and make sure
 that it is owned by the user running the SNMP daemon.</p>
 <div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
@@ -2946,7 +2943,7 @@ please verify those are installed.</p>
 </code></pre></div>
 
 <p>Debian (May vary based on PHP version)</p>
-<div class="highlight"><pre><span></span><code>apt-get install php5-cli php5-mysql
+<div class="highlight"><pre><span></span><code>apt-get install php-cli php-mysql
 </code></pre></div>
 
 <p>Unlike most other scripts, the MySQL script requires a configuration
@@ -2959,39 +2956,26 @@ with following content:</p>
 <span class="nv">$mysql_port</span> <span class="o">=</span> <span class="mi">3306</span><span class="p">;</span>
 </code></pre></div>
 
+<p>Note that depending on your MySQL installation (chrooted install for example),
+you may have to specify 127.0.0.1 instead of localhost. Localhost make
+a MySQL connection via the mysql socket, while 127.0.0.1 make a standard
+IP connection to mysql.</p>
+<h2 id="agent_7">Agent</h2>
+<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already</p>
+<p>and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h2 id="snmp-extend_19">SNMP extend</h2>
 <p>1: Copy the mysql script to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql</code></p>
 <p>2: Run <code>chmod +x /etc/snmp/mysql</code></p>
-<p>3: Create the cache directory, '/var/cache/librenms/' and make sure
-that it is owned by the user running the SNMP daemon.</p>
-<div class="highlight"><pre><span></span><code>mkdir -p /var/cache/librenms/
-</code></pre></div>
-
-<p>4: Unlike most other scripts, the MySQL script requires a
-configuration file <code>mysql.cnf</code> in <code>/etc/snmp/</code> with following content:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$mysql_user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
-<span class="nv">$mysql_pass</span> <span class="o">=</span> <span class="s1">&#39;toor&#39;</span><span class="p">;</span>
-<span class="nv">$mysql_host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-<span class="nv">$mysql_port</span> <span class="o">=</span> <span class="mi">3306</span><span class="p">;</span>
-</code></pre></div>
-
-<p>Note that depending on your MySQL installation (chrooted install for example),
-you may have to specify 127.0.0.1 instead of localhost. Localhost make
-a MySQL connection via the mysql socket, while 127.0.0.1 make a standard
-IP connection to mysql.</p>
-<p>5: Edit your snmpd.conf file and add:</p>
+<p>3: Edit your snmpd.conf file and add:</p>
 <div class="highlight"><pre><span></span><code>extend mysql /etc/snmp/mysql
 </code></pre></div>
 
-<p>6: Install the PHP CLI language and your MySQL module of choice for
-PHP.</p>
+<p>4: Restart snmpd.</p>
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
-<p>7: Restart snmpd.</p>
 <h1 id="nginx">NGINX</h1>
 <p>NGINX is a free, open-source, high-performance HTTP server: <a href="https://www.nginx.org/">https://www.nginx.org/</a></p>
 <p>It's required to have the following directive in your nginx
