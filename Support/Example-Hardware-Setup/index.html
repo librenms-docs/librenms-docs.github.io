@@ -2382,8 +2382,8 @@
 setups so you have an idea of what may be required for your install.</p>
 <p>To obtain the device, port and sensor counts you can run:</p>
 <div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">devices</span><span class="p">;</span>
-<span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">ports</span> <span class="k">where</span> <span class="ss">`deleted`</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">sensors</span> <span class="k">where</span> <span class="ss">`sensor_deleted`</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">ports</span> <span class="k">where</span> <span class="n">`deleted`</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">sensors</span> <span class="k">where</span> <span class="n">`sensor_deleted`</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="laf"><a href="https://github.com/laf">laf</a></h2>
