@@ -2469,14 +2469,18 @@ SNMPv2-MIB::sysUpTime.0 = Timeticks: (149721964) 17 days, 7:53:39.64    SNMPv2-M
 <p>So what value should you type in the commands below? Oddly enough, simply supplying no value by using two single quotes '' will instruct the command to obtain the value from the operating system you are executing this on.</p>
 <h3 id="event-logging">Event logging</h3>
 <p>You can configure generic event logging for snmp traps.  This will log
-an event of the type trap for received traps. These events can be utilized for alerting.</p>
-<p>In config.php</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmptraps&#39;</span><span class="p">][</span><span class="s1">&#39;eventlog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unhandled&#39;</span><span class="p">;</span>
+an event of the type trap for received traps. These events can be used for alerting.
+By default, only the TrapOID is logged. Buf you can enable the "detailed" variant,
+and all the data received with the trap will be logged.</p>
+<p>The parameter can be found in General Settings / External / SNMP Traps Integration.</p>
+<p>It can also be configured in <code>config.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmptraps&#39;</span><span class="p">][</span><span class="s1">&#39;eventlog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unhandled&#39;</span><span class="p">;</span> <span class="c1">//default value</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;snmptraps&#39;</span><span class="p">][</span><span class="s1">&#39;eventlog_detailed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;false&#39;</span><span class="p">;</span> <span class="c1">//default value</span>
 </code></pre></div>
 
 <p>Valid options are:</p>
 <ul>
-<li><code>unhandled</code> only unhandled traps will be logged</li>
+<li><code>unhandled</code> only unhandled traps will be logged (default value)</li>
 <li><code>all</code> log all traps</li>
 <li><code>none</code> no traps will create a generic event log (handled traps may still log events)</li>
 </ul>
