@@ -2428,7 +2428,7 @@ make sure it is modified in a consistent manner.</p>
 testing. For OS discovery, we can mock snmpsim, but for other tests
 you will need it installed and functioning.  We run snmpsim during
 our integration tests, but not by default when running
-<code>./scripts/pre-commit.php</code>.  You can install snmpsim with the
+<code>./lnms dev:check</code>.  You can install snmpsim with the
 command <code>pip3 install snmpsim</code>.</p>
 </blockquote>
 <h2 id="capturing-test-data">Capturing test data</h2>
@@ -2458,13 +2458,13 @@ After you have the data you need in the snmprec file, you can just use save-test
 <code>./scripts/composer_wrapper.php install</code> from your LibreNMS root
 directory. This will read composer.json and install any dependencies required.</p>
 <p>After you have saved your test data, you should run
-<code>./scripts/pre-commit.php -p -u</code> verify they pass.</p>
+<code>./lnms dev:check</code> verify they pass.</p>
 <p>To run the full suite of tests enable database and snmpsim reliant
-tests: <code>./scripts/pre-commit.php --db --snmpsim -p -u</code></p>
+tests: <code>./lnms dev:check unit --db --snmpsim</code></p>
 <h3 id="specific-os">Specific OS</h3>
-<p><code>./scripts/pre-commit.php -p -o osname</code></p>
+<p><code>./lnms dev:check unit -o osname</code></p>
 <h3 id="specific-module">Specific Module</h3>
-<p><code>./scripts/pre-commit.php -p -m modulename</code></p>
+<p><code>./lnms dev:check unit -m modulename</code></p>
 <h2 id="using-snmpsim-for-testing">Using snmpsim for testing</h2>
 <p>You can run snmpsim to access test data by running
 <code>./scripts/collect-snmp-data.php --snmpsim</code></p>
@@ -2561,7 +2561,7 @@ must use a variant to store your test data (-v).</p>
 <li>If there is additional snmp data required, run <code>./scripts/collect-snmp-data.php -h 42</code></li>
 <li>Run <code>./scripts/save-test-data.php -o example-os</code> to update the dumped database data.</li>
 <li>Review data. If you modified the snmprec or code (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
-<li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
+<li>Run <code>./lnms dev:check unit --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
 </ol>
 <h3 id="additional-module-support-or-test-data">Additional module support or test data</h3>
@@ -2571,7 +2571,7 @@ must use a variant to store your test data (-v).</p>
    more data to the snmprec file</li>
 <li>Review data. If you modified the snmprec (don't modify json
    manually) run <code>./scripts/save-test-data.php -o example-os -m &lt;module&gt;</code></li>
-<li>Run <code>./scripts/pre-commit.php --db --snmpsim</code></li>
+<li>Run <code>./lnms dev:check unit --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
 </ol>
                 

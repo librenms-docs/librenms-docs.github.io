@@ -2249,23 +2249,17 @@ directory and can be run as the librenms user  unless otherwise noted.</p>
 <p>Now install the dependencies we require:</p>
 <p><code>./composer.phar install</code></p>
 <p>Once composer is installed you can now run the code validation script:</p>
-<p><code>./scripts/pre-commit.php</code></p>
+<p><code>./lnms dev:check</code></p>
 <p>If you see <code>Tests ok, submit away :)</code> then all is well. If you see
 other output then it should contain  what you need to resolve the issues and re-test.</p>
 <h4 id="git-hooks">Git Hooks</h4>
 <p>Git has a hook system which you can use to trigger checks at various
-stages. Utilising the <code>pre-commit.php</code>  you can make this part of your
-commit process. You can do this in two ways:</p>
-<ol>
-<li>If you already make use of <code>.git/hooks/pre-commit</code> then you can add:</li>
-</ol>
-<p>./scripts/pre-commit.php</p>
-<p>to be excecuted when you run <code>git commit</code>.</p>
-<ol>
-<li>You can symlink the <code>pre-commit.php</code> file so it's executed directly
-   on a <code>git commit</code>:</li>
-</ol>
-<p><code>ln -s /opt/librenms/scripts/pre-commit.php /opt/librenms/.git/hooks/pre-commit</code></p>
+stages. Utilising the <code>./lnms dev:check</code>  you can make this part of your
+commit process.</p>
+<p>Add <code>./lnms dev:check</code> to your <code>.git/hooks/pre-commit</code>:</p>
+<div class="highlight"><pre><span></span><code>echo &quot;/opt/librenms/lnms dev:check&quot; &gt;&gt; /opt/librenms/.git/hooks/pre-commit
+chmod +x /opt/librenms/.git/hooks/pre-commit
+</code></pre></div>
                 
                   
                 
