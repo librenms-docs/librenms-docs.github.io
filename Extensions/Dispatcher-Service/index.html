@@ -2190,6 +2190,7 @@ behaviour only found in Python3.4+.</p>
   install. MySQLclient can also be used, but does require compilation.</li>
 <li>python-dotenv .env loader</li>
 <li>redis-py 3.0+ and Redis 5.0+ server (if using distributed polling)</li>
+<li>psutil</li>
 </ul>
 <p>These can be obtained from your OS package manager, or from PyPI with the below commands.</p>
 <div class="highlight"><pre><span></span><code>pip3 install -r requirements.txt
@@ -2314,7 +2315,7 @@ collections build:</p>
 </code></pre></div>
 
 <p>Then install and configure the runtime and service:</p>
-<div class="highlight"><pre><span></span><code># yum install rh-python36 epel-release
+<div class="highlight"><pre><span></span><code># yum install gcc rh-python36 rh-python36-python-devel epel-release
 # yum --enablerepo=remi install redis
 # vi /opt/librenms/config.php
 # vi /etc/redis.conf
