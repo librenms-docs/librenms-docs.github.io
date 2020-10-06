@@ -2453,11 +2453,9 @@ that the device doesn't support ifXEntry and to ignore it:</p>
      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cisco2811</span>
 </code></pre></div>
 
-<p><code>mib_dir</code>: You can use this to specify the additional directories to
-look in for MIBs:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">mib_dir</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">juniper</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cisco</span>
+<p><code>mib_dir</code>: You can use this to specify an additional directory to
+look in for MIBs. An array is not accepted, only one directory may be specified.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">mib_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">juniper</span>
 </code></pre></div>
 
 <p><code>poller_modules</code>: This is a list of poller modules to either enable
@@ -2530,6 +2528,7 @@ more complex collection is required.</p>
 <li><code>&lt;field&gt;</code> specify an oid or list of oids to attempt to pull the data from, the first non-empty response will be used</li>
 <li><code>&lt;field&gt;_regex</code> parse the value out of the returned oid data, must use a named group</li>
 <li><code>&lt;field&gt;_template</code> combine multiple oid results together to create a final string value.  The result is trimmed.</li>
+<li><code>hardware_mib</code> MIB used to translate sysObjectID to get hardware. hardware_regex can process the result.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">modules</span><span class="p">:</span>
     <span class="nt">os</span><span class="p">:</span>

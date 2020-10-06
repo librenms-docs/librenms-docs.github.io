@@ -2184,7 +2184,7 @@ are not, prepend <code>sudo</code> to the shell commands (the ones that aren't
 at <code>mysql&gt;</code> prompts) or temporarily become a user with root
 privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </blockquote>
-<p><strong>Please note the minimum supported PHP version is 7.2.5</strong></p>
+<p><strong>Please note the minimum supported PHP version is 7.3</strong></p>
 <h1 id="install-required-packages">Install Required Packages</h1>
 <div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Ubuntu 20.04</label><div class="tabbed-content">
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">NGINX</label><div class="tabbed-content">
@@ -2208,13 +2208,17 @@ apt install acl curl apache2 composer fping git graphviz imagemagick libapache2-
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">CentOS 8</label><div class="tabbed-content">
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">NGINX</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>dnf -y install epel-release
-dnf install bash-completion composer cronie fping git ImageMagick mariadb-server mtr net-snmp net-snmp-utils nginx nmap php-fpm php-cli php-common php-curl php-gd php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip rrdtool unzip
+dnf module reset php
+dnf module enable php:7.3
+dnf install bash-completion cronie fping git ImageMagick mariadb-server mtr net-snmp net-snmp-utils nginx nmap php-fpm php-cli php-common php-curl php-gd php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip rrdtool unzip
 </code></pre></div>
 
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Apache</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>dnf -y install epel-release
-dnf install bash-completion composer cronie fping git httpd ImageMagick mariadb-server mtr net-snmp net-snmp-utils nmap php-fpm php-cli php-common php-curl php-gd php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip rrdtool unzip
+dnf module reset php
+dnf module enable php:7.3
+dnf install bash-completion cronie fping git httpd ImageMagick mariadb-server mtr net-snmp net-snmp-utils nmap php-fpm php-cli php-common php-curl php-gd php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip rrdtool unzip
 </code></pre></div>
 
 </div>
@@ -2246,11 +2250,15 @@ setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstra
 </code></pre></div>
 
 <h1 id="install-php-dependencies">Install PHP dependencies</h1>
-<div class="highlight"><pre><span></span><code>su - librenms
+<p><div class="highlight"><pre><span></span><code>su - librenms
 ./scripts/composer_wrapper.php install --no-dev
 exit
 </code></pre></div>
-
+Sometime when there is a proxy used to gain internet access, the above script may fail. The workaround is to install the <code>composer</code> package manually. For a global installation:
+<div class="highlight"><pre><span></span><code>wget https://getcomposer.org/composer-stable.phar
+mv composer-stable.phar /usr/bin/composer
+chmod +x /usr/bin/composer
+</code></pre></div></p>
 <h1 id="set-timezone">Set timezone</h1>
 <p>See <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> for a list of supported
 timezones.  Valid examples are: "America/New_York", "Australia/Brisbane", "Etc/UTC".
