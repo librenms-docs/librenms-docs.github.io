@@ -3162,12 +3162,11 @@ syslocation Rack, Room, Building, City, Country [GPSX,Y]
 syscontact Your Name &lt;your@email.address&gt;
 
 #Distro Detection
-extend .1.3.6.1.4.1.2021.7890.1 distro /usr/bin/distro
-
+extend distro /usr/bin/distro
 #Hardware Detection (uncomment to enable)
-#extend .1.3.6.1.4.1.2021.7890.2 hardware &#39;/bin/cat /sys/devices/virtual/dmi/id/product_name&#39;
-#extend .1.3.6.1.4.1.2021.7890.3 manufacturer &#39;/bin/cat /sys/devices/virtual/dmi/id/sys_vendor&#39;
-#extend .1.3.6.1.4.1.2021.7890.4 serial &#39;/bin/cat /sys/devices/virtual/dmi/id/product_serial&#39;
+#extend hardware &#39;/bin/cat /sys/devices/virtual/dmi/id/product_name&#39;
+#extend manufacturer &#39;/bin/cat /sys/devices/virtual/dmi/id/sys_vendor&#39;
+#extend serial &#39;/bin/cat /sys/devices/virtual/dmi/id/product_serial&#39;
 </code></pre></div>
 
 <p><strong>NOTE</strong>: On some systems the snmpd is running as its own user, which
