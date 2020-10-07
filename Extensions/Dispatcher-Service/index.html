@@ -2228,7 +2228,7 @@ DB_PASSWORD=
 </code></pre></div>
 
 <h2 id="distributed-polling-configuration">Distributed Polling Configuration</h2>
-<p>Once you have your Redis database set up, configure it in the .env file on each node.</p>
+<p>Once you have your Redis database set up, configure it in the .env file on each node. Configure the redis cache driver for distributed locking.</p>
 <div class="highlight"><pre><span></span><code>REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
 # OR
@@ -2238,6 +2238,8 @@ REDIS_SENTINEL_SERVICE=myservice
 REDIS_DB=0
 #REDIS_PASSWORD=
 #REDIS_TIMEOUT=60
+
+CACHE_DRIVER=redis
 </code></pre></div>
 
 <h2 id="basic-configuration">Basic Configuration</h2>
