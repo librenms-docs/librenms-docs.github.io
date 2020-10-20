@@ -2420,8 +2420,24 @@ $ModLoad imudp
 $UDPServerRun 514
 </code></pre></div>
 
-<p>Create a file called something like <code>/etc/rsyslog.d/30-librenms.conf</code> containing:</p>
+<p>Create a file called <code>/etc/rsyslog.d/30-librenms.conf</code>and add the following depending on your version of rsyslog.</p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Version 8</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code># Feed syslog messages to librenms
+module(load=&quot;omprog&quot;)
+
+template(name=&quot;librenms&quot;
+        type=&quot;string&quot;
+        string= &quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n&quot;)
+        action(type=&quot;omprog&quot;
+        binary=&quot;/opt/librenms/syslog.php&quot;
+        template=&quot;librenms&quot;)
+
+&amp; stop
+</code></pre></div>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Version 7</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>#Feed syslog messages to librenms
 $ModLoad omprog
 
 $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslogseverity%||%syslogtag%||%$year%-%$month%-%$day% %timegenerated:8:25%||%msg%||%programname%\n&quot;
@@ -2431,16 +2447,18 @@ $template librenms,&quot;%fromhost%||%syslogfacility%||%syslogpriority%||%syslog
 &amp; stop
 </code></pre></div>
 
-<p>Ancient versions of rsyslog may require different syntax.</p>
-<p>This is an example for rsyslog 5 (default on Debian 7):</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Feed syslog messages to librenms</span>
-<span class="nv">$ModLoad</span> omprog
-<span class="nv">$template</span> librenms,<span class="s2">&quot;%FROMHOST%||%syslogfacility-text%||%syslogpriority-text%||%syslogseverity%||%syslogtag%||%</span><span class="nv">$YEAR</span><span class="s2">%-%</span><span class="nv">$MONTH</span><span class="s2">%-%</span><span class="nv">$DAY</span><span class="s2">% %timegenerated:8:25%||%msg%||%programname%\n&quot;</span>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Legacy</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code># Feed syslog messages to librenms
+$ModLoad omprog
+$template librenms,&quot;%FROMHOST%||%syslogfacility-text%||%syslogpriority-text%||%syslogseverity%||%syslogtag%||%$YEAR%-%$MONTH%-%$DAY%    %timegenerated:8:25%||%msg%||%programname%\n&quot;
 
-<span class="nv">$ActionOMProgBinary</span> /opt/librenms/syslog.php
-*.* :omprog:<span class="p">;</span>librenms
+$ActionOMProgBinary /opt/librenms/syslog.php
+*.* :omprog:;librenms
 </code></pre></div>
 
+</div>
+</div>
 <p>If your rsyslog server is recieving messages relayed by another syslog
 server, you may try replacing <code>%fromhost%</code> with <code>%hostname%</code>, since
 <code>fromhost</code> is the host the message was received from, not the host
