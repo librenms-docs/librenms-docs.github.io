@@ -3186,6 +3186,11 @@ means it can't read <code>/sys/devices/virtual/dmi/id/product_serial</code> whic
 is mode 0400. One solution is to include <code>@reboot chmod 444
 /sys/devices/virtual/dmi/id/product_serial</code> in the crontab for root or
 equivalent.</p>
+<p>Non-x86 or SMBIOS-based systems, such as ARM-based Raspberry Pi units should
+query device tree locations for this metadata, for example:
+<div class="highlight"><pre><span></span><code>extend hardware &#39;/bin/cat /sys/firmware/devicetree/base/model&#39;
+extend serial &#39;/bin/cat /sys/firmware/devicetree/base/serial-number&#39;
+</code></pre></div></p>
 <p>The LibreNMS server include a copy of this example here:</p>
 <div class="highlight"><pre><span></span><code>/opt/librenms/snmpd.conf.example
 </code></pre></div>
