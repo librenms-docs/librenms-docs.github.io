@@ -2154,6 +2154,7 @@
 <li><a href="#my-alert-templates-stopped-working">My alert templates stopped working</a></li>
 <li><a href="#how-do-i-use-trend-prediction-in-graphs">How do I use trend prediction in graphs</a></li>
 <li><a href="#move-db-to-another-server">How do I move only the DB to another server</a></li>
+<li><a href="#optional-requirements-for-snmpv3-sha2-auth">What are the "optional requirements message" when I add SNMPv3 devices</a></li>
 </ul>
 <h1 id="developing">Developing</h1>
 <ul>
@@ -2580,6 +2581,8 @@ exit;
 <li><strong>Very important</strong>: On your LibreNMS server, inside your install directory is a <code>.env</code> file, in it you need to edit the <code>DBHOST</code> paramater to point to your new server location. </li>
 <li>After all this is done, enable all the cron entries again and start apache.</li>
 </ul>
+<h2 id="what-are-the-optional-requirements-message-when-i-add-snmpv3-devices"><a name='optional-requirements-for-snmpv3-sha2-auth'>What are the "optional requirements message" when I add SNMPv3 devices?</a></h2>
+<p>When you add a device via the WebUI you may see a little message stating "Optional requirements are not met so some options are disabled". Do not panic. This simply means your system does not contain <strong>openssl &gt;= 1.1</strong> and <strong>net-snmp &gt;= 5.8</strong>, which are the minimum specifications needed to be able to use AES-192,AES-256 as crypto algorithms and SHA-224|256|384|512 as auth algorithms. </p>
                 
                   
                 
