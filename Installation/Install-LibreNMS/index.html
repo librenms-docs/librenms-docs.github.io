@@ -2533,7 +2533,7 @@ dnf install bash-completion cronie fping git httpd ImageMagick mariadb-server mt
 </div>
 </div>
 <h2 id="add-librenms-user">Add librenms user</h2>
-<div class="highlight"><pre><span></span><code>useradd librenms -d /opt/librenms -M -r -s /usr/bin/bash
+<div class="highlight"><pre><span></span><code>useradd librenms -d /opt/librenms -M -r -s &quot;$(which bash)&quot;
 </code></pre></div>
 <h2 id="download-librenms">Download LibreNMS</h2>
 <div class="highlight"><pre><span></span><code>cd /opt
