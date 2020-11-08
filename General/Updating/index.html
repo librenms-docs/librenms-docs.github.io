@@ -2127,7 +2127,7 @@ you can do so by running the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt/librenms
 git pull
 composer install --no-dev
-./build-base.php
+php includes/sql-schema/update.php
 ./validate.php
 </code></pre></div>
 <p>You should continue to run daily.sh.  This does database cleanup and
