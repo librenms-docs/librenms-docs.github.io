@@ -2127,14 +2127,19 @@ remote polling.</p>
 devices to a single or a group of designated pollers.</p>
 <p>All pollers need to write to the same set of RRD files, preferably via
 RRDcached.</p>
-<p>It is a requirement that all pollers can access the central memcached
-to communicate with each other.</p>
-<h1 id="requirements">Requirements</h1>
+<p>It is also a requirement that at least one locking service is in place
+to which all pollers can connect. There are currently three locking 
+mechanisms available
+- memcached
+- redis
+- sql locks (default)</p>
+<p>All of the above locking mechanisms are natively supported in LibreNMS.
+If none are specified, it will default to using SQL.</p>
+<h1 id="requirements-for-distributed-polling">Requirements for distributed polling</h1>
 <p>These requirements are above the normal requirements for a full LibreNMS install.</p>
 <ul>
 <li>rrdtool version 1.4 or above</li>
-<li>Python 3 python-memcached package</li>
-<li>a memcached install</li>
+<li>At least one locking mechanism configured</li>
 <li>a rrdcached install</li>
 </ul>
 <p>By default, all hosts are shared and have the <code>poller_group = 0</code>. To
@@ -2146,15 +2151,31 @@ $config['distributed_poller_group'].  The poller will then poll
 devices from any of the groups listed.  If new devices get added from
 the poller they will be assigned to the first poller group in the list
 unless the group is specified when adding the device.</p>
-<p>A standard configuration for a distributed poller would look like:</p>
+<p>The following is a standard config, combined with a locking mechanism below:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Distributed Poller-Settings</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller&#39;</span><span class="p">]</span>                            <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="c1">// optional: defaults to hostname</span>
 <span class="c1">#$config[&#39;distributed_poller_name&#39;]                      = &#39;custom&#39;;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_host&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;example.net&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_memcached_port&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;11211&#39;</span><span class="p">;</span>
 </code></pre></div>
+<h1 id="locking-mechanisms">Locking mechanisms</h1>
+<p>Pick one of the following setups, do not use all of them at the same
+time.</p>
+<h2 id="using-redis">Using REDIS</h2>
+<p>In your <code>.env</code> file you will need to specify a redis server, port and 
+the driver.</p>
+<div class="highlight"><pre><span></span><code>REDIS_HOST=HOSTNAME or IP
+REDIS_PORT=6379
+CACHE_DRIVER=redis
+</code></pre></div>
+<h2 id="using-memcached">Using Memcached</h2>
+<p>Preferably you should set the memcached server settings via the web UI.
+Under Settings &gt; Global Settings &gt; Distributed poller, you fill out the
+memcached host and port, and then in your <code>.env</code> file you will need to add:</p>
+<p><div class="highlight"><pre><span></span><code>CACHE_DRIVER=memcached
+</code></pre></div>
+If you want to use memcached, you will also need to install an additional
+Python 3 python-memcached package. </p>
 <h2 id="example-setup">Example Setup</h2>
 <p>Below is an example setup based on a real deployment which at the time
 of writing covers over 2,500 devices and 50,000 ports. The setup is
@@ -2192,11 +2213,6 @@ that RRD Cached is configured and used.</p>
 <p>For this example, we are running RRDCached to allow all pollers and
 web/api servers to read/write to the rrd files with the rrd directory
 also exported by NFS for simple access and maintenance.</p>
-<h3 id="memcache">Memcache</h3>
-<p>Memcache is required for the distributed pollers to be able to
-register to a central location and record what devices are
-polled. Memcache can run from any of the servers so long as it is
-accessible by all pollers.</p>
 <h3 id="pollers">Pollers</h3>
 <p>Pollers can be installed and run from anywhere, the only requirements are:</p>
 <ul>
