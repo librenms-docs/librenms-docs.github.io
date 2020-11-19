@@ -3642,10 +3642,10 @@ they don't match.</p>
 </code></pre></div></p>
 <h3 id="add_parents_to_host"><code>add_parents_to_host</code></h3>
 <p>Add one or more parents to a host.</p>
-<p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
+<p>Route: <code>/api/v0/devices/:device/parents</code></p>
 <p>Input (JSON):</p>
 <ul>
-<li>parent_ids: one or more parent ids</li>
+<li>parent_ids: one or more parent ids or hostnames</li>
 </ul>
 <p>Example:
 <div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;parent_ids&quot;:&quot;15,16,17&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/1/parents
@@ -3658,10 +3658,10 @@ they don't match.</p>
 </code></pre></div></p>
 <h3 id="delete_parents_from_host"><code>delete_parents_from_host</code></h3>
 <p>Deletes some or all the parents from a host.</p>
-<p>Route: <code>/api/v0/devices/:device_id/parents</code></p>
+<p>Route: <code>/api/v0/devices/:device/parents</code></p>
 <p>Input (JSON):</p>
 <ul>
-<li>parent_ids: One or more parent ids, if not specified deletes all parents from host.</li>
+<li>parent_ids: One or more parent ids or hostnames, if not specified deletes all parents from host.</li>
 </ul>
 <p>Example:
 <div class="highlight"><pre><span></span><code>curl -X DELETE -d &#39;{&quot;parent_ids&quot;:&quot;15,16,17&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/1/parents
